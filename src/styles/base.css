@@ -99,7 +99,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   margin-left: var(--sidebar-w);
   padding: 0 var(--page-margin) var(--page-pad-bottom);
 }
-.main__inner { max-width: var(--content-max); }
+.main__inner { max-width: var(--content-max); margin-inline: auto; } /* 남는 폭은 양쪽에 균등 분배 */
 
 @media (max-width: 899px) {
   .topbar { display: flex; }
