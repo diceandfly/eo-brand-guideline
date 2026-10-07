@@ -9,6 +9,7 @@ EO 리브랜딩의 웹용 브랜드 가이드라인. Astro 정적 사이트, 로
 - `src/styles/base.css` — 토큰을 참조하는 레이아웃 CSS. 숫자를 직접 쓰지 말고 토큰을 추가해 참조할 것.
 - `src/lib/guide.ts` — guide.<lang>.md 파서. 문법을 바꾸면 guide.md 상단 튜토리얼도 같이 갱신.
 - `src/components/` — Section(텍스트+미디어 슬롯), Figure(이미지/플레이스홀더/배지/캡션), Swatch, Sidebar, Logo.
+- `src/lib/motion.ts` — GSAP 모션(스무스 스크롤 ScrollSmoother, 앵커 이동, 이미지 라이트박스). 수치는 tokens.css 5. MOTION 에서 읽음. 고정 요소(목차·상단 바·라이트박스)는 `#smooth-wrapper` 밖에 둘 것.
 
 ## 용어 (대화에서 이 이름으로 통일)
 챕터(`# 02 Logo`) > 서브챕터(`## Logo`, 페이지 하나; `{toc=none}` 을 붙이면 목차에 섹션 목록을 펼치지 않음) > 섹션(`### Head`, 선택적 `#### Subhead`).

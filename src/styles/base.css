@@ -152,8 +152,10 @@ button {
 
 .topbar {
   display: none;
-  position: sticky;
+  position: fixed; /* 스무스 스크롤 래퍼 밖에 고정 */
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 30;
   height: var(--topbar-h);
   background: var(--bg-topbar);
@@ -220,6 +222,7 @@ button {
   } /* 모바일은 상단 바에 로고가 있으므로 드로어 안에서는 숨김 */
   .main {
     margin-left: 0;
+    padding-top: var(--topbar-h); /* 고정 상단 바 높이만큼 */
     padding-left: var(--page-margin);
     padding-right: var(--page-margin);
   }
@@ -429,7 +432,7 @@ button {
   grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
   column-gap: var(--gutter);
   row-gap: var(--sec-row-gap);
-  scroll-margin-top: calc(var(--lh-unit) * 4);
+  scroll-margin-top: var(--anchor-offset); /* 스무스 스크롤이 꺼져 있을 때(브라우저 기본 앵커 이동)의 여백 */
 }
 .sec__text {
   grid-column: 1 / span var(--sec-text-cols);
@@ -519,7 +522,8 @@ button {
 .fig__frame > img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: var(--img-fit);
+  cursor: zoom-in; /* 클릭하면 확대 보기 */
 }
 .fig__placeholder {
   position: absolute;
@@ -586,6 +590,37 @@ button {
 .swatch__specs {
   list-style: none;
   text-transform: none;
+}
+
+/* ---------------------------------------------------------------------
+   이미지 확대 보기 (라이트박스) — 열고 닫는 모션은 GSAP (src/lib/motion.ts)
+   --------------------------------------------------------------------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: var(--lightbox-pad);
+  background: var(--lightbox-bg);
+  cursor: zoom-out;
+  visibility: hidden;
+  opacity: 0;
+}
+.lightbox.is-open {
+  visibility: visible;
+}
+.lightbox__img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+@media (max-width: 899px) {
+  .lightbox {
+    padding: var(--lightbox-pad-m);
+  }
 }
 
 /* ---------------------------------------------------------------------

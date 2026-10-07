@@ -103,7 +103,9 @@ const index = buildSearchIndex(guide);
       const url = new URL(a.href);
       if (url.pathname === location.pathname && url.hash) {
         e.preventDefault();
-        document.getElementById(url.hash.slice(1))?.scrollIntoView({ block: 'start' });
+        const id = decodeURIComponent(url.hash.slice(1));
+        const go = (window as any).__scrollToId as ((id: string) => boolean) | undefined;   // motion.ts (스무스 스크롤)
+        if (go) go(id); else document.getElementById(id)?.scrollIntoView({ block: 'start' });
         history.replaceState(null, '', url.hash);
       }
       open(false);
