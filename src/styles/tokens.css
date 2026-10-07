@@ -96,7 +96,6 @@
   --grid-n-m: 2; /* 모바일에서 grid-2/3/4 의 열 수 (최대) */
   --head-gap: 48px; /* 헤드(+서브헤드) ↔ 본문 */
   --head-gap-m: 24px;
-  --para-gap: 1; /* 문단 ↔ 문단 = 본문 행간 × 값. 1 = 빈 줄 한 행, 0.5 = 반 행 */
   --sec-row-gap: 40px; /* wide / half / grid / 모바일 basic: 텍스트 ↔ 이미지 세로 간격 */
   --sec-row-gap-m: 24px;
 
@@ -177,6 +176,7 @@
      지원하지 않는 브라우저에서는 빌드 시 마지막 두 단어를 붙여 둔 처리(guide.ts glueLastWords)가 대신합니다. */
   --t-body-wrap: pretty;
   --t-body-c: var(--fg);
+  --t-body-para-gap: 0.5; /* 문단 ↔ 문단 (엔터 두 번) = 본문 행간 × 값. 0.5 = 행간의 50%, 1 = 빈 줄 한 행 */
 
   /* body (한글) — 본문 안의 한글 구간. Pretendard. 행간은 영문과 공유 */
   --t-body-ko-scale: 0.85; /* 영문 폰트 대비 배율 (R6: 20pt / 22pt) */
