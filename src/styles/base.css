@@ -128,7 +128,10 @@ button {
   margin-top: 0;
 }
 .t-body strong {
-  font-weight: var(--t-body-w-strong);
+  font-weight: var(--t-body-strong-w);
+  text-decoration: underline;
+  text-decoration-thickness: var(--t-body-strong-line);
+  text-underline-offset: var(--t-body-strong-offset);
 }
 .t-body a {
   text-decoration: underline;
@@ -375,15 +378,26 @@ button {
   background: var(--search-result-hover);
 }
 .search__title,
+.search__snippet,
 .search__crumb {
   display: block;
   white-space: nowrap; /* 한 줄로만, 넘치면 … */
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.search__snippet {
+  margin-top: var(--search-result-gap);
+  font-weight: var(--search-snippet-w);
+  color: var(--search-snippet-fg);
+}
 .search__crumb {
   margin-top: var(--search-result-gap);
   text-transform: none;
+}
+.search__mark {
+  background: none;
+  color: var(--search-match);
+  font-weight: var(--search-match-w);
 }
 .search__empty {
   padding: var(--search-result-pad-y) var(--search-pad-x);
