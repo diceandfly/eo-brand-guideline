@@ -211,8 +211,8 @@ button {
   } /* 모바일은 상단 바에 로고가 있으므로 드로어 안에서는 숨김 */
   .main {
     margin-left: 0;
-    padding-left: var(--page-margin-m);
-    padding-right: var(--page-margin-m);
+    padding-left: var(--page-margin);
+    padding-right: var(--page-margin);
   }
 }
 
@@ -436,29 +436,28 @@ button {
   row-gap: calc(var(--gutter) * 2);
 }
 
+/* 모바일: PC 토큰 이름을 -m 값으로 바꿔 끼웁니다. 위의 규칙들은 그대로 PC 이름을 씁니다. */
 @media (max-width: 899px) {
-  .sections {
-    gap: var(--section-gap-m);
-  }
-  .sec {
-    column-gap: var(--gutter-m);
-  }
-  .sec__text,
-  .sec--basic .sec__media,
-  .sec--half .sec__media,
-  .sec--text .sec__text,
-  .sec--wide .sec__text,
-  .sec--half .sec__text,
-  .sec--grid .sec__text {
-    grid-column: 1 / -1;
+  :root {
+    --cols: var(--cols-m);
+    --page-margin: var(--page-margin-m);
+    --gutter: var(--gutter-m);
+    --title-pad-top: var(--title-pad-top-m);
+    --title-gap: var(--title-gap-m);
+    --section-gap: var(--section-gap-m);
+    --next-gap: var(--next-gap-m);
+    --page-pad-bottom: var(--page-pad-bottom-m);
+    --sec-text-cols: var(--sec-text-cols-m);
+    --sec-media-cols: var(--sec-media-cols-m);
+    --sec-textonly-cols: var(--sec-textonly-cols-m);
+    --head-gap: var(--head-gap-m);
+    --sec-row-gap: var(--sec-row-gap-m);
   }
   .sec--basic .sec__media {
-    grid-row: 2;
+    grid-row: 2; /* basic 도 텍스트 아래로 */
   }
   .sec__grid {
-    grid-template-columns: repeat(min(var(--n), 2), minmax(0, 1fr));
-    column-gap: var(--gutter-m);
-    row-gap: calc(var(--gutter-m) * 2);
+    grid-template-columns: repeat(min(var(--n), var(--grid-n-m)), minmax(0, 1fr));
   }
 }
 
