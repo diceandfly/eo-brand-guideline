@@ -3,7 +3,7 @@
 EO 리브랜딩의 웹용 브랜드 가이드라인. Astro 정적 사이트, 로컬 개발 전용(배포 없음).
 
 ## 구조와 역할 분리
-- `content/guide.en.md` / `content/guide.ko.md` — 모든 글·이미지 배치. 언어별 한 파일, 문법 동일(상단 주석). `GUIDE_LANG=en|ko`(기본 en)로 선택: `npm run dev` / `npm run dev:ko`. 콘텐츠 변경은 이 파일만 수정.
+- `content/guide.en.md` / `content/guide.ko.md` — 모든 글·이미지 배치. 언어별 한 파일, 문법 동일(상단 주석). 두 언어가 함께 빌드되어 `/en/…`, `/ko/…` 로 나뉘고 목차 하단 EN | KR 로 전환. 콘텐츠 변경은 이 파일만 수정.
 - `public/assets/<chapter>/<name>.*` — 이미지. `![chapter/name]` 토큰과 1:1. 없으면 플레이스홀더.
 - `src/styles/tokens.css` — 모든 디자인 수치(레이아웃·타이포·컬러·비율). 디자인 튜닝은 이 파일만 수정.
 - `src/styles/base.css` — 토큰을 참조하는 레이아웃 CSS. 숫자를 직접 쓰지 말고 토큰을 추가해 참조할 것.

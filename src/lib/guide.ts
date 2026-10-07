@@ -55,11 +55,14 @@ export interface Chapter {
   slug: string;           // 예: 02-logo
   subs: Sub[];
 }
-export interface Guide { chapters: Chapter[]; }
+export interface Guide { lang: Lang; chapters: Chapter[]; }
 
 const ROOT = process.cwd();
-/** 콘텐츠 언어. GUIDE_LANG=ko|en (기본 en). content/guide.<lang>.md 를 읽습니다. */
-export const LANG = (process.env.GUIDE_LANG || 'en').toLowerCase();
+/** 언어. 두 언어가 한 사이트에 같이 빌드되며 URL 은 /en/… , /ko/… 로 나뉩니다. */
+export const LANGS = ['en', 'ko'] as const;
+export type Lang = (typeof LANGS)[number];
+export const DEFAULT_LANG: Lang = 'en';
+export const LANG_LABEL: Record<Lang, string> = { en: 'EN', ko: 'KR' };   // 목차 하단 전환 버튼 표기
 /**
  * 콘텐츠 파일은 fs 가 아니라 Vite 모듈로 읽습니다. 그래야 dev 서버가 파일을 의존성으로 추적해서,
  * 저장 즉시 라우트(새 서브챕터 등)와 페이지를 다시 계산하고 브라우저를 새로고침합니다.
@@ -123,14 +126,44 @@ export function wrapKo(html: string): string {
 
 const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
+/**
+ * 고아 단어(orphan) 방지 — 문단·리스트 항목·캡션의 마지막 두 단어 사이 공백을 줄바꿈 없는 공백(&nbsp;)으로 바꿉니다.
+ * 마지막 줄에 단어 하나만 남는 일이 없어지고, 영문(단어)·한글(어절) 모두 공백 기준이라 같은 규칙이 통합니다.
+ * CSS 의 text-wrap: pretty 가 되는 브라우저에서는 그쪽이 더 넓게 처리하고, 이건 그 폴백입니다. 빌드 시 1회라 런타임 비용 0.
+ */
+export function glueLastWords(html: string): string {
+  const segs = html.split(/(<[^>]+>)/);          // 태그 / 텍스트 교차
+  let seenWordAfter = false;                     // 뒤쪽(문단 끝 쪽)에 단어가 있었는가
+  for (let i = segs.length - 1; i >= 0; i--) {
+    const seg = segs[i];
+    if (!seg || seg.startsWith('<')) continue;
+    if (!seenWordAfter) {
+      const trimmed = seg.replace(/\s+$/, '');
+      if (!trimmed) continue;
+      // 이 세그먼트 안에 "단어 공백 단어" 가 있으면 마지막 공백을 교체
+      const m = trimmed.match(/^([\s\S]*\S)(\s+)(\S+)$/);
+      if (m) { segs[i] = `${m[1]} ${m[3]}${seg.slice(trimmed.length)}`; return segs.join(''); }
+      seenWordAfter = true;                      // 단어 하나뿐 → 앞 세그먼트의 끝 공백을 교체 대상으로
+      continue;
+    }
+    // 뒤에 단어가 있고, 이 세그먼트가 공백으로 끝나며 그 앞에 단어가 있으면 그 공백을 교체
+    const m = seg.match(/^([\s\S]*\S)(\s+)$/);
+    if (m) { segs[i] = `${m[1]} `; return segs.join(''); }
+    if (/\S/.test(seg)) return html;             // 공백 없이 바로 이어짐 → 교체할 공백 없음
+  }
+  return html;
+}
+const glueBlocks = (html: string) =>
+  html.replace(/(<(p|li)\b[^>]*>)([\s\S]*?)(<\/\2>)/g, (_m, open, _tag, inner, close) => open + glueLastWords(inner) + close);
+
 function md(src: string): string {
   const s = src.trim();
-  return s ? wrapKo(marked.parse(s, { async: false, gfm: true, breaks: false }) as string) : '';
+  return s ? glueBlocks(wrapKo(marked.parse(s, { async: false, gfm: true, breaks: false }) as string)) : '';
 }
 
-export function loadGuide(): Guide {
-  const source = CONTENT_FILES[`/content/guide.${LANG}.md`];
-  if (source === undefined) throw new Error(`content/guide.${LANG}.md 가 없습니다 (GUIDE_LANG=${LANG})`);
+export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
+  const source = CONTENT_FILES[`/content/guide.${lang}.md`];
+  if (source === undefined) throw new Error(`content/guide.${lang}.md 가 없습니다`);
   const raw = source.replace(/<!--[\s\S]*?-->/g, '');
   const lines = raw.split(/\r?\n/);
 
@@ -180,7 +213,7 @@ export function loadGuide(): Guide {
       const slug = slugify(name);
       sub = {
         name, slug,
-        url: `/${chapter.slug}/${slug}`,
+        url: `/${lang}/${chapter.slug}/${slug}`,
         chapterNum: chapter.num, chapterName: chapter.name, chapterSlug: chapter.slug,
         sections: [], navSections: [],
         tocSections: attrs.toc !== 'none'
@@ -214,7 +247,7 @@ export function loadGuide(): Guide {
       const token = m[1].trim();
       const item: ImageItem = { kind: 'image', token, src: resolveAsset(token) };
       if (m[2]) item.badge = m[2] as 'do' | 'dont';
-      if (m[3].trim()) item.caption = wrapKo(escapeHtml(m[3].trim()));   // HTML (한글 구간 래핑됨)
+      if (m[3].trim()) item.caption = glueLastWords(wrapKo(escapeHtml(m[3].trim())));   // HTML (한글 구간 래핑, 고아 단어 방지)
       section.items.push(item);
       continue;
     }
@@ -236,7 +269,7 @@ export function loadGuide(): Guide {
     if (i < flat.length - 1) s.next = ref(flat[i + 1]);
   });
 
-  return { chapters };
+  return { lang, chapters };
 }
 
 /** 검색 색인: 섹션 단위. 클라이언트 스크립트가 JSON 으로 받아 필터링합니다. */
@@ -260,7 +293,20 @@ export function buildSearchIndex(guide: Guide): SearchEntry[] {
 }
 
 export function firstUrl(guide: Guide): string {
-  return guide.chapters[0]?.subs[0]?.url ?? '/';
+  return guide.chapters[0]?.subs[0]?.url ?? `/${guide.lang}`;
+}
+
+/** 모든 언어의 가이드를 한 번에 */
+export function loadAllGuides(): Record<Lang, Guide> {
+  return Object.fromEntries(LANGS.map(l => [l, loadGuide(l)])) as Record<Lang, Guide>;
+}
+
+/** 다른 언어의 같은 페이지 URL. 같은 챕터·서브챕터 slug 가 없으면 그 언어의 첫 페이지. */
+export function altUrl(guides: Record<Lang, Guide>, sub: Sub, target: Lang): string {
+  const g = guides[target];
+  const ch = g.chapters.find(c => c.slug === sub.chapterSlug);
+  const match = ch?.subs.find(s => s.slug === sub.slug);
+  return match?.url ?? firstUrl(g);
 }
 
 export function brandLogoSrc(): string | null {

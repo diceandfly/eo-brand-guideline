@@ -80,6 +80,7 @@ button {
   color: var(--t-subhead-c);
 }
 .t-body {
+  text-wrap: var(--t-body-wrap); /* 고아 단어 방지 */
   font-family: var(--font-body);
   font-weight: var(--t-body-w);
   line-height: calc(var(--lh-unit) * var(--t-body-m));
@@ -185,6 +186,8 @@ button {
   position: fixed;
   inset: 0 auto 0 0;
   z-index: 20;
+  display: flex;
+  flex-direction: column; /* 언어 전환(.nav__lang)을 바닥으로 밀기 위해 */
   width: var(--sidebar-w);
   background: var(--bg-sidebar);
   border-right: var(--border-w) solid var(--sidebar-border);
@@ -323,6 +326,28 @@ button {
 }
 .nav__section-link.is-active {
   font-weight: var(--nav-w-active); /* 스크롤스파이 도입 시 활성 섹션 */
+}
+.nav__lang {
+  margin-top: auto; /* 목차 바닥 */
+  padding-top: var(--nav-lang-gap);
+  display: flex;
+  align-items: baseline;
+}
+.nav__lang-link {
+  font-weight: var(--nav-w-lang);
+  color: var(--nav-fg);
+  transition: color var(--dur) var(--ease);
+}
+.nav__lang-link:hover,
+.nav__lang-link.is-active {
+  color: var(--nav-fg-active);
+}
+.nav__lang-link.is-active {
+  font-weight: var(--nav-w-lang-active);
+}
+.nav__lang-divider {
+  margin: 0 var(--nav-lang-divider-gap);
+  color: var(--nav-fg);
 }
 
 /* ---------------------------------------------------------------------

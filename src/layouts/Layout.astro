@@ -4,13 +4,13 @@ import '../styles/fonts.css';
 import '../styles/base.css';
 import Sidebar from '../components/Sidebar.astro';
 import Logo from '../components/Logo.astro';
-import { LANG, type Guide, type Sub } from '../lib/guide';
+import type { Guide, Sub, Lang } from '../lib/guide';
 
-interface Props { guide: Guide; current?: Sub; title: string; }
-const { guide, current, title } = Astro.props;
+interface Props { guide: Guide; current?: Sub; lang: Lang; alt: Partial<Record<Lang, string>>; title: string; }
+const { guide, current, lang, alt, title } = Astro.props;
 ---
 <!doctype html>
-<html lang={LANG}>
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -37,7 +37,7 @@ const { guide, current, title } = Astro.props;
         <a class="topbar__logo" href="/"><Logo /></a>
       </header>
 
-      <Sidebar guide={guide} current={current} />
+      <Sidebar guide={guide} current={current} lang={lang} alt={alt} />
 
       <!-- 스무스 스크롤 래퍼. 고정 요소(목차, 상단 바, 라이트박스)는 이 밖에 둡니다. -->
       <div id="smooth-wrapper">

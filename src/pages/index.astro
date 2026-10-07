@@ -1,5 +1,21 @@
 ---
-import { loadGuide, firstUrl } from '../lib/guide';
-const guide = loadGuide();
-return Astro.redirect(firstUrl(guide));
+// 루트(/) → 마지막으로 보던 언어(localStorage)로, 없으면 기본 언어의 첫 페이지로.
+import { loadAllGuides, firstUrl, DEFAULT_LANG, LANGS } from '../lib/guide';
+const guides = loadAllGuides();
+const firsts = Object.fromEntries(LANGS.map(l => [l, firstUrl(guides[l])]));
+const fallback = firsts[DEFAULT_LANG];
 ---
+<!doctype html>
+<html lang={DEFAULT_LANG}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <script is:inline define:vars={{ firsts, fallback }}>
+      let lang = null;
+      try { lang = localStorage.getItem('guide-lang'); } catch {}
+      location.replace((lang && firsts[lang]) || fallback);
+    </script>
+    <noscript><meta http-equiv="refresh" content={`0; url=${fallback}`} /></noscript>
+  </head>
+  <body></body>
+</html>

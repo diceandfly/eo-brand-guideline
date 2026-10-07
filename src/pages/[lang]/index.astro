@@ -1,0 +1,10 @@
+---
+// /en , /ko → 그 언어의 첫 페이지
+import { loadGuide, firstUrl, LANGS, type Lang } from '../../lib/guide';
+
+export async function getStaticPaths() {
+  return LANGS.map(lang => ({ params: { lang }, props: { to: firstUrl(loadGuide(lang)) } }));
+}
+const { to } = Astro.props as { to: string };
+return Astro.redirect(to);
+---

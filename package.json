@@ -4,10 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "GUIDE_LANG=en astro dev",
-    "dev:ko": "GUIDE_LANG=ko astro dev",
-    "build": "GUIDE_LANG=en astro build",
-    "build:ko": "GUIDE_LANG=ko astro build",
+    "dev": "astro dev",
+    "build": "astro build",
     "preview": "astro preview",
     "check": "astro check"
   },

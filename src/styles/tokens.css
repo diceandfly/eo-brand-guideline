@@ -49,6 +49,8 @@
   --nav-sections-pad-top: 0px; /* 활성 서브챕터 ↔ 첫 섹션 */
   --nav-sections-pad-bottom: 0px; /* 마지막 섹션 ↔ 다음 서브챕터 */
   --nav-sub-pad-bottom: 2px; /* 마지막 서브챕터(와 그 섹션 묶음) ↔ 다음 챕터 */
+  --nav-lang-gap: 40px; /* 마지막 챕터 ↔ 언어 전환(EN | KR). 목차가 짧으면 전환은 바닥에 붙고 이 값은 최소 간격 */
+  --nav-lang-divider-gap: 0.6em; /* EN | KR 의 구분선 좌우 간격 */
 
   /* 1-2 목차 (검색창) */
   --search-h: 36px; /* 검색창 높이 */
@@ -168,6 +170,9 @@
   /* 본문 하이퍼링크 — 언더라인 */
   --t-body-link-line: 0.5px; /* 언더라인 두께 */
   --t-body-link-offset: 0.15em; /* 언더라인 ↔ 글자 */
+  /* 줄바꿈 — pretty: 문단 끝에 단어 하나만 남는 고아 단어를 피하도록 브라우저가 줄바꿈을 재계산 (Chrome/Edge/Safari).
+     지원하지 않는 브라우저에서는 빌드 시 마지막 두 단어를 붙여 둔 처리(guide.ts glueLastWords)가 대신합니다. */
+  --t-body-wrap: pretty;
   --t-body-c: var(--fg);
 
   /* body (한글) — 본문 안의 한글 구간. Pretendard. 행간은 영문과 공유 */
@@ -190,6 +195,8 @@
   --nav-w-sub: 400; /* 서브챕터 = 페이지 타이틀 */
   --nav-w-section: 300; /* 섹션 */
   --nav-w-active: 500; /* 활성 항목 (챕터·서브챕터·섹션 공통) */
+  --nav-w-lang: 400; /* 언어 전환 EN | KR (비활성 쪽) */
+  --nav-w-lang-active: 500; /* 언어 전환 현재 언어 */
 
   /* ui · 검색 — 입력창과 결과는 ui 레벨 크기를 쓰되 아래로 조정. 결과의 경로 줄은 label 레벨(모노) */
   --search-input-w: 300; /* 입력 글자 웨이트 */

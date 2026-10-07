@@ -9,15 +9,6 @@
         "dev"
       ],
       "port": 4321
-    },
-    {
-      "name": "dev-ko",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run",
-        "dev:ko"
-      ],
-      "port": 4321
     }
   ]
 }

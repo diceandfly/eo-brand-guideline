@@ -1,20 +1,20 @@
 ---
 import Logo from './Logo.astro';
 import Search from './Search.astro';
-import type { Guide, Sub } from '../lib/guide';
+import { LANGS, LANG_LABEL, type Guide, type Sub, type Lang } from '../lib/guide';
 
-interface Props { guide: Guide; current?: Sub; }
-const { guide, current } = Astro.props;
+interface Props { guide: Guide; current?: Sub; lang: Lang; alt: Partial<Record<Lang, string>>; }
+const { guide, current, lang, alt } = Astro.props;
 ---
 <nav class="sidebar t-ui" aria-label="목차">
-  <a class="nav__logo" href="/"><Logo /></a>
+  <a class="nav__logo" href={`/${lang}`}><Logo /></a>
   <Search guide={guide} />
   <ul class="nav__chapters">
     {guide.chapters.map(ch => {
       const active = current?.chapterSlug === ch.slug;
       return (
         <li class:list={['nav__chapter', { 'is-active': active }]}>
-          <a class="nav__chapter-link" href={ch.subs[0]?.url ?? '/'} aria-current={active ? 'true' : undefined}>
+          <a class="nav__chapter-link" href={ch.subs[0]?.url ?? `/${lang}`} aria-current={active ? 'true' : undefined}>
             <span class="nav__num">{ch.num}</span><span>{ch.name}</span>
           </a>
           <ul class="nav__subs">
@@ -38,4 +38,24 @@ const { guide, current } = Astro.props;
       );
     })}
   </ul>
+
+  <!-- 언어 전환. 같은 페이지의 다른 언어판으로 이동, 없으면 그 언어의 첫 페이지 -->
+  <div class="nav__lang" aria-label="언어">
+    {LANGS.map((l, i) => (
+      <>
+        {i > 0 && <span class="nav__lang-divider" aria-hidden="true">|</span>}
+        {l === lang
+          ? <span class="nav__lang-link is-active" aria-current="true">{LANG_LABEL[l]}</span>
+          : <a class="nav__lang-link" href={alt[l] ?? `/${l}`} data-lang={l}>{LANG_LABEL[l]}</a>}
+      </>
+    ))}
+  </div>
 </nav>
+
+<script>
+  // 선택한 언어를 기억해 두면 루트(/)로 들어올 때 그 언어로 보냅니다.
+  document.querySelectorAll<HTMLAnchorElement>('.nav__lang-link[data-lang]').forEach(a =>
+    a.addEventListener('click', () => { try { localStorage.setItem('guide-lang', a.dataset.lang!); } catch {} })
+  );
+  try { localStorage.setItem('guide-lang', document.documentElement.lang); } catch {}
+</script>
