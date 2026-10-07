@@ -232,10 +232,10 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       idsInSub = new Map();
       continue;
     }
-    if ((m = line.match(/^###(\+?)\s+(.+?)\s*$/)) && sub) {        // ### Head {layout=…}   /   ###+ Head (목차에 올림)
+    if ((m = line.match(/^###(\+?)\s+(\+\s*)?(.+?)\s*$/)) && sub) { // ### Head {layout=…}  /  ### + Head (목차에 올림, ###+ Head 도 가능)
       flushSection();
-      const tocMark = m[1] === '+';
-      let head = m[2];
+      const tocMark = m[1] === '+' || !!m[2];
+      let head = m[3];
       let attrs: Record<string, string> = {};
       const am = head.match(/\{([^}]*)\}\s*$/);
       if (am) { attrs = parseAttrs(am[1]); head = head.slice(0, am.index).trim(); }

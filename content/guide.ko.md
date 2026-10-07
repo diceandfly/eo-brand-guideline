@@ -39,7 +39,7 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
     ### Character Set {layout=wide}            ← 텍스트 아래 12컬럼 전폭 이미지
     ### Alignment {layout=half}                ← 텍스트 아래 6컬럼 이미지
     ### Core Palette {layout=grid-4}           ← 개수와 무관하게 4열
-    ### Dont's {layout=grid-3 ratio=4:5}       ← 비율도 함께. 기본값: basic/half 5:4, wide 2:1, grid 4:5
+    ### Don'ts {layout=grid-3 ratio=4:5}       ← 비율도 함께. 기본값: basic/half 5:4, wide 2:1, grid 4:5
 
 ■ 자주 하는 작업
   섹션 추가     : ### 헤드 한 줄 + 본문 + ![이미지] 를 원하는 위치에 끼워 넣으면 끝.
@@ -47,7 +47,7 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
   서브챕터 추가  : ## 이름 한 줄. 목차·URL·다음 버튼이 자동으로 갱신됩니다.
   섹션 목록 숨김 : ## 이름 {toc=none}  ← 이 페이지는 목차에서 섹션 목록을 펼치지 않음 (섹션이 하나뿐이면 자동으로 숨김)
   같은 헤드 반복 : 가능합니다 (예: Character Set 3개). 목차에는 한 번만 표시되고 첫 번째로 이동합니다.
-  목차에 올릴 섹션 고르기 : ###+ Construction  ← ### 바로 뒤에 + 를 붙이면 그 섹션만 목차에 오름.
+  목차에 올릴 섹션 고르기 : ### + Construction  ← 헤드 앞에 + 를 붙이면 그 섹션만 목차에 오름 (에디터에서는 제목으로 보임).
                         한 페이지에 + 가 하나라도 있으면 + 붙은 것만, 하나도 없으면 전부(자동) 올라갑니다.
                   헤드가 페이지 이름과 같으면(Colors 페이지의 "Color") 목차에는 서브헤드가 표시됩니다.
 
@@ -85,7 +85,7 @@ EO, EO 모노그램, 블록 심볼, “Build Anyway”, “Entrepreneur Onwards�
 - EO 영상과 아티클을 인용할 때는 출처를 “EO”로 명확히 표기하고, 원본 링크를 함께 제공하세요.
 - EO 로고와 브랜드 에셋은 제공된 원본 파일 그대로, 승인된 컬러 페어링 안에서만 사용하세요.
 
-### Dont's
+### Don'ts
 - EO 로고 또는 이와 혼동될 만큼 유사한 로고를 회사·제품·서비스·이벤트·커뮤니티 이름, URL, 소셜 미디어 계정, 상표에 포함하지 마세요.
 - EO 심볼, 그래픽 유닛, 패턴을 변형하거나 재조합해 자신의 그래픽으로 사용하지 마세요.
 - EO의 영상·아티클·썸네일을 EO의 허가 없이 재편집하거나 재업로드하지 마세요.
@@ -97,38 +97,36 @@ EO, EO 모노그램, 블록 심볼, “Build Anyway”, “Entrepreneur Onwards�
 
 ## Symbol
 
-### Symbol
-#### Overview
+###+ Symbol
 
 로고는 EO 브랜드를 알리는 가장 상징적이고 효과적인 방법입니다. 
 
 EO의 로고는 그래픽 심볼로서 식별 기능을 가짐과 동시에 최소한의 가독성을 가진 모노그램이기도 합니다. 이러한 모노그램 형태의 그래픽 로고를 이하 **EO 심볼**이라 칭합니다. 작은 사인오프부터 큰 디스플레이 집행까지, 이 챕터는 다양한 상황·포맷·커뮤니케이션에 맞춰 EO 심볼을 어떻게 적용할 수 있는지 설명합니다.
 ![logo/hero]
 
-### Symbol
-#### Clearspace
+
+###+ Clearspace
 심볼에는 항상 숨 쉴 공간이 있어야 합니다. 
 
 클리어스페이스는 타이포그래피, 그래픽 유닛, 사진, 캔버스 가장자리로부터 심볼을 지켜 줍니다. E블록 나사 스레드 하나의 두께인 X 기준 그 2배 이상의 여백 공간 확보를 권장합니다.
 ![logo/clearspace]
 
-### Symbol
-#### Scalability
+
+###+ Scalability
 EO 심볼은 다양한 크기에서 작동하도록 설계되고 테스트되었습니다.
 
 디지털 환경에서 충분한 가독성을 확보하기 위한 로고의 최소 크기는 높이 20px이며, 인쇄물에서는 높이 5mm입니다. 이보다 작은 크기에서 심볼을 E 블록의 나사선이 뭉개지므로 EO 팀의 디자이너 구성원에게 확인을 요청하세요.
 ![logo/scalability]
 
 
-### Symbol
-#### Usage
+###+ Usage
 사인오프로 사용할 때는 심볼을 우선적으로 사용하고, 그래픽 유닛이나 패턴과 겹치지 않는 여백에 적절한 간격을 두고 배치합니다.
 
 디스플레이 크기로 사용할 때는 심볼를 레이아웃의 그리드에 정렬하고, 다른 그래픽 요소를 최소화해 임팩트를 유지합니다. 로고가 시각적으로 점유하는 전체 여백 공간을 기준으로, 솔리드 쉐입의 실질 점유 면적이 15-20% 수준을 넘지 않아야 합니다.
 ![logo/usage]
 
-### Symbol {layout=grid-2}
-#### Do's & Dont's
+### Usage {layout=grid-2}
+#### Do's & Don'ts
 사인오프로 사용할 때는 EO 심볼을 우선하고, 그래픽 유닛이나 패턴과 겹치지 않는 여백에 배치합니다. 이때 가장 인접한 시각 요소와의 균형을 고려해 심볼의 사이즈를 결정하며, 작은 사이즈의 사인오프로도 충분한 임팩트를 유지할 수 있을만큼의 간격을 확보해야 합니다.
 
 디스플레이 크기로 사용할 때는 로고를 레이아웃의 그리드에 정렬하고, 로고 외에 다른 그래픽 요소를 최소화해 임팩트를 유지합니다.
@@ -137,11 +135,11 @@ EO 심볼은 다양한 크기에서 작동하도록 설계되고 테스트되었
 ![logo/usage-dont-1]{dont}
 ![logo/usage-dont-2]{dont}
 
-### Placement
+###+ Placement
 매체나 규격과 무관하게 로고는 레이아웃의 네 모서리 중 한 곳에 배치합니다. 기본 위치는 좌상단(디지털)과 좌하단(인쇄물)이며, 그래픽 유닛이 왼쪽을 차지할 때는 오른쪽 모서리로 옮깁니다. 로고의 바깥 여백은 레이아웃의 페이지 마진과 같습니다.
 ![logo/placement]
 
-### Color {layout=grid-3}
+###+ Color {layout=grid-3}
 EO 로고에는 여섯 가지 기본 컬러 페어링이 있습니다. 확신이 서지 않을 때는 이 중 하나를 사용하세요. 로고는 항상 단색입니다.
 ![logo/color-1] 1. Builder Neon on Space Black
 ![logo/color-2] 2. Space Black on Builder Neon
@@ -150,8 +148,8 @@ EO 로고에는 여섯 가지 기본 컬러 페어링이 있습니다. 확신이
 ![logo/color-5] 5. Air White on Solid Gray
 ![logo/color-6] 6. Space Black on Color
 
-### Over Imagery {layout=grid-2}
-#### Do's & Dont's
+###+ Over Imagery {layout=grid-2}
+#### Do's & Don'ts
 로고는 사진 위에서도 항상 또렷하게 읽혀야 합니다.
 
 EO의 사진은 대부분 인터뷰 현장과 해커하우스처럼 어둡고 거친 공간입니다. 이런 이미지 위에는 Air White 또는 Builder Neon 로고를, 밝은 이미지 위에는 Space Black 로고를 사용하세요. 사진의 밝기가 고르지 않다면 로고를 올릴 영역에 Space Black 면을 깔거나, 로고를 사진 바깥의 여백으로 옮깁니다.
@@ -164,8 +162,8 @@ EO의 사진은 대부분 인터뷰 현장과 해커하우스처럼 어둡고 �
 ![logo/imagery-dont-1]{dont}
 ![logo/imagery-dont-2]{dont}
 
-### Contextual Usage {layout=grid-2}
-#### Do's & Dont's
+###+ Contextual Usage {layout=grid-2}
+#### Do's & Don'ts
 유튜브와 인스타그램처럼 채널 이름과 아바타가 이미 EO를 말해 주는 곳에서는 일반 게시물에 로고를 넣지 않습니다. 로고는 시리즈 런칭, 이벤트 공지 같은 핵심 순간에만 사용합니다.
 
 반면 포스터, 굿즈, 파트너 행사장처럼 채널의 맥락이 없는 곳에서는 브랜드 존재감을 확립하기 위해 로고가 필수입니다.
@@ -174,7 +172,7 @@ EO의 사진은 대부분 인터뷰 현장과 해커하우스처럼 어둡고 �
 ![logo/context-do-2]{do}
 ![logo/context-dont-2]{dont}
 
-### Partner Lockup
+###+ Partner Lockup
 #### Horizontal
 EO 심볼은 파트너 브랜드 및 협업사 로고와 락업할 수 있습니다. 본 섹션의 이미지는 기본 락업 구성의 예시입니다.
 
@@ -198,8 +196,26 @@ EO 로고는 파트너 브랜드 및 협업사 로고와 세로로도 락업할 
 ![logo/partner-optical]
 
 
-### Symbol {layout=grid-3}
-#### Dont's
+###+ App & Social Icons
+#### Alignment
+디지털 환경에서 심볼은 사각형이나 원형 컨테이너 안에 락업되는 경우가 많습니다. 오른쪽은 이런 컨테이너 안에서 심볼을 정렬하는 방법을 안내하는 두 가지 예시입니다. 두 경우 모두 심볼은 균형을 위해 기계적으로 정렬하고, 사방에 편안한 여백이 생기도록 크기를 조정해야 합니다.
+![logo/app-and-social-icons]
+
+
+### App & Social Icons
+#### Scalability
+EO 심볼은 다양한 크기에서 작동하도록 설계되고 테스트되었습니다. 가독성을 위해 가장 작은 심볼 아이콘은 높이 30px이어야 합니다.
+![logo/app-and-social-icons]
+
+
+### App & Social Icons
+#### In Use
+이어지는 이미지는 앱 아이콘 및 브라우저 파비콘에 실제로 사용된 예시입니다.
+![logo/app-and-social-icons]
+
+
+###+ Symbol {layout=grid-3}
+#### Don'ts
 브랜드 시그니처가 일관되고 강렬하게 유지되도록, 로고를 재해석하거나 변형하거나 장식해서는 안 됩니다. 이 페이지는 피해야 할 변형의 예를 보여 줍니다.
 ![logo/dont-stretch]{dont} 로고를 늘리거나 왜곡하지 마세요
 ![logo/dont-rotate]{dont} 로고를 회전하지 마세요
@@ -210,12 +226,6 @@ EO 로고는 파트너 브랜드 및 협업사 로고와 세로로도 락업할 
 ![logo/dont-effects]{dont} 글로우, 그림자, 그라데이션을 적용하지 마세요
 ![logo/dont-color]{dont} 두 가지 색으로 칠하거나 승인되지 않은 페어링을 쓰지 마세요
 ![logo/dont-wordmark]{dont} 로고 옆에 “EO” 글자를 추가로 쓰지 마세요
-
-
-### App & Social Icons
-#### Alignment
-디지털 환경에서 심볼은 사각형이나 원형 컨테이너 안에 락업되는 경우가 많습니다. 오른쪽은 이런 컨테이너 안에서 심볼을 정렬하는 방법을 안내하는 두 가지 예시입니다. 두 경우 모두 심볼은 균형을 위해 기계적으로 정렬하고, 사방에 편안한 여백이 생기도록 크기를 조정해야 합니다.
-![logo/app-and-social-icons]
 
 
 ## Discripter
@@ -268,7 +278,7 @@ EO 앱 및 소셜 아이콘에는 두 가지 기본 컬러 페어링이 있습�
 ![symbol/icon-in-use]
 
 ### Symbol {layout=grid-3}
-#### Dont's
+#### Don'ts
 브랜드 시그니처가 일관되고 강렬하게 유지되도록, 심볼을 재해석하거나 변형하거나 장식해서는 안 됩니다. 이 페이지는 피해야 할 변형의 예를 보여 줍니다.
 ![symbol/dont-stretch]{dont} 심볼을 늘리거나 왜곡하지 마세요
 ![symbol/dont-tilt]{dont} 심볼을 기울이지 마세요
@@ -438,7 +448,7 @@ EO의 헤드라인은 짧고 행 수가 적어 래그가 그대로 드러납니�
 ![type/sizing-large] Large — 헤드라인이 왼쪽 절반을 채우고 그래픽 유닛과 같은 그리드를 공유합니다.
 ![type/sizing-small] Small — 헤드라인을 줄이고 아래 공간을 Body 행간의 배수로 비웁니다.
 
-### Dont's {layout=grid-3}
+### Don'ts {layout=grid-3}
 #### Headline
 아래는 타이포그래피로 절대 하지 말아야 할 몇 가지입니다. 모든 접점에서 일관성을 보장하려면 이 가이드라인의 타이포그래피 섹션에 제시된 조판 규칙과 권장 사항을 따르세요.
 ![type/dont-1]{dont} 헤드라인을 전부 대문자로 쓰지 마세요
@@ -556,7 +566,7 @@ Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 �
 ![color/secondary-in-use-3] Series Thumbnail
 
 ### Color {layout=grid-3}
-#### Dont's
+#### Don'ts
 아래는 컬러로 절대 하지 말아야 할 몇 가지입니다. 최소 대비 요건에 대한 일반적인 지침은 WCAG를 참고하세요.
 ![color/dont-1]{dont} Builder Neon을 본문 텍스트 색으로 쓰지 마세요
 ![color/dont-2]{dont} 그라데이션을 만들지 마세요
@@ -600,7 +610,7 @@ Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 �
 ![visual/unit-color-2] Medium Gray · Builder Neon · Air White on Solid Gray
 
 ### Graphic Unit {layout=grid-3}
-#### Dont's
+#### Don'ts
 유닛의 지오메트리를 손으로 변형하지 마세요. 모든 변형은 Graphic Builder의 파라미터 안에서만 이루어져야 합니다.
 ![visual/unit-dont-1]{dont} 유닛을 회전하거나 기울이지 마세요
 ![visual/unit-dont-2]{dont} thread를 임의로 지우거나 추가하지 마세요

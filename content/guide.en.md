@@ -36,7 +36,7 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (영어판)
     ### Character Set {layout=wide}            ← 텍스트 아래 12컬럼 전폭 이미지
     ### Alignment {layout=half}                ← 텍스트 아래 6컬럼 이미지
     ### Core Palette {layout=grid-4}           ← 개수와 무관하게 4열
-    ### Dont's {layout=grid-3 ratio=4:5}       ← 비율도 함께. 기본값: basic/half 5:4, wide 2:1, grid 4:5
+    ### Don'ts {layout=grid-3 ratio=4:5}       ← 비율도 함께. 기본값: basic/half 5:4, wide 2:1, grid 4:5
 
 ■ 자주 하는 작업
   섹션 추가     : ### 헤드 한 줄 + 본문 + ![이미지] 를 원하는 위치에 끼워 넣으면 끝.
@@ -44,7 +44,7 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (영어판)
   서브챕터 추가  : ## 이름 한 줄. 목차·URL·다음 버튼이 자동으로 갱신됩니다.
   섹션 목록 숨김 : ## 이름 {toc=none}  ← 이 페이지는 목차에서 섹션 목록을 펼치지 않음 (섹션이 하나뿐이면 자동으로 숨김)
   같은 헤드 반복 : 가능합니다. 목차에는 한 번만 표시되고 첫 번째로 이동합니다.
-  목차에 올릴 섹션 고르기 : ###+ Construction  ← ### 바로 뒤에 + 를 붙이면 그 섹션만 목차에 오름.
+  목차에 올릴 섹션 고르기 : ### + Construction  ← 헤드 앞에 + 를 붙이면 그 섹션만 목차에 오름 (에디터에서는 제목으로 보임).
                         한 페이지에 + 가 하나라도 있으면 + 붙은 것만, 하나도 없으면 전부(자동) 올라갑니다.
                   헤드가 페이지 이름과 같으면(Colors 페이지의 "Color") 목차에는 서브헤드가 표시됩니다.
 
@@ -81,7 +81,7 @@ EO, the EO monogram, the Block symbol, “Build Anyway”, “Even the Odds”, 
 - When quoting EO videos or articles, credit the source clearly as “EO” and link to the original.
 - Use the EO Marks and Brand Assets only as provided, in the original files and within the approved color pairings.
 
-### Dont's
+### Don'ts
 - Incorporate the EO Marks, or any mark confusingly similar to them, into the name of a company, product, service, event, community, URL, social media account, or trademark.
 - Modify or recombine the Block symbol, graphic units, or patterns into graphics of your own.
 - Re-edit or re-upload EO videos, articles, or thumbnails without EO’s permission.
@@ -116,7 +116,7 @@ Applying the EO logo in a layout starts with judging how far forward the brand s
 ![logo/usage]
 
 ### Usage {layout=grid-2}
-#### Do's & Dont's
+#### Do's & Don'ts
 When used as a sign-off, use the complete monogram and place it in clear space that does not overlap graphic units or patterns.
 
 When used at display size, align the logo to the layout grid and keep other graphic elements to a minimum so the impact holds.
@@ -139,7 +139,7 @@ There are six primary color pairings for the EO logo. When in doubt, use one of 
 ![logo/color-6] 6. Space Black on Color
 
 ### Over Imagery {layout=grid-2}
-#### Do's & Dont's
+#### Do's & Don'ts
 The logo must always remain clearly legible over photography.
 
 Most EO photography comes from dark, rough places — interview sets and hacker houses. Over these images use the Air White or Builder Neon logo; over bright images use Space Black. If the brightness of the image is uneven, lay a Space Black panel under the logo area or move the logo into the margin outside the photo.
@@ -153,7 +153,7 @@ For general guidance on minimum contrast requirements, please visit WCAG.
 ![logo/imagery-dont-2]{dont}
 
 ### Contextual Usage {layout=grid-2}
-#### Do's & Dont's
+#### Do's & Don'ts
 On YouTube and Instagram, where the channel name and avatar already say EO, regular posts do not carry the logo. The logo is reserved for key moments such as series launches and event announcements.
 
 In contrast, on posters, merchandise, and at partner events — places without the context of a channel — the logo is essential to establish brand presence.
@@ -186,7 +186,7 @@ In such cases the partner logo should be optically scaled up or down to create a
 ![logo/partner-optical]
 
 ### Logo {layout=grid-3}
-#### Dont's
+#### Don'ts
 To ensure our brand signature remains consistent and impactful, the logo should not be reinterpreted, modified, or embellished. This page illustrates some modifications to avoid.
 ![logo/dont-stretch]{dont} Don’t stretch or distort the logo
 ![logo/dont-rotate]{dont} Don’t rotate the logo
@@ -244,7 +244,7 @@ To the right is an example of the EO app icon and social avatar in use.
 ![symbol/icon-in-use]
 
 ### Symbol {layout=grid-3}
-#### Dont's
+#### Don'ts
 To ensure our brand signature remains consistent and impactful, the symbol should not be reinterpreted, modified, or embellished. This page illustrates some modifications to avoid.
 ![symbol/dont-stretch]{dont} Don’t stretch or distort the symbol
 ![symbol/dont-tilt]{dont} Don’t tilt the symbol
@@ -414,7 +414,7 @@ To the right are two examples of how headline typography should be sized and spa
 ![type/sizing-large] Large — the headline fills the left half and shares its grid with the graphic unit.
 ![type/sizing-small] Small — the headline is reduced and the space beneath is a multiple of the Body line spacing.
 
-### Dont's {layout=grid-3}
+### Don'ts {layout=grid-3}
 #### Headline
 Below are a few things never to do with typography. To guarantee consistency across all touchpoints, follow the typesetting rules and recommendations provided in the typography section of these guidelines.
 ![type/dont-1]{dont} Don’t set headlines in all caps
@@ -532,7 +532,7 @@ Here are some examples of the secondary palette in use.
 ![color/secondary-in-use-3] Series Thumbnail
 
 ### Color {layout=grid-3}
-#### Dont's
+#### Don'ts
 Below are a few things never to do with color. For general guidance on minimum contrast requirements, please visit WCAG.
 ![color/dont-1]{dont} Don’t use Builder Neon as a body text color
 ![color/dont-2]{dont} Don’t create gradients
@@ -576,7 +576,7 @@ Units are used in a single color. Contrast between the unit and its background i
 ![visual/unit-color-2] Medium Gray · Builder Neon · Air White on Solid Gray
 
 ### Graphic Unit {layout=grid-3}
-#### Dont's
+#### Don'ts
 Never modify the geometry of a unit by hand. Every variation must happen within the parameters of the Graphic Builder.
 ![visual/unit-dont-1]{dont} Don’t rotate or tilt a unit
 ![visual/unit-dont-2]{dont} Don’t remove or add threads by hand
