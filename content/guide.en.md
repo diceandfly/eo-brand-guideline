@@ -43,7 +43,6 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (영어판)
   섹션 추가     : ### 헤드 한 줄 + 본문 + ![이미지] 를 원하는 위치에 끼워 넣으면 끝.
   섹션 순서 변경 : 블록째 잘라 붙이기.
   서브챕터 추가  : ## 이름 한 줄. 목차·URL·다음 버튼이 자동으로 갱신됩니다.
-  섹션 목록 숨김 : ## 이름 {toc=none}  ← 이 페이지는 목차에서 섹션 목록을 펼치지 않음 (섹션이 하나뿐이면 자동으로 숨김)
   같은 헤드 반복 : 가능합니다. 목차에는 한 번만 표시되고 첫 번째로 이동합니다.
                   헤드가 페이지 이름과 같으면(Colors 페이지의 "Color") 목차에는 서브헤드가 표시됩니다.
 
@@ -61,17 +60,15 @@ EO is media for builders. We earn trust, not clicks. We count the people who com
 
 These guidelines explain the basic elements of the EO identity system — logo, typography, color, and the visual system — and how we use them to build the brand. When you understand and follow them, content made in Seoul, San Francisco, or Saigon looks and reads as one EO.
 
-Our voice is clear, open, and confident. We rally the builders (Rallying), build on conviction (Conviction), and have their backs (Backing). These three attitudes are the test for every design decision.
-
-External partners who wish to use EO brand assets should contact [brand team email]. Reviews usually take two weeks.
+External partners who wish to use EO brand assets should contact jemin@eoeoeo.net. Reviews usually take two weeks.
 
 Build Anyway.
 
 The EO Brand Team
 
-## Legal Brand Guidelines
+## Legal Brand Guidelines {toc=none}
 
-### Legal Brand Guidelines
+### Legal Brand Guidelines 
 EO, the EO monogram, the Block symbol, “Build Anyway”, “Even the Odds”, and any other trademark owned by EO Studio (the “EO Marks”), together with other brand materials such as logos, graphic units, patterns, and the EO look and feel (the “Brand Assets”), are the exclusive property of EO Studio. Except as permitted here, you must have prior permission from EO before using any of the EO Marks or Brand Assets.
 
 ### Do's

@@ -225,6 +225,8 @@
   /* 3-2 글자 */
   --fg: var(--c-air-white);
   --fg-muted: var(--c-medium-gray);
+  --link-fg: var(--nav-fg); /* 본문 하이퍼링크 기본 (언더라인 없음, 목차 비활성과 동일) */
+  --link-fg-hover: var(--nav-fg-active); /* 본문 하이퍼링크 호버 */
 
   /* 3-3 면 · 보더 */
   --surface: color-mix(in srgb, var(--bg), var(--c-air-white) 6%); /* 카드·플레이스홀더 면 */

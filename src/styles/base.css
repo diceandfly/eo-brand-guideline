@@ -134,8 +134,12 @@ button {
   text-underline-offset: var(--t-body-strong-offset);
 }
 .t-body a {
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
+  text-decoration: none; /* 언더라인 없이, 목차처럼 색으로만 (기본 그레이 → 호버 화이트) */
+  color: var(--link-fg);
+  transition: color var(--dur) var(--ease);
+}
+.t-body a:hover {
+  color: var(--link-fg-hover);
 }
 
 /* ---------------------------------------------------------------------
