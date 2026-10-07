@@ -43,7 +43,7 @@ const index = buildSearchIndex(guide);
         .sort((a, b) => b.n - a.n)
         .slice(0, max);
       list.innerHTML = hits.length
-        ? hits.map(({ e }) => `<li class="search__item"><a href="${e.u}">${e.h}<span class="search__crumb t-label">${e.c} / ${e.s}</span></a></li>`).join('')
+        ? hits.map(({ e }) => `<li class="search__item"><a href="${e.u}" title="${e.h} — ${e.c} / ${e.s}"><span class="search__title">${e.h}</span><span class="search__crumb t-label">${e.c} / ${e.s}</span></a></li>`).join('')
         : `<li class="search__empty">No results</li>`;
       open(true);
     };

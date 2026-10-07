@@ -374,8 +374,14 @@ button {
 .search__item.is-active a {
   background: var(--search-result-hover);
 }
+.search__title,
 .search__crumb {
   display: block;
+  white-space: nowrap; /* 한 줄로만, 넘치면 … */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.search__crumb {
   margin-top: var(--search-result-gap);
   text-transform: none;
 }

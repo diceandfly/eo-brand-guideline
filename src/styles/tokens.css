@@ -177,7 +177,7 @@
   /* ui · 검색 — 입력창과 결과는 ui 레벨 크기를 쓰되 아래로 조정. 결과의 경로 줄은 label 레벨(모노) */
   --search-input-w: 300; /* 입력 글자 웨이트 */
   --search-result-w: 400; /* 결과 제목 웨이트 */
-  --search-result-scale: 0.9; /* 결과 제목 크기·행간 = ui 레벨 × 배율 */
+  --search-result-scale: 1; /* 결과 제목 크기·행간 = ui 레벨 × 배율 */
 
   /* ui · 목차 — 위계별 웨이트 */
   --nav-w-chapter: 500; /* 01 Logo */
