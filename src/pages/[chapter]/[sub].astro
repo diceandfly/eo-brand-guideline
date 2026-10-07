@@ -15,7 +15,6 @@ const { guide, sub } = Astro.props;
 ---
 <Layout guide={guide} current={sub} title={`${sub.chapterNum} ${sub.chapterName} / ${sub.name}`}>
   <header class="page-head">
-    <p class="page-head__chapter t-label">{sub.chapterNum} {sub.chapterName}</p>
     <h1 class="page-head__title t-display">{sub.name}</h1>
   </header>
 
