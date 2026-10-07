@@ -1,0 +1,39 @@
+---
+import Logo from './Logo.astro';
+import type { Guide, Sub } from '../lib/guide';
+
+interface Props { guide: Guide; current?: Sub; }
+const { guide, current } = Astro.props;
+---
+<nav class="sidebar t-ui" aria-label="목차">
+  <a class="nav__logo" href="/"><Logo /></a>
+  <ul class="nav__chapters">
+    {guide.chapters.map(ch => {
+      const active = current?.chapterSlug === ch.slug;
+      return (
+        <li class:list={['nav__chapter', { 'is-active': active }]}>
+          <a class="nav__chapter-link" href={ch.subs[0]?.url ?? '/'} aria-current={active ? 'true' : undefined}>
+            <span class="nav__num">{ch.num}</span><span>{ch.name}</span>
+          </a>
+          <ul class="nav__subs">
+            {ch.subs.map(s => {
+              const isCur = current?.url === s.url;
+              return (
+                <li class:list={['nav__sub', { 'is-active': isCur }]}>
+                  <a class="nav__sub-link" href={s.url} aria-current={isCur ? 'page' : undefined}>{s.name}</a>
+                  {isCur && s.navSections.length > 1 && (
+                    <ul class="nav__sections" data-scrollspy>
+                      {s.navSections.map(ns => (
+                        <li><a class="nav__section-link" href={`#${ns.id}`} data-target={ns.id}>{ns.head}</a></li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </li>
+      );
+    })}
+  </ul>
+</nav>

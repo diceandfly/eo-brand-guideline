@@ -1,0 +1,39 @@
+---
+/**
+ * 섹션 = 텍스트 블록(헤드 / 서브헤드 / 본문) + 미디어 슬롯.
+ * 미디어 슬롯의 아이템 수와 layout 속성에 따라 basic / text / wide / half / grid-N 으로 렌더됩니다.
+ */
+import Figure from './Figure.astro';
+import Swatch from './Swatch.astro';
+import type { Section } from '../lib/guide';
+
+interface Props { section: Section; }
+const { section: s } = Astro.props;
+
+const isGrid = s.layout.startsWith('grid-');
+const n = isGrid ? Number(s.layout.split('-')[1]) : 1;
+const kind = isGrid ? 'grid' : s.layout;
+const defaultRatio = isGrid ? 'var(--ratio-card)' : s.layout === 'wide' ? 'var(--ratio-wide)' : 'var(--ratio-basic)';
+const ratio = s.ratio ?? defaultRatio;
+---
+<section class:list={['sec', `sec--${kind}`]} id={s.id} data-section>
+  <div class="sec__text">
+    <h2 class="sec__head t-heading">{s.head}</h2>
+    {s.subhead && <h3 class="sec__subhead t-heading t-subhead">{s.subhead}</h3>}
+    {s.bodyHtml && <div class="sec__body t-body" set:html={s.bodyHtml} />}
+  </div>
+
+  {!isGrid && s.items[0] && (
+    <div class="sec__media">
+      {s.items[0].kind === 'image'
+        ? <Figure item={s.items[0]} ratio={ratio} />
+        : <Swatch item={s.items[0]} />}
+    </div>
+  )}
+
+  {isGrid && (
+    <div class="sec__grid" style={`--n: ${n}`}>
+      {s.items.map(it => it.kind === 'image' ? <Figure item={it} ratio={ratio} /> : <Swatch item={it} />)}
+    </div>
+  )}
+</section>

@@ -1,0 +1,38 @@
+/* =====================================================================
+   Webfont declarations
+   ---------------------------------------------------------------------
+   woff2 파일을 public/fonts/ 에 아래 파일명으로 넣으면 자동 적용됩니다.
+   파일명이 다르면 src 경로만 고치세요. 파일이 없으면 tokens.css 의
+   --font-en / --font-mono 폴백 서체로 렌더됩니다.
+
+   저장소에는 폰트 파일을 커밋하지 않습니다 (.gitignore 참고).
+   ===================================================================== */
+
+@font-face {
+  font-family: "Founders Grotesk";
+  src: url("/fonts/FoundersGrotesk-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Founders Grotesk";
+  src: url("/fonts/FoundersGrotesk-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Founders Grotesk";
+  src: url("/fonts/FoundersGrotesk-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Founders Grotesk Mono";
+  src: url("/fonts/FoundersGroteskMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

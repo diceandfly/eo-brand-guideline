@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+*.log
+
+# 유료 웹폰트 파일은 저장소에 커밋하지 않습니다 (재배포 금지).
+public/fonts/*
+!public/fonts/.gitkeep
+!public/fonts/README.md

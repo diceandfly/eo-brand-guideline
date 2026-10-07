@@ -1,0 +1,136 @@
+/* =====================================================================
+   EO Brand Guideline — Style Tokens
+   ---------------------------------------------------------------------
+   이 파일 하나만 수정하면 사이트 전체의 레이아웃·타이포·컬러가 바뀝니다.
+   컴포넌트 CSS는 여기 있는 변수만 참조하고, 숫자를 직접 쓰지 않습니다.
+
+   목차
+     1. LAYOUT   — 목차 폭, 마진, 거터, 컬럼, 섹션/카드 간격
+     2. TYPE     — 행간 기준 단위, 서체, 5레벨 (display / heading / body / ui / label)
+     3. COLOR    — 브랜드 팔레트(원색) + UI 시맨틱 토큰
+     4. RATIO    — 이미지 비율
+     5. MOTION   — 트랜지션
+
+   브레이크포인트는 CSS 변수로 쓸 수 없어 base.css 의 @media 에 직접 적혀 있습니다.
+     모바일  : max-width 899px  (목차가 상단 바의 버튼으로 전환)
+     PC      : min-width 900px
+   ===================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------
+     1. LAYOUT
+     ------------------------------------------------------------------ */
+  --sidebar-w: 286px;          /* PC 목차 폭 (레퍼런스 286px) */
+  --topbar-h: 56px;            /* 모바일 상단 로고바 높이 */
+
+  --page-margin: 40px;         /* 본문 영역 좌우 마진 (PC) */
+  --page-margin-m: 20px;       /* 본문 영역 좌우 마진 (모바일) */
+  --gutter: 24px;              /* 12컬럼 거터 (PC) */
+  --gutter-m: 16px;            /* 12컬럼 거터 (모바일) */
+  --cols: 12;
+  --content-max: 1320px;       /* 본문 그리드 최대 폭 */
+
+  --sec-text-cols: 4;          /* 기본 섹션: 텍스트가 차지하는 컬럼 수 (왼쪽부터) */
+  --sec-media-cols: 6;         /* 기본 섹션: 이미지가 차지하는 컬럼 수 (오른쪽 끝 정렬) */
+  --sec-textonly-cols: 8;      /* 이미지가 없는 섹션·wide·half 의 텍스트 컬럼 수 */
+
+  --title-pad-top: 72px;       /* 페이지 상단 ↔ 타이틀 */
+  --title-gap: 96px;           /* 타이틀 ↔ 첫 섹션 */
+  --section-gap: 120px;        /* 섹션 ↔ 섹션 (PC) */
+  --section-gap-m: 72px;       /* 섹션 ↔ 섹션 (모바일) */
+  --sec-row-gap: 40px;         /* wide/half/grid: 텍스트 ↔ 이미지 세로 간격 */
+  --head-gap: 24px;            /* 헤드(+서브헤드) ↔ 본문 */
+  --para-gap: 1;               /* 문단 간격 = lh-unit × 값 */
+  --next-gap: 160px;           /* 마지막 섹션 ↔ 다음 버튼 */
+  --page-pad-bottom: 120px;
+
+  --card-gap: 16px;            /* 카드: 이미지 ↔ 캡션 */
+  --card-pad: 0px;             /* 카드 내부 패딩 (0 = 이미지가 카드 폭에 꽉 참) */
+  --swatch-gap: 12px;          /* 스와치: 색면 ↔ 이름 */
+  --badge-size: 28px;          /* Do / Don't 아이콘 지름 */
+  --badge-inset: 12px;         /* 배지와 이미지 모서리 거리 */
+  --radius: 0px;               /* 이미지·카드·스와치 라운드 */
+  --border-w: 1px;
+
+  --nav-pad-x: 24px;           /* 목차 내부 좌우 패딩 */
+  --nav-pad-y: 28px;           /* 목차 내부 상하 패딩 */
+  --nav-logo-h: 20px;          /* 목차 상단 로고 높이 */
+  --nav-logo-gap: 48px;        /* 로고 ↔ 첫 챕터 */
+  --nav-chapter-gap: 10px;     /* 챕터 항목 간격 */
+  --nav-item-gap: 4px;         /* 서브챕터·섹션 항목 간격 */
+  --nav-indent: 14px;          /* 위계당 들여쓰기 */
+  --nav-sub-pad-top: 8px;      /* 챕터 ↔ 첫 서브챕터 */
+
+  /* ------------------------------------------------------------------
+     2. TYPE
+     행간이 기본 계산 단위입니다.
+       행간      = lh-unit × m
+       폰트 사이즈 = 행간 ÷ p
+     p(행간÷폰트)와 ls(자간)를 조절해 각 레벨의 회색도를 튜닝합니다.
+     ------------------------------------------------------------------ */
+  --lh-unit: 12px;
+
+  --font-en: "Founders Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "Founders Grotesk Mono", "SF Mono", Menlo, Consolas, monospace;
+
+  /* display — 페이지(서브챕터) 타이틀 */
+  --t-display-m: 6;     --t-display-p: 0.9;   --t-display-ls: -0.03em;  --t-display-w: 500;
+  /* heading — 섹션 헤드, 서브헤드, 다음 버튼 타이틀 */
+  --t-heading-m: 3;     --t-heading-p: 1.2;   --t-heading-ls: -0.01em;  --t-heading-w: 500;
+  --t-subhead-w: 300;   /* 서브헤드는 heading 사이즈에 웨이트만 변형 */
+  /* body — 본문, 카드 캡션 */
+  --t-body-m: 2;        --t-body-p: 1.5;      --t-body-ls: 0;           --t-body-w: 300;
+  /* ui — 목차, 버튼, 스와치 이름 */
+  --t-ui-m: 1.5;        --t-ui-p: 1.2;        --t-ui-ls: 0;             --t-ui-w: 400;
+  --t-ui-w-strong: 500; /* 목차 챕터·활성 항목 */
+  /* label — 챕터 번호 라벨, NEXT, 스펙, 플레이스홀더 (모노) */
+  --t-label-m: 1;       --t-label-p: 1.0;     --t-label-ls: 0;          --t-label-w: 400;
+
+  /* ------------------------------------------------------------------
+     3. COLOR
+     ------------------------------------------------------------------ */
+  /* 브랜드 팔레트 — "EO color palette final.svg" 기준. 여기 값은 브랜드 확정 전까지 수정하지 않습니다. */
+  --c-builder-neon: #F9EE3A;
+  --c-day-blue:     #6EC6D2;
+  --c-bay-green:    #66B88A;
+  --c-medium-gray:  #8E8E8E;
+  --c-solid-gray:   #333333;
+  --c-space-black:  #000000;
+  --c-air-white:    #FCFBF5;
+
+  /* UI 시맨틱 — 컴포넌트는 아래 토큰만 사용합니다. */
+  --bg:          var(--c-solid-gray);
+  --bg-sidebar:  var(--c-space-black);
+  --bg-topbar:   var(--c-space-black);
+  --fg:          var(--c-air-white);
+  --fg-muted:    var(--c-medium-gray);
+  --accent:      var(--c-builder-neon);
+  --accent-fg:   var(--c-space-black);       /* 악센트 위 글자색 */
+
+  /* 중간 톤은 새 HEX 없이 배경과 글자색을 섞어 파생합니다. 퍼센트만 조절하세요. */
+  --surface:       color-mix(in srgb, var(--bg), var(--c-air-white) 6%);   /* 카드·플레이스홀더 면 */
+  --surface-2:     color-mix(in srgb, var(--bg), var(--c-air-white) 12%);  /* 호버 면 */
+  --border:        color-mix(in srgb, var(--bg), var(--c-air-white) 16%);
+  --nav-fg:        color-mix(in srgb, var(--c-air-white), transparent 35%); /* 목차 비활성 */
+  --nav-fg-active: var(--c-air-white);
+  --placeholder-fg: color-mix(in srgb, var(--c-air-white), transparent 55%);
+
+  /* UI 전용 — 브랜드 팔레트가 아닙니다. Do / Don't 배지에만 사용. */
+  --c-do:   var(--c-bay-green);
+  --c-dont: #FF4A3D;
+  --badge-fg: var(--c-space-black);
+
+  /* ------------------------------------------------------------------
+     4. RATIO  (가로 / 세로)
+     ------------------------------------------------------------------ */
+  --ratio-basic:  5 / 4;   /* 기본 섹션·half 이미지 */
+  --ratio-wide:   2 / 1;   /* wide 전폭 이미지 */
+  --ratio-card:   4 / 5;   /* grid-2/3/4 카드 이미지 */
+  --ratio-swatch: 1 / 1;   /* 스와치 색면 */
+
+  /* ------------------------------------------------------------------
+     5. MOTION
+     ------------------------------------------------------------------ */
+  --dur: 160ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}

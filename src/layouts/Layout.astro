@@ -1,0 +1,53 @@
+---
+import '../styles/tokens.css';
+import '../styles/fonts.css';
+import '../styles/base.css';
+import Sidebar from '../components/Sidebar.astro';
+import Logo from '../components/Logo.astro';
+import type { Guide, Sub } from '../lib/guide';
+
+interface Props { guide: Guide; current?: Sub; title: string; }
+const { guide, current, title } = Astro.props;
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · EO Brand Guidelines</title>
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <button class="topbar__menu" type="button" aria-label="목차 열기" aria-expanded="false" data-nav-toggle>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
+            <path d="M3 6h18M3 12h18M3 18h18" />
+          </svg>
+        </button>
+        <a class="topbar__logo" href="/"><Logo /></a>
+      </header>
+
+      <Sidebar guide={guide} current={current} />
+
+      <main class="main">
+        <div class="main__inner">
+          <slot />
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // 모바일: 상단 바 버튼으로 목차 드로어 토글. 링크를 누르면 닫힘.
+      const root = document.documentElement;
+      const btn = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+      const set = (open: boolean) => {
+        root.classList.toggle('nav-open', open);
+        btn?.setAttribute('aria-expanded', String(open));
+      };
+      btn?.addEventListener('click', () => set(!root.classList.contains('nav-open')));
+      document.querySelectorAll('.sidebar a').forEach(a => a.addEventListener('click', () => set(false)));
+      window.matchMedia('(min-width: 900px)').addEventListener('change', e => { if (e.matches) set(false); });
+    </script>
+  </body>
+</html>

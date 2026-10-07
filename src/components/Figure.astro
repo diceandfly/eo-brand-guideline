@@ -1,0 +1,30 @@
+---
+/**
+ * 이미지 1장. 파일이 있으면 <img>, 없으면 토큰 경로를 적은 플레이스홀더.
+ * badge: do | dont  → 좌상단 원형 아이콘
+ * caption 이 있으면 이미지 아래 캡션 (카드)
+ */
+import type { ImageItem } from '../lib/guide';
+
+interface Props { item: ImageItem; ratio: string; }
+const { item, ratio } = Astro.props;
+const ratioLabel = ratio.replace(/\s/g, '').replace('var(--ratio-', '').replace(')', '');
+---
+<figure class="fig" style={`--ratio: ${ratio}`}>
+  <div class="fig__frame">
+    {item.src
+      ? <img src={item.src} alt={item.caption ?? item.token} loading="lazy" />
+      : <div class="fig__placeholder t-label">
+          <span>assets/{item.token}</span>
+          <span>{ratioLabel}</span>
+        </div>}
+    {item.badge && (
+      <span class:list={['fig__badge', `fig__badge--${item.badge}`]} aria-label={item.badge === 'do' ? 'Do' : "Don't"}>
+        {item.badge === 'do'
+          ? <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><path d="M3 8.5l3.2 3.2L13 5" /></svg>
+          : <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><path d="M4 4l8 8M12 4l-8 8" /></svg>}
+      </span>
+    )}
+  </div>
+  {item.caption && <figcaption class="fig__caption t-body">{item.caption}</figcaption>}
+</figure>

@@ -1,0 +1,13 @@
+---
+import type { SwatchItem } from '../lib/guide';
+interface Props { item: SwatchItem; }
+const { item } = Astro.props;
+---
+<div class="swatch">
+  <div class="swatch__chip" style={`background: ${item.hex}`}></div>
+  <div class="swatch__name t-ui">{item.name}</div>
+  <ul class="swatch__specs t-label">
+    <li>{item.hex.toUpperCase()}</li>
+    {item.specs.map(s => <li>{s}</li>)}
+  </ul>
+</div>

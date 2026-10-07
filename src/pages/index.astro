@@ -1,0 +1,5 @@
+---
+import { loadGuide, firstUrl } from '../lib/guide';
+const guide = loadGuide();
+return Astro.redirect(firstUrl(guide));
+---

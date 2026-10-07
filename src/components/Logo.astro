@@ -1,0 +1,11 @@
+---
+/**
+ * 브랜드 로고. public/assets/brand/logo.svg (또는 png) 가 있으면 그 파일을,
+ * 없으면 텍스트 "EO" 를 표시합니다.
+ */
+import { brandLogoSrc } from '../lib/guide';
+const src = brandLogoSrc();
+---
+<span class="logo">
+  {src ? <img src={src} alt="EO" /> : <span class="logo__text">EO</span>}
+</span>
