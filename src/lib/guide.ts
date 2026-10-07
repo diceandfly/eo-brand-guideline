@@ -60,7 +60,11 @@ export interface Guide { chapters: Chapter[]; }
 const ROOT = process.cwd();
 /** 콘텐츠 언어. GUIDE_LANG=ko|en (기본 en). content/guide.<lang>.md 를 읽습니다. */
 export const LANG = (process.env.GUIDE_LANG || 'en').toLowerCase();
-const CONTENT = path.join(ROOT, 'content', `guide.${LANG}.md`);
+/**
+ * 콘텐츠 파일은 fs 가 아니라 Vite 모듈로 읽습니다. 그래야 dev 서버가 파일을 의존성으로 추적해서,
+ * 저장 즉시 라우트(새 서브챕터 등)와 페이지를 다시 계산하고 브라우저를 새로고침합니다.
+ */
+const CONTENT_FILES = import.meta.glob('/content/guide.*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
 const ASSETS = path.join(ROOT, 'public', 'assets');
 const EXTS = ['svg', 'png', 'jpg', 'jpeg', 'webp', 'gif', 'avif'];
 
@@ -125,7 +129,9 @@ function md(src: string): string {
 }
 
 export function loadGuide(): Guide {
-  const raw = fs.readFileSync(CONTENT, 'utf8').replace(/<!--[\s\S]*?-->/g, '');
+  const source = CONTENT_FILES[`/content/guide.${LANG}.md`];
+  if (source === undefined) throw new Error(`content/guide.${LANG}.md 가 없습니다 (GUIDE_LANG=${LANG})`);
+  const raw = source.replace(/<!--[\s\S]*?-->/g, '');
   const lines = raw.split(/\r?\n/);
 
   const chapters: Chapter[] = [];
