@@ -15,7 +15,7 @@ const index = buildSearchIndex(guide);
 </form>
 
 <script>
-  type Entry = { u: string; c: string; s: string; h: string; b: string };
+  type Entry = { u: string; c: string; s: string; h: string; t: string; b: string };
 
   for (const form of document.querySelectorAll<HTMLFormElement>('[data-search]')) {
     const input = form.querySelector<HTMLInputElement>('[data-search-input]')!;
@@ -27,7 +27,7 @@ const index = buildSearchIndex(guide);
     const open = (v: boolean) => { form.classList.toggle('is-open', v); if (!v) active = -1; };
 
     const score = (e: Entry, q: string) => {
-      const h = e.h.toLowerCase(), s = e.s.toLowerCase(), b = e.b.toLowerCase();
+      const h = `${e.h} ${e.t}`.toLowerCase(), s = e.s.toLowerCase(), b = e.b.toLowerCase();
       if (h.includes(q)) return 3;
       if (s.includes(q)) return 2;
       if (b.includes(q)) return 1;
@@ -43,7 +43,10 @@ const index = buildSearchIndex(guide);
         .sort((a, b) => b.n - a.n)
         .slice(0, max);
       list.innerHTML = hits.length
-        ? hits.map(({ e }) => `<li class="search__item"><a href="${e.u}" title="${e.h} — ${e.c} / ${e.s}"><span class="search__title">${e.h}</span><span class="search__crumb t-label">${e.c} / ${e.s}</span></a></li>`).join('')
+        ? hits.map(({ e }) => {
+            const crumb = `${e.c} / ${e.s} / ${e.h}`;
+            return `<li class="search__item"><a href="${e.u}" title="${e.t} — ${crumb}"><span class="search__title">${e.t}</span><span class="search__crumb t-label">${crumb}</span></a></li>`;
+          }).join('')
         : `<li class="search__empty">No results</li>`;
       open(true);
     };

@@ -229,7 +229,8 @@ export function loadGuide(): Guide {
 }
 
 /** 검색 색인: 섹션 단위. 클라이언트 스크립트가 JSON 으로 받아 필터링합니다. */
-export interface SearchEntry { u: string; c: string; s: string; h: string; b: string; }
+/** u: url#id, c: 챕터, s: 서브챕터, h: 섹션 헤드, t: 제목(서브헤드, 없으면 헤드), b: 본문 */
+export interface SearchEntry { u: string; c: string; s: string; h: string; t: string; b: string; }
 const stripTags = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim();
 export function buildSearchIndex(guide: Guide): SearchEntry[] {
   const out: SearchEntry[] = [];
@@ -239,7 +240,8 @@ export function buildSearchIndex(guide: Guide): SearchEntry[] {
       u: `${sub.url}#${sec.id}`,
       c: `${ch.num} ${ch.name}`,
       s: sub.name,
-      h: sec.subhead ? `${sec.head} — ${sec.subhead}` : sec.head,
+      h: sec.head,
+      t: sec.subhead ?? sec.head,
       b: `${stripTags(sec.bodyHtml)} ${caps}`.slice(0, 400)
     });
   }
