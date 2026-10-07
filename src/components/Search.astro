@@ -70,7 +70,7 @@ const index = buildSearchIndex(guide);
             const quote = n === 1 ? snippet(e.b, q) : mark(title, q);
             return `<li class="search__item"><a href="${e.u}" title="${esc(e.t)} — ${esc(crumb)}">`
               + `<span class="search__quote">${quote}</span>`
-              + `<span class="search__crumb t-label">${mark(crumb, q)}</span></a></li>`;
+              + `<span class="search__crumb t-label">${esc(crumb)}</span></a></li>`;   // 경로는 강조하지 않음
           }).join('')
         : `<li class="search__empty">No results</li>`;
       open(true);
