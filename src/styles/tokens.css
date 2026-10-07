@@ -43,6 +43,9 @@
   --search-h: 36px; /* 검색창 높이 */
   --search-pad-x: 12px; /* 검색창 내부 좌우 패딩 */
   --search-results-max: 8; /* 검색 결과 최대 개수 */
+  --search-results-offset: 4px; /* 검색창 ↔ 결과 패널 */
+  --search-result-pad-y: 8px; /* 결과 한 행의 상하 패딩 */
+  --search-result-gap: 2px; /* 결과 제목 ↔ 경로 줄 */
   --search-gap: 32px; /* 검색창 ↔ 첫 챕터 */
   --nav-chapter-gap: 0px; /* 챕터 ↔ 챕터 */
   --nav-sub-pad-top: 0px; /* 챕터 ↔ 첫 서브챕터 */
@@ -168,8 +171,13 @@
   --t-ui-p: 1.5;
   --t-ui-ls: -0.01em;
   --t-ui-c: var(--fg);
-  --t-ui-w: 300; /* 검색창, 검색 결과 */
+  --t-ui-w: 300; /* 기본 */
   --t-ui-w-swatch: 500; /* 스와치 이름 */
+
+  /* ui · 검색 — 입력창과 결과는 ui 레벨 크기를 쓰되 아래로 조정. 결과의 경로 줄은 label 레벨(모노) */
+  --search-input-w: 300; /* 입력 글자 웨이트 */
+  --search-result-w: 400; /* 결과 제목 웨이트 */
+  --search-result-scale: 0.9; /* 결과 제목 크기·행간 = ui 레벨 × 배율 */
 
   /* ui · 목차 — 위계별 웨이트 */
   --nav-w-chapter: 500; /* 01 Logo */

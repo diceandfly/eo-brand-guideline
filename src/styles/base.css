@@ -330,6 +330,7 @@ button {
   background: var(--search-bg);
   color: var(--search-fg);
   font: inherit;
+  font-weight: var(--search-input-w);
   letter-spacing: inherit;
   outline: none;
   transition: background var(--dur) var(--ease);
@@ -337,13 +338,17 @@ button {
 .search__input::placeholder {
   color: var(--search-placeholder);
 }
+.search__input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none; /* 브라우저 기본 파란 × 제거. 지우기는 Esc */
+}
 .search__input:focus {
   background: var(--search-bg-focus);
 }
 .search__results {
   list-style: none;
   position: absolute;
-  inset: calc(100% + 4px) 0 auto 0;
+  inset: calc(100% + var(--search-results-offset)) 0 auto 0;
   z-index: 5;
   display: none;
   background: var(--search-result-bg);
@@ -351,13 +356,17 @@ button {
   border-radius: var(--radius);
   max-height: 60vh;
   overflow-y: auto;
+  /* 결과 제목: ui 레벨 × 배율 */
+  font-size: calc(var(--lh-unit) * var(--t-ui-m) / var(--t-ui-p) * var(--search-result-scale));
+  line-height: calc(var(--lh-unit) * var(--t-ui-m) * var(--search-result-scale));
+  font-weight: var(--search-result-w);
 }
 .search.is-open .search__results {
   display: block;
 }
 .search__item a {
   display: block;
-  padding: calc(var(--lh-unit) * 0.6) var(--search-pad-x);
+  padding: var(--search-result-pad-y) var(--search-pad-x);
   color: var(--nav-fg-active);
   transition: background var(--dur) var(--ease);
 }
@@ -367,10 +376,11 @@ button {
 }
 .search__crumb {
   display: block;
+  margin-top: var(--search-result-gap);
   text-transform: none;
 }
 .search__empty {
-  padding: calc(var(--lh-unit) * 0.6) var(--search-pad-x);
+  padding: var(--search-result-pad-y) var(--search-pad-x);
   color: var(--fg-muted);
 }
 
