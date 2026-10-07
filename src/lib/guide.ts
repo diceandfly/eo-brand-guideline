@@ -45,6 +45,7 @@ export interface Sub {
   chapterSlug: string;
   sections: Section[];
   navSections: { id: string; head: string }[];
+  tocSections: boolean;   // false 면 목차에서 섹션 목록을 펼치지 않음 (## 이름 {toc=none})
   prev?: SubRef;
   next?: SubRef;
 }
@@ -164,15 +165,19 @@ export function loadGuide(): Guide {
       sub = null;
       continue;
     }
-    if ((m = line.match(/^##\s+(.+?)\s*$/)) && chapter) {           // ## Logo
+    if ((m = line.match(/^##\s+(.+?)\s*$/)) && chapter) {           // ## Logo {toc=none}
       flushSection();
-      const name = m[1];
+      let name = m[1];
+      let attrs: Record<string, string> = {};
+      const am = name.match(/\{([^}]*)\}\s*$/);
+      if (am) { attrs = parseAttrs(am[1]); name = name.slice(0, am.index).trim(); }
       const slug = slugify(name);
       sub = {
         name, slug,
         url: `/${chapter.slug}/${slug}`,
         chapterNum: chapter.num, chapterName: chapter.name, chapterSlug: chapter.slug,
-        sections: [], navSections: []
+        sections: [], navSections: [],
+        tocSections: attrs.toc !== 'none'
       };
       chapter.subs.push(sub);
       idsInSub = new Map();

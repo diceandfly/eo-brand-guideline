@@ -23,7 +23,7 @@ const { guide, current } = Astro.props;
               return (
                 <li class:list={['nav__sub', { 'is-active': isCur }]}>
                   <a class="nav__sub-link" href={s.url} aria-current={isCur ? 'page' : undefined}>{s.name}</a>
-                  {isCur && s.navSections.length > 1 && (
+                  {isCur && s.tocSections && s.navSections.length > 1 && (
                     <ul class="nav__sections" data-scrollspy>
                       {s.navSections.map(ns => (
                         <li><a class="nav__section-link" href={`#${ns.id}`} data-target={ns.id}>{ns.head}</a></li>
