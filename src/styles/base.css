@@ -123,7 +123,7 @@ button {
 .t-body p + ol,
 .t-body ul + p,
 .t-body ol + p {
-  margin-top: calc(var(--lh-unit) * var(--para-gap));
+  margin-top: calc(var(--lh-unit) * var(--t-body-m) * var(--para-gap)); /* 본문 행간 × 배수 */
 }
 .t-body ul,
 .t-body ol {

@@ -36,12 +36,12 @@
   --topbar-h: 56px; /* 모바일 상단 로고바 높이 */
 
   /* 1-2 목차 (위 → 아래) */
-  --nav-pad-top: 56px; /* 목차 내부 패딩: 위 */
+  --nav-pad-top: 60px; /* 목차 내부 패딩: 위 */
   --nav-pad-right: 32px; /* 오른쪽 */
-  --nav-pad-bottom: 56px; /* 아래 (언어 전환 EN | KR 아래 여백) */
+  --nav-pad-bottom: 28px; /* 아래 (언어 전환 EN | KR 아래 여백) */
   --nav-pad-left: 32px; /* 왼쪽 */
   --nav-logo-h: 21px; /* 로고 높이 */
-  --nav-logo-gap: 64px; /* 로고 ↔ 검색창 */
+  --nav-logo-gap: 60px; /* 로고 ↔ 검색창 */
   --search-gap: 32px; /* 검색창 ↔ 첫 챕터 */
   --nav-chapter-gap: 0px; /* 챕터 ↔ 챕터 */
   --nav-sub-pad-top: 0px; /* 챕터 ↔ 첫 서브챕터 */
@@ -96,7 +96,7 @@
   --grid-n-m: 2; /* 모바일에서 grid-2/3/4 의 열 수 (최대) */
   --head-gap: 48px; /* 헤드(+서브헤드) ↔ 본문 */
   --head-gap-m: 24px;
-  --para-gap: 1; /* 문단 ↔ 문단 = lh-unit × 값 */
+  --para-gap: 1; /* 문단 ↔ 문단 = 본문 행간 × 값. 1 = 빈 줄 한 행, 0.5 = 반 행 */
   --sec-row-gap: 40px; /* wide / half / grid / 모바일 basic: 텍스트 ↔ 이미지 세로 간격 */
   --sec-row-gap-m: 24px;
 
