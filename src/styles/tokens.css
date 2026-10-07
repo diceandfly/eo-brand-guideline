@@ -23,7 +23,7 @@
   --sidebar-w: 320px;          /* PC 목차 폭 (레퍼런스 286px) */
   --topbar-h: 56px;            /* 모바일 상단 로고바 높이 */
 
-  --page-margin: 160px;         /* 본문 영역 좌우 마진 (PC) */
+  --page-margin: 40px;         /* 본문 영역 좌우 마진 (PC) */
   --page-margin-m: 20px;       /* 본문 영역 좌우 마진 (모바일) */
   --gutter: 20px;              /* 12컬럼 거터 (PC) */
   --gutter-m: 16px;            /* 12컬럼 거터 (모바일) */
@@ -33,7 +33,7 @@
 
   --sec-text-cols: 5;          /* 기본 섹션: 텍스트가 차지하는 컬럼 수 (왼쪽부터) */
   --sec-media-cols: 6;         /* 기본 섹션: 이미지가 차지하는 컬럼 수 (오른쪽 끝 정렬) */
-  --sec-textonly-cols: 8;      /* 이미지가 없는 섹션·wide·half 의 텍스트 컬럼 수 */
+  --sec-textonly-cols: 12;      /* 이미지가 없는 섹션·wide·half 의 텍스트 컬럼 수 */
 
   --title-pad-top: 72px;       /* 페이지 상단 ↔ 타이틀 */
   --title-gap: 96px;           /* 타이틀 ↔ 첫 섹션 */
@@ -100,6 +100,7 @@
   --t-body-ko-ls: -0.03em;      /* 한글 자간 */
   --t-body-ko-w: 300;           /* 한글 웨이트 (Pretendard 100–900) */
   --t-body-ko-baseline: 0.02em; /* 베이스라인 보정. 양수 = 위로 */
+  --t-body-ko-break: keep-all;  /* 줄바꿈 단위. keep-all = 어절 단위, normal = 글자 단위 */
   /* ui — 목차, 버튼, 스와치 이름. 행간 19.5, 폰트 16 */
   --t-ui-m: 1.5;        --t-ui-p: 1.2;        --t-ui-ls: -0.01em;       --t-ui-w: 400;
   --t-ui-w-strong: 500; /* 목차 챕터·활성 항목 */
