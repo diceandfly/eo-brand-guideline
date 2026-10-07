@@ -34,6 +34,7 @@ export interface Section {
   layout: Layout;
   ratio?: string;         // "5 / 4" 형식. 없으면 레이아웃 기본 토큰 사용
   items: Item[];
+  tocMark: boolean;       // ###+ 로 목차에 올리라고 표시한 섹션
 }
 export interface SubRef { url: string; name: string; chapterNum: string; chapterName: string; }
 export interface Sub {
@@ -44,7 +45,7 @@ export interface Sub {
   chapterName: string;
   chapterSlug: string;
   sections: Section[];
-  navSections: { id: string; head: string }[];
+  navSections: { id: string; head: string }[];   // 목차에 오르는 섹션. ###+ 표시가 하나라도 있으면 표시된 것만, 없으면 전부(자동)
   tocSections: boolean;   // false 면 목차에서 섹션 목록을 펼치지 않음 (## 이름 {toc=none})
   prev?: SubRef;
   next?: SubRef;
@@ -188,10 +189,19 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
     section.layout = pickLayout((section as any)._layout, section.items);
     delete (section as any)._layout;
     sub.sections.push(section);
-    const label = navLabel(section, sub);
-    if (!sub.navSections.some(n => n.head === label)) sub.navSections.push({ id: section.id, head: label });
     section = null;
     body = [];
+  };
+
+  // 서브챕터의 목차 항목 확정: ###+ 표시가 있으면 그것만, 없으면 전부. 같은 라벨은 첫 섹션 하나만.
+  const finalizeNav = (s: Sub) => {
+    const marked = s.sections.filter(sec => sec.tocMark);
+    const pool = marked.length ? marked : s.sections;
+    s.navSections = [];
+    for (const sec of pool) {
+      const label = navLabel(sec, s);
+      if (!s.navSections.some(n => n.head === label)) s.navSections.push({ id: sec.id, head: label });
+    }
   };
 
   for (const line of lines) {
@@ -222,9 +232,10 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       idsInSub = new Map();
       continue;
     }
-    if ((m = line.match(/^###\s+(.+?)\s*$/)) && sub) {              // ### Head {layout=…}
+    if ((m = line.match(/^###(\+?)\s+(.+?)\s*$/)) && sub) {        // ### Head {layout=…}   /   ###+ Head (목차에 올림)
       flushSection();
-      let head = m[1];
+      const tocMark = m[1] === '+';
+      let head = m[2];
       let attrs: Record<string, string> = {};
       const am = head.match(/\{([^}]*)\}\s*$/);
       if (am) { attrs = parseAttrs(am[1]); head = head.slice(0, am.index).trim(); }
@@ -234,7 +245,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       const id = count === 1 ? base : `${base}-${count}`;
       section = {
         id, navId: base, head, bodyHtml: '', layout: 'basic',
-        ratio: normalizeRatio(attrs.ratio), items: []
+        ratio: normalizeRatio(attrs.ratio), items: [], tocMark
       };
       (section as any)._layout = attrs.layout;
       continue;
@@ -260,6 +271,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
     if (section) body.push(line);
   }
   flushSection();
+  for (const ch of chapters) for (const s of ch.subs) finalizeNav(s);
 
   // prev / next 연결 (챕터 경계를 넘어 순서대로)
   const flat = chapters.flatMap(c => c.subs);

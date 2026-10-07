@@ -72,9 +72,9 @@
   --content-max: 1320px; /* 본문 최대 폭. 더 넓은 화면에서는 남는 폭을 양쪽에 균등 분배. 꽉 채우려면 none */
 
   /* 1-4 페이지 세로 흐름 (위 → 아래) */
-  --title-pad-top: 40px; /* 페이지 상단 ↔ 타이틀 */
+  --title-pad-top: 36px; /* 페이지 상단 ↔ 타이틀 */
   --title-pad-top-m: 24px;
-  --title-gap: 96px; /* 타이틀 ↔ 첫 섹션 */
+  --title-gap: 104px; /* 타이틀 ↔ 첫 섹션 */
   --title-gap-m: 56px;
   --section-gap: 120px; /* 섹션 ↔ 섹션 */
   --section-gap-m: 72px;
@@ -94,7 +94,7 @@
   --sec-textonly-cols: 11; /* text / wide / half / grid: 텍스트 컬럼 수 */
   --sec-textonly-cols-m: 6;
   --grid-n-m: 2; /* 모바일에서 grid-2/3/4 의 열 수 (최대) */
-  --head-gap: 48px; /* 헤드(+서브헤드) ↔ 본문 */
+  --head-gap: 56px; /* 헤드(+서브헤드) ↔ 본문 */
   --head-gap-m: 24px;
   --sec-row-gap: 40px; /* wide / half / grid / 모바일 basic: 텍스트 ↔ 이미지 세로 간격 */
   --sec-row-gap-m: 24px;
@@ -153,7 +153,7 @@
 
   /* heading — 섹션 헤드, 서브헤드, 다음 버튼 타이틀 */
   --t-heading-m: 2.5;
-  --t-heading-p: 1.2;
+  --t-heading-p: 1.15;
   --t-heading-ls: -0.01em;
   --t-heading-w: 400;
   --t-subhead-w: 400;
@@ -176,7 +176,7 @@
      지원하지 않는 브라우저에서는 빌드 시 마지막 두 단어를 붙여 둔 처리(guide.ts glueLastWords)가 대신합니다. */
   --t-body-wrap: pretty;
   --t-body-c: var(--fg);
-  --t-body-para-gap: 0.5; /* 문단 ↔ 문단 (엔터 두 번) = 본문 행간 × 값. 0.5 = 행간의 50%, 1 = 빈 줄 한 행 */
+  --t-body-para-gap: .75; /* 문단 ↔ 문단 (엔터 두 번) = 본문 행간 × 값. 0.5 = 행간의 50%, 1 = 빈 줄 한 행 */
 
   /* body (한글) — 본문 안의 한글 구간. Pretendard. 행간은 영문과 공유 */
   --t-body-ko-scale: 0.85; /* 영문 폰트 대비 배율 (R6: 20pt / 22pt) */
