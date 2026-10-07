@@ -43,6 +43,10 @@ a {
   color: inherit;
   text-decoration: none;
 }
+::selection {
+  background: var(--selection-bg); /* 드래그 선택 영역 — 브랜드 네온 */
+  color: var(--selection-fg);
+}
 button {
   font: inherit;
   color: inherit;
