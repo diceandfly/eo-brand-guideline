@@ -128,7 +128,7 @@ button {
   margin-top: 0;
 }
 .t-body strong {
-  font-weight: var(--t-ui-w-strong);
+  font-weight: var(--t-body-w-strong);
 }
 .t-body a {
   text-decoration: underline;
@@ -232,7 +232,7 @@ button {
 }
 .logo__text {
   font-family: var(--font-en);
-  font-weight: var(--t-ui-w-strong);
+  font-weight: var(--nav-w-logo-text);
   font-size: var(--nav-logo-h);
   line-height: 1;
   letter-spacing: -0.02em;
@@ -552,7 +552,7 @@ button {
   border: var(--border-w) solid var(--border);
 }
 .swatch__name {
-  font-weight: var(--t-ui-w-strong);
+  font-weight: var(--t-ui-w-swatch);
 }
 .swatch__specs {
   list-style: none;

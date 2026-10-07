@@ -153,6 +153,7 @@
   --t-body-p: 1.5;
   --t-body-ls: -0em;
   --t-body-w: 300;
+  --t-body-w-strong: 500; /* 본문 **굵게** */
   --t-body-c: var(--fg);
 
   /* body (한글) — 본문 안의 한글 구간. Pretendard. 행간은 영문과 공유 */
@@ -162,18 +163,20 @@
   --t-body-ko-baseline: 0.02em; /* 베이스라인 보정, 양수 = 위로 (R6: +5pt) */
   --t-body-ko-break: keep-all; /* 줄바꿈 단위. keep-all = 어절, normal = 글자 */
 
-  /* ui — 목차, 버튼, 스와치 이름 */
+  /* ui — 목차, 검색창, 스와치 이름. 크기·자간·색은 공통, 웨이트는 아래 용도별로 */
   --t-ui-m: 2;
   --t-ui-p: 1.5;
   --t-ui-ls: -0.01em;
-  --t-ui-w: 300;
-  --t-ui-w-strong: 500; /* 스와치 이름, 본문 굵게 */
   --t-ui-c: var(--fg);
-  /* 목차 위계별 웨이트 */
+  --t-ui-w: 300; /* 검색창, 검색 결과 */
+  --t-ui-w-swatch: 500; /* 스와치 이름 */
+
+  /* ui · 목차 — 위계별 웨이트 */
   --nav-w-chapter: 500; /* 01 Logo */
   --nav-w-sub: 400; /* 서브챕터 = 페이지 타이틀 */
   --nav-w-section: 300; /* 섹션 */
   --nav-w-active: 500; /* 활성 항목 (챕터·서브챕터·섹션 공통) */
+  --nav-w-logo-text: 500; /* 로고 SVG 가 없을 때 뜨는 "EO" 글자 */
 
   /* label — NEXT, 스펙, 플레이스홀더. 모노 */
   --t-label-m: 1;
