@@ -65,7 +65,11 @@ const index = buildSearchIndex(guide);
       list.innerHTML = hits.length
         ? hits.map(({ e, n }) => {
             const crumb = `${e.c} / ${e.s} / ${e.h}`;
-            const quote = n === 1 ? snippet(e.b, q) : mark(e.t, q);
+            // 인용 줄: 검색어가 들어 있는 쪽을 보여 줌 (서브헤드 → 헤드 → 서브챕터 이름 → 본문 발췌)
+            const quote = e.t.toLowerCase().includes(q) ? mark(e.t, q)
+              : e.h.toLowerCase().includes(q) ? mark(e.h, q)
+              : n === 2 ? mark(e.t, q)
+              : snippet(e.b, q);
             return `<li class="search__item"><a href="${e.u}" title="${esc(e.t)} — ${esc(crumb)}">`
               + `<span class="search__quote">${quote}</span>`
               + `<span class="search__crumb t-label">${mark(crumb, q)}</span></a></li>`;
