@@ -60,6 +60,15 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   text-transform: uppercase;
 }
 
+/* 본문 안의 한글 구간 — 빌드 시 <span class="ko"> 로 자동 래핑됨 (src/lib/guide.ts wrapKo) */
+.t-body .ko {
+  font-family: var(--font-ko);
+  font-size: calc(1em * var(--t-body-ko-scale));
+  letter-spacing: var(--t-body-ko-ls);
+  font-weight: var(--t-body-ko-w);
+  vertical-align: var(--t-body-ko-baseline);
+}
+
 /* 본문(마크다운) 내부 요소 */
 .t-body p + p,
 .t-body p + ul, .t-body p + ol,

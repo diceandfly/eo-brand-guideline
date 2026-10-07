@@ -15,7 +15,7 @@ export interface ImageItem {
   token: string;          // 예: logo/construction
   src: string | null;     // public/assets 에 파일이 있으면 /assets/… 경로, 없으면 null(플레이스홀더)
   badge?: 'do' | 'dont';
-  caption?: string;
+  caption?: string;       // HTML. 한글 구간은 <span class="ko"> 로 래핑됨
 }
 export interface SwatchItem {
   kind: 'swatch';
@@ -101,9 +101,24 @@ function pickLayout(explicit: string | undefined, items: Item[]): Layout {
   return 'grid-4';
 }
 
+/**
+ * 한글 구간을 <span class="ko"> 로 감쌉니다. 한글로 시작하고 끝나는 최대 구간이며,
+ * 사이의 공백과 문장부호(. , · : ; ! ? 따옴표 괄호)는 구간에 포함되고 라틴 문자·숫자에서 끊깁니다.
+ * CSS 의 .t-body .ko 가 한글만 따로 크기·자간·웨이트·베이스라인을 보정합니다.
+ */
+const KO_RUN = /[가-힣ㄱ-ㅎㅏ-ㅣ](?:[가-힣ㄱ-ㅎㅏ-ㅣ\s.,·:;!?'"‘’“”()~…]*[가-힣ㄱ-ㅎㅏ-ㅣ.,·:;!?’”)…])?/g;
+export function wrapKo(html: string): string {
+  return html
+    .split(/(<[^>]+>)/)                         // 태그와 텍스트 분리
+    .map(seg => seg.startsWith('<') ? seg : seg.replace(KO_RUN, m => `<span class="ko">${m}</span>`))
+    .join('');
+}
+
+const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
 function md(src: string): string {
   const s = src.trim();
-  return s ? (marked.parse(s, { async: false, gfm: true, breaks: false }) as string) : '';
+  return s ? wrapKo(marked.parse(s, { async: false, gfm: true, breaks: false }) as string) : '';
 }
 
 export function loadGuide(): Guide {
@@ -186,7 +201,7 @@ export function loadGuide(): Guide {
       const token = m[1].trim();
       const item: ImageItem = { kind: 'image', token, src: resolveAsset(token) };
       if (m[2]) item.badge = m[2] as 'do' | 'dont';
-      if (m[3].trim()) item.caption = m[3].trim();
+      if (m[3].trim()) item.caption = wrapKo(escapeHtml(m[3].trim()));   // HTML (한글 구간 래핑됨)
       section.items.push(item);
       continue;
     }

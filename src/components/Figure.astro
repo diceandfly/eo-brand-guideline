@@ -13,7 +13,7 @@ const ratioLabel = ratio.replace(/\s/g, '').replace('var(--ratio-', '').replace(
 <figure class="fig" style={`--ratio: ${ratio}`}>
   <div class="fig__frame">
     {item.src
-      ? <img src={item.src} alt={item.caption ?? item.token} loading="lazy" />
+      ? <img src={item.src} alt={item.caption ? item.caption.replace(/<[^>]+>/g, '') : item.token} loading="lazy" />
       : <div class="fig__placeholder t-label">
           <span>assets/{item.token}</span>
           <span>{ratioLabel}</span>
@@ -26,5 +26,5 @@ const ratioLabel = ratio.replace(/\s/g, '').replace('var(--ratio-', '').replace(
       </span>
     )}
   </div>
-  {item.caption && <figcaption class="fig__caption t-body">{item.caption}</figcaption>}
+  {item.caption && <figcaption class="fig__caption t-body" set:html={item.caption} />}
 </figure>

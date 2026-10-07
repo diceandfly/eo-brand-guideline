@@ -20,12 +20,12 @@
   /* ------------------------------------------------------------------
      1. LAYOUT
      ------------------------------------------------------------------ */
-  --sidebar-w: 286px;          /* PC 목차 폭 (레퍼런스 286px) */
+  --sidebar-w: 320px;          /* PC 목차 폭 (레퍼런스 286px) */
   --topbar-h: 56px;            /* 모바일 상단 로고바 높이 */
 
-  --page-margin: 40px;         /* 본문 영역 좌우 마진 (PC) */
+  --page-margin: 160px;         /* 본문 영역 좌우 마진 (PC) */
   --page-margin-m: 20px;       /* 본문 영역 좌우 마진 (모바일) */
-  --gutter: 24px;              /* 12컬럼 거터 (PC) */
+  --gutter: 20px;              /* 12컬럼 거터 (PC) */
   --gutter-m: 16px;            /* 12컬럼 거터 (모바일) */
   --cols: 12;
   --content-max: 1320px;       /* 본문 그리드 최대 폭. 화면이 더 넓으면 남는 폭을 양쪽 마진에 균등 분배.
@@ -69,7 +69,7 @@
        폰트 사이즈 = 행간 ÷ p
      p(행간÷폰트)와 ls(자간)를 조절해 각 레벨의 회색도를 튜닝합니다.
      ------------------------------------------------------------------ */
-  --lh-unit: 13px;   /* 기준 행간 단위. 이 값 하나로 모든 레벨이 함께 커지고 작아집니다. */
+  --lh-unit: 14px;   /* 기준 행간 단위. 이 값 하나로 모든 레벨이 함께 커지고 작아집니다. */
 
   --font-en:   "Founders Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-ko:   "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", sans-serif;
@@ -91,8 +91,15 @@
   /* heading — 섹션 헤드, 서브헤드, 다음 버튼 타이틀. 행간 39, 폰트 29 */
   --t-heading-m: 3;     --t-heading-p: 1.33;  --t-heading-ls: -0.015em; --t-heading-w: 500;
   --t-subhead-w: 300;   /* 서브헤드는 heading 사이즈에 웨이트만 변형 */
-  /* body — 본문, 카드 캡션. 행간 26, 폰트 17.3 */
+  /* body (영문) — 본문, 카드 캡션. Founders Grotesk. 행간 26, 폰트 17.3 */
   --t-body-m: 2;        --t-body-p: 1.5;      --t-body-ls: -0.01em;     --t-body-w: 300;
+  /* body (한글) — 본문 안의 한글 구간. Pretendard.
+     행간은 영문과 공유하고, 글자 크기·자간·웨이트·베이스라인만 따로 보정합니다.
+     R6 기준 조합: KR 20pt / EN 22pt (scale 0.91), 자간 -6%, 베이스라인 +5pt */
+  --t-body-ko-scale: 0.91;      /* 영문 폰트 사이즈 대비 배율 */
+  --t-body-ko-ls: -0.03em;      /* 한글 자간 */
+  --t-body-ko-w: 300;           /* 한글 웨이트 (Pretendard 100–900) */
+  --t-body-ko-baseline: 0.02em; /* 베이스라인 보정. 양수 = 위로 */
   /* ui — 목차, 버튼, 스와치 이름. 행간 19.5, 폰트 16 */
   --t-ui-m: 1.5;        --t-ui-p: 1.2;        --t-ui-ls: -0.01em;       --t-ui-w: 400;
   --t-ui-w-strong: 500; /* 목차 챕터·활성 항목 */
