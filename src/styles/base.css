@@ -255,7 +255,7 @@ button {
   display: flex;
   gap: 0.6em;
   align-items: baseline;
-  font-weight: var(--t-ui-w-strong);
+  font-weight: var(--nav-w-chapter);
   color: var(--nav-fg);
   transition: color var(--dur) var(--ease);
 }
@@ -279,6 +279,7 @@ button {
 }
 .nav__sub-link {
   display: block;
+  font-weight: var(--nav-w-sub);
   color: var(--nav-fg);
   transition: color var(--dur) var(--ease);
 }
@@ -287,7 +288,7 @@ button {
   color: var(--nav-fg-active);
 }
 .nav__sub.is-active > .nav__sub-link {
-  font-weight: var(--t-ui-w-strong);
+  font-weight: var(--nav-w-active);
 }
 .nav__sections {
   list-style: none;
@@ -298,6 +299,7 @@ button {
 }
 .nav__section-link {
   display: block;
+  font-weight: var(--nav-w-section);
   color: var(--nav-fg);
   transition: color var(--dur) var(--ease);
 }
