@@ -19,8 +19,8 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (영어판)
     → public/assets/logo/construction.svg (또는 .png .jpg .webp) 를 찾아 넣습니다.
     → 파일이 아직 없으면 경로와 비율이 적힌 플레이스홀더 박스가 나옵니다.
   ![logo/dont-stretch]{dont} Don't stretch the logo
-    → {do} 또는 {dont} 를 붙이면 좌상단에 배지가 생깁니다.
-    → 뒤에 글을 쓰면 이미지 아래 캡션이 붙습니다 (= 카드).
+    → {do} 또는 {dont} 를 붙이면 캡션 줄 맨 앞에 체크 / 엑스 아이콘이 붙습니다.
+    → 뒤에 글을 쓰면 이미지 아래 캡션이 붙습니다 (= 카드). 배지만 있고 글이 없으면 "Do" / "Don't" 가 기본 문구.
 
 ■ 스와치 (컬러 스펙 카드)
   [swatch] Builder Neon | #F9EE3A | R249 G238 B58 | C5 M0 Y95 K0 | PANTONE 3945 C

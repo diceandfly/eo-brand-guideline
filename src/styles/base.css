@@ -511,21 +511,23 @@ button {
   opacity: 0.6;
 }
 .fig__caption {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--badge-gap);
 }
 .fig__badge {
-  position: absolute;
-  top: var(--badge-inset);
-  left: var(--badge-inset);
+  flex: none;
   width: var(--badge-size);
   height: var(--badge-size);
-  border-radius: 50%;
+  margin-top: calc((var(--lh-unit) * var(--t-body-m) - var(--badge-size)) / 2); /* 캡션 첫 줄과 세로 중앙 맞춤 */
+  border-radius: var(--badge-radius);
   display: grid;
   place-items: center;
   color: var(--badge-fg);
 }
 .fig__badge svg {
-  width: 55%;
-  height: 55%;
+  width: var(--badge-icon);
+  height: var(--badge-icon);
 }
 .fig__badge--do {
   background: var(--c-do);
