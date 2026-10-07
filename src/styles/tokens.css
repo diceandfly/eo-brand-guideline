@@ -43,12 +43,12 @@
   --search-gap: 32px; /* 검색창 ↔ 첫 챕터 */
   --nav-chapter-gap: 0px; /* 챕터 ↔ 챕터 */
   --nav-sub-pad-top: 0px; /* 챕터 ↔ 첫 서브챕터 */
-  --nav-sub-pad-bottom: 0px; /* 마지막 서브챕터 ↔ 다음 챕터 (펼쳐진 묶음의 아래 여백) */
   --nav-item-gap: 0px; /* 서브챕터 ↔ 서브챕터, 섹션 ↔ 섹션 */
   --nav-indent: 16px; /* 위계당 들여쓰기 (서브챕터, 섹션) */
   --nav-sections-indent: 16px; /* 섹션 들여쓰기 (서브챕터 기준). 서브챕터보다 더 밀어 넣으려면 키움 */
   --nav-sections-pad-top: 0px; /* 활성 서브챕터 ↔ 첫 섹션 */
   --nav-sections-pad-bottom: 0px; /* 마지막 섹션 ↔ 다음 서브챕터 */
+  --nav-sub-pad-bottom: 0px; /* 마지막 서브챕터(와 그 섹션 묶음) ↔ 다음 챕터 */
 
   /* 1-2 목차 (검색창) */
   --search-h: 36px; /* 검색창 높이 */
