@@ -45,7 +45,7 @@
   --search-results-max: 8; /* 검색 결과 최대 개수 */
   --search-results-offset: 4px; /* 검색창 ↔ 결과 패널 */
   --search-result-pad-y: 8px; /* 결과 한 행의 상하 패딩 */
-  --search-result-gap: 2px; /* 결과 제목 ↔ 경로 줄 */
+  --search-result-gap: 2px; /* 결과 인용 줄 ↔ 경로 줄 */
   --search-gap: 32px; /* 검색창 ↔ 첫 챕터 */
   --nav-chapter-gap: 0px; /* 챕터 ↔ 챕터 */
   --nav-sub-pad-top: 0px; /* 챕터 ↔ 첫 서브챕터 */
@@ -179,9 +179,8 @@
 
   /* ui · 검색 — 입력창과 결과는 ui 레벨 크기를 쓰되 아래로 조정. 결과의 경로 줄은 label 레벨(모노) */
   --search-input-w: 300; /* 입력 글자 웨이트 */
-  --search-result-w: 400; /* 결과 제목 웨이트 */
-  --search-result-scale: 1; /* 결과 제목·발췌 크기·행간 = ui 레벨 × 배율 */
-  --search-snippet-w: 300; /* 본문 발췌 줄 웨이트 (본문에서 걸린 결과에만 표시) */
+  --search-result-w: 400; /* 결과 인용 줄 웨이트 (섹션 제목이든 본문 발췌든 동일) */
+  --search-result-scale: 1; /* 결과 인용 줄 크기·행간 = ui 레벨 × 배율 */
   --search-match-w: 500; /* 결과 안 검색어 강조 웨이트 */
 
   /* ui · 목차 — 위계별 웨이트 */
@@ -245,7 +244,6 @@
   --search-placeholder: var(--nav-fg);
   --search-result-bg: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 6%);
   --search-result-hover: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 14%);
-  --search-snippet-fg: var(--nav-fg); /* 본문 발췌 줄 글자색 */
   --search-match: var(--c-builder-neon); /* 결과 안 검색어 강조색 */
 
   /* 3-6 다음 버튼 (목차와 같은 느낌: 기본 그레이 → 호버 화이트) */

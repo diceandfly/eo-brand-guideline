@@ -41,16 +41,19 @@ const index = buildSearchIndex(guide);
       const re = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
       return esc(text).replace(re, m => `<mark class="search__mark">${m}</mark>`);
     };
-    // 본문에서 걸린 경우: 검색어 앞 BEFORE 글자부터 한 줄 발췌. 넘치는 부분은 CSS 가 … 처리
-    const BEFORE = 36;
+    // 본문에서 걸린 경우: 검색어 몇 글자 앞(단어 경계)부터 한 줄 발췌. 넘치는 부분은 CSS 가 … 처리.
+    // 패널이 좁으므로 검색어가 첫 줄 안에 보이도록 앞 여유를 짧게 둡니다.
+    const BEFORE = 14;
     const snippet = (b: string, q: string) => {
       const i = b.toLowerCase().indexOf(q);
       if (i < 0) return '';
       let start = Math.max(0, i - BEFORE);
-      if (start > 0) { const sp = b.lastIndexOf(' ', start); if (sp > 0 && start - sp < 12) start = sp + 1; } // 단어 경계에서 시작
+      if (start > 0) { const sp = b.lastIndexOf(' ', start); if (sp > 0 && start - sp < 10) start = sp + 1; }
       return (start > 0 ? '…' : '') + mark(b.slice(start, start + 160), q);
     };
 
+    // 아이템 = 두 줄. 윗줄: 인용 텍스트(제목에서 걸리면 제목, 본문에서 걸리면 본문 발췌) 한 줄 말줄임.
+    //               아랫줄: 경로(챕터 / 서브챕터 / 섹션 헤드), 줄바꿈 허용. 검색어는 어디든 강조.
     const render = () => {
       const q = input.value.trim().toLowerCase();
       if (!q) { list.innerHTML = ''; open(false); return; }
@@ -62,10 +65,9 @@ const index = buildSearchIndex(guide);
       list.innerHTML = hits.length
         ? hits.map(({ e, n }) => {
             const crumb = `${e.c} / ${e.s} / ${e.h}`;
-            const snip = n === 1 ? snippet(e.b, q) : '';   // 제목에서 걸렸으면 발췌 생략
+            const quote = n === 1 ? snippet(e.b, q) : mark(e.t, q);
             return `<li class="search__item"><a href="${e.u}" title="${esc(e.t)} — ${esc(crumb)}">`
-              + `<span class="search__title">${mark(e.t, q)}</span>`
-              + (snip ? `<span class="search__snippet">${snip}</span>` : '')
+              + `<span class="search__quote">${quote}</span>`
               + `<span class="search__crumb t-label">${mark(crumb, q)}</span></a></li>`;
           }).join('')
         : `<li class="search__empty">No results</li>`;

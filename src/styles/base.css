@@ -377,22 +377,16 @@ button {
 .search__item.is-active a {
   background: var(--search-result-hover);
 }
-.search__title,
-.search__snippet,
-.search__crumb {
+.search__quote {
   display: block;
-  white-space: nowrap; /* 한 줄로만, 넘치면 … */
+  white-space: nowrap; /* 인용 텍스트는 한 줄로만, 넘치면 … */
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.search__snippet {
-  margin-top: var(--search-result-gap);
-  font-weight: var(--search-snippet-w);
-  color: var(--search-snippet-fg);
-}
 .search__crumb {
+  display: block;
   margin-top: var(--search-result-gap);
-  text-transform: none;
+  text-transform: none; /* 경로는 줄바꿈 허용 */
 }
 .search__mark {
   background: none;
