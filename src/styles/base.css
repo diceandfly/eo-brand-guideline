@@ -294,7 +294,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: var(--nav-item-gap);
-  padding: calc(var(--nav-item-gap) * 2) 0 calc(var(--nav-item-gap) * 2) var(--nav-indent);
+  padding: var(--nav-sections-pad-top) 0 var(--nav-sections-pad-bottom) var(--nav-sections-indent);
 }
 .nav__section-link {
   display: block;
