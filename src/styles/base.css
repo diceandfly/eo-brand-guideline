@@ -520,20 +520,16 @@ button {
   width: var(--badge-size);
   height: var(--badge-size);
   margin-top: calc((var(--lh-unit) * var(--t-body-m) - var(--badge-size)) / 2); /* 캡션 첫 줄과 세로 중앙 맞춤 */
-  border-radius: var(--badge-radius);
-  display: grid;
-  place-items: center;
-  color: var(--badge-fg);
 }
 .fig__badge svg {
-  width: var(--badge-icon);
-  height: var(--badge-icon);
+  width: 100%;
+  height: 100%;
 }
 .fig__badge--do {
-  background: var(--c-do);
+  color: var(--c-do);
 }
 .fig__badge--dont {
-  background: var(--c-dont);
+  color: var(--c-dont);
 }
 
 .swatch {
@@ -579,8 +575,8 @@ button {
 }
 .next__arrow {
   display: inline-block; /* 타이틀의 마지막 단어 바로 오른쪽에 붙음 (앞에 줄바꿈 없는 공백) */
-  width: 1em; /* 타이틀 글자 크기와 동일 */
-  height: 1em;
+  width: var(--next-arrow-size);
+  height: var(--next-arrow-size);
   margin-left: var(--next-arrow-gap);
-  vertical-align: -0.1em;
+  vertical-align: var(--next-arrow-shift);
 }
