@@ -55,7 +55,7 @@
   --nav-sections-pad-bottom: 0px; /* 마지막 섹션 ↔ 다음 서브챕터 */
 
   /* 1-3 본문 그리드 */
-  --page-margin: 120px; /* 본문 영역 좌우 마진 */
+  --page-margin: 144px; /* 본문 영역 좌우 마진 */
   --page-margin-m: 20px;
   --gutter: 20px; /* 컬럼 거터 */
   --gutter-m: 20px;
