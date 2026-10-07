@@ -169,11 +169,11 @@
   --t-ui-w: 300;
   --t-ui-w-strong: 500; /* 스와치 이름, 본문 굵게 */
   --t-ui-c: var(--fg);
-  /* 목차 위계별 웨이트. 활성 항목은 색(--nav-fg-active)으로 구분하고 웨이트는 그대로 둡니다 */
+  /* 목차 위계별 웨이트 */
   --nav-w-chapter: 500; /* 01 Logo */
   --nav-w-sub: 400; /* 서브챕터 = 페이지 타이틀 */
   --nav-w-section: 300; /* 섹션 */
-  --nav-w-active: var(--nav-w-sub); /* 활성 서브챕터. 더 굵게 하려면 500 */
+  --nav-w-active: 500; /* 활성 항목 (챕터·서브챕터·섹션 공통) */
 
   /* label — NEXT, 스펙, 플레이스홀더. 모노 */
   --t-label-m: 1;

@@ -263,6 +263,9 @@ button {
 .nav__chapter.is-active > .nav__chapter-link {
   color: var(--nav-fg-active);
 }
+.nav__chapter.is-active > .nav__chapter-link {
+  font-weight: var(--nav-w-active);
+}
 .nav__num {
   font-family: var(--font-mono);
   font-weight: var(--t-label-w);
@@ -306,6 +309,9 @@ button {
 .nav__section-link:hover,
 .nav__section-link.is-active {
   color: var(--nav-fg-active);
+}
+.nav__section-link.is-active {
+  font-weight: var(--nav-w-active); /* 스크롤스파이 도입 시 활성 섹션 */
 }
 
 /* ---------------------------------------------------------------------
