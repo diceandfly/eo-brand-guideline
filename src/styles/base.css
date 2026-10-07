@@ -38,7 +38,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 .t-subhead { font-weight: var(--t-subhead-w); }
 .t-body {
-  font-family: var(--font-en);
+  font-family: var(--font-body);
   font-weight: var(--t-body-w);
   line-height: calc(var(--lh-unit) * var(--t-body-m));
   font-size: calc(var(--lh-unit) * var(--t-body-m) / var(--t-body-p));

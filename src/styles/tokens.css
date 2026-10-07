@@ -68,9 +68,12 @@
        폰트 사이즈 = 행간 ÷ p
      p(행간÷폰트)와 ls(자간)를 조절해 각 레벨의 회색도를 튜닝합니다.
      ------------------------------------------------------------------ */
-  --lh-unit: 12px;
+  --lh-unit: 13px;   /* 기준 행간 단위. 이 값 하나로 모든 레벨이 함께 커지고 작아집니다. */
 
-  --font-en: "Founders Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-en:   "Founders Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-ko:   "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", sans-serif;
+  /* body 전용 스택: 라틴은 Founders Grotesk, 한글은 Pretendard 로 글리프 단위 폴백 */
+  --font-body: "Founders Grotesk", "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", sans-serif;
   --font-mono: "Founders Grotesk Mono", "SF Mono", Menlo, Consolas, monospace;
 
   /* 브랜드 타입 스케일(R6)과의 대응
@@ -79,19 +82,20 @@
        Sub-head 2x / 133%  / -1.5% → heading
        Body   1.5x / 150%  / -1%   → body
        Caption 0.5x / 125% / 0     → label (모노)
-     배수(m)는 웹 기준 행간 단위 12px 에 맞춰 환산했고, p·ls 는 브랜드 값을 그대로 가져왔습니다. */
+     배수(m)는 웹 기준 행간 단위에 맞춰 환산했고, p·ls 는 브랜드 값을 그대로 가져왔습니다.
+     아래 주석의 px 값은 lh-unit 13px 기준 계산값입니다. */
 
-  /* display — 페이지(서브챕터) 타이틀. 행간 84, 폰트 96 */
+  /* display — 페이지(서브챕터) 타이틀. 행간 91, 폰트 104 */
   --t-display-m: 7;     --t-display-p: 0.875; --t-display-ls: -0.03em;  --t-display-w: 500;
-  /* heading — 섹션 헤드, 서브헤드, 다음 버튼 타이틀. 행간 36, 폰트 27 */
+  /* heading — 섹션 헤드, 서브헤드, 다음 버튼 타이틀. 행간 39, 폰트 29 */
   --t-heading-m: 3;     --t-heading-p: 1.33;  --t-heading-ls: -0.015em; --t-heading-w: 500;
   --t-subhead-w: 300;   /* 서브헤드는 heading 사이즈에 웨이트만 변형 */
-  /* body — 본문, 카드 캡션. 행간 24, 폰트 16 */
+  /* body — 본문, 카드 캡션. 행간 26, 폰트 17.3 */
   --t-body-m: 2;        --t-body-p: 1.5;      --t-body-ls: -0.01em;     --t-body-w: 300;
-  /* ui — 목차, 버튼, 스와치 이름. 행간 18, 폰트 15 */
+  /* ui — 목차, 버튼, 스와치 이름. 행간 19.5, 폰트 16 */
   --t-ui-m: 1.5;        --t-ui-p: 1.2;        --t-ui-ls: -0.01em;       --t-ui-w: 400;
   --t-ui-w-strong: 500; /* 목차 챕터·활성 항목 */
-  /* label — 챕터 번호 라벨, NEXT, 스펙, 플레이스홀더 (모노). 행간 15, 폰트 12 */
+  /* label — 챕터 번호 라벨, NEXT, 스펙, 플레이스홀더 (모노). 행간 16, 폰트 13 */
   --t-label-m: 1.25;    --t-label-p: 1.25;    --t-label-ls: 0;          --t-label-w: 400;
 
   /* ------------------------------------------------------------------
