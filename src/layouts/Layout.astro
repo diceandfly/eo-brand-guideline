@@ -4,13 +4,13 @@ import '../styles/fonts.css';
 import '../styles/base.css';
 import Sidebar from '../components/Sidebar.astro';
 import Logo from '../components/Logo.astro';
-import type { Guide, Sub } from '../lib/guide';
+import { LANG, type Guide, type Sub } from '../lib/guide';
 
 interface Props { guide: Guide; current?: Sub; title: string; }
 const { guide, current, title } = Astro.props;
 ---
 <!doctype html>
-<html lang="ko">
+<html lang={LANG}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

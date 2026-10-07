@@ -1,20 +1,22 @@
 # 파일 관리 튜토리얼
 
-이 사이트를 편집할 때 손대는 파일은 세 종류뿐입니다. 글은 `content/guide.md`, 이미지는 `public/assets/`, 디자인 수치는 `src/styles/tokens.css`.
+이 사이트를 편집할 때 손대는 파일은 세 종류뿐입니다. 글은 `content/guide.en.md`(영어판)와 `content/guide.ko.md`(한국어판), 이미지는 `public/assets/`, 디자인 수치는 `src/styles/tokens.css`.
 
 ## 1. 실행
 
 ```bash
 npm install
-npm run dev
+npm run dev        # 영어판 (guide.en.md)
+npm run dev:ko     # 한국어판 (guide.ko.md)
 ```
 
-브라우저에서 http://localhost:4321 을 엽니다. 파일을 저장하면 바로 반영됩니다. 정적 파일로 빌드하려면 `npm run build` (결과물은 `dist/`).
+브라우저에서 http://localhost:4321 을 엽니다. 두 언어판은 파일이 따로 있어 서로 영향을 주지 않으며, 실행 명령만 바꾸면 바로 교체됩니다. 파일을 저장하면 바로 반영됩니다. 정적 파일로 빌드하려면 `npm run build` (결과물은 `dist/`).
 
 ## 2. 폴더 구조
 
 ```
-content/guide.md          ← 모든 글과 이미지 배치 (문법은 파일 상단 주석)
+content/guide.en.md       ← 영어판. 모든 글과 이미지 배치 (문법은 파일 상단 주석)
+content/guide.ko.md       ← 한국어판. 같은 문법
 public/assets/<챕터>/     ← 이미지. guide.md 의 ![토큰] 과 1:1 대응
 public/fonts/             ← Founders Grotesk woff2 (저장소에 커밋되지 않음)
 src/styles/tokens.css     ← 마진·거터·타이포·컬러·비율 토큰. 디자인 튜닝은 여기서만
@@ -63,7 +65,7 @@ docs/                     ← 이 문서
 
 ## 6. 글 편집
 
-문법은 `content/guide.md` 맨 위 주석에 전부 있습니다. 요약하면 `#` 챕터, `##` 서브챕터(=페이지), `###` 섹션 헤드, `####` 서브헤드, `![토큰]` 이미지, `[swatch]` 컬러 카드입니다. 섹션의 레이아웃은 이미지 개수로 자동 결정되고, 헤드 뒤 `{layout=… ratio=…}` 로 직접 지정할 수 있습니다.
+문법은 `content/guide.en.md` 맨 위 주석에 전부 있습니다. 요약하면 `#` 챕터, `##` 서브챕터(=페이지), `###` 섹션 헤드, `####` 서브헤드, `![토큰]` 이미지, `[swatch]` 컬러 카드입니다. 섹션의 레이아웃은 이미지 개수로 자동 결정되고, 헤드 뒤 `{layout=… ratio=…}` 로 직접 지정할 수 있습니다.
 
 ## 7. 클로드코드로 편집할 때
 

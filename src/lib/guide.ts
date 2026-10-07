@@ -57,7 +57,9 @@ export interface Chapter {
 export interface Guide { chapters: Chapter[]; }
 
 const ROOT = process.cwd();
-const CONTENT = path.join(ROOT, 'content', 'guide.md');
+/** 콘텐츠 언어. GUIDE_LANG=ko|en (기본 en). content/guide.<lang>.md 를 읽습니다. */
+export const LANG = (process.env.GUIDE_LANG || 'en').toLowerCase();
+const CONTENT = path.join(ROOT, 'content', `guide.${LANG}.md`);
 const ASSETS = path.join(ROOT, 'public', 'assets');
 const EXTS = ['svg', 'png', 'jpg', 'jpeg', 'webp', 'gif', 'avif'];
 
