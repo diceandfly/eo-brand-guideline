@@ -21,17 +21,16 @@ const index = buildSearchIndex(guide);
     const input = form.querySelector<HTMLInputElement>('[data-search-input]')!;
     const list = form.querySelector<HTMLUListElement>('[data-search-results]')!;
     const index: Entry[] = JSON.parse(form.querySelector('[data-search-index]')!.textContent || '[]');
-    const max = Number(getComputedStyle(document.documentElement).getPropertyValue('--search-results-max')) || 8;
     let active = -1;
 
     const open = (v: boolean) => { form.classList.toggle('is-open', v); if (!v) active = -1; };
 
-    // 어디에서 걸렸는지: 3 제목(헤드·서브헤드) > 2 서브챕터 이름 > 1 본문
+    // 어디에서 걸렸는지: 3 제목(헤드·서브헤드) > 2 본문 > 1 서브챕터·챕터 이름만
     const score = (e: Entry, q: string) => {
-      const h = `${e.h} ${e.t}`.toLowerCase(), s = e.s.toLowerCase(), b = e.b.toLowerCase();
+      const h = `${e.h} ${e.t}`.toLowerCase(), s = `${e.c} ${e.s}`.toLowerCase(), b = e.b.toLowerCase();
       if (h.includes(q)) return 3;
-      if (s.includes(q)) return 2;
-      if (b.includes(q)) return 1;
+      if (b.includes(q)) return 2;
+      if (s.includes(q)) return 1;
       return 0;
     };
 
@@ -60,14 +59,14 @@ const index = buildSearchIndex(guide);
       const hits = index
         .map(e => ({ e, n: score(e, q) }))
         .filter(x => x.n > 0)
-        .sort((a, b) => b.n - a.n)
-        .slice(0, max);
+        .sort((a, b) => b.n - a.n);   // 개수 제한 없음. 패널이 스크롤됨
       list.innerHTML = hits.length
         ? hits.map(({ e, n }) => {
             const crumb = `${e.c} / ${e.s} / ${e.h}`;
-            // 인용 줄: 제목(헤드·서브헤드)이나 서브챕터 이름에서 걸리면 "헤드 — 서브헤드", 본문에서 걸리면 본문 발췌
+            // 인용 줄: 제목에 검색어가 있으면 "헤드 — 서브헤드"(강조), 본문에 있으면 본문 발췌(강조),
+            //          챕터·서브챕터 이름에만 있으면 제목 그대로 (검색어는 경로에 보임)
             const title = e.t !== e.h ? `${e.h} — ${e.t}` : e.h;
-            const quote = n === 1 ? snippet(e.b, q) : mark(title, q);
+            const quote = n === 3 ? mark(title, q) : n === 2 ? snippet(e.b, q) : esc(title);
             return `<li class="search__item"><a href="${e.u}" title="${esc(e.t)} — ${esc(crumb)}">`
               + `<span class="search__quote">${quote}</span>`
               + `<span class="search__crumb t-label">${esc(crumb)}</span></a></li>`;   // 경로는 강조하지 않음

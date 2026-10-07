@@ -42,7 +42,6 @@
   --nav-logo-gap: 72px; /* 로고 ↔ 검색창 */
   --search-h: 36px; /* 검색창 높이 */
   --search-pad-x: 12px; /* 검색창 내부 좌우 패딩 */
-  --search-results-max: 6; /* 검색 결과 최대 개수 */
   --search-results-offset: 4px; /* 검색창 ↔ 결과 패널 */
   --search-result-pad-y: 8px; /* 결과 한 행의 상하 패딩 */
   --search-result-gap: 2px; /* 결과 인용 줄 ↔ 경로 줄 */
@@ -177,7 +176,7 @@
   --t-ui-w: 300; /* 기본 */
   --t-ui-w-swatch: 500; /* 스와치 이름 */
 
-    /* ui · 목차 — 위계별 웨이트 */
+  /* ui · 목차 — 위계별 웨이트 */
   --nav-w-chapter: 500; /* 01 Logo */
   --nav-w-sub: 400; /* 서브챕터 = 페이지 타이틀 */
   --nav-w-section: 300; /* 섹션 */
