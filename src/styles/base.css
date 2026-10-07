@@ -111,6 +111,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   }
   html.nav-open .sidebar { transform: none; }
   html.nav-open { overflow: hidden; }
+  .nav__logo { display: none; } /* 모바일은 상단 바에 로고가 있으므로 드로어 안에서는 숨김 */
   .main { margin-left: 0; padding-left: var(--page-margin-m); padding-right: var(--page-margin-m); }
 }
 
