@@ -557,20 +557,29 @@ button {
    다음 서브챕터 버튼
    --------------------------------------------------------------------- */
 .next {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gutter);
   margin-top: var(--next-gap);
   padding-top: calc(var(--lh-unit) * 2);
   border-top: var(--border-w) solid var(--border);
+  color: var(--next-fg);
   transition: color var(--dur) var(--ease);
 }
-.next:hover .next__title {
-  color: var(--accent);
+.next:hover {
+  color: var(--next-fg-hover);
 }
-.next__label {
-  display: block;
-  margin-bottom: calc(var(--lh-unit) * 0.5);
-}
+.next__label,
 .next__title {
   display: block;
-  transition: color var(--dur) var(--ease);
+  color: inherit; /* 레벨 색 대신 버튼 상태색을 따름 */
+}
+.next__label {
+  margin-bottom: calc(var(--lh-unit) * 0.5);
+}
+.next__arrow {
+  flex: none;
+  width: var(--next-arrow-size);
+  height: var(--next-arrow-size);
 }

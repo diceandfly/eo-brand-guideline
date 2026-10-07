@@ -32,11 +32,11 @@
      ------------------------------------------------------------------ */
 
   /* 1-1 페이지 셸 */
-  --sidebar-w: 340px; /* PC 목차 폭 */
+  --sidebar-w: 360px; /* PC 목차 폭 */
   --topbar-h: 56px; /* 모바일 상단 로고바 높이 */
 
   /* 1-2 목차 (위 → 아래) */
-  --nav-pad-x: 24px; /* 목차 내부 좌우 패딩 */
+  --nav-pad-x: 32px; /* 목차 내부 좌우 패딩 */
   --nav-pad-y: 56px; /* 목차 내부 상하 패딩 */
   --nav-logo-h: 22px; /* 로고 높이 */
   --nav-logo-gap: 72px; /* 로고 ↔ 검색창 */
@@ -50,7 +50,7 @@
   --nav-indent: 14px; /* 위계당 들여쓰기 (서브챕터, 섹션) */
 
   /* 1-3 본문 그리드 */
-  --page-margin: 80px; /* 본문 영역 좌우 마진 */
+  --page-margin: 120px; /* 본문 영역 좌우 마진 */
   --page-margin-m: 20px;
   --gutter: 20px; /* 컬럼 거터 */
   --gutter-m: 20px;
@@ -69,6 +69,7 @@
   --next-gap-m: 96px;
   --page-pad-bottom: 120px; /* 다음 버튼 ↔ 페이지 바닥 */
   --page-pad-bottom-m: 80px;
+  --next-arrow-size: 28px; /* 다음 버튼 화살표 크기 */
 
   /* 1-5 섹션 내부 */
   --sec-text-cols: 5; /* basic: 텍스트 컬럼 수 (왼쪽부터) */
@@ -189,13 +190,14 @@
        3-3 면·보더    카드, 플레이스홀더, 구분선 (배경과 글자색을 섞어 파생, 퍼센트만 조절)
        3-4 목차      비활성 / 활성
        3-5 검색창
-       3-6 악센트    호버, 강조 */
+       3-6 다음 버튼   기본 / 호버
+       3-7 악센트    강조 */
 
   /* 3-1 배경 */
   --bg: var(--c-solid-gray); /* 본문 영역 */
   --bg-sidebar: var(--c-solid-gray); /* 목차 */
+  --sidebar-border: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 0%); /* 목차 우측 경계선 */
   --bg-topbar: var(--c-space-black); /* 모바일 상단 바 */
-  --sidebar-border: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 12%); /* 목차 우측 경계선 */
 
   /* 3-2 글자 */
   --fg: var(--c-air-white);
@@ -219,8 +221,12 @@
   --search-result-bg: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 6%);
   --search-result-hover: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 14%);
 
-  /* 3-6 악센트 */
-  --accent: var(--c-builder-neon); /* 다음 버튼 호버 등 */
+  /* 3-6 다음 버튼 (목차와 같은 느낌: 기본 그레이 → 호버 화이트) */
+  --next-fg: var(--nav-fg);
+  --next-fg-hover: var(--nav-fg-active);
+
+  /* 3-7 악센트 */
+  --accent: var(--c-builder-neon); /* 강조 */
   --accent-fg: var(--c-space-black); /* 악센트 위 글자색 */
 
   /* UI 전용 — 브랜드 팔레트가 아닙니다. Do / Don't 배지에만 사용. */
