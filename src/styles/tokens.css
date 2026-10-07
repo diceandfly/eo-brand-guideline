@@ -21,7 +21,7 @@
      1. LAYOUT
      ------------------------------------------------------------------ */
   --sidebar-w: 320px; /* PC 목차 폭 (레퍼런스 286px) */
-  --topbar-h: 56px; /* 모바일 상단 로고바 높이 */
+  --topbar-h: 60px; /* 모바일 상단 로고바 높이 */
 
   --page-margin: 40px; /* 본문 영역 좌우 마진 (PC) */
   --page-margin-m: 20px; /* 본문 영역 좌우 마진 (모바일) */
@@ -35,7 +35,7 @@
   --sec-media-cols: 6; /* 기본 섹션: 이미지가 차지하는 컬럼 수 (오른쪽 끝 정렬) */
   --sec-textonly-cols: 12; /* 이미지가 없는 섹션·wide·half 의 텍스트 컬럼 수 */
 
-  --title-pad-top: 72px; /* 페이지 상단 ↔ 타이틀 */
+  --title-pad-top: 120px; /* 페이지 상단 ↔ 타이틀 */
   --title-gap: 96px; /* 타이틀 ↔ 첫 섹션 */
   --section-gap: 120px; /* 섹션 ↔ 섹션 (PC) */
   --section-gap-m: 72px; /* 섹션 ↔ 섹션 (모바일) */
@@ -57,6 +57,8 @@
   --nav-pad-y: 28px; /* 목차 내부 상하 패딩 */
   --nav-logo-h: 20px; /* 목차 상단 로고 높이 */
   --nav-logo-gap: 24px; /* 로고 ↔ 검색창 */
+
+  /* 검색창 (목차 상단) */
   --search-h: 36px; /* 검색창 높이 */
   --search-pad-x: 12px; /* 검색창 내부 좌우 패딩 */
   --search-gap: 32px; /* 검색창 ↔ 첫 챕터 */
@@ -162,12 +164,15 @@
   --border: color-mix(in srgb, var(--bg), var(--c-air-white) 16%);
   --nav-fg: color-mix(in srgb, var(--c-air-white), transparent 35%); /* 목차 비활성 */
   --nav-fg-active: var(--c-air-white);
+
+  /* 검색창 */
   --search-bg: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 10%);
   --search-bg-focus: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 16%);
   --search-fg: var(--c-air-white);
   --search-placeholder: var(--nav-fg);
   --search-result-bg: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 6%);
-  --search-result-hover: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 14%);  --placeholder-fg: color-mix(in srgb, var(--c-air-white), transparent 55%);
+  --search-result-hover: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 14%);
+  --placeholder-fg: color-mix(in srgb, var(--c-air-white), transparent 55%);
 
   /* UI 전용 — 브랜드 팔레트가 아닙니다. Do / Don't 배지에만 사용. */
   --c-do: var(--c-bay-green);
