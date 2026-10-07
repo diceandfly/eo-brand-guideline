@@ -279,7 +279,7 @@ button {
   display: none;
   flex-direction: column;
   gap: var(--nav-item-gap);
-  padding: var(--nav-sub-pad-top) 0 calc(var(--nav-sub-pad-top) * 0.5) var(--nav-indent);
+  padding: var(--nav-sub-pad-top) 0 var(--nav-sub-pad-bottom) var(--nav-indent);
 }
 .nav__chapter.is-active > .nav__subs {
   display: flex;
