@@ -38,8 +38,8 @@
   /* 1-2 목차 (위 → 아래) */
   --nav-pad-x: 32px; /* 목차 내부 좌우 패딩 */
   --nav-pad-y: 56px; /* 목차 내부 상하 패딩 */
-  --nav-logo-h: 22px; /* 로고 높이 */
-  --nav-logo-gap: 72px; /* 로고 ↔ 검색창 */
+  --nav-logo-h: 21px; /* 로고 높이 */
+  --nav-logo-gap: 64px; /* 로고 ↔ 검색창 */
   --search-gap: 32px; /* 검색창 ↔ 첫 챕터 */
   --nav-chapter-gap: 0px; /* 챕터 ↔ 챕터 */
   --nav-sub-pad-top: 0px; /* 챕터 ↔ 첫 서브챕터 */
