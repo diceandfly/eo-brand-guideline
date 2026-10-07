@@ -575,13 +575,10 @@ button {
 .next__label {
   margin-bottom: calc(var(--lh-unit) * 0.5);
 }
-.next__title {
-  display: inline-flex; /* 타이틀 텍스트 바로 오른쪽에 화살표 */
-  align-items: center;
-  gap: var(--next-arrow-gap);
-}
 .next__arrow {
-  flex: none;
+  display: inline-block; /* 타이틀의 마지막 단어 바로 오른쪽에 붙음 (앞에 줄바꿈 없는 공백) */
   width: 1em; /* 타이틀 글자 크기와 동일 */
   height: 1em;
+  margin-left: var(--next-arrow-gap);
+  vertical-align: -0.1em;
 }
