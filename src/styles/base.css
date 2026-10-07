@@ -557,10 +557,7 @@ button {
    다음 서브챕터 버튼
    --------------------------------------------------------------------- */
 .next {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--gutter);
+  display: block;
   margin-top: var(--next-gap);
   padding-top: calc(var(--lh-unit) * 2);
   border-top: var(--border-w) solid var(--border);
@@ -578,8 +575,13 @@ button {
 .next__label {
   margin-bottom: calc(var(--lh-unit) * 0.5);
 }
+.next__title {
+  display: inline-flex; /* 타이틀 텍스트 바로 오른쪽에 화살표 */
+  align-items: center;
+  gap: var(--next-arrow-gap);
+}
 .next__arrow {
   flex: none;
-  width: var(--next-arrow-size);
-  height: var(--next-arrow-size);
+  width: 1em; /* 타이틀 글자 크기와 동일 */
+  height: 1em;
 }

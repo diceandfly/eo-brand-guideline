@@ -69,7 +69,7 @@
   --next-gap-m: 96px;
   --page-pad-bottom: 120px; /* 다음 버튼 ↔ 페이지 바닥 */
   --page-pad-bottom-m: 80px;
-  --next-arrow-size: 28px; /* 다음 버튼 화살표 크기 */
+  --next-arrow-gap: 0.35em; /* 다음 버튼: 타이틀 텍스트 ↔ 화살표 (화살표 크기는 타이틀 글자와 동일) */
 
   /* 1-5 섹션 내부 */
   --sec-text-cols: 5; /* basic: 텍스트 컬럼 수 (왼쪽부터) */
