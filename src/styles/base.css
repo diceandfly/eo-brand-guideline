@@ -236,7 +236,7 @@ button {
 }
 .logo__text {
   font-family: var(--font-en);
-  font-weight: var(--nav-w-logo-text);
+  font-weight: var(--nav-w-chapter); /* 로고 SVG 가 없을 때 뜨는 "EO" 글자. 챕터 웨이트를 따름 */
   font-size: var(--nav-logo-h);
   line-height: 1;
   letter-spacing: -0.02em;
