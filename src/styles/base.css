@@ -271,7 +271,7 @@ button {
 }
 .nav__num {
   font-family: var(--font-mono);
-  font-weight: var(--t-label-w);
+  font-weight: inherit; /* 챕터 글자와 같은 웨이트 (비활성 --nav-w-chapter, 활성 --nav-w-active) */
 }
 .nav__subs {
   list-style: none;

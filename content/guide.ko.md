@@ -75,7 +75,7 @@ Build Anyway.
 
 The EO Brand Team
 
-## Legal Brand Guidelines
+## Legal Brand Guidelines {toc=none}
 
 ### Legal Brand Guidelines
 EO, EO 모노그램, 블록 심벌, “Build Anyway”, “Even the Odds” 및 EO Studio(이오스튜디오)가 소유한 기타 상표(이하 “EO 마크”)와, 로고·그래픽 유닛·패턴·EO의 룩앤필 등 브랜드 고유의 미적 특징(이하 “브랜드 에셋”)은 EO Studio의 독점 자산입니다. 여기에서 허용된 경우를 제외하고 EO 마크나 브랜드 에셋을 사용하려면 EO의 사전 허가가 있어야 합니다.
