@@ -42,7 +42,7 @@
   --nav-logo-gap: 72px; /* 로고 ↔ 검색창 */
   --search-h: 36px; /* 검색창 높이 */
   --search-pad-x: 12px; /* 검색창 내부 좌우 패딩 */
-  --search-results-max: 8; /* 검색 결과 최대 개수 */
+  --search-results-max: 6; /* 검색 결과 최대 개수 */
   --search-results-offset: 4px; /* 검색창 ↔ 결과 패널 */
   --search-result-pad-y: 8px; /* 결과 한 행의 상하 패딩 */
   --search-result-gap: 2px; /* 결과 인용 줄 ↔ 경로 줄 */
@@ -84,7 +84,7 @@
   --sec-text-cols-m: 6;
   --sec-media-cols: 6; /* basic: 이미지 컬럼 수 (오른쪽 끝 정렬). 모바일은 텍스트 아래로 내려감 */
   --sec-media-cols-m: 6;
-  --sec-textonly-cols: 12; /* text / wide / half / grid: 텍스트 컬럼 수 */
+  --sec-textonly-cols: 11; /* text / wide / half / grid: 텍스트 컬럼 수 */
   --sec-textonly-cols-m: 6;
   --grid-n-m: 2; /* 모바일에서 grid-2/3/4 의 열 수 (최대) */
   --head-gap: 48px; /* 헤드(+서브헤드) ↔ 본문 */
@@ -177,23 +177,23 @@
   --t-ui-w: 300; /* 기본 */
   --t-ui-w-swatch: 500; /* 스와치 이름 */
 
-  /* ui · 검색 — 입력창과 결과는 ui 레벨 크기를 쓰되 아래로 조정. 결과의 경로 줄은 label 레벨(모노) */
-  --search-input-w: 300; /* 입력 글자 웨이트 */
-  --search-result-w: 400; /* 결과 인용 줄 웨이트 (섹션 제목이든 본문 발췌든 동일) */
-  --search-result-scale: 1; /* 결과 인용 줄 크기·행간 = ui 레벨 × 배율 */
-  --search-match-w: 500; /* 결과 안 검색어 강조 웨이트 */
-
-  /* ui · 목차 — 위계별 웨이트 */
+    /* ui · 목차 — 위계별 웨이트 */
   --nav-w-chapter: 500; /* 01 Logo */
   --nav-w-sub: 400; /* 서브챕터 = 페이지 타이틀 */
   --nav-w-section: 300; /* 섹션 */
   --nav-w-active: 500; /* 활성 항목 (챕터·서브챕터·섹션 공통) */
   --nav-w-logo-text: 500; /* 로고 SVG 가 없을 때 뜨는 "EO" 글자 */
 
+  /* ui · 검색 — 입력창과 결과는 ui 레벨 크기를 쓰되 아래로 조정. 결과의 경로 줄은 label 레벨(모노) */
+  --search-input-w: 300; /* 입력 글자 웨이트 */
+  --search-result-w: 400; /* 결과 인용 줄 웨이트 (섹션 제목이든 본문 발췌든 동일) */
+  --search-result-scale: 1; /* 결과 인용 줄 크기·행간 = ui 레벨 × 배율 */
+  --search-match-w: 500; /* 결과 안 검색어 강조 웨이트 */
+
   /* label — NEXT, 스펙, 플레이스홀더. 모노 */
-  --t-label-m: 1;
-  --t-label-p: 1;
-  --t-label-ls: 0;
+  --t-label-m: 1.25;
+  --t-label-p: 1.2;
+  --t-label-ls: -0.07em;
   --t-label-w: 400;
   --t-label-c: var(--fg-muted);
 
