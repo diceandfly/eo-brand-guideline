@@ -192,7 +192,7 @@ button {
   background: var(--bg-sidebar);
   border-right: var(--border-w) solid var(--sidebar-border);
   color: var(--nav-fg);
-  padding: var(--nav-pad-y) var(--nav-pad-x);
+  padding: var(--nav-pad-top) var(--nav-pad-right) var(--nav-pad-bottom) var(--nav-pad-left);
   overflow-y: auto;
 }
 .main {
