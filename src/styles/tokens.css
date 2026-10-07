@@ -32,21 +32,21 @@
      ------------------------------------------------------------------ */
 
   /* 1-1 페이지 셸 */
-  --sidebar-w: 360px; /* PC 목차 폭 */
-  --topbar-h: 60px; /* 모바일 상단 로고바 높이 */
+  --sidebar-w: 340px; /* PC 목차 폭 */
+  --topbar-h: 56px; /* 모바일 상단 로고바 높이 */
 
   /* 1-2 목차 (위 → 아래) */
-  --nav-pad-x: 40px; /* 목차 내부 좌우 패딩 */
-  --nav-pad-y: 60px; /* 목차 내부 상하 패딩 */
-  --nav-logo-h: 20px; /* 로고 높이 */
+  --nav-pad-x: 24px; /* 목차 내부 좌우 패딩 */
+  --nav-pad-y: 56px; /* 목차 내부 상하 패딩 */
+  --nav-logo-h: 22px; /* 로고 높이 */
   --nav-logo-gap: 72px; /* 로고 ↔ 검색창 */
   --search-h: 36px; /* 검색창 높이 */
   --search-pad-x: 12px; /* 검색창 내부 좌우 패딩 */
   --search-results-max: 8; /* 검색 결과 최대 개수 */
   --search-gap: 32px; /* 검색창 ↔ 첫 챕터 */
-  --nav-chapter-gap: 10px; /* 챕터 ↔ 챕터 */
+  --nav-chapter-gap: 0px; /* 챕터 ↔ 챕터 */
   --nav-sub-pad-top: 8px; /* 챕터 ↔ 첫 서브챕터 */
-  --nav-item-gap: 4px; /* 서브챕터 ↔ 서브챕터, 섹션 ↔ 섹션 */
+  --nav-item-gap: 0px; /* 서브챕터 ↔ 서브챕터, 섹션 ↔ 섹션 */
   --nav-indent: 14px; /* 위계당 들여쓰기 (서브챕터, 섹션) */
 
   /* 1-3 본문 그리드 */
@@ -59,7 +59,7 @@
   --content-max: 1320px; /* 본문 최대 폭. 더 넓은 화면에서는 남는 폭을 양쪽에 균등 분배. 꽉 채우려면 none */
 
   /* 1-4 페이지 세로 흐름 (위 → 아래) */
-  --title-pad-top: 40px; /* 페이지 상단 ↔ 타이틀 */
+  --title-pad-top: 32px; /* 페이지 상단 ↔ 타이틀 */
   --title-pad-top-m: 24px;
   --title-gap: 96px; /* 타이틀 ↔ 첫 섹션 */
   --title-gap-m: 56px;
@@ -75,11 +75,11 @@
   --sec-text-cols-m: 6;
   --sec-media-cols: 6; /* basic: 이미지 컬럼 수 (오른쪽 끝 정렬). 모바일은 텍스트 아래로 내려감 */
   --sec-media-cols-m: 6;
-  --sec-textonly-cols: 8; /* text / wide / half / grid: 텍스트 컬럼 수 */
+  --sec-textonly-cols: 12; /* text / wide / half / grid: 텍스트 컬럼 수 */
   --sec-textonly-cols-m: 6;
   --grid-n-m: 2; /* 모바일에서 grid-2/3/4 의 열 수 (최대) */
-  --head-gap: 24px; /* 헤드(+서브헤드) ↔ 본문 */
-  --head-gap-m: 16px;
+  --head-gap: 48px; /* 헤드(+서브헤드) ↔ 본문 */
+  --head-gap-m: 24px;
   --para-gap: 1; /* 문단 ↔ 문단 = lh-unit × 값 */
   --sec-row-gap: 40px; /* wide / half / grid / 모바일 basic: 텍스트 ↔ 이미지 세로 간격 */
   --sec-row-gap-m: 24px;
@@ -103,7 +103,7 @@
      p(행간÷폰트)와 ls(자간)를 조절해 각 레벨의 회색도를 튜닝합니다.
      ------------------------------------------------------------------ */
   /* 기준 행간 단위. 이 값 하나로 모든 레벨이 함께 커지고 작아집니다. */
-  --lh-unit: 16px;
+  --lh-unit: 15px;
 
   /* 서체 스택 */
   --font-en: 'Founders Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -128,14 +128,14 @@
 
   /* display — 페이지 타이틀 */
   --t-display-m: 5;
-  --t-display-p: 0.875;
+  --t-display-p: 1;
   --t-display-ls: -0.02em;
   --t-display-w: 500;
   --t-display-c: var(--c-builder-neon);
 
   /* heading — 섹션 헤드, 서브헤드, 다음 버튼 타이틀 */
-  --t-heading-m: 3;
-  --t-heading-p: 1.33;
+  --t-heading-m: 2.5;
+  --t-heading-p: 1.2;
   --t-heading-ls: -0.01em;
   --t-heading-w: 400;
   --t-subhead-w: 400;
@@ -157,8 +157,8 @@
   --t-body-ko-break: keep-all; /* 줄바꿈 단위. keep-all = 어절, normal = 글자 */
 
   /* ui — 목차, 버튼, 스와치 이름 */
-  --t-ui-m: 1.5;
-  --t-ui-p: 1.25;
+  --t-ui-m: 2;
+  --t-ui-p: 1.5;
   --t-ui-ls: -0.01em;
   --t-ui-w: 300;
   --t-ui-w-strong: 500; /* 목차 챕터·활성 항목 */
@@ -193,8 +193,9 @@
 
   /* 3-1 배경 */
   --bg: var(--c-solid-gray); /* 본문 영역 */
-  --bg-sidebar: var(--c-space-black); /* 목차 */
+  --bg-sidebar: var(--c-solid-gray); /* 목차 */
   --bg-topbar: var(--c-space-black); /* 모바일 상단 바 */
+  --sidebar-border: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 12%); /* 목차 우측 경계선 */
 
   /* 3-2 글자 */
   --fg: var(--c-air-white);

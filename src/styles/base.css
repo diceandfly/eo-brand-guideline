@@ -177,6 +177,7 @@ button {
   z-index: 20;
   width: var(--sidebar-w);
   background: var(--bg-sidebar);
+  border-right: var(--border-w) solid var(--sidebar-border);
   color: var(--nav-fg);
   padding: var(--nav-pad-y) var(--nav-pad-x);
   overflow-y: auto;
