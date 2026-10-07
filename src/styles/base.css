@@ -135,7 +135,8 @@ button {
 }
 .t-body a {
   text-decoration: underline;
-  text-underline-offset: 0.15em;
+  text-decoration-thickness: var(--t-body-link-line);
+  text-underline-offset: var(--t-body-link-offset);
 }
 
 /* ---------------------------------------------------------------------
