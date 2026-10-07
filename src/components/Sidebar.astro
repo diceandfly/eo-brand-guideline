@@ -1,5 +1,6 @@
 ---
 import Logo from './Logo.astro';
+import Search from './Search.astro';
 import type { Guide, Sub } from '../lib/guide';
 
 interface Props { guide: Guide; current?: Sub; }
@@ -7,6 +8,7 @@ const { guide, current } = Astro.props;
 ---
 <nav class="sidebar t-ui" aria-label="목차">
   <a class="nav__logo" href="/"><Logo /></a>
+  <Search guide={guide} />
   <ul class="nav__chapters">
     {guide.chapters.map(ch => {
       const active = current?.chapterSlug === ch.slug;

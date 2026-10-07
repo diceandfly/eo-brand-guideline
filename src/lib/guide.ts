@@ -226,6 +226,24 @@ export function loadGuide(): Guide {
   return { chapters };
 }
 
+/** 검색 색인: 섹션 단위. 클라이언트 스크립트가 JSON 으로 받아 필터링합니다. */
+export interface SearchEntry { u: string; c: string; s: string; h: string; b: string; }
+const stripTags = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim();
+export function buildSearchIndex(guide: Guide): SearchEntry[] {
+  const out: SearchEntry[] = [];
+  for (const ch of guide.chapters) for (const sub of ch.subs) for (const sec of sub.sections) {
+    const caps = sec.items.map(it => it.kind === 'image' ? stripTags(it.caption ?? '') : `${it.name} ${it.hex}`).join(' ');
+    out.push({
+      u: `${sub.url}#${sec.id}`,
+      c: `${ch.num} ${ch.name}`,
+      s: sub.name,
+      h: sec.subhead ? `${sec.head} — ${sec.subhead}` : sec.head,
+      b: `${stripTags(sec.bodyHtml)} ${caps}`.slice(0, 400)
+    });
+  }
+  return out;
+}
+
 export function firstUrl(guide: Guide): string {
   return guide.chapters[0]?.subs[0]?.url ?? '/';
 }

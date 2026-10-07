@@ -56,7 +56,11 @@
   --nav-pad-x: 24px; /* 목차 내부 좌우 패딩 */
   --nav-pad-y: 28px; /* 목차 내부 상하 패딩 */
   --nav-logo-h: 20px; /* 목차 상단 로고 높이 */
-  --nav-logo-gap: 48px; /* 로고 ↔ 첫 챕터 */
+  --nav-logo-gap: 24px; /* 로고 ↔ 검색창 */
+  --search-h: 36px; /* 검색창 높이 */
+  --search-pad-x: 12px; /* 검색창 내부 좌우 패딩 */
+  --search-gap: 32px; /* 검색창 ↔ 첫 챕터 */
+  --search-results-max: 8; /* 검색 결과 최대 개수 */
   --nav-chapter-gap: 10px; /* 챕터 항목 간격 */
   --nav-item-gap: 4px; /* 서브챕터·섹션 항목 간격 */
   --nav-indent: 14px; /* 위계당 들여쓰기 */
@@ -107,7 +111,7 @@
 
   /* body (영문) — 본문, 카드 캡션. Founders Grotesk */
   --t-body-m: 2;
-  --t-body-p: 1.5;
+  --t-body-p: 1.4;
   --t-body-ls: -0.01em;
   --t-body-w: 300;
 
@@ -158,7 +162,12 @@
   --border: color-mix(in srgb, var(--bg), var(--c-air-white) 16%);
   --nav-fg: color-mix(in srgb, var(--c-air-white), transparent 35%); /* 목차 비활성 */
   --nav-fg-active: var(--c-air-white);
-  --placeholder-fg: color-mix(in srgb, var(--c-air-white), transparent 55%);
+  --search-bg: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 10%);
+  --search-bg-focus: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 16%);
+  --search-fg: var(--c-air-white);
+  --search-placeholder: var(--nav-fg);
+  --search-result-bg: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 6%);
+  --search-result-hover: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 14%);  --placeholder-fg: color-mix(in srgb, var(--c-air-white), transparent 55%);
 
   /* UI 전용 — 브랜드 팔레트가 아닙니다. Do / Don't 배지에만 사용. */
   --c-do: var(--c-bay-green);

@@ -1,0 +1,86 @@
+---
+/**
+ * 목차 상단 검색창. 빌드 시 만든 섹션 색인(JSON)을 클라이언트에서 필터링합니다.
+ * 헤드·서브헤드·본문·캡션을 대상으로 하며, 결과를 누르면 해당 섹션 앵커로 이동합니다.
+ */
+import { buildSearchIndex, type Guide } from '../lib/guide';
+interface Props { guide: Guide; }
+const { guide } = Astro.props;
+const index = buildSearchIndex(guide);
+---
+<form class="search" role="search" data-search onsubmit="return false">
+  <input class="search__input t-ui" type="search" placeholder="Search" aria-label="가이드라인 검색" autocomplete="off" spellcheck="false" data-search-input />
+  <ul class="search__results t-ui" data-search-results></ul>
+  <script type="application/json" data-search-index set:html={JSON.stringify(index)} />
+</form>
+
+<script>
+  type Entry = { u: string; c: string; s: string; h: string; b: string };
+
+  for (const form of document.querySelectorAll<HTMLFormElement>('[data-search]')) {
+    const input = form.querySelector<HTMLInputElement>('[data-search-input]')!;
+    const list = form.querySelector<HTMLUListElement>('[data-search-results]')!;
+    const index: Entry[] = JSON.parse(form.querySelector('[data-search-index]')!.textContent || '[]');
+    const max = Number(getComputedStyle(document.documentElement).getPropertyValue('--search-results-max')) || 8;
+    let active = -1;
+
+    const open = (v: boolean) => { form.classList.toggle('is-open', v); if (!v) active = -1; };
+
+    const score = (e: Entry, q: string) => {
+      const h = e.h.toLowerCase(), s = e.s.toLowerCase(), b = e.b.toLowerCase();
+      if (h.includes(q)) return 3;
+      if (s.includes(q)) return 2;
+      if (b.includes(q)) return 1;
+      return 0;
+    };
+
+    const render = () => {
+      const q = input.value.trim().toLowerCase();
+      if (!q) { list.innerHTML = ''; open(false); return; }
+      const hits = index
+        .map(e => ({ e, n: score(e, q) }))
+        .filter(x => x.n > 0)
+        .sort((a, b) => b.n - a.n)
+        .slice(0, max);
+      list.innerHTML = hits.length
+        ? hits.map(({ e }) => `<li class="search__item"><a href="${e.u}">${e.h}<span class="search__crumb t-label">${e.c} / ${e.s}</span></a></li>`).join('')
+        : `<li class="search__empty">No results</li>`;
+      open(true);
+    };
+
+    const setActive = (i: number) => {
+      const items = [...list.querySelectorAll('.search__item')];
+      if (!items.length) return;
+      active = (i + items.length) % items.length;
+      items.forEach((el, k) => el.classList.toggle('is-active', k === active));
+      items[active].scrollIntoView({ block: 'nearest' });
+    };
+
+    input.addEventListener('input', render);
+    input.addEventListener('focus', () => { if (input.value.trim()) open(true); });
+    input.addEventListener('keydown', e => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); setActive(active + 1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); setActive(active - 1); }
+      else if (e.key === 'Enter') {
+        const a = list.querySelector<HTMLAnchorElement>(active >= 0 ? '.search__item.is-active a' : '.search__item a');
+        if (a) { e.preventDefault(); location.href = a.href; }
+      }
+      else if (e.key === 'Escape') { input.value = ''; render(); input.blur(); }
+    });
+    document.addEventListener('click', e => { if (!form.contains(e.target as Node)) open(false); });
+
+    // 같은 페이지 안의 앵커로 이동할 때는 결과를 닫고 스크롤만
+    list.addEventListener('click', e => {
+      const a = (e.target as HTMLElement).closest('a');
+      if (!a) return;
+      const url = new URL(a.href);
+      if (url.pathname === location.pathname && url.hash) {
+        e.preventDefault();
+        document.getElementById(url.hash.slice(1))?.scrollIntoView({ block: 'start' });
+        history.replaceState(null, '', url.hash);
+      }
+      open(false);
+      document.documentElement.classList.remove('nav-open');
+    });
+  }
+</script>
