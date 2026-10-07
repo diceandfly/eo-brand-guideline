@@ -1,38 +1,42 @@
 /* =====================================================================
    Webfont declarations
    ---------------------------------------------------------------------
-   woff2 파일을 public/fonts/ 에 아래 파일명으로 넣으면 자동 적용됩니다.
-   파일명이 다르면 src 경로만 고치세요. 파일이 없으면 tokens.css 의
-   --font-en / --font-mono 폴백 서체로 렌더됩니다.
-
+   public/fonts/ 의 woff2 파일과 1:1 로 매핑됩니다. 파일명이 바뀌면 src 만 고치세요.
+   파일이 없으면 tokens.css 의 --font-en / --font-mono 폴백 서체로 렌더됩니다.
    저장소에는 폰트 파일을 커밋하지 않습니다 (.gitignore 참고).
+
+   보유 웨이트
+     Founders Grotesk       Light 300 · Regular 400 · Medium 500 · Semibold 600
+     Founders Grotesk Mono  Regular 400 · Medium 500
    ===================================================================== */
 
 @font-face {
   font-family: "Founders Grotesk";
-  src: url("/fonts/FoundersGrotesk-Light.woff2") format("woff2");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
+  src: url("/fonts/founders-grotesk-light.woff2") format("woff2");
+  font-weight: 300; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: "Founders Grotesk";
-  src: url("/fonts/FoundersGrotesk-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  src: url("/fonts/founders-grotesk-regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: "Founders Grotesk";
-  src: url("/fonts/FoundersGrotesk-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+  src: url("/fonts/founders-grotesk-medium.woff2") format("woff2");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Founders Grotesk";
+  src: url("/fonts/founders-grotesk-semibold.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: "Founders Grotesk Mono";
-  src: url("/fonts/FoundersGroteskMono-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  src: url("/fonts/founders-grotesk-mono-regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Founders Grotesk Mono";
+  src: url("/fonts/founders-grotesk-mono-medium.woff2") format("woff2");
+  font-weight: 500; font-style: normal; font-display: swap;
 }

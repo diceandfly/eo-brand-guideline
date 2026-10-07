@@ -73,18 +73,26 @@
   --font-en: "Founders Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono: "Founders Grotesk Mono", "SF Mono", Menlo, Consolas, monospace;
 
-  /* display — 페이지(서브챕터) 타이틀 */
-  --t-display-m: 6;     --t-display-p: 0.9;   --t-display-ls: -0.03em;  --t-display-w: 500;
-  /* heading — 섹션 헤드, 서브헤드, 다음 버튼 타이틀 */
-  --t-heading-m: 3;     --t-heading-p: 1.2;   --t-heading-ls: -0.01em;  --t-heading-w: 500;
+  /* 브랜드 타입 스케일(R6)과의 대응
+       Display  7x / 87.5% / -3%   → display
+       Head     3x / 109%  / -2%   → (가이드라인에서는 미사용, display 와 heading 사이 구간)
+       Sub-head 2x / 133%  / -1.5% → heading
+       Body   1.5x / 150%  / -1%   → body
+       Caption 0.5x / 125% / 0     → label (모노)
+     배수(m)는 웹 기준 행간 단위 12px 에 맞춰 환산했고, p·ls 는 브랜드 값을 그대로 가져왔습니다. */
+
+  /* display — 페이지(서브챕터) 타이틀. 행간 84, 폰트 96 */
+  --t-display-m: 7;     --t-display-p: 0.875; --t-display-ls: -0.03em;  --t-display-w: 500;
+  /* heading — 섹션 헤드, 서브헤드, 다음 버튼 타이틀. 행간 36, 폰트 27 */
+  --t-heading-m: 3;     --t-heading-p: 1.33;  --t-heading-ls: -0.015em; --t-heading-w: 500;
   --t-subhead-w: 300;   /* 서브헤드는 heading 사이즈에 웨이트만 변형 */
-  /* body — 본문, 카드 캡션 */
-  --t-body-m: 2;        --t-body-p: 1.5;      --t-body-ls: 0;           --t-body-w: 300;
-  /* ui — 목차, 버튼, 스와치 이름 */
-  --t-ui-m: 1.5;        --t-ui-p: 1.2;        --t-ui-ls: 0;             --t-ui-w: 400;
+  /* body — 본문, 카드 캡션. 행간 24, 폰트 16 */
+  --t-body-m: 2;        --t-body-p: 1.5;      --t-body-ls: -0.01em;     --t-body-w: 300;
+  /* ui — 목차, 버튼, 스와치 이름. 행간 18, 폰트 15 */
+  --t-ui-m: 1.5;        --t-ui-p: 1.2;        --t-ui-ls: -0.01em;       --t-ui-w: 400;
   --t-ui-w-strong: 500; /* 목차 챕터·활성 항목 */
-  /* label — 챕터 번호 라벨, NEXT, 스펙, 플레이스홀더 (모노) */
-  --t-label-m: 1;       --t-label-p: 1.0;     --t-label-ls: 0;          --t-label-w: 400;
+  /* label — 챕터 번호 라벨, NEXT, 스펙, 플레이스홀더 (모노). 행간 15, 폰트 12 */
+  --t-label-m: 1.25;    --t-label-p: 1.25;    --t-label-ls: 0;          --t-label-w: 400;
 
   /* ------------------------------------------------------------------
      3. COLOR
