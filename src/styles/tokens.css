@@ -57,6 +57,7 @@
   /* 1-2 목차 (검색창) */
   --search-h: 36px; /* 검색창 높이 */
   --search-pad-x: 12px; /* 검색창 내부 좌우 패딩 */
+  --search-clear-size: 14px; /* 입력 지우기 × 아이콘 크기 (입력이 있을 때만 표시) */
   --search-results-offset: 4px; /* 검색창 ↔ 결과 패널 */
   --search-result-pad-y: 8px; /* 결과 한 행의 상하 패딩 */
   --search-result-gap: 2px; /* 결과 인용 줄 ↔ 경로 줄 */
@@ -260,6 +261,8 @@
   --search-bg-focus: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 16%);
   --search-fg: var(--c-air-white);
   --search-placeholder: var(--nav-fg);
+  --search-clear-fg: var(--nav-fg); /* 지우기 × 기본 (회색) */
+  --search-clear-fg-hover: var(--nav-fg-active); /* 지우기 × 호버 */
   --search-result-bg: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 6%);
   --search-result-hover: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 14%);
   --search-match: var(--c-builder-neon); /* 결과 안 검색어 강조색 */

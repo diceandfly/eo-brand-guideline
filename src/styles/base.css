@@ -360,7 +360,7 @@ button {
 .search__input {
   width: 100%;
   height: var(--search-h);
-  padding: 0 var(--search-pad-x);
+  padding: 0 calc(var(--search-pad-x) * 2 + var(--search-clear-size)) 0 var(--search-pad-x); /* 오른쪽은 × 버튼 자리 */
   border: 0;
   border-radius: var(--radius);
   background: var(--search-bg);
@@ -376,7 +376,28 @@ button {
 }
 .search__input::-webkit-search-cancel-button {
   -webkit-appearance: none;
-  appearance: none; /* 브라우저 기본 파란 × 제거. 지우기는 Esc */
+  appearance: none; /* 브라우저 기본 파란 × 대신 아래 .search__clear 사용 */
+}
+.search__clear {
+  position: absolute;
+  top: 0;
+  right: var(--search-pad-x);
+  height: var(--search-h);
+  width: var(--search-clear-size);
+  display: grid;
+  place-items: center;
+  color: var(--search-clear-fg);
+  transition: color var(--dur) var(--ease);
+}
+.search__clear[hidden] {
+  display: none;
+}
+.search__clear:hover {
+  color: var(--search-clear-fg-hover);
+}
+.search__clear svg {
+  width: var(--search-clear-size);
+  height: var(--search-clear-size);
 }
 .search__input:focus {
   background: var(--search-bg-focus);

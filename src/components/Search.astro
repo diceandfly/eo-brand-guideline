@@ -10,6 +10,9 @@ const index = buildSearchIndex(guide);
 ---
 <form class="search" role="search" data-search onsubmit="return false">
   <input class="search__input t-ui" type="search" placeholder="Search" aria-label="가이드라인 검색" autocomplete="off" spellcheck="false" data-search-input />
+  <button class="search__clear" type="button" aria-label="지우기" hidden data-search-clear>
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" /></svg>
+  </button>
   <ul class="search__results t-ui" data-search-results></ul>
   <script type="application/json" data-search-index set:html={JSON.stringify(index)} />
 </form>
@@ -19,6 +22,7 @@ const index = buildSearchIndex(guide);
 
   for (const form of document.querySelectorAll<HTMLFormElement>('[data-search]')) {
     const input = form.querySelector<HTMLInputElement>('[data-search-input]')!;
+    const clear = form.querySelector<HTMLButtonElement>('[data-search-clear]')!;
     const list = form.querySelector<HTMLUListElement>('[data-search-results]')!;
     const index: Entry[] = JSON.parse(form.querySelector('[data-search-index]')!.textContent || '[]');
     let active = -1;
@@ -83,7 +87,11 @@ const index = buildSearchIndex(guide);
       items[active].scrollIntoView({ block: 'nearest' });
     };
 
-    input.addEventListener('input', render);
+    // 입력이 있을 때만 × 버튼 표시. 누르면 비우고 다시 입력 상태로
+    const syncClear = () => { clear.hidden = !input.value; };
+    input.addEventListener('input', () => { syncClear(); render(); });
+    clear.addEventListener('click', () => { input.value = ''; syncClear(); render(); input.focus(); });
+    syncClear();
     input.addEventListener('focus', () => { if (input.value.trim()) open(true); });
     input.addEventListener('keydown', e => {
       if (e.key === 'ArrowDown') { e.preventDefault(); setActive(active + 1); }
@@ -92,7 +100,7 @@ const index = buildSearchIndex(guide);
         const a = list.querySelector<HTMLAnchorElement>(active >= 0 ? '.search__item.is-active a' : '.search__item a');
         if (a) { e.preventDefault(); location.href = a.href; }
       }
-      else if (e.key === 'Escape') { input.value = ''; render(); input.blur(); }
+      else if (e.key === 'Escape') { input.value = ''; syncClear(); render(); input.blur(); }
     });
     document.addEventListener('click', e => { if (!form.contains(e.target as Node)) open(false); });
 
