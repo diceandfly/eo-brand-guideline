@@ -37,19 +37,45 @@ if (smoothAmount > 0 && wrapper && content) {
 
 const anchorOffset = () => num('--anchor-offset', 0);
 
+/**
+ * 브라우저는 주소의 #앵커로 들어오면 overflow:hidden 인 래퍼까지 안쪽에서 몰래 스크롤해 버립니다.
+ * 그러면 스무더의 좌표계가 그만큼 어긋나므로, 섹션 이동 전과 로드 직후에 래퍼 스크롤을 0 으로 되돌립니다.
+ */
+const resetWrapperScroll = () => { if (wrapper && wrapper.scrollTop) wrapper.scrollTop = 0; };
+resetWrapperScroll();
+window.addEventListener('load', resetWrapperScroll);
+
 /** 같은 페이지의 섹션으로 이동. 스무스 스크롤이 꺼져 있으면 브라우저 기본 이동(scroll-margin-top 적용). */
 /** 섹션 이동(목차·검색)은 휠 스크롤의 부드러움과 별개로 --anchor-dur / --anchor-ease 로 속도를 정합니다. */
 export function scrollToId(id: string, animate = true) {
   const el = document.getElementById(id);
   if (!el) return false;
-  if (smoother) {
-    const y = smoother.offset(el, `top ${anchorOffset()}px`);
-    if (animate) {
-      gsap.to(smoother, { scrollTop: y, duration: num('--anchor-dur', 0.6), ease: token('--anchor-ease') || 'power2.out', overwrite: true });
-    } else smoother.scrollTop(y);
+  if (smoother && content && wrapper) {
+    resetWrapperScroll();
+    // 목표 위치는 콘텐츠 상단 기준으로 직접 계산 (스크롤이 아직 움직이는 중이어도 정확함)
+    const contentTop = content.getBoundingClientRect().top;
+    const y = Math.max(0, el.getBoundingClientRect().top - contentTop - anchorOffset());
+    if (!animate) { smoother.scrollTo(y, false); return true; }
+    // 이동하는 동안만 스무더의 부드러움 시간을 --anchor-dur 로 줄여 휠 스크롤보다 빠르게 도착시키고,
+    // 콘텐츠가 목표에 닿으면(또는 3초가 지나면) 휠 스크롤용 값으로 되돌린다
+    const dur = num('--anchor-dur', 0.6);
+    smoother.smooth(dur);
+    smoother.scrollTo(y, true);
+    if (restoreWatch) gsap.ticker.remove(restoreWatch);
+    const started = performance.now();
+    restoreWatch = () => {
+      const shown = wrapper.getBoundingClientRect().top - content.getBoundingClientRect().top;  // 화면에 보이는 위치
+      if (Math.abs(shown - y) < 1 || performance.now() - started > 3000) {
+        smoother?.smooth(smoothAmount);
+        gsap.ticker.remove(restoreWatch!);
+        restoreWatch = undefined;
+      }
+    };
+    gsap.ticker.add(restoreWatch);
   } else el.scrollIntoView({ block: 'start', behavior: animate ? 'smooth' : 'auto' });
   return true;
 }
+let restoreWatch: (() => void) | undefined;
 (window as any).__scrollToId = scrollToId;
 
 /* ---------- 1.5 페이지 전환 (나갈 때) ----------
