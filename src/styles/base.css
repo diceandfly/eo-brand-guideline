@@ -588,7 +588,7 @@ html.js .main {
   overflow: hidden;
   border-radius: var(--radius);
   background: var(--surface);
-  /* 좌상·우하 코너 챔퍼 (블록 유닛의 사선과 호응) */
+  /* 좌상·우하 코너 챔퍼 (블록 유닛의 사선과 호응). --img-chamfer: 0 이면 보통 사각형 */
   clip-path: polygon(
     var(--img-chamfer) 0,
     100% 0,
@@ -597,13 +597,33 @@ html.js .main {
     0 100%,
     0 var(--img-chamfer)
   );
+  /* 테두리 안쪽 다각형의 챔퍼. 사선 구간도 직선과 같은 두께가 되도록 두께 × 0.414(√2−1) 만큼 키움.
+     챔퍼가 0 이면 보정도 0 (min 으로 분기) */
+  --_bw: var(--img-border-w);
+  --_bc: calc(var(--img-chamfer) + min(var(--img-chamfer) * 1000, var(--img-border-w) * 0.414));
 }
 .fig__frame::after {
   content: '';
   position: absolute;
   inset: 0;
-  border: var(--img-border-w) solid var(--img-border); /* 이미지 위에 얹히는 테두리 (크기 변화 없음) */
+  background: var(--img-border);
   pointer-events: none;
+  /* 챔퍼를 따라가는 테두리: 바깥 다각형에서 안쪽 다각형을 뺀 띠(evenodd). 이미지 위에 얹히므로 크기 변화 없음 */
+  clip-path: polygon(
+    evenodd,
+    var(--img-chamfer) 0,
+    100% 0,
+    100% calc(100% - var(--img-chamfer)),
+    calc(100% - var(--img-chamfer)) 100%,
+    0 100%,
+    0 var(--img-chamfer),
+    calc(var(--_bw) + var(--_bc)) var(--_bw),
+    calc(100% - var(--_bw)) var(--_bw),
+    calc(100% - var(--_bw)) calc(100% - var(--_bw) - var(--_bc)),
+    calc(100% - var(--_bw) - var(--_bc)) calc(100% - var(--_bw)),
+    var(--_bw) calc(100% - var(--_bw)),
+    var(--_bw) calc(var(--_bw) + var(--_bc))
+  );
 }
 .fig__frame > img {
   width: 100%;
