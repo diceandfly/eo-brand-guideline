@@ -250,8 +250,17 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       (section as any)._layout = attrs.layout;
       continue;
     }
-    if ((m = line.match(/^####\s+(.+?)\s*$/)) && section) {         // #### Subhead
-      section.subhead = m[1];
+    if ((m = line.match(/^####\s+(\+\s*)?(.+?)\s*$/)) && section) { // #### Subhead  /  #### + Subhead {layout=…}  (+ 와 {…} 는 헤드 줄과 동일하게 동작)
+      let subhead = m[2];
+      if (m[1]) section.tocMark = true;
+      const am = subhead.match(/\{([^}]*)\}\s*$/);
+      if (am) {
+        const attrs = parseAttrs(am[1]);
+        subhead = subhead.slice(0, am.index).trim();
+        if (attrs.layout) (section as any)._layout = attrs.layout;
+        if (attrs.ratio) section.ratio = normalizeRatio(attrs.ratio);
+      }
+      section.subhead = subhead;
       continue;
     }
     if ((m = line.match(/^!\[([^\]]+)\](?:\{(do|dont)\})?\s*(.*)$/)) && section) {   // ![token]{do} caption
