@@ -666,6 +666,8 @@ button {
   inset: 0;
   z-index: 100;
   display: grid;
+  grid-template-columns: 100%; /* 트랙을 명시해야 이미지의 max-width/height % 가 화면 기준으로 계산됨 (세로로 긴 이미지 잘림 방지) */
+  grid-template-rows: 100%;
   place-items: center;
   padding: var(--lightbox-pad);
   background: var(--lightbox-bg);
