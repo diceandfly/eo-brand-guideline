@@ -100,7 +100,7 @@
   --sec-row-gap-m: 24px;
 
   /* 1-6 이미지 · 카드 · 스와치 */
-  --img-fit: contain; /* 프레임 안에 이미지를 넣는 방식. contain = 비율 유지하며 전부 보임, cover = 꽉 채우고 잘림 */
+  --img-fit: cover; /* 프레임 안에 이미지를 넣는 방식. contain = 비율 유지하며 전부 보임, cover = 꽉 채우고 잘림 */
   --lightbox-pad: 48px; /* 확대 보기: 화면 가장자리 ↔ 이미지 */
   --lightbox-pad-m: 16px;
   --card-gap: 16px; /* 카드: 이미지 ↔ 캡션 */

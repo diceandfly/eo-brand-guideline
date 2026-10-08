@@ -34,7 +34,7 @@ export interface Section {
   layout: Layout;
   ratio?: string;         // "5 / 4" 형식. 없으면 레이아웃 기본 토큰 사용
   items: Item[];
-  tocMark: boolean;       // ###+ 로 목차에 올리라고 표시한 섹션
+  tocMark: boolean;       // ### + 로 목차에 올리라고 표시한 섹션
 }
 export interface SubRef { url: string; name: string; chapterNum: string; chapterName: string; }
 export interface Sub {
@@ -45,7 +45,7 @@ export interface Sub {
   chapterName: string;
   chapterSlug: string;
   sections: Section[];
-  navSections: { id: string; head: string }[];   // 목차에 오르는 섹션. ###+ 표시가 하나라도 있으면 표시된 것만, 없으면 전부(자동)
+  navSections: { id: string; head: string }[];   // 목차에 오르는 섹션. ### + 표시가 하나라도 있으면 표시된 것만, 없으면 전부(자동)
   tocSections: boolean;   // false 면 목차에서 섹션 목록을 펼치지 않음 (## 이름 {toc=none})
   prev?: SubRef;
   next?: SubRef;
@@ -193,7 +193,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
     body = [];
   };
 
-  // 서브챕터의 목차 항목 확정: ###+ 표시가 있으면 그것만, 없으면 전부. 같은 라벨은 첫 섹션 하나만.
+  // 서브챕터의 목차 항목 확정: ### + 표시가 있으면 그것만, 없으면 전부. 같은 라벨은 첫 섹션 하나만.
   const finalizeNav = (s: Sub) => {
     const marked = s.sections.filter(sec => sec.tocMark);
     const pool = marked.length ? marked : s.sections;
@@ -232,7 +232,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       idsInSub = new Map();
       continue;
     }
-    if ((m = line.match(/^###(\+?)\s+(\+\s*)?(.+?)\s*$/)) && sub) { // ### Head {layout=…}  /  ### + Head (목차에 올림, ###+ Head 도 가능)
+    if ((m = line.match(/^###(\+?)\s+(\+\s*)?(.+?)\s*$/)) && sub) { // ### Head {layout=…}  /  #### + Head (목차에 올림, ###+ Head 도 가능)
       flushSection();
       const tocMark = m[1] === '+' || !!m[2];
       let head = m[3];
