@@ -45,37 +45,56 @@ const resetWrapperScroll = () => { if (wrapper && wrapper.scrollTop) wrapper.scr
 resetWrapperScroll();
 window.addEventListener('load', resetWrapperScroll);
 
-/** 같은 페이지의 섹션으로 이동. 스무스 스크롤이 꺼져 있으면 브라우저 기본 이동(scroll-margin-top 적용). */
-/** 섹션 이동(목차·검색)은 휠 스크롤의 부드러움과 별개로 --anchor-dur / --anchor-ease 로 속도를 정합니다. */
+/**
+ * 섹션 이동(목차 클릭·검색 클릭·검색으로 다른 페이지에 도착).
+ * 휠 스크롤의 감속 곡선(--scroll-smooth, 꼬리가 긴 expo)과는 별개의 전용 트윈으로,
+ * 거리와 무관하게 --anchor-dur 초 안에 --anchor-ease 곡선으로 도착합니다.
+ * 이동하는 동안 스무더를 paused 로 두고 scrollTop 을 직접 트윈합니다(ScrollSmoother 가 정한 방식).
+ * 그래서 휠용 부드러움 값에 영향받지 않고, 끝나면 휠 스크롤은 평소대로 돌아갑니다.
+ * 이동 중 휠·터치를 하면 트윈을 멈추고 사용자에게 넘깁니다.
+ * 스무스 스크롤이 꺼져 있으면 브라우저 기본 이동(scroll-margin-top 적용).
+ */
+let anchorTween: gsap.core.Tween | undefined;
+const stopAnchorTween = () => {
+  if (!anchorTween) return;
+  anchorTween.kill();
+  anchorTween = undefined;
+  smoother?.paused(false);
+};
+window.addEventListener('wheel', stopAnchorTween, { passive: true });
+window.addEventListener('touchstart', stopAnchorTween, { passive: true });
+
+/** 콘텐츠 상단 기준 세로 위치. 페이지 전환 애니메이션(transform)이 진행 중이어도 흔들리지 않도록 offset 체인으로 잽니다. */
+const topWithin = (el: HTMLElement, root: HTMLElement) => {
+  let y = 0;
+  let n: HTMLElement | null = el;
+  while (n && n !== root) {
+    y += n.offsetTop;
+    n = n.offsetParent as HTMLElement | null;
+    n && (y += n.clientTop);                                  // offsetTop 은 부모 보더 안쪽 기준이므로 보더 두께를 더함
+  }
+  return n === root ? y : el.getBoundingClientRect().top - root.getBoundingClientRect().top;
+};
+
 export function scrollToId(id: string, animate = true) {
   const el = document.getElementById(id);
   if (!el) return false;
   if (smoother && content && wrapper) {
     resetWrapperScroll();
-    // 목표 위치는 콘텐츠 상단 기준으로 직접 계산 (스크롤이 아직 움직이는 중이어도 정확함)
-    const contentTop = content.getBoundingClientRect().top;
-    const y = Math.max(0, el.getBoundingClientRect().top - contentTop - anchorOffset());
+    stopAnchorTween();
+    const y = Math.min(ScrollTrigger.maxScroll(window), Math.max(0, topWithin(el, content) - anchorOffset()));
     if (!animate) { smoother.scrollTo(y, false); return true; }
-    // 이동하는 동안만 스무더의 부드러움 시간을 --anchor-dur 로 줄여 휠 스크롤보다 빠르게 도착시키고,
-    // 콘텐츠가 목표에 닿으면(또는 3초가 지나면) 휠 스크롤용 값으로 되돌린다
-    const dur = num('--anchor-dur', 0.6);
-    smoother.smooth(dur);
-    smoother.scrollTo(y, true);
-    if (restoreWatch) gsap.ticker.remove(restoreWatch);
-    const started = performance.now();
-    restoreWatch = () => {
-      const shown = wrapper.getBoundingClientRect().top - content.getBoundingClientRect().top;  // 화면에 보이는 위치
-      if (Math.abs(shown - y) < 1 || performance.now() - started > 3000) {
-        smoother?.smooth(smoothAmount);
-        gsap.ticker.remove(restoreWatch!);
-        restoreWatch = undefined;
-      }
-    };
-    gsap.ticker.add(restoreWatch);
+    smoother.paused(true);                                    // 이동 중 사용자 입력은 wheel/touch 리스너가 받아 트윈을 멈춤
+    anchorTween = gsap.to(smoother, {
+      scrollTop: y,
+      duration: num('--anchor-dur', 0.5),
+      ease: token('--anchor-ease') || 'power2.inOut',
+      overwrite: true,
+      onComplete: stopAnchorTween,
+    });
   } else el.scrollIntoView({ block: 'start', behavior: animate ? 'smooth' : 'auto' });
   return true;
 }
-let restoreWatch: (() => void) | undefined;
 (window as any).__scrollToId = scrollToId;
 
 /* ---------- 1.5 페이지 전환 (나갈 때) ----------
@@ -120,7 +139,7 @@ document.addEventListener('click', e => {
 // 폰트·이미지까지 다 자리 잡은 뒤(load) 높이를 다시 재고 이동해야 위치가 어긋나지 않습니다.
 if (location.hash) {
   const id = decodeURIComponent(location.hash.slice(1));
-  // 다른 페이지의 섹션으로 온 경우(검색 등): 맨 위에서 섹션까지 같은 속도로 부드럽게 이동
+  // 다른 페이지의 섹션으로 온 경우(검색 등): 맨 위에서 섹션까지 목차 클릭과 같은 트윈으로 이동
   const go = () => requestAnimationFrame(() => { ScrollTrigger.refresh(); scrollToId(id, true); });
   if (document.readyState === 'complete') go();
   else window.addEventListener('load', go, { once: true });
@@ -143,6 +162,7 @@ if (box && boxImg) {
     boxImg.alt = alt;
     box.classList.add('is-open');
     box.setAttribute('aria-hidden', 'false');
+    stopAnchorTween();
     smoother?.paused(true);
     document.documentElement.classList.add('lightbox-open');
     gsap.killTweensOf([box, boxImg]);
