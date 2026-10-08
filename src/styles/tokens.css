@@ -104,9 +104,9 @@
   --img-fit: cover; /* 프레임 안에 이미지를 넣는 방식. contain = 비율 유지하며 전부 보임, cover = 꽉 채우고 잘림 */
   --img-chamfer: 0px; /* 이미지 프레임의 좌상·우하 코너 챔퍼(사선 모따기) 크기. 0 = 없음 */
   --img-border-w: 1px; /* 이미지 프레임 테두리 두께. 0 = 없음 */
-  --lightbox-pad: 48px; /* 확대 보기: 화면 가장자리 ↔ 이미지 */
-  --lightbox-pad-m: 16px;
-  --lightbox-max: 84%; /* 확대 보기: 이미지가 차지할 수 있는 최대 폭·높이 (여백을 뺀 화면 대비) */
+  --lightbox-pad: 0px; /* 확대 보기: 화면 가장자리 ↔ 이미지. 0 = 먼저 닿는 변이 화면에 꽉 참 */
+  --lightbox-pad-m: 0px;
+  --lightbox-max: 100%; /* 확대 보기: 이미지가 차지할 수 있는 최대 폭·높이 (여백을 뺀 화면 대비) */
   --card-gap: 16px; /* 카드: 이미지 ↔ 캡션 */
   --card-pad: 0px; /* 카드 내부 패딩 (0 = 이미지가 카드 폭에 꽉 참) */
   --swatch-gap: 12px; /* 스와치: 색면 ↔ 이름 */
@@ -264,7 +264,7 @@
   /* 3-5 검색창 */
   --search-bg: transparent; /* 검색창 배경. 목차 배경에 묻힘 */
   --search-bg-focus: transparent;
-  --search-line: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 16%); /* 검색창 밑줄 */
+  --search-line: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 32%); /* 검색창 밑줄 (그레이) */
   --search-line-focus: var(--nav-fg); /* 입력 중 밑줄 */
   --search-fg: var(--c-air-white);
   --search-placeholder: var(--nav-fg);
