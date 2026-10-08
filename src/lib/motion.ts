@@ -47,6 +47,31 @@ export function scrollToId(id: string, animate = true) {
 }
 (window as any).__scrollToId = scrollToId;
 
+/* ---------- 1.5 페이지 전환 (나갈 때) ----------
+   들어올 때의 디졸브는 CSS(base.css page-in)가 맡고, 여기서는 다른 페이지로 가는 링크를 누르면
+   본문을 먼저 사라지게 한 뒤 이동합니다. 새 탭·수정키·외부 링크·#앵커는 건드리지 않습니다. */
+const main = document.querySelector<HTMLElement>('.main');
+if (main) {
+  const outDur = ms('--page-out-dur', 0.2);
+  const shift = num('--page-shift', 0);
+  const ease = token('--page-ease') || 'power2.out';
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.addEventListener('click', e => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = (e.target as HTMLElement).closest('a[href]') as HTMLAnchorElement | null;
+    if (!a || a.target === '_blank' || a.hasAttribute('download')) return;
+    const url = new URL(a.href, location.href);
+    if (url.origin !== location.origin) return;
+    if (url.pathname === location.pathname) return;          // 같은 페이지(앵커)는 스크롤만
+    e.preventDefault();
+    if (reduced || outDur <= 0) { location.href = url.href; return; }
+    main.style.animation = 'none';                            // 들어올 때 애니메이션과 충돌 방지
+    gsap.to(main, { opacity: 0, y: -shift, duration: outDur, ease, onComplete: () => { location.href = url.href; } });
+  });
+  // 뒤로 가기(bfcache)로 돌아왔을 때 사라진 상태로 남지 않도록
+  window.addEventListener('pageshow', e => { if (e.persisted) { gsap.set(main, { clearProps: 'opacity,transform' }); main.style.animation = ''; } });
+}
+
 /* ---------- 2. 앵커 링크 ---------- */
 document.addEventListener('click', e => {
   const a = (e.target as HTMLElement).closest('a[href*="#"]') as HTMLAnchorElement | null;

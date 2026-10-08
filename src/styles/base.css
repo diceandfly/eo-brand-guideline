@@ -199,6 +199,25 @@ button {
   margin-left: var(--sidebar-w);
   padding: 0 var(--page-margin) var(--page-pad-bottom);
 }
+/* 페이지 전환: 들어올 때 본문만 디졸브 (JS 가 있을 때만, html.js 는 Layout 의 인라인 스크립트가 붙임) */
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--page-shift));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+html.js .main {
+  animation: page-in var(--page-in-dur) var(--ease) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js .main {
+    animation: none;
+  }
+}
 .main__inner {
   max-width: var(--content-max);
   margin-inline: auto;

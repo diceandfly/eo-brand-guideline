@@ -64,9 +64,7 @@ EO is media for builders. We earn trust, not clicks. We count the people who com
 
 These guidelines explain the basic elements of the EO identity system — logo, typography, color, and the visual system — and how we use them to build the brand. When you understand and follow them, content made in Seoul, San Francisco, or Saigon looks and reads as one EO.
 
-Our voice is clear, open, and confident. We rally the builders (Rallying), build on conviction (Conviction), and have their backs (Backing). These three attitudes are the test for every design decision.
-
-External partners who wish to use EO brand assets should contact [brand team email]. Reviews usually take two weeks.
+External partners who wish to use EO brand assets should contact jemin@eoeoeo.net. 
 
 Build Anyway.
 
