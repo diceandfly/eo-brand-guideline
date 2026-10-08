@@ -66,7 +66,10 @@ if (main) {
     e.preventDefault();
     if (reduced || outDur <= 0) { location.href = url.href; return; }
     main.style.animation = 'none';                            // 들어올 때 애니메이션과 충돌 방지
-    gsap.to(main, { opacity: 0, y: -shift, duration: outDur, ease, onComplete: () => { location.href = url.href; } });
+    let done = false;
+    const go = () => { if (done) return; done = true; location.href = url.href; };
+    gsap.to(main, { opacity: 0, y: -shift, duration: outDur, ease, onComplete: go });
+    setTimeout(go, outDur * 1000 + 80);                       // 탭이 숨겨져 애니메이션이 멈춰도 이동은 보장
   });
   // 뒤로 가기(bfcache)로 돌아왔을 때 사라진 상태로 남지 않도록
   window.addEventListener('pageshow', e => { if (e.persisted) { gsap.set(main, { clearProps: 'opacity,transform' }); main.style.animation = ''; } });
