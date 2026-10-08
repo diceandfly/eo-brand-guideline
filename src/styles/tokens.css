@@ -60,6 +60,7 @@
   --search-line-w: 1px; /* 검색창 밑줄 두께. 0 = 없음 */
   --search-clear-size: 14px; /* 입력 지우기 × 아이콘 크기 (입력이 있을 때만 표시) */
   --search-results-offset: 4px; /* 검색창 ↔ 결과 패널 */
+  --search-result-pad-x: 12px; /* 결과 패널 안쪽 좌우 패딩 (입력창 패딩과 별개) */
   --search-result-pad-y: 8px; /* 결과 한 행의 상하 패딩 */
   --search-result-gap: 2px; /* 결과 인용 줄 ↔ 경로 줄 */
 

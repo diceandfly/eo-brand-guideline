@@ -427,7 +427,7 @@ button {
 }
 .search__item a {
   display: block;
-  padding: var(--search-result-pad-y) var(--search-pad-x);
+  padding: var(--search-result-pad-y) var(--search-result-pad-x);
   color: var(--nav-fg-active);
   transition: background var(--dur) var(--ease);
 }
@@ -452,7 +452,7 @@ button {
   font-weight: var(--search-match-w);
 }
 .search__empty {
-  padding: var(--search-result-pad-y) var(--search-pad-x);
+  padding: var(--search-result-pad-y) var(--search-result-pad-x);
   color: var(--fg-muted);
 }
 
