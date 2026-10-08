@@ -597,10 +597,10 @@ html.js .main {
     0 100%,
     0 var(--img-chamfer)
   );
-  /* 테두리 안쪽 다각형의 챔퍼. 사선 구간도 직선과 같은 두께가 되도록 두께 × 0.414(√2−1) 만큼 키움.
-     챔퍼가 0 이면 보정도 0 (min 으로 분기) */
+  /* 테두리 안쪽 다각형의 챔퍼. 안쪽 코너 기준이라 바깥 챔퍼보다 두께 × 0.586(2−√2) 만큼 줄여야
+     사선 구간도 직선과 같은 두께가 됨. 챔퍼가 0 이면 0 */
   --_bw: var(--img-border-w);
-  --_bc: calc(var(--img-chamfer) + min(var(--img-chamfer) * 1000, var(--img-border-w) * 0.414));
+  --_bc: max(0px, calc(var(--img-chamfer) - var(--img-border-w) * 0.586));
 }
 .fig__frame::after {
   content: '';
