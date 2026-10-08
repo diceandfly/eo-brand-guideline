@@ -53,6 +53,8 @@
   --search-result-pad-y: 8px; /* 결과 한 행의 상하 패딩 */
   --search-result-gap: 2px; /* 결과 인용 줄 ↔ 경로 줄 */
   --search-gap: 32px; /* 검색창 ↔ 첫 챕터 */
+
+  /* 1-2 목차 · 챕터 → 서브챕터 → 섹션 → 언어 전환 */
   --nav-chapter-gap: 0px; /* 챕터 ↔ 챕터 */
   --nav-sub-pad-top: 0px; /* 챕터 ↔ 첫 서브챕터 */
   --nav-item-gap: 0px; /* 서브챕터 ↔ 서브챕터, 섹션 ↔ 섹션 */
