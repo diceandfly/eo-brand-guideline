@@ -564,6 +564,15 @@ button {
   overflow: hidden;
   border-radius: var(--radius);
   background: var(--surface);
+  /* 좌상·우하 코너 챔퍼 (블록 유닛의 사선과 호응) */
+  clip-path: polygon(
+    var(--img-chamfer) 0,
+    100% 0,
+    100% calc(100% - var(--img-chamfer)),
+    calc(100% - var(--img-chamfer)) 100%,
+    0 100%,
+    0 var(--img-chamfer)
+  );
 }
 .fig__frame > img {
   width: 100%;
