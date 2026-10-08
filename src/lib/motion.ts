@@ -38,11 +38,16 @@ if (smoothAmount > 0 && wrapper && content) {
 const anchorOffset = () => num('--anchor-offset', 0);
 
 /** 같은 페이지의 섹션으로 이동. 스무스 스크롤이 꺼져 있으면 브라우저 기본 이동(scroll-margin-top 적용). */
+/** 섹션 이동(목차·검색)은 휠 스크롤의 부드러움과 별개로 --anchor-dur / --anchor-ease 로 속도를 정합니다. */
 export function scrollToId(id: string, animate = true) {
   const el = document.getElementById(id);
   if (!el) return false;
-  if (smoother) smoother.scrollTo(el, animate, `top ${anchorOffset()}px`);
-  else el.scrollIntoView({ block: 'start', behavior: animate ? 'smooth' : 'auto' });
+  if (smoother) {
+    const y = smoother.offset(el, `top ${anchorOffset()}px`);
+    if (animate) {
+      gsap.to(smoother, { scrollTop: y, duration: num('--anchor-dur', 0.6), ease: token('--anchor-ease') || 'power2.out', overwrite: true });
+    } else smoother.scrollTop(y);
+  } else el.scrollIntoView({ block: 'start', behavior: animate ? 'smooth' : 'auto' });
   return true;
 }
 (window as any).__scrollToId = scrollToId;
@@ -89,7 +94,8 @@ document.addEventListener('click', e => {
 // 폰트·이미지까지 다 자리 잡은 뒤(load) 높이를 다시 재고 이동해야 위치가 어긋나지 않습니다.
 if (location.hash) {
   const id = decodeURIComponent(location.hash.slice(1));
-  const go = () => requestAnimationFrame(() => { ScrollTrigger.refresh(); scrollToId(id, false); });
+  // 다른 페이지의 섹션으로 온 경우(검색 등): 맨 위에서 섹션까지 같은 속도로 부드럽게 이동
+  const go = () => requestAnimationFrame(() => { ScrollTrigger.refresh(); scrollToId(id, true); });
   if (document.readyState === 'complete') go();
   else window.addEventListener('load', go, { once: true });
 }
