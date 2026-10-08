@@ -362,6 +362,7 @@ button {
   height: var(--search-h);
   padding: 0 calc(var(--search-pad-x) * 2 + var(--search-clear-size)) 0 var(--search-pad-x); /* 오른쪽은 × 버튼 자리 */
   border: 0;
+  border-bottom: var(--search-line-w) solid var(--search-line); /* 배경에 묻힌 입력란의 유일한 표식 */
   border-radius: var(--radius);
   background: var(--search-bg);
   color: var(--search-fg);
@@ -369,7 +370,9 @@ button {
   font-weight: var(--search-input-w);
   letter-spacing: inherit;
   outline: none;
-  transition: background var(--dur) var(--ease);
+  transition:
+    background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
 }
 .search__input::placeholder {
   color: var(--search-placeholder);
@@ -401,6 +404,7 @@ button {
 }
 .search__input:focus {
   background: var(--search-bg-focus);
+  border-bottom-color: var(--search-line-focus);
 }
 .search__results {
   list-style: none;

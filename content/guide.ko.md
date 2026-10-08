@@ -141,8 +141,8 @@ EO 심볼은 강렬하지만 단순한 쉐입으로 이뤄졌습니다. 따라�
 ![logo/placement-dont-2]{dont}
 
 
-### Symbol
-#### + Color {layout=grid-3}
+### Symbol {layout=grid-3}
+#### + Color
 EO 로고에는 여섯 가지 기본 컬러 페어링이 있습니다. 로고는 항상 단색으로 표현되야하며, 배경색에 확신이 서지 않을 때는 다음 중 하나를 사용하세요. 
 ![logo/color-1] 1. Builder Neon on Space Black
 ![logo/color-2] 2. Space Black on Builder Neon
