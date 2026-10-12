@@ -581,6 +581,18 @@ html.js .main {
   gap: var(--card-gap);
   padding: var(--card-pad);
 }
+/* 챔퍼·테두리 두께 토큰은 길이로 등록합니다. tokens.css 에 잘못된 값(예: 0dpx, 단위 없는 0)이 들어가면
+   clip-path 전체가 무효가 되어 테두리 띠가 이미지를 통째로 덮어 버리므로, 무효 값은 0px(없음)로 떨어뜨립니다. */
+@property --img-chamfer {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 0px;
+}
+@property --img-border-w {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 0px;
+}
 .fig__frame {
   position: relative;
   aspect-ratio: var(--ratio);
