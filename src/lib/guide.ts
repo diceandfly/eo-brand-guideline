@@ -14,7 +14,7 @@ export interface ImageItem {
   kind: 'image';
   token: string;          // guide.md 에 쓴 그대로. 예: clearspace (예전 형식 logo/clearspace 도 허용)
   name: string;           // 파일 이름(확장자 제외). 토큰의 마지막 / 뒤. 서브챕터 폴더 안에서 이 이름으로 찾음
-  path: string;           // 넣을 자리: 02-logo/01-symbol/02-clearspace/clearspace (확장자 제외, 플레이스홀더에 표시)
+  path: string;           // 넣을 자리: 02-logo/01-symbol/04-clearspace (확장자 제외, 플레이스홀더에 표시. 앞 번호 = 주제 순서)
   src: string | null;     // 파일이 있으면 /assets/… 경로, 없으면 null(플레이스홀더)
   badge?: 'do' | 'dont';
   caption?: string;       // HTML. 한글 구간은 <span class="ko"> 로 래핑됨
@@ -84,14 +84,14 @@ export function slugify(s: string): string {
 }
 
 /**
- * 이미지 폴더 구조: public/assets/<챕터>/<서브챕터>/<주제>/<이름>.<확장자>
- *   예: 02-logo/01-symbol/02-clearspace/clearspace.png
- * 각 폴더 앞 번호는 사람이 보기 위한 정렬용이라 파서는 무시합니다(번호를 떼고 이름으로 비교).
- * 이미지는 그 서브챕터 폴더 안 어디에 있든 파일 이름으로 찾고, 같은 이름이 여럿이면 주제 폴더가 맞는 것을 씁니다.
- * 그래서 섹션 순서를 바꿔 번호가 달라져도, 영문·국문 구조가 잠시 달라도 이미지가 끊기지 않습니다.
- * 폴더 번호를 현재 순서에 맞추려면 npm run assets (scripts/assets.mjs).
+ * 이미지 파일 규칙: public/assets/<챕터>/<서브챕터>/<주제 번호>-<이름>.<확장자>
+ *   예: 02-logo/01-symbol/04-clearspace.png  (주제 = 목차 항목, 번호 = 페이지 안 주제 순서)
+ * 폴더와 파일명 앞 번호는 탐색기에서 페이지 순서대로 정렬되게 하는 용도라 파서는 무시합니다(번호를 떼고 이름으로 비교).
+ * 이미지는 그 서브챕터 폴더 안에서 파일 이름으로 찾습니다. 그래서 섹션 순서를 바꿔 번호가 달라져도,
+ * 영문·국문 구조가 잠시 달라도 이미지가 끊기지 않습니다. 번호를 지금 순서에 맞추려면 npm run assets (scripts/assets.mjs).
  */
 const stripNum = (dir: string) => dir.replace(/^\d+-/, '');
+const stripFileNum = (name: string) => name.replace(/^\d{2}-/, '');   // 파일명 앞 두 자리 정렬 번호 (예: 04-clearspace → clearspace)
 const pad2 = (n: number) => String(n).padStart(2, '0');
 
 /** 서브챕터 폴더 안의 이미지 목록: 이름(확장자 제외) → assets 기준 경로들 */
@@ -113,18 +113,19 @@ function subAssetIndex(chapterSlug: string, chapterName: string, subSlug: string
       if (d.isDirectory()) { walk(r); continue; }
       const m = d.name.match(/^(.+)\.([a-z0-9]+)$/i);
       if (!m || !EXTS.includes(m[2].toLowerCase())) continue;
-      index.set(m[1], [...(index.get(m[1]) ?? []), r]);
+      const key = stripFileNum(m[1]);
+      index.set(key, [...(index.get(key) ?? []), r]);
     }
   };
   walk(`${chDir}/${subDir}`);
   return index;
 }
 
-function resolveAsset(item: ImageItem, index: Map<string, string[]>, topicSlug: string): string | null {
-  const rank = (r: string) => `${r.slice(0, r.lastIndexOf('/'))}\0${EXTS.indexOf(r.split('.').pop()!.toLowerCase())}`;
-  const hits = (index.get(item.name) ?? []).sort((a, b) => rank(a).localeCompare(rank(b)));   // 같은 폴더면 svg → png → jpg … 순
-  const pick = hits.find(r => stripNum(r.split('/').at(-2) ?? '') === topicSlug) ?? hits[0];
-  if (pick) return `/assets/${pick}`;
+function resolveAsset(item: ImageItem, index: Map<string, string[]>): string | null {
+  const noExt = (r: string) => r.replace(/\.[^./]+$/, '');
+  const rank = (r: string) => `${noExt(r) === item.path ? 0 : 1}\0${EXTS.indexOf(r.split('.').pop()!.toLowerCase())}`;   // 제자리 우선, 같으면 svg → png …
+  const hits = (index.get(item.name) ?? []).sort((a, b) => rank(a).localeCompare(rank(b)));
+  if (hits[0]) return `/assets/${hits[0]}`;
   for (const ext of EXTS) {                                   // 예전 위치(public/assets/logo/clearspace.png 등) 폴백
     if (fs.existsSync(path.join(ASSETS, `${item.token}.${ext}`))) return `/assets/${item.token}.${ext}`;
   }
@@ -358,7 +359,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
   flushSection();
   for (const ch of chapters) for (const s of ch.subs) finalizeNav(s);
 
-  // 이미지 경로 확정: <챕터>/<서브챕터 번호-이름>/<주제 번호-이름>/<이름>.
+  // 이미지 경로 확정: <챕터>/<서브챕터 번호-이름>/<주제 번호>-<이름>.
   // 주제 = 목차 라벨 규칙과 같음(헤드, 헤드가 페이지 이름과 같으면 서브헤드). 번호는 페이지 안 주제 순서(목차 표시와 무관하게 전부 셈).
   for (const ch of chapters) ch.subs.forEach((s, si) => {
     const topics: string[] = [];
@@ -366,11 +367,11 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
     const index = subAssetIndex(ch.slug, ch.name, s.slug);
     for (const sec of s.sections) {
       const label = navLabel(sec, s);
-      const topicDir = `${pad2(topics.indexOf(label) + 1)}-${slugify(label)}`;
+      const topicNum = pad2(topics.indexOf(label) + 1);
       for (const it of sec.items) {
         if (it.kind !== 'image') continue;
-        it.path = `${ch.slug}/${pad2(si + 1)}-${s.slug}/${topicDir}/${it.name}`;
-        it.src = resolveAsset(it, index, slugify(label));
+        it.path = `${ch.slug}/${pad2(si + 1)}-${s.slug}/${topicNum}-${it.name}`;
+        it.src = resolveAsset(it, index);
       }
     }
   });

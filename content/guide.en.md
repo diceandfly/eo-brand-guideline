@@ -16,10 +16,11 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (영어판)
 ■ 이미지 (한 줄에 하나)
   ![construction]
     → 파일 이름만 씁니다. 이 서브챕터의 이미지 폴더 안에서 같은 이름의 .svg .png .jpg .webp 를 찾아 넣습니다.
-      폴더: public/assets/<챕터>/<서브챕터>/<주제>/  예) public/assets/02-logo/01-symbol/02-clearspace/clearspace.png
-      주제 = 목차 항목(헤드, 헤드가 페이지 이름과 같으면 서브헤드). 폴더 앞 번호는 정렬용이라 틀려도 이미지는 나옵니다.
+      파일: public/assets/<챕터>/<서브챕터>/<주제 번호>-<이름>  예) public/assets/02-logo/01-symbol/04-clearspace.png
+      주제 = 목차 항목(헤드, 헤드가 페이지 이름과 같으면 서브헤드). 앞 번호는 페이지 순서대로 정렬하기 위한 것이라
+      없거나 틀려도 이미지는 나옵니다. 이름만 붙여 넣어도(clearspace.png) 됩니다.
     → 파일이 아직 없으면 넣을 경로와 비율이 적힌 플레이스홀더 박스가 나옵니다.
-    → 섹션 순서를 바꾼 뒤 npm run assets 를 실행하면 폴더 번호를 새 순서에 맞춰 옮겨 줍니다.
+    → 섹션 순서를 바꾸거나 이름만 붙여 넣은 뒤 npm run assets 를 실행하면 파일 앞 번호를 지금 순서에 맞춰 줍니다.
     → 예전 형식 ![logo/construction] 도 그대로 동작합니다 (앞의 logo/ 는 무시).
   ![dont-stretch]{dont} Don't stretch the logo
     → {do} 또는 {dont} 를 붙이면 캡션 줄 맨 앞에 체크 / 엑스 아이콘이 붙습니다.

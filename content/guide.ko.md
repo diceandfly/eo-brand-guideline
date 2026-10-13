@@ -19,10 +19,11 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
 ■ 이미지 (한 줄에 하나)
   ![construction]
     → 파일 이름만 씁니다. 이 서브챕터의 이미지 폴더 안에서 같은 이름의 .svg .png .jpg .webp 를 찾아 넣습니다.
-      폴더: public/assets/<챕터>/<서브챕터>/<주제>/  예) public/assets/02-logo/01-symbol/02-clearspace/clearspace.png
-      주제 = 목차 항목(헤드, 헤드가 페이지 이름과 같으면 서브헤드). 폴더 앞 번호는 정렬용이라 틀려도 이미지는 나옵니다.
+      파일: public/assets/<챕터>/<서브챕터>/<주제 번호>-<이름>  예) public/assets/02-logo/01-symbol/04-clearspace.png
+      주제 = 목차 항목(헤드, 헤드가 페이지 이름과 같으면 서브헤드). 앞 번호는 페이지 순서대로 정렬하기 위한 것이라
+      없거나 틀려도 이미지는 나옵니다. 이름만 붙여 넣어도(clearspace.png) 됩니다.
     → 파일이 아직 없으면 넣을 경로와 비율이 적힌 플레이스홀더 박스가 나옵니다.
-    → 섹션 순서를 바꾼 뒤 npm run assets 를 실행하면 폴더 번호를 새 순서에 맞춰 옮겨 줍니다.
+    → 섹션 순서를 바꾸거나 이름만 붙여 넣은 뒤 npm run assets 를 실행하면 파일 앞 번호를 지금 순서에 맞춰 줍니다.
     → 예전 형식 ![logo/construction] 도 그대로 동작합니다 (앞의 logo/ 는 무시).
   ![dont-stretch]{dont} 로고를 늘리거나 왜곡하지 마세요
     → {do} 또는 {dont} 를 붙이면 캡션 줄 맨 앞에 체크 / 엑스 아이콘이 붙습니다.
@@ -125,19 +126,22 @@ EO 심볼은, 그래픽 심볼로서 식별 기능을 가짐과 동시에 일정
 ![logo/symbol]
 
 
-### + Construction
+### Symbol
+#### + Geometry
 EO 심볼은 두 개의 블록으로 이루어진 모노그램입니다. 나사의 파사드를 표현한 E 블록은 그래픽 유닛의 기본 지오메트리인 shaft와 스레드(thread) 세 단으로 구성됩니다. O 블록은 십자 구멍이 뚫린 팔각형 나사헤드로, 두 블록이 나란히 놓여 "Entrepreneur Onwards"를 뜻합니다. 두 블록의 높이는 같고(H), 사이 간격은 H의 [0.25]배입니다. E의 스레드 각도는 O 팔각형의 모서리 각도와 일치합니다.
 ![construction]
 
 
-### + Clearspace
+### Symbol
+#### + Clearspace
 심볼에는 항상 숨 쉴 공간이 있어야 합니다. 
 
 클리어스페이스는 타이포그래피, 그래픽 유닛, 사진, 캔버스 가장자리로부터 심볼을 지켜 줍니다. E 블록 스레드 하나의 두께를 X라 할 때, 2X 이상의 여백 확보를 권장합니다.
 ![logo/clearspace]
 
 
-### + Scalability
+### Symbol
+#### + Scalability
 EO 심볼은 다양한 크기에서 작동하도록 설계되고 테스트되었습니다.
 
 디지털 환경에서 충분한 가독성을 확보하기 위한 심볼의 최소 크기는 높이 20px이며, 인쇄물에서는 높이 5mm입니다. 이보다 작은 크기에서는 E 블록의 스레드가 뭉개지므로 EO 디자인팀에 확인을 요청하세요.
@@ -161,7 +165,8 @@ EO 심볼은 강렬하지만 단순한 셰이프로 이뤄졌습니다. 따라�
 ![logo/usage-dont-2]{dont}
 
 
-### + Color {layout=grid-3}
+### Symbol
+#### + Color {layout=grid-3}
 EO 심볼에는 여섯 가지 기본 컬러 페어링이 있습니다. 심볼은 항상 단색으로 표현되어야 하며, 배경색에 확신이 서지 않을 때는 다음 중 하나를 사용하세요. 
 ![logo/color-1] 1. Builder Neon on Space Black
 ![logo/color-2] 2. Space Black on Builder Neon
@@ -243,8 +248,8 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 ![logo/dont-thread]{dont} E의 스레드 수나 각도를 바꾸지 마세요
 ![logo/dont-mask]{dont} 심볼을 사진이나 패턴의 마스크로 사용하지 마세요
 ![logo/dont-effects]{dont} 글로우, 그림자, 그라데이션을 적용하지 마세요
-![logo/dont-color]{dont} 두 가지 색으로 칠하거나 승인되지 않은 페어링을 쓰지 마세요
-![logo/dont-wordmark]{dont} 심볼 옆에 글자를 임의로 붙이지 마세요. 회사명이 필요하면 시그니처를 쓰세요
+![logo/dont-color]{dont} 두 가지 색으로 칠하거나 승인되지 않은 페어링을 사용하지 마세요
+![logo/dont-wordmark]{dont} 심볼 옆에 글자를 임의로 붙이지 마세요. 회사명이 필요하면 시그니처를 사용하세요
 
 
 
@@ -260,45 +265,49 @@ EO를 한번 이상 인지한 사람에게는 EO 심볼이 이미 "EO"로 읽히
 
 
 ### Signature
-#### + Descriptor {layout=grid-2 ratio=16:9}
-시그니처에서 EO 심볼 오른쪽에 붙는 글자 부분을 디스크립터라고 칭합니다. 디스크립터의 내용을 조직이나 서비스, 도메인으로 변경하여 시그니처를 확장할 수 있습니다. 이를테면 Magazine(웹 매거진), Planet(EO 한국 커뮤니티 https://eopla.net), Newsletter(뉴스레터)처럼 EO의 서비스를 나타내는 서브 시그니처로 사용될 수 있습니다. 어떤 단어든 디스크립터는 Studio와 같은 서체, 같은 크기 비율, 같은 간격으로 조판합니다.
-
-새 디스크립터를 만들거나 기존 디스크립터를 변경할 때는 반드시 EO 인하우스 디자인팀의 컨펌을 받아야 합니다. 또한 캠페인이나 이벤트 이름처럼 한시적인 이름은 디스크립터로 쓰지 않습니다.
-![descriptor-studio] EO Studio · 회사
-![descriptor-magazine] EO Magazine · 웹 매거진
-![descriptor-newsletter] EO Newsletter · 뉴스레터
-![descriptor-planet] EO Planet · 커뮤니티 (eopla.net)
-
-
-### + Construction
+#### + Construction
 시그니처는 EO 심볼과 Founders Grotesk Medium/400으로 조판한 "Studio"로 이루어집니다. 글자는 심볼 오른쪽에 놓고 심볼의 세로 중심에 맞춥니다. 글자의 캡하이트는 심볼 높이(H)의 [0.5]배, 심볼과 글자 사이 간격은 E 블록 스레드 하나의 두께 X의 [2]배입니다.
 
 시그니처는 가로형을 기본으로 합니다. 글자를 다시 조판하지 말고 제공된 원본 파일을 사용하세요.
 ![construction]
 
 
-### + Clearspace
+### Signature
+#### + Descriptor {layout=grid-2 ratio=16:9}
+시그니처에서 EO 심볼 오른쪽에 붙는 글자 부분을 디스크립터라고 칭합니다. 디스크립터의 내용을 조직이나 서비스, 도메인으로 변경하여 시그니처를 확장할 수 있습니다. 이를테면 Magazine(웹 매거진), Planet(EO 한국 커뮤니티 https://eopla.net), Newsletter(뉴스레터)처럼 EO의 서비스를 나타내는 서브 시그니처로 사용될 수 있습니다. 어떤 단어든 디스크립터는 Studio와 같은 서체, 같은 크기 비율, 같은 간격으로 조판합니다.
+
+새 디스크립터를 만들거나 기존 디스크립터를 변경할 때는 반드시 EO 인하우스 디자인팀의 컨펌을 받아야 합니다. 또한 캠페인이나 이벤트 이름처럼 한시적인 이름은 디스크립터로 사용하지 않습니다.
+![descriptor-studio] EO Studio · 회사
+![descriptor-magazine] EO Magazine · 웹 매거진
+![descriptor-newsletter] EO Newsletter · 뉴스레터
+![descriptor-planet] EO Planet · 커뮤니티 (eopla.net)
+
+
+### Signature
+#### + Clearspace
 시그니처 주변에도 EO 심볼과 같은 기준의 여백이 필요합니다. E 블록 스레드 하나의 두께를 X라 할 때, 시그니처 전체를 감싸는 사방에 2X 이상의 여백을 확보합니다.
 ![clearspace]
 
 
-### + Scalability
+### Signature
+#### + Scalability
 시그니처는 글자가 함께 있어 EO 심볼보다 큰 최소 크기가 필요합니다. EO Studio 글자가 또렷하게 읽히는 최소 크기는 심볼 높이 기준으로 디지털 [24px], 인쇄물 [6mm]입니다. 이보다 작은 공간에서는 시그니처 대신 EO 심볼을 단독으로 사용하세요.
 ![scalability]
 
 
 ### + Usage {layout=grid-2}
 #### Signature or Symbol
-시그니처와 EO 심볼은 누가 말하는지에 따라 나눠 씁니다. 회사 EO Studio가 주체인 자리에는 시그니처를, 미디어 EO의 콘텐츠에는 EO 심볼을 사용합니다.
+시그니처와 EO 심볼은 누가 말하는지에 따라 나눠 사용합니다. 회사 EO Studio가 주체인 자리에는 시그니처를, 미디어 EO의 콘텐츠에는 EO 심볼을 사용합니다.
 
 판단이 어렵다면 그 결과물에 EO Studio라는 회사명이 꼭 필요한지 물어보세요. 필요하지 않다면 EO 심볼로 충분합니다.
-![usage-do-1]{do} 명함과 공식 문서에는 시그니처를 씁니다
-![usage-do-2]{do} 콘텐츠 썸네일에는 EO 심볼을 씁니다
-![usage-dont-1]{dont} 콘텐츠 사인오프에 시그니처를 쓰지 마세요
-![usage-dont-2]{dont} 계약서와 명함에 EO 심볼만 단독으로 쓰지 마세요
+![usage-do-1]{do} 명함과 공식 문서에는 시그니처를 사용합니다
+![usage-do-2]{do} 콘텐츠 썸네일에는 EO 심볼을 사용합니다
+![usage-dont-1]{dont} 콘텐츠 사인오프에 시그니처를 사용하지 마세요
+![usage-dont-2]{dont} 계약서와 명함에 EO 심볼만 단독으로 사용하지 마세요
 
 
-### + Color {layout=grid-3}
+### Signature
+#### + Color {layout=grid-3}
 시그니처는 EO 심볼과 같은 여섯 가지 컬러 페어링을 사용합니다. 심볼과 글자는 항상 같은 한 가지 색으로 표현합니다.
 ![color-1] 1. Builder Neon on Space Black
 ![color-2] 2. Space Black on Builder Neon
@@ -310,10 +319,20 @@ EO를 한번 이상 인지한 사람에게는 EO 심볼이 이미 "EO"로 읽히
 
 ### + Partner Lockup
 #### Horizontal
-공동 주최, 후원, 업무 협약처럼 회사와 회사가 함께하는 자리에서는 시그니처를 파트너 로고와 락업합니다. 콘텐츠 협업에는 Symbol 페이지의 파트너 락업을 사용하세요.
+공동 주최, 후원, 업무 협약처럼 회사와 회사가 함께하는 자리에서는 시그니처를 파트너 로고와 락업합니다. 콘텐츠 협업에는 Symbol 페이지의 파트너 락업의 사용을 고려하세요.
 
 두 로고는 서로 같은 크기로 보이도록 시각적으로 맞춘 뒤, 그 사이에 간격과 구분선이나 콜라보 기호를 넣습니다. 시그니처와 파트너 로고 사이의 간격은 E 블록 스레드 하나의 두께 X의 [3]배입니다.
 ![partner-horizontal]
+
+
+### + Partner Lockup
+#### Vertical
+오른쪽은 기본 세로 락업 구성의 예시입니다.
+
+요소들의 크기는 서로 같은 크기로 보이도록 시각적으로 조정해야 합니다. 로고 크기를 맞춘 뒤, 두 로고 사이의 간격은 EO 심볼의 높이(H)와 같게 하고 구분선은 그 중앙에 가로로 둡니다.
+
+로고들이 항상 시각적으로 중앙 정렬되도록 하세요.
+![logo/partner-vertical]
 
 
 ### Partner Lockup
@@ -328,47 +347,35 @@ EO를 한번 이상 인지한 사람에게는 EO 심볼이 이미 "EO"로 읽히
 ![dont-typeface]{dont} EO Studio를 다른 서체로 바꾸지 마세요
 ![dont-spacing]{dont} 심볼과 글자의 간격이나 크기 비율을 바꾸지 마세요
 ![dont-rearrange]{dont} 글자를 심볼의 왼쪽이나 다른 위치로 옮기지 마세요
-![dont-text-only]{dont} EO Studio 글자만 단독으로 쓰지 마세요
+![dont-text-only]{dont} EO Studio 글자만 단독으로 사용하지 마세요
 ![dont-sub-symbol]{dont} 서브 심볼과 글자를 조합하지 마세요
 ![dont-two-colors]{dont} 심볼과 글자를 서로 다른 색으로 칠하지 마세요
 ![dont-stretch]{dont} 시그니처를 늘리거나 왜곡하지 마세요
 ![dont-effects]{dont} 글로우, 그림자, 그라데이션을 적용하지 마세요
-![dont-media]{dont} 미디어 콘텐츠의 사인오프로 쓰지 마세요
+![dont-media]{dont} 미디어 콘텐츠의 사인오프로 사용하지 마세요
 
 
 
 ## Sub Symbol
 
 ### + Sub Symbol
-서브 심볼은 EO 심볼에서 E 블록만 떼어 쓰는 형태입니다. 앱 아이콘, 파비콘, 소셜 미디어 아바타, 핀 배지처럼 EO 심볼 전체를 알아보기 어려운 작은 정사각형 공간에서만 사용합니다.
+서브 심볼은 EO 심볼에서 E 블록만 떼어 쓰는 형태를 칭합니다. 앱 아이콘, 파비콘, 소셜 미디어 아바타, 핀 배지처럼 EO 심볼 전체를 알아보기 어려운 작은 정사각형 공간에 한하여 사용합니다.
 
-서브 심볼은 EO 심볼을 대신하지 않습니다. EO 심볼을 충분한 크기로 쓸 수 있는 곳에서는 항상 EO 심볼을 사용하세요. E 블록은 그래픽 유닛과 같은 지오메트리를 공유하므로, 작게 쓰여도 비주얼 시스템 전체와 자연스럽게 이어집니다.
+서브 심볼은 EO 심볼을 완전히 대신할 수 없으므로, 충분한 크기가 확보된 곳에서는 항상 EO 심볼을 사용하세요. E 블록은 그래픽 유닛과 같은 지오메트리를 공유하므로, 작게 쓰여도 비주얼 시스템 전체와 자연스럽게 이어집니다.
 ![overview]
 
 
-### + Construction
-서브 심볼은 EO 심볼의 E 블록을 그대로 사용합니다. 가로 막대인 shaft와 사다리꼴 스레드(thread) 세 단으로 이루어지며, 비율과 스레드 각도는 EO 심볼의 E 블록과 같습니다. 정사각형 공간에 맞추기 위해 블록을 다시 그리거나 비율을 바꾸지 않습니다.
-![construction]
-
-
-### + Clearspace
+### Sub Symbol
+#### + Clearspace
 서브 심볼 주변에도 EO 심볼과 같은 기준의 여백이 필요합니다. 스레드 하나의 두께를 X라 할 때 사방으로 [2X] 이상의 여백을 확보하고, 스레드가 튀어나온 쪽에도 같은 값을 적용합니다.
 ![clearspace]
 
 
-### + Scalability
-서브 심볼은 작은 크기를 위한 형태이므로 EO 심볼보다 더 작게 쓸 수 있습니다. 디지털 환경에서 최소 크기는 높이 [16px]입니다. 이보다 작은 파비콘에는 스레드를 두 단으로 줄인 축소 버전을 사용합니다.
-![scalability]
-
-
-### + Color {layout=grid-3}
-서브 심볼은 EO 심볼과 같은 여섯 가지 컬러 페어링을 사용합니다. 항상 단색으로 표현하세요.
+### Sub Symbol
+#### + Color {layout=grid-2}
+서브 심볼은 EO 심볼의 1,2번 컬러 페어링을 사용합니다. 항상 단색으로 표현하세요.
 ![color-1] 1. Builder Neon on Space Black
 ![color-2] 2. Space Black on Builder Neon
-![color-3] 3. Air White on Space Black
-![color-4] 4. Space Black on Air White
-![color-5] 5. Air White on Solid Gray
-![color-6] 6. Space Black on Color
 
 
 ### + App & Social Icons
@@ -385,17 +392,15 @@ EO를 한번 이상 인지한 사람에게는 EO 심볼이 이미 "EO"로 읽히
 
 ### Sub Symbol {layout=grid-3}
 #### Don'ts
-서브 심볼은 EO 심볼의 일부이므로 EO 심볼과 같은 원칙을 따릅니다. 형태를 바꾸거나 장식하지 말고, 정해진 용도 밖에서 쓰지 마세요.
+서브 심볼은 EO 심볼의 일부이므로 EO 심볼과 같은 원칙을 따릅니다. 형태를 바꾸거나 장식하지 말고, 정해진 용도 밖에서 사용하지 마세요.
 ![dont-stretch]{dont} 서브 심볼을 늘리거나 왜곡하지 마세요
 ![dont-rotate]{dont} 서브 심볼을 회전하지 마세요
 ![dont-flip]{dont} 서브 심볼을 좌우로 뒤집지 마세요
 ![dont-thread]{dont} 스레드의 수나 각도를 바꾸지 마세요
 ![dont-outline]{dont} 서브 심볼에 외곽선을 넣지 마세요
 ![dont-effects]{dont} 글로우, 그림자, 그라데이션을 적용하지 마세요
-![dont-color]{dont} 두 가지 색으로 칠하거나 승인되지 않은 페어링을 쓰지 마세요
-![dont-o]{dont} O 블록을 단독으로 쓰지 마세요
-![dont-large]{dont} EO 심볼을 쓸 수 있는 공간에 서브 심볼을 쓰지 마세요
-
+![dont-color]{dont} 두 가지 색으로 칠하거나 승인되지 않은 페어링을 사용하지 마세요
+![dont-o]{dont} E 블록 대신 O 블록을 서브 심볼로 사용하지 마세요
 
 
 
@@ -582,13 +587,13 @@ EO의 헤드라인은 짧고 행 수가 적어 래그가 그대로 드러납니�
 ### Don'ts {layout=grid-3}
 #### Headline
 아래는 타이포그래피로 절대 하지 말아야 할 몇 가지입니다. 모든 접점에서 일관성을 보장하려면 이 가이드라인의 타이포그래피 섹션에 제시된 조판 규칙과 권장 사항을 따르세요.
-![type/dont-1]{dont} 헤드라인을 전부 대문자로 쓰지 마세요
-![type/dont-2]{dont} 헤드라인에 Light 웨이트를 쓰지 마세요
+![type/dont-1]{dont} 헤드라인을 전부 대문자로 사용하지 마세요
+![type/dont-2]{dont} 헤드라인에 Light 웨이트를 사용하지 마세요
 ![type/dont-3]{dont} 행간을 87.5%보다 좁혀 획이 닿게 하지 마세요
 ![type/dont-4]{dont} 자간을 벌려 글자를 흩뜨리지 마세요
-![type/dont-5]{dont} 가운데 정렬이나 오른쪽 정렬을 쓰지 마세요
-![type/dont-6]{dont} 한 레이아웃에 세 가지 이상의 레벨을 쓰지 마세요
-![type/dont-7]{dont} 헤드라인에 색을 두 가지 이상 쓰지 마세요
+![type/dont-5]{dont} 가운데 정렬이나 오른쪽 정렬을 사용하지 마세요
+![type/dont-6]{dont} 한 레이아웃에 세 가지 이상의 레벨을 사용하지 마세요
+![type/dont-7]{dont} 헤드라인에 색을 두 가지 이상 사용하지 마세요
 ![type/dont-8]{dont} 외곽선, 그림자, 기울임을 적용하지 마세요
 ![type/dont-9]{dont} 헤드라인을 그래픽 유닛 위에 겹치지 마세요
 
@@ -714,12 +719,12 @@ Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 �
 ### Color {layout=grid-3}
 #### Don'ts
 아래는 컬러로 절대 하지 말아야 할 몇 가지입니다. 최소 대비 요건에 대한 일반적인 지침은 WCAG를 참고하세요.
-![color/dont-1]{dont} Builder Neon을 본문 텍스트 색으로 쓰지 마세요
+![color/dont-1]{dont} Builder Neon을 본문 텍스트 색으로 사용하지 마세요
 ![color/dont-2]{dont} 그라데이션을 만들지 마세요
 ![color/dont-3]{dont} 팔레트 밖의 색을 추가하지 마세요
-![color/dont-4]{dont} 한 구성에 보조 색 두 가지를 함께 쓰지 마세요
+![color/dont-4]{dont} 한 구성에 보조 색 두 가지를 함께 사용하지 마세요
 ![color/dont-5]{dont} Builder Neon의 명도나 채도를 바꾸지 마세요
-![color/dont-6]{dont} Air White 바탕에 Builder Neon 텍스트를 쓰지 마세요
+![color/dont-6]{dont} Air White 바탕에 Builder Neon 텍스트를 사용하지 마세요
 ![color/dont-7]{dont} 투명도를 낮춰 새로운 톤을 만들지 마세요
 ![color/dont-8]{dont} 사진에 컬러 오버레이를 씌우지 마세요
 ![color/dont-9]{dont} 그래픽 유닛 하나에 여러 색을 칠하지 마세요
@@ -768,9 +773,9 @@ Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 �
 유닛의 지오메트리를 손으로 변형하지 마세요. 모든 변형은 Graphic Builder의 파라미터 안에서만 이루어져야 합니다.
 ![visual/unit-dont-1]{dont} 유닛을 회전하거나 기울이지 마세요
 ![visual/unit-dont-2]{dont} thread를 임의로 지우거나 추가하지 마세요
-![visual/unit-dont-3]{dont} 세 가지 이상의 색을 한 유닛에 쓰지 마세요
+![visual/unit-dont-3]{dont} 세 가지 이상의 색을 한 유닛에 사용하지 마세요
 ![visual/unit-dont-4]{dont} 유닛에 외곽선이나 그림자를 넣지 마세요
-![visual/unit-dont-5]{dont} 유닛을 사진의 마스크로 쓰지 마세요
+![visual/unit-dont-5]{dont} 유닛을 사진의 마스크로 사용하지 마세요
 ![visual/unit-dont-6]{dont} 압축 비율을 컬럼마다 다르게 손으로 조정하지 마세요
 
 
