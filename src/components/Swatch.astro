@@ -12,7 +12,7 @@ const { item, ratio } = Astro.props;
 ---
 <div class="swatch">
   <div class="swatch__card" style={`--swatch-color: ${item.hex}${ratio ? `; --swatch-ratio: ${ratio}` : ''}`}>
-    <dl class="swatch__panel">
+    <dl class="swatch__panel t-body">
       {item.rows.map(r => (
         <div class="swatch__row">
           <dt class="swatch__label t-body">{r.label}</dt>

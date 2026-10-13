@@ -58,6 +58,7 @@
 
   /* 1-2 목차 · 챕터 → 서브챕터 → 섹션 → 언어 전환 */
   --nav-chapter-gap: 0px; /* 챕터 ↔ 챕터 */
+  --nav-num-gap: 0.6em; /* 챕터 번호 ↔ 이름 (03 Overview). 컬러 카드 항목 ↔ 값도 이 값 */
   --nav-sub-pad-top: 0px; /* 챕터 ↔ 첫 서브챕터 */
   --nav-item-gap: 0px; /* 서브챕터 ↔ 서브챕터, 섹션 ↔ 섹션 */
   --nav-indent: 20px; /* 위계당 들여쓰기 (서브챕터, 섹션) */
@@ -116,11 +117,12 @@
 
   /* 1-7 컬러 카드 — 스펙 글자는 본문 스타일. pad·fade·row-gap 은 행간 단위(--lh-unit) × 값 */
   --swatch-gap: 12px; /* 색면 ↔ 이름 */
+  --swatch-min-w: 200px; /* 카드 최소 폭. 화면이 좁아 이보다 작아지면 한 줄의 카드 수가 줄어듦 */
   --swatch-panel-pad-x: 1; /* 스펙 좌우 여백 */
   --swatch-panel-pad-y: 1; /* 스펙 아래 여백 */
-  --swatch-panel-fade: 4; /* 그라데이션이 투명해지는 구간 높이 (첫 행 위) */
+  --swatch-panel-fade: 8; /* 그라데이션이 서서히 진해지는 구간 높이 (스펙 위쪽) */
   --swatch-row-gap: 0; /* 행 ↔ 행 추가 간격. 0 = 본문 줄처럼 붙음 */
-  --swatch-label-w: 5.5em; /* 라벨 칸 폭. 값이 이 위치에서 정렬됨 */
+  --swatch-label-gap: var(--nav-num-gap); /* 항목 ↔ 값. 값은 가장 긴 항목 기준으로 정렬 */
   --swatch-val-gap: 0.45em; /* 숫자 ↔ 숫자 (CMYK, RGB) */
   --swatch-val-pad-x: 0.12em; /* 숫자 호버 하이라이트의 좌우 여유 */
   --swatch-tip-h: 24px; /* Copy 버튼 높이 */
@@ -305,11 +307,9 @@
   --c-do: var(--c-bay-green);
   --c-dont: #dd5a2d;
 
-  /* 3-8 컬러 카드 — 아래에서 위로 투명해지는 그라데이션 위에 흰 글자 */
-  --swatch-shade-bottom: color-mix(in srgb, var(--c-space-black), transparent 15%); /* 그라데이션 맨 아래 (가장 진함) */
-  --swatch-shade-top: color-mix(in srgb, var(--c-space-black), transparent 45%); /* 첫 행 높이 (그 위로 투명) */
-  --swatch-panel-fg: var(--c-air-white); /* 숫자 */
-  --swatch-label-fg: color-mix(in srgb, var(--c-air-white), transparent 35%); /* 라벨, 메모 */
+  /* 3-8 컬러 카드 — 위에서 아래로 서서히 진해지는 그늘 위에 흰 글자 */
+  --swatch-shade: color-mix(in srgb, var(--c-space-black), transparent 45%); /* 스펙 뒤 그늘의 최대 진하기 */
+  --swatch-panel-fg: var(--c-air-white); /* 스펙 글자 (항목·값·메모 모두) */
   --swatch-val-hover-bg: var(--selection-bg); /* 숫자 호버 = 드래그 박스(3-10)와 같은 색 */
   --swatch-val-hover-fg: var(--selection-fg);
   --swatch-tip-bg: var(--c-space-black); /* Copy 버튼 */

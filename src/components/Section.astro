@@ -32,7 +32,7 @@ const ratio = s.ratio ?? defaultRatio;
   )}
 
   {isGrid && (
-    <div class="sec__grid" style={`--n: ${n}`}>
+    <div class:list={['sec__grid', { 'sec__grid--swatch': s.items.some(it => it.kind === 'swatch') }]} style={`--n: ${n}`}>
       {s.items.map(it => it.kind === 'image' ? <Figure item={it} ratio={ratio} /> : <Swatch item={it} ratio={s.ratio} />)}
     </div>
   )}
