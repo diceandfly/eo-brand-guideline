@@ -3,7 +3,7 @@
  *  1. 스무스 스크롤 — ScrollSmoother. --scroll-smooth 가 0 이면 만들지 않음(브라우저 기본 스크롤).
  *  2. 앵커 이동 — 같은 페이지의 #섹션 링크는 스무스 스크롤로, --anchor-offset 만큼 위를 띄움.
  *  3. 이미지 확대 보기 — .fig__frame 의 <img> 를 누르면 라이트박스. 디졸브 + 스케일.
- * 수치는 전부 tokens.css 의 5. MOTION / 1-6 / 3-9 토큰에서 읽습니다.
+ * 수치는 전부 tokens.css 의 5. MOTION / 1-8 / 3-9 토큰에서 읽습니다.
  */
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
