@@ -339,18 +339,19 @@
      ------------------------------------------------------------------ */
   /* 공통 */
   --dur: 160ms; /* 호버·색 전환 */
-  --ease: cubic-bezier(0.2, 0.7, 0.2, 1); /* 기본 곡선 */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1); /* 기본 곡선: 바로 출발해 감속 (호버, 들어올 때) */
+  --ease-inout: cubic-bezier(0.7, 0, 0.3, 1); /* 이동 곡선: 양끝 천천히, 가운데 빠르게 (목차·페이지·섹션 이동 공유) */
 
   /* 목차 — 다른 페이지로 가는 링크를 누르면 하위 목록이 슬라이드로 접히고 펼쳐짐 */
-  --nav-slide-dur: 400ms; /* 슬라이드 시간. 페이지 전환도 이 시간에 맞춰 움직임 */
-  --nav-slide-ease: cubic-bezier(0.37, 0, 0.63, 1); /* 출발·도착 모두 천천히 (ease-in-out sine) */
+  --nav-slide-dur: 460ms; /* 슬라이드 시간. 페이지 전환도 이 시간에 맞춰 움직임 */
+  --nav-slide-ease: var(--ease-inout);
   --nav-stagger: 24ms; /* 펼쳐지는 항목 사이 시차. 0 = 한꺼번에 */
   --nav-stagger-shift: -4px; /* 항목이 나타날 때 출발 위치. 음수 = 위에서 내려옴. 0 = 페이드만 */
   --nav-stagger-max: 8; /* 이 순번 이후 항목은 시차를 더 늘리지 않음 (긴 목록 대비) */
 
   /* 페이지 전환 (본문 영역만 디졸브, 목차는 그대로) — 목차 슬라이드와 같은 시간·곡선 */
   --page-out-dur: var(--nav-slide-dur); /* 링크를 누른 뒤 본문이 사라지는 시간 (GSAP) */
-  --page-ease: sine.inOut; /* 나갈 때 GSAP ease 이름. 목차 슬라이드와 같은 sine 곡선 */
+  --page-ease: var(--ease-inout); /* 나갈 때 곡선 (GSAP 이름 또는 cubic-bezier) */
   --page-in-dur: var(--nav-slide-dur); /* 새 페이지 본문이 떠오르는 시간 (CSS) */
   --page-in-ease: var(--ease); /* 들어올 때 곡선. 바로 보이기 시작해 감속 */
   --page-shift: 8px; /* 들어올 때 아래에서 올라오는 거리. 0 = 페이드만 */
@@ -358,8 +359,8 @@
   /* 스무스 스크롤 (GSAP ScrollSmoother)과 섹션 이동 */
   --scroll-smooth: 1.2; /* 휠 스크롤이 목표에 닿기까지 걸리는 시간(초). 0 = 끔 */
   --anchor-offset: 64px; /* 목차·검색으로 섹션에 도착할 때 헤드 위 여백 */
-  --anchor-dur: 0.5; /* 목차·검색의 섹션 이동 시간(초). 거리와 무관, 휠 스크롤과 별개 */
-  --anchor-ease: sine.inOut; /* 섹션 이동 곡선 (GSAP). sine = 가장 부드러움 / power1·power2 로 갈수록 가운데가 빨라짐 */
+  --anchor-dur: 0.56; /* 목차·검색의 섹션 이동 시간(초). 거리와 무관, 휠 스크롤과 별개 */
+  --anchor-ease: var(--ease-inout); /* 섹션 이동 곡선 (GSAP 이름 또는 cubic-bezier) */
 
   /* 컬러 카드 */
   --swatch-reveal-dur: 180ms; /* 호버하면 스펙이 나타나는 디졸브 시간 */

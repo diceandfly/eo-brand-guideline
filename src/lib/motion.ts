@@ -8,14 +8,28 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import { CustomEase } from 'gsap/CustomEase';
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, CustomEase);
 
 const css = getComputedStyle(document.documentElement);
 const token = (name: string) => css.getPropertyValue(name).trim();
 const num = (name: string, fallback: number) => {
   const v = parseFloat(token(name));
   return Number.isFinite(v) ? v : fallback;
+};
+/**
+ * 곡선 토큰을 GSAP ease 로. GSAP 이름(power2.inOut)이면 그대로, cubic-bezier(…) 면 CustomEase 로 만들어
+ * CSS 전환(목차 슬라이드)과 GSAP 전환(섹션 이동, 페이지 전환)이 같은 토큰 하나로 같은 곡선을 씁니다.
+ */
+const eases = new Map<string, string | gsap.EaseFunction>();
+const easeOf = (name: string, fallback: string): string | gsap.EaseFunction => {
+  const raw = token(name) || fallback;
+  if (eases.has(raw)) return eases.get(raw)!;
+  const m = raw.match(/^cubic-bezier\(\s*([^)]+)\)$/);
+  const ease = m ? CustomEase.create(`token${eases.size}`, m[1].split(/\s*,\s*/).join(',')) : raw;
+  eases.set(raw, ease);
+  return ease;
 };
 const ms = (name: string, fallback: number) => {
   const raw = token(name);
@@ -88,7 +102,7 @@ export function scrollToId(id: string, animate = true) {
     anchorTween = gsap.to(smoother, {
       scrollTop: y,
       duration: num('--anchor-dur', 0.5),
-      ease: token('--anchor-ease') || 'power2.inOut',
+      ease: easeOf('--anchor-ease', 'power2.inOut'),
       overwrite: true,
       onComplete: stopAnchorTween,
     });
@@ -105,7 +119,7 @@ if (main) {
   const outDur = ms('--page-out-dur', 0.2);
   const navSlide = ms('--nav-slide-dur', 0.28);             // 목차 링크면 하위 목록 슬라이드가 끝날 때까지 기다림
   const shift = num('--page-shift', 0);
-  const ease = token('--page-ease') || 'power2.out';
+  const ease = easeOf('--page-ease', 'power2.out');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.addEventListener('click', e => {
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
@@ -154,7 +168,7 @@ const boxImg = box?.querySelector<HTMLImageElement>('.lightbox__img');
 if (box && boxImg) {
   const dur = ms('--lightbox-dur', 0.36);
   const scaleFrom = num('--lightbox-scale-from', 0.94);
-  const ease = token('--lightbox-ease') || 'power3.out';
+  const ease = easeOf('--lightbox-ease', 'power3.out');
   let opened = false;
 
   const open = (src: string, alt: string) => {
