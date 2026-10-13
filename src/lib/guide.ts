@@ -167,6 +167,39 @@ export function wrapKo(html: string): string {
     .join('');
 }
 
+/**
+ * 곧은 따옴표를 둥근 따옴표로 (표시용). guide.md 에는 " 와 ' 로 쓰고, 화면에는 “ ” ‘ ’ 로 나옵니다.
+ * 앞 글자가 공백·줄 시작·여는 괄호면 여는 따옴표, 아니면 닫는 따옴표. 글자 사이의 ' 는 아포스트로피(’).
+ * 태그 안(속성)과 <code>·<pre> 안은 건드리지 않습니다. 이미 둥근 따옴표로 쓴 글자는 그대로 둡니다.
+ */
+const OPENS_AFTER = /[\s([{\u2014\u2013\-/“‘]/;
+const LETTER = /[\p{L}\p{N}]/u;
+export function smartQuotes(html: string): string {
+  let prev = ' ';
+  let code = 0;
+  return html.split(/(<[^>]+>)/).map(seg => {
+    if (seg.startsWith('<')) {
+      if (/^<(code|pre)\b/i.test(seg)) code++;
+      else if (/^<\/(code|pre)>/i.test(seg)) code = Math.max(0, code - 1);
+      if (/^<\/?(p|li|ul|ol|h\d|div|blockquote|br|td|th|tr)\b/i.test(seg)) prev = ' ';   // 블록 경계 = 줄 시작
+      return seg;
+    }
+    if (code) { if (seg) prev = seg.at(-1)!; return seg; }
+    const text = seg.replace(/&quot;/g, '"').replace(/&#39;|&#x27;/g, "'");
+    let out = '';
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (c === '"') out += OPENS_AFTER.test(prev) ? '“' : '”';
+      else if (c === "'") {
+        const next = text[i + 1] ?? '';
+        out += LETTER.test(prev) && LETTER.test(next) ? '’' : OPENS_AFTER.test(prev) ? '‘' : '’';
+      } else out += c;
+      prev = c;
+    }
+    return out;
+  }).join('');
+}
+
 const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 /**
@@ -201,7 +234,7 @@ const glueBlocks = (html: string) =>
 
 function md(src: string): string {
   const s = src.trim();
-  return s ? glueBlocks(wrapKo(marked.parse(s, { async: false, gfm: true, breaks: false }) as string)) : '';
+  return s ? glueBlocks(wrapKo(smartQuotes(marked.parse(s, { async: false, gfm: true, breaks: false }) as string))) : '';
 }
 
 export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
@@ -277,7 +310,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
     if ((m = line.match(/^###(\+?)\s+(\+\s*)?(.+?)\s*$/)) && sub) { // ### Head {layout=…}  /  #### + Head (목차에 올림, ###+ Head 도 가능)
       flushSection();
       const tocMark = m[1] === '+' || !!m[2];
-      let head = m[3];
+      let head = smartQuotes(m[3]);
       let attrs: Record<string, string> = {};
       const am = head.match(/\{([^}]*)\}\s*$/);
       if (am) { attrs = parseAttrs(am[1]); head = head.slice(0, am.index).trim(); }
@@ -293,7 +326,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       continue;
     }
     if ((m = line.match(/^####\s+(\+\s*)?(.+?)\s*$/)) && section) { // #### Subhead  /  #### + Subhead {layout=…}  (+ 와 {…} 는 헤드 줄과 동일하게 동작)
-      let subhead = m[2];
+      let subhead = smartQuotes(m[2]);
       if (m[1]) section.tocMark = true;
       const am = subhead.match(/\{([^}]*)\}\s*$/);
       if (am) {
@@ -310,7 +343,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       const name = token.split('/').pop()!.trim();
       const item: ImageItem = { kind: 'image', token, name, path: '', src: null };   // path·src 는 서브챕터를 다 읽은 뒤 확정
       if (m[2]) item.badge = m[2] as 'do' | 'dont';
-      if (m[3].trim()) item.caption = glueLastWords(wrapKo(escapeHtml(m[3].trim())));   // HTML (한글 구간 래핑, 고아 단어 방지)
+      if (m[3].trim()) item.caption = glueLastWords(wrapKo(smartQuotes(escapeHtml(m[3].trim()))));   // HTML (한글 구간 래핑, 고아 단어 방지)
       section.items.push(item);
       continue;
     }
@@ -356,7 +389,8 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
 /** 검색 색인: 섹션 단위. 클라이언트 스크립트가 JSON 으로 받아 필터링합니다. */
 /** u: url#id, c: 챕터, s: 서브챕터, h: 섹션 헤드, t: 제목(서브헤드, 없으면 헤드), b: 본문 */
 export interface SearchEntry { u: string; c: string; s: string; h: string; t: string; b: string; }
-const stripTags = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim();
+const straightQuotes = (t: string) => t.replace(/[“”]/g, '"').replace(/[‘’]/g, "'");   // 검색어는 곧은 따옴표로 입력되므로 색인도 맞춤
+const stripTags = (html: string) => straightQuotes(html.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim());
 export function buildSearchIndex(guide: Guide): SearchEntry[] {
   const out: SearchEntry[] = [];
   for (const ch of guide.chapters) for (const sub of ch.subs) for (const sec of sub.sections) {
@@ -365,8 +399,8 @@ export function buildSearchIndex(guide: Guide): SearchEntry[] {
       u: `${sub.url}#${sec.id}`,
       c: `${ch.num} ${ch.name}`,
       s: sub.name,
-      h: sec.head,
-      t: sec.subhead ?? sec.head,
+      h: straightQuotes(sec.head),
+      t: straightQuotes(sec.subhead ?? sec.head),
       b: `${stripTags(sec.bodyHtml)} ${caps}`.slice(0, 400)
     });
   }

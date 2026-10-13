@@ -28,6 +28,10 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
     → {do} 또는 {dont} 를 붙이면 캡션 줄 맨 앞에 체크 / 엑스 아이콘이 붙습니다.
     → 뒤에 글을 쓰면 이미지 아래 캡션이 붙습니다 (= 카드). 배지만 있고 글이 없으면 "Do" / "Don't" 가 기본 문구.
 
+■ 따옴표
+  본문·캡션·헤드 어디서든 곧은 따옴표 " 와 ' 로 씁니다. 화면에는 자동으로 둥근 따옴표 “ ” ‘ ’ 로 바뀝니다.
+    → "Build Anyway." 는 “Build Anyway.” 로, Don't 는 Don’t 로 표시됩니다. `코드` 안은 바뀌지 않습니다.
+
 ■ 스와치 (컬러 스펙 카드)
   [swatch] Builder Neon | #F9EE3A | R249 G238 B58 | C5 M0 Y95 K0 | PANTONE 3945 C
     → 이름 | HEX | 이후는 자유 항목. HEX 는 색면 채우기에 쓰입니다.
@@ -80,16 +84,20 @@ Build Anyway.
 
 The EO Brand Team
 
+
+
 ## Legal Brand Guidelines {toc=none}
 
 ### Legal Brand Guidelines
-EO, EO 모노그램, 블록 심볼, “Build Anyway”, “Entrepreneur Onwards” 및 EO Studio(이오스튜디오)가 소유한 기타 상표(이하 **“EO 로고”**)와, 심볼·그래픽 유닛·패턴·EO의 룩앤필 등 브랜드 고유의 미적 특징(이하 “브랜드 에셋”)은 EO Studio의 독점 자산입니다. 여기에서 허용된 경우를 제외하고 EO 로고나 브랜드 에셋을 사용하려면 EO Studio의 사전 허가가 있어야 합니다.
+EO, EO 모노그램, 블록 심볼, "Build Anyway", "Entrepreneur Onwards" 및 EO Studio(이오스튜디오)가 소유한 기타 상표(이하 **"EO 로고"**)와, 심볼·그래픽 유닛·패턴·EO의 룩앤필 등 브랜드 고유의 미적 특징(이하 "브랜드 에셋")은 EO Studio의 독점 자산입니다. 여기에서 허용된 경우를 제외하고 EO 로고나 브랜드 에셋을 사용하려면 EO Studio의 사전 허가가 있어야 합니다.
+
 
 ### Do's
 - EO 로고와 브랜드 에셋을 사용할 때는 항상 본 브랜드 가이드라인을 따르세요.
 - EO 콘텐츠에 출연했거나 EO 프로그램에 참여했다는 사실을 알리기 위해 EO 로고를 사용할 수 있습니다. 다만 EO가 해당 제품이나 서비스를 보증하거나 후원한다는 인상을 주어서는 안 됩니다.
-- EO 영상과 아티클을 인용할 때는 출처를 “EO”로 명확히 표기하고, 원본 링크를 함께 제공하세요.
+- EO 영상과 아티클을 인용할 때는 출처를 "EO"로 명확히 표기하고, 원본 링크를 함께 제공하세요.
 - EO 로고와 브랜드 에셋은 제공된 원본 파일 그대로, 승인된 컬러 페어링 안에서만 사용하세요.
+
 
 ### Don'ts
 - EO 로고 또는 이와 혼동될 만큼 유사한 로고를 회사·제품·서비스·이벤트·커뮤니티 이름, URL, 소셜 미디어 계정, 상표에 포함하지 마세요.
@@ -98,6 +106,9 @@ EO, EO 모노그램, 블록 심볼, “Build Anyway”, “Entrepreneur Onwards�
 - EO 웹사이트, 매거진, 소셜 채널의 룩앤필(레이아웃, 컬러 조합, 서체, 그래픽 시스템)을 복제하거나 모방하지 마세요.
 - EO 로고를 정치적·종교적 메시지, 성인물, 차별적 콘텐츠와 함께 사용하지 마세요.
 - EO 로고 및 브랜드 에셋을 허가 없이 상품(머천다이즈)에 사용하지 마세요.
+
+
+
 
 # 02 Logo
 
@@ -115,7 +126,7 @@ EO 심볼은, 그래픽 심볼로서 식별 기능을 가짐과 동시에 일정
 
 
 ### + Construction
-EO 심볼은 두 개의 블록으로 이루어진 모노그램입니다. 나사의 파사드를 표현한 E 블록은 그래픽 유닛의 기본 지오메트리인 shaft와 스레드(thread) 세 단으로 구성됩니다. O 블록은 십자 구멍이 뚫린 팔각형 나사헤드로, 두 블록이 나란히 놓여 “Entrepreneur Onwards”를 뜻합니다. 두 블록의 높이는 같고(H), 사이 간격은 H의 [0.25]배입니다. E의 스레드 각도는 O 팔각형의 모서리 각도와 일치합니다.
+EO 심볼은 두 개의 블록으로 이루어진 모노그램입니다. 나사의 파사드를 표현한 E 블록은 그래픽 유닛의 기본 지오메트리인 shaft와 스레드(thread) 세 단으로 구성됩니다. O 블록은 십자 구멍이 뚫린 팔각형 나사헤드로, 두 블록이 나란히 놓여 "Entrepreneur Onwards"를 뜻합니다. 두 블록의 높이는 같고(H), 사이 간격은 H의 [0.25]배입니다. E의 스레드 각도는 O 팔각형의 모서리 각도와 일치합니다.
 ![construction]
 
 
@@ -159,6 +170,7 @@ EO 심볼에는 여섯 가지 기본 컬러 페어링이 있습니다. 심볼은
 ![logo/color-5] 5. Air White on Solid Gray
 ![logo/color-6] 6. Space Black on Color
 
+
 ### + Over Imagery {layout=grid-2}
 #### Do's & Don'ts
 심볼은 사진 위에서도 항상 또렷하게 읽혀야 합니다.
@@ -173,6 +185,7 @@ EO 심볼에는 여섯 가지 기본 컬러 페어링이 있습니다. 심볼은
 ![logo/imagery-dont-1]{dont}
 ![logo/imagery-dont-2]{dont}
 
+
 ### + Contextual Usage {layout=grid-2}
 #### Do's & Don'ts
 채널 이름과 아바타가 이미 EO를 말해 주는 곳에서는 일반 게시물에 심볼을 넣지 않는 것을 권장합니다. EO를 모르는 사람들이 많을 거라 예상되는 곳, 파트너 행사장처럼 채널의 맥락이 없는 곳에서는, 브랜드 존재감을 확립하기 위해 포스터나 굿즈 등에 심볼을 적극적으로 활용합니다.
@@ -181,12 +194,14 @@ EO 심볼에는 여섯 가지 기본 컬러 페어링이 있습니다. 심볼은
 ![logo/context-do-2]{do}
 ![logo/context-dont-2]{dont}
 
+
 ### + Partner Lockup
 #### Horizontal
 EO 심볼은 파트너 브랜드 및 협업사 로고와 락업할 수 있습니다. 본 섹션의 이미지는 기본 락업 구성의 예시입니다.
 
 요소들의 크기는 서로 같은 크기로 보이도록 시각적으로 조정해야 합니다. 각 로고의 크기를 맞춘 뒤 그 사이에 간격과 구분선·콜라보 기호를 넣을 수 있습니다. EO 심볼과 파트너 로고 사이의 간격은 E 블록 스레드 하나의 두께 X의 2배 또는 3배를 적용합니다.
 ![logo/partner-horizontal]
+
 
 ### Partner Lockup
 #### Vertical
@@ -196,6 +211,7 @@ EO 심볼은 파트너 브랜드 및 협업사 로고와 세로로도 락업할 
 
 로고들이 항상 시각적으로 중앙 정렬되도록 하세요.
 ![logo/partner-vertical]
+
 
 ### Partner Lockup
 #### Optical Adjustment
@@ -231,24 +247,23 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 ![logo/dont-wordmark]{dont} 심볼 옆에 글자를 임의로 붙이지 마세요. 회사명이 필요하면 시그니처를 쓰세요
 
 
+
 ## Signature
 
 ### + Signature
-시그니처는 EO 심볼과 회사명 EO Studio를 가로로 묶은 조합입니다. 미디어 브랜드 EO가 아니라 회사 EO Studio를 드러내야 할 때 사용합니다.
+시그니처는 EO 심볼과 회사명을 가로로 묶은 조합입니다. 미디어 브랜드 EO가 아니라 회사 EO Studio를 먼저 드러내야 할 때 사용합니다. 
 
-명함, 계약서와 제안서, 채용 공고, 파트너 제안서, 공식 문서와 웹사이트 푸터처럼 회사가 주체가 되는 자리에 시그니처를 씁니다. 영상, 썸네일, 소셜 게시물, 포스터 같은 미디어 콘텐츠에는 시그니처가 아니라 EO 심볼을 사용합니다.
+EO를 한번 이상 인지한 사람에게는 EO 심볼이 이미 "EO"로 읽히므로, 꼭 필요한 상황이 아니라면 디스크립터에 EO를 병기하지 않는 것을 권장합니다(다음 섹션 참조). 따라서 회사 EO Studio를 나타내는 시그니처는 심볼 옆에 Studio만 붙여 EO Studio로 읽히게 합니다.
+
+명함, 계약서와 제안서, 채용 공고, 파트너 제안서, 공식 문서와 웹사이트 푸터처럼 회사가 주체가 되는 자리에서는 시그니처의 사용을 우선하고, 영상, 썸네일, 소셜 게시물, 포스터 같은 미디어 콘텐츠, 브랜드 자신이 주체가 되는 자리에서는 EO 심볼의 사용을 우선합니다.
 ![overview]
 
 
 ### Signature
-#### + Descriptor {layout=grid-2 ratio=2:1}
-시그니처에서 EO 심볼 오른쪽에 붙는 글자를 디스크립터라고 부릅니다. 디스크립터는 그 시그니처가 가리키는 조직이나 서비스를 알려 줍니다.
+#### + Descriptor {layout=grid-2 ratio=16:9}
+시그니처에서 EO 심볼 오른쪽에 붙는 글자 부분을 디스크립터라고 칭합니다. 디스크립터의 내용을 조직이나 서비스, 도메인으로 변경하여 시그니처를 확장할 수 있습니다. 이를테면 Magazine(웹 매거진), Planet(EO 한국 커뮤니티 https://eopla.net), Newsletter(뉴스레터)처럼 EO의 서비스를 나타내는 서브 시그니처로 사용될 수 있습니다. 어떤 단어든 디스크립터는 Studio와 같은 서체, 같은 크기 비율, 같은 간격으로 조판합니다.
 
-EO 심볼이 이미 “EO”로 읽히므로 디스크립터에는 EO를 다시 쓰지 않습니다. 회사 EO Studio를 나타내는 시그니처는 심볼 옆에 Studio만 붙여 EO Studio로 읽히게 합니다.
-
-같은 방식으로 Magazine(웹 매거진), Newsletter(뉴스레터), Planet(한국에서 운영 중인 커뮤니티 eopla.net)처럼 EO의 서비스로 시그니처를 확장할 수 있습니다. 어떤 단어든 디스크립터는 Studio와 같은 서체, 같은 크기 비율, 같은 간격으로 조판합니다.
-
-새 디스크립터를 만들거나 기존 디스크립터를 바꿀 때는 반드시 EO 인하우스 디자이너의 컨펌을 받아야 합니다. 캠페인이나 이벤트 이름처럼 한시적인 이름은 디스크립터로 쓰지 않습니다.
+새 디스크립터를 만들거나 기존 디스크립터를 변경할 때는 반드시 EO 인하우스 디자인팀의 컨펌을 받아야 합니다. 또한 캠페인이나 이벤트 이름처럼 한시적인 이름은 디스크립터로 쓰지 않습니다.
 ![descriptor-studio] EO Studio · 회사
 ![descriptor-magazine] EO Magazine · 웹 매거진
 ![descriptor-newsletter] EO Newsletter · 뉴스레터
@@ -256,7 +271,7 @@ EO 심볼이 이미 “EO”로 읽히므로 디스크립터에는 EO를 다시 
 
 
 ### + Construction
-시그니처는 EO 심볼과 Founders Grotesk [Medium]으로 조판한 EO Studio로 이루어집니다. 글자는 심볼 오른쪽에 놓고 심볼의 세로 중심에 맞춥니다. 글자의 캡하이트는 심볼 높이(H)의 [0.5]배, 심볼과 글자 사이 간격은 E 블록 스레드 하나의 두께 X의 [2]배입니다.
+시그니처는 EO 심볼과 Founders Grotesk Medium/400으로 조판한 "Studio"로 이루어집니다. 글자는 심볼 오른쪽에 놓고 심볼의 세로 중심에 맞춥니다. 글자의 캡하이트는 심볼 높이(H)의 [0.5]배, 심볼과 글자 사이 간격은 E 블록 스레드 하나의 두께 X의 [2]배입니다.
 
 시그니처는 가로형을 기본으로 합니다. 글자를 다시 조판하지 말고 제공된 원본 파일을 사용하세요.
 ![construction]
@@ -321,6 +336,7 @@ EO 심볼이 이미 “EO”로 읽히므로 디스크립터에는 EO를 다시 
 ![dont-media]{dont} 미디어 콘텐츠의 사인오프로 쓰지 마세요
 
 
+
 ## Sub Symbol
 
 ### + Sub Symbol
@@ -381,6 +397,8 @@ EO 심볼이 이미 “EO”로 읽히므로 디스크립터에는 EO를 다시 
 ![dont-large]{dont} EO 심볼을 쓸 수 있는 공간에 서브 심볼을 쓰지 마세요
 
 
+
+
 # 03 Typography
 
 ## Typography
@@ -388,24 +406,28 @@ EO 심볼이 이미 “EO”로 읽히므로 디스크립터에는 EO를 다시 
 ### Our Typefaces
 EO의 서체는 Founders Grotesk 패밀리입니다. 헤드라인과 본문에는 Founders Grotesk를, 정보성 텍스트(라벨, 태그, 날짜, 스펙)에는 Founders Grotesk Mono를 사용합니다.
 
-Founders Grotesk는 장식 없이 명료하고, 넓은 폭과 낮은 콘트라스트 덕분에 큰 크기에서 단단한 블록처럼 보입니다. 이 성격이 “명료하고 열린 자신감”이라는 EO의 목소리를 그대로 전달합니다. 모노는 빌더의 터미널과 스펙 시트를 연상시키는 정보의 서체입니다.
+Founders Grotesk는 장식 없이 명료하고, 넓은 폭과 낮은 콘트라스트 덕분에 큰 크기에서 단단한 블록처럼 보입니다. 이 성격이 "명료하고 열린 자신감"이라는 EO의 목소리를 그대로 전달합니다. 모노는 빌더의 터미널과 스펙 시트를 연상시키는 정보의 서체입니다.
 
 한국어 본문에는 Pretendard를, 베트남어 본문에는 Noto Sans를 사용합니다. 다국어 조합은 Backup Typeface 섹션을 참고하세요.
 ![type/our-typefaces]
 
+
 ### Custom Characters
-EO는 서체의 글리프를 수정하지 않습니다. 대신 O 블록에서 가져온 두 개의 브랜드 기호를 텍스트와 함께 사용합니다. 플러스(+)는 “Entrepreneur + Optimism”의 접속사이자 버튼과 링크의 액션 기호이고, 스파크(✦)는 리스트와 인용의 불릿입니다. 두 기호는 서체의 기본 글리프가 아니라 제공된 벡터 파일을 사용하며, 크기는 함께 쓰는 텍스트의 x-height에 맞춥니다.
+EO는 서체의 글리프를 수정하지 않습니다. 대신 O 블록에서 가져온 두 개의 브랜드 기호를 텍스트와 함께 사용합니다. 플러스(+)는 "Entrepreneur + Optimism"의 접속사이자 버튼과 링크의 액션 기호이고, 스파크(✦)는 리스트와 인용의 불릿입니다. 두 기호는 서체의 기본 글리프가 아니라 제공된 벡터 파일을 사용하며, 크기는 함께 쓰는 텍스트의 x-height에 맞춥니다.
 ![type/custom-characters]
+
 
 ### Character Set {layout=wide}
 #### Founders Grotesk Medium
 이 페이지는 Founders Grotesk Medium의 대부분의 글자를 한눈에 보여 줍니다. Medium은 헤드라인과 디스플레이 타이포그래피의 기본 웨이트입니다. 이 서체는 라틴 확장 문자를 지원하며, 베트남어 성조 부호를 포함합니다. 한글처럼 지원하지 않는 문자는 Backup Typeface 섹션의 대체 서체를 사용합니다.
 ![type/charset-medium]
 
+
 ### Character Set {layout=wide}
 #### Founders Grotesk Light
 이 페이지는 Founders Grotesk Light의 대부분의 글자를 한눈에 보여 줍니다. Light는 본문, 서브헤드, 캡션의 기본 웨이트입니다. 큰 크기에서는 가늘어 보일 수 있으므로 24pt 이하에서 사용합니다.
 ![type/charset-light]
+
 
 ### Character Set {layout=wide}
 #### Founders Grotesk Mono
@@ -413,6 +435,7 @@ EO는 서체의 글리프를 수정하지 않습니다. 대신 O 블록에서 �
 
 참고: 모노는 정보성 텍스트 전용입니다. 태그, 날짜, 읽기 시간, 컬러 스펙, 캡션 번호에 사용하며 헤드라인이나 본문에는 사용하지 않습니다.
 ![type/charset-mono]
+
 
 ### Typeface Usage
 EO의 단단한 비주얼 아이덴티티와 명확한 커뮤니케이션의 균형을 맞추려면, 웨이트 선택에 분명한 의도가 있어야 합니다.
@@ -426,15 +449,18 @@ EO의 단단한 비주얼 아이덴티티와 명확한 커뮤니케이션의 균
 Regular와 Semibold는 UI 컴포넌트(버튼, 내비게이션)에만 사용하고 커뮤니케이션 디자인에서는 사용하지 않습니다.
 ![type/typeface-usage]
 
+
 ### Case Setting
-EO의 헤드라인은 문장 케이스(Sentence case)로 조판하고 마침표로 끝냅니다. “Build Anyway.” “Trust, not clicks.”처럼 헤드라인은 구호가 아니라 문장이며, 마침표는 그 문장에 대한 확신입니다. 전부 대문자(All Caps)는 모노 라벨에서만 사용하고 헤드라인에는 사용하지 않습니다.
+EO의 헤드라인은 문장 케이스(Sentence case)로 조판하고 마침표로 끝냅니다. "Build Anyway." "Trust, not clicks."처럼 헤드라인은 구호가 아니라 문장이며, 마침표는 그 문장에 대한 확신입니다. 전부 대문자(All Caps)는 모노 라벨에서만 사용하고 헤드라인에는 사용하지 않습니다.
 ![type/case-setting]
+
 
 ### Linespacing
 EO 타이포그래피는 폰트 크기가 아니라 행간을 기준 단위로 계산합니다. 기본 행간 단위(L)를 정하면 각 레벨의 행간은 그 배수가 되고, 폰트 크기는 행간을 레벨별 비율로 나눈 값이 됩니다. 이렇게 하면 텍스트가 차지하는 공간이 고정된 채로 레이아웃이 전개되고, 비율과 자간만 조절해 각 레벨의 회색도를 눈으로 미세 조정할 수 있습니다.
 
 Display 7L / 87.5%, Head 3L / 109%, Sub-head 2L / 133%, Body 1.5L / 150%, Caption 0.5L / 125%.
 ![type/linespacing]
+
 
 ### Linespacing
 #### Founders Grotesk Medium
@@ -443,12 +469,14 @@ Display 7L / 87.5%, Head 3L / 109%, Sub-head 2L / 133%, Body 1.5L / 150%, Captio
 Display와 Head 레벨은 행간이 폰트 크기보다 작습니다(87.5%, 109%). 행과 행이 블록처럼 맞물리는 것이 의도이지만, 어센더와 디센더가 서로 닿아서는 안 됩니다. 닿는다면 비율이 아니라 문구를 바꾸세요.
 ![type/linespacing-medium]
 
+
 ### Linespacing
 #### Founders Grotesk Light
 오른쪽은 Founders Grotesk Light로 조판한 본문에서 올바른 행간과 잘못된 행간의 예시입니다.
 
 Body 레벨의 행간은 150%입니다. 이보다 좁으면 Light 웨이트의 가는 획이 뭉쳐 보이고, 넓으면 문단이 흩어집니다. 제대로 설정하면 독자가 글을 막힘없이 읽어 내려갈 수 있습니다.
 ![type/linespacing-light]
+
 
 ### Linespacing Scale {layout=wide}
 #### Founders Grotesk Medium
@@ -457,12 +485,14 @@ Body 레벨의 행간은 150%입니다. 이보다 좁으면 Light 웨이트의 �
 일반적인 규칙으로, 타이포그래피가 클수록 행간 비율은 더 타이트해야 합니다. Display 87.5%, Head 109%, Sub-head 133%는 같은 기준 단위 위에서 크기에 따라 달라지는 비율입니다.
 ![type/linespacing-scale-medium]
 
+
 ### Linespacing Scale {layout=wide}
 #### Founders Grotesk Light
 오른쪽은 다양한 크기의 본문 행간 예시입니다.
 
 일반적인 규칙으로, 타이포그래피가 작을수록 행간 비율은 더 느슨해야 합니다. Body 150%, Caption 125%는 같은 기준 단위 위에서 크기에 따라 달라지는 비율입니다.
 ![type/linespacing-scale-light]
+
 
 ### Letterspacing
 큰 헤드라인과 타이틀의 경우, 자간이 타이트하면서도 모든 글자에 걸쳐 시각적으로 균등하도록 세 단계 과정을 거쳐야 합니다. 그 과정은 다음과 같습니다.
@@ -474,15 +504,17 @@ Body 레벨의 행간은 150%입니다. 이보다 좁으면 Light 웨이트의 �
 모든 글자에 일괄 적용하는 간격입니다. 레벨별 기본값은 Display -3%, Head -2%, Sub-head -1.5%, Body -1%, Caption 0입니다.
 
 **3단계: 커닝**
-적절한 트래킹 값을 설정한 뒤에는 글자끼리 닿지 않고 모든 글자 사이가 균등해지도록 특정 글자 사이의 공간을 수동으로 조정(커닝)해야 합니다. Founders Grotesk는 “A”와 “y”, “W”와 “a”처럼 사선 획이 만나는 조합에서 커닝이 특히 필요합니다.
+적절한 트래킹 값을 설정한 뒤에는 글자끼리 닿지 않고 모든 글자 사이가 균등해지도록 특정 글자 사이의 공간을 수동으로 조정(커닝)해야 합니다. Founders Grotesk는 "A"와 "y", "W"와 "a"처럼 사선 획이 만나는 조합에서 커닝이 특히 필요합니다.
 ![type/letterspacing]
+
 
 ### Letterspacing
 #### Founders Grotesk Medium
 오른쪽은 Founders Grotesk Medium으로 조판한 헤드라인에서 올바른 자간과 잘못된 자간의 예시입니다.
 
-Display 크기에서 자간은 -3%입니다. 글자가 블록처럼 붙어 보이되 획이 닿지 않는 지점입니다. 더 좁히면 “ild”처럼 세로획이 연속되는 조합이 하나의 덩어리로 읽힙니다.
+Display 크기에서 자간은 -3%입니다. 글자가 블록처럼 붙어 보이되 획이 닿지 않는 지점입니다. 더 좁히면 "ild"처럼 세로획이 연속되는 조합이 하나의 덩어리로 읽힙니다.
 ![type/letterspacing-medium]
+
 
 ### Letterspacing
 #### Founders Grotesk Light
@@ -491,12 +523,14 @@ Display 크기에서 자간은 -3%입니다. 글자가 블록처럼 붙어 보�
 Body 크기에서 자간은 -1%에서 0 사이입니다. Light 웨이트는 자간을 좁히면 가독성이 빠르게 떨어지므로, 회색도를 맞추고 싶다면 자간 대신 행간을 조절하세요.
 ![type/letterspacing-light]
 
+
 ### Letterspacing Scale {layout=wide}
 #### Founders Grotesk Medium
 오른쪽은 다양한 크기에서 Founders Grotesk Medium으로 조판한 자간의 추가 예시입니다.
 
 일반적인 규칙으로, 글자 크기가 클수록 자간은 더 타이트해야 하고 그 반대도 마찬가지입니다. 글자 크기가 작을수록 자간은 더 느슨해야 합니다.
 ![type/letterspacing-scale-medium]
+
 
 ### Letterspacing Scale {layout=wide}
 #### Founders Grotesk Light
@@ -505,21 +539,25 @@ Body 크기에서 자간은 -1%에서 0 사이입니다. Light 웨이트는 자�
 일반적인 규칙으로, 글자 크기가 클수록 자간은 더 타이트해야 하고 그 반대도 마찬가지입니다. 글자 크기가 작을수록 자간은 더 느슨해야 합니다.
 ![type/letterspacing-scale-light]
 
+
 ### Alignment
 #### Founders Grotesk Medium
 EO 브랜드 커뮤니케이션의 모든 헤드라인은 왼쪽 정렬입니다. 헤드라인은 레이아웃의 왼쪽 그리드 라인에서 시작해 그래픽 유닛이 놓인 오른쪽을 향합니다. 가운데 정렬은 심볼 단독 아이콘과 굿즈 백프린트처럼 텍스트가 한 줄인 경우에만 허용하고, 오른쪽 정렬과 강제 양끝 정렬은 사용하지 않습니다.
 ![type/alignment-medium]
+
 
 ### Alignment
 #### Founders Grotesk Light
 본문과 캡션도 왼쪽 정렬입니다. 여러 단으로 나뉜 본문은 모든 단의 첫 행 베이스라인을 맞추고, 캡션은 이미지의 왼쪽 가장자리에 정렬합니다. 오른쪽 정렬과 강제 양끝 정렬은 사용하지 않습니다.
 ![type/alignment-light]
 
-### Ragging
-타이포그래피에서 ‘래그’는 글 덩어리의 오른쪽 가장자리를 뜻합니다. 시각적 가장자리가 불규칙하게 느껴지고 특정 행이 튀어나오거나, 마지막 행에 단어 하나만 남는 경우(위도우) 문단이나 헤드라인의 래그가 나쁘다고 말합니다.
 
-EO의 헤드라인은 짧고 행 수가 적어 래그가 그대로 드러납니다. “Build / Anyway.”처럼 행마다 의미 단위가 끊어지도록 줄을 바꾸고, 긴 행과 짧은 행이 번갈아 나오는 계단 모양을 피하세요. 본문에서는 가장자리가 고르고 글이 잘 읽힐 때까지 단어를 다음 행으로 옮깁니다.
+### Ragging
+타이포그래피에서 '래그'는 글 덩어리의 오른쪽 가장자리를 뜻합니다. 시각적 가장자리가 불규칙하게 느껴지고 특정 행이 튀어나오거나, 마지막 행에 단어 하나만 남는 경우(위도우) 문단이나 헤드라인의 래그가 나쁘다고 말합니다.
+
+EO의 헤드라인은 짧고 행 수가 적어 래그가 그대로 드러납니다. "Build / Anyway."처럼 행마다 의미 단위가 끊어지도록 줄을 바꾸고, 긴 행과 짧은 행이 번갈아 나오는 계단 모양을 피하세요. 본문에서는 가장자리가 고르고 글이 잘 읽힐 때까지 단어를 다음 행으로 옮깁니다.
 ![type/ragging]
+
 
 ### Sizing
 커뮤니케이션을 단순하게 유지하기 위해, 하나의 레이아웃에는 일반적으로 두 가지를 넘는 타입 레벨을 사용하지 않습니다. 헤드라인 하나와 본문 하나, 또는 헤드라인 하나와 캡션 하나입니다.
@@ -528,6 +566,7 @@ EO의 헤드라인은 짧고 행 수가 적어 래그가 그대로 드러납니�
 
 이 규칙은 커뮤니케이션 디자인을 위한 지침이라는 점에 유의하세요. 웹과 제품에서는 레벨 간 크기 차이가 더 작아집니다.
 ![type/sizing]
+
 
 ### Sizing {layout=grid-2}
 #### In Layout
@@ -538,6 +577,7 @@ EO의 헤드라인은 짧고 행 수가 적어 래그가 그대로 드러납니�
 **Small:** 헤드라인을 축소하고, 아래 공간은 Body 행간의 배수로 비웁니다. 사진이나 영상 스틸이 주인공일 때 사용합니다.
 ![type/sizing-large] Large — 헤드라인이 왼쪽 절반을 채우고 그래픽 유닛과 같은 그리드를 공유합니다.
 ![type/sizing-small] Small — 헤드라인을 줄이고 아래 공간을 Body 행간의 배수로 비웁니다.
+
 
 ### Don'ts {layout=grid-3}
 #### Headline
@@ -552,6 +592,7 @@ EO의 헤드라인은 짧고 행 수가 적어 래그가 그대로 드러납니�
 ![type/dont-8]{dont} 외곽선, 그림자, 기울임을 적용하지 마세요
 ![type/dont-9]{dont} 헤드라인을 그래픽 유닛 위에 겹치지 마세요
 
+
 ### Backup Typeface
 #### Primary – Inter
 Founders Grotesk를 사용할 수 없는 환경(이메일, 외부 플랫폼의 시스템 서체 제약 등)에서는 Inter가 선호되는 대안입니다. Inter Medium을 헤드라인에, Inter Light를 본문에 사용합니다.
@@ -560,6 +601,7 @@ Founders Grotesk를 사용할 수 없는 환경(이메일, 외부 플랫폼의 �
 
 이 페이지의 비교는 Founders Grotesk Medium과 Inter Medium의 차이점 일부를 보여 줍니다.
 ![type/backup-inter]
+
 
 ### Backup Typeface
 #### Secondary – Pretendard
@@ -570,10 +612,14 @@ Pretendard를 쓸 수 없는 환경에서는 Noto Sans KR을 사용합니다.
 이 페이지의 비교는 Founders Grotesk Light와 Pretendard Light가 한 행에 섞였을 때의 조정값을 보여 줍니다.
 ![type/backup-pretendard]
 
+
 ### Backup Typeface
 #### Non-latin – Noto Sans
 베트남어를 비롯해 Founders Grotesk와 Pretendard가 지원하지 않는 언어에는 Noto Sans가 선호되는 대안입니다. 베트남어는 Noto Sans Light 18pt, 자간 -3.5%, 베이스라인 +2pt를 Founders Grotesk Light 22pt에 맞춘 기준 조합을 사용합니다. 특정 언어에서 Noto Sans를 쓸 수 없다면 해당 언어에서 Founders Grotesk에 가장 가까운 서체를 사용합니다.
 ![type/backup-non-latin]
+
+
+
 
 # 04 Color
 
@@ -581,10 +627,11 @@ Pretendard를 쓸 수 없는 환경에서는 Noto Sans KR을 사용합니다.
 
 ### Color
 #### Builder Neon
-Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 알려진 요소입니다. 로고가 없어도 “EO”를 전달할 수 있을 정도입니다. 검은 하늘 위에서 드라마틱한 대비를 만드는 이 노랑은 밤새 불이 켜진 해커하우스의 창, 빌더의 낙관을 상징합니다.
+Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 알려진 요소입니다. 로고가 없어도 "EO"를 전달할 수 있을 정도입니다. 검은 하늘 위에서 드라마틱한 대비를 만드는 이 노랑은 밤새 불이 켜진 해커하우스의 창, 빌더의 낙관을 상징합니다.
 
 커뮤니케이션에서 Builder Neon을 일관되고 의도적으로 사용하는 것이 중요합니다. 넓은 면보다는 한 구성 안의 한 곳에 집중해서 사용할 때 가장 강합니다.
 ![color/builder-neon]
+
 
 ### Color {layout=grid-3}
 #### Core Palette
@@ -597,6 +644,7 @@ Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 �
 [swatch] Space Black | #000000 | R0 G0 B0 | C60 M60 Y0 K100
 [swatch] Air White | #FCFBF5 | R252 G251 B245 | C1 M2 Y2 K0 or raw paper
 
+
 ### Color {layout=grid-4}
 #### Core Pairings
 타이포그래피와 함께 사용하는 네 가지 핵심 페어링이 있습니다. 텍스트는 Air White 또는 Space Black이고, Builder Neon은 텍스트가 아니라 면과 그래픽 유닛에 사용하는 것이 기본입니다.
@@ -605,12 +653,14 @@ Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 �
 ![color/core-pair-3] 3. Space Black on Builder Neon
 ![color/core-pair-4] 4. Builder Neon on Space Black
 
+
 ### Color {layout=grid-3}
 #### In Use
 핵심 팔레트가 실제로 사용된 몇 가지 예시입니다.
 ![color/core-in-use-1] Poster
 ![color/core-in-use-2] Hang Tag
 ![color/core-in-use-3] Web Magazine
+
 
 ### Color {layout=grid-4}
 #### Secondary Palette
@@ -622,6 +672,7 @@ Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 �
 [swatch] Medium Gray | #8E8E8E | R142 G142 B142 | C2 M0 Y0 K45 or K45 only
 [swatch] Solid Gray | #333333 | R51 G51 B51 | C4 M0 Y0 K100 or K100 only
 
+
 ### Secondary Palette {layout=grid-4}
 #### Pairings
 타이포그래피와 함께 사용하는 네 가지 보조 페어링이 있습니다. 이 승인된 조합 외의 페어링은 사용하지 마세요. 보조 색은 언제나 Space Black과만 짝을 이룹니다.
@@ -629,6 +680,7 @@ Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 �
 ![color/secondary-pair-2] Bay Green on Space Black
 ![color/secondary-pair-3] Space Black on Day Blue
 ![color/secondary-pair-4] Space Black on Bay Green
+
 
 ### Secondary Palette {layout=grid-4}
 #### Pairings to Avoid
@@ -640,14 +692,16 @@ Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 �
 ![color/avoid-3]{dont} Medium Gray on Solid Gray
 ![color/avoid-4]{dont} Day Blue on Builder Neon
 
+
 ### Color
 #### Usage Ratio
 오른쪽은 전체적인 관점에서 EO 커뮤니케이션 전반에 적용해야 할 올바른 색 사용 비율입니다.
 
 핵심 접점과 새로운 오디언스에게 EO를 소개할 때는 Space Black 바탕에 Air White 텍스트, Builder Neon 그래픽이라는 핵심 팔레트에 크게 의존합니다. 면적으로는 블랙 70, 네온 20, 화이트 10이 기준입니다.
 
-소셜 채널과 시리즈별 아트워크처럼 사용자가 이미 “EO”라고 인식하는 맥락에서는 Day Blue와 Bay Green을 시리즈 구분색으로 더 자주 사용할 수 있습니다. 이때도 한 구성 안의 보조 색은 하나입니다.
+소셜 채널과 시리즈별 아트워크처럼 사용자가 이미 "EO"라고 인식하는 맥락에서는 Day Blue와 Bay Green을 시리즈 구분색으로 더 자주 사용할 수 있습니다. 이때도 한 구성 안의 보조 색은 하나입니다.
 ![color/usage-ratio]
+
 
 ### Secondary Palette {layout=grid-3}
 #### In Use
@@ -655,6 +709,7 @@ Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 �
 ![color/secondary-in-use-1] Episode One Tee
 ![color/secondary-in-use-2] Sticker Pack
 ![color/secondary-in-use-3] Series Thumbnail
+
 
 ### Color {layout=grid-3}
 #### Don'ts
@@ -669,6 +724,9 @@ Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 �
 ![color/dont-8]{dont} 사진에 컬러 오버레이를 씌우지 마세요
 ![color/dont-9]{dont} 그래픽 유닛 하나에 여러 색을 칠하지 마세요
 
+
+
+
 # 05 Visual System
 
 ## Graphic Unit
@@ -678,13 +736,16 @@ Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 �
 그래픽 유닛은 EO 비주얼 시스템의 최소 단위입니다. 블록을 재료 삼아 쌓아 올리는 빌더의 궤적을 shaft와 스레드(thread)의 반복으로 추상화했습니다. 로고의 E 블록, 패턴 라이브러리, 모든 애플리케이션 그래픽이 이 유닛에서 파생됩니다. 유닛은 손으로 그리지 않고 EO Graphic Builder에서 파라미터로 생성합니다.
 ![visual/unit-overview]
 
+
 ### Construction
 유닛 캔버스(W × H)는 세로 컬럼(col)으로 나뉘고, 세로 중앙에 높이 D의 가로 막대인 shaft가 놓입니다. shaft 위아래 밴드에는 컬럼마다 사다리꼴 thread 한 쌍이 붙습니다. 상단 thread의 꼭짓점 위치는 Δa(윗변, 컬럼 오른쪽 끝 기준)와 Δb(아랫변, 컬럼 왼쪽 끝 기준)로 정하고, 하단 thread는 상단을 컬럼 중심 기준으로 180° 회전한 점대칭입니다. shaft는 거터를 가로질러 이어지고 thread 밴드의 거터는 비워 둡니다.
 ![visual/unit-construction]
 
+
 ### Grid & Pitch
 컬럼 폭은 등비수열로 압축됩니다. 인접 컬럼의 폭 비율(compression rate)이 1이면 균등 분할이고, 커질수록 한쪽으로 수렴하는 착시가 강해집니다. 기본값은 12컬럼, rate 1.67(2:1 피치)입니다. 거터는 고정(fixed) 또는 컬럼 폭에 비례(proportional)하는 두 가지 모드가 있으며, 비례 모드는 구조적으로 오버플로가 불가능하고 수렴 착시가 가장 강합니다.
 ![visual/unit-grid]
+
 
 ### Variations {layout=grid-3}
 컬럼 수, 압축 비율, shaft 높이(D), thread의 Δa·Δb를 조합해 성격이 다른 유닛을 만듭니다. 아래는 패턴 라이브러리의 바탕이 되는 대표 변형 여섯 가지입니다.
@@ -695,10 +756,12 @@ Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 �
 ![visual/unit-var-5] 05 / rivals — 중앙 대칭 압축
 ![visual/unit-var-6] 06 / team — 두 유닛의 맞물림
 
+
 ### Color Application {layout=grid-2}
 유닛은 단색으로 사용합니다. 배경과 유닛 사이의 대비가 핵심이며, 한 구성 안에서는 핵심 팔레트 하나와 보조 색 하나까지만 조합합니다. 여러 유닛을 나란히 놓을 때는 Medium Gray, Builder Neon, Air White처럼 명도 차가 뚜렷한 조합으로 깊이를 만듭니다.
 ![visual/unit-color-1] Builder Neon on Space Black
 ![visual/unit-color-2] Medium Gray · Builder Neon · Air White on Solid Gray
+
 
 ### Graphic Unit {layout=grid-3}
 #### Don'ts
@@ -709,6 +772,8 @@ Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 �
 ![visual/unit-dont-4]{dont} 유닛에 외곽선이나 그림자를 넣지 마세요
 ![visual/unit-dont-5]{dont} 유닛을 사진의 마스크로 쓰지 마세요
 ![visual/unit-dont-6]{dont} 압축 비율을 컬럼마다 다르게 손으로 조정하지 마세요
+
+
 
 ## Pattern Library
 
@@ -746,23 +811,28 @@ Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 �
 ![visual/pattern-29] 29 / nature
 ![visual/pattern-30] 30 / bang!
 
+
 ### Usage
 패턴은 배경이 아니라 주인공으로 사용합니다. 레이아웃의 한쪽 절반(보통 오른쪽)을 통째로 내어 주고, 헤드라인은 반대쪽에 왼쪽 정렬로 놓습니다. 텍스트를 패턴 위에 겹치지 않고, 로고는 패턴 바깥의 여백에 배치합니다. 패턴은 잘라 쓸 수 있지만 thread의 사다리꼴이 중간에서 잘리지 않도록 컬럼 경계에서 크롭합니다.
 ![visual/pattern-usage]
 
+
+
 ## Applications
 
 ### Merch {layout=grid-3}
-티셔츠, 후디, 캡으로 구성된 굿즈 라인입니다. 실크스크린 단색 그래픽을 기본으로 하며, 흰 티에는 Space Black, 회색 티에는 Builder Neon 컬러웨이를 적용합니다. 앞면 가슴에는 블록 심볼 또는 모노그램을 작게, 뒷면에는 패턴과 카피(“Build Anyway.” “Even the Odds”)를 크게 배치합니다.
+티셔츠, 후디, 캡으로 구성된 굿즈 라인입니다. 실크스크린 단색 그래픽을 기본으로 하며, 흰 티에는 Space Black, 회색 티에는 Builder Neon 컬러웨이를 적용합니다. 앞면 가슴에는 블록 심볼 또는 모노그램을 작게, 뒷면에는 패턴과 카피("Build Anyway." "Even the Odds")를 크게 배치합니다.
 ![visual/app-tee] Standard Tee
 ![visual/app-hoodie] Hoodie
 ![visual/app-cap] 5-panel Cap
+
 
 ### Print {layout=grid-3}
 포스터, 행택, 스티커, 핀 등 인쇄물입니다. Air White 바탕에 Space Black 유닛을 기본으로 하고, Builder Neon은 한 면에만 사용합니다. 행택은 앞면에 패턴, 뒷면에 사이즈와 소재 정보를 모노로 적습니다.
 ![visual/app-poster] Poster
 ![visual/app-hangtag] Hang Tag
 ![visual/app-sticker] Sticker Pack & Pin
+
 
 ### Digital {layout=grid-3}
 웹 매거진, 소셜 피드, 영상 썸네일 등 디지털 접점입니다. 유닛은 모션으로 확장되어 compression rate가 시간에 따라 변하며, 썸네일에서는 유닛의 일부만 컬럼 경계에서 크롭해 사용합니다. 웹의 그리드(12컬럼, 거터 40, 마진 44 @1728)는 유닛의 컬럼 그리드와 같은 체계를 공유합니다.
