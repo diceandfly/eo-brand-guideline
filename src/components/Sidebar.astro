@@ -9,6 +9,8 @@ const { guide, current, lang, alt } = Astro.props;
 <nav class="sidebar t-ui" aria-label="목차">
   <a class="nav__logo" href={`/${lang}`}><Logo /></a>
   <Search guide={guide} />
+  <!-- 목록만 스크롤. 넘치면 위·아래가 마스크로 녹아듦 (아래 스크립트가 is-overflow / at-top / at-end 표시) -->
+  <div class="nav__scroll" data-nav-scroll>
   <ul class="nav__chapters">
     {guide.chapters.map(ch => {
       const active = current?.chapterSlug === ch.slug;
@@ -20,16 +22,16 @@ const { guide, current, lang, alt } = Astro.props;
           <!-- 접고 펴는 묶음(nav__fold). 모든 목록을 미리 그려 두고 활성 쪽만 열어 둡니다. 클릭하면 아래 스크립트가 슬라이드로 전환 -->
           <div class:list={['nav__fold', { 'is-open': active }]} inert={!active}>
             <ul class="nav__subs">
-              {ch.subs.map(s => {
+              {ch.subs.map((s, si) => {
                 const isCur = current?.url === s.url;
                 return (
-                  <li class:list={['nav__sub', { 'is-active': isCur }]}>
+                  <li class:list={['nav__sub', { 'is-active': isCur }]} style={`--i: ${si}`}>
                     <a class="nav__sub-link" href={s.url} aria-current={isCur ? 'page' : undefined}>{s.name}</a>
                     {s.tocSections && s.navSections.length > 1 && (
                       <div class:list={['nav__fold', { 'is-open': isCur }]} inert={!isCur}>
                         <ul class="nav__sections" data-scrollspy={isCur ? '' : undefined}>
-                          {s.navSections.map(ns => (
-                            <li><a class="nav__section-link" href={isCur ? `#${ns.id}` : `${s.url}#${ns.id}`} data-target={ns.id}>{ns.head}</a></li>
+                          {s.navSections.map((ns, ni) => (
+                            <li style={`--i: ${ni}`}><a class="nav__section-link" href={isCur ? `#${ns.id}` : `${s.url}#${ns.id}`} data-target={ns.id}>{ns.head}</a></li>
                           ))}
                         </ul>
                       </div>
@@ -43,6 +45,7 @@ const { guide, current, lang, alt } = Astro.props;
       );
     })}
   </ul>
+  </div>
 
   <!-- 언어 전환. 같은 페이지의 다른 언어판으로 이동, 없으면 그 언어의 첫 페이지 -->
   <div class="nav__lang" aria-label="언어">
@@ -79,6 +82,30 @@ const { guide, current, lang, alt } = Astro.props;
     chapter?.classList.add('is-active');
     sub?.classList.add('is-active');
   });
+
+  // 목록 스크롤: 넘치는지, 맨 위/맨 아래인지 표시 → CSS 가 위·아래 페이드(마스크)를 켜고 끔.
+  // 페이지를 옮겨도 목록의 스크롤 위치를 유지하고, 활성 항목이 안 보이면 보이는 곳까지만 스크롤.
+  const scroller = document.querySelector<HTMLElement>('[data-nav-scroll]');
+  if (scroller) {
+    const KEY = 'guide-nav-scroll';
+    const sync = () => {
+      const max = scroller.scrollHeight - scroller.clientHeight;
+      scroller.classList.toggle('is-overflow', max > 1);
+      scroller.classList.toggle('at-top', scroller.scrollTop <= 1);
+      scroller.classList.toggle('at-end', scroller.scrollTop >= max - 1);
+    };
+    try { const y = Number(sessionStorage.getItem(KEY)); if (y) scroller.scrollTop = y; } catch {}
+    const cur = scroller.querySelector<HTMLElement>('.nav__sub.is-active > .nav__sub-link');
+    if (cur) {
+      const r = cur.getBoundingClientRect(), b = scroller.getBoundingClientRect();
+      if (r.top < b.top || r.bottom > b.bottom) cur.scrollIntoView({ block: 'nearest' });
+    }
+    sync();
+    scroller.addEventListener('scroll', sync, { passive: true });
+    new ResizeObserver(sync).observe(scroller.firstElementChild as Element);   // 목록이 펼쳐지고 접힐 때
+    window.addEventListener('resize', sync);
+    window.addEventListener('pagehide', () => { try { sessionStorage.setItem(KEY, String(scroller.scrollTop)); } catch {} });
+  }
 
   // 선택한 언어를 기억해 두면 루트(/)로 들어올 때 그 언어로 보냅니다.
   document.querySelectorAll<HTMLAnchorElement>('.nav__lang-link[data-lang]').forEach(a =>

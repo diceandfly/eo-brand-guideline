@@ -466,6 +466,20 @@ export function altUrl(guides: Record<Lang, Guide>, sub: Sub, target: Lang): str
   return match?.url ?? firstUrl(g);
 }
 
+/**
+ * 사이트 자체 로고를 SVG 마크업으로. 파일 대신 HTML 에 직접 넣어 페이지 전환 때 이미지를 다시 받으며 깜빡이지 않게 합니다.
+ * 한 페이지에 두 번(목차, 모바일 상단 바) 들어가므로 id 는 지웁니다. SVG 가 아니면 null (→ <img> 사용).
+ */
+export function brandLogoSvg(): string | null {
+  const p = path.join(ASSETS, 'brand', 'logo.svg');
+  if (!fs.existsSync(p)) return null;
+  return fs.readFileSync(p, 'utf8')
+    .replace(/<\?xml[^>]*\?>\s*/, '')
+    .replace(/\s(id|data-name)="[^"]*"/g, '')
+    .replace(/<svg\b/, '<svg role="img" aria-label="EO"')
+    .trim();
+}
+
 /** 사이트 자체 로고: public/assets/brand/logo.* (콘텐츠 이미지 폴더 규칙과 별개) */
 export function brandLogoSrc(): string | null {
   const ext = EXTS.find(e => fs.existsSync(path.join(ASSETS, 'brand', `logo.${e}`)));

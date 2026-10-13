@@ -194,7 +194,40 @@ button {
   border-right: var(--border-w) solid var(--sidebar-border);
   color: var(--nav-fg);
   padding: var(--nav-pad-top) var(--nav-pad-right) var(--nav-pad-bottom) var(--nav-pad-left);
+  overflow: hidden; /* 스크롤은 목록(.nav__scroll)만 */
+}
+/* 목록 스크롤 영역: 로고·검색창 아래 ~ 언어 전환 위. 넘치면 위·아래 가장자리가 배경으로 녹아듦 */
+.nav__scroll {
+  --_ft: 0px; /* 위 페이드 (스크롤을 내렸을 때) */
+  --_fb: 0px; /* 아래 페이드 (아래에 더 있을 때) */
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
+  overscroll-behavior: contain; /* 목록 끝에서 본문까지 스크롤이 번지지 않게 */
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 var(--_ft),
+    #000 calc(100% - var(--_fb)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 var(--_ft),
+    #000 calc(100% - var(--_fb)),
+    transparent 100%
+  );
+}
+.nav__scroll::-webkit-scrollbar {
+  display: none;
+}
+.nav__scroll.is-overflow:not(.at-top) {
+  --_ft: var(--nav-fade-h);
+}
+.nav__scroll.is-overflow:not(.at-end) {
+  --_fb: var(--nav-fade-h);
 }
 .main {
   margin-left: var(--sidebar-w);
@@ -212,7 +245,7 @@ button {
   }
 }
 html.js .main {
-  animation: page-in var(--page-in-dur) var(--ease) both;
+  animation: page-in var(--page-in-dur) var(--page-in-ease) both;
 }
 @media (prefers-reduced-motion: reduce) {
   html.js .main {
@@ -260,7 +293,9 @@ html.js .main {
   height: var(--nav-logo-h);
   color: var(--fg);
 }
-.logo img {
+.logo img,
+.logo svg {
+  display: block;
   height: 100%;
   width: auto;
 }
@@ -324,8 +359,22 @@ html.js .main {
   min-height: 0;
   overflow: hidden;
 }
+/* 스태거: 펼쳐질 때 항목이 한 줄씩 아주 짧은 간격으로 살짝 내려오며 나타남. 접힐 때는 한꺼번에 */
+.nav__fold > ul > li {
+  opacity: 0;
+  transform: translateY(var(--nav-stagger-shift));
+  transition:
+    opacity var(--nav-slide-dur) var(--nav-slide-ease),
+    transform var(--nav-slide-dur) var(--nav-slide-ease);
+}
+.nav__fold.is-open > ul > li {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(min(var(--i, 0), var(--nav-stagger-max)) * var(--nav-stagger));
+}
 @media (prefers-reduced-motion: reduce) {
-  .nav__fold {
+  .nav__fold,
+  .nav__fold > ul > li {
     transition: none;
   }
 }
@@ -363,7 +412,7 @@ html.js .main {
   font-weight: var(--nav-w-active); /* 스크롤스파이 도입 시 활성 섹션 */
 }
 .nav__lang {
-  margin-top: auto; /* 목차 바닥 */
+  flex: none; /* 목차 바닥에 고정. 위 목록만 스크롤 */
   padding-top: var(--nav-lang-gap);
   display: flex;
   align-items: baseline;

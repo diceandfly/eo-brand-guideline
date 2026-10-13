@@ -1,11 +1,12 @@
 ---
 /**
- * 브랜드 로고. public/assets/brand/logo.svg (또는 png) 가 있으면 그 파일을,
- * 없으면 텍스트 "EO" 를 표시합니다.
+ * 브랜드 로고. public/assets/brand/logo.svg 가 있으면 SVG 를 HTML 에 직접 넣고(페이지 전환 때 깜빡임 없음),
+ * png 등이면 <img>, 둘 다 없으면 텍스트 "EO" 를 표시합니다.
  */
-import { brandLogoSrc } from '../lib/guide';
-const src = brandLogoSrc();
+import { brandLogoSvg, brandLogoSrc } from '../lib/guide';
+const svg = brandLogoSvg();
+const src = svg ? null : brandLogoSrc();
 ---
 <span class="logo">
-  {src ? <img src={src} alt="EO" /> : <span class="logo__text">EO</span>}
+  {svg ? <Fragment set:html={svg} /> : src ? <img src={src} alt="EO" /> : <span class="logo__text">EO</span>}
 </span>
