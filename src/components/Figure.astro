@@ -16,7 +16,7 @@ const captionHtml = item.caption ?? (item.badge === 'do' ? 'Do' : item.badge ===
     {item.src
       ? <img src={item.src} alt={item.caption ? item.caption.replace(/<[^>]+>/g, '') : item.token} loading="lazy" />
       : <div class="fig__placeholder t-label">
-          <span>assets/{item.token}</span>
+          <span>assets/{item.path}</span>
           <span>{ratioLabel}</span>
         </div>}
   </div>

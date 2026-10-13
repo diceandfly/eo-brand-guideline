@@ -14,10 +14,14 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (영어판)
   그 아래 줄들            ← 본문. 마크다운(문단, 굵게, 링크, 목록)을 쓸 수 있습니다.
 
 ■ 이미지 (한 줄에 하나)
-  ![logo/construction]
-    → public/assets/logo/construction.svg (또는 .png .jpg .webp) 를 찾아 넣습니다.
-    → 파일이 아직 없으면 경로와 비율이 적힌 플레이스홀더 박스가 나옵니다.
-  ![logo/dont-stretch]{dont} Don't stretch the logo
+  ![construction]
+    → 파일 이름만 씁니다. 이 서브챕터의 이미지 폴더 안에서 같은 이름의 .svg .png .jpg .webp 를 찾아 넣습니다.
+      폴더: public/assets/<챕터>/<서브챕터>/<주제>/  예) public/assets/02-logo/01-symbol/02-clearspace/clearspace.png
+      주제 = 목차 항목(헤드, 헤드가 페이지 이름과 같으면 서브헤드). 폴더 앞 번호는 정렬용이라 틀려도 이미지는 나옵니다.
+    → 파일이 아직 없으면 넣을 경로와 비율이 적힌 플레이스홀더 박스가 나옵니다.
+    → 섹션 순서를 바꾼 뒤 npm run assets 를 실행하면 폴더 번호를 새 순서에 맞춰 옮겨 줍니다.
+    → 예전 형식 ![logo/construction] 도 그대로 동작합니다 (앞의 logo/ 는 무시).
+  ![dont-stretch]{dont} Don't stretch the logo
     → {do} 또는 {dont} 를 붙이면 캡션 줄 맨 앞에 체크 / 엑스 아이콘이 붙습니다.
     → 뒤에 글을 쓰면 이미지 아래 캡션이 붙습니다 (= 카드). 배지만 있고 글이 없으면 "Do" / "Don't" 가 기본 문구.
 

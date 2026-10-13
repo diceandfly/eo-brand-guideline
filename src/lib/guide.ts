@@ -12,8 +12,10 @@ export type Layout = 'basic' | 'text' | 'wide' | 'half' | 'grid-2' | 'grid-3' | 
 
 export interface ImageItem {
   kind: 'image';
-  token: string;          // 예: logo/construction
-  src: string | null;     // public/assets 에 파일이 있으면 /assets/… 경로, 없으면 null(플레이스홀더)
+  token: string;          // guide.md 에 쓴 그대로. 예: clearspace (예전 형식 logo/clearspace 도 허용)
+  name: string;           // 파일 이름(확장자 제외). 토큰의 마지막 / 뒤. 서브챕터 폴더 안에서 이 이름으로 찾음
+  path: string;           // 넣을 자리: 02-logo/01-symbol/02-clearspace/clearspace (확장자 제외, 플레이스홀더에 표시)
+  src: string | null;     // 파일이 있으면 /assets/… 경로, 없으면 null(플레이스홀더)
   badge?: 'do' | 'dont';
   caption?: string;       // HTML. 한글 구간은 <span class="ko"> 로 래핑됨
 }
@@ -81,10 +83,50 @@ export function slugify(s: string): string {
     .replace(/^-+|-+$/g, '') || 'section';
 }
 
-function resolveAsset(token: string): string | null {
-  for (const ext of EXTS) {
-    const p = path.join(ASSETS, `${token}.${ext}`);
-    if (fs.existsSync(p)) return `/assets/${token}.${ext}`;
+/**
+ * 이미지 폴더 구조: public/assets/<챕터>/<서브챕터>/<주제>/<이름>.<확장자>
+ *   예: 02-logo/01-symbol/02-clearspace/clearspace.png
+ * 각 폴더 앞 번호는 사람이 보기 위한 정렬용이라 파서는 무시합니다(번호를 떼고 이름으로 비교).
+ * 이미지는 그 서브챕터 폴더 안 어디에 있든 파일 이름으로 찾고, 같은 이름이 여럿이면 주제 폴더가 맞는 것을 씁니다.
+ * 그래서 섹션 순서를 바꿔 번호가 달라져도, 영문·국문 구조가 잠시 달라도 이미지가 끊기지 않습니다.
+ * 폴더 번호를 현재 순서에 맞추려면 npm run assets (scripts/assets.mjs).
+ */
+const stripNum = (dir: string) => dir.replace(/^\d+-/, '');
+const pad2 = (n: number) => String(n).padStart(2, '0');
+
+/** 서브챕터 폴더 안의 이미지 목록: 이름(확장자 제외) → assets 기준 경로들 */
+function subAssetIndex(chapterSlug: string, chapterName: string, subSlug: string): Map<string, string[]> {
+  const index = new Map<string, string[]>();
+  const findDir = (parent: string, ...slugs: string[]) => {
+    if (!fs.existsSync(parent)) return null;
+    const hit = fs.readdirSync(parent, { withFileTypes: true })
+      .find(d => d.isDirectory() && (slugs.includes(d.name) || slugs.includes(stripNum(d.name))));
+    return hit ? hit.name : null;
+  };
+  const chDir = findDir(ASSETS, chapterSlug, slugify(chapterName));
+  if (!chDir) return index;
+  const subDir = findDir(path.join(ASSETS, chDir), subSlug);
+  if (!subDir) return index;
+  const walk = (rel: string) => {
+    for (const d of fs.readdirSync(path.join(ASSETS, rel), { withFileTypes: true })) {
+      const r = `${rel}/${d.name}`;
+      if (d.isDirectory()) { walk(r); continue; }
+      const m = d.name.match(/^(.+)\.([a-z0-9]+)$/i);
+      if (!m || !EXTS.includes(m[2].toLowerCase())) continue;
+      index.set(m[1], [...(index.get(m[1]) ?? []), r]);
+    }
+  };
+  walk(`${chDir}/${subDir}`);
+  return index;
+}
+
+function resolveAsset(item: ImageItem, index: Map<string, string[]>, topicSlug: string): string | null {
+  const rank = (r: string) => `${r.slice(0, r.lastIndexOf('/'))}\0${EXTS.indexOf(r.split('.').pop()!.toLowerCase())}`;
+  const hits = (index.get(item.name) ?? []).sort((a, b) => rank(a).localeCompare(rank(b)));   // 같은 폴더면 svg → png → jpg … 순
+  const pick = hits.find(r => stripNum(r.split('/').at(-2) ?? '') === topicSlug) ?? hits[0];
+  if (pick) return `/assets/${pick}`;
+  for (const ext of EXTS) {                                   // 예전 위치(public/assets/logo/clearspace.png 등) 폴백
+    if (fs.existsSync(path.join(ASSETS, `${item.token}.${ext}`))) return `/assets/${item.token}.${ext}`;
   }
   return null;
 }
@@ -265,7 +307,8 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
     }
     if ((m = line.match(/^!\[([^\]]+)\](?:\{(do|dont)\})?\s*(.*)$/)) && section) {   // ![token]{do} caption
       const token = m[1].trim();
-      const item: ImageItem = { kind: 'image', token, src: resolveAsset(token) };
+      const name = token.split('/').pop()!.trim();
+      const item: ImageItem = { kind: 'image', token, name, path: '', src: null };   // path·src 는 서브챕터를 다 읽은 뒤 확정
       if (m[2]) item.badge = m[2] as 'do' | 'dont';
       if (m[3].trim()) item.caption = glueLastWords(wrapKo(escapeHtml(m[3].trim())));   // HTML (한글 구간 래핑, 고아 단어 방지)
       section.items.push(item);
@@ -281,6 +324,23 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
   }
   flushSection();
   for (const ch of chapters) for (const s of ch.subs) finalizeNav(s);
+
+  // 이미지 경로 확정: <챕터>/<서브챕터 번호-이름>/<주제 번호-이름>/<이름>.
+  // 주제 = 목차 라벨 규칙과 같음(헤드, 헤드가 페이지 이름과 같으면 서브헤드). 번호는 페이지 안 주제 순서(목차 표시와 무관하게 전부 셈).
+  for (const ch of chapters) ch.subs.forEach((s, si) => {
+    const topics: string[] = [];
+    for (const sec of s.sections) { const l = navLabel(sec, s); if (!topics.includes(l)) topics.push(l); }
+    const index = subAssetIndex(ch.slug, ch.name, s.slug);
+    for (const sec of s.sections) {
+      const label = navLabel(sec, s);
+      const topicDir = `${pad2(topics.indexOf(label) + 1)}-${slugify(label)}`;
+      for (const it of sec.items) {
+        if (it.kind !== 'image') continue;
+        it.path = `${ch.slug}/${pad2(si + 1)}-${s.slug}/${topicDir}/${it.name}`;
+        it.src = resolveAsset(it, index, slugify(label));
+      }
+    }
+  });
 
   // prev / next 연결 (챕터 경계를 넘어 순서대로)
   const flat = chapters.flatMap(c => c.subs);
@@ -313,6 +373,16 @@ export function buildSearchIndex(guide: Guide): SearchEntry[] {
   return out;
 }
 
+/** 이미지 목록(문서 순서). scripts/assets.mjs 가 /asset-manifest.json 으로 받아 폴더를 정리합니다. */
+export interface AssetEntry { page: string; path: string; src: string | null; }
+export function assetEntries(guide: Guide): AssetEntry[] {
+  const out: AssetEntry[] = [];
+  for (const ch of guide.chapters) for (const s of ch.subs) for (const sec of s.sections) for (const it of sec.items) {
+    if (it.kind === 'image') out.push({ page: s.url, path: it.path, src: it.src });
+  }
+  return out;
+}
+
 export function firstUrl(guide: Guide): string {
   return guide.chapters[0]?.subs[0]?.url ?? `/${guide.lang}`;
 }
@@ -330,6 +400,8 @@ export function altUrl(guides: Record<Lang, Guide>, sub: Sub, target: Lang): str
   return match?.url ?? firstUrl(g);
 }
 
+/** 사이트 자체 로고: public/assets/brand/logo.* (콘텐츠 이미지 폴더 규칙과 별개) */
 export function brandLogoSrc(): string | null {
-  return resolveAsset('brand/logo');
+  const ext = EXTS.find(e => fs.existsSync(path.join(ASSETS, 'brand', `logo.${e}`)));
+  return ext ? `/assets/brand/logo.${ext}` : null;
 }
