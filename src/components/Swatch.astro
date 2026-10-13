@@ -1,20 +1,22 @@
 ---
 /**
- * 컬러 카드. 평소에는 색면과 이름만 보이고, 호버(또는 키보드 포커스)하면 스펙 패널이 색면 아래에서 밀려 올라옵니다.
+ * 컬러 카드. 평소에는 색면과 이름만 보이고, 호버(또는 키보드 포커스)하면 스펙이 짧게 디졸브로 나타납니다.
+ * 스펙은 아래에서 위로 투명해지는 어두운 그라데이션 위에 흰 글자로 올라가 어떤 색면에서도 읽힙니다.
+ * 비율: 기본은 tokens.css 의 --ratio-swatch, 섹션 헤드에 {ratio=3:4} 처럼 쓰면 그 섹션만 바뀝니다.
  * 패널 안의 숫자는 하나씩 호버하면 하이라이트와 Copy 버튼이 뜨고, 누르면 그 값만 클립보드에 복사됩니다.
  * 호버가 없는 터치 기기에서는 패널이 처음부터 열려 있습니다. 수치는 tokens.css 1-6 / 3-9 / 5. MOTION.
  */
 import type { SwatchItem } from '../lib/guide';
-interface Props { item: SwatchItem; }
-const { item } = Astro.props;
+interface Props { item: SwatchItem; ratio?: string; }
+const { item, ratio } = Astro.props;
 ---
 <div class="swatch">
-  <div class="swatch__card" style={`--swatch-color: ${item.hex}`}>
+  <div class="swatch__card" style={`--swatch-color: ${item.hex}${ratio ? `; --swatch-ratio: ${ratio}` : ''}`}>
     <dl class="swatch__panel">
       {item.rows.map(r => (
         <div class="swatch__row">
-          <dt class="swatch__label t-label">{r.label}</dt>
-          <dd class="swatch__value t-ui">
+          <dt class="swatch__label t-body">{r.label}</dt>
+          <dd class="swatch__value t-body">
             {r.values.map(v => (
               <button type="button" class="swatch__val" data-copy={v} aria-label={`${r.label} ${v} 복사`}>
                 {v}

@@ -27,13 +27,13 @@ const ratio = s.ratio ?? defaultRatio;
     <div class="sec__media">
       {s.items[0].kind === 'image'
         ? <Figure item={s.items[0]} ratio={ratio} />
-        : <Swatch item={s.items[0]} />}
+        : <Swatch item={s.items[0]} ratio={s.ratio} />}
     </div>
   )}
 
   {isGrid && (
     <div class="sec__grid" style={`--n: ${n}`}>
-      {s.items.map(it => it.kind === 'image' ? <Figure item={it} ratio={ratio} /> : <Swatch item={it} />)}
+      {s.items.map(it => it.kind === 'image' ? <Figure item={it} ratio={ratio} /> : <Swatch item={it} ratio={s.ratio} />)}
     </div>
   )}
 </section>

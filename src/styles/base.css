@@ -695,7 +695,7 @@ html.js .main {
   color: var(--c-dont);
 }
 
-/* 컬러 카드: 색면 + 이름. 호버하면 스펙 패널이 색면 아래에서 올라옴 (Swatch.astro) */
+/* 컬러 카드: 색면 + 이름. 호버하면 스펙이 디졸브로 나타남 (Swatch.astro) */
 .swatch {
   display: flex;
   flex-direction: column;
@@ -703,7 +703,7 @@ html.js .main {
 }
 .swatch__card {
   position: relative;
-  aspect-ratio: var(--ratio-swatch);
+  aspect-ratio: var(--swatch-ratio, var(--ratio-swatch)); /* 섹션에 {ratio=…} 가 있으면 그 값 */
   width: 100%;
   overflow: hidden;
   border-radius: var(--radius);
@@ -719,21 +719,28 @@ html.js .main {
   right: 0;
   bottom: 0;
   margin: 0;
-  padding: var(--swatch-panel-pad-y) var(--swatch-panel-pad-x);
+  --_u: var(--lh-unit); /* 여백은 전부 행간 단위의 배수 */
+  padding: calc(var(--_u) * (var(--swatch-panel-pad-y) + var(--swatch-panel-fade)))
+    calc(var(--_u) * var(--swatch-panel-pad-x)) calc(var(--_u) * var(--swatch-panel-pad-y));
   display: grid;
-  gap: var(--swatch-row-gap);
-  background: var(--swatch-panel-bg);
-  border-top: var(--border-w) solid var(--swatch-panel-line);
-  transform: translateY(100%);
-  transition: transform var(--swatch-reveal-dur) var(--swatch-reveal-ease);
+  gap: calc(var(--_u) * var(--swatch-row-gap));
+  /* 아래에서 위로: 진한 그늘 → 첫 행 높이에서 조금 옅게 → 그 위 fade 구간에서 투명 */
+  background: linear-gradient(
+    to top,
+    var(--swatch-shade-bottom) 0,
+    var(--swatch-shade-top) calc(100% - var(--_u) * var(--swatch-panel-fade)),
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity var(--swatch-reveal-dur) var(--swatch-reveal-ease);
 }
 .swatch:hover .swatch__panel,
 .swatch:focus-within .swatch__panel {
-  transform: translateY(0);
+  opacity: 1;
 }
 @media (hover: none) {
   .swatch__panel {
-    transform: none; /* 터치 기기: 처음부터 열림 */
+    opacity: 1; /* 터치 기기: 처음부터 보임 */
   }
 }
 .swatch__row {
@@ -750,7 +757,6 @@ html.js .main {
   flex-wrap: wrap;
   align-items: baseline;
   column-gap: var(--swatch-val-gap);
-  font-weight: var(--t-ui-w-swatch-val);
   color: var(--swatch-panel-fg);
 }
 .swatch__note {
@@ -789,6 +795,7 @@ html.js .main {
   height: var(--swatch-tip-h);
   padding: 0 var(--swatch-tip-pad-x);
   border-radius: var(--swatch-tip-radius);
+  border: var(--border-w) solid var(--swatch-tip-line);
   background: var(--swatch-tip-bg);
   color: var(--swatch-tip-fg);
   white-space: nowrap;
