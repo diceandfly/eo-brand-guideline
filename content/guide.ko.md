@@ -103,12 +103,15 @@ EO, EO 모노그램, 블록 심볼, “Build Anyway”, “Entrepreneur Onwards�
 
 ## Symbol
 
-### + Overview
-
-로고는 EO 브랜드를 알리는 가장 상징적이고 효과적인 방법입니다. EO 로고는 본 챕터에서 설명하는 EO 심볼, EO 서브심볼, EO 시그니처를 모두 아우르는 총칭입니다. 
-
-본 서브챕터에서 다루는 EO 심볼은, 그래픽 심볼로서 식별 기능을 가짐과 동시에 일정 수준 가독성을 가진 모노그램을 말하며 이러한 형태의 그래픽 로고를 이하 **EO 심볼**이라 칭합니다. 작은 사인오프부터 큰 디스플레이 집행까지, 이 서브챕터는 다양한 상황·포맷·커뮤니케이션에 맞춰 EO 심볼을 어떻게 적용할 수 있는지 설명합니다.
+### Logo
+#### + Overview
+EO 로고는 이 챕터에서 다루는 EO 심볼, EO 서브심볼, EO 시그니처를 모두 아우르는 총칭입니다. 
 ![logo/hero]
+
+
+### Symbol
+EO 심볼은, 그래픽 심볼로서 식별 기능을 가짐과 동시에 일정 수준 가독성을 가진 모노그램을 말하며 이러한 형태의 그래픽 로고를 이하 **EO 심볼**이라 칭합니다. EO 심볼은 EO 브랜드를 알리는 가장 상징적이고 효과적인 방법입니다. 이 서브챕터는 작은 사인오프부터 큰 디스플레이 집행까지 다양한 상황·포맷·커뮤니케이션에 맞춰 EO 심볼을 어떻게 적용할 수 있는지 설명합니다.
+![logo/symbol]
 
 
 ### + Construction
@@ -228,73 +231,28 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 ![logo/dont-wordmark]{dont} 심볼 옆에 글자를 임의로 붙이지 마세요. 회사명이 필요하면 시그니처를 쓰세요
 
 
-## Sub Symbol
-
-### + Overview
-서브 심볼은 EO 심볼에서 E 블록만 떼어 쓰는 형태입니다. 앱 아이콘, 파비콘, 소셜 미디어 아바타, 핀 배지처럼 EO 심볼 전체를 알아보기 어려운 작은 정사각형 공간에서만 사용합니다.
-
-서브 심볼은 EO 심볼을 대신하지 않습니다. EO 심볼을 충분한 크기로 쓸 수 있는 곳에서는 항상 EO 심볼을 사용하세요. E 블록은 그래픽 유닛과 같은 지오메트리를 공유하므로, 작게 쓰여도 비주얼 시스템 전체와 자연스럽게 이어집니다.
-![overview]
-
-
-### + Construction
-서브 심볼은 EO 심볼의 E 블록을 그대로 사용합니다. 가로 막대인 shaft와 사다리꼴 스레드(thread) 세 단으로 이루어지며, 비율과 스레드 각도는 EO 심볼의 E 블록과 같습니다. 정사각형 공간에 맞추기 위해 블록을 다시 그리거나 비율을 바꾸지 않습니다.
-![construction]
-
-
-### + Clearspace
-서브 심볼 주변에도 EO 심볼과 같은 기준의 여백이 필요합니다. 스레드 하나의 두께를 X라 할 때 사방으로 [2X] 이상의 여백을 확보하고, 스레드가 튀어나온 쪽에도 같은 값을 적용합니다.
-![clearspace]
-
-
-### + Scalability
-서브 심볼은 작은 크기를 위한 형태이므로 EO 심볼보다 더 작게 쓸 수 있습니다. 디지털 환경에서 최소 크기는 높이 [16px]입니다. 이보다 작은 파비콘에는 스레드를 두 단으로 줄인 축소 버전을 사용합니다.
-![scalability]
-
-
-### + Color {layout=grid-3}
-서브 심볼은 EO 심볼과 같은 여섯 가지 컬러 페어링을 사용합니다. 항상 단색으로 표현하세요.
-![color-1] 1. Builder Neon on Space Black
-![color-2] 2. Space Black on Builder Neon
-![color-3] 3. Air White on Space Black
-![color-4] 4. Space Black on Air White
-![color-5] 5. Air White on Solid Gray
-![color-6] 6. Space Black on Color
-
-
-### + App & Social Icons
-#### Alignment
-앱 아이콘과 소셜 아바타에서는 사각형이나 원형 컨테이너 안에 서브 심볼을 놓습니다. 서브 심볼은 컨테이너 중심에 시각적으로 정렬하고, 스레드가 튀어나온 쪽 때문에 한쪽으로 치우쳐 보이지 않도록 위치를 미세 조정합니다. 원형 컨테이너에서는 가장자리에 닿지 않도록 사각형보다 조금 작게 넣습니다.
-![alignment]
-
-
-### App & Social Icons
-#### In Use
-앱 아이콘, 브라우저 파비콘, 소셜 미디어 프로필 이미지에 서브 심볼이 실제로 사용된 예시입니다.
-![in-use]
-
-
-### Sub Symbol {layout=grid-3}
-#### Don'ts
-서브 심볼은 EO 심볼의 일부이므로 EO 심볼과 같은 원칙을 따릅니다. 형태를 바꾸거나 장식하지 말고, 정해진 용도 밖에서 쓰지 마세요.
-![dont-stretch]{dont} 서브 심볼을 늘리거나 왜곡하지 마세요
-![dont-rotate]{dont} 서브 심볼을 회전하지 마세요
-![dont-flip]{dont} 서브 심볼을 좌우로 뒤집지 마세요
-![dont-thread]{dont} 스레드의 수나 각도를 바꾸지 마세요
-![dont-outline]{dont} 서브 심볼에 외곽선을 넣지 마세요
-![dont-effects]{dont} 글로우, 그림자, 그라데이션을 적용하지 마세요
-![dont-color]{dont} 두 가지 색으로 칠하거나 승인되지 않은 페어링을 쓰지 마세요
-![dont-o]{dont} O 블록을 단독으로 쓰지 마세요
-![dont-large]{dont} EO 심볼을 쓸 수 있는 공간에 서브 심볼을 쓰지 마세요
-
-
 ## Signature
 
-### + Overview
+### + Signature
 시그니처는 EO 심볼과 회사명 EO Studio를 가로로 묶은 조합입니다. 미디어 브랜드 EO가 아니라 회사 EO Studio를 드러내야 할 때 사용합니다.
 
 명함, 계약서와 제안서, 채용 공고, 파트너 제안서, 공식 문서와 웹사이트 푸터처럼 회사가 주체가 되는 자리에 시그니처를 씁니다. 영상, 썸네일, 소셜 게시물, 포스터 같은 미디어 콘텐츠에는 시그니처가 아니라 EO 심볼을 사용합니다.
 ![overview]
+
+
+### Signature
+#### + Descriptor {layout=grid-2 ratio=2:1}
+시그니처에서 EO 심볼 오른쪽에 붙는 글자를 디스크립터라고 부릅니다. 디스크립터는 그 시그니처가 가리키는 조직이나 서비스를 알려 줍니다.
+
+EO 심볼이 이미 “EO”로 읽히므로 디스크립터에는 EO를 다시 쓰지 않습니다. 회사 EO Studio를 나타내는 시그니처는 심볼 옆에 Studio만 붙여 EO Studio로 읽히게 합니다.
+
+같은 방식으로 Magazine(웹 매거진), Newsletter(뉴스레터), Planet(한국에서 운영 중인 커뮤니티 eopla.net)처럼 EO의 서비스로 시그니처를 확장할 수 있습니다. 어떤 단어든 디스크립터는 Studio와 같은 서체, 같은 크기 비율, 같은 간격으로 조판합니다.
+
+새 디스크립터를 만들거나 기존 디스크립터를 바꿀 때는 반드시 EO 인하우스 디자이너의 컨펌을 받아야 합니다. 캠페인이나 이벤트 이름처럼 한시적인 이름은 디스크립터로 쓰지 않습니다.
+![descriptor-studio] EO Studio · 회사
+![descriptor-magazine] EO Magazine · 웹 매거진
+![descriptor-newsletter] EO Newsletter · 뉴스레터
+![descriptor-planet] EO Planet · 커뮤니티 (eopla.net)
 
 
 ### + Construction
@@ -361,6 +319,66 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 ![dont-stretch]{dont} 시그니처를 늘리거나 왜곡하지 마세요
 ![dont-effects]{dont} 글로우, 그림자, 그라데이션을 적용하지 마세요
 ![dont-media]{dont} 미디어 콘텐츠의 사인오프로 쓰지 마세요
+
+
+## Sub Symbol
+
+### + Sub Symbol
+서브 심볼은 EO 심볼에서 E 블록만 떼어 쓰는 형태입니다. 앱 아이콘, 파비콘, 소셜 미디어 아바타, 핀 배지처럼 EO 심볼 전체를 알아보기 어려운 작은 정사각형 공간에서만 사용합니다.
+
+서브 심볼은 EO 심볼을 대신하지 않습니다. EO 심볼을 충분한 크기로 쓸 수 있는 곳에서는 항상 EO 심볼을 사용하세요. E 블록은 그래픽 유닛과 같은 지오메트리를 공유하므로, 작게 쓰여도 비주얼 시스템 전체와 자연스럽게 이어집니다.
+![overview]
+
+
+### + Construction
+서브 심볼은 EO 심볼의 E 블록을 그대로 사용합니다. 가로 막대인 shaft와 사다리꼴 스레드(thread) 세 단으로 이루어지며, 비율과 스레드 각도는 EO 심볼의 E 블록과 같습니다. 정사각형 공간에 맞추기 위해 블록을 다시 그리거나 비율을 바꾸지 않습니다.
+![construction]
+
+
+### + Clearspace
+서브 심볼 주변에도 EO 심볼과 같은 기준의 여백이 필요합니다. 스레드 하나의 두께를 X라 할 때 사방으로 [2X] 이상의 여백을 확보하고, 스레드가 튀어나온 쪽에도 같은 값을 적용합니다.
+![clearspace]
+
+
+### + Scalability
+서브 심볼은 작은 크기를 위한 형태이므로 EO 심볼보다 더 작게 쓸 수 있습니다. 디지털 환경에서 최소 크기는 높이 [16px]입니다. 이보다 작은 파비콘에는 스레드를 두 단으로 줄인 축소 버전을 사용합니다.
+![scalability]
+
+
+### + Color {layout=grid-3}
+서브 심볼은 EO 심볼과 같은 여섯 가지 컬러 페어링을 사용합니다. 항상 단색으로 표현하세요.
+![color-1] 1. Builder Neon on Space Black
+![color-2] 2. Space Black on Builder Neon
+![color-3] 3. Air White on Space Black
+![color-4] 4. Space Black on Air White
+![color-5] 5. Air White on Solid Gray
+![color-6] 6. Space Black on Color
+
+
+### + App & Social Icons
+#### Alignment
+앱 아이콘과 소셜 아바타에서는 사각형이나 원형 컨테이너 안에 서브 심볼을 놓습니다. 서브 심볼은 컨테이너 중심에 시각적으로 정렬하고, 스레드가 튀어나온 쪽 때문에 한쪽으로 치우쳐 보이지 않도록 위치를 미세 조정합니다. 원형 컨테이너에서는 가장자리에 닿지 않도록 사각형보다 조금 작게 넣습니다.
+![alignment]
+
+
+### App & Social Icons
+#### In Use
+앱 아이콘, 브라우저 파비콘, 소셜 미디어 프로필 이미지에 서브 심볼이 실제로 사용된 예시입니다.
+![in-use]
+
+
+### Sub Symbol {layout=grid-3}
+#### Don'ts
+서브 심볼은 EO 심볼의 일부이므로 EO 심볼과 같은 원칙을 따릅니다. 형태를 바꾸거나 장식하지 말고, 정해진 용도 밖에서 쓰지 마세요.
+![dont-stretch]{dont} 서브 심볼을 늘리거나 왜곡하지 마세요
+![dont-rotate]{dont} 서브 심볼을 회전하지 마세요
+![dont-flip]{dont} 서브 심볼을 좌우로 뒤집지 마세요
+![dont-thread]{dont} 스레드의 수나 각도를 바꾸지 마세요
+![dont-outline]{dont} 서브 심볼에 외곽선을 넣지 마세요
+![dont-effects]{dont} 글로우, 그림자, 그라데이션을 적용하지 마세요
+![dont-color]{dont} 두 가지 색으로 칠하거나 승인되지 않은 페어링을 쓰지 마세요
+![dont-o]{dont} O 블록을 단독으로 쓰지 마세요
+![dont-large]{dont} EO 심볼을 쓸 수 있는 공간에 서브 심볼을 쓰지 마세요
 
 
 # 03 Typography
