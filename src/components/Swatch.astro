@@ -1,13 +1,60 @@
 ---
+/**
+ * 컬러 카드. 평소에는 색면과 이름만 보이고, 호버(또는 키보드 포커스)하면 스펙 패널이 색면 아래에서 밀려 올라옵니다.
+ * 패널 안의 숫자는 하나씩 호버하면 하이라이트와 Copy 버튼이 뜨고, 누르면 그 값만 클립보드에 복사됩니다.
+ * 호버가 없는 터치 기기에서는 패널이 처음부터 열려 있습니다. 수치는 tokens.css 1-6 / 3-9 / 5. MOTION.
+ */
 import type { SwatchItem } from '../lib/guide';
 interface Props { item: SwatchItem; }
 const { item } = Astro.props;
 ---
 <div class="swatch">
-  <div class="swatch__chip" style={`background: ${item.hex}`}></div>
+  <div class="swatch__card" style={`--swatch-color: ${item.hex}`}>
+    <dl class="swatch__panel">
+      {item.rows.map(r => (
+        <div class="swatch__row">
+          <dt class="swatch__label t-label">{r.label}</dt>
+          <dd class="swatch__value t-ui">
+            {r.values.map(v => (
+              <button type="button" class="swatch__val" data-copy={v} aria-label={`${r.label} ${v} 복사`}>
+                {v}
+                <span class="swatch__tip t-label" aria-hidden="true">
+                  <svg class="swatch__tip-icon swatch__tip-icon--copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5.5" y="5.5" width="8" height="8" /><path d="M10.5 3.5v-1h-8v8h1" /></svg>
+                  <svg class="swatch__tip-icon swatch__tip-icon--done" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M3 8.5l3.2 3.2L13 5" /></svg>
+                  <span class="swatch__tip-text swatch__tip-text--copy">Copy</span>
+                  <span class="swatch__tip-text swatch__tip-text--done">Copied</span>
+                </span>
+              </button>
+            ))}
+            {r.note && <span class="swatch__note">{r.note}</span>}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  </div>
   <div class="swatch__name t-ui">{item.name}</div>
-  <ul class="swatch__specs t-label">
-    <li>{item.hex.toUpperCase()}</li>
-    {item.specs.map(s => <li>{s}</li>)}
-  </ul>
 </div>
+
+<script>
+  // 값 복사. 버튼에 is-copied 를 잠깐 붙여 Copy → Copied 로 바꿉니다.
+  const raw = getComputedStyle(document.documentElement).getPropertyValue('--swatch-copied-dur').trim();
+  const copiedMs = raw.endsWith('ms') ? parseFloat(raw) : (parseFloat(raw) || 1.2) * 1000;
+  const write = async (text: string) => {
+    try { await navigator.clipboard.writeText(text); return true; }
+    catch {                                                     // 클립보드 API 를 못 쓰는 환경 폴백
+      const ta = Object.assign(document.createElement('textarea'), { value: text });
+      ta.style.cssText = 'position:fixed;opacity:0';
+      document.body.appendChild(ta); ta.select();
+      const ok = document.execCommand('copy'); ta.remove(); return ok;
+    }
+  };
+  const timers = new WeakMap<HTMLElement, number>();
+  document.addEventListener('click', async e => {
+    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('.swatch__val');
+    if (!btn) return;
+    if (!(await write(btn.dataset.copy ?? ''))) return;
+    btn.classList.add('is-copied');
+    clearTimeout(timers.get(btn));
+    timers.set(btn, window.setTimeout(() => btn.classList.remove('is-copied'), copiedMs));
+  });
+</script>

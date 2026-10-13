@@ -24,7 +24,9 @@ export interface SwatchItem {
   name: string;
   hex: string;
   specs: string[];
+  rows: SwatchRow[];      // 컬러 카드의 스펙 행 (Pantone → CMYK → RGB → HEX → 그 밖). values 하나하나가 복사 단위
 }
+export interface SwatchRow { label: string; values: string[]; note?: string; }
 export type Item = ImageItem | SwatchItem;
 
 export interface Section {
@@ -351,7 +353,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
     if ((m = line.match(/^\[swatch\]\s*(.+)$/)) && section) {        // [swatch] Name | #HEX | spec | spec
       const parts = m[1].split('|').map(s => s.trim()).filter(Boolean);
       const [name, hex, ...specs] = parts;
-      section.items.push({ kind: 'swatch', name: name ?? '', hex: hex ?? '#000000', specs });
+      section.items.push({ kind: 'swatch', name: name ?? '', hex: hex ?? '#000000', specs, rows: swatchRows(hex ?? '#000000', specs) });
       continue;
     }
     if (section) body.push(line);
@@ -406,6 +408,35 @@ export function buildSearchIndex(guide: Guide): SearchEntry[] {
     });
   }
   return out;
+}
+
+/**
+ * 스와치 스펙 문자열을 행으로. 두 가지 표기를 모두 받습니다.
+ *   R249 G238 B58 / C5 M0 Y95 K0 / PANTONE 3945 C          (기존)
+ *   RGB: 249 238 58 / CMYK: 5 0 95 0 / Pantone: 3945 C     (라벨: 값)
+ * 숫자 뒤의 꼬리말(예: "or raw paper")은 복사 대상이 아닌 메모로 붙습니다.
+ */
+export function swatchRows(hex: string, specs: string[]): SwatchRow[] {
+  const named: Record<string, SwatchRow> = {};
+  const extra: SwatchRow[] = [];
+  const note = (t?: string) => (t && t.trim() ? t.trim() : undefined);
+  for (const raw of specs) {
+    const s = raw.trim();
+    let m: RegExpMatchArray | null;
+    if ((m = s.match(/^(?:rgb\s*:?\s*)?R\s*(\d+)\s*G\s*(\d+)\s*B\s*(\d+)\s*(.*)$/i)))
+      named.RGB = { label: 'RGB', values: [m[1], m[2], m[3]], note: note(m[4]) };
+    else if ((m = s.match(/^(?:cmyk\s*:?\s*)?C\s*(\d+)\s*M\s*(\d+)\s*Y\s*(\d+)\s*K\s*(\d+)\s*(.*)$/i)))
+      named.CMYK = { label: 'CMYK', values: [m[1], m[2], m[3], m[4]], note: note(m[5]) };
+    else if ((m = s.match(/^(rgb|cmyk)\s*:\s*([\d\s,]+?)\s*([^\d\s,].*)?$/i)))
+      named[m[1].toUpperCase()] = { label: m[1].toUpperCase(), values: m[2].split(/[\s,]+/).filter(Boolean), note: note(m[3]) };
+    else if ((m = s.match(/^(?:pantone|pms)\s*:?\s*(.+)$/i)))
+      named.Pantone = { label: 'Pantone', values: [m[1].trim()] };
+    else if ((m = s.match(/^([A-Za-z][\w ]*?)\s*:\s*(.+)$/)))
+      extra.push({ label: m[1], values: [m[2].trim()] });
+    else extra.push({ label: '', values: [], note: s });
+  }
+  const hexRow: SwatchRow = { label: 'HEX', values: [hex.toUpperCase()] };
+  return [named.Pantone, named.CMYK, named.RGB, hexRow, ...extra].filter((r): r is SwatchRow => !!r);
 }
 
 /** 이미지 목록(문서 순서). scripts/assets.mjs 가 /asset-manifest.json 으로 받아 폴더를 정리합니다. */

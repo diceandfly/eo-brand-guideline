@@ -110,6 +110,18 @@
   --card-gap: 16px; /* 카드: 이미지 ↔ 캡션 */
   --card-pad: 0px; /* 카드 내부 패딩 (0 = 이미지가 카드 폭에 꽉 참) */
   --swatch-gap: 12px; /* 스와치: 색면 ↔ 이름 */
+  /* 컬러 카드 스펙 패널 (호버하면 색면 아래에서 올라옴) */
+  --swatch-panel-pad-x: 16px; /* 패널 안쪽 좌우 */
+  --swatch-panel-pad-y: 14px; /* 패널 안쪽 상하 */
+  --swatch-row-gap: 2px; /* 행 ↔ 행 (Pantone, CMYK, RGB, HEX) */
+  --swatch-label-w: 5.5em; /* 라벨 칸 폭. 값이 이 위치에서 정렬됨 */
+  --swatch-val-gap: 0.45em; /* 숫자 ↔ 숫자 (CMYK, RGB) */
+  --swatch-val-pad-x: 0.12em; /* 숫자 호버 하이라이트의 좌우 여유 */
+  --swatch-tip-h: 24px; /* Copy 버튼 높이 */
+  --swatch-tip-pad-x: 10px; /* Copy 버튼 좌우 패딩 */
+  --swatch-tip-gap: 6px; /* 숫자 ↔ Copy 버튼 (버튼이 숫자 위에 뜸) */
+  --swatch-tip-icon: 12px; /* Copy 버튼 아이콘 크기 */
+  --swatch-tip-radius: 999px; /* Copy 버튼 라운드. 999px = 알약 */
   --badge-size: 16px; /* Do / Don't 아이콘(체크·엑스) 크기. 박스 없이 아이콘만, 캡션 줄 맨 앞 */
   --badge-gap: 10px; /* 아이콘 ↔ 캡션 문구 */
   /* 확대 보기 (라이트박스) */
@@ -199,6 +211,7 @@
   --t-ui-ls: -0.01em;
   --t-ui-w: 300; /* 기본 */
   --t-ui-w-swatch: 500; /* 스와치 이름 */
+  --t-ui-w-swatch-val: 400; /* 컬러 카드 스펙 숫자 */
   --t-ui-c: var(--fg);
 
   /* ui · 목차 — 위계별 웨이트 */
@@ -243,7 +256,8 @@
        3-6 다음 버튼   기본 / 호버
        3-7 Do / Don't 아이콘
        3-8 텍스트 선택 영역 (드래그)
-       3-9 이미지 확대 보기 */
+       3-9 컬러 카드 스펙 패널
+       3-10 이미지 확대 보기 */
 
   /* 3-1 배경 */
   --bg: var(--c-solid-gray); /* 본문 영역 */
@@ -290,7 +304,21 @@
   --selection-bg: var(--c-builder-neon);
   --selection-fg: var(--c-space-black);
 
-  /* 3-9 이미지 확대 보기 (라이트박스) */
+  /* 3-9 컬러 카드 스펙 패널 — 숫자 호버는 드래그 박스(3-8)와 같은 색 */
+  --swatch-panel-bg: var(--c-air-white); /* 패널 면 */
+  --swatch-panel-fg: var(--c-space-black); /* 숫자 */
+  --swatch-panel-line: color-mix(
+    in srgb,
+    var(--c-space-black),
+    transparent 88%
+  ); /* 패널 위 경계선 (Air White 색면과 구분) */
+  --swatch-label-fg: color-mix(in srgb, var(--c-space-black), transparent 50%); /* 라벨 PANTONE·CMYK·RGB·HEX, 메모 */
+  --swatch-val-hover-bg: var(--selection-bg); /* 숫자 호버 하이라이트 */
+  --swatch-val-hover-fg: var(--selection-fg);
+  --swatch-tip-bg: var(--c-space-black); /* Copy 버튼 */
+  --swatch-tip-fg: var(--c-air-white);
+
+  /* 3-10 이미지 확대 보기 (라이트박스) */
   --lightbox-bg: color-mix(in srgb, var(--c-space-black), transparent 8%); /* 뒤를 덮는 막 */
 
   /* ------------------------------------------------------------------
@@ -317,6 +345,11 @@
   --lightbox-dur: 360ms; /* 열고 닫는 디졸브 시간 */
   --lightbox-scale-from: 0.94; /* 열릴 때 시작 배율 (1 = 페이드만) */
   --lightbox-ease: power3.out; /* GSAP ease 이름 */
+
+  /* 컬러 카드 */
+  --swatch-reveal-dur: 320ms; /* 호버하면 스펙 패널이 올라오는 시간 */
+  --swatch-reveal-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --swatch-copied-dur: 1200ms; /* 복사 후 Copied 표시가 남는 시간 */
 
   /* 페이지 전환 (본문 영역만 디졸브, 목차는 그대로) */
   --page-in-dur: 360ms; /* 새 페이지 본문이 떠오르는 시간 (CSS 애니메이션) */
