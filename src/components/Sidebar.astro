@@ -17,23 +17,28 @@ const { guide, current, lang, alt } = Astro.props;
           <a class="nav__chapter-link" href={ch.subs[0]?.url ?? `/${lang}`} aria-current={active ? 'true' : undefined}>
             <span class="nav__num">{ch.num}</span><span>{ch.name}</span>
           </a>
-          <ul class="nav__subs">
-            {ch.subs.map(s => {
-              const isCur = current?.url === s.url;
-              return (
-                <li class:list={['nav__sub', { 'is-active': isCur }]}>
-                  <a class="nav__sub-link" href={s.url} aria-current={isCur ? 'page' : undefined}>{s.name}</a>
-                  {isCur && s.tocSections && s.navSections.length > 1 && (
-                    <ul class="nav__sections" data-scrollspy>
-                      {s.navSections.map(ns => (
-                        <li><a class="nav__section-link" href={`#${ns.id}`} data-target={ns.id}>{ns.head}</a></li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
+          <!-- 접고 펴는 묶음(nav__fold). 모든 목록을 미리 그려 두고 활성 쪽만 열어 둡니다. 클릭하면 아래 스크립트가 슬라이드로 전환 -->
+          <div class:list={['nav__fold', { 'is-open': active }]} inert={!active}>
+            <ul class="nav__subs">
+              {ch.subs.map(s => {
+                const isCur = current?.url === s.url;
+                return (
+                  <li class:list={['nav__sub', { 'is-active': isCur }]}>
+                    <a class="nav__sub-link" href={s.url} aria-current={isCur ? 'page' : undefined}>{s.name}</a>
+                    {s.tocSections && s.navSections.length > 1 && (
+                      <div class:list={['nav__fold', { 'is-open': isCur }]} inert={!isCur}>
+                        <ul class="nav__sections" data-scrollspy={isCur ? '' : undefined}>
+                          {s.navSections.map(ns => (
+                            <li><a class="nav__section-link" href={isCur ? `#${ns.id}` : `${s.url}#${ns.id}`} data-target={ns.id}>{ns.head}</a></li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </li>
       );
     })}
@@ -53,6 +58,28 @@ const { guide, current, lang, alt } = Astro.props;
 </nav>
 
 <script>
+  // 목차 슬라이드: 다른 페이지로 가는 챕터·서브챕터 링크를 누르면, 열린 목록은 접고 갈 곳의 목록은 펼칩니다.
+  // 본문이 사라지는 동안(motion.ts 페이지 전환) 슬라이드가 끝나고, 새 페이지는 같은 모양으로 열리므로 끊김이 없습니다.
+  const sidebar = document.querySelector<HTMLElement>('.sidebar');
+  const setFold = (fold: Element | null | undefined, open: boolean) => {
+    if (!fold) return;
+    fold.classList.toggle('is-open', open);
+    if (open) fold.removeAttribute('inert'); else fold.setAttribute('inert', '');
+  };
+  sidebar?.addEventListener('click', e => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = (e.target as HTMLElement).closest<HTMLAnchorElement>('.nav__chapter-link, .nav__sub-link');
+    if (!a || new URL(a.href).pathname === location.pathname) return;
+    const chapter = a.closest('.nav__chapter');
+    const sub = a.classList.contains('nav__sub-link') ? a.closest('.nav__sub') : chapter?.querySelector('.nav__sub');
+    const keep = new Set([chapter?.querySelector(':scope > .nav__fold'), sub?.querySelector(':scope > .nav__fold')]);
+    sidebar.querySelectorAll('.nav__fold.is-open').forEach(f => { if (!keep.has(f)) setFold(f, false); });
+    keep.forEach(f => setFold(f, true));
+    sidebar.querySelectorAll('.nav__chapter.is-active, .nav__sub.is-active').forEach(el => el.classList.remove('is-active'));
+    chapter?.classList.add('is-active');
+    sub?.classList.add('is-active');
+  });
+
   // 선택한 언어를 기억해 두면 루트(/)로 들어올 때 그 언어로 보냅니다.
   document.querySelectorAll<HTMLAnchorElement>('.nav__lang-link[data-lang]').forEach(a =>
     a.addEventListener('click', () => { try { localStorage.setItem('guide-lang', a.dataset.lang!); } catch {} })

@@ -103,6 +103,7 @@ export function scrollToId(id: string, animate = true) {
 const main = document.querySelector<HTMLElement>('.main');
 if (main) {
   const outDur = ms('--page-out-dur', 0.2);
+  const navSlide = ms('--nav-slide-dur', 0.28);             // 목차 링크면 하위 목록 슬라이드가 끝날 때까지 기다림
   const shift = num('--page-shift', 0);
   const ease = token('--page-ease') || 'power2.out';
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -116,10 +117,11 @@ if (main) {
     e.preventDefault();
     if (reduced || outDur <= 0) { location.href = url.href; return; }
     main.style.animation = 'none';                            // 들어올 때 애니메이션과 충돌 방지
+    const wait = a.closest('.sidebar') ? Math.max(outDur, navSlide) : outDur;
     let done = false;
     const go = () => { if (done) return; done = true; location.href = url.href; };
-    gsap.to(main, { opacity: 0, y: -shift, duration: outDur, ease, onComplete: go });
-    setTimeout(go, outDur * 1000 + 80);                       // 탭이 숨겨져 애니메이션이 멈춰도 이동은 보장
+    gsap.to(main, { opacity: 0, y: -shift, duration: outDur, ease });
+    setTimeout(go, wait * 1000 + 40);                         // 디졸브·목차 슬라이드가 끝난 뒤 이동 (탭이 숨겨져도 보장)
   });
   // 뒤로 가기(bfcache)로 돌아왔을 때 사라진 상태로 남지 않도록
   window.addEventListener('pageshow', e => { if (e.persisted) { gsap.set(main, { clearProps: 'opacity,transform' }); main.style.animation = ''; } });

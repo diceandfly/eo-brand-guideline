@@ -306,13 +306,28 @@ html.js .main {
 }
 .nav__subs {
   list-style: none;
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: var(--nav-item-gap);
   padding: var(--nav-sub-pad-top) 0 var(--nav-sub-pad-bottom) var(--nav-indent);
 }
-.nav__chapter.is-active > .nav__subs {
-  display: flex;
+/* 접고 펴는 묶음: 높이를 0fr ↔ 1fr 로 슬라이드. 안쪽 목록은 넘치는 부분을 가림 */
+.nav__fold {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--nav-slide-dur) var(--nav-slide-ease);
+}
+.nav__fold.is-open {
+  grid-template-rows: 1fr;
+}
+.nav__fold > * {
+  min-height: 0;
+  overflow: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav__fold {
+    transition: none;
+  }
 }
 .nav__sub-link {
   display: block;
