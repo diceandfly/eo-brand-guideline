@@ -185,12 +185,10 @@ EO 심볼에는 여섯 가지 기본 컬러 페어링이 있습니다. 심볼은
 어두운 이미지 위에는 Air White 또는 Builder Neon 심볼을, 밝은 이미지 위에는 Space Black 심볼을 사용하세요. 사진의 밝기가 고르지 않다면 심볼을 올릴 영역에 투명도 30% 수준의 그라데이션을 오버레이하거나, 심볼을 사진 바깥의 여백으로 옮깁니다.
 
 인물의 얼굴이나 핵심 피사체 위에 심볼을 올리지 마세요.
-
-최소 대비 요건에 대한 일반적인 지침은 WCAG를 참고하세요.
-![logo/imagery-do-1]{do}
-![logo/imagery-do-2]{do}
-![logo/imagery-dont-1]{dont}
-![logo/imagery-dont-2]{dont}
+![logo/imagery-do-1]{do} 배경과 대비가 충분한 곳에 심볼을 둡니다
+![logo/imagery-do-2]{do} 밝기가 고르지 않은 사진에는 그라데이션을 깔아 대비를 확보합니다
+![logo/imagery-dont-1]{dont} 복잡한 배경 위에 심볼을 올리지 마세요
+![logo/imagery-dont-2]{dont} 사진과 대비가 부족한 곳에 심볼을 두지 마세요
 
 
 ### + Contextual Usage {layout=grid-2}
