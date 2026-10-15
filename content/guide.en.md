@@ -133,7 +133,7 @@ The EO Symbol is designed and tested to work across a wide range of sizes.
 
 The **optimal range** is 40–100px in height (approx. 8–20mm) on a 16-inch Mac display viewed from 500mm. Relative to viewing distance, that is 1/60–1/25 of the distance; use this ratio to size the symbol in other media. The optical correction of the thread angles is also tuned to this range.
 
-The **minimum size** is 20px in height on screen (approx. 4mm, 1/125 of the viewing distance) and 5mm in height in print. Below this, the threads of the E block begin to fill in, so check with the EO design team before going smaller.
+The **minimum size** is 20px in height on screen (approx. 4mm, 1/125 of the viewing distance) and 5mm in height in print. Below this, the threads of the E block begin to fill in, so check with the EO Brand Team before going smaller.
 ![logo/scalability]
 
 
@@ -232,7 +232,7 @@ The following images show the symbol in use as an app icon and a browser favicon
 
 ### Symbol {layout=grid-3}
 #### Don'ts
-To keep the EO Symbol consistent and impactful, it should never be reinterpreted, modified, or embellished. This page shows examples of modifications to avoid. When the company name needs to appear, use the EO Signature instead of the symbol. When a sub-brand needs to be identified, consult the EO brand team and apply a new descriptor.
+To keep the EO Symbol consistent and impactful, it should never be reinterpreted, modified, or embellished. This page shows examples of modifications to avoid. When the company name needs to appear, use the EO Signature instead of the symbol. When a sub-brand needs to be identified, consult the EO Brand Team and create a service signature.
 
 
 ![dont-1]{dont} Don’t stretch or distort the symbol
