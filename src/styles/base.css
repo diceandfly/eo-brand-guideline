@@ -839,10 +839,10 @@ html.js .main {
   background: linear-gradient(
     to bottom,
     transparent 0,
-    color-mix(in srgb, var(--swatch-shade), transparent 92%) calc(var(--_f) * 0.25),
-    color-mix(in srgb, var(--swatch-shade), transparent 72%) calc(var(--_f) * 0.5),
-    color-mix(in srgb, var(--swatch-shade), transparent 40%) calc(var(--_f) * 0.75),
-    color-mix(in srgb, var(--swatch-shade), transparent 12%) var(--_f),
+    color-mix(in srgb, var(--swatch-shade) var(--swatch-shade-1), transparent) calc(var(--_f) * 0.25),
+    color-mix(in srgb, var(--swatch-shade) var(--swatch-shade-2), transparent) calc(var(--_f) * 0.5),
+    color-mix(in srgb, var(--swatch-shade) var(--swatch-shade-3), transparent) calc(var(--_f) * 0.75),
+    color-mix(in srgb, var(--swatch-shade) var(--swatch-shade-4), transparent) var(--_f),
     var(--swatch-shade) 100%
   );
   opacity: 0;

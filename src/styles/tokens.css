@@ -317,6 +317,12 @@
 
   /* 3-8 컬러 카드 — 위에서 아래로 서서히 진해지는 그늘 위에 흰 글자 */
   --swatch-shade: color-mix(in srgb, var(--c-space-black), transparent 45%); /* 스펙 뒤 그늘의 최대 진하기 */
+  /* 그늘의 모양: fade 구간(1-7 --swatch-panel-fade)을 4등분한 지점마다 최대 진하기의 몇 % 인지.
+     위에서 0 → 1 → 2 → 3 → 4 → (스펙 뒤) 100%. 앞 숫자를 작게 둘수록 위쪽이 오래 투명하다가 아래에서 빠르게 진해짐 */
+  --swatch-shade-1: 8%; /* fade 1/4 지점 */
+  --swatch-shade-2: 28%; /* 1/2 지점 */
+  --swatch-shade-3: 60%; /* 3/4 지점 */
+  --swatch-shade-4: 88%; /* fade 끝 = 스펙 시작 */
   --swatch-panel-fg: var(--c-air-white); /* 스펙 글자 (항목·값·메모 모두) */
   --swatch-val-hover-bg: var(--selection-bg); /* 숫자 호버 = 드래그 박스(3-10)와 같은 색 */
   --swatch-val-hover-fg: var(--selection-fg);
