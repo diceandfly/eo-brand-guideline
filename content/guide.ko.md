@@ -32,6 +32,7 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
       Do/Don't 카드는 그리드별 기본 배율(tokens.css --dodont-zoom-2/3/4)을 따르고, {do nozoom} 처럼 쓰면 그 카드만 끕니다.
       여러 개는 띄어서 함께 씁니다: ![dont-3]{dont nostrike zoom=1.3} 캡션
       섹션 전체에 걸려면 헤드나 서브헤드 줄에 씁니다: ### Symbol {layout=grid-3 zoom=1.5}
+      중괄호는 나눠 써도 됩니다: {layout=grid-3} {zoom=1.5}
       (이미지 태그 > 섹션 zoom > Do/Don't 그리드 기본값 순서로 적용)
     → Do/Don't 만 있는 섹션은 4:3 카드입니다. 원본은 16:9 로 만들면 카드에서는 가운데 4:3 이 보이고, 확대하면 전체가 보입니다.
     → 뒤에 글을 쓰면 이미지 아래 캡션이 붙습니다 (= 카드). 배지만 있고 글이 없으면 "Do" / "Don't" 가 기본 문구.
@@ -175,14 +176,14 @@ EO 심볼은 강렬하지만 단순한 셰이프로 이뤄졌습니다. 따라�
 
 
 ### Symbol
-#### + Color {layout=grid-3}
+#### + Color {layout=grid-3} {zoom=1.6}
 EO 심볼에는 여섯 가지 기본 컬러 페어링이 있습니다. 심볼은 항상 단색으로 표현되어야 하며, 배경색에 확신이 서지 않을 때는 다음 중 하나를 사용하세요. 
-![logo/color-1]{zoom=1.5} 1. Builder Neon on Space Black
-![logo/color-2]{zoom=1.5} 2. Space Black on Builder Neon
-![logo/color-3]{zoom=1.5} 3. Air White on Space Black
-![logo/color-4]{zoom=1.5} 4. Space Black on Air White
-![logo/color-5]{zoom=1.5} 5. Air White on Solid Gray
-![logo/color-6]{zoom=1.5} 6. Space Black on Color
+![logo/color-1] 1. Space Black on Builder Neon
+![logo/color-2] 2. Air White on Space Black
+![logo/color-3] 3. Air White on Solid Gray
+![logo/color-4] 4. Space Black on Air White
+![logo/color-5] 5. Builder Neon on Space Black
+![logo/color-6] 6. Space Black on Solide Gray
 
 
 ### + Over Imagery {layout=grid-2}

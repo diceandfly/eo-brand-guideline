@@ -137,6 +137,14 @@ function resolveAsset(item: ImageItem, index: Map<string, string[]>): string | n
   return null;
 }
 
+/** 줄 끝의 {…} 속성을 떼어 냅니다. {layout=grid-3} {zoom=1.6} 처럼 여러 개로 나눠 써도 모두 합칩니다. */
+function takeAttrs(text: string): [string, Record<string, string>] {
+  const groups: string[] = [];
+  let m: RegExpMatchArray | null;
+  while ((m = text.match(/\{([^}]*)\}\s*$/))) { groups.unshift(m[1]); text = text.slice(0, m.index).trimEnd(); }
+  return [text.trim(), parseAttrs(groups.join(' '))];
+}
+
 function parseAttrs(raw: string): Record<string, string> {
   const out: Record<string, string> = {};
   for (const m of raw.matchAll(/(\w+)\s*=\s*([^\s}]+)/g)) out[m[1]] = m[2];
@@ -297,10 +305,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
     }
     if ((m = line.match(/^##\s+(.+?)\s*$/)) && chapter) {           // ## Logo {toc=none}
       flushSection();
-      let name = m[1];
-      let attrs: Record<string, string> = {};
-      const am = name.match(/\{([^}]*)\}\s*$/);
-      if (am) { attrs = parseAttrs(am[1]); name = name.slice(0, am.index).trim(); }
+      const [name, attrs] = takeAttrs(m[1]);
       const slug = slugify(name);
       sub = {
         name, slug,
@@ -316,10 +321,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
     if ((m = line.match(/^###(\+?)\s+(\+\s*)?(.+?)\s*$/)) && sub) { // ### Head {layout=…}  /  #### + Head (목차에 올림, ###+ Head 도 가능)
       flushSection();
       const tocMark = m[1] === '+' || !!m[2];
-      let head = smartQuotes(m[3]);
-      let attrs: Record<string, string> = {};
-      const am = head.match(/\{([^}]*)\}\s*$/);
-      if (am) { attrs = parseAttrs(am[1]); head = head.slice(0, am.index).trim(); }
+      const [head, attrs] = takeAttrs(smartQuotes(m[3]));
       const base = slugify(head);
       const count = (idsInSub.get(base) ?? 0) + 1;
       idsInSub.set(base, count);
@@ -333,16 +335,11 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       continue;
     }
     if ((m = line.match(/^####\s+(\+\s*)?(.+?)\s*$/)) && section) { // #### Subhead  /  #### + Subhead {layout=…}  (+ 와 {…} 는 헤드 줄과 동일하게 동작)
-      let subhead = smartQuotes(m[2]);
+      const [subhead, attrs] = takeAttrs(smartQuotes(m[2]));
       if (m[1]) section.tocMark = true;
-      const am = subhead.match(/\{([^}]*)\}\s*$/);
-      if (am) {
-        const attrs = parseAttrs(am[1]);
-        subhead = subhead.slice(0, am.index).trim();
-        if (attrs.layout) (section as any)._layout = attrs.layout;
-        if (attrs.ratio) section.ratio = normalizeRatio(attrs.ratio);
-        if (Number.isFinite(parseFloat(attrs.zoom))) section.zoom = parseFloat(attrs.zoom);
-      }
+      if (attrs.layout) (section as any)._layout = attrs.layout;
+      if (attrs.ratio) section.ratio = normalizeRatio(attrs.ratio);
+      if (Number.isFinite(parseFloat(attrs.zoom))) section.zoom = parseFloat(attrs.zoom);
       section.subhead = subhead;
       continue;
     }
