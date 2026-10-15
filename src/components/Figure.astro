@@ -11,7 +11,7 @@ const { item, ratio } = Astro.props;
 const ratioLabel = ratio.replace(/\s/g, '').replace('var(--ratio-', '').replace(')', '');
 const captionHtml = item.caption ?? (item.badge === 'do' ? 'Do' : item.badge === 'dont' ? 'Don’t' : '');
 ---
-<figure class="fig" style={`--ratio: ${ratio}`}>
+<figure class:list={['fig', { 'fig--dodont': item.badge }]} style={`--ratio: ${ratio}${item.zoom !== undefined ? `; --img-zoom: ${item.zoom}` : ''}`}>
   <div class="fig__frame">
     {item.src
       ? <img src={item.src} alt={item.caption ? item.caption.replace(/<[^>]+>/g, '') : item.token} loading="lazy" />

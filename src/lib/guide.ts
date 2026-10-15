@@ -18,6 +18,7 @@ export interface ImageItem {
   src: string | null;     // 파일이 있으면 /assets/… 경로, 없으면 null(플레이스홀더)
   badge?: 'do' | 'dont';
   strike?: boolean;       // Don't 대각선. {dont} 이면 자동, {dont nostrike} 면 끔
+  zoom?: number;          // 카드 안 배율. {zoom=1.2} 로 직접 지정, {nozoom} 이면 1 (Do/Don't 그리드 기본 배율도 끔)
   caption?: string;       // HTML. 한글 구간은 <span class="ko"> 로 래핑됨
 }
 export interface SwatchItem {
@@ -342,13 +343,18 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       section.subhead = subhead;
       continue;
     }
-    if ((m = line.match(/^!\[([^\]]+)\](?:\{(do|dont)(\s+nostrike)?\})?\s*(.*)$/)) && section) {   // ![token]{do} caption  /  {dont nostrike}
+    if ((m = line.match(/^!\[([^\]]+)\](?:\{([^}]*)\})?\s*(.*)$/)) && section) {   // ![token]{dont nostrike zoom=1.2} caption
       const token = m[1].trim();
       const name = token.split('/').pop()!.trim();
       const item: ImageItem = { kind: 'image', token, name, path: '', src: null };   // path·src 는 서브챕터를 다 읽은 뒤 확정
-      if (m[2]) item.badge = m[2] as 'do' | 'dont';
-      if (m[2] === 'dont' && !m[3]) item.strike = true;
-      if (m[4].trim()) item.caption = glueLastWords(wrapKo(smartQuotes(escapeHtml(m[4].trim()))));   // HTML (한글 구간 래핑, 고아 단어 방지)
+      const flags = (m[2] ?? '').trim().split(/\s+/).filter(Boolean);
+      if (flags.includes('do')) item.badge = 'do';
+      if (flags.includes('dont')) item.badge = 'dont';
+      if (item.badge === 'dont' && !flags.includes('nostrike')) item.strike = true;
+      const z = flags.find(f => f.startsWith('zoom='));
+      if (z && Number.isFinite(parseFloat(z.slice(5)))) item.zoom = parseFloat(z.slice(5));
+      if (flags.includes('nozoom')) item.zoom = 1;
+      if (m[3].trim()) item.caption = glueLastWords(wrapKo(smartQuotes(escapeHtml(m[3].trim()))));   // HTML (한글 구간 래핑, 고아 단어 방지)
       section.items.push(item);
       continue;
     }
