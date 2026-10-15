@@ -123,7 +123,7 @@ The EO Symbol is a monogram built from two blocks. The E block depicts the facad
 #### + Clearspace
 The symbol should always have room to breathe.
 
-Clearspace protects the symbol from typography, graphic units, photography, and the edges of the canvas. Taking the thickness of one E-block thread as X, we recommend keeping at least 2X of clear space around the symbol.
+Clearspace protects the symbol from typography, graphic units, photography, and the edges of the canvas. Taking the thickness of one E-block thread as T, we recommend keeping at least 2T of clear space around the symbol.
 ![logo/clearspace]
 
 
@@ -139,12 +139,11 @@ The **minimum size** is 20px in height on screen (approx. 4mm, 1/125 of the view
 
 ### Symbol
 #### + Inversion
-The EO Symbol is designed primarily as a Builder Neon or Air White symbol on a Space Black background. In the reverse case — a dark symbol on a light background — the same shape reads thinner and more open. When this happens, correct the shape to the grid, as shown in the upper half of the image.
+The EO Symbol is designed primarily as a Builder Neon or Air White symbol on a Space Black background. In the reverse case — a dark symbol on a light background — the same shape reads thinner and more loosely spaced.
 
-- Narrow the gap between the two blocks by H/30.
-- Expand each block by [H/100] on all sides (outline offset).
+In this case, correct the shape to the grid as shown in the following image. Offset the outline of the white symbol outward by H/100, then expand each block by [H/30] in all four directions. Finally, set the gap between the two expanded blocks to H/10.
 
-The clearspace stays the same as the default symbol’s. As shown in the lower half of the image, center the corrected dark symbol within the original clearspace area.
+The clearspace stays the same as the white symbol’s. As shown in the lower half of the image, center the corrected dark symbol within the original clearspace area.
 ![inversion]
 
 
@@ -158,7 +157,7 @@ When used as a sign-off, place the symbol in the corner farthest from the hero o
 
 ### Usage {layout=grid-2}
 #### Do's & Don'ts
-When using the symbol for display purposes, **avoid raising its visual hierarchy simply by making it bigger.** Secure generous empty space around the symbol so that it keeps its impact at a moderate size. As a rule of thumb, the area the symbol’s shape actually occupies works best at around 10–15% of the surrounding empty space.
+When using the symbol for display purposes, **avoid raising its visual hierarchy simply by making it bigger.** Secure generous empty space around the symbol so that it keeps its impact at a moderate size. As a rule of thumb, the area the symbol’s shape actually occupies works best at around 10–20% of the surrounding empty space.
 ![logo/usage-do-1]{do} Size the symbol at around 10–20% of the empty space it sits in
 ![logo/usage-do-2]{do} Use generous space to give the symbol presence, even at small sizes
 ![logo/usage-dont-1]{dont} Don’t enlarge the symbol to raise its hierarchy
