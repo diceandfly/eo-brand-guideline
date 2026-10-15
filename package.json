@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "assets": "astro build && node scripts/assets.mjs"
+    "assets": "astro build && node scripts/assets.mjs",
+    "import": "astro build && node scripts/import.mjs"
   },
   "dependencies": {
     "astro": "^5.14.0",
