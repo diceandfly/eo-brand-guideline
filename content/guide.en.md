@@ -123,9 +123,7 @@ The EO Symbol is a monogram built from two blocks. The E block depicts the facad
 
 ### Symbol
 #### + Clearspace
-The symbol should always have room to breathe.
-
-Clearspace protects the symbol from typography, graphic units, photography, and the edges of the canvas. Taking the thickness of one E-block thread as T, we recommend keeping at least 2T of clear space around the symbol.
+Clearspace is the minimum safeguard that protects the symbol whenever it sits next to other visual elements, such as typography, graphic units, images, or the edges of the canvas. Taking the vertical height of one E block as H, always keep a margin of at least H/2 on every side between the symbol and anything around it.
 ![logo/clearspace]
 
 
@@ -159,16 +157,16 @@ When used as a sign-off, place the symbol in the corner farthest from the hero o
 
 ### Usage {layout=grid-2}
 #### Do's & Don'ts
-When using the symbol for display purposes, **avoid raising its visual hierarchy simply by making it bigger.** Secure generous empty space around the symbol so that it keeps its impact at a moderate size. As a rule of thumb, the area the symbol’s shape actually occupies works best at around 10–20% of the surrounding empty space.
+When using the symbol for display purposes, **avoid raising its visual hierarchy simply by making it bigger.** Secure generous empty space around the symbol so that it keeps its impact at a moderate size. As a rule of thumb, the symbol works best when it occupies around 10–20% of the empty area, with a margin of at least 2–3 times its size from surrounding elements.
 ![logo/usage-do-1]{do} Size the symbol at around 10–20% of the empty space it sits in
 ![logo/usage-do-2]{do} Surround the symbol with generous space so it holds strong presence even at a moderate size
-![logo/usage-dont-1]{dont} Don’t enlarge the symbol to raise its hierarchy
+![logo/usage-dont-1]{dont} Don’t enlarge the symbol to fill the empty space
 ![logo/usage-dont-2]{dont} Don’t place the symbol against other elements without space
 
 
 ### Symbol
 #### + Color {layout=grid-3} {zoom=1.6}
-The EO Symbol has six primary color pairings. The symbol is always rendered in a single color; when you’re unsure about the background, use one of the following.
+The EO Symbol has six primary color pairings. **The symbol is always rendered in a single color**; when you’re unsure about the background, use one of the following.
 ![logo/color-1] 1. Space Black on Builder Neon
 ![logo/color-2] 2. Air White on Space Black
 ![logo/color-3] 3. Air White on Solid Gray
@@ -179,11 +177,11 @@ The EO Symbol has six primary color pairings. The symbol is always rendered in a
 
 ### + Over Imagery {layout=grid-2}
 #### Do's & Don'ts
-The EO Symbol must always read clearly over photography, so overlay the Air White symbol on images that provide sufficient contrast. If an image is too bright or has areas that are too white, the symbol risks getting lost in the composition; in that case, overlay a gradient at around 30% opacity before applying the symbol.
+The EO Symbol must always read clearly over photography, so overlay the Air White symbol on images that provide sufficient contrast. If an image is too bright or has areas that are too white, the symbol risks getting lost in the composition; in that case, overlay a gradient or a black box at around 30% opacity before applying the symbol.
 
 The composition should be simple enough to let the symbol stand out. Images that are overly complex or have the key subject dead center become cluttered once the symbol is placed on them. Keep this in mind when choosing images, or reposition the image to suit its relationship with the logo.
 
-The guidance in this section focuses mainly on overlays on still images rather than video sequences.
+The guidance in this section focuses on overlays on still images rather than video sequences, where the composition keeps changing.
 ![logo/imagery-do-1]{do} Place the symbol where it contrasts clearly with the background
 ![logo/imagery-do-2]{do} When a photo’s brightness is uneven, overlay a gradient at around 30% opacity to secure contrast
 ![logo/imagery-dont-1]{dont} Don’t place the symbol over a person’s face or the key subject
@@ -194,7 +192,7 @@ The guidance in this section focuses mainly on overlays on still images rather t
 #### Horizontal
 The following image shows the primary horizontal lockup of the EO Symbol with partner brands and collaborators’ logos.
 
-The elements should be optically adjusted so that they appear to be the same size. Once each logo is sized, add space between them along with a vertical dividing line or a collaboration mark. The space between the EO Symbol and the partner logo equals 2 or 3 times the thickness of one E-block thread (T), and the two logos must always be optically centered on the vertical axis.
+The elements should be optically adjusted so that they appear to be the same size. Once each logo is sized, add space between them along with a vertical dividing line or a collaboration mark. The space between the EO Symbol and the partner logo equals 2 or 3 times the width of one E block (W), and the two logos must always be optically centered on the vertical axis.
 ![logo/partner-horizontal]
 
 
@@ -202,7 +200,7 @@ The elements should be optically adjusted so that they appear to be the same siz
 #### Vertical
 The following image shows the primary vertical lockup of the EO Symbol with partner brands and collaborators’ logos.
 
-The elements should be optically adjusted so that they appear to be the same size. Once each logo is sized, add a horizontal dividing line between them. The space between the EO Symbol and the partner logo equals the height of the EO Symbol (H), and the two logos must always be optically centered on the horizontal axis.
+The elements should be optically adjusted so that they appear to be the same size. Once each logo is sized, add a horizontal dividing line between them. The space between the EO Symbol and the partner logo equals 1.5 times the height of the EO Symbol (H), and the two logos must always be optically centered on the horizontal axis.
 ![logo/partner-vertical]
 
 
@@ -228,7 +226,7 @@ When applying the symbol to surfaces larger than a desktop monitor, set the rang
 
 ### App & Social Icons
 #### In Use
-The following images show the symbol in use as an app icon and a browser favicon.
+The following image shows the EO Symbol in use as an app icon.
 ![logo/icon-in-use]
 
 
@@ -244,7 +242,7 @@ To keep the EO Symbol consistent and impactful, it should never be reinterpreted
 ![dont-5]{dont} Don’t change the number, angle, or spacing of the E’s threads
 ![dont-6]{dont} Don’t apply visual effects such as glows, shadows, or gradients
 ![dont-7]{dont} Don’t scale the symbol so large that it fills most of the space
-![dont-8]{dont} Don’t use the symbol as a mask for photos or patterns
+![dont-8]{dont} Don’t use the symbol as a mask for photos or patterns, or in unapproved colors
 ![dont-9]{dont} Don’t add arbitrary context around the symbol
 
 
