@@ -139,11 +139,11 @@ The **minimum size** is 20px in height on screen (approx. 4mm, 1/125 of the view
 
 ### Symbol
 #### + Inversion
-The EO Symbol is designed primarily as a Builder Neon or Air White symbol on a Space Black background. In the reverse case — a dark symbol on a light background — the same shape reads thinner and more loosely spaced.
+The EO Symbol is designed around a light symbol in a bright color, such as Builder Neon or Air White, on a Space Black background. When you need a dark symbol on a light background, simply inverting the colors creates an optical illusion: the shape looks thinner and more loosely spaced.
 
-In this case, correct the shape to the grid as shown in the following image. Offset the outline of the white symbol outward by H/100, then expand each block by [H/30] in all four directions. Finally, set the gap between the two expanded blocks to H/10.
+In this case, follow the image below. Offset the outline of the light symbol outward by H/100, then scale each of the two blocks up proportionally by H/30 in all four directions. Finally, reduce the gap between the two expanded blocks from the original (4/30)H to (3/30)H to complete the dark symbol.
 
-The clearspace stays the same as the white symbol’s. As shown in the lower half of the image, center the corrected dark symbol within the original clearspace area.
+The clearspace stays the same as the light symbol’s. As shown in the lower half of the image, center the dark symbol within the original clearspace area.
 ![inversion]
 
 
