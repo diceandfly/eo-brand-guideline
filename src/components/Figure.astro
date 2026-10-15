@@ -6,12 +6,12 @@
  */
 import type { ImageItem } from '../lib/guide';
 
-interface Props { item: ImageItem; ratio: string; }
+interface Props { item: ImageItem; ratio: string; zoom?: number; }   // zoom: 섹션 배율 (이미지 태그가 우선)
 const { item, ratio } = Astro.props;
 const ratioLabel = ratio.replace(/\s/g, '').replace('var(--ratio-', '').replace(')', '');
 const captionHtml = item.caption ?? (item.badge === 'do' ? 'Do' : item.badge === 'dont' ? 'Don’t' : '');
 ---
-<figure class:list={['fig', { 'fig--dodont': item.badge }]} style={`--ratio: ${ratio}${item.zoom !== undefined ? `; --img-zoom: ${item.zoom}` : ''}`}>
+<figure class:list={['fig', { 'fig--dodont': item.badge }]} style={`--ratio: ${ratio}${(item.zoom ?? Astro.props.zoom) !== undefined ? `; --img-zoom: ${item.zoom ?? Astro.props.zoom}` : ''}`}>
   <div class="fig__frame">
     {item.src
       ? <img src={item.src} alt={item.caption ? item.caption.replace(/<[^>]+>/g, '') : item.token} loading="lazy" />

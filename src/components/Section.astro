@@ -27,14 +27,14 @@ const ratio = s.ratio ?? (allDoDont ? 'var(--ratio-dodont)' : defaultRatio);   /
   {!isGrid && s.items[0] && (
     <div class="sec__media">
       {s.items[0].kind === 'image'
-        ? <Figure item={s.items[0]} ratio={ratio} />
+        ? <Figure item={s.items[0]} ratio={ratio} zoom={s.zoom} />
         : <Swatch item={s.items[0]} ratio={s.ratio} />}
     </div>
   )}
 
   {isGrid && (
     <div class:list={['sec__grid', { 'sec__grid--swatch': s.items.some(it => it.kind === 'swatch') }]} style={`--n: ${n}`} data-n={n}>
-      {s.items.map(it => it.kind === 'image' ? <Figure item={it} ratio={ratio} /> : <Swatch item={it} ratio={s.ratio} />)}
+      {s.items.map(it => it.kind === 'image' ? <Figure item={it} ratio={ratio} zoom={s.zoom} /> : <Swatch item={it} ratio={s.ratio} />)}
     </div>
   )}
 </section>

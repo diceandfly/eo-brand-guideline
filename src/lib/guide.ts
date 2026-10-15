@@ -39,6 +39,7 @@ export interface Section {
   bodyHtml: string;
   layout: Layout;
   ratio?: string;         // "5 / 4" 형식. 없으면 레이아웃 기본 토큰 사용
+  zoom?: number;          // 섹션 안 이미지 전체의 카드 배율 {zoom=1.5}. 이미지별 {zoom=…}/{nozoom} 이 우선
   items: Item[];
   tocMark: boolean;       // ### + 로 목차에 올리라고 표시한 섹션
 }
@@ -325,7 +326,8 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       const id = count === 1 ? base : `${base}-${count}`;
       section = {
         id, navId: base, head, bodyHtml: '', layout: 'basic',
-        ratio: normalizeRatio(attrs.ratio), items: [], tocMark
+        ratio: normalizeRatio(attrs.ratio), items: [], tocMark,
+        zoom: Number.isFinite(parseFloat(attrs.zoom)) ? parseFloat(attrs.zoom) : undefined
       };
       (section as any)._layout = attrs.layout;
       continue;
@@ -339,6 +341,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
         subhead = subhead.slice(0, am.index).trim();
         if (attrs.layout) (section as any)._layout = attrs.layout;
         if (attrs.ratio) section.ratio = normalizeRatio(attrs.ratio);
+        if (Number.isFinite(parseFloat(attrs.zoom))) section.zoom = parseFloat(attrs.zoom);
       }
       section.subhead = subhead;
       continue;
