@@ -185,7 +185,7 @@ export function wrapKo(html: string): string {
  * 곧은 따옴표를 둥근 따옴표로 (표시용). guide.md 에는 " 와 ' 로 쓰고, 화면에는 “ ” ‘ ’ 로 나옵니다.
  * 앞 글자가 공백·줄 시작·여는 괄호면 여는 따옴표, 아니면 닫는 따옴표. 글자 사이의 ' 는 아포스트로피(’).
  * 태그 안(속성)과 <code>·<pre> 안은 건드리지 않습니다. 이미 둥근 따옴표로 쓴 글자는 그대로 둡니다.
- * 나열의 " · " 는 앞 공백을 줄바꿈 없는 공백으로 바꿔, 줄이 점으로 시작하지 않게 합니다 (점은 앞 단어에 붙고 뒤에서만 줄바꿈).
+ * 나열의 " · " 와 짝 표기의 " / " 는 앞 공백을 줄바꿈 없는 공백으로 바꿔, 줄이 기호로 시작하지 않게 합니다 (기호는 앞 단어에 붙고 뒤에서만 줄바꿈).
  */
 const OPENS_AFTER = /[\s([{\u2014\u2013\-/“‘]/;
 const LETTER = /[\p{L}\p{N}]/u;
@@ -211,7 +211,7 @@ export function smartQuotes(html: string): string {
       } else out += c;
       prev = c;
     }
-    return out.replace(/ · /g, '\u00A0· ');
+    return out.replace(/ ([·/]) /g, '\u00A0$1 ');
   }).join('');
 }
 
