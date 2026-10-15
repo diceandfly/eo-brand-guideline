@@ -9,7 +9,7 @@ const { guide, current, lang, alt } = Astro.props;
 <nav class="sidebar t-ui" aria-label="목차">
   <a class="nav__logo" href={`/${lang}`}><Logo /></a>
   <Search guide={guide} />
-  <!-- 목록만 스크롤. 넘치면 위·아래가 마스크로 녹아듦 (아래 스크립트가 is-overflow / at-top / at-end 표시) -->
+  <!-- 목록만 스크롤. 위·아래 여백에 페이드가 항상 깔려 있어, 스크롤하면 글자가 그 밑으로 녹아듦 (CSS 만) -->
   <div class="nav__scroll" data-nav-scroll>
   <ul class="nav__chapters">
     {guide.chapters.map(ch => {
@@ -83,27 +83,16 @@ const { guide, current, lang, alt } = Astro.props;
     sub?.classList.add('is-active');
   });
 
-  // 목록 스크롤: 넘치는지, 맨 위/맨 아래인지 표시 → CSS 가 위·아래 페이드(마스크)를 켜고 끔.
-  // 페이지를 옮겨도 목록의 스크롤 위치를 유지하고, 활성 항목이 안 보이면 보이는 곳까지만 스크롤.
+  // 목록 스크롤: 페이지를 옮겨도 목록의 스크롤 위치를 유지하고, 활성 항목이 페이드에 걸리면 보이는 곳까지만 스크롤.
   const scroller = document.querySelector<HTMLElement>('[data-nav-scroll]');
   if (scroller) {
     const KEY = 'guide-nav-scroll';
-    const sync = () => {
-      const max = scroller.scrollHeight - scroller.clientHeight;
-      scroller.classList.toggle('is-overflow', max > 1);
-      scroller.classList.toggle('at-top', scroller.scrollTop <= 1);
-      scroller.classList.toggle('at-end', scroller.scrollTop >= max - 1);
-    };
     try { const y = Number(sessionStorage.getItem(KEY)); if (y) scroller.scrollTop = y; } catch {}
     const cur = scroller.querySelector<HTMLElement>('.nav__sub.is-active > .nav__sub-link');
     if (cur) {
-      const r = cur.getBoundingClientRect(), b = scroller.getBoundingClientRect();
-      if (r.top < b.top || r.bottom > b.bottom) cur.scrollIntoView({ block: 'nearest' });
+      const r = cur.getBoundingClientRect(), b = scroller.getBoundingClientRect(), cs = getComputedStyle(scroller);
+      if (r.top < b.top + parseFloat(cs.paddingTop) || r.bottom > b.bottom - parseFloat(cs.paddingBottom)) cur.scrollIntoView({ block: 'nearest' });
     }
-    sync();
-    scroller.addEventListener('scroll', sync, { passive: true });
-    new ResizeObserver(sync).observe(scroller.firstElementChild as Element);   // 목록이 펼쳐지고 접힐 때
-    window.addEventListener('resize', sync);
     window.addEventListener('pagehide', () => { try { sessionStorage.setItem(KEY, String(scroller.scrollTop)); } catch {} });
   }
 

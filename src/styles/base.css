@@ -196,53 +196,34 @@ button {
   padding: var(--nav-pad-top) var(--nav-pad-right) var(--nav-pad-bottom) var(--nav-pad-left);
   overflow: hidden; /* 스크롤은 목록(.nav__scroll)만 */
 }
-/* 목록 스크롤 영역: 로고·검색창 아래 ~ 언어 전환 위. 넘치면 위·아래 가장자리가 배경으로 녹아듦 */
-/* 페이드 높이를 길이로 등록해 켜고 끌 때 슬라이드처럼 부드럽게 변하게 함.
-   (등록하지 않으면 0 ↔ 페이드 높이로 한 프레임에 바뀌어, 목록이 접히고 펼쳐지는 중에 아래 글자가 깜빡임) */
-@property --_ft {
-  syntax: '<length>';
-  inherits: false;
-  initial-value: 0px;
-}
-@property --_fb {
-  syntax: '<length>';
-  inherits: false;
-  initial-value: 0px;
-}
+/* 목록 스크롤 영역: 검색창 아래 ~ 언어 전환 위.
+   검색창 ↔ 목록, 목록 ↔ 언어 전환 간격을 이 영역의 안쪽 여백으로 두고, 그 여백 위에 페이드를 항상 깔아 둡니다.
+   평소에는 비어 있어 보이지 않고, 스크롤하면 글자가 그 밑으로 지나가며 녹아듦 (상태에 따라 켜고 끄지 않음). */
 .nav__scroll {
-  --_ft: 0px; /* 위 페이드 (스크롤을 내렸을 때) */
-  --_fb: 0px; /* 아래 페이드 (아래에 더 있을 때) */
   flex: 1 1 auto;
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain; /* 목록 끝에서 본문까지 스크롤이 번지지 않게 */
   scrollbar-width: none;
-  transition:
-    --_ft var(--nav-slide-dur) var(--nav-slide-ease),
-    --_fb var(--nav-slide-dur) var(--nav-slide-ease);
+  padding: var(--search-gap) 0 var(--nav-lang-gap);
+  scroll-padding: var(--search-gap) 0 var(--nav-lang-gap); /* 활성 항목으로 스크롤할 때 페이드 밖에 멈춤 */
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent 0,
-    #000 var(--_ft),
-    #000 calc(100% - var(--_fb)),
+    #000 var(--search-gap),
+    #000 calc(100% - var(--nav-lang-gap)),
     transparent 100%
   );
   mask-image: linear-gradient(
     to bottom,
     transparent 0,
-    #000 var(--_ft),
-    #000 calc(100% - var(--_fb)),
+    #000 var(--search-gap),
+    #000 calc(100% - var(--nav-lang-gap)),
     transparent 100%
   );
 }
 .nav__scroll::-webkit-scrollbar {
   display: none;
-}
-.nav__scroll.is-overflow:not(.at-top) {
-  --_ft: var(--nav-fade-h);
-}
-.nav__scroll.is-overflow:not(.at-end) {
-  --_fb: var(--nav-fade-h);
 }
 .main {
   margin-left: var(--sidebar-w);
@@ -427,8 +408,7 @@ html.js .main {
   font-weight: var(--nav-w-active); /* 스크롤스파이 도입 시 활성 섹션 */
 }
 .nav__lang {
-  flex: none; /* 목차 바닥에 고정. 위 목록만 스크롤 */
-  padding-top: var(--nav-lang-gap);
+  flex: none; /* 목차 바닥에 고정. 위 목록만 스크롤 (목록과의 간격은 .nav__scroll 아래 여백) */
   display: flex;
   align-items: baseline;
 }
@@ -453,8 +433,7 @@ html.js .main {
    검색 (목차 상단)
    --------------------------------------------------------------------- */
 .search {
-  position: relative;
-  margin-bottom: var(--search-gap);
+  position: relative; /* 목록과의 간격은 .nav__scroll 위 여백 */
 }
 .search__input {
   width: 100%;
