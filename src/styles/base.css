@@ -197,6 +197,18 @@ button {
   overflow: hidden; /* 스크롤은 목록(.nav__scroll)만 */
 }
 /* 목록 스크롤 영역: 로고·검색창 아래 ~ 언어 전환 위. 넘치면 위·아래 가장자리가 배경으로 녹아듦 */
+/* 페이드 높이를 길이로 등록해 켜고 끌 때 슬라이드처럼 부드럽게 변하게 함.
+   (등록하지 않으면 0 ↔ 페이드 높이로 한 프레임에 바뀌어, 목록이 접히고 펼쳐지는 중에 아래 글자가 깜빡임) */
+@property --_ft {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+@property --_fb {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
 .nav__scroll {
   --_ft: 0px; /* 위 페이드 (스크롤을 내렸을 때) */
   --_fb: 0px; /* 아래 페이드 (아래에 더 있을 때) */
@@ -205,6 +217,9 @@ button {
   overflow-y: auto;
   overscroll-behavior: contain; /* 목록 끝에서 본문까지 스크롤이 번지지 않게 */
   scrollbar-width: none;
+  transition:
+    --_ft var(--nav-slide-dur) var(--nav-slide-ease),
+    --_fb var(--nav-slide-dur) var(--nav-slide-ease);
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent 0,
