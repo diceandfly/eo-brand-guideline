@@ -286,7 +286,7 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 ### + Company Signature
 #### Vertical
 
-회사 시그니처-V는 EO 심볼과 Founders Grotesk Regular로 조판한 "EO Studio"로 이루어집니다. 텍스트는 심볼의 하단 경계로부터 EO 심볼 높이(H)의 1/5만큼 간격을 두고 캡 박스를 배치하며, 텍스트의 조판 사이즈는 (7/15)H, 자간은 0, 중앙 정렬로 설정합니다. EO 심볼은 왼쪽 E 블록의 회색도가 더 높아 시각적 중심이 왼쪽에 있으므로, 중앙 정렬 축에서 "EO Studio" 텍스트를 H/100만큼 왼쪽으로 보정합니다.
+회사 시그니처-V는 EO 심볼 아래에 "EO Studio"를 중앙 정렬로 놓은 세로 조합입니다. 구성 규칙은 아래 Descriptor System의 세로형 규격을 따릅니다.
 
 특별한 이유가 없다면 회사 시그니처-V의 텍스트를 다시 조판하지 말고 제공된 원본 파일을 사용하세요.
 ![vertical]
@@ -294,9 +294,7 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 
 ### Company Signature
 #### Horizontal
-회사 시그니처-H는 EO 심볼과 Founders Grotesk Regular로 조판한 "Studio" 또는 "EO Studio" 텍스트로 이루어집니다. 텍스트는 심볼의 우측 경계로부터 EO 심볼 높이의 절반인 H/2만큼 간격을 두고 캡 박스를 배치하며, 텍스트의 조판 사이즈는 H, 자간은 0입니다. 베이스라인을 심볼의 하단 경계에서 H/10만큼 올리면, 캡 박스가 심볼 높이의 위아래 H/10씩을 뺀 가운데 80% 영역에 정확히 맞습니다.
-
-"Studio" 양 끝의 S와 o는 가로 오버슛이 있는 곡선 글리프입니다. 캡 박스의 정확한 좌우 경계를 구하려면 텍스트를 잠시 "Htudih"로 바꿔 직선 획의 끝을 기준으로 잡으세요.
+회사 시그니처-H는 EO 심볼 오른쪽에 "Studio" 또는 "EO Studio"를 놓은 가로 조합입니다. 구성 규칙은 아래 Descriptor System의 가로형 규격을 따릅니다.
 
 특별한 이유가 없다면 회사 시그니처-H의 텍스트를 다시 조판하지 말고 제공된 원본 파일을 사용하세요.
 ![horizontal]
@@ -327,21 +325,17 @@ EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힙니�
 캡 박스는 곡선의 오버슛을 뺀, 직선 획 기준의 글자 영역입니다. 디스크립터의 첫 글자나 끝 글자가 S · o처럼 곡선이라면 잠시 직선 글자로 바꿔 경계를 잡으세요. 예를 들어 "Studio"는 "Htudih"로 바꿔 잽니다.
 
 새 디스크립터를 만들거나 기존 디스크립터를 변경할 때는 반드시 EO 브랜드팀의 컨펌을 받아야 합니다. 또한 캠페인이나 이벤트 이름처럼 한시적인 이름은 디스크립터로 사용하지 않습니다.
-![descriptor-system-v] ?
-![descriptor-system-h] ?
+![descriptor-system-v] 세로형 구성
+![descriptor-system-h] 가로형 구성
 
 
-### + Service Signature
-#### ??현재 있는것들 보여주기?? {layout=grid-2}
-시그니처에서 EO 심볼 오른쪽에 붙는 텍스트 부분을 디스크립터라고 칭합니다. 디스크립터의 내용을 조직이나 서비스, 도메인으로 변경하여 시그니처를 확장할 수 있습니다. 이를테면 Magazine(웹 매거진), Planet(EO 한국 커뮤니티 https://eopla.net), Newsletter(뉴스레터)처럼 EO의 서비스를 나타내는 서비스 시그니처로 사용될 수 있습니다. 어떤 단어든 디스크립터는 Studio와 같은 서체, 같은 크기 비율, 같은 간격으로 조판합니다.
-
-텍스트는 회사 시그니처-H와 같은 규격으로 조판합니다. 조판 사이즈는 H, 심볼과의 간격은 H/2이며, 베이스라인은 심볼의 하단 경계에서 H/10만큼 올립니다.
-
-새 디스크립터를 만들거나 기존 디스크립터를 변경할 때는 반드시 EO 브랜드팀의 컨펌을 받아야 합니다. 또한 캠페인이나 이벤트 이름처럼 한시적인 이름은 디스크립터로 사용하지 않습니다.
-![descriptor-studio] EO Studio · 회사
-![descriptor-magazine] EO Magazine · 웹 매거진
-![descriptor-newsletter] EO Newsletter · 뉴스레터
-![descriptor-planet] EO Planet · 커뮤니티 (eopla.net)
+### Service Signature
+#### Lineup {layout=grid-2}
+현재 사용 중인 회사 시그니처와 서비스 시그니처입니다. 모두 같은 디스크립터 규격으로 구성되어, 이름이 달라도 하나의 가족으로 읽힙니다.
+![lineup-studio] EO Studio · 회사
+![lineup-magazine] EO Magazine · 웹 매거진
+![lineup-newsletter] EO Newsletter · 뉴스레터
+![lineup-planet] EO Planet · 커뮤니티 (eopla.net)
 
 
 ### Signature
