@@ -9,6 +9,18 @@
         "dev"
       ],
       "port": 4321
+    },
+    {
+      "name": "research",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4400",
+        "--bind",
+        "127.0.0.1"
+      ],
+      "port": 4400
     }
   ]
 }
