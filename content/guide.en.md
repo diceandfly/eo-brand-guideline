@@ -109,7 +109,9 @@ The EO logo is the umbrella term for every mark covered in this chapter: the EO 
 
 
 ### Symbol
-The EO Symbol is a monogram that works as a graphic mark for recognition while remaining legible to a degree. Throughout these guidelines, this graphic logo is referred to as the **EO Symbol**. It is the most iconic and effective way to signal the EO brand. This page explains how to apply the EO Symbol across situations, formats, and communications, from small sign-offs to large display executions.
+The EO Symbol is both a graphic metaphor built on a screw motif that makes the brand recognizable, and a monogram that holds the two letters E and O. Throughout these guidelines, this logo is referred to as the **EO Symbol**.
+
+The EO Symbol is the most iconic and effective way to signal the EO brand. This page explains how to apply it across situations, formats, and communications, from small sign-offs to large display executions.
 ![logo/symbol]{zoom=1.3}
 
 
@@ -139,11 +141,11 @@ The **minimum size** is 20px in height on screen (approx. 4mm, 1/125 of the view
 
 ### Symbol
 #### + Inversion
-The EO Symbol is designed around a light symbol in a bright color, such as Builder Neon or Air White, on a Space Black background. When you need a dark symbol on a light background, simply inverting the colors creates an optical illusion: the shape looks thinner and more loosely spaced.
+The EO Symbol is built primarily for a light symbol in a bright color, such as Builder Neon or Air White, on a dark background such as Space Black or Solid Gray. When you need a dark symbol on a light background, simply inverting the colors creates an optical illusion: the shape looks thinner and more loosely spaced.
 
-In this case, follow the image below. Offset the outline of the light symbol outward by H/100, then scale each of the two blocks up proportionally by H/30 in all four directions. Finally, reduce the gap between the two expanded blocks from the original (4/30)H to (3/30)H to complete the dark symbol. This converts a light symbol of any size into its equivalent dark symbol.
+In this case, offset the outline of the light symbol outward by H/100, then scale each of the two blocks up proportionally by H/30 in all four directions. Finally, reduce the gap between the two expanded blocks from the original (4/30)H to (3/30)H to complete the dark symbol. This converts a light symbol anywhere on the size spectrum into its equivalent dark symbol.
 
-On a light background, clearspace also tends to look larger than it is. As shown in the lower half of the image, keep the clearspace of the equivalent light symbol as is, and center the dark symbol within it.
+On a light background, clearspace also tends to look larger than it is. Keep the clearspace of the equivalent light symbol as is, and center the dark symbol within it.
 ![inversion]
 
 
@@ -159,7 +161,7 @@ When used as a sign-off, place the symbol in the corner farthest from the hero o
 #### Do's & Don'ts
 When using the symbol for display purposes, **avoid raising its visual hierarchy simply by making it bigger.** Secure generous empty space around the symbol so that it keeps its impact at a moderate size. As a rule of thumb, the area the symbol’s shape actually occupies works best at around 10–20% of the surrounding empty space.
 ![logo/usage-do-1]{do} Size the symbol at around 10–20% of the empty space it sits in
-![logo/usage-do-2]{do} Use generous space to give the symbol presence, even at small sizes
+![logo/usage-do-2]{do} Surround the symbol with generous space so it holds strong presence even at a moderate size
 ![logo/usage-dont-1]{dont} Don’t enlarge the symbol to raise its hierarchy
 ![logo/usage-dont-2]{dont} Don’t place the symbol against other elements without space
 
@@ -214,11 +216,11 @@ In such cases, optically scale the partner logo up or down to create a more equa
 
 ### + App & Social Icons
 #### Alignment
-Because the EO Symbol is asymmetrical, placing it dead center in an app icon or profile image shifts its visual weight slightly to the left — and the smaller it appears, the more noticeable this becomes. When applying the symbol within a tight frame, shift it to the right by n px according to the following rule.
+Because the EO Symbol is asymmetrical from left to right, placing it dead center in an app icon or profile image makes its visual weight appear to lean slightly to the left — and the smaller it appears, the more noticeable this becomes. When applying the symbol within a tight frame, shift it to the right by n px according to the following rule.
 
 **n = H × (4 − 0.06 × S) %**
 
-H is the symbol’s height in the working file (px), and S is the height at which the symbol actually appears on screen or in the end user’s view (mm). When n is positive, shift the symbol to the right; when n is negative, no correction is needed. The formula was derived by interpolating measured data under typical desktop working conditions. It was tested for a visible symbol height S of 4–50mm (at a viewing distance of 500mm), with a maximum error of ±0.02mm.
+H is the symbol’s height in the working file (px), and S is the height at which the symbol actually appears on screen or in the end user’s view (mm). When n is positive, shift the symbol to the right; when n is negative, no correction is needed. The formula is an approximation derived from the optimal correction values measured at each symbol size under typical desktop working conditions. It was tested for a visible symbol height S of 4–50mm (at a viewing distance of 500mm), with a maximum error of ±0.02mm.
 
 When applying the symbol to surfaces larger than a desktop monitor, set the range by the end user’s typical viewing distance and apply the formula using the average size across the key range.
 ![logo/icon-alignment]
