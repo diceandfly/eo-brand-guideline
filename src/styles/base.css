@@ -718,6 +718,29 @@ html.js .main {
   object-fit: var(--img-fit);
   cursor: zoom-in; /* 클릭하면 확대 보기 */
 }
+/* Don't 대각선: 왼쪽 아래 → 오른쪽 위. 끝점은 영역 높이 × --strike-inset 만큼 네 변에서 안쪽,
+   굵기는 영역 높이 × --strike-w (최소 --strike-w-min). 카드에서는 프레임 전체, 확대 보기에서는 이미지 가운데 4:3 영역 */
+.strike {
+  container-type: size; /* 아래 cqh = 이 영역의 높이 */
+  pointer-events: none;
+}
+.strike::before {
+  --_t: max(var(--strike-w-min), calc(var(--strike-w) * 100cqh));
+  content: '';
+  position: absolute;
+  inset: calc(var(--strike-inset) * 100cqh);
+  background: linear-gradient(
+    to top left,
+    transparent calc(50% - var(--_t) / 2),
+    var(--strike) calc(50% - var(--_t) / 2),
+    var(--strike) calc(50% + var(--_t) / 2),
+    transparent calc(50% + var(--_t) / 2)
+  );
+}
+.fig__frame > .strike {
+  position: absolute;
+  inset: 0;
+}
 .fig__placeholder {
   position: absolute;
   inset: 0;
@@ -924,6 +947,16 @@ html.js .main {
 }
 .lightbox.is-open {
   visibility: visible;
+}
+.lightbox__img,
+.lightbox__strike {
+  grid-area: 1 / 1; /* 이미지와 대각선을 같은 칸 가운데에 겹침 */
+}
+.lightbox__strike {
+  position: relative;
+}
+.lightbox:not(.has-strike) .lightbox__strike {
+  display: none;
 }
 .lightbox__img {
   max-width: var(--lightbox-max);

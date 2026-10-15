@@ -19,6 +19,7 @@ const captionHtml = item.caption ?? (item.badge === 'do' ? 'Do' : item.badge ===
           <span>assets/{item.path}</span>
           <span>{ratioLabel}</span>
         </div>}
+    {item.strike && <span class="strike" aria-hidden="true" />}
   </div>
   {captionHtml && (
     <figcaption class="fig__caption t-body">

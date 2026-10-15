@@ -164,33 +164,49 @@ if (location.hash) {
 /* ---------- 3. 이미지 확대 보기 ---------- */
 const box = document.querySelector<HTMLElement>('[data-lightbox]');
 const boxImg = box?.querySelector<HTMLImageElement>('.lightbox__img');
+const boxStrike = box?.querySelector<HTMLElement>('.lightbox__strike');
 
 if (box && boxImg) {
   const dur = ms('--lightbox-dur', 0.36);
   const scaleFrom = num('--lightbox-scale-from', 0.94);
   const ease = easeOf('--lightbox-ease', 'power3.out');
   let opened = false;
+  const parts = boxStrike ? [boxImg, boxStrike] : [boxImg];   // 이미지와 대각선은 함께 커지고 사라짐
 
-  const open = (src: string, alt: string) => {
+  // Don't 대각선: 화면에 그려진 이미지의 가운데 4:3 영역 (카드에서 보이던 영역과 같음)
+  const placeStrike = () => {
+    if (!boxStrike) return;
+    const w = boxImg.offsetWidth, h = boxImg.offsetHeight;      // transform 과 무관한 레이아웃 크기
+    const r = 4 / 3;
+    const sw = w / h > r ? h * r : w, sh = w / h > r ? h : w / r;
+    boxStrike.style.width = `${sw}px`;
+    boxStrike.style.height = `${sh}px`;
+  };
+  boxImg.addEventListener('load', placeStrike);
+  window.addEventListener('resize', () => { if (opened) placeStrike(); });
+
+  const open = (src: string, alt: string, strike = false) => {
     if (opened) return;
     opened = true;
+    box.classList.toggle('has-strike', strike);
     boxImg.src = src;
     boxImg.alt = alt;
+    if (boxImg.complete) placeStrike();
     box.classList.add('is-open');
     box.setAttribute('aria-hidden', 'false');
     stopAnchorTween();
     smoother?.paused(true);
     document.documentElement.classList.add('lightbox-open');
-    gsap.killTweensOf([box, boxImg]);
+    gsap.killTweensOf([box, ...parts]);
     gsap.fromTo(box, { opacity: 0 }, { opacity: 1, duration: dur, ease });
-    gsap.fromTo(boxImg, { scale: scaleFrom, opacity: 0 }, { scale: 1, opacity: 1, duration: dur, ease });
+    gsap.fromTo(parts, { scale: scaleFrom, opacity: 0 }, { scale: 1, opacity: 1, duration: dur, ease });
   };
 
   const close = () => {
     if (!opened) return;
     opened = false;
-    gsap.killTweensOf([box, boxImg]);
-    gsap.to(boxImg, { scale: scaleFrom, opacity: 0, duration: dur * 0.8, ease });
+    gsap.killTweensOf([box, ...parts]);
+    gsap.to(parts, { scale: scaleFrom, opacity: 0, duration: dur * 0.8, ease });
     gsap.to(box, {
       opacity: 0, duration: dur * 0.8, ease,
       onComplete: () => {
@@ -205,7 +221,7 @@ if (box && boxImg) {
 
   document.addEventListener('click', e => {
     const img = (e.target as HTMLElement).closest('.fig__frame > img') as HTMLImageElement | null;
-    if (img) { e.preventDefault(); open(img.currentSrc || img.src, img.alt); }
+    if (img) { e.preventDefault(); open(img.currentSrc || img.src, img.alt, !!img.parentElement?.querySelector('.strike')); }
   });
   box.addEventListener('click', close);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });

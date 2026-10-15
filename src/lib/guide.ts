@@ -17,6 +17,7 @@ export interface ImageItem {
   path: string;           // 넣을 자리: 02-logo/01-symbol/04-clearspace (확장자 제외, 플레이스홀더에 표시. 앞 번호 = 주제 순서)
   src: string | null;     // 파일이 있으면 /assets/… 경로, 없으면 null(플레이스홀더)
   badge?: 'do' | 'dont';
+  strike?: boolean;       // Don't 대각선. {dont} 이면 자동, {dont nostrike} 면 끔
   caption?: string;       // HTML. 한글 구간은 <span class="ko"> 로 래핑됨
 }
 export interface SwatchItem {
@@ -341,12 +342,13 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       section.subhead = subhead;
       continue;
     }
-    if ((m = line.match(/^!\[([^\]]+)\](?:\{(do|dont)\})?\s*(.*)$/)) && section) {   // ![token]{do} caption
+    if ((m = line.match(/^!\[([^\]]+)\](?:\{(do|dont)(\s+nostrike)?\})?\s*(.*)$/)) && section) {   // ![token]{do} caption  /  {dont nostrike}
       const token = m[1].trim();
       const name = token.split('/').pop()!.trim();
       const item: ImageItem = { kind: 'image', token, name, path: '', src: null };   // path·src 는 서브챕터를 다 읽은 뒤 확정
       if (m[2]) item.badge = m[2] as 'do' | 'dont';
-      if (m[3].trim()) item.caption = glueLastWords(wrapKo(smartQuotes(escapeHtml(m[3].trim()))));   // HTML (한글 구간 래핑, 고아 단어 방지)
+      if (m[2] === 'dont' && !m[3]) item.strike = true;
+      if (m[4].trim()) item.caption = glueLastWords(wrapKo(smartQuotes(escapeHtml(m[4].trim()))));   // HTML (한글 구간 래핑, 고아 단어 방지)
       section.items.push(item);
       continue;
     }

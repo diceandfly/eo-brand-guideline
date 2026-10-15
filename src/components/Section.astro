@@ -14,7 +14,8 @@ const isGrid = s.layout.startsWith('grid-');
 const n = isGrid ? Number(s.layout.split('-')[1]) : 1;
 const kind = isGrid ? 'grid' : s.layout;
 const defaultRatio = isGrid ? 'var(--ratio-card)' : s.layout === 'wide' ? 'var(--ratio-wide)' : 'var(--ratio-basic)';
-const ratio = s.ratio ?? defaultRatio;
+const allDoDont = s.items.length > 0 && s.items.every(it => it.kind === 'image' && it.badge);
+const ratio = s.ratio ?? (allDoDont ? 'var(--ratio-dodont)' : defaultRatio);   // Do/Don't 시리즈는 4:3 고정
 ---
 <section class:list={['sec', `sec--${kind}`]} id={s.id} data-section>
   <div class="sec__text">

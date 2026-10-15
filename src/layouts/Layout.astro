@@ -55,6 +55,7 @@ const { guide, current, lang, alt, title } = Astro.props;
     <!-- 이미지 확대 보기. 클릭하면 열리고, 아무 곳이나 클릭하거나 Esc 로 닫힘 -->
     <div class="lightbox" data-lightbox aria-hidden="true" role="dialog" aria-label="이미지 확대 보기">
       <img class="lightbox__img" alt="" />
+      <span class="strike lightbox__strike" aria-hidden="true"></span>
     </div>
 
     <script>

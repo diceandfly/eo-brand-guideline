@@ -117,6 +117,9 @@
   --card-pad: 0px; /* 카드 내부 패딩. 0 = 이미지가 카드 폭에 꽉 참 */
   --badge-size: 16px; /* Do / Don't 아이콘 크기. 박스 없이 아이콘만, 캡션 줄 맨 앞 */
   --badge-gap: 10px; /* 아이콘 ↔ 캡션 문구 */
+  --strike-inset: 0.125; /* Don't 대각선 끝점: 영역 높이 × 값만큼 네 변에서 안쪽 (1/8) */
+  --strike-w: 0.007; /* Don't 대각선 굵기 = 영역 높이 × 값 (확대 화면 약 7px) */
+  --strike-w-min: 1.5px; /* 작은 카드에서의 최소 굵기 */
 
   /* 1-7 컬러 카드 — 스펙 글자는 본문 스타일. pad·fade·row-gap 은 행간 단위(--lh-unit) × 값 */
   --swatch-gap: 12px; /* 색면 ↔ 이름 */
@@ -309,6 +312,7 @@
   /* Do / Don't 아이콘 — UI 전용, 브랜드 팔레트가 아닙니다 */
   --c-do: var(--c-bay-green);
   --c-dont: #dd5a2d;
+  --strike: var(--c-dont); /* Don't 대각선 */
 
   /* 3-8 컬러 카드 — 위에서 아래로 서서히 진해지는 그늘 위에 흰 글자 */
   --swatch-shade: color-mix(in srgb, var(--c-space-black), transparent 45%); /* 스펙 뒤 그늘의 최대 진하기 */
