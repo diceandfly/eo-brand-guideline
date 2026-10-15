@@ -102,128 +102,149 @@ EO, the EO monogram, the Block symbol, “Build Anyway”, “Even the Odds”, 
 
 ## Symbol
 
-### + Symbol
-#### Overview
-
-The logo is the most iconic and effective way to signal the EO brand.
-
-The EO logo works as a graphic symbol that identifies the brand, and at the same time it is a monogram with a certain degree of legibility. This monogram-style graphic logo is referred to as the **EO Symbol** throughout these guidelines. From small sign-offs to large display executions, this chapter explains how the EO Symbol can be applied across different situations, formats, and communications.
+### Logo
+#### + Overview
+The EO logo is the umbrella term for every mark covered in this chapter: the EO Symbol, the EO Signature, the Service Signatures, and the EO Sub Symbol.
 ![logo/hero]
+
+
+### Symbol
+The EO Symbol is a monogram that works as a graphic mark for recognition while remaining legible to a degree. Throughout these guidelines, this graphic logo is referred to as the **EO Symbol**. It is the most iconic and effective way to signal the EO brand. This page explains how to apply the EO Symbol across situations, formats, and communications, from small sign-offs to large display executions.
+![logo/symbol]{zoom=1.3}
+
+
+### Symbol
+#### + Geometry
+The EO Symbol is a monogram built from two blocks. The E block depicts the facade of a screw and consists of a shaft — the base geometry of our graphic unit — and three tiers of threads. The O block is an octagonal screw head pierced by a cross. Set side by side, the two blocks stand for “Entrepreneur Onwards.”
+![geometry]
 
 
 ### Symbol
 #### + Clearspace
 The symbol should always have room to breathe.
 
-Clearspace protects the symbol from typography, graphic units, photography, and the edge of the canvas. Taking the thickness of one thread of the E block as X, we recommend keeping clear space of at least 2X on every side.
+Clearspace protects the symbol from typography, graphic units, photography, and the edges of the canvas. Taking the thickness of one E-block thread as X, we recommend keeping at least 2X of clear space around the symbol.
 ![logo/clearspace]
 
 
 ### Symbol
 #### + Scalability
-The EO Symbol is designed and tested to work at various sizes.
+The EO Symbol is designed and tested to work across a wide range of sizes.
 
-The minimum size for adequate legibility in digital applications is 20px in height, and 5mm in height for print. Below this the threads of the E block start to fill in, so please check with a designer on the EO team before going smaller.
+The **optimal range** is 40–100px in height (approx. 8–20mm) on a 16-inch Mac display viewed from 500mm. Relative to viewing distance, that is 1/60–1/25 of the distance; use this ratio to size the symbol in other media. The optical correction of the thread angles is also tuned to this range.
+
+The **minimum size** is 20px in height on screen (approx. 4mm, 1/125 of the viewing distance) and 5mm in height in print. Below this, the threads of the E block begin to fill in, so check with the EO design team before going smaller.
 ![logo/scalability]
 
 
 ### Symbol
-#### + Placement
-The EO Symbol is made of a bold but simple shape. In a typical layout we therefore recommend using it as a sign-off in one of the four corners of the content area. It plays a supporting role: in a video thumbnail that has to earn a click, the main content is the hero; in a poster that has to catch the eye, the graphic pattern is.
+#### + Inversion
+The EO Symbol is designed primarily as a Builder Neon or Air White symbol on a Space Black background. In the reverse case — a dark symbol on a light background — the same shape reads thinner and more open. When this happens, correct the shape to the grid, as shown in the upper half of the image.
 
-When used as a sign-off, place the symbol in the corner farthest from the hero of the layout — the person or the graphic pattern — with comfortable distance from the surrounding visual elements. This keeps symbol placement simple and consistent while leaving enough flexibility to accommodate our dynamic graphic system.
-![logo/placement]
+- Narrow the gap between the two blocks by H/30.
+- Expand each block by [H/100] on all sides (outline offset).
+
+The clearspace stays the same as the default symbol’s. As shown in the lower half of the image, center the corrected dark symbol within the original clearspace area.
+![inversion]
 
 
-### Placement {layout=grid-2}
+### + Usage
+#### Placement
+The EO Symbol is a bold yet simple shape. In a typical layout, we therefore recommend using it as a sign-off in one of the four corners of the content area. The symbol should take a step back, so that the main content can lead in a video thumbnail that has to earn a click, and the graphic pattern can lead in a poster that has to catch the eye.
+
+When used as a sign-off, place the symbol in the corner farthest from the hero of the layout — a person or a graphic pattern — with comfortable distance from the surrounding visual elements. This keeps symbol placement simple and consistent, while leaving enough flexibility to accommodate our dynamic graphic system.
+![logo/usage-placement]
+
+
+### Usage {layout=grid-2}
 #### Do's & Don'ts
-When using the symbol for display purposes, **avoid raising its visual hierarchy simply by making it bigger.** Secure generous empty space around the symbol so that it keeps its impact at a moderate size. As a rule of thumb, the area the symbol’s shape actually occupies should not exceed 10–20% of the surrounding empty space.
-![logo/placement-do-1]{do}
-![logo/placement-do-2]{do}
-![logo/placement-dont-1]{dont}
-![logo/placement-dont-2]{dont}
+When using the symbol for display purposes, **avoid raising its visual hierarchy simply by making it bigger.** Secure generous empty space around the symbol so that it keeps its impact at a moderate size. As a rule of thumb, the area the symbol’s shape actually occupies works best at around 10–15% of the surrounding empty space.
+![logo/usage-do-1]{do} Size the symbol at around 10–20% of the empty space it sits in
+![logo/usage-do-2]{do} Use generous space to give the symbol presence, even at small sizes
+![logo/usage-dont-1]{dont} Don’t enlarge the symbol to raise its hierarchy
+![logo/usage-dont-2]{dont} Don’t place the symbol against other elements without space
 
 
-### Symbol {layout=grid-3}
-#### + Color
-There are six primary color pairings for the EO logo. The logo is always rendered in a single color; when in doubt about the background, use one of the following.
-![logo/color-1] 1. Builder Neon on Space Black
-![logo/color-2] 2. Space Black on Builder Neon
-![logo/color-3] 3. Air White on Space Black
+### Symbol
+#### + Color {layout=grid-3} {zoom=1.6}
+The EO Symbol has six primary color pairings. The symbol is always rendered in a single color; when you’re unsure about the background, use one of the following.
+![logo/color-1] 1. Space Black on Builder Neon
+![logo/color-2] 2. Air White on Space Black
+![logo/color-3] 3. Air White on Solid Gray
 ![logo/color-4] 4. Space Black on Air White
-![logo/color-5] 5. Air White on Solid Gray
-![logo/color-6] 6. Space Black on Color
+![logo/color-5] 5. Builder Neon on Space Black
+![logo/color-6] 6. Space Black on Solid Gray
+
 
 ### + Over Imagery {layout=grid-2}
 #### Do's & Don'ts
-The symbol must always remain clearly legible over photography.
+The EO Symbol must always read clearly over photography, so overlay the Air White symbol on images that provide sufficient contrast. If an image is too bright or has areas that are too white, the symbol risks getting lost in the composition; in that case, overlay a gradient at around 30% opacity before applying the symbol.
 
-Over dark images use the Air White or Builder Neon logo; over bright images use Space Black. If the brightness of the photo is uneven, overlay a gradient at around 30% opacity on the area under the logo, or move the logo into the margin outside the photo.
+The composition should be simple enough to let the symbol stand out. Images that are overly complex or have the key subject dead center become cluttered once the symbol is placed on them. Keep this in mind when choosing images, or reposition the image to suit its relationship with the logo.
 
-Never place the logo over a person’s face or the key subject of the image.
+The guidance in this section focuses mainly on overlays on still images rather than video sequences.
+![logo/imagery-do-1]{do} Place the symbol where it contrasts clearly with the background
+![logo/imagery-do-2]{do} When a photo’s brightness is uneven, overlay a gradient at around 30% opacity to secure contrast
+![logo/imagery-dont-1]{dont} Don’t place the symbol over a person’s face or the key subject
+![logo/imagery-dont-2]{dont} Don’t place the symbol where it lacks contrast with the photo
 
-For general guidance on minimum contrast requirements, please visit WCAG.
-![logo/imagery-do-1]{do}
-![logo/imagery-do-2]{do}
-![logo/imagery-dont-1]{dont}
-![logo/imagery-dont-2]{dont}
-
-### + Contextual Usage {layout=grid-2}
-#### Do's & Don'ts
-Where the channel name and avatar already say EO, we recommend leaving the symbol out of regular posts. Where many people are unlikely to know EO, or where the context of a channel is missing — a partner’s event venue, for example — use the symbol actively on posters, merchandise, and the like to establish brand presence.
-![logo/context-do-1]{do}
-![logo/context-dont-1]{dont}
-![logo/context-do-2]{do}
-![logo/context-dont-2]{dont}
 
 ### + Partner Lockup
 #### Horizontal
-The EO Symbol can be locked up with partner brands and collaborators’ logos. The image in this section shows the primary lockup construction.
+The following image shows the primary horizontal lockup of the EO Symbol with partner brands and collaborators’ logos.
 
-The size of the elements should be optically adjusted so that they appear to be the same size. Once the logos have been sized, you can add space, a dividing line, or a collaboration mark between them. The space between the EO Symbol and the partner logo is 2X or 3X, where X is the thickness of one thread of the E block.
+The elements should be optically adjusted so that they appear to be the same size. Once each logo is sized, add space between them along with a vertical dividing line or a collaboration mark. The space between the EO Symbol and the partner logo equals 2 or 3 times the thickness of one E-block thread (T), and the two logos must always be optically centered on the vertical axis.
 ![logo/partner-horizontal]
+
 
 ### Partner Lockup
 #### Vertical
-The EO Symbol can also be locked up vertically with partner brands and collaborators’ logos. To the right is an example of our primary vertical lockup construction.
+The following image shows the primary vertical lockup of the EO Symbol with partner brands and collaborators’ logos.
 
-The size of the elements should be optically adjusted so that they appear to be the same size. Once the logos have been sized, the space between the two logos equals the height (H) of the EO Symbol, with a horizontal dividing line at its center.
-
-Make sure the logos are always optically centered.
+The elements should be optically adjusted so that they appear to be the same size. Once each logo is sized, add a horizontal dividing line between them. The space between the EO Symbol and the partner logo equals the height of the EO Symbol (H), and the two logos must always be optically centered on the horizontal axis.
 ![logo/partner-vertical]
+
 
 ### Partner Lockup
 #### Optical Adjustment
-In some cases a partner’s logo may not look balanced when aligned with the EO Symbol. The EO Symbol is wide and heavy, so a thin or tall partner logo can look smaller even at mathematically equal height.
+In some cases, a partner’s logo may not look perfectly balanced when aligned with the EO Symbol. Because the EO Symbol is wide and heavy, a thin or tall partner logo can look smaller even at a mathematically equal height.
 
-In such cases the partner logo should be optically scaled up or down to create a more equal hierarchy.
+In such cases, optically scale the partner logo up or down to create a more equal hierarchy.
 ![logo/partner-optical]
-
-
-### + Symbol {layout=grid-3}
-#### Don'ts
-To ensure our brand signature remains consistent and impactful, the EO Symbol should not be reinterpreted, modified, or embellished. This page illustrates some modifications to avoid.
-![dont-1]{dont} Don’t stretch or distort the symbol
-![dont-2]{dont} Don’t rotate the symbol
-![dont-3]{dont} Don’t change the space between E and O
-![dont-4]{dont} Don’t outline the symbol
-![dont-5]{dont} Don’t change the number or angle of the E’s threads
-![dont-6]{dont} Don’t use the symbol as a mask for photos or patterns
-![dont-7]{dont} Don’t apply glows, shadows, or gradients
-![dont-8]{dont} Don’t use two colors or an unapproved pairing
-![dont-9]{dont} Don’t combine type in another font next to the symbol
 
 
 ### + App & Social Icons
 #### Alignment
-For digital applications, the symbol is frequently locked up in a rectangular or circular container. To the right are two examples that provide guidance on how to align the symbol within these containers. In both cases, the symbol must be mechanically aligned for balance and sized to give a comfortable amount of space on all sides.
+Because the EO Symbol is asymmetrical, placing it dead center in an app icon or profile image shifts its visual weight slightly to the left — and the smaller it appears, the more noticeable this becomes. When applying the symbol within a tight frame, shift it to the right by n px according to the following rule.
+
+**n = H × (4 − 0.06 × S) %**
+
+H is the symbol’s height in the working file (px), and S is the height at which the symbol actually appears on screen or in the end user’s view (mm). When n is positive, shift the symbol to the right; when n is negative, no correction is needed. The formula was derived by interpolating measured data under typical desktop working conditions. It was tested for a visible symbol height S of 4–50mm (at a viewing distance of 500mm), with a maximum error of ±0.02mm.
+
+When applying the symbol to surfaces larger than a desktop monitor, set the range by the end user’s typical viewing distance and apply the formula using the average size across the key range.
 ![logo/icon-alignment]
 
 
 ### App & Social Icons
 #### In Use
-The following images are examples of the symbol in use as an app icon and a browser favicon.
+The following images show the symbol in use as an app icon and a browser favicon.
 ![logo/icon-in-use]
+
+
+### Symbol {layout=grid-3}
+#### Don'ts
+To keep the EO Symbol consistent and impactful, it should never be reinterpreted, modified, or embellished. This page shows examples of modifications to avoid. When the company name needs to appear, use the EO Signature instead of the symbol. When a sub-brand needs to be identified, consult the EO brand team and apply a new descriptor.
+
+
+![dont-1]{dont} Don’t stretch or distort the symbol
+![dont-2]{dont} Don’t rotate the symbol
+![dont-3]{dont} Don’t outline the symbol
+![dont-4]{dont} Don’t use a color symbol with a black outline on a light background
+![dont-5]{dont} Don’t change the number, angle, or spacing of the E’s threads
+![dont-6]{dont} Don’t apply visual effects such as glows, shadows, or gradients
+![dont-7]{dont} Don’t scale the symbol so large that it fills most of the space
+![dont-8]{dont} Don’t use the symbol as a mask for photos or patterns
+![dont-9]{dont} Don’t add arbitrary context around the symbol
 
 
 ## Discripter
