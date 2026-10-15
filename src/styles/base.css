@@ -719,13 +719,14 @@ html.js .main {
   cursor: zoom-in; /* 클릭하면 확대 보기 */
 }
 /* Don't 대각선: 왼쪽 아래 → 오른쪽 위. 끝점은 영역 높이 × --strike-inset 만큼 네 변에서 안쪽,
-   굵기는 영역 높이 × --strike-w (최소 --strike-w-min). 카드에서는 프레임 전체, 확대 보기에서는 이미지 가운데 4:3 영역 */
+   굵기는 영역 높이 × --strike-w. 전부 영역 크기에 대한 비율이라 화면 크기가 바뀌어도 같은 모양.
+   카드에서는 프레임 전체, 확대 보기에서는 이미지 가운데 4:3 영역 */
 .strike {
   container-type: size; /* 아래 cqh = 이 영역의 높이 */
   pointer-events: none;
 }
 .strike::before {
-  --_t: max(var(--strike-w-min), calc(var(--strike-w) * 100cqh));
+  --_t: calc(var(--strike-w) * 100cqh);
   content: '';
   position: absolute;
   inset: calc(var(--strike-inset) * 100cqh);
@@ -740,6 +741,11 @@ html.js .main {
 .fig__frame > .strike {
   position: absolute;
   inset: 0;
+  z-index: 1;
+}
+.fig__placeholder > span {
+  position: relative;
+  z-index: 2; /* 이미지가 없을 때의 경로 글자는 대각선보다 위 */
 }
 .fig__placeholder {
   position: absolute;
