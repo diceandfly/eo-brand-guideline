@@ -241,15 +241,15 @@ EO 심볼은 파트너 브랜드 및 협업사 로고와 세로로도 락업할 
 ### Symbol {layout=grid-3}
 #### Don'ts
 EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변형하거나 장식해서는 안 됩니다. 이 페이지는 피해야 할 변형의 예를 보여 줍니다.
-![logo/dont-stretch]{dont} 심볼을 늘리거나 왜곡하지 마세요
-![logo/dont-rotate]{dont} 심볼을 회전하지 마세요
-![logo/dont-spacing]{dont} E와 O 사이의 간격을 바꾸지 마세요
-![logo/dont-outline]{dont} 심볼에 외곽선을 넣지 마세요
-![logo/dont-thread]{dont} E의 스레드 수나 각도를 바꾸지 마세요
-![logo/dont-mask]{dont} 심볼을 사진이나 패턴의 마스크로 사용하지 마세요
-![logo/dont-effects]{dont} 글로우, 그림자, 그라데이션을 적용하지 마세요
-![logo/dont-color]{dont} 두 가지 색으로 칠하거나 승인되지 않은 페어링을 사용하지 마세요
-![logo/dont-wordmark]{dont} 심볼 옆에 글자를 임의로 붙이지 마세요. 회사명이 필요하면 시그니처를 사용하세요
+![dont-1]{dont} 심볼을 늘리거나 왜곡하지 마세요
+![dont-2]{dont} 심볼을 회전하지 마세요
+![dont-3]{dont} E와 O 사이의 간격을 바꾸지 마세요
+![dont-4]{dont} 심볼에 외곽선을 넣지 마세요
+![dont-5]{dont} E의 스레드 수나 각도를 바꾸지 마세요
+![dont-6]{dont} 심볼을 사진이나 패턴의 마스크로 사용하지 마세요
+![dont-7]{dont} 글로우, 그림자, 그라데이션을 적용하지 마세요
+![dont-8]{dont} 두 가지 색으로 칠하거나 승인되지 않은 페어링을 사용하지 마세요
+![dont-9]{dont} 심볼 옆에 글자를 임의로 붙이지 마세요. 회사명이 필요하면 시그니처를 사용하세요
 
 
 
@@ -344,15 +344,15 @@ EO를 한번 이상 인지한 사람에게는 EO 심볼이 이미 "EO"로 읽히
 ### Signature {layout=grid-3}
 #### Don'ts
 시그니처는 심볼과 글자의 관계가 정해진 하나의 조합입니다. 구성 요소를 따로 바꾸거나 다시 만들지 마세요.
-![dont-typeface]{dont} EO Studio를 다른 서체로 바꾸지 마세요
-![dont-spacing]{dont} 심볼과 글자의 간격이나 크기 비율을 바꾸지 마세요
-![dont-rearrange]{dont} 글자를 심볼의 왼쪽이나 다른 위치로 옮기지 마세요
-![dont-text-only]{dont} EO Studio 글자만 단독으로 사용하지 마세요
-![dont-sub-symbol]{dont} 서브 심볼과 글자를 조합하지 마세요
-![dont-two-colors]{dont} 심볼과 글자를 서로 다른 색으로 칠하지 마세요
-![dont-stretch]{dont} 시그니처를 늘리거나 왜곡하지 마세요
-![dont-effects]{dont} 글로우, 그림자, 그라데이션을 적용하지 마세요
-![dont-media]{dont} 미디어 콘텐츠의 사인오프로 사용하지 마세요
+![dont-1]{dont} EO Studio를 다른 서체로 바꾸지 마세요
+![dont-2]{dont} 심볼과 글자의 간격이나 크기 비율을 바꾸지 마세요
+![dont-3]{dont} 글자를 심볼의 왼쪽이나 다른 위치로 옮기지 마세요
+![dont-4]{dont} EO Studio 글자만 단독으로 사용하지 마세요
+![dont-5]{dont} 서브 심볼과 글자를 조합하지 마세요
+![dont-6]{dont} 심볼과 글자를 서로 다른 색으로 칠하지 마세요
+![dont-7]{dont} 시그니처를 늘리거나 왜곡하지 마세요
+![dont-8]{dont} 글로우, 그림자, 그라데이션을 적용하지 마세요
+![dont-9]{dont} 미디어 콘텐츠의 사인오프로 사용하지 마세요
 
 
 
@@ -393,14 +393,14 @@ EO를 한번 이상 인지한 사람에게는 EO 심볼이 이미 "EO"로 읽히
 ### Sub Symbol {layout=grid-3}
 #### Don'ts
 서브 심볼은 EO 심볼의 일부이므로 EO 심볼과 같은 원칙을 따릅니다. 형태를 바꾸거나 장식하지 말고, 정해진 용도 밖에서 사용하지 마세요.
-![dont-stretch]{dont} 서브 심볼을 늘리거나 왜곡하지 마세요
-![dont-rotate]{dont} 서브 심볼을 회전하지 마세요
-![dont-flip]{dont} 서브 심볼을 좌우로 뒤집지 마세요
-![dont-thread]{dont} 스레드의 수나 각도를 바꾸지 마세요
-![dont-outline]{dont} 서브 심볼에 외곽선을 넣지 마세요
-![dont-effects]{dont} 글로우, 그림자, 그라데이션을 적용하지 마세요
-![dont-color]{dont} 두 가지 색으로 칠하거나 승인되지 않은 페어링을 사용하지 마세요
-![dont-o]{dont} E 블록 대신 O 블록을 서브 심볼로 사용하지 마세요
+![dont-1]{dont} 서브 심볼을 늘리거나 왜곡하지 마세요
+![dont-2]{dont} 서브 심볼을 회전하지 마세요
+![dont-3]{dont} 서브 심볼을 좌우로 뒤집지 마세요
+![dont-4]{dont} 스레드의 수나 각도를 바꾸지 마세요
+![dont-5]{dont} 서브 심볼에 외곽선을 넣지 마세요
+![dont-6]{dont} 글로우, 그림자, 그라데이션을 적용하지 마세요
+![dont-7]{dont} 두 가지 색으로 칠하거나 승인되지 않은 페어링을 사용하지 마세요
+![dont-8]{dont} E 블록 대신 O 블록을 서브 심볼로 사용하지 마세요
 
 
 

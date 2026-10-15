@@ -203,15 +203,15 @@ In such cases the partner logo should be optically scaled up or down to create a
 ### + Symbol {layout=grid-3}
 #### Don'ts
 To ensure our brand signature remains consistent and impactful, the EO Symbol should not be reinterpreted, modified, or embellished. This page illustrates some modifications to avoid.
-![logo/dont-stretch]{dont} Don’t stretch or distort the symbol
-![logo/dont-rotate]{dont} Don’t rotate the symbol
-![logo/dont-spacing]{dont} Don’t change the space between E and O
-![logo/dont-outline]{dont} Don’t outline the symbol
-![logo/dont-thread]{dont} Don’t change the number or angle of the E’s threads
-![logo/dont-mask]{dont} Don’t use the symbol as a mask for photos or patterns
-![logo/dont-effects]{dont} Don’t apply glows, shadows, or gradients
-![logo/dont-color]{dont} Don’t use two colors or an unapproved pairing
-![logo/dont-wordmark]{dont} Don’t combine type in another font next to the symbol
+![dont-1]{dont} Don’t stretch or distort the symbol
+![dont-2]{dont} Don’t rotate the symbol
+![dont-3]{dont} Don’t change the space between E and O
+![dont-4]{dont} Don’t outline the symbol
+![dont-5]{dont} Don’t change the number or angle of the E’s threads
+![dont-6]{dont} Don’t use the symbol as a mask for photos or patterns
+![dont-7]{dont} Don’t apply glows, shadows, or gradients
+![dont-8]{dont} Don’t use two colors or an unapproved pairing
+![dont-9]{dont} Don’t combine type in another font next to the symbol
 
 
 ### + App & Social Icons
