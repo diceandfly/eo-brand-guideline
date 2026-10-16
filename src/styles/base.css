@@ -146,10 +146,7 @@ button {
 }
 .t-body ul,
 .t-body ol {
-  padding-left: 1.25em;
-}
-.t-body li + li {
-  margin-top: 0;
+  padding-left: var(--t-body-list-indent);
 }
 .t-body strong {
   font-weight: var(--t-body-strong-w);
@@ -176,7 +173,7 @@ button {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 30;
+  z-index: var(--z-topbar);
   height: var(--topbar-h);
   background: var(--bg-topbar);
   color: var(--fg);
@@ -184,15 +181,15 @@ button {
   padding: 0 var(--page-margin-m);
 }
 .topbar__menu {
-  width: 40px;
-  height: 40px;
-  margin-left: calc(var(--page-margin-m) * -0.5);
+  width: var(--topbar-menu-size);
+  height: var(--topbar-menu-size);
+  margin-left: calc(var(--page-margin-m) * var(--topbar-menu-pull) * -1);
   display: grid;
   place-items: center;
 }
 .topbar__menu svg {
-  width: 22px;
-  height: 22px;
+  width: var(--topbar-menu-icon);
+  height: var(--topbar-menu-icon);
 }
 .topbar__logo {
   position: absolute;
@@ -204,7 +201,7 @@ button {
 .sidebar {
   position: fixed;
   inset: 0 auto 0 0;
-  z-index: 20;
+  z-index: var(--z-sidebar);
   display: flex;
   flex-direction: column; /* 언어 전환(.nav__lang)을 바닥으로 밀기 위해 */
   width: var(--sidebar-w);
@@ -295,9 +292,7 @@ html.js .main {
   } /* 모바일은 상단 바에 로고가 있으므로 드로어 안에서는 숨김 */
   .main {
     margin-left: 0;
-    padding-top: var(--topbar-h); /* 고정 상단 바 높이만큼 */
-    padding-left: var(--page-margin);
-    padding-right: var(--page-margin);
+    padding-top: var(--topbar-h); /* 고정 상단 바 높이만큼. 좌우는 --page-margin 이 모바일 값으로 바뀌어 그대로 따라감 */
   }
 }
 
@@ -321,7 +316,7 @@ html.js .main {
   font-weight: var(--nav-w-chapter); /* 로고 SVG 가 없을 때 뜨는 "EO" 글자. 챕터 웨이트를 따름 */
   font-size: var(--nav-logo-h);
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--nav-logo-text-ls);
 }
 
 /* ---------------------------------------------------------------------
@@ -509,12 +504,12 @@ html.js .main {
   list-style: none;
   position: absolute;
   inset: calc(100% + var(--search-results-offset)) 0 auto 0;
-  z-index: 5;
+  z-index: var(--z-search);
   display: none;
   background: var(--search-result-bg);
   border: var(--border-w) solid var(--border);
   border-radius: var(--radius);
-  max-height: 60vh;
+  max-height: var(--search-results-max-h);
   overflow-y: auto;
   /* 결과 제목: ui 레벨 × 배율 */
   font-size: calc(var(--lh-unit) * var(--t-ui-m) / var(--t-ui-p) * var(--search-result-scale));
@@ -587,10 +582,6 @@ html.js .main {
   grid-column: 1 / span var(--sec-text-cols);
   grid-row: 1;
 }
-.sec__head {
-}
-.sec__subhead {
-}
 .sec__body {
   margin-top: var(--head-gap);
 }
@@ -613,9 +604,6 @@ html.js .main {
 .sec--half .sec__media {
   grid-column: 1 / span var(--sec-media-cols);
 }
-.sec--wide .sec__media {
-  grid-column: 1 / -1;
-}
 
 .sec__grid {
   grid-column: 1 / -1;
@@ -623,7 +611,7 @@ html.js .main {
   display: grid;
   grid-template-columns: repeat(var(--n), minmax(0, 1fr));
   column-gap: var(--gutter);
-  row-gap: calc(var(--gutter) * 2);
+  row-gap: var(--sec-grid-row-gap);
 }
 /* 컬러 카드 그리드: 평소에는 n 열, 카드가 --swatch-min-w 보다 좁아지면 열 수를 줄여 스펙이 넘치지 않게 */
 .sec__grid--swatch {
@@ -768,11 +756,11 @@ html.js .main {
 .fig__frame > .strike {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: var(--z-media-mark);
 }
 .fig__placeholder > span {
   position: relative;
-  z-index: 2; /* 이미지가 없을 때의 경로 글자는 대각선보다 위 */
+  z-index: var(--z-media-label); /* 이미지가 없을 때의 경로 글자는 대각선보다 위 */
 }
 .fig__placeholder {
   position: absolute;
@@ -780,8 +768,8 @@ html.js .main {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 0.25em;
-  padding: calc(var(--lh-unit) * 1.25);
+  gap: var(--placeholder-line-gap);
+  padding: calc(var(--lh-unit) * var(--placeholder-pad));
   color: var(--placeholder-fg);
   border: var(--border-w) dashed var(--border);
   border-radius: var(--radius);
@@ -793,12 +781,12 @@ html.js .main {
   inset: 0;
   background: linear-gradient(
     to top right,
-    transparent calc(50% - 0.5px),
-    var(--border) calc(50% - 0.5px),
-    var(--border) calc(50% + 0.5px),
-    transparent calc(50% + 0.5px)
+    transparent calc(50% - var(--placeholder-diag-w) / 2),
+    var(--border) calc(50% - var(--placeholder-diag-w) / 2),
+    var(--border) calc(50% + var(--placeholder-diag-w) / 2),
+    transparent calc(50% + var(--placeholder-diag-w) / 2)
   );
-  opacity: 0.6;
+  opacity: var(--placeholder-diag-opacity);
 }
 .fig__caption {
   display: flex;
@@ -836,9 +824,7 @@ html.js .main {
   border-radius: var(--radius);
   border: var(--border-w) solid var(--border);
   background: var(--swatch-color);
-}
-.swatch__card {
-  --_fg: var(--swatch-panel-fg);
+  --_fg: var(--swatch-panel-fg); /* 어두운 색면: 흰 글자 (밝은 색면은 아래 --light) */
   --_shade: var(--swatch-shade);
 }
 .swatch__card--light {
@@ -944,12 +930,7 @@ html.js .main {
   position: relative;
   margin: 0 calc(var(--swatch-val-pad-x) * -1); /* 하이라이트 여유만큼 바깥으로 빼서 글자 위치는 그대로 */
   padding: 0 var(--swatch-val-pad-x);
-  border: 0;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  letter-spacing: inherit;
-  cursor: pointer; /* 맥 기본 링크 손가락 */
+  letter-spacing: inherit; /* 나머지 버튼 기본값(글꼴·색·배경·테두리·손가락 커서)은 전역 button 리셋 */
   transition:
     background var(--dur) var(--ease),
     color var(--dur) var(--ease);
@@ -965,7 +946,7 @@ html.js .main {
   position: absolute;
   left: 50%;
   bottom: calc(100% + var(--swatch-tip-gap));
-  z-index: 2;
+  z-index: var(--z-media-label);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -980,7 +961,7 @@ html.js .main {
   pointer-events: none;
   scale: calc(1 / var(--swatch-panel-zoom)); /* 스펙 블록 축소(--swatch-panel-zoom)를 되돌려 알약은 원래 크기 */
   transform-origin: 0 100%; /* 가로 = 값의 가운데(left 50% 지점), 세로 = 알약 아래 */
-  transform: translate(-50%, 4px);
+  transform: translate(-50%, var(--swatch-tip-rise));
   transition:
     opacity var(--dur) var(--ease),
     transform var(--dur) var(--ease);
@@ -1018,7 +999,7 @@ html.lightbox-open {
 .lightbox {
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: var(--z-lightbox);
   display: grid;
   grid-template-columns: 100%; /* 트랙을 명시해야 이미지의 max-width/height % 가 화면 기준으로 계산됨 (세로로 긴 이미지 잘림 방지) */
   grid-template-rows: 100%;
@@ -1061,7 +1042,7 @@ html.lightbox-open {
 .next {
   display: block;
   margin-top: var(--next-gap);
-  padding-top: calc(var(--lh-unit) * 2);
+  padding-top: calc(var(--lh-unit) * var(--next-pad-top));
   border-top: var(--border-w) solid var(--border);
   color: var(--next-fg);
   transition: color var(--dur) var(--ease);
@@ -1075,7 +1056,7 @@ html.lightbox-open {
   color: inherit; /* 레벨 색 대신 버튼 상태색을 따름 */
 }
 .next__label {
-  margin-bottom: calc(var(--lh-unit) * 0.5);
+  margin-bottom: calc(var(--lh-unit) * var(--next-label-gap));
 }
 .next__arrow {
   display: inline-block; /* 타이틀의 마지막 단어 바로 오른쪽에 붙음 (앞에 줄바꿈 없는 공백) */

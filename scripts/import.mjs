@@ -53,6 +53,7 @@ const slots = new Map(entries.filter(e => e.page === page).map(e => [strip(e.pat
 const md5 = f => crypto.createHash('md5').update(fs.readFileSync(f)).digest('hex');
 // 픽셀 비교: sips 로 무압축 BMP 로 바꿔 해시. 같은 그림이면 같은 BMP. sips 가 없거나 실패하면 null (→ 바뀐 것으로 취급)
 const TMP = fs.mkdtempSync(path.join(os.tmpdir(), 'guide-import-'));
+process.on('exit', () => fs.rmSync(TMP, { recursive: true, force: true }));   // 도중에 오류가 나도 임시 폴더 정리
 const pixelHash = f => {
   try {
     const out = path.join(TMP, `${crypto.randomUUID()}.bmp`);
@@ -79,7 +80,10 @@ for (const f of files) {
   const dir = path.dirname(dst);
   const src = path.join(srcDir, f);
   done.add(name);
-  const prev = fs.existsSync(dst) ? dst : null;
+  // 비교 대상: 같은 자리의 파일, 없으면 같은 이름의 예전 파일 (번호·확장자가 달라도)
+  const prev = fs.existsSync(dst) ? dst
+    : fs.existsSync(dir) ? (fs.readdirSync(dir).map(o => path.join(dir, o)).find(o => strip(path.basename(o, path.extname(o))) === name) ?? null)
+    : null;
   const verdict = prev && sameImage(prev, src);
   if (verdict === 'bytes') { same++; continue; }
   if (verdict === 'pixels') { reexported++; continue; }                // 그림은 같고 다시 내보내기만 됨

@@ -25,7 +25,6 @@ export interface SwatchItem {
   kind: 'swatch';
   name: string;
   hex: string;
-  specs: string[];
   rows: SwatchRow[];      // 컬러 카드의 스펙 행 (Pantone → CMYK → RGB → HEX → 그 밖). values 하나하나가 복사 단위
 }
 export interface SwatchRow { label: string; values: string[]; note?: string; }
@@ -33,7 +32,6 @@ export type Item = ImageItem | SwatchItem;
 
 export interface Section {
   id: string;             // 앵커 id (헤드 기준, 중복 시 -2, -3…)
-  navId: string;          // 목차에 표시되는 대표 앵커 (같은 헤드끼리 공유)
   head: string;
   subhead?: string;
   bodyHtml: string;
@@ -86,7 +84,7 @@ const CONTENT_FILES = import.meta.glob('/content/guide.*.md', { query: '?raw', i
 const ASSETS = path.join(ROOT, 'public', 'assets');
 const EXTS = ['svg', 'png', 'jpg', 'jpeg', 'webp', 'gif', 'avif'];
 
-export function slugify(s: string): string {
+function slugify(s: string): string {
   return s
     .toLowerCase()
     .replace(/&/g, ' and ')
@@ -181,7 +179,7 @@ function pickLayout(explicit: string | undefined, items: Item[]): Layout {
  * CSS 의 .t-body .ko 가 한글만 따로 크기·자간·웨이트·베이스라인을 보정합니다.
  */
 const KO_RUN = /[가-힣ㄱ-ㅎㅏ-ㅣ](?:[가-힣ㄱ-ㅎㅏ-ㅣ\s.,·:;!?'"‘’“”()~…]*[가-힣ㄱ-ㅎㅏ-ㅣ.,·:;!?’”)…])?/g;
-export function wrapKo(html: string): string {
+function wrapKo(html: string): string {
   return html
     .split(/(<[^>]+>)/)                         // 태그와 텍스트 분리
     .map(seg => seg.startsWith('<') ? seg : seg.replace(KO_RUN, m => `<span class="ko">${m}</span>`))
@@ -196,7 +194,7 @@ export function wrapKo(html: string): string {
  */
 const OPENS_AFTER = /[\s([{\u2014\u2013\-/“‘]/;
 const LETTER = /[\p{L}\p{N}]/u;
-export function smartQuotes(html: string): string {
+function smartQuotes(html: string): string {
   let prev = ' ';
   let code = 0;
   return html.split(/(<[^>]+>)/).map(seg => {
@@ -229,7 +227,7 @@ const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
  * 마지막 줄에 단어 하나만 남는 일이 없어지고, 영문(단어)·한글(어절) 모두 공백 기준이라 같은 규칙이 통합니다.
  * CSS 의 text-wrap: pretty 가 되는 브라우저에서는 그쪽이 더 넓게 처리하고, 이건 그 폴백입니다. 빌드 시 1회라 런타임 비용 0.
  */
-export function glueLastWords(html: string): string {
+function glueLastWords(html: string): string {
   const segs = html.split(/(<[^>]+>)/);          // 태그 / 텍스트 교차
   let seenWordAfter = false;                     // 뒤쪽(문단 끝 쪽)에 단어가 있었는가
   for (let i = segs.length - 1; i >= 0; i--) {
@@ -335,7 +333,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       idsInSub.set(base, count);
       const id = count === 1 ? base : `${base}-${count}`;
       section = {
-        id, navId: base, head, bodyHtml: '', layout: 'basic',
+        id, head, bodyHtml: '', layout: 'basic',
         ratio: normalizeRatio(attrs.ratio), items: [], tocMark,
         zoom: Number.isFinite(parseFloat(attrs.zoom)) ? parseFloat(attrs.zoom) : undefined
       };
@@ -369,7 +367,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
     if ((m = line.match(/^\[swatch\]\s*(.+)$/)) && section) {        // [swatch] Name | #HEX | spec | spec
       const parts = m[1].split('|').map(s => s.trim()).filter(Boolean);
       const [name, hex, ...specs] = parts;
-      section.items.push({ kind: 'swatch', name: name ?? '', hex: hex ?? '#000000', specs, rows: swatchRows(hex ?? '#000000', specs) });
+      section.items.push({ kind: 'swatch', name: name ?? '', hex: hex ?? '#000000', rows: swatchRows(hex ?? '#000000', specs) });
       continue;
     }
     if (section) body.push(line);
@@ -432,7 +430,7 @@ export function buildSearchIndex(guide: Guide): SearchEntry[] {
  *   RGB: 249 238 58 / CMYK: 5 0 95 0 / Pantone: 3945 C     (라벨: 값)
  * 숫자 뒤의 꼬리말(예: "or raw paper")은 복사 대상이 아닌 메모로 붙습니다.
  */
-export function swatchRows(hex: string, specs: string[]): SwatchRow[] {
+function swatchRows(hex: string, specs: string[]): SwatchRow[] {
   const named: Record<string, SwatchRow> = {};
   const extra: SwatchRow[] = [];
   const note = (t?: string) => (t && t.trim() ? t.trim() : undefined);
