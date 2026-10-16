@@ -4,17 +4,21 @@
  * badge: do | dont  → 캡션 줄 맨 앞에 체크 / 엑스 아이콘 (레퍼런스와 같은 "아이콘 + 문구" 페어링)
  * caption 이 있으면 이미지 아래 캡션 (카드). 배지만 있고 캡션이 없으면 "Do" / "Don't" 를 기본 문구로 씁니다.
  */
-import type { ImageItem } from '../lib/guide';
+import { UI_TEXT, langFromPath, type ImageItem } from '../lib/guide';
 
-interface Props { item: ImageItem; ratio: string; zoom?: number; }   // zoom: 섹션 배율 (이미지 태그가 우선)
-const { item, ratio } = Astro.props;
+interface Props { item: ImageItem; ratio: string; zoom?: number; label?: string; }   // zoom: 섹션 배율 (이미지 태그가 우선), label: 섹션 이름
+const { item, ratio, label } = Astro.props;
+const ui = UI_TEXT[langFromPath(Astro.url.pathname)];
+// 대체 텍스트: 캡션(태그·HTML 엔티티를 벗긴 글자) > 섹션 이름 > 이미지 이름
+const plain = (html: string) => html.replace(/<[^>]+>/g, '').replace(/&(amp|lt|gt|quot|#39|#x27);/g, (_, e) => ({ amp: '&', lt: '<', gt: '>', quot: '"', '#39': "'", '#x27': "'" } as Record<string, string>)[e]);
+const alt = item.caption ? plain(item.caption) : (label ?? item.token);
 const ratioLabel = ratio.replace(/\s/g, '').replace('var(--ratio-', '').replace(')', '');
 const captionHtml = item.caption ?? (item.badge === 'do' ? 'Do' : item.badge === 'dont' ? 'Don’t' : '');
 ---
 <figure class:list={['fig', { 'fig--dodont': item.badge }]} style={`--ratio: ${ratio}${(item.zoom ?? Astro.props.zoom) !== undefined ? `; --img-zoom: ${item.zoom ?? Astro.props.zoom}` : ''}`}>
   <div class="fig__frame">
     {item.src
-      ? <img src={item.src} alt={item.caption ? item.caption.replace(/<[^>]+>/g, '') : item.token} loading="lazy" />
+      ? <img src={item.src} alt={alt} loading="lazy" tabindex="0" aria-haspopup="dialog" />
       : <div class="fig__placeholder t-label">
           <span>assets/{item.path}</span>
           <span>{ratioLabel}</span>
@@ -24,7 +28,7 @@ const captionHtml = item.caption ?? (item.badge === 'do' ? 'Do' : item.badge ===
   {captionHtml && (
     <figcaption class="fig__caption t-body">
       {item.badge && (
-        <span class:list={['fig__badge', `fig__badge--${item.badge}`]} aria-label={item.badge === 'do' ? 'Do' : "Don't"}>
+        <span class:list={['fig__badge', `fig__badge--${item.badge}`]} role="img" aria-label={item.badge === 'do' ? ui.do : ui.dont}>
           {item.badge === 'do'
             ? <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M2.5 8.5l3.5 3.5L13.5 4" /></svg>
             : <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M3 3l10 10M13 3L3 13" /></svg>}

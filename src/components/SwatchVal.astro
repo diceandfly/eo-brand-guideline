@@ -1,9 +1,11 @@
 ---
 /** 컬러 카드의 복사 가능한 값 하나. 호버하면 하이라이트와 Copy 알약이 뜨고, 누르면 그 값만 복사 (Swatch.astro 스크립트) */
+import { UI_TEXT, langFromPath } from '../lib/guide';
 interface Props { value: string; label: string; }
 const { value, label } = Astro.props;
+const ui = UI_TEXT[langFromPath(Astro.url.pathname)];
 ---
-<button type="button" class="swatch__val" data-copy={value} aria-label={`${label} ${value} 복사`}>
+<button type="button" class="swatch__val" data-copy={value} aria-label={`${ui.copy} ${label} ${value}`}>
   {value}
   <span class="swatch__tip t-label" aria-hidden="true">
     <span class="swatch__tip-text swatch__tip-text--copy">Copy</span>

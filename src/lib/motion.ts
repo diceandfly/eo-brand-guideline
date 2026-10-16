@@ -41,8 +41,11 @@ const ms = (name: string, fallback: number) => {
   return raw.endsWith('ms') ? v / 1000 : v;          // "360ms" → 0.36, "0.4s" → 0.4
 };
 
+// 운영체제의 "동작 줄이기"를 켠 사용자: 스무스 스크롤 끔, 섹션 이동은 바로 점프, 라이트박스는 배율 없이 짧은 디졸브
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 /* ---------- 1. 스무스 스크롤 ---------- */
-const smoothAmount = ms('--scroll-smooth', 0);
+const smoothAmount = reduced ? 0 : ms('--scroll-smooth', 0);
 const wrapper = document.getElementById('smooth-wrapper');
 const content = document.getElementById('smooth-content');
 let smoother: ScrollSmoother | null = null;
@@ -96,6 +99,7 @@ const topWithin = (el: HTMLElement, root: HTMLElement) => {
 export function scrollToId(id: string, animate = true) {
   const el = document.getElementById(id);
   if (!el) return false;
+  if (reduced) animate = false;
   if (smoother && content && wrapper) {
     resetWrapperScroll();
     stopAnchorTween();
@@ -124,7 +128,6 @@ if (main) {
   const shift = num('--page-shift', 0);
   const ease = easeOf('--page-ease', 'power2.inOut');
   const buffer = ms('--page-out-buffer', 0.04);
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.addEventListener('click', e => {
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     const a = (e.target as HTMLElement).closest('a[href]') as HTMLAnchorElement | null;
@@ -171,8 +174,8 @@ const boxImg = box?.querySelector<HTMLImageElement>('.lightbox__img');
 const boxStrike = box?.querySelector<HTMLElement>('.lightbox__strike');
 
 if (box && boxImg) {
-  const dur = ms('--lightbox-dur', 0.36);
-  const scaleFrom = num('--lightbox-scale-from', 0.94);
+  const dur = reduced ? ms('--lightbox-dur-reduced', 0.12) : ms('--lightbox-dur', 0.36);
+  const scaleFrom = reduced ? 1 : num('--lightbox-scale-from', 0.94);
   const closeRatio = num('--lightbox-close-ratio', 0.8);    // 닫힘 = 열림 시간 × 비율
   // Don't 대각선 영역 비율 = 카드의 Do/Don't 비율 토큰 ("4 / 3")
   const dodont = (() => { const [a, b] = token('--ratio-dodont').split('/').map(parseFloat); return a > 0 && b > 0 ? a / b : 4 / 3; })();
@@ -192,15 +195,18 @@ if (box && boxImg) {
   boxImg.addEventListener('load', placeStrike);
   window.addEventListener('resize', () => { if (opened) placeStrike(); });
 
+  let opener: HTMLElement | null = null;   // 닫을 때 포커스를 돌려줄 요소
   const open = (src: string, alt: string, strike = false) => {
     if (opened) return;
     opened = true;
+    opener = document.activeElement as HTMLElement | null;
     box.classList.toggle('has-strike', strike);
     boxImg.src = src;
     boxImg.alt = alt;
     if (boxImg.complete) placeStrike();
     box.classList.add('is-open');
     box.setAttribute('aria-hidden', 'false');
+    box.focus({ preventScroll: true });
     stopAnchorTween();
     smoother?.paused(true);
     document.documentElement.classList.add('lightbox-open');
@@ -224,12 +230,23 @@ if (box && boxImg) {
         document.documentElement.classList.remove('lightbox-open');
       }
     });
+    opener?.focus({ preventScroll: true });
+    opener = null;
   };
 
+  const openFrom = (img: HTMLImageElement) => open(img.currentSrc || img.src, img.alt, !!img.parentElement?.querySelector('.strike'));
   document.addEventListener('click', e => {
     const img = (e.target as HTMLElement).closest('.fig__frame > img') as HTMLImageElement | null;
-    if (img) { e.preventDefault(); open(img.currentSrc || img.src, img.alt, !!img.parentElement?.querySelector('.strike')); }
+    if (img) { e.preventDefault(); openFrom(img); }
   });
   box.addEventListener('click', close);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  document.addEventListener('keydown', e => {
+    if (opened) {
+      if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); close(); }
+      else if (e.key === 'Tab') e.preventDefault();             // 열려 있는 동안 포커스는 라이트박스에 머묾
+      return;
+    }
+    const img = (e.target as HTMLElement).closest?.('.fig__frame > img') as HTMLImageElement | null;
+    if (img && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openFrom(img); }   // 키보드로 열기
+  });
 }

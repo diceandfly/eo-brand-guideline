@@ -1,12 +1,12 @@
 ---
 import Logo from './Logo.astro';
 import Search from './Search.astro';
-import { LANGS, LANG_LABEL, type Guide, type Sub, type Lang } from '../lib/guide';
+import { LANGS, LANG_LABEL, UI_TEXT, type Guide, type Sub, type Lang } from '../lib/guide';
 
 interface Props { guide: Guide; current?: Sub; lang: Lang; alt: Partial<Record<Lang, string>>; }
 const { guide, current, lang, alt } = Astro.props;
 ---
-<nav class="sidebar t-ui" aria-label="목차">
+<nav class="sidebar t-ui" aria-label={UI_TEXT[lang].toc}>
   <a class="nav__logo" href={`/${lang}`}><Logo /></a>
   <Search guide={guide} />
   <!-- 목록만 스크롤. 위·아래 여백에 페이드가 항상 깔려 있어, 스크롤하면 글자가 그 밑으로 녹아듦 (CSS 만) -->
@@ -48,7 +48,7 @@ const { guide, current, lang, alt } = Astro.props;
   </div>
 
   <!-- 언어 전환. 같은 페이지의 다른 언어판으로 이동, 없으면 그 언어의 첫 페이지 -->
-  <div class="nav__lang" aria-label="언어">
+  <div class="nav__lang" role="group" aria-label={UI_TEXT[lang].language}>
     {LANGS.map((l, i) => (
       <>
         {i > 0 && <span class="nav__lang-divider" aria-hidden="true">|</span>}

@@ -3,31 +3,42 @@
  * 목차 상단 검색창. 빌드 시 만든 섹션 색인(JSON)을 클라이언트에서 필터링합니다.
  * 헤드·서브헤드·본문·캡션을 대상으로 하며, 결과를 누르면 해당 섹션 앵커로 이동합니다.
  */
-import { buildSearchIndex, type Guide } from '../lib/guide';
+import { buildSearchIndex, UI_TEXT, type Guide } from '../lib/guide';
 interface Props { guide: Guide; }
 const { guide } = Astro.props;
 const index = buildSearchIndex(guide);
+const ui = UI_TEXT[guide.lang];
+const found = { zero: ui.found(0), many: ui.found(999).replace('999', '{n}') };   // 결과 개수 알림 문구 (클라이언트에서 {n} 치환)
 ---
-<form class="search" role="search" data-search onsubmit="return false">
-  <input class="search__input t-ui" type="search" placeholder="Search" aria-label="가이드라인 검색" autocomplete="off" spellcheck="false" data-search-input />
-  <button class="search__clear" type="button" aria-label="지우기" hidden data-search-clear>
+<form class="search" role="search" data-search onsubmit="return false" data-found-zero={found.zero} data-found-many={found.many}>
+  <input class="search__input t-ui" type="search" placeholder="Search" aria-label={ui.search} autocomplete="off" spellcheck="false"
+    role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="search-results" data-search-input />
+  <button class="search__clear" type="button" aria-label={ui.clear} hidden data-search-clear>
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" /></svg>
   </button>
-  <ul class="search__results t-ui" data-search-results></ul>
+  <ul class="search__results t-ui" id="search-results" role="listbox" aria-label={ui.results} data-search-results></ul>
+  <p class="sr-only" aria-live="polite" data-search-status></p>
   <script type="application/json" data-search-index set:html={JSON.stringify(index)} />
 </form>
 
 <script>
-  type Entry = { u: string; c: string; s: string; h: string; t: string; b: string };
+  import type { SearchEntry as Entry } from '../lib/guide';
 
   for (const form of document.querySelectorAll<HTMLFormElement>('[data-search]')) {
     const input = form.querySelector<HTMLInputElement>('[data-search-input]')!;
     const clear = form.querySelector<HTMLButtonElement>('[data-search-clear]')!;
     const list = form.querySelector<HTMLUListElement>('[data-search-results]')!;
+    const status = form.querySelector<HTMLElement>('[data-search-status]')!;
     const index: Entry[] = JSON.parse(form.querySelector('[data-search-index]')!.textContent || '[]');
     let active = -1;
 
-    const open = (v: boolean) => { form.classList.toggle('is-open', v); if (!v) active = -1; };
+    const open = (v: boolean) => {
+      form.classList.toggle('is-open', v);
+      input.setAttribute('aria-expanded', String(v));
+      if (!v) { active = -1; input.removeAttribute('aria-activedescendant'); }
+    };
+    // 결과 개수를 화면낭독기에 알림 (화면에는 보이지 않음)
+    const announce = (n: number) => { status.textContent = n ? form.dataset.foundMany!.replace('{n}', String(n)) : form.dataset.foundZero!; };
 
     // 어디에서 걸렸는지: 3 제목(헤드·서브헤드) > 2 본문 > 1 서브챕터·챕터 이름만
     const score = (e: Entry, q: string) => {
@@ -59,23 +70,25 @@ const index = buildSearchIndex(guide);
     //               아랫줄: 경로(챕터 / 서브챕터 / 섹션 헤드), 줄바꿈 허용. 검색어는 어디든 강조.
     const render = () => {
       const q = input.value.trim().toLowerCase();
-      if (!q) { list.innerHTML = ''; open(false); return; }
+      if (!q) { list.innerHTML = ''; status.textContent = ''; open(false); return; }
       const hits = index
         .map(e => ({ e, n: score(e, q) }))
         .filter(x => x.n > 0)
         .sort((a, b) => b.n - a.n);   // 개수 제한 없음. 패널이 스크롤됨
       list.innerHTML = hits.length
-        ? hits.map(({ e, n }) => {
+        ? hits.map(({ e, n }, k) => {
             const crumb = `${e.c} / ${e.s} / ${e.h}`;
             // 인용 줄: 제목에 검색어가 있으면 "헤드 — 서브헤드"(강조), 본문에 있으면 본문 발췌(강조),
             //          챕터·서브챕터 이름에만 있으면 제목 그대로 (검색어는 경로에 보임)
             const title = e.t !== e.h ? `${e.h} — ${e.t}` : e.h;
             const quote = n === 3 ? mark(title, q) : n === 2 ? snippet(e.b, q) : esc(title);
-            return `<li class="search__item"><a href="${e.u}" title="${esc(e.t)} — ${esc(crumb)}">`
+            return `<li class="search__item" role="option" id="search-opt-${k}" aria-selected="false"><a href="${e.u}" tabindex="-1" title="${esc(e.t)} — ${esc(crumb)}">`
               + `<span class="search__quote">${quote}</span>`
               + `<span class="search__crumb t-label">${esc(crumb)}</span></a></li>`;   // 경로는 강조하지 않음
           }).join('')
-        : `<li class="search__empty">No results</li>`;
+        : `<li class="search__empty" role="option" aria-disabled="true">No results</li>`;
+      input.removeAttribute('aria-activedescendant');
+      announce(hits.length);
       open(true);
     };
 
@@ -83,7 +96,8 @@ const index = buildSearchIndex(guide);
       const items = [...list.querySelectorAll('.search__item')];
       if (!items.length) return;
       active = (i + items.length) % items.length;
-      items.forEach((el, k) => el.classList.toggle('is-active', k === active));
+      items.forEach((el, k) => { el.classList.toggle('is-active', k === active); el.setAttribute('aria-selected', String(k === active)); });
+      input.setAttribute('aria-activedescendant', items[active].id);   // 포커스는 입력창에 둔 채 고른 항목을 화면낭독기에 전달
       items[active].scrollIntoView({ block: 'nearest' });
     };
 

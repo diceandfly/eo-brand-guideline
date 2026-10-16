@@ -50,6 +50,7 @@
   --search-pad-x: 0px; /* 검색창 내부 좌우 패딩. 0 = 목차 글자와 같은 선에 정렬 */
   --search-line-w: 1px; /* 검색창 밑줄 두께. 0 = 없음 */
   --search-clear-size: 14px; /* 입력 지우기 × 아이콘 크기 (입력이 있을 때만 표시) */
+  --search-clear-hit: 24px; /* × 버튼을 누를 수 있는 영역 (WCAG 최소 24px). 아이콘 크기는 그대로 */
   --search-results-offset: 4px; /* 검색창 ↔ 결과 패널 */
   --search-result-pad-x: 12px; /* 결과 패널 안쪽 좌우 패딩 (입력창 패딩과 별개) */
   --search-result-pad-y: 8px; /* 결과 한 행의 상하 패딩 */
@@ -150,6 +151,7 @@
   /* 1-9 공통 */
   --radius: 0px; /* 이미지·카드·컬러 카드·검색창 라운드 */
   --border-w: 1px; /* 플레이스홀더·컬러 카드·Copy 버튼 테두리 두께 */
+  --focus-w: 2px; /* 키보드 포커스 테두리 두께 */
 
   /* ------------------------------------------------------------------
      2. TYPE
@@ -284,6 +286,7 @@
 
   /* 3-2 글자 */
   --fg: var(--c-air-white);
+  --focus-c: var(--c-builder-neon); /* 키보드 포커스 테두리 색 */
   --fg-muted: var(--c-medium-gray);
 
   /* 3-3 면 · 보더 */
@@ -398,6 +401,7 @@
 
   /* 이미지 확대 보기 (라이트박스) */
   --lightbox-dur: 360ms; /* 열고 닫는 디졸브 시간 */
+  --lightbox-dur-reduced: 120ms; /* 동작 줄이기를 켠 사용자: 배율 없이 이 시간만큼 디졸브 */
   --lightbox-scale-from: 0.94; /* 열릴 때 시작 배율. 1 = 페이드만 */
   --lightbox-close-ratio: 0.8; /* 닫힐 때 시간 = 열림 시간 × 값 (1 = 같은 속도) */
   --lightbox-ease: power3.out; /* GSAP ease 이름 */

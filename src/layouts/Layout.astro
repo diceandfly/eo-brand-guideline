@@ -4,10 +4,11 @@ import '../styles/fonts.css';
 import '../styles/base.css';
 import Sidebar from '../components/Sidebar.astro';
 import Logo from '../components/Logo.astro';
-import type { Guide, Sub, Lang } from '../lib/guide';
+import { UI_TEXT, type Guide, type Sub, type Lang } from '../lib/guide';
 
 interface Props { guide: Guide; current?: Sub; lang: Lang; alt: Partial<Record<Lang, string>>; title: string; }
 const { guide, current, lang, alt, title } = Astro.props;
+const ui = UI_TEXT[lang];
 ---
 <!doctype html>
 <html lang={lang}>
@@ -31,12 +32,12 @@ const { guide, current, lang, alt, title } = Astro.props;
   <body>
     <div class="shell">
       <header class="topbar">
-        <button class="topbar__menu" type="button" aria-label="목차 열기" aria-expanded="false" data-nav-toggle>
+        <button class="topbar__menu" type="button" aria-label={ui.openToc} aria-expanded="false" data-nav-toggle>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
             <path d="M3 6h18M3 12h18M3 18h18" />
           </svg>
         </button>
-        <a class="topbar__logo" href="/"><Logo /></a>
+        <a class="topbar__logo" href={`/${lang}`}><Logo /></a>
       </header>
 
       <Sidebar guide={guide} current={current} lang={lang} alt={alt} />
@@ -54,7 +55,7 @@ const { guide, current, lang, alt, title } = Astro.props;
     </div>
 
     <!-- 이미지 확대 보기. 클릭하면 열리고, 아무 곳이나 클릭하거나 Esc 로 닫힘 -->
-    <div class="lightbox" data-lightbox aria-hidden="true" role="dialog" aria-label="이미지 확대 보기">
+    <div class="lightbox" data-lightbox aria-hidden="true" role="dialog" aria-modal="true" aria-label={ui.lightbox} tabindex="-1">
       <img class="lightbox__img" alt="" />
       <span class="strike lightbox__strike" aria-hidden="true"></span>
     </div>
@@ -64,16 +65,21 @@ const { guide, current, lang, alt, title } = Astro.props;
     </script>
     <script>
       // 모바일: 상단 바 버튼으로 목차 드로어 토글. 링크를 누르면 닫힘.
+      // 닫힌 드로어는 화면 밖에 있어도 키보드 탭이 들어가지 않도록 inert. 기준 폭은 base.css 의 @media (max-width: 899px) 와 같게.
       const root = document.documentElement;
       const btn = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+      const sidebar = document.querySelector<HTMLElement>('.sidebar');
+      const desktop = window.matchMedia('(min-width: 900px)');
       const set = (open: boolean) => {
         root.classList.toggle('nav-open', open);
         btn?.setAttribute('aria-expanded', String(open));
+        sidebar?.toggleAttribute('inert', !open && !desktop.matches);
         (window as any).__smoother?.paused(open);   // 드로어가 열린 동안 본문 스크롤 정지
       };
       btn?.addEventListener('click', () => set(!root.classList.contains('nav-open')));
       document.querySelectorAll('.sidebar a').forEach(a => a.addEventListener('click', () => set(false)));
-      window.matchMedia('(min-width: 900px)').addEventListener('change', e => { if (e.matches) set(false); });
+      desktop.addEventListener('change', () => set(false));
+      set(false);
     </script>
   </body>
 </html>
