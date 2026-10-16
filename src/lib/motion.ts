@@ -2,8 +2,10 @@
  * 클라이언트 모션 (GSAP)
  *  1. 스무스 스크롤 — ScrollSmoother. --scroll-smooth 가 0 이면 만들지 않음(브라우저 기본 스크롤).
  *  2. 앵커 이동 — 같은 페이지의 #섹션 링크는 스무스 스크롤로, --anchor-offset 만큼 위를 띄움.
+ *  1.5 페이지 전환 — 다른 페이지 링크를 누르면 본문을 먼저 사라지게 한 뒤 이동 (들어올 때는 CSS).
  *  3. 이미지 확대 보기 — .fig__frame 의 <img> 를 누르면 라이트박스. 디졸브 + 스케일.
- * 수치는 전부 tokens.css 의 5. MOTION / 1-8 / 3-9 토큰에서 읽습니다.
+ * 수치는 전부 tokens.css 5. MOTION 에서 읽습니다 (Don't 대각선 영역만 4. RATIO 의 --ratio-dodont).
+ * 시간 토큰은 "0.4" 처럼 초로 써도, "400ms" 처럼 ms 로 써도 됩니다. 아래 대체값은 토큰을 못 읽을 때만 쓰며 토큰과 같게 유지.
  */
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -31,6 +33,7 @@ const easeOf = (name: string, fallback: string): string | gsap.EaseFunction => {
   eases.set(raw, ease);
   return ease;
 };
+/** 시간 토큰 → 초. "360ms" → 0.36, "0.4s" · "0.4" → 0.4 */
 const ms = (name: string, fallback: number) => {
   const raw = token(name);
   const v = parseFloat(raw);
@@ -39,7 +42,7 @@ const ms = (name: string, fallback: number) => {
 };
 
 /* ---------- 1. 스무스 스크롤 ---------- */
-const smoothAmount = num('--scroll-smooth', 0);
+const smoothAmount = ms('--scroll-smooth', 0);
 const wrapper = document.getElementById('smooth-wrapper');
 const content = document.getElementById('smooth-content');
 let smoother: ScrollSmoother | null = null;
@@ -101,7 +104,7 @@ export function scrollToId(id: string, animate = true) {
     smoother.paused(true);                                    // 이동 중 사용자 입력은 wheel/touch 리스너가 받아 트윈을 멈춤
     anchorTween = gsap.to(smoother, {
       scrollTop: y,
-      duration: num('--anchor-dur', 0.5),
+      duration: ms('--anchor-dur', 0.56),
       ease: easeOf('--anchor-ease', 'power2.inOut'),
       overwrite: true,
       onComplete: stopAnchorTween,
@@ -116,10 +119,11 @@ export function scrollToId(id: string, animate = true) {
    본문을 먼저 사라지게 한 뒤 이동합니다. 새 탭·수정키·외부 링크·#앵커는 건드리지 않습니다. */
 const main = document.querySelector<HTMLElement>('.main');
 if (main) {
-  const outDur = ms('--page-out-dur', 0.2);
-  const navSlide = ms('--nav-slide-dur', 0.28);             // 목차 링크면 하위 목록 슬라이드가 끝날 때까지 기다림
+  const outDur = ms('--page-out-dur', 0.46);
+  const navSlide = ms('--nav-slide-dur', 0.46);             // 목차 링크면 하위 목록 슬라이드가 끝날 때까지 기다림
   const shift = num('--page-shift', 0);
-  const ease = easeOf('--page-ease', 'power2.out');
+  const ease = easeOf('--page-ease', 'power2.inOut');
+  const buffer = ms('--page-out-buffer', 0.04);
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.addEventListener('click', e => {
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
@@ -135,7 +139,7 @@ if (main) {
     let done = false;
     const go = () => { if (done) return; done = true; location.href = url.href; };
     gsap.to(main, { opacity: 0, y: -shift, duration: outDur, ease });
-    setTimeout(go, wait * 1000 + 40);                         // 디졸브·목차 슬라이드가 끝난 뒤 이동 (탭이 숨겨져도 보장)
+    setTimeout(go, (wait + buffer) * 1000);                   // 디졸브·목차 슬라이드가 끝난 뒤 이동 (탭이 숨겨져도 보장)
   });
   // 뒤로 가기(bfcache)로 돌아왔을 때 사라진 상태로 남지 않도록
   window.addEventListener('pageshow', e => { if (e.persisted) { gsap.set(main, { clearProps: 'opacity,transform' }); main.style.animation = ''; } });
@@ -169,15 +173,18 @@ const boxStrike = box?.querySelector<HTMLElement>('.lightbox__strike');
 if (box && boxImg) {
   const dur = ms('--lightbox-dur', 0.36);
   const scaleFrom = num('--lightbox-scale-from', 0.94);
+  const closeRatio = num('--lightbox-close-ratio', 0.8);    // 닫힘 = 열림 시간 × 비율
+  // Don't 대각선 영역 비율 = 카드의 Do/Don't 비율 토큰 ("4 / 3")
+  const dodont = (() => { const [a, b] = token('--ratio-dodont').split('/').map(parseFloat); return a > 0 && b > 0 ? a / b : 4 / 3; })();
   const ease = easeOf('--lightbox-ease', 'power3.out');
   let opened = false;
   const parts = boxStrike ? [boxImg, boxStrike] : [boxImg];   // 이미지와 대각선은 함께 커지고 사라짐
 
-  // Don't 대각선: 화면에 그려진 이미지의 가운데 4:3 영역 (카드에서 보이던 영역과 같음)
+  // Don't 대각선: 화면에 그려진 이미지의 가운데 --ratio-dodont 영역 (카드에서 보이던 영역과 같음)
   const placeStrike = () => {
     if (!boxStrike) return;
     const w = boxImg.offsetWidth, h = boxImg.offsetHeight;      // transform 과 무관한 레이아웃 크기
-    const r = 4 / 3;
+    const r = dodont;
     const sw = w / h > r ? h * r : w, sh = w / h > r ? h : w / r;
     boxStrike.style.width = `${sw}px`;
     boxStrike.style.height = `${sh}px`;
@@ -206,9 +213,9 @@ if (box && boxImg) {
     if (!opened) return;
     opened = false;
     gsap.killTweensOf([box, ...parts]);
-    gsap.to(parts, { scale: scaleFrom, opacity: 0, duration: dur * 0.8, ease });
+    gsap.to(parts, { scale: scaleFrom, opacity: 0, duration: dur * closeRatio, ease });
     gsap.to(box, {
-      opacity: 0, duration: dur * 0.8, ease,
+      opacity: 0, duration: dur * closeRatio, ease,
       onComplete: () => {
         box.classList.remove('is-open');
         box.setAttribute('aria-hidden', 'true');
