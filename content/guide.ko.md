@@ -256,7 +256,7 @@ H는 작업 파일 속 심볼의 높이(px), S는 화면에서 보이는 또는 
 
 
 ### Symbol {layout=grid-3}
-#### Don'ts
+#### + Don'ts
 EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변형하거나 장식해서는 안 됩니다. 이 페이지는 피해야 할 변형의 예를 보여 줍니다. 회사명 표기가 필요하면 심볼 대신 EO 시그니처를 사용하세요. 서브 브랜드 표시가 필요하면 EO 브랜드팀과 논의를 거쳐 서비스 시그니처를 만드세요.
 
 
@@ -301,7 +301,7 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 
 
 ### Company Signature
-#### Choosing a Signature {layout=grid-2}
+#### Version Guide {layout=grid-2}
 
 EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힙니다. 그래서 회사 시그니처는 "Studio"만 표기하는 것을 우선적으로 고려하되, 회사명을 분명히 밝혀야 할 때 "EO Studio"를 사용합니다.
 
@@ -315,8 +315,8 @@ EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힙니�
 ![size-dont-1]{dont} 큰 크기에서 가로형 "EO Studio"를 쓰지 마세요
 
 
-### + Service Signature
-#### Descriptor System {layout=grid-2}
+### Signature
+#### + Descriptor {layout=grid-2}
 시그니처에서 EO 심볼과 함께 쓰는 텍스트 부분을 디스크립터라고 칭합니다. 디스크립터를 조직이나 서비스, 도메인 이름으로 바꾸면 같은 규칙으로 새 시그니처를 만들 수 있으며, 어떤 단어든 아래 규격을 그대로 따릅니다.
 
 - **세로형:** 디스크립터는 Founders Grotesk Regular, 조판 사이즈 (7/15)H, 자간 0으로 조판합니다. 심볼의 하단 경계에서 H/5 아래에 캡 박스의 윗변을 두고 심볼과 중앙 정렬한 뒤, H/100만큼 왼쪽으로 보정합니다. EO 심볼은 왼쪽 E 블록의 회색도가 더 높아 시각적 중심이 왼쪽에 있기 때문입니다.
@@ -329,13 +329,13 @@ EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힙니�
 ![descriptor-system-h] 가로형 구성
 
 
-### Service Signature
-#### Lineup {layout=grid-2}
+### + Service Signature
+#### In Use{layout=grid-2}
 현재 사용 중인 회사 시그니처와 서비스 시그니처입니다. 모두 같은 디스크립터 규격으로 구성되어, 이름이 달라도 하나의 가족으로 읽힙니다.
 ![lineup-studio] EO Studio · 회사
 ![lineup-magazine] EO Magazine · 웹 매거진
-![lineup-newsletter] EO Newsletter · 뉴스레터
 ![lineup-planet] EO Planet · 커뮤니티 (eopla.net)
+![lineup-newsletter] EO Newsletter · 뉴스레터
 
 
 ### Signature
@@ -344,21 +344,17 @@ EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힙니�
 ![clearspace]
 
 
-### Signature
-#### + Scalability
-시그니처는 글자가 함께 있어 EO 심볼보다 큰 최소 크기가 필요합니다. EO Studio 글자가 또렷하게 읽히는 최소 크기는 심볼 높이 기준으로 디지털 20px, 인쇄물 4mm입니다. 이보다 작은 공간에서는 시그니처 대신 EO 심볼을 단독으로 사용하세요.
-![scalability]
-
-
 ### + Usage {layout=grid-2}
-#### Signature or Symbol
-시그니처와 EO 심볼은 누가 말하는지에 따라 나눠 사용합니다. 회사로서 EO Studio가 주체인 자리에는 시그니처를, 미디어 EO의 콘텐츠에는 EO 심볼을 사용합니다.
+#### Symbol or Signature
+시그니처와 EO 심볼은 누가 말하는지에 따라 나눠 사용합니다. 회사 EO Studio나 회사가 운영하는 서비스가 주체인 자리에는 시그니처를, 미디어 EO의 콘텐츠에는 EO 심볼을 사용합니다. 하나의 결과물에는 둘 중 하나만 사용하세요.
 
-판단이 어렵다면 그 결과물에 EO Studio라는 회사명이 꼭 필요한지 EO 브랜드팀에 문의하세요. 필요하지 않다면 EO 심볼로 충분합니다.
+시그니처는 텍스트가 함께 있어 EO 심볼보다 넉넉한 크기가 필요합니다. 텍스트가 또렷하게 읽히지 않을 만큼 작은 자리(심볼 높이 기준 디지털 [20px], 인쇄물 [4mm] 미만)에서는 시그니처 대신 EO 심볼을 단독으로 사용하세요.
+
+판단이 어렵다면 그 결과물에 EO Studio라는 회사명이 꼭 필요한지 먼저 확인하세요. 필요하지 않다면 EO 심볼로 충분하며, 그래도 판단이 어려울 때는 EO 브랜드팀에 문의하세요.
 ![usage-do-1]{do} 회사의 입장을 나타내는 공식 문서에는 시그니처를 사용합니다
 ![usage-do-2]{do} 콘텐츠 사인오프에는 EO 심볼을 사용합니다
 ![usage-dont-1]{dont} 콘텐츠 사인오프에 시그니처를 사용하지 마세요
-![usage-dont-2]{dont} 
+![usage-dont-2]{dont} 한 결과물에 시그니처와 EO 심볼을 함께 쓰지 마세요
 
 
 ### Signature
@@ -397,7 +393,7 @@ EO 시그니처은 파트너 브랜드 및 협업사 로고와 세로로도 락�
 
 
 ### Signature {layout=grid-3}
-#### Don'ts
+#### + Don'ts
 시그니처는 심볼과 글자의 관계가 정해진 하나의 조합입니다. 구성 요소를 따로 바꾸거나 다시 만들지 마세요.
 ![dont-1]{dont} EO Studio를 다른 서체로 바꾸지 마세요
 ![dont-2]{dont} 심볼과 글자의 간격이나 크기 비율을 바꾸지 마세요
@@ -446,7 +442,7 @@ EO 시그니처은 파트너 브랜드 및 협업사 로고와 세로로도 락�
 
 
 ### Sub Symbol {layout=grid-3}
-#### Don'ts
+#### + Don'ts
 서브 심볼은 EO 심볼의 일부이므로 EO 심볼과 같은 원칙을 따릅니다. 형태를 바꾸거나 장식하지 말고, 정해진 용도 밖에서 사용하지 마세요.
 ![dont-1]{dont} 서브 심볼을 늘리거나 왜곡하지 마세요
 ![dont-2]{dont} 서브 심볼을 회전하지 마세요
@@ -677,102 +673,66 @@ Founders Grotesk를 사용할 수 없는 환경(이메일, 외부 플랫폼의 �
 
 ### Color
 #### Builder Neon
-Builder Neon은 EO 컬러 팔레트의 토대이자 브랜드에서 가장 잘 알려진 요소입니다. 로고가 없어도 "EO"를 전달할 수 있을 정도입니다. 검은 하늘 위에서 드라마틱한 대비를 만드는 이 노랑은 밤새 불이 켜진 해커하우스의 창, 빌더의 낙관을 상징합니다.
-
-커뮤니케이션에서 Builder Neon을 일관되고 의도적으로 사용하는 것이 중요합니다. 넓은 면보다는 한 구성 안의 한 곳에 집중해서 사용할 때 가장 강합니다.
+Builder Neon은 EO 팔레트의 유일한 주인공이자 브랜드에서 가장 잘 알려진 요소로, 로고 없이도 "EO"를 전달합니다. 검은 하늘 위에서 드라마틱한 대비를 만드는 이 노랑은 밤새 불이 켜진 해커하우스의 창, 빌더의 낙관을 상징합니다. 넓은 면보다 한 구성 안의 한 곳에 집중해서 사용할 때 가장 강합니다.
 ![color/builder-neon]
 
 
 ### Color {layout=grid-3}
-#### Core Palette
-핵심 팔레트는 Builder Neon · Space Black · Air White 세 색으로 이루어집니다. 컬러 전략의 기반을 이루며, 핵심 브랜드 접점에서 첫인상 역할을 해야 합니다. 일관된 사용은 EO 브랜드를 알아볼 수 있는 시각적 단서를 확립하며, 보조 팔레트가 이를 보완합니다.
+#### Palette
+EO 팔레트는 Builder Neon과 이를 받쳐 주는 여섯 가지 색으로 이루어집니다. 
 
-오른쪽 정보는 팔레트 각 색상의 승인된 값을 Pantone 잉크(별색 인쇄), CMYK(4도 인쇄), 그리고 화면용 HEX와 RGB로 보여 줍니다.
+Day Blue와 Bay Green은 샌프란시스코의 푸른 하늘과 청량한 공기, 그 안의 자연에서 가져온 시원한 색으로, 보색인 Builder Neon을 더욱 선명하게 살려 주며 시리즈와 채널을 구분하는 데 사용합니다. Solid Gray와 Medium Gray는 미디어의 중립성을 담아, 어두운 회색은 배경에, 밝은 회색은 그래픽 요소에 사용합니다. Space Black과 Air White는 바탕과 텍스트의 기본이 됩니다. 
 
-모든 매체에서 색 일관성을 보장하려면 적용 유형에 맞는 올바른 컬러 모드와 잉크 조성을 항상 사용하세요. Air White는 인쇄에서 잉크를 쓰지 않고 미색 용지(raw paper)로 대체할 수 있습니다.
+각 색의 승인된 값은 화면용 HEX · RGB와 인쇄용 CMYK · Pantone으로 제공합니다. 매체에 맞는 컬러 모드를 사용하고, Air White는 인쇄에서 잉크 대신 백색 · 미색 용지로 대체할 수 있습니다.
 [swatch] Builder Neon | #F9EE3A | R249 G238 B58 | C5 M0 Y95 K0 | PANTONE 3945 C
+[swatch] Day Blue | #6EC6D2 | R110 G198 B210 | C60 M0 Y10 K0 | PANTONE 298 C
+[swatch] Bay Green | #66B88A | R102 G184 B138 | C60 M0 Y50 K0 | PANTONE 2248 C
+[swatch] Medium Gray | #8E8E8E | R142 G142 B142 | C2 M0 Y0 K45 or K45 only
+[swatch] Solid Gray | #2A2B2B | R42 G43 B43 | C4 M0 Y0 K95 or K95 only
 [swatch] Space Black | #000000 | R0 G0 B0 | C60 M60 Y0 K100
 [swatch] Air White | #FCFBF5 | R252 G251 B245 | C1 M2 Y2 K0 or raw paper
 
 
-### Color {layout=grid-2}
-#### Core Pairings
-타이포그래피와 함께 사용하는 네 가지 핵심 페어링이 있습니다. 텍스트는 Air White 또는 Space Black이고, Builder Neon은 텍스트가 아니라 면과 그래픽 유닛에 사용하는 것이 기본입니다.
-![color/core-pair-1] 1. Air White on Space Black
-![color/core-pair-2] 2. Space Black on Air White
-![color/core-pair-3] 3. Space Black on Builder Neon
-![color/core-pair-4] 4. Builder Neon on Space Black
-
-
 ### Color {layout=grid-3}
-#### In Use
-핵심 팔레트가 실제로 사용된 몇 가지 예시입니다.
-![color/core-in-use-1] Poster
-![color/core-in-use-2] Hang Tag
-![color/core-in-use-3] Web Magazine
-
-
-### Color {layout=grid-3}
-#### Secondary Palette
-보조 팔레트는 브랜드 표현의 범위를 넓힙니다. Day Blue와 Bay Green은 SF 풍경의 하늘과 만(bay)에서 가져온 색을 한두 단계 톤다운한 것으로, Builder Neon의 메인 지위를 해치지 않으면서 시리즈와 채널을 구분하는 데 사용합니다. Medium Gray와 Solid Gray는 미디어의 중립성을 뜻하며, 밝은 그레이는 그래픽 요소에, 어두운 그레이는 배경에 사용합니다.
-
-아래 정보는 팔레트 각 색상의 승인된 값을 Pantone 잉크 · CMYK · HEX · RGB로 보여 줍니다.
-[swatch] Day Blue | #6EC6D2 | R110 G198 B210 | C60 M0 Y10 K0 | PANTONE 298 C
-[swatch] Bay Green | #66B88A | R102 G184 B138 | C60 M0 Y50 K0 | PANTONE 2248 C
-[swatch] Medium Gray | #8E8E8E | R142 G142 B142 | C2 M0 Y0 K45 or K45 only
-[swatch] Solid Gray | #333333 | R51 G51 B51 | C4 M0 Y0 K100 or K100 only
-[swatch] Air White | #fcfbf5 | R51 G51 B51 | C4 M0 Y0 K100 or K100 only
-[swatch] Space Black | #000000 | R51 G51 B51 | C4 M0 Y0 K100 or K100 only
-
-
-### Secondary Palette {layout=grid-4}
 #### Pairings
-타이포그래피와 함께 사용하는 네 가지 보조 페어링이 있습니다. 이 승인된 조합 외의 페어링은 사용하지 마세요. 보조 색은 언제나 Space Black과만 짝을 이룹니다.
-![color/secondary-pair-1] Day Blue on Space Black
-![color/secondary-pair-2] Bay Green on Space Black
-![color/secondary-pair-3] Space Black on Day Blue
-![color/secondary-pair-4] Space Black on Bay Green
-
-
-### Secondary Palette {layout=grid-4}
-#### Pairings to Avoid
-오른쪽은 보조 색상을 사용할 때 피해야 할 페어링의 예시입니다.
-
-일반적으로 Day Blue와 Bay Green을 같은 구성 안에서 맞붙이거나, 보조 색을 Builder Neon과 겹쳐 쓰는 것을 피하세요.
-![color/avoid-1]{dont} Builder Neon on Air White
-![color/avoid-2]{dont} Day Blue on Bay Green
-![color/avoid-3]{dont} Medium Gray on Solid Gray
-![color/avoid-4]{dont} Day Blue on Builder Neon
+승인된 페어링은 아래 여덟 가지입니다. 텍스트는 Air White 또는 Space Black을 기본으로 하고, Builder Neon과 Day Blue · Bay Green은 면과 그래픽 유닛에 사용합니다. Day Blue와 Bay Green은 Space Black과만 짝을 이룹니다.
+![color/pairing-1] Air White on Space Black
+![color/pairing-2] Space Black on Air White
+![color/pairing-3] Space Black on Builder Neon
+![color/pairing-4] Builder Neon on Space Black
+![color/pairing-5] Day Blue on Space Black
+![color/pairing-6] Bay Green on Space Black
+![color/pairing-7] Space Black on Day Blue
+![color/pairing-8] Space Black on Bay Green
 
 
 ### Color
 #### Usage Ratio
-오른쪽은 전체적인 관점에서 EO 커뮤니케이션 전반에 적용해야 할 올바른 색 사용 비율입니다.
-
-핵심 접점과 새로운 오디언스에게 EO를 소개할 때는 Space Black 바탕에 Air White 텍스트, Builder Neon 그래픽이라는 핵심 팔레트에 크게 의존합니다. 면적으로는 블랙 70, 네온 20, 화이트 10이 기준입니다.
-
-소셜 채널과 시리즈별 아트워크처럼 사용자가 이미 "EO"라고 인식하는 맥락에서는 Day Blue와 Bay Green을 시리즈 구분색으로 더 자주 사용할 수 있습니다. 이때도 한 구성 안의 보조 색은 하나입니다.
+EO를 처음 만나는 오디언스와 핵심 접점에서는 Space Black 바탕, Air White 텍스트, Builder Neon 그래픽에 크게 의존합니다. 면적으로는 블랙 70, 네온 20, 화이트 10이 기준입니다. 소셜 채널이나 시리즈 아트워크처럼 이미 "EO"로 인식되는 맥락에서는 Day Blue · Bay Green을 시리즈 구분색으로 더 자주 쓸 수 있지만, 한 구성 안에서는 둘 중 하나만 사용합니다.
 ![color/usage-ratio]
 
 
-### Secondary Palette {layout=grid-3}
+### Color {layout=grid-3}
 #### In Use
-보조 팔레트가 실제로 사용된 몇 가지 예시입니다.
-![color/secondary-in-use-1] Episode One Tee
-![color/secondary-in-use-2] Sticker Pack
-![color/secondary-in-use-3] Series Thumbnail
+EO 팔레트가 실제로 사용된 예시입니다.
+![color/in-use-1] Poster
+![color/in-use-2] Hang Tag
+![color/in-use-3] Web Magazine
+![color/in-use-4] Episode One Tee
+![color/in-use-5] Sticker Pack
+![color/in-use-6] Series Thumbnail
 
 
 ### Color {layout=grid-3}
 #### Don'ts
-아래는 컬러로 절대 하지 말아야 할 몇 가지입니다. 최소 대비 요건에 대한 일반적인 지침은 WCAG를 참고하세요.
-![color/dont-1]{dont} Builder Neon을 본문 텍스트 색으로 사용하지 마세요
+EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트와 배경의 최소 대비는 WCAG 기준을 참고하세요.
+![color/dont-1]{dont} Builder Neon을 본문 텍스트나 밝은 바탕 위 텍스트로 사용하지 마세요
 ![color/dont-2]{dont} 그라데이션을 만들지 마세요
 ![color/dont-3]{dont} 팔레트 밖의 색을 추가하지 마세요
-![color/dont-4]{dont} 한 구성에 보조 색 두 가지를 함께 사용하지 마세요
-![color/dont-5]{dont} Builder Neon의 명도나 채도를 바꾸지 마세요
-![color/dont-6]{dont} Air White 바탕에 Builder Neon 텍스트를 사용하지 마세요
-![color/dont-7]{dont} 투명도를 낮춰 새로운 톤을 만들지 마세요
+![color/dont-4]{dont} 명도 · 채도 · 투명도를 바꿔 새로운 톤을 만들지 마세요
+![color/dont-5]{dont} 한 구성에 Day Blue와 Bay Green을 함께 사용하지 마세요
+![color/dont-6]{dont} Day Blue · Bay Green을 Builder Neon과 맞붙이지 마세요
+![color/dont-7]{dont} Medium Gray와 Solid Gray처럼 대비가 약한 조합을 쓰지 마세요
 ![color/dont-8]{dont} 사진에 컬러 오버레이를 씌우지 마세요
 ![color/dont-9]{dont} 그래픽 유닛 하나에 여러 색을 칠하지 마세요
 

@@ -231,7 +231,7 @@ The following image shows the EO Symbol in use as an app icon.
 
 
 ### Symbol {layout=grid-3}
-#### Don'ts
+#### + Don'ts
 To keep the EO Symbol consistent and impactful, it should never be reinterpreted, modified, or embellished. This page shows examples of modifications to avoid. When the company name needs to appear, use the EO Signature instead of the symbol. When a sub-brand needs to be identified, consult the EO Brand Team and create a service signature.
 
 

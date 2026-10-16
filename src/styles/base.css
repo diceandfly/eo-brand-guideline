@@ -816,10 +816,19 @@ html.js .main {
   border: var(--border-w) solid var(--border);
   background: var(--swatch-color);
 }
+.swatch__card {
+  --_fg: var(--swatch-panel-fg);
+  --_shade: var(--swatch-shade);
+}
+.swatch__card--light {
+  --_fg: var(--swatch-panel-fg-light); /* 밝은 색면: 검은 글자 */
+  --_shade: var(--swatch-shade-light);
+}
 .swatch__name {
-  font-weight: var(--t-ui-w-swatch);
+  font-weight: var(--t-body-w-swatch);
 }
 .swatch__panel {
+  cursor: default; /* 항목·메모 글자 위에서 텍스트 커서로 바뀌지 않게 (값은 손가락) */
   position: absolute;
   left: 0;
   right: 0;
@@ -839,29 +848,46 @@ html.js .main {
   background: linear-gradient(
     to bottom,
     transparent 0,
-    color-mix(in srgb, var(--swatch-shade) var(--swatch-shade-1), transparent) calc(var(--_f) * 0.25),
-    color-mix(in srgb, var(--swatch-shade) var(--swatch-shade-2), transparent) calc(var(--_f) * 0.5),
-    color-mix(in srgb, var(--swatch-shade) var(--swatch-shade-3), transparent) calc(var(--_f) * 0.75),
-    color-mix(in srgb, var(--swatch-shade) var(--swatch-shade-4), transparent) var(--_f),
-    var(--swatch-shade) 100%
+    color-mix(in srgb, var(--_shade) var(--swatch-shade-1), transparent) calc(var(--_f) * var(--swatch-shade-1-at)),
+    color-mix(in srgb, var(--_shade) var(--swatch-shade-2), transparent) calc(var(--_f) * var(--swatch-shade-2-at)),
+    color-mix(in srgb, var(--_shade) var(--swatch-shade-3), transparent) calc(var(--_f) * var(--swatch-shade-3-at)),
+    color-mix(in srgb, var(--_shade) var(--swatch-shade-4), transparent) calc(var(--_f) * var(--swatch-shade-4-at)),
+    var(--_shade) 100%
   );
+  /* 스펙 전체 축소: 글자 블록의 왼쪽 아래(패딩 안쪽 모서리)를 고정점으로. 패딩·줄 배치는 그대로, 보이는 크기만 줄어듦 */
+  scale: var(--swatch-panel-zoom);
+  transform-origin: calc(var(--_u) * var(--swatch-panel-pad-x)) calc(100% - var(--_u) * var(--swatch-panel-pad-y));
+  /* 호버 = 천천히 차오르는 디졸브. 나갈 때는 빠르게 (아래 :hover 규칙이 들어올 때 값을 씀) */
   opacity: 0;
-  transition: opacity var(--swatch-reveal-dur) var(--swatch-reveal-ease);
+  transform: translateY(var(--swatch-reveal-shift));
+  transition:
+    opacity var(--swatch-reveal-out-dur) var(--swatch-reveal-ease),
+    transform var(--swatch-reveal-out-dur) var(--swatch-reveal-ease);
 }
 .swatch:hover .swatch__panel,
 .swatch:focus-within .swatch__panel {
   opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--swatch-reveal-dur) var(--swatch-reveal-ease) var(--swatch-reveal-delay),
+    transform var(--swatch-reveal-dur) var(--swatch-reveal-ease) var(--swatch-reveal-delay);
 }
 @media (hover: none) {
   .swatch__panel {
     opacity: 1; /* 터치 기기: 처음부터 보임 */
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .swatch__panel {
+    transform: none;
   }
 }
 .swatch__row {
   display: contents; /* 항목·값이 패널 그리드의 칸에 바로 들어감 */
 }
 .swatch__label {
-  color: var(--swatch-panel-fg);
+  color: var(--_fg);
 }
 .swatch__value {
   margin: 0;
@@ -870,10 +896,23 @@ html.js .main {
   flex-wrap: wrap;
   align-items: baseline;
   column-gap: var(--swatch-val-gap);
-  color: var(--swatch-panel-fg);
+  color: var(--_fg);
 }
 .swatch__note {
-  color: var(--swatch-panel-fg);
+  color: var(--_fg);
+}
+/* 스펙 글자 크기 보정: 색면 위에서는 본문보다 작아 보여 살짝 키움. 행간은 본문 행간 × --swatch-panel-lh */
+.swatch__label,
+.swatch__value {
+  font-size: calc(var(--lh-unit) * var(--t-body-m) / var(--t-body-p) * var(--swatch-panel-scale));
+  line-height: calc(var(--lh-unit) * var(--t-body-m) * var(--swatch-panel-lh));
+}
+/* 밝은 색면의 검은 글자: 밝은 바탕이 글자 쪽으로 번져 보여(광삼) 같은 크기의 흰 글자보다 가늘고 성기게 보이므로,
+   위 보정에 더해 크기는 살짝 더 키우고 자간은 살짝 좁힘 */
+.swatch__card--light .swatch__label,
+.swatch__card--light .swatch__value {
+  font-size: calc(var(--lh-unit) * var(--t-body-m) / var(--t-body-p) * var(--swatch-panel-scale) * var(--swatch-panel-fg-light-scale));
+  letter-spacing: calc(var(--t-body-ls) + var(--swatch-panel-fg-light-ls));
 }
 /* 숫자 하나 = 복사 버튼. 호버하면 드래그 박스 색 하이라이트 + 위에 Copy */
 .swatch__val {
@@ -885,7 +924,7 @@ html.js .main {
   color: inherit;
   font: inherit;
   letter-spacing: inherit;
-  cursor: copy;
+  cursor: pointer; /* 맥 기본 링크 손가락 */
   transition:
     background var(--dur) var(--ease),
     color var(--dur) var(--ease);
@@ -904,7 +943,7 @@ html.js .main {
   z-index: 2;
   display: inline-flex;
   align-items: center;
-  gap: 0.4em;
+  justify-content: center;
   height: var(--swatch-tip-h);
   padding: 0 var(--swatch-tip-pad-x);
   border-radius: var(--swatch-tip-radius);
@@ -914,6 +953,8 @@ html.js .main {
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
+  scale: calc(1 / var(--swatch-panel-zoom)); /* 스펙 블록 축소(--swatch-panel-zoom)를 되돌려 알약은 원래 크기 */
+  transform-origin: 0 100%; /* 가로 = 값의 가운데(left 50% 지점), 세로 = 알약 아래 */
   transform: translate(-50%, 4px);
   transition:
     opacity var(--dur) var(--ease),
@@ -925,17 +966,17 @@ html.js .main {
   opacity: 1;
   transform: translate(-50%, 0);
 }
-.swatch__tip-icon {
-  width: var(--swatch-tip-icon);
-  height: var(--swatch-tip-icon);
+.swatch__tip-text {
+  margin-right: calc(var(--t-label-ls) * -1); /* 마지막 글자 뒤 자간만큼 되돌려 알약 안에서 정확히 가운데 */
+  translate: 0 var(--swatch-tip-text-dy); /* 대문자만 있어 위로 떠 보이는 것 보정 */
 }
-.swatch__tip-icon--done,
+.swatch__tip-text--copy {
+  translate: var(--swatch-tip-copy-nudge) var(--swatch-tip-text-dy); /* + 끝 글자 Y 의 오른쪽이 비어 보이는 착시 보정 */
+}
 .swatch__tip-text--done,
-.swatch__val.is-copied .swatch__tip-icon--copy,
 .swatch__val.is-copied .swatch__tip-text--copy {
   display: none;
 }
-.swatch__val.is-copied .swatch__tip-icon--done,
 .swatch__val.is-copied .swatch__tip-text--done {
   display: inline;
 }

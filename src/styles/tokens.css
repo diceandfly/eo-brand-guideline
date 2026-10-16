@@ -58,7 +58,7 @@
 
   /* 1-2 목차 · 목록 (스크롤 영역: 챕터 → 서브챕터 → 섹션) */
   --nav-chapter-gap: 0px; /* 챕터 ↔ 챕터 */
-  --nav-num-gap: 0.6em; /* 챕터 번호 ↔ 이름 (03 Overview). 컬러 카드 항목 ↔ 값도 이 값 */
+  --nav-num-gap: 0.6em; /* 챕터 번호 ↔ 이름 (03 Overview) */
   --nav-sub-pad-top: 0px; /* 챕터 ↔ 첫 서브챕터 */
   --nav-item-gap: 0px; /* 서브챕터 ↔ 서브챕터, 섹션 ↔ 섹션 */
   --nav-indent: 20px; /* 위계당 들여쓰기 (서브챕터, 섹션) */
@@ -117,7 +117,7 @@
   --badge-size: 16px; /* Do / Don't 아이콘 크기. 박스 없이 아이콘만, 캡션 줄 맨 앞 */
   --badge-gap: 10px; /* 아이콘 ↔ 캡션 문구 */
   --dodont-zoom-2: 1; /* Do/Don't 카드 안 배율 (grid-2). 1 = 그대로, 1.2 = 가운데 기준 1.2배 (가장자리 잘림) */
-  --dodont-zoom-3: 1; /* grid-3 */
+  --dodont-zoom-3: 1.6; /* grid-3 */
   --dodont-zoom-4: 1; /* grid-4 */
   --strike-inset: 0.125; /* Don't 대각선 끝점: 영역 높이 × 값만큼 네 변에서 안쪽 (1/8) */
   --strike-w: 0.007; /* Don't 대각선 굵기 = 영역 높이 × 값. px 고정 없이 화면 크기에 비례 */
@@ -125,17 +125,21 @@
   /* 1-7 컬러 카드 — 스펙 글자는 본문 스타일. pad·fade·row-gap 은 행간 단위(--lh-unit) × 값 */
   --swatch-gap: 12px; /* 색면 ↔ 이름 */
   --swatch-min-w: 200px; /* 카드 최소 폭. 화면이 좁아 이보다 작아지면 한 줄의 카드 수가 줄어듦 */
-  --swatch-panel-pad-x: 1; /* 스펙 좌우 여백 */
-  --swatch-panel-pad-y: 1; /* 스펙 아래 여백 */
+  --swatch-panel-pad-x: 1.09; /* 스펙 좌우 여백 (행간 단위 × 값). 하단은 행간 아래 여백이 더해져 눈으로 더 넓어 보이므로 1보다 살짝 크게 */
+  --swatch-panel-pad-y: 0.93; /* 스펙 아래 여백 (행간 단위 × 값, 0.93 ≈ 14px). 위쪽은 fade 구간 + 이 값 */
+  --swatch-panel-scale: 1.06; /* 스펙 글자(항목·값) 크기 보정. 1 = 본문 크기. 행간은 유지 */
+  --swatch-panel-lh: 1; /* 스펙 줄 간격 = 본문 행간 × 값 (1 = 본문과 같음) */
+  --swatch-panel-zoom: 0.92; /* 스펙 블록 전체 배율. 왼쪽 아래 모서리 기준으로 축소 (1 = 그대로) */
   --swatch-panel-fade: 8; /* 그라데이션이 서서히 진해지는 구간 높이 (스펙 위쪽) */
   --swatch-row-gap: 0; /* 행 ↔ 행 추가 간격. 0 = 본문 줄처럼 붙음 */
-  --swatch-label-gap: var(--nav-num-gap); /* 항목 ↔ 값. 값은 가장 긴 항목 기준으로 정렬 */
+  --swatch-label-gap: 1.4em; /* 항목 ↔ 값. 값은 가장 긴 항목 기준으로 정렬 */
   --swatch-val-gap: 0.45em; /* 숫자 ↔ 숫자 (CMYK, RGB) */
   --swatch-val-pad-x: 0.12em; /* 숫자 호버 하이라이트의 좌우 여유 */
   --swatch-tip-h: 24px; /* Copy 버튼 높이 */
   --swatch-tip-pad-x: 10px; /* Copy 버튼 좌우 패딩 */
+  --swatch-tip-copy-nudge: 0.8px; /* COPY 글자를 오른쪽으로 옮기는 시각 보정. 끝 글자 Y 가 오른쪽을 비어 보이게 함. 0 = 기하 중앙 */
+  --swatch-tip-text-dy: 0.4px; /* 알약 안 글자(COPY · COPIED)를 아래로 내리는 시각 보정 */
   --swatch-tip-gap: 6px; /* 숫자 ↔ Copy 버튼 (숫자 위에 뜸) */
-  --swatch-tip-icon: 12px; /* Copy 버튼 아이콘 크기 */
   --swatch-tip-radius: 999px; /* Copy 버튼 라운드. 999px = 알약 */
 
   /* 1-8 이미지 확대 보기 (라이트박스) */
@@ -199,6 +203,7 @@
   --t-body-p: 1.5;
   --t-body-ls: -0em;
   --t-body-w: 300;
+  --t-body-w-swatch: var(--t-body-w); /* 컬러 카드 이름. 본문과 같은 웨이트 */
   --t-body-c: var(--fg);
   --t-body-para-gap: 0.75; /* 문단 ↔ 문단 (엔터 두 번) = 본문 행간 × 값. 1 = 빈 줄 한 행 */
   /* 본문 **강조** — 웨이트 대신 언더라인으로 구분 */
@@ -219,12 +224,11 @@
   --t-body-ko-baseline: 0.02em; /* 베이스라인 보정, 양수 = 위로 (R6: +5pt) */
   --t-body-ko-break: keep-all; /* 줄바꿈 단위. keep-all = 어절, normal = 글자 */
 
-  /* ui — 목차, 검색창, 컬러 카드 이름. 크기·자간·색은 공통, 웨이트는 아래 용도별로 */
+  /* ui — 목차, 검색창. 크기·자간·색은 공통, 웨이트는 아래 용도별로 */
   --t-ui-m: 2;
-  --t-ui-p: 1.5;
+  --t-ui-p: 1.6;
   --t-ui-ls: -0.01em;
   --t-ui-w: 300; /* 기본 */
-  --t-ui-w-swatch: 500; /* 컬러 카드 이름 */
   --t-ui-c: var(--fg);
 
   /* ui · 목차 — 위계별 웨이트 */
@@ -256,7 +260,7 @@
   --c-day-blue: #6ec6d2;
   --c-bay-green: #66b88a;
   --c-medium-gray: #8e8e8e;
-  --c-solid-gray: #202020;
+  --c-solid-gray: #2a2b2b;
   --c-space-black: #000000;
   --c-air-white: #fcfbf5;
 
@@ -273,8 +277,8 @@
        3-10 텍스트 선택 영역 (드래그) */
 
   /* 3-1 배경 */
-  --bg: var(--c-solid-gray); /* 본문 영역 */
-  --bg-sidebar: var(--c-solid-gray); /* 목차 */
+  --bg: color-mix(in srgb, var(--c-solid-gray), var(--c-space-black) 24%); /* 본문 영역. Solid Gray 를 조금 어둡게 = 기존 사이트 배경(#202020 근사) */
+  --bg-sidebar: var(--bg); /* 목차 */
   --sidebar-border: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 0%); /* 목차 우측선. 0% = 안 보임 */
   --bg-topbar: var(--c-space-black); /* 모바일 상단 바 */
 
@@ -316,14 +320,23 @@
   --strike: var(--c-dont); /* Don't 대각선 */
 
   /* 3-8 컬러 카드 — 위에서 아래로 서서히 진해지는 그늘 위에 흰 글자 */
-  --swatch-shade: color-mix(in srgb, var(--c-space-black), transparent 45%); /* 스펙 뒤 그늘의 최대 진하기 */
-  /* 그늘의 모양: fade 구간(1-7 --swatch-panel-fade)을 4등분한 지점마다 최대 진하기의 몇 % 인지.
-     위에서 0 → 1 → 2 → 3 → 4 → (스펙 뒤) 100%. 앞 숫자를 작게 둘수록 위쪽이 오래 투명하다가 아래에서 빠르게 진해짐 */
-  --swatch-shade-1: 8%; /* fade 1/4 지점 */
-  --swatch-shade-2: 28%; /* 1/2 지점 */
-  --swatch-shade-3: 60%; /* 3/4 지점 */
-  --swatch-shade-4: 88%; /* fade 끝 = 스펙 시작 */
+  --swatch-shade: transparent; /* 어두운 색면의 그늘 최대 진하기. 글자색 자동 선택으로 지금은 없음 (되살리려면 예: color-mix(in srgb, var(--c-space-black), transparent 80%)) */
+  /* 그늘의 모양: 지점 1~4 마다 위치(-at)와 진하기(최대 진하기 --swatch-shade 의 %)를 정함.
+     위에서 투명 → 1 → 2 → 3 → 4 → (스펙 뒤) 최대 진하기. 위치는 위에서 아래로 커지는 순서를 지킬 것.
+     -at 은 fade 구간(1-7 --swatch-panel-fade) 기준 비율: 0 = 패널 맨 위, 1 = fade 끝(스펙이 시작되는 줄) */
+  --swatch-shade-1-at: 0.1; /* 지점 1 위치: fade 구간 안 0(맨 위) ~ 1(fade 끝) */
+  --swatch-shade-1: 5%; /* 지점 1 진하기 (최대 진하기 대비) */
+  --swatch-shade-2-at: 0.2; /* 지점 2 위치: fade 구간 안 0(맨 위) ~ 1(fade 끝) */
+  --swatch-shade-2: 10%; /* 지점 2 진하기 (최대 진하기 대비) */
+  --swatch-shade-3-at: 0.4; /* 지점 3 위치: fade 구간 안 0(맨 위) ~ 1(fade 끝) */
+  --swatch-shade-3: 25%; /* 지점 3 진하기 (최대 진하기 대비) */
+  --swatch-shade-4-at: .7; /* 지점 4 위치: fade 구간 안 0(맨 위) ~ 1(fade 끝) */
+  --swatch-shade-4: 20%; /* 지점 4 진하기 (최대 진하기 대비) */
   --swatch-panel-fg: var(--c-air-white); /* 스펙 글자 (항목·값·메모 모두) */
+  --swatch-panel-fg-light: var(--c-space-black); /* 밝은 색면(검은 글자 대비가 더 높은 카드)의 스펙 글자. 색면 밝기로 자동 선택 */
+  --swatch-panel-fg-light-scale: 1.05; /* 밝은 색면 글자 크기 보정 (1 = 그대로). 행간은 유지 */
+  --swatch-panel-fg-light-ls: -0.0075em; /* 밝은 색면 글자 자간 보정 (-0.0075em = -0.75%, 좁힘) */
+  --swatch-shade-light: transparent; /* 밝은 색면의 그늘 최대 진하기 (지점 1~4 비율은 공통). 옅은 흰 막: color-mix(in srgb, var(--c-air-white), transparent 70%) */
   --swatch-val-hover-bg: var(--selection-bg); /* 숫자 호버 = 드래그 박스(3-10)와 같은 색 */
   --swatch-val-hover-fg: var(--selection-fg);
   --swatch-tip-bg: var(--c-space-black); /* Copy 버튼 */
@@ -344,7 +357,7 @@
   --ratio-wide: 16 / 9; /* wide 전폭 이미지 */
   --ratio-card: 4 / 3; /* grid-2/3/4 카드 이미지 */
   --ratio-dodont: 4 / 3; /* Do/Don't 시리즈 (섹션 이미지가 모두 do/dont 일 때). 원본 16:9 의 가운데가 보임 */
-  --ratio-swatch: 2 / 3; /* 컬러 카드 */
+  --ratio-swatch: 2 / 2.4; /* 컬러 카드 */
 
   /* ------------------------------------------------------------------
      5. MOTION
@@ -375,8 +388,11 @@
   --anchor-ease: var(--ease-inout); /* 섹션 이동 곡선 (GSAP 이름 또는 cubic-bezier) */
 
   /* 컬러 카드 */
-  --swatch-reveal-dur: 180ms; /* 호버하면 스펙이 나타나는 디졸브 시간 */
-  --swatch-reveal-ease: var(--ease); /* 기본은 공통 곡선 */
+  --swatch-reveal-dur: 420ms; /* 호버하면 스펙이 차오르는 디졸브 시간 */
+  --swatch-reveal-out-dur: 180ms; /* 호버를 벗어나면 사라지는 시간 (들어올 때보다 짧게) */
+  --swatch-reveal-delay: 40ms; /* 마우스가 스치기만 할 때 깜빡이지 않도록 아주 짧게 기다림 */
+  --swatch-reveal-shift: 0px; /* 떠오르는 거리. 0 = 디졸브만 (예: 4px 이면 아래에서 살짝 떠오름) */
+  --swatch-reveal-ease: cubic-bezier(0.25, 0.1, 0.25, 1); /* 부드러운 기본 ease (CSS ease 와 같은 곡선) */
   --swatch-copied-dur: 1200ms; /* 복사 후 Copied 표시가 남는 시간 */
 
   /* 이미지 확대 보기 (라이트박스) */
