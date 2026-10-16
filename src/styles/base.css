@@ -842,7 +842,8 @@ html.js .main {
   column-gap: var(--swatch-label-gap);
   row-gap: calc(var(--_u) * var(--swatch-row-gap));
   align-items: baseline;
-  /* 그늘: 위에서부터 fade 구간 동안 서서히(ease) 진해지고, 스펙 뒤에서 최대 진하기.
+  /* 그늘 (지금은 --swatch-shade · -light 가 transparent 라 꺼짐. 값을 넣으면 되살아남):
+     위에서부터 fade 구간 동안 서서히(ease) 진해지고, 스펙 뒤에서 최대 진하기.
      위치를 행간 단위의 절대값으로 재므로 카드 크기·열 수와 무관하게 같게 보이고, 스펙 행이 늘면 그만큼만 길어짐 */
   --_f: calc(var(--_u) * var(--swatch-panel-fade));
   background: linear-gradient(

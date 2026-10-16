@@ -16,22 +16,22 @@ npm run dev
 ```
 content/guide.en.md       ← 영어판. 모든 글과 이미지 배치 (문법은 파일 상단 주석)
 content/guide.ko.md       ← 한국어판. 같은 문법
-public/assets/<챕터>/<서브챕터>/ ← 이미지. 파일명 <주제 번호>-<이름>, guide.md 의 ![이름] 과 1:1 대응
+public/assets/<챕터>/<서브챕터>/ ← 이미지. 파일명 <주제 번호>-<이름>, guide.<lang>.md 의 ![이름] 과 1:1 대응
 scripts/assets.mjs        ← 이미지 폴더 정리 (npm run assets)
 public/fonts/             ← Founders Grotesk woff2 (저장소에 커밋되지 않음)
 src/styles/tokens.css     ← 마진·거터·타이포·컬러·비율 토큰. 디자인 튜닝은 여기서만
 src/styles/base.css       ← 토큰을 참조하는 레이아웃 CSS
 src/styles/fonts.css      ← @font-face 선언 (파일명 매핑)
-src/components/           ← Section / Figure / Swatch / Sidebar / Logo
+src/components/           ← Section / Figure / Swatch · SwatchVal / Sidebar / Search / Logo
 src/layouts/Layout.astro  ← 페이지 셸 (목차 + 본문 + 모바일 드로어)
 src/pages/                ← 라우팅. 건드릴 일 거의 없음
-src/lib/guide.ts          ← guide.md 파서
+src/lib/guide.ts          ← guide.<lang>.md 파서
 docs/                     ← 이 문서
 ```
 
 ## 3. 이미지 넣기
 
-1. `guide.md` 에서 `![construction]` 처럼 파일 이름만 씁니다.
+1. `guide.ko.md`(국문이 기준) 에서 `![construction]` 처럼 파일 이름만 씁니다.
 2. 플레이스홀더 박스에 적힌 경로에 파일을 넣습니다: `public/assets/02-logo/01-symbol/03-construction.png`
    - 폴더는 `<챕터>/<서브챕터>` 2단이고, 파일명 앞 번호는 그 이미지가 속한 주제의 순서입니다. 주제는 목차에 보이는 항목 이름입니다(헤드, 헤드가 페이지 이름과 같으면 서브헤드). 그래서 탐색기에서 파일이 페이지 순서대로 정렬됩니다.
    - 번호 없이 이름만 붙여 넣어도(`construction.png`) 화면에 나오고, `npm run assets` 가 번호를 붙여 줍니다.
@@ -90,8 +90,8 @@ npm run import                      # 서브챕터 목록 보기
 
 국문 나열은 앞뒤를 띄운 가운뎃점(` · `)으로 씁니다. 점 앞 공백은 빌드할 때 줄바꿈 없는 공백으로 바뀌어, 줄이 점으로 시작하지 않습니다(점은 앞 단어에 붙고 뒤에서만 줄바꿈). 앞뒤를 띄운 슬래시(` / `, 예: `7L / 87.5%`)도 같은 방식으로 처리됩니다. 숫자 사이는 "2배 또는 3배"처럼 말로 풉니다.
 
-guide.md 의 빈 줄은 구조를 눈으로 구분하기 위한 약속입니다: 섹션(`###`) 앞 2줄, 서브챕터(`##`) 앞 3줄, 챕터(`#`) 앞 4줄, 헤드 바로 아래 첫 하위 헤드 앞과 문단 사이는 1줄. 화면 결과에는 영향이 없습니다.
+guide.<lang>.md 의 빈 줄은 구조를 눈으로 구분하기 위한 약속입니다: 섹션(`###`) 앞 2줄, 서브챕터(`##`) 앞 3줄, 챕터(`#`) 앞 4줄, 헤드 바로 아래 첫 하위 헤드 앞과 문단 사이는 1줄. 화면 결과에는 영향이 없습니다.
 
 ## 7. 클로드코드로 편집할 때
 
-프로젝트 루트의 `CLAUDE.md` 에 위 규칙이 요약되어 있어 클로드코드가 자동으로 읽습니다. "Logo 챕터에 Favicon 섹션 추가해 줘", "섹션 간격을 조금 줄여 줘" 처럼 말하면 각각 `guide.md` 와 `tokens.css` 만 수정합니다.
+프로젝트 루트의 `CLAUDE.md` 에 위 규칙이 요약되어 있어 클로드코드가 자동으로 읽습니다. "Logo 챕터에 Favicon 섹션 추가해 줘", "섹션 간격을 조금 줄여 줘" 처럼 말하면 각각 `guide.ko.md`(영문은 지시가 있을 때) 와 `tokens.css` 만 수정합니다.

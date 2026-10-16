@@ -105,7 +105,7 @@ EO, the EO monogram, the Block symbol, “Build Anyway”, “Even the Odds”, 
 ### Logo
 #### + Overview
 The EO logo is the umbrella term for every mark covered in this chapter: the EO Symbol, the EO Signature, the Service Signatures, and the EO Sub Symbol.
-![logo/hero]
+![logo/hero]{zoom=1.25}
 
 
 ### Symbol

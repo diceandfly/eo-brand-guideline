@@ -1,8 +1,8 @@
 /**
- * content/guide.md 를 파싱해 챕터 > 서브챕터 > 섹션 트리를 만듭니다.
+ * content/guide.<lang>.md (en, ko) 를 파싱해 챕터 > 서브챕터 > 섹션 트리를 만듭니다.
  * 빌드(또는 dev 서버) 시점에 Node 에서만 실행됩니다.
  *
- * 문법은 content/guide.md 상단 튜토리얼 주석을 참고하세요.
+ * 문법은 content/guide.ko.md 상단 튜토리얼 주석을 참고하세요 (국문이 최종 기준).
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -12,7 +12,7 @@ export type Layout = 'basic' | 'text' | 'wide' | 'half' | 'grid-2' | 'grid-3' | 
 
 export interface ImageItem {
   kind: 'image';
-  token: string;          // guide.md 에 쓴 그대로. 예: clearspace (예전 형식 logo/clearspace 도 허용)
+  token: string;          // guide.<lang>.md 에 쓴 그대로. 예: clearspace (예전 형식 logo/clearspace 도 허용)
   name: string;           // 파일 이름(확장자 제외). 토큰의 마지막 / 뒤. 서브챕터 폴더 안에서 이 이름으로 찾음
   path: string;           // 넣을 자리: 02-logo/01-symbol/04-clearspace (확장자 제외, 플레이스홀더에 표시. 앞 번호 = 주제 순서)
   src: string | null;     // 파일이 있으면 /assets/… 경로, 없으면 null(플레이스홀더)
@@ -182,7 +182,7 @@ export function wrapKo(html: string): string {
 }
 
 /**
- * 곧은 따옴표를 둥근 따옴표로 (표시용). guide.md 에는 " 와 ' 로 쓰고, 화면에는 “ ” ‘ ’ 로 나옵니다.
+ * 곧은 따옴표를 둥근 따옴표로 (표시용). guide.<lang>.md 에는 " 와 ' 로 쓰고, 화면에는 “ ” ‘ ’ 로 나옵니다.
  * 앞 글자가 공백·줄 시작·여는 괄호면 여는 따옴표, 아니면 닫는 따옴표. 글자 사이의 ' 는 아포스트로피(’).
  * 태그 안(속성)과 <code>·<pre> 안은 건드리지 않습니다. 이미 둥근 따옴표로 쓴 글자는 그대로 둡니다.
  * 나열의 " · " 와 짝 표기의 " / " 는 앞 공백을 줄바꿈 없는 공백으로 바꿔, 줄이 기호로 시작하지 않게 합니다 (기호는 앞 단어에 붙고 뒤에서만 줄바꿈).
