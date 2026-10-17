@@ -118,6 +118,32 @@ export function scrollToId(id: string, animate = true) {
 }
 (window as any).__scrollToId = scrollToId;
 
+/* ---------- 1.2 목차 목록의 휠 스크롤 ----------
+   목차는 스무스 스크롤 영역 밖(고정)이라 브라우저 기본 스크롤입니다. 마우스 휠의 끊기는 칸 단위 이동만
+   본문과 같은 감속으로 목표 위치까지 따라가게 하고, 트랙패드(이미 관성이 있음)는 기본 스크롤 그대로 둡니다. */
+const navScroller = document.querySelector<HTMLElement>('[data-nav-scroll]');
+const navSmooth = reduced ? 0 : ms('--nav-scroll-smooth', 0);
+if (navScroller && navSmooth > 0) {
+  let target = navScroller.scrollTop;
+  let tweening = false;
+  // 휠 판별: 줄·페이지 단위로 오거나, 가로 성분 없이 큰 정수 단위로 오면 마우스 휠. 트랙패드는 작은 소수 단위로 촘촘히 옴
+  const isWheel = (e: WheelEvent) => e.deltaMode !== 0 || (e.deltaX === 0 && Number.isInteger(e.deltaY) && Math.abs(e.deltaY) >= 40);
+  navScroller.addEventListener('wheel', e => {
+    if (e.ctrlKey || !isWheel(e)) { if (tweening) { gsap.killTweensOf(navScroller); tweening = false; } return; }   // 트랙패드·확대 제스처
+    const max = navScroller.scrollHeight - navScroller.clientHeight;
+    if (max <= 0) return;
+    e.preventDefault();
+    if (!tweening) target = navScroller.scrollTop;                // 다른 방법으로 움직인 뒤라면 현재 위치에서 출발
+    const step = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaMode === 2 ? e.deltaY * navScroller.clientHeight : e.deltaY;
+    target = Math.max(0, Math.min(max, target + step));
+    tweening = true;
+    gsap.to(navScroller, {
+      scrollTop: target, duration: navSmooth, ease: 'expo.out', overwrite: true,
+      onComplete: () => { tweening = false; },
+    });
+  }, { passive: false });
+}
+
 /* ---------- 1.5 페이지 전환 (나갈 때) ----------
    들어올 때의 디졸브는 CSS(base.css page-in)가 맡고, 여기서는 다른 페이지로 가는 링크를 누르면
    본문을 먼저 사라지게 한 뒤 이동합니다. 새 탭·수정키·외부 링크·#앵커는 건드리지 않습니다. */
