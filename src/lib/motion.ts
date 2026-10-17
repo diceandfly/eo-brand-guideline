@@ -126,16 +126,38 @@ const navSmooth = reduced ? 0 : ms('--nav-scroll-smooth', 0);
 if (navScroller && navSmooth > 0) {
   let target = navScroller.scrollTop;
   let tweening = false;
-  // 휠 판별: 줄·페이지 단위로 오거나, 가로 성분 없이 큰 정수 단위로 오면 마우스 휠. 트랙패드는 작은 소수 단위로 촘촘히 옴
-  const isWheel = (e: WheelEvent) => e.deltaMode !== 0 || (e.deltaX === 0 && Number.isInteger(e.deltaY) && Math.abs(e.deltaY) >= 40);
+  // 휠 판별
+  //  1) 크롬·사파리: wheelDeltaY 가 120 단위(±120, 240…)면 마우스 휠, 그 밖의 작은 값이면 트랙패드
+  //     (맥에서는 마우스 휠도 deltaY 가 4.0002 처럼 소수로 와서 deltaY 만으로는 구분이 안 됨)
+  //  2) 파이어폭스: 휠은 줄 단위(deltaMode 1)로 옴
+  //  3) 둘 다 없으면: 가로 성분 없이 큰 단위(40px 이상)로 오면 휠
+  const legacyOf = (e: WheelEvent) => (e as WheelEvent & { wheelDeltaY?: number }).wheelDeltaY;
+  const isWheel = (e: WheelEvent) => {
+    const legacy = legacyOf(e);
+    if (e.deltaMode !== 0) return true;
+    if (typeof legacy === 'number' && legacy !== 0) return legacy % 120 === 0;
+    return e.deltaX === 0 && Math.abs(e.deltaY) >= 40;
+  };
+  // 휠 한 칸 이동 거리. 맥은 휠 한 칸의 deltaY 가 4px 처럼 작게 와서, 칸 수(120 단위)로 세어 토큰 거리만큼 움직임
+  const stepPx = num('--nav-wheel-step', 80);
+  const stepOf = (e: WheelEvent) => {
+    const legacy = legacyOf(e);
+    if (e.deltaMode === 1) return e.deltaY * stepPx / 3;                    // 파이어폭스: 보통 한 칸 = 3줄
+    if (e.deltaMode === 2) return e.deltaY * navScroller.clientHeight;
+    if (typeof legacy === 'number' && legacy !== 0 && legacy % 120 === 0) return Math.sign(e.deltaY) * (Math.abs(legacy) / 120) * stepPx;   // 방향은 deltaY, 칸 수는 wheelDeltaY
+    return e.deltaY;
+  };
+  // 확인 모드: 브라우저 콘솔에서 localStorage.guideWheelDebug = '1' 후 새로고침하면 휠 값이 콘솔에 찍힘
+  let debug = false;
+  try { debug = localStorage.getItem('guideWheelDebug') === '1'; } catch {}
   navScroller.addEventListener('wheel', e => {
+    if (debug) console.log('[nav wheel]', { deltaY: e.deltaY, deltaMode: e.deltaMode, wheelDeltaY: legacyOf(e), wheel: isWheel(e), step: stepOf(e) });
     if (e.ctrlKey || !isWheel(e)) { if (tweening) { gsap.killTweensOf(navScroller); tweening = false; } return; }   // 트랙패드·확대 제스처
     const max = navScroller.scrollHeight - navScroller.clientHeight;
     if (max <= 0) return;
     e.preventDefault();
     if (!tweening) target = navScroller.scrollTop;                // 다른 방법으로 움직인 뒤라면 현재 위치에서 출발
-    const step = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaMode === 2 ? e.deltaY * navScroller.clientHeight : e.deltaY;
-    target = Math.max(0, Math.min(max, target + step));
+    target = Math.max(0, Math.min(max, target + stepOf(e)));
     tweening = true;
     gsap.to(navScroller, {
       scrollTop: target, duration: navSmooth, ease: 'expo.out', overwrite: true,
