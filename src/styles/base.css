@@ -698,6 +698,7 @@ html.js .main {
   inset: 0;
   background: var(--img-border);
   pointer-events: none;
+  transition: background var(--img-border-hover-dur);
   /* 챔퍼를 따라가는 테두리: 바깥 다각형(시계 방향) 안에 안쪽 다각형(반시계 방향)을 넣은 띠.
      polygon() 은 서브패스가 없으므로 바깥 첫 점(챔퍼 끝)으로 되돌아온 뒤 바로 옆의 안쪽 첫 점으로 들어가고,
      안쪽을 한 바퀴 돈 뒤 같은 점으로 나옵니다(키홀). 들어가고 나오는 선분이 겹쳐 폭이 0 이라 보이지 않습니다.
@@ -718,6 +719,10 @@ html.js .main {
     calc(100% - var(--_bw)) var(--_bw),
     calc(var(--_bw) + var(--_bc)) var(--_bw)
   );
+}
+/* 확대 가능한 이미지(플레이스홀더 제외)에 마우스를 올리면 테두리 색만 바뀜. 두께 · 크기는 그대로 */
+.fig__frame:has(> img:hover)::after {
+  background: var(--img-border-hover);
 }
 /* 카드 안 배율: 가운데를 기준으로 이미지를 키우고 가장자리는 프레임 밖으로 잘림. 확대 보기에서는 원본 그대로.
    값은 {zoom=1.2} (이미지별) > Do/Don't 그리드 기본값(--dodont-zoom-N) > 1 순서로 정해짐 */
