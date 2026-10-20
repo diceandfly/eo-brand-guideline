@@ -28,13 +28,13 @@ if (!isGrid && s.items.length > stacked.length) console.warn(`[guide] "${s.head}
     {s.bodyHtml && <div class="sec__body t-body" set:html={s.bodyHtml} />}
   </div>
 
-  {!isGrid && stacked.map(it => (
+  {!isGrid && stacked.length > 0 && (
     <div class="sec__media">
-      {it.kind === 'image'
+      {stacked.map(it => it.kind === 'image'
         ? <Figure item={it} ratio={ratio} zoom={s.zoom} label={s.subhead ?? s.head} />
-        : <Swatch item={it} ratio={s.ratio} />}
+        : <Swatch item={it} ratio={s.ratio} />)}
     </div>
-  ))}
+  )}
 
   {isGrid && (
     <div class:list={['sec__grid', { 'sec__grid--swatch': s.items.some(it => it.kind === 'swatch') }]} style={`--n: ${n}`} data-n={n}>

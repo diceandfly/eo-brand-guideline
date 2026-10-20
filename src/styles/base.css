@@ -605,10 +605,8 @@ html.js .main {
   grid-column: 1 / span var(--sec-media-cols);
 }
 .sec--wide .sec__media {
-  grid-row: auto; /* 여러 장이면 텍스트 아래로 차례로 쌓임 */
-}
-.sec--wide .sec__media + .sec__media {
-  margin-top: var(--sec-wide-stack-gap);
+  display: grid; /* 여러 장이면 한 슬롯 안에서 세로로 쌓임 — 텍스트 ↔ 이미지(--sec-row-gap)와 별개의 간격 */
+  row-gap: var(--sec-wide-stack-gap);
 }
 
 .sec__grid {
