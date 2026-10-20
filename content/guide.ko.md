@@ -267,7 +267,7 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 ![dont-5]{dont} E의 스레드 수나 O의 각도, 블록 간격이 달라진 상태(로고 애니메이션 캡처 등)를 사용하지 마세요
 ![dont-6]{dont} 심볼에 글로우 · 그림자 · 그라데이션 등 시각효과를 적용하지 마세요
 ![dont-7]{dont} 배치할 공간의 대부분을 차지할만큼 과도하게 큰 사이즈를 적용하지 마세요
-![dont-8]{dont} 심볼을 사진이나 패턴의 마스크로 사용하거나 승인되지 않은 컬러를 사용하지 마세요ㄹㄹ
+![dont-8]{dont} 심볼을 사진이나 패턴의 마스크로 사용하거나 승인되지 않은 컬러를 사용하지 마세요
 ![dont-9]{dont} 심볼 주변에 임의의 맥락을 추가하지 마세요
 
 
@@ -694,7 +694,7 @@ Day Blue와 Bay Green은 샌프란시스코의 푸른 하늘과 청량한 공기
 
 ### Color {layout=grid-3}
 #### Pairings
-승인된 페어링은 아래 여덟 가지입니다. 텍스트는 Air White 또는 Space Black을 기본으로 하고, Builder Neon과 Day Blue · Bay Green은 면과 그래픽 유닛에 사용합니다. Day Blue와 Bay Green은 Space Black과만 짝을 이룹니다.
+승인된 페어링은 아래 여덟 가지입니다. 텍스트는 Air White 또는 Space Black을 기본으로 하고, Builder Neon과 Day Blue · Bay Green은 면과 그래픽 유닛에 사용합니다.
 ![color/pairing-1] Air White on Space Black
 ![color/pairing-2] Space Black on Air White
 ![color/pairing-3] Space Black on Builder Neon
@@ -707,7 +707,7 @@ Day Blue와 Bay Green은 샌프란시스코의 푸른 하늘과 청량한 공기
 
 ### Color
 #### Usage Ratio
-EO를 처음 만나는 오디언스와 핵심 접점에서는 Space Black 바탕, Air White 텍스트, Builder Neon 그래픽에 크게 의존합니다. 면적으로는 블랙 70, 네온 20, 화이트 10이 기준입니다. 소셜 채널이나 시리즈 아트워크처럼 이미 "EO"로 인식되는 맥락에서는 Day Blue · Bay Green을 시리즈 구분색으로 더 자주 쓸 수 있지만, 한 구성 안에서는 둘 중 하나만 사용합니다.
+EO를 처음 만나는 오디언스와 핵심 접점에서는 Space Black 바탕, Air White 텍스트, Builder Neon 그래픽에 크게 의존합니다. 면적으로는 블랙 70, 네온 20, 화이트 10이 기준입니다. 소셜 채널이나 시리즈 아트워크처럼 이미 "EO"로 인식되는 맥락에서는 Day Blue · Bay Green을 시리즈 구분색으로 더 자주 쓸 수 있습니다.
 ![color/usage-ratio]
 
 
@@ -729,11 +729,9 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 ![color/dont-2]{dont} 그라데이션을 만들지 마세요
 ![color/dont-3]{dont} 팔레트 밖의 색을 추가하지 마세요
 ![color/dont-4]{dont} 명도 · 채도 · 투명도를 바꿔 새로운 톤을 만들지 마세요
-![color/dont-5]{dont} 한 구성에 Day Blue와 Bay Green을 함께 사용하지 마세요
-![color/dont-6]{dont} Day Blue · Bay Green을 Builder Neon과 맞붙이지 마세요
-![color/dont-7]{dont} Medium Gray와 Solid Gray처럼 대비가 약한 조합을 쓰지 마세요
-![color/dont-8]{dont} 사진에 컬러 오버레이를 씌우지 마세요
-![color/dont-9]{dont} 그래픽 유닛 하나에 여러 색을 칠하지 마세요
+![color/dont-5]{dont} Medium Gray와 Solid Gray처럼 대비가 약한 조합을 쓰지 마세요
+![color/dont-6]{dont} 사진에 컬러 오버레이를 씌우지 마세요
+![color/dont-7]{dont} 그래픽 유닛 하나에 여러 색을 칠하지 마세요
 
 
 
@@ -799,7 +797,7 @@ threads · compression · shaft size · thread width를 조합해 성격이 다�
 
 
 ### Color Application {layout=grid-2}
-유닛 하나는 단색입니다. 배경과 유닛 사이의 대비가 핵심이며, 여러 유닛을 나란히 놓을 때는 Medium Gray · Builder Neon · Air White처럼 명도 차가 뚜렷한 조합으로 깊이를 만듭니다. 한 구성 안에서는 핵심 팔레트 하나와 보조 색 하나까지만 조합합니다.
+유닛 하나는 단색입니다. 바탕은 Space Black 또는 Solid Gray를 기본으로 하고, 유닛에는 Builder Neon · Day Blue · Bay Green · Medium Gray · Air White를 씁니다. 배경과 유닛 사이의 대비가 핵심이며, 여러 유닛을 나란히 놓을 때는 명도 차가 뚜렷한 색끼리 짝지어 깊이를 만듭니다. 패턴 라이브러리의 색 조합을 그대로 쓰는 것이 기본이고, 새 조합은 EO 브랜드팀의 승인을 거칩니다.
 ![visual/unit-color-1] Builder Neon on Space Black
 ![visual/unit-color-2] Medium Gray · Builder Neon · Air White on Solid Gray
 
@@ -829,10 +827,10 @@ threads · compression · shaft size · thread width를 조합해 성격이 다�
 ![visual/pattern-06] 06 / team
 ![visual/pattern-07] 07 / backing
 ![visual/pattern-08] 08 / teamwork
-![visual/pattern-09] 09 / teamwork
+![visual/pattern-09] 09 / co-working
 ![visual/pattern-10] 10 / rallying
 ![visual/pattern-11] 11 / conviction
-![visual/pattern-12] 12 / community
+![visual/pattern-12] 12 / resonance
 ![visual/pattern-13] 13 / advantage
 ![visual/pattern-14] 14 / disadvantage
 ![visual/pattern-15] 15 / cycle
@@ -850,7 +848,7 @@ threads · compression · shaft size · thread width를 조합해 성격이 다�
 ![visual/pattern-27] 27 / problem
 ![visual/pattern-28] 28 / adventure
 ![visual/pattern-29] 29 / nature
-![visual/pattern-30] 30 / bang!
+![visual/pattern-30] 30 / boom
 
 
 ### + Composition {layout=grid-3}
