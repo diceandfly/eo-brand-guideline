@@ -5,6 +5,7 @@
  * caption 이 있으면 이미지 아래 캡션 (카드). 배지만 있고 캡션이 없으면 "Do" / "Don't" 를 기본 문구로 씁니다.
  */
 import { UI_TEXT, langFromPath, type ImageItem } from '../lib/guide';
+import { imageTone } from '../lib/imageTone';
 
 interface Props { item: ImageItem; ratio: string; zoom?: number; label?: string; }   // zoom: 섹션 배율 (이미지 태그가 우선), label: 섹션 이름
 const { item, ratio, label } = Astro.props;
@@ -14,9 +15,11 @@ const plain = (html: string) => html.replace(/<[^>]+>/g, '').replace(/&(amp|lt|g
 const alt = item.caption ? plain(item.caption) : (label ?? item.token);
 const ratioLabel = ratio.replace(/\s/g, '').replace('var(--ratio-', '').replace(')', '');
 const captionHtml = item.caption ?? (item.badge === 'do' ? 'Do' : item.badge === 'dont' ? 'Don’t' : '');
+// 가장자리 밝기(빌드 때 측정) → 호버 테두리를 밝은 회색/어두운 회색 중 어느 쪽으로 할지. Do/Don't 그리드 기본 배율은 CSS 가 정하므로 여기서는 모름(1 로 잼)
+const tone = item.src ? await imageTone(item.src, item.zoom ?? Astro.props.zoom ?? 1) : undefined;
 ---
 <figure class:list={['fig', { 'fig--dodont': item.badge }]} style={`--ratio: ${ratio}${(item.zoom ?? Astro.props.zoom) !== undefined ? `; --img-zoom: ${item.zoom ?? Astro.props.zoom}` : ''}`}>
-  <div class="fig__frame">
+  <div class="fig__frame" data-tone={tone}>
     {item.src
       ? <img src={item.src} alt={alt} loading="lazy" tabindex="0" aria-haspopup="dialog" />
       : <div class="fig__placeholder t-label">
