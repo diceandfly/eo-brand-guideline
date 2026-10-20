@@ -2,6 +2,7 @@
 /**
  * 섹션 = 텍스트 블록(헤드 / 서브헤드 / 본문) + 미디어 슬롯.
  * 미디어 슬롯의 아이템 수와 layout 속성에 따라 basic / text / wide / half / grid-N 으로 렌더됩니다.
+ * wide 는 이미지가 여러 개면 전폭으로 세로로 쌓습니다.
  */
 import Figure from './Figure.astro';
 import Swatch from './Swatch.astro';
@@ -16,8 +17,9 @@ const kind = isGrid ? 'grid' : s.layout;
 const defaultRatio = isGrid ? 'var(--ratio-card)' : s.layout === 'wide' ? 'var(--ratio-wide)' : 'var(--ratio-basic)';
 const allDoDont = s.items.length > 0 && s.items.every(it => it.kind === 'image' && it.badge);
 const ratio = s.ratio ?? (allDoDont ? 'var(--ratio-dodont)' : defaultRatio);   // Do/Don't 시리즈는 --ratio-dodont ({ratio=} 가 있으면 그 값)
-// 그리드가 아닌 레이아웃은 첫 아이템 하나만 보여 줌. 나머지가 조용히 사라지지 않도록 빌드 로그에 알림
-if (!isGrid && s.items.length > 1) console.warn(`[guide] "${s.head}${s.subhead ? ' / ' + s.subhead : ''}" (${s.layout}) 섹션의 이미지 ${s.items.length}개 중 첫 번째만 표시됩니다. 모두 보이려면 헤드에 {layout=grid-2|3|4}`);
+// wide 는 아이템을 모두 세로로 쌓고, basic / half 는 첫 아이템 하나만 보여 줌. 나머지가 조용히 사라지지 않도록 빌드 로그에 알림
+const stacked = s.layout === 'wide' ? s.items : s.items.slice(0, 1);
+if (!isGrid && s.items.length > stacked.length) console.warn(`[guide] "${s.head}${s.subhead ? ' / ' + s.subhead : ''}" (${s.layout}) 섹션의 이미지 ${s.items.length}개 중 첫 번째만 표시됩니다. 모두 보이려면 헤드에 {layout=grid-2|3|4}`);
 ---
 <section class:list={['sec', `sec--${kind}`]} id={s.id} data-section>
   <div class="sec__text">
@@ -26,13 +28,13 @@ if (!isGrid && s.items.length > 1) console.warn(`[guide] "${s.head}${s.subhead ?
     {s.bodyHtml && <div class="sec__body t-body" set:html={s.bodyHtml} />}
   </div>
 
-  {!isGrid && s.items[0] && (
+  {!isGrid && stacked.map(it => (
     <div class="sec__media">
-      {s.items[0].kind === 'image'
-        ? <Figure item={s.items[0]} ratio={ratio} zoom={s.zoom} label={s.subhead ?? s.head} />
-        : <Swatch item={s.items[0]} ratio={s.ratio} />}
+      {it.kind === 'image'
+        ? <Figure item={it} ratio={ratio} zoom={s.zoom} label={s.subhead ?? s.head} />
+        : <Swatch item={it} ratio={s.ratio} />}
     </div>
-  )}
+  ))}
 
   {isGrid && (
     <div class:list={['sec__grid', { 'sec__grid--swatch': s.items.some(it => it.kind === 'swatch') }]} style={`--n: ${n}`} data-n={n}>

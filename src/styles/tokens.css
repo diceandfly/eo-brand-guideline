@@ -116,6 +116,7 @@
   --sec-row-gap: 40px; /* wide / half / grid / 모바일 basic: 텍스트 ↔ 이미지 세로 간격 */
   --sec-row-gap-m: 24px;
   --sec-grid-row-gap: calc(var(--gutter) * 2); /* grid 레이아웃의 카드 행 ↔ 행 */
+  --sec-wide-stack-gap: var(--sec-grid-row-gap); /* wide 레이아웃에 이미지가 여러 장일 때 장 ↔ 장 */
 
   /* 1-6 이미지 · 카드 */
   --img-fit: cover; /* 프레임에 넣는 방식. cover = 꽉 채우고 잘림, contain = 전부 보임 */

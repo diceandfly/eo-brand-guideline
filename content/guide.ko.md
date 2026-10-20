@@ -57,7 +57,7 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
     3·6·9개 → grid-3
     그 외 → grid-4
   직접 지정하려면 헤드 뒤에 중괄호로 씁니다.
-    ### Character Set {layout=wide}            ← 텍스트 아래 12컬럼 전폭 이미지
+    ### Character Set {layout=wide}            ← 텍스트 아래 12컬럼 전폭 이미지(여러 장이면 세로로 쌓임)
     ### Alignment {layout=half}                ← 텍스트 아래 6컬럼 이미지
     ### Core Palette {layout=grid-4}           ← 개수와 무관하게 4열
     ### Don'ts {layout=grid-3 ratio=4:5}       ← 비율도 함께. 기본값: basic/half 5:4, wide 2:1, grid 4:5
@@ -741,7 +741,8 @@ EO 심볼은 나사입니다. E 블록은 옆에서 본 나사의 스레드이�
 - **샤프트(Shaft) = 나사의 축** 나사의 축은 어찌됐건 앞으로 나아가는 Building의 과정, 창업 여정이라는 시간의 축을 상징합니다.
 - **스레드(Thread) = 노력과 시간.** 스레드 한 바퀴는 문제 해결의 한 단위를 상징합니다. 단단한 벽에 맞닥뜨릴수록 저항도 세고 뚫는 시간도 오래 걸립니다. 이것은 스레드의 Compression으로 나타나며, 스레드의 간격이 촘촘할수록 빌더가 더 높은 밀도의 경험을 하고 있다는 것을 상징합니다.
 - **헤드 = 빌더 한 사람.** 박힌 나사를 위에서 보면 한 사람이고, 면에 가득 깔면 커뮤니티가 됩니다. 작은 나사도 여럿이 모이면 무엇이든 만들어 낼 수 있습니다.
-![visual/unit-motif]
+![visual/motif-1]
+![visual/motif-2] {zoom=1.25}
 
 
 ### + Graphic Unit

@@ -349,7 +349,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       section.subhead = subhead;
       continue;
     }
-    if ((m = line.match(/^!\[([^\]]+)\](?:\{([^}]*)\})?\s*(.*)$/)) && section) {   // ![token]{dont nostrike zoom=1.2} caption
+    if ((m = line.match(/^!\[([^\]]+)\]\s*(?:\{([^}]*)\})?\s*(.*)$/)) && section) {   // ![token]{dont nostrike zoom=1.2} caption  (] 와 { 사이 공백 허용)
       const token = m[1].trim();
       const name = token.split('/').pop()!.trim();
       const item: ImageItem = { kind: 'image', token, name, path: '', src: null };   // path·src 는 서브챕터를 다 읽은 뒤 확정
