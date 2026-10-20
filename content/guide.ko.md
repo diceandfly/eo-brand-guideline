@@ -141,13 +141,13 @@ EO 심볼은 EO 브랜드를 알리는 가장 상징적이고 효과적인 방�
 
 
 ### Symbol
-#### + Geometry
+#### + Geometry {layout=wide}
 EO 심볼은 두 개의 블록으로 이루어진 모노그램입니다. 나사의 파사드를 표현한 E 블록은 그래픽 유닛의 기본 지오메트리인 shaft와 스레드(thread) 세 단으로 구성됩니다. O 블록은 십자 구멍이 뚫린 팔각형 나사헤드로, 두 블록이 나란히 놓여 "Entrepreneur Onwards"를 뜻합니다.
 ![geometry]
 
 
 ### Symbol
-#### + Clearspace
+#### + Clearspace 
 클리어스페이스는 타이포그래피 · 그래픽 유닛 · 이미지 · 캔버스 가장자리 등 다른 시각 요소와 인접할 때 심볼을 지켜 주는 최소한의 안전 장치입니다. E 블록 하나의 수직 방향 높이를 H라 할 때, 심볼과 인접한 모든 요소에 대해 상하좌우 각 H/2 이상의 최소 여백을 반드시 확보해야 합니다.
 ![logo/clearspace]
 
@@ -209,7 +209,7 @@ EO 심볼은 사진 위에서도 항상 또렷하게 읽혀야 하므로 충분�
 본 섹션의 지침은 화면 구성이 변화하는 영상 시퀀스보다는 정지된 이미지의 오버레이 상황에 초점을 맞추고 있습니다.
 ![logo/imagery-do-1]{do} 배경과 대비가 충분한 곳에 심볼을 둡니다
 ![logo/imagery-do-2]{do} 밝기가 고르지 않은 사진을 써야할 경우 투명도 30% 수준의 그라데이션을 오버레이해 대비를 확보합니다
-![logo/imagery-dont-1]{dont} 인물의 얼굴이나 핵심 피사체 위에 심볼을 올리지 마세요
+![logo/imagery-dont-1]{dont} 사진에 조명하는 인물 또는 오브제의 주요한 실루엣 위에 심볼을 두지 마세요
 ![logo/imagery-dont-2]{dont} 사진과 대비가 부족한 곳에 심볼을 두지 마세요
 
 
@@ -264,10 +264,10 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 ![dont-2]{dont} 심볼을 회전시키지 마세요
 ![dont-3]{dont} 심볼에 외곽선을 넣지 마세요
 ![dont-4]{dont} 밝은 배경에서 컬러 심볼과 검은 외곽선을 쓰지 마세요
-![dont-5]{dont} E의 스레드 수나 각도, 간격을 바꾸지 마세요
+![dont-5]{dont} E의 스레드 수나 O의 각도, 블록 간격이 달라진 상태(로고 애니메이션 캡처 등)를 사용하지 마세요
 ![dont-6]{dont} 심볼에 글로우 · 그림자 · 그라데이션 등 시각효과를 적용하지 마세요
 ![dont-7]{dont} 배치할 공간의 대부분을 차지할만큼 과도하게 큰 사이즈를 적용하지 마세요
-![dont-8]{dont} 심볼을 사진이나 패턴의 마스크로 사용하거나 승인되지 않은 컬러를 사용하지 마세요
+![dont-8]{dont} 심볼을 사진이나 패턴의 마스크로 사용하거나 승인되지 않은 컬러를 사용하지 마세요ㄹㄹ
 ![dont-9]{dont} 심볼 주변에 임의의 맥락을 추가하지 마세요
 
 
@@ -281,6 +281,19 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 
 이하 EO 심볼이 "EO Studio"와 결합된 콤비네이션 로고를 **회사 시그니처**, 각 서비스명과 결합된 콤비네이션 로고는 **서비스 시그니처**라고 칭합니다.
 ![overview]
+
+
+### + Descriptor {layout=grid-2}
+시그니처에서 EO 심볼과 함께 쓰는 텍스트 부분을 디스크립터라고 칭합니다. 디스크립터를 조직이나 서비스, 도메인 이름으로 바꾸면 같은 규칙으로 새 시그니처를 만들 수 있으며, 어떤 단어든 아래 규격을 그대로 따릅니다.
+
+- **세로형:** 디스크립터는 Founders Grotesk Regular, 조판 사이즈 (7/15)H, 자간 0으로 조판합니다. 심볼의 하단 경계에서 H/5 아래에 캡 박스의 윗변을 두고 심볼과 중앙 정렬한 뒤, H/100만큼 왼쪽으로 보정합니다. EO 심볼은 왼쪽 E 블록의 회색도가 더 높아 시각적 중심이 왼쪽에 있기 때문입니다.
+- **가로형:** 디스크립터는 Founders Grotesk Regular, 조판 사이즈 (5/4)H, 자간 0으로 조판합니다. 심볼의 우측 경계에서 H/2 떨어진 곳에 캡 박스의 왼쪽 변을 두고, 베이스라인을 심볼의 하단 경계에서 H/10만큼 올립니다. 이렇게 하면 캡 박스가 심볼 높이의 위아래 H/10씩을 뺀 가운데 80% 영역에 정확히 맞습니다.
+
+캡 박스는 곡선의 오버슛을 뺀, 직선 획 기준의 글자 영역입니다. 디스크립터의 첫 글자나 끝 글자가 S · o처럼 곡선이라면 잠시 직선 글자로 바꿔 경계를 잡으세요. 예를 들어 "Studio"는 "Htudih"로 바꿔 잽니다.
+
+새 디스크립터를 만들거나 기존 디스크립터를 변경할 때는 반드시 EO 브랜드팀의 컨펌을 받아야 합니다. 또한 캠페인이나 이벤트 이름처럼 한시적인 이름은 디스크립터로 사용하지 않습니다.
+![descriptor-system-v] 세로형 구성
+![descriptor-system-h] 가로형 구성
 
 
 ### + Company Signature
@@ -301,7 +314,7 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 
 
 ### Company Signature
-#### Version Guide {layout=grid-2}
+#### Which to Use {layout=grid-2}
 
 EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힙니다. 그래서 회사 시그니처는 "Studio"만 표기하는 것을 우선적으로 고려하되, 회사명을 분명히 밝혀야 할 때 "EO Studio"를 사용합니다.
 
@@ -313,20 +326,6 @@ EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힙니�
 ![size-2] 작은 크기 · 가로형 "EO Studio" (회사명이 꼭 필요할 때)
 ![size-3] 큰 크기 · 세로형 "EO Studio"
 ![size-dont-1]{dont} 큰 크기에서 가로형 "EO Studio"를 쓰지 마세요
-
-
-### Signature
-#### + Descriptor {layout=grid-2}
-시그니처에서 EO 심볼과 함께 쓰는 텍스트 부분을 디스크립터라고 칭합니다. 디스크립터를 조직이나 서비스, 도메인 이름으로 바꾸면 같은 규칙으로 새 시그니처를 만들 수 있으며, 어떤 단어든 아래 규격을 그대로 따릅니다.
-
-- **세로형:** 디스크립터는 Founders Grotesk Regular, 조판 사이즈 (7/15)H, 자간 0으로 조판합니다. 심볼의 하단 경계에서 H/5 아래에 캡 박스의 윗변을 두고 심볼과 중앙 정렬한 뒤, H/100만큼 왼쪽으로 보정합니다. EO 심볼은 왼쪽 E 블록의 회색도가 더 높아 시각적 중심이 왼쪽에 있기 때문입니다.
-- **가로형:** 디스크립터는 Founders Grotesk Regular, 조판 사이즈 (5/4)H, 자간 0으로 조판합니다. 심볼의 우측 경계에서 H/2 떨어진 곳에 캡 박스의 왼쪽 변을 두고, 베이스라인을 심볼의 하단 경계에서 H/10만큼 올립니다. 이렇게 하면 캡 박스가 심볼 높이의 위아래 H/10씩을 뺀 가운데 80% 영역에 정확히 맞습니다.
-
-캡 박스는 곡선의 오버슛을 뺀, 직선 획 기준의 글자 영역입니다. 디스크립터의 첫 글자나 끝 글자가 S · o처럼 곡선이라면 잠시 직선 글자로 바꿔 경계를 잡으세요. 예를 들어 "Studio"는 "Htudih"로 바꿔 잽니다.
-
-새 디스크립터를 만들거나 기존 디스크립터를 변경할 때는 반드시 EO 브랜드팀의 컨펌을 받아야 합니다. 또한 캠페인이나 이벤트 이름처럼 한시적인 이름은 디스크립터로 사용하지 않습니다.
-![descriptor-system-v] 세로형 구성
-![descriptor-system-h] 가로형 구성
 
 
 ### + Service Signature
@@ -744,46 +743,76 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 ## Graphic Unit
 
 ### Graphic Unit
+#### + Motif
+EO 심볼은 나사입니다. E 블록은 옆에서 본 나사의 스레드이고, O 블록은 위에서 본 나사 헤드입니다. 비주얼 시스템은 이 나사에서 세 가지 의미를 가져옵니다.
+
+- **스레드 = 노력과 시간.** 스레드 한 바퀴가 일의 한 단위입니다. 간격이 촘촘할수록 빌더가 더 힘든 구간을 지나고 있다는 뜻입니다.
+- **헤드 = 빌더 한 사람.** 박힌 나사를 위에서 보면 한 사람이고, 면에 가득 깔면 커뮤니티가 됩니다.
+- **회전 = 전진.** 나사는 위로 돌든 아래로 돌든 앞으로 나아갑니다. 빌딩이 실제로 그렇습니다.
+
+그래픽 유닛은 이 중 스레드, 곧 나사축의 단면을 추상화한 것입니다. 유닛 하나가 EO의 모든 패턴을 만듭니다.
+![visual/unit-motif]
+
+
+### Graphic Unit
 #### Overview
-그래픽 유닛은 EO 비주얼 시스템의 최소 단위입니다. 블록을 재료 삼아 쌓아 올리는 빌더의 궤적을 shaft와 스레드(thread)의 반복으로 추상화했습니다. 로고의 E 블록 · 패턴 라이브러리 · 모든 애플리케이션 그래픽이 이 유닛에서 파생됩니다. 유닛은 손으로 그리지 않고 EO Graphic Builder에서 파라미터로 생성합니다.
+그래픽 유닛은 EO 비주얼 시스템의 최소 단위입니다. 블록을 재료 삼아 쌓아 올리는 빌더의 궤적을 shaft와 thread의 반복으로 추상화했습니다. 로고의 E 블록 · 패턴 라이브러리 · 모든 애플리케이션 그래픽이 이 유닛에서 파생됩니다. 유닛은 손으로 그리지 않고 EO Graphic Builder에서 파라미터로 생성합니다.
 ![visual/unit-overview]
 
 
-### Construction
-유닛 캔버스(W × H)는 세로 컬럼(col)으로 나뉘고, 세로 중앙에 높이 D의 가로 막대인 shaft가 놓입니다. shaft 위아래 밴드에는 컬럼마다 사다리꼴 thread 한 쌍이 붙습니다. 상단 thread의 꼭짓점 위치는 Δa(윗변, 컬럼 오른쪽 끝 기준)와 Δb(아랫변, 컬럼 왼쪽 끝 기준)로 정하고, 하단 thread는 상단을 컬럼 중심 기준으로 180° 회전한 점대칭입니다. shaft는 거터를 가로질러 이어지고 thread 밴드의 거터는 비워 둡니다.
-![visual/unit-construction]
+### + Anatomy
+유닛은 가로 막대 하나와 그 위아래에 붙는 빗살로 이루어집니다.
+
+- **shaft** — 세로 중앙을 가로지르는 나사축. 유닛 전체 폭을 끊김 없이 지나갑니다.
+- **thread** — shaft 위아래에 컬럼마다 하나씩 붙는 사다리꼴 빗살. 오른쪽 변은 컬럼 끝에 수직으로 서고, 왼쪽 변은 기울어집니다. 아래쪽 thread는 위쪽을 컬럼 중심 기준으로 180° 돌린 모양입니다.
+- **column · gutter** — thread가 놓이는 세로 칸과 칸 사이 간격. gutter 구간에서 thread는 비고 shaft만 이어집니다.
+- **thread sides** — double은 shaft 위아래 모두에, single은 위쪽에만 thread가 붙고 shaft가 바닥에 놓입니다.
+![visual/unit-anatomy]
 
 
-### Grid & Pitch
-컬럼 폭은 등비수열로 압축됩니다. 인접 컬럼의 폭 비율(compression rate)이 1이면 균등 분할이고, 커질수록 한쪽으로 수렴하는 착시가 강해집니다. 기본값은 12컬럼, rate 1.67(2:1 피치)입니다. 거터는 고정(fixed) 또는 컬럼 폭에 비례(proportional)하는 두 가지 모드가 있으며, 비례 모드는 구조적으로 오버플로가 불가능하고 수렴 착시가 가장 강합니다.
-![visual/unit-grid]
+### + Parameters {layout=grid-2}
+유닛의 형태는 EO Graphic Builder의 파라미터로만 정합니다. 패널의 이름을 그대로 씁니다.
+
+- **SIZE** — 유닛의 가로 · 세로. 비율 버튼(12:5 ~ 9:16)으로 바로 맞출 수 있습니다.
+- **threads** — 빗살 개수. 기본 12.
+- **thread compression** — 빗살 폭이 한쪽으로 갈수록 점점 좁아지는 정도. 0이면 균등하고, 값이 커질수록 한쪽으로 수렴하는 착시가 강해집니다. 비율 버튼(1:1 ~ 1+√2)으로 자주 쓰는 값을 고르며 기본은 2:1입니다. 방향을 바꿔도 빗살의 기울기는 유지됩니다.
+- **gutter** — 빗살 사이 간격(px).
+- **shaft size** — 축의 두께. 유닛 높이 대비 %이며 기본 35%.
+- **thread top / bottom width** — 빗살 윗변과 아랫변의 폭. 두 값의 차이가 빗살의 기울기를 정합니다. 기본은 위 40% · 아래 0%.
+- **thread sides** — double / single.
+
+여기에 90° 단위 회전과 좌우 반전을 더해 유닛을 세우거나 마주 보게 놓습니다.
+![visual/param-compression] thread compression — 1:1 · φ · 2:1 · 1+√2
+![visual/param-shaft] shaft size — 20% · 35% · 50% · 75%
+![visual/param-thread-width] thread top / bottom width — 기울기의 변화
+![visual/param-sides] thread sides — double · single
 
 
-### Variations {layout=grid-3}
-컬럼 수, 압축 비율, shaft 높이(D), thread의 Δa · Δb를 조합해 성격이 다른 유닛을 만듭니다. 아래는 패턴 라이브러리의 바탕이 되는 대표 변형 여섯 가지입니다.
-![visual/unit-var-1] 01 / path of builder — 왼쪽이 넓고 오른쪽으로 수렴
-![visual/unit-var-2] 02 / power — 균등 컬럼, 두꺼운 shaft
-![visual/unit-var-3] 03 / resistance — 오른쪽이 넓고 왼쪽으로 수렴
-![visual/unit-var-4] 04 / builders — 좁은 컬럼의 반복
-![visual/unit-var-5] 05 / rivals — 중앙 대칭 압축
-![visual/unit-var-6] 06 / team — 두 유닛의 맞물림
+### + Variations {layout=grid-3}
+threads · compression · shaft size · thread width를 조합해 성격이 다른 유닛을 만듭니다. 아래는 패턴 라이브러리의 바탕이 되는 대표 변형 여섯 가지입니다.
+![visual/unit-var-1] 01 / path of builder — 왼쪽이 넓고 오른쪽으로 수렴하는 기본형
+![visual/unit-var-2] 02 / power — 두꺼운 shaft의 single 유닛 두 개를 위아래로 마주 놓음
+![visual/unit-var-3] 03 / resistance — 가는 shaft의 single 유닛을 좌우 반전
+![visual/unit-var-4] 04 / builders — 세운 유닛 두 개를 나란히
+![visual/unit-var-5] 05 / rivals — 세운 유닛 두 개를 마주 보게
+![visual/unit-var-6] 06 / team — 세운 유닛 네 개를 도킹으로 맞물림
 
 
 ### Color Application {layout=grid-2}
-유닛은 단색으로 사용합니다. 배경과 유닛 사이의 대비가 핵심이며, 한 구성 안에서는 핵심 팔레트 하나와 보조 색 하나까지만 조합합니다. 여러 유닛을 나란히 놓을 때는 Medium Gray · Builder Neon · Air White처럼 명도 차가 뚜렷한 조합으로 깊이를 만듭니다.
+유닛 하나는 단색입니다. 배경과 유닛 사이의 대비가 핵심이며, 여러 유닛을 나란히 놓을 때는 Medium Gray · Builder Neon · Air White처럼 명도 차가 뚜렷한 조합으로 깊이를 만듭니다. 한 구성 안에서는 핵심 팔레트 하나와 보조 색 하나까지만 조합합니다.
 ![visual/unit-color-1] Builder Neon on Space Black
 ![visual/unit-color-2] Medium Gray · Builder Neon · Air White on Solid Gray
 
 
 ### Graphic Unit {layout=grid-3}
-#### Don'ts
+#### + Don'ts
 유닛의 지오메트리를 손으로 변형하지 마세요. 모든 변형은 Graphic Builder의 파라미터 안에서만 이루어져야 합니다.
-![visual/unit-dont-1]{dont} 유닛을 회전하거나 기울이지 마세요
+![visual/unit-dont-1]{dont} 유닛을 90° 단위가 아닌 각도로 회전하거나 기울이지 마세요
 ![visual/unit-dont-2]{dont} thread를 임의로 지우거나 추가하지 마세요
-![visual/unit-dont-3]{dont} 세 가지 이상의 색을 한 유닛에 사용하지 마세요
+![visual/unit-dont-3]{dont} 한 유닛에 두 가지 이상의 색을 칠하지 마세요
 ![visual/unit-dont-4]{dont} 유닛에 외곽선이나 그림자를 넣지 마세요
 ![visual/unit-dont-5]{dont} 유닛을 사진의 마스크로 사용하지 마세요
-![visual/unit-dont-6]{dont} 압축 비율을 컬럼마다 다르게 손으로 조정하지 마세요
+![visual/unit-dont-6]{dont} 빗살 폭을 하나씩 손으로 조정하지 마세요
 
 
 
@@ -791,7 +820,7 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 
 ### Pattern Library {layout=grid-4}
 #### 30 Patterns
-유닛을 조합해 만든 30종의 패턴 라이브러리입니다. 각 패턴은 빌더의 여정에서 가져온 키워드 하나를 상징하며, 캠페인 · 굿즈 · 소셜 · 영상 등 모든 접점에서 재사용합니다. 새 패턴이 필요하면 라이브러리에서 고르는 것이 먼저이고, 추가는 EO 브랜드팀의 승인을 거칩니다.
+유닛을 조합해 만든 30종의 패턴 라이브러리입니다. 각 패턴은 번호가 아니라 빌더의 여정에서 가져온 키워드 하나를 이름으로 가지며, 캠페인 · 굿즈 · 소셜 · 영상 등 모든 접점에서 재사용합니다. 새 패턴이 필요하면 라이브러리에서 고르는 것이 먼저이고, 추가는 EO 브랜드팀의 승인을 거칩니다.
 ![visual/pattern-01] 01 / path of builder
 ![visual/pattern-02] 02 / power
 ![visual/pattern-03] 03 / resistance
@@ -809,7 +838,7 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 ![visual/pattern-15] 15 / cycle
 ![visual/pattern-16] 16 / routine
 ![visual/pattern-17] 17 / competition
-![visual/pattern-18] 18 / collaborate intelligence
+![visual/pattern-18] 18 / collective intelligence
 ![visual/pattern-19] 19 / growth
 ![visual/pattern-20] 20 / diversity
 ![visual/pattern-21] 21 / momentum
@@ -824,16 +853,35 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 ![visual/pattern-30] 30 / bang!
 
 
+### + Composition {layout=grid-3}
+패턴은 유닛을 새로 그리는 것이 아니라, 같은 유닛을 아래 여섯 가지 방법으로 놓아서 만듭니다. 30종 모두 이 방법들의 조합입니다.
+![visual/comp-1] 압축 — compression으로 한쪽으로 수렴하는 밀도 차이를 만듭니다
+![visual/comp-2] 세우기 — 유닛을 90° 돌려 세로로 놓습니다. 대부분의 패턴은 세운 유닛의 나열입니다
+![visual/comp-3] 마주 보기 — 좌우 반전한 유닛을 마주 놓아 대칭을 만듭니다
+![visual/comp-4] 쌓기 — 유닛을 행으로 쌓고 행마다 색을 바꿔 띠를 만듭니다
+![visual/comp-5] 도킹 — 두 유닛의 shaft를 이어 하나의 축으로 맞물립니다
+![visual/comp-6] 블렌드 — 같은 유닛을 일정 비율로 작아지게 복제해 원근을 만듭니다
+
+
 ### Usage
 패턴은 배경이 아니라 주인공으로 사용합니다. 레이아웃의 한쪽 절반(보통 오른쪽)을 통째로 내어 주고, 헤드라인은 반대쪽에 왼쪽 정렬로 놓습니다. 텍스트를 패턴 위에 겹치지 않고, 로고는 패턴 바깥의 여백에 배치합니다. 패턴은 잘라 쓸 수 있지만 thread의 사다리꼴이 중간에서 잘리지 않도록 컬럼 경계에서 크롭합니다.
-![visual/pattern-usage]
 
 
 
 ## Applications
 
+### + Principles
+패턴을 지면에 올릴 때 지키는 네 가지입니다.
+
+- **밀도는 보는 거리에 맞춥니다.** 빌보드처럼 멀리서 보는 큰 면은 복잡도를 끝까지 올려 밀도로 시선을 잡고, 가까이서 보는 포스터는 중간 복잡도에 둡니다.
+- **한 장에 여러 변형을 둘 수 있습니다.** 같은 모티프의 변형 여러 개를 한 구성에 놓아 리듬을 만듭니다.
+- **패턴은 어떤 비율에도 맞습니다.** 지면을 서브 레이아웃으로 나누면 한 프레임에 여러 메시지를 실을 수 있습니다.
+- **thread의 방향으로 시선을 이끕니다.** 모든 thread가 한 점으로 모이게 놓으면 그 자리의 마크나 메시지로 시선이 갑니다.
+![visual/app-principles]
+
+
 ### Digital {layout=grid-3}
-웹 매거진 · 소셜 피드 · 영상 썸네일 등 디지털 접점입니다. 유닛은 모션으로 확장되어 compression rate가 시간에 따라 변하며, 썸네일에서는 유닛의 일부만 컬럼 경계에서 크롭해 사용합니다. 웹의 그리드(12컬럼, 거터 40, 마진 44 @1728)는 유닛의 컬럼 그리드와 같은 체계를 공유합니다.
+웹 매거진 · 소셜 피드 · 영상 썸네일 등 디지털 접점입니다. 유닛은 모션으로 확장되어 compression이 시간에 따라 변하며, 썸네일에서는 유닛의 일부만 컬럼 경계에서 크롭해 사용합니다. 웹의 그리드(12컬럼, 거터 40, 마진 44 @1728)는 유닛의 컬럼 그리드와 같은 체계를 공유합니다.
 ![visual/app-web] Web Magazine
 ![visual/app-social] Social Feed
 ![visual/app-thumbnail] Video Thumbnail
@@ -847,7 +895,7 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 
 
 ### Merch {layout=grid-3}
-티셔츠 · 후디 · 캡으로 구성된 굿즈 라인입니다. 실크스크린 단색 그래픽을 기본으로 하며, 흰 티에는 Space Black, 회색 티에는 Builder Neon 컬러웨이를 적용합니다. 앞면 가슴에는 블록 심볼 또는 모노그램을 작게, 뒷면에는 패턴과 카피("Build Anyway." "Even the Odds")를 크게 배치합니다.
-![visual/app-tee] Standard Tee
+티셔츠 · 후디 · 캡으로 구성된 굿즈 라인입니다. 실크스크린 단색 그래픽을 기본으로 합니다. 티셔츠는 앞면 가슴에 EO 심볼을 작게, 뒷면에 유닛을 단순하게 정리한 전용 그래픽을 크게 놓고, 후디는 앞면에 블렌드 패턴을 올립니다. 컬러웨이는 원단색에 맞춰 Space Black · Builder Neon · Day Blue 중 하나를 고릅니다.
+![visual/app-tee] Oversized Tee
 ![visual/app-hoodie] Hoodie
 ![visual/app-cap] 5-panel Cap
