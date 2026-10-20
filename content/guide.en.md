@@ -633,9 +633,9 @@ Never modify the geometry of a unit by hand. Every variation must happen within 
 ![visual/unit-dont-5]{dont} Don’t use a unit as a photo mask
 ![visual/unit-dont-6]{dont} Don’t adjust the compression column by column by hand
 
-## Pattern Library
+## Pattern
 
-### Pattern Library {layout=grid-4}
+### Pattern {layout=grid-4}
 #### 30 Patterns
 A library of thirty patterns built from combinations of units. Each pattern stands for one keyword from the builder’s journey and is reused across every touchpoint — campaigns, merchandise, social, and video. When a new pattern is needed, choosing from the library comes first; additions go through the brand team for approval.
 ![visual/pattern-01] 01 / path of builder
