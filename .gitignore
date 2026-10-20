@@ -8,3 +8,6 @@ dist/
 public/fonts/*
 !public/fonts/.gitkeep
 !public/fonts/README.md
+
+# 장표 공장 산출물 (최종본만 public/assets 로 복사)
+research/figure-lab/out/
