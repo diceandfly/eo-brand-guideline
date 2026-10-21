@@ -822,7 +822,7 @@ html.js .main {
   flex: none;
   width: var(--badge-size);
   height: var(--badge-size);
-  margin-top: calc((var(--lh-unit) * var(--t-body-m) - var(--badge-size)) / 2); /* 캡션 첫 줄과 세로 중앙 맞춤 */
+  margin-top: calc((var(--lh-unit) * var(--t-body-m) - var(--badge-size)) / 2 + var(--badge-dy)); /* 캡션 첫 줄과 세로 중앙 맞춤 + 시각 보정 */
 }
 .fig__badge svg {
   width: 100%;
