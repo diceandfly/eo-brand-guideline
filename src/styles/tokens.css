@@ -182,6 +182,7 @@
   /* 1-10 본문 컬러 칩 — 본문·캡션에 "Builder Neon" 처럼 영문 공식 명칭을 쓰면 파서가 이름 앞에 붙이는 색 네모 (guide.ts colorChips) */
   --cref-size: 0.72em; /* 칩 한 변 (글자 크기 기준) */
   --cref-gap: 0.26em; /* 칩 ↔ 이름 */
+  --cref-side: 0.14em; /* 칩 바깥쪽 여백 — 앞 글자 ↔ 칩. 이름 없이 칩만일 때는 뒤쪽에도. 공백 글자(약 0.25em)에 더해짐 */
   --cref-radius: 0px; /* 칩 라운드. 0 = 정사각 */
   --cref-dy: -0.06em; /* 칩 세로 위치 (vertical-align). 음수 = 아래로 */
 

@@ -843,6 +843,7 @@ html.js .main {
   display: inline-block;
   width: var(--cref-size);
   height: var(--cref-size);
+  margin-left: var(--cref-side); /* 앞 글자와 숨 쉴 틈 (이름 쪽 간격은 --cref-gap) */
   margin-right: var(--cref-gap);
   border-radius: var(--cref-radius);
   border: var(--border-w) solid var(--cref-line);
@@ -850,7 +851,7 @@ html.js .main {
   vertical-align: var(--cref-dy);
 }
 .cref--only .cref__chip {
-  margin-right: 0; /* [Builder Neon]: 이름 없이 칩만 */
+  margin-right: var(--cref-side); /* [Builder Neon]: 이름 없이 칩만 → 양쪽 다 바깥 여백 */
 }
 
 /* 컬러 카드: 색면 + 이름. 호버하면 스펙이 디졸브로 나타남 (Swatch.astro) */
