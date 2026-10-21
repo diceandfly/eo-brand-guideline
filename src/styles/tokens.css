@@ -359,7 +359,7 @@
   --cref-line: color-mix(in srgb, var(--fg), transparent 78%); /* 본문 컬러 칩 테두리. Space Black 칩이 배경에 묻히지 않게 */
   --c-do: var(--c-bay-green);
   --c-dont: #dd5a2d;
-  --c-caution: #e3a836; /* 주의(조건부) 배지. UI 전용, 브랜드 컬러 아님 */
+  --c-caution: color-mix(in srgb, var(--c-dont), var(--c-builder-neon) 50%); /* 주의(조건부) 배지 = Don't 주황과 Builder Neon 의 중간(앰버, ≈ #EBA433). UI 전용 */
   --strike: var(--c-dont); /* Don't 대각선 */
 
   /* 3-8 컬러 카드 — 글자 색은 색면 밝기로 자동 (흰 / 검정). 스펙 뒤 그늘은 지금 꺼짐 (transparent) */
