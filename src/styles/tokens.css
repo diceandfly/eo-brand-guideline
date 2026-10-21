@@ -78,7 +78,9 @@
   --nav-lang-divider-gap: 0.6em; /* EN | KR 구분선 좌우 간격 */
 
   /* 1-3 본문 그리드 */
-  --page-margin: 128px; /* 본문 영역 좌우 마진 */
+  --page-margin-ratio: 9.36; /* 본문 좌우 마진 = 본문 영역(목차를 뺀 폭)의 %. 1728px 화면에서 128px */
+  --page-margin-min: 64px; /* 좁은 데스크탑에서 마진이 이보다 줄지 않음 */
+  --page-margin: max(var(--page-margin-min), calc(100cqw * var(--page-margin-ratio) / 100)); /* cqw = .main(컨테이너) 폭. 모바일은 -m 고정값 */
   --page-margin-m: 20px;
   --gutter: 20px; /* 컬럼 거터 */
   --gutter-m: 20px;
@@ -122,8 +124,8 @@
   --img-fit: cover; /* 프레임에 넣는 방식. cover = 꽉 채우고 잘림, contain = 전부 보임 */
   --img-chamfer: 0px; /* 좌상·우하 코너 챔퍼(사선 모따기). 0 = 없음 */
   --img-border-w: 1px; /* 프레임 테두리 두께. 0 = 없음. 챔퍼가 있으면 사선을 따라감 */
-  --img-border-w-hover: 0.7px; /* 호버 두께 — 어두운 이미지(테두리가 밝아짐). 밝은 선이 굵어 보이는 착시를 상쇄하려고 조금 가늘게 */
-  --img-border-w-hover-on-light: 1px; /* 호버 두께 — 밝은 이미지(테두리가 더 밝은 회색이 됨). 어두운 이미지와 따로 조정 */
+  --img-border-w-hover: 0.6px; /* 호버 두께 — 어두운 이미지(테두리가 밝아짐). 밝은 선이 굵어 보이는 착시를 상쇄하려고 조금 가늘게 */
+  --img-border-w-hover-on-light: 0.2px; /* 호버 두께 — 밝은 이미지(테두리가 더 밝은 회색이 됨). 어두운 이미지와 따로 조정 */
   --card-gap: 16px; /* 카드: 이미지 ↔ 캡션 */
   --placeholder-pad: 1.25; /* 이미지 자리(플레이스홀더) 안쪽 여백 = 행간 단위 × 값 */
   --placeholder-line-gap: 0.25em; /* 플레이스홀더의 경로 ↔ 비율 줄 */
@@ -142,10 +144,10 @@
   --swatch-gap: 12px; /* 색면 ↔ 이름 */
   --swatch-min-w: 200px; /* 카드 최소 폭. 화면이 좁아 이보다 작아지면 한 줄의 카드 수가 줄어듦 */
   --swatch-panel-pad-x: 1.09; /* 스펙 좌우 여백 (행간 단위 × 값). 하단은 행간 아래 여백이 더해져 눈으로 더 넓어 보이므로 1보다 살짝 크게 */
-  --swatch-panel-pad-y: 0.93; /* 스펙 아래 여백 (행간 단위 × 값, 0.93 ≈ 14px). 위쪽은 fade 구간 + 이 값 */
+  --swatch-panel-pad-y: 0.8; /* 스펙 위 여백 (행간 단위 × 값). 패널이 카드 왼쪽 위에 붙으므로 글자 위 반행간이 더해져 보이는 만큼 1보다 작게. 아래쪽은 fade 구간 + 이 값 */
   --swatch-panel-scale: 1.06; /* 스펙 글자(항목·값) 크기 보정. 1 = 본문 크기. 행간은 유지 */
   --swatch-panel-lh: 1; /* 스펙 줄 간격 = 본문 행간 × 값 (1 = 본문과 같음) */
-  --swatch-panel-zoom: 0.92; /* 스펙 블록 전체 배율. 왼쪽 아래 모서리 기준으로 축소 (1 = 그대로) */
+  --swatch-panel-zoom: 0.92; /* 스펙 블록 전체 배율. 왼쪽 위 모서리 기준으로 축소 (1 = 그대로) */
   --swatch-panel-fade: 8; /* 그라데이션이 서서히 진해지는 구간 높이 (스펙 위쪽) */
   --swatch-row-gap: 0; /* 행 ↔ 행 추가 간격. 0 = 본문 줄처럼 붙음 */
   --swatch-label-gap: 1.4em; /* 항목 ↔ 값. 값은 가장 긴 항목 기준으로 정렬 */
@@ -155,8 +157,8 @@
   --swatch-tip-pad-x: 10px; /* Copy 버튼 좌우 패딩 */
   --swatch-tip-copy-nudge: 0.8px; /* COPY 글자를 오른쪽으로 옮기는 시각 보정. 끝 글자 Y 가 오른쪽을 비어 보이게 함. 0 = 기하 중앙 */
   --swatch-tip-text-dy: 0.4px; /* 알약 안 글자(COPY · COPIED)를 아래로 내리는 시각 보정 */
-  --swatch-tip-gap: 6px; /* 숫자 ↔ Copy 버튼 (숫자 위에 뜸) */
-  --swatch-tip-rise: 4px; /* Copy 버튼이 나타날 때 아래에서 떠오르는 거리 */
+  --swatch-tip-gap: 6px; /* 숫자 ↔ Copy 버튼 (숫자 아래에 뜸) */
+  --swatch-tip-rise: 4px; /* Copy 버튼이 나타날 때 숫자 쪽에서 내려오는 거리 */
   --swatch-tip-radius: 999px; /* Copy 버튼 라운드. 999px = 알약 */
 
   /* 1-8 이미지 확대 보기 (라이트박스) */
@@ -340,8 +342,9 @@
 
   /* 3-7 이미지 · 카드 */
   --img-border: var(--border); /* 프레임 테두리 */
+  /* 호버 테두리 — 이미지 카드와 컬러 카드가 같이 씀 */
   --img-border-hover: color-mix(in srgb, var(--border), var(--c-air-white) 25%); /* 호버 테두리 — 어두운 이미지 위 (밝은 회색) */
-  --img-border-hover-on-light: color-mix(in srgb, var(--border), var(--c-air-white) 70%); /* 호버 테두리 — 밝은 이미지 위. 띠가 어두운 페이지 배경과 맞닿는 바깥 1px 이라 어두운 선은 배경에 묻혀 안 보임 → 기본 호버보다 더 밝은 회색. 밝기 판정은 src/lib/imageTone.ts */
+  --img-border-hover-on-light: color-mix(in srgb, var(--border), var(--c-air-white) 75%); /* 호버 테두리 — 밝은 이미지 위. 띠가 어두운 페이지 배경과 맞닿는 바깥 1px 이라 어두운 선은 배경에 묻혀 안 보임 → 기본 호버보다 더 밝은 회색. 밝기 판정은 src/lib/imageTone.ts */
   --placeholder-fg: color-mix(in srgb, var(--c-air-white), transparent 55%); /* 플레이스홀더 글자 */
   /* Do / Don't 아이콘 — UI 전용, 브랜드 팔레트가 아닙니다 */
   --c-do: var(--c-bay-green);
@@ -428,7 +431,7 @@
   --swatch-copied-dur: 1200ms; /* 복사 후 Copied 표시가 남는 시간 */
 
   /* 이미지 카드 호버 — 확대 가능한 이미지에 마우스를 올리면 테두리 색·두께만 바뀜 (색: 3. COLOR --img-border-hover*, 두께: 1. LAYOUT --img-border-w-hover*) */
-  --img-border-hover-dur: 120ms; /* 테두리 색·두께 디졸브 (들어갈 때 · 나갈 때 동일, 컬러 카드가 사라지는 시간과 같음) */
+  --img-border-hover-dur: 200ms; /* 테두리 색·두께 디졸브 (들어갈 때 · 나갈 때 동일, 컬러 카드가 사라지는 시간과 같음) */
 
   /* 이미지 확대 보기 (라이트박스) */
   --lightbox-dur: 360ms; /* 열고 닫는 디졸브 시간 */

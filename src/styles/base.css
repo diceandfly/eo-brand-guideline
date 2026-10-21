@@ -242,7 +242,7 @@ button {
 }
 .main {
   margin-left: var(--sidebar-w);
-  padding: 0 var(--page-margin) var(--page-pad-bottom);
+  container-type: inline-size; /* --page-margin 의 cqw 기준: 목차를 뺀 본문 영역 폭 */
 }
 /* 페이지 전환: 들어올 때 본문만 디졸브 (JS 가 있을 때만, html.js 는 Layout 의 인라인 스크립트가 붙임) */
 @keyframes page-in {
@@ -267,9 +267,10 @@ html.js .main {
   }
 }
 .main__inner {
-  max-width: var(--content-max);
-  margin-inline: auto;
-} /* 남는 폭은 양쪽에 균등 분배 */
+  padding: 0 var(--page-margin) var(--page-pad-bottom);
+  max-width: calc(var(--content-max) + var(--page-margin) * 2); /* 컬럼 영역이 --content-max 를 넘지 않음 */
+  margin-inline: auto; /* 남는 폭은 양쪽에 균등 분배 */
+}
 
 @media (max-width: 899px) {
   .topbar {
@@ -846,14 +847,36 @@ html.js .main {
   width: 100%;
   overflow: hidden;
   border-radius: var(--radius);
-  border: var(--border-w) solid var(--border);
   background: var(--swatch-color);
   --_fg: var(--swatch-panel-fg); /* 어두운 색면: 흰 글자 (밝은 색면은 아래 --light) */
   --_shade: var(--swatch-shade);
+  /* 테두리는 이미지 카드와 같은 호버 띠 (::after). 어두운 색면은 밝은 회색·가늘게, 밝은 색면은 더 밝은 회색 */
+  --_bw: var(--border-w);
+  --_bc: var(--border);
+  --_hover-bw: var(--img-border-w-hover);
+  --_hover-bc: var(--img-border-hover);
 }
 .swatch__card--light {
   --_fg: var(--swatch-panel-fg-light); /* 밝은 색면: 검은 글자 */
   --_shade: var(--swatch-shade-light);
+  --_hover-bw: var(--img-border-w-hover-on-light);
+  --_hover-bc: var(--img-border-hover-on-light);
+}
+.swatch__card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: var(--_bw) solid var(--_bc);
+  pointer-events: none;
+  transition:
+    border-color var(--img-border-hover-dur),
+    border-width var(--img-border-hover-dur);
+}
+.swatch:hover .swatch__card::after,
+.swatch:focus-within .swatch__card::after {
+  border-width: var(--_hover-bw);
+  border-color: var(--_hover-bc);
 }
 .swatch__name {
   font-weight: var(--t-body-w-swatch);
@@ -863,22 +886,22 @@ html.js .main {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
+  top: 0;
   margin: 0;
   --_u: var(--lh-unit); /* 여백은 전부 행간 단위의 배수 */
-  padding: calc(var(--_u) * (var(--swatch-panel-pad-y) + var(--swatch-panel-fade)))
-    calc(var(--_u) * var(--swatch-panel-pad-x)) calc(var(--_u) * var(--swatch-panel-pad-y));
+  padding: calc(var(--_u) * var(--swatch-panel-pad-y)) calc(var(--_u) * var(--swatch-panel-pad-x))
+    calc(var(--_u) * (var(--swatch-panel-pad-y) + var(--swatch-panel-fade)));
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr); /* 항목 | 값. 값은 가장 긴 항목 뒤에서 정렬 */
   column-gap: var(--swatch-label-gap);
   row-gap: calc(var(--_u) * var(--swatch-row-gap));
   align-items: baseline;
   /* 그늘 (지금은 --swatch-shade · -light 가 transparent 라 꺼짐. 값을 넣으면 되살아남):
-     위에서부터 fade 구간 동안 서서히(ease) 진해지고, 스펙 뒤에서 최대 진하기.
+     아래에서부터 fade 구간 동안 서서히(ease) 진해지고, 스펙 뒤에서 최대 진하기.
      위치를 행간 단위의 절대값으로 재므로 카드 크기·열 수와 무관하게 같게 보이고, 스펙 행이 늘면 그만큼만 길어짐 */
   --_f: calc(var(--_u) * var(--swatch-panel-fade));
   background: linear-gradient(
-    to bottom,
+    to top,
     transparent 0,
     color-mix(in srgb, var(--_shade) var(--swatch-shade-1), transparent) calc(var(--_f) * var(--swatch-shade-1-at)),
     color-mix(in srgb, var(--_shade) var(--swatch-shade-2), transparent) calc(var(--_f) * var(--swatch-shade-2-at)),
@@ -886,9 +909,9 @@ html.js .main {
     color-mix(in srgb, var(--_shade) var(--swatch-shade-4), transparent) calc(var(--_f) * var(--swatch-shade-4-at)),
     var(--_shade) 100%
   );
-  /* 스펙 전체 축소: 글자 블록의 왼쪽 아래(패딩 안쪽 모서리)를 고정점으로. 패딩·줄 배치는 그대로, 보이는 크기만 줄어듦 */
+  /* 스펙 전체 축소: 글자 블록의 왼쪽 위(패딩 안쪽 모서리)를 고정점으로. 패딩·줄 배치는 그대로, 보이는 크기만 줄어듦 */
   scale: var(--swatch-panel-zoom);
-  transform-origin: calc(var(--_u) * var(--swatch-panel-pad-x)) calc(100% - var(--_u) * var(--swatch-panel-pad-y));
+  transform-origin: calc(var(--_u) * var(--swatch-panel-pad-x)) calc(var(--_u) * var(--swatch-panel-pad-y));
   /* 호버 = 천천히 차오르는 디졸브. 나갈 때는 빠르게 (아래 :hover 규칙이 들어올 때 값을 씀) */
   opacity: 0;
   transform: translateY(var(--swatch-reveal-shift));
@@ -969,7 +992,7 @@ html.js .main {
 .swatch__tip {
   position: absolute;
   left: 50%;
-  bottom: calc(100% + var(--swatch-tip-gap));
+  top: calc(100% + var(--swatch-tip-gap)); /* 패널이 카드 위쪽에 있으므로 알약은 값 아래로 (위로 띄우면 카드 밖으로 잘림) */
   z-index: var(--z-media-label);
   display: inline-flex;
   align-items: center;
@@ -984,8 +1007,8 @@ html.js .main {
   opacity: 0;
   pointer-events: none;
   scale: calc(1 / var(--swatch-panel-zoom)); /* 스펙 블록 축소(--swatch-panel-zoom)를 되돌려 알약은 원래 크기 */
-  transform-origin: 0 100%; /* 가로 = 값의 가운데(left 50% 지점), 세로 = 알약 아래 */
-  transform: translate(-50%, var(--swatch-tip-rise));
+  transform-origin: 0 0; /* 가로 = 값의 가운데(left 50% 지점), 세로 = 알약 위 */
+  transform: translate(-50%, calc(var(--swatch-tip-rise) * -1));
   transition:
     opacity var(--dur) var(--ease),
     transform var(--dur) var(--ease);
