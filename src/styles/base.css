@@ -834,6 +834,9 @@ html.js .main {
 .fig__badge--dont {
   color: var(--c-dont);
 }
+.fig__badge--caution {
+  color: var(--c-caution);
+}
 
 /* 본문 속 컬러 칩: 브랜드 컬러 영문 명칭 앞의 색 네모 (guide.ts colorChips). 칩과 이름은 한 줄에 */
 .cref {
