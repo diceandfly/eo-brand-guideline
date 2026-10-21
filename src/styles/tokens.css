@@ -187,8 +187,8 @@
   --cref-radius: 0px; /* 칩 라운드. 0 = 정사각 */
   --cref-dy: -0.01em; /* 칩 세로 위치 (vertical-align). 음수 = 아래로. Do/Don't 아이콘과 같은 높이로 보이게 맞춤 */
   /* 어두운 칩을 키우는 양. 밝은 칩은 면으로, 어두운 칩은 테두리로 읽혀 같은 크기여도 작아 보이는 착시 보정. 어두울수록 더. 0 = 끔 */
-  --cref-grow-solid-gray: 1px;
-  --cref-grow-space-black: 1.5px;
+  --cref-grow-solid-gray: 1.5px;
+  --cref-grow-space-black: 3px;
 
   /* ------------------------------------------------------------------
      2. TYPE
