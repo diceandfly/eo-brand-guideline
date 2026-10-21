@@ -16,7 +16,7 @@ export interface ImageItem {
   name: string;           // 파일 이름(확장자 제외). 토큰의 마지막 / 뒤. 서브챕터 폴더 안에서 이 이름으로 찾음
   path: string;           // 넣을 자리: 02-logo/01-symbol/04-clearspace (확장자 제외, 플레이스홀더에 표시. 앞 번호 = 주제 순서)
   src: string | null;     // 파일이 있으면 /assets/… 경로, 없으면 null(플레이스홀더)
-  badge?: 'do' | 'dont' | 'caution';   // 캡션 앞 아이콘: 체크 / 엑스 / 삼각형(조건부·주의)
+  badge?: 'do' | 'dont' | 'con';   // 캡션 앞 아이콘: 체크 / 엑스 / 삼각형(conditional, 조건부)
   strike?: boolean;       // Don't 대각선. {dont} 이면 자동, {dont nostrike} 면 끔
   zoom?: number;          // 카드 안 배율. {zoom=1.2} 로 직접 지정, {nozoom} 이면 1 (Do/Don't 그리드 기본 배율도 끔)
   caption?: string;       // HTML. 한글 구간은 <span class="ko"> 로 래핑됨
@@ -71,8 +71,8 @@ export const DEFAULT_LANG: Lang = 'en';
 export const LANG_LABEL: Record<Lang, string> = { en: 'EN', ko: 'KR' };   // 목차 하단 전환 버튼 표기
 /** 화면낭독기용 문구 (aria-label · 상태 알림). 화면에 보이는 UI 글자(Search, No results 등)는 디자인상 영문 그대로 */
 export const UI_TEXT = {
-  en: { toc: 'Table of contents', openToc: 'Open table of contents', language: 'Language', search: 'Search the guidelines', clear: 'Clear search', results: 'Search results', found: (n: number) => (n ? `${n} results` : 'No results'), lightbox: 'Image viewer', copy: 'Copy', do: 'Do', dont: "Don't", caution: 'Caution' },
-  ko: { toc: '목차', openToc: '목차 열기', language: '언어', search: '가이드라인 검색', clear: '검색어 지우기', results: '검색 결과', found: (n: number) => (n ? `결과 ${n}개` : '결과 없음'), lightbox: '이미지 확대 보기', copy: '복사', do: 'Do', dont: "Don't", caution: 'Caution' },
+  en: { toc: 'Table of contents', openToc: 'Open table of contents', language: 'Language', search: 'Search the guidelines', clear: 'Clear search', results: 'Search results', found: (n: number) => (n ? `${n} results` : 'No results'), lightbox: 'Image viewer', copy: 'Copy', do: 'Do', dont: "Don't", con: 'Conditional' },
+  ko: { toc: '목차', openToc: '목차 열기', language: '언어', search: '가이드라인 검색', clear: '검색어 지우기', results: '검색 결과', found: (n: number) => (n ? `결과 ${n}개` : '결과 없음'), lightbox: '이미지 확대 보기', copy: '복사', do: 'Do', dont: "Don't", con: 'Conditional' },
 } satisfies Record<Lang, Record<string, unknown>>;
 /** 페이지 경로(/ko/…, /en/…)로 언어 판별. 언어 정보가 props 로 오지 않는 컴포넌트용 */
 export const langFromPath = (path: string): Lang => (LANGS as readonly string[]).includes(path.split('/')[1]) ? (path.split('/')[1] as Lang) : DEFAULT_LANG;
@@ -380,7 +380,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       const flags = (m[2] ?? '').trim().split(/\s+/).filter(Boolean);
       if (flags.includes('do')) item.badge = 'do';
       if (flags.includes('dont')) item.badge = 'dont';
-      if (flags.includes('caution')) item.badge = 'caution';           // 조건부: 삼각형, 대각선 없음
+      if (flags.includes('con')) item.badge = 'con';                   // 조건부(conditional): 삼각형, 대각선 없음
       if (item.badge === 'dont' && !flags.includes('nostrike')) item.strike = true;
       const z = flags.find(f => f.startsWith('zoom='));
       if (z && Number.isFinite(parseFloat(z.slice(5)))) item.zoom = parseFloat(z.slice(5));
