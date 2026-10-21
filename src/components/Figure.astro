@@ -36,7 +36,7 @@ const tone = item.src ? await imageTone(item.src, item.zoom ?? Astro.props.zoom 
             ? <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M2.5 8.5l3.5 3.5L13.5 4" /></svg>
             : item.badge === 'dont'
             ? <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M3 3l10 10M13 3L3 13" /></svg>
-            : <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter"><path d="M8 4.7L12.6 12.5H3.4Z" /></svg>}
+            : <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter"><path d="M8 4L13 12.8H3Z" /></svg>}
         </span>
       )}
       <span class="fig__caption-text" set:html={captionHtml} />
