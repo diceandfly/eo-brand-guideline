@@ -1,7 +1,7 @@
 ---
 /**
  * 이미지 1장. 파일이 있으면 <img>, 없으면 토큰 경로를 적은 플레이스홀더.
- * badge: do | dont | con  → 캡션 줄 맨 앞에 체크 / 엑스 / 가로 대시(conditional) 아이콘 (레퍼런스와 같은 "아이콘 + 문구" 페어링)
+ * badge: do | dont | con  → 캡션 줄 맨 앞에 체크 / 엑스 / 삼각형(conditional) 아이콘 (레퍼런스와 같은 "아이콘 + 문구" 페어링)
  * caption 이 있으면 이미지 아래 캡션 (카드). 배지만 있고 캡션이 없으면 "Do" / "Don't" 를 기본 문구로 씁니다.
  */
 import { UI_TEXT, langFromPath, type ImageItem } from '../lib/guide';
@@ -36,7 +36,7 @@ const tone = item.src ? await imageTone(item.src, item.zoom ?? Astro.props.zoom 
             ? <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M2.5 8.5l3.5 3.5L13.5 4" /></svg>
             : item.badge === 'dont'
             ? <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M3 3l10 10M13 3L3 13" /></svg>
-            : <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M2.5 8h11" /></svg>}
+            : <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter"><path d="M8 4L13 12.8H3Z" /></svg>}
         </span>
       )}
       <span class="fig__caption-text" set:html={captionHtml} />
