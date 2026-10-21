@@ -835,6 +835,21 @@ html.js .main {
   color: var(--c-dont);
 }
 
+/* 본문 속 컬러 칩: 브랜드 컬러 영문 명칭 앞의 색 네모 (guide.ts colorChips). 칩과 이름은 한 줄에 */
+.cref {
+  white-space: nowrap;
+}
+.cref__chip {
+  display: inline-block;
+  width: var(--cref-size);
+  height: var(--cref-size);
+  margin-right: var(--cref-gap);
+  border-radius: var(--cref-radius);
+  border: var(--border-w) solid var(--cref-line);
+  background: var(--cref);
+  vertical-align: var(--cref-dy);
+}
+
 /* 컬러 카드: 색면 + 이름. 호버하면 스펙이 디졸브로 나타남 (Swatch.astro) */
 .swatch {
   display: flex;

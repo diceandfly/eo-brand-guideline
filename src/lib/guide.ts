@@ -223,6 +223,25 @@ function smartQuotes(html: string): string {
 const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 /**
+ * 본문·캡션 속 브랜드 컬러의 영문 공식 명칭 앞에 색 칩을 붙입니다 (base.css .cref). 이름은 7색 고정이며 대소문자까지 같아야 합니다.
+ * 칩 색은 tokens.css 의 --c-<이름 소문자-하이픈> 이라 팔레트 값이 바뀌면 같이 바뀝니다. 태그 안(속성)과 <code>·<pre> 안은 건드리지 않습니다.
+ */
+const COLOR_NAMES = ['Builder Neon', 'Day Blue', 'Bay Green', 'Medium Gray', 'Solid Gray', 'Space Black', 'Air White'];
+const COLOR_RE = new RegExp(`(?<![\\w-])(${COLOR_NAMES.join('|')})(?![\\w-])`, 'g');
+function colorChips(html: string): string {
+  let code = 0;
+  return html.split(/(<[^>]+>)/).map(seg => {
+    if (seg.startsWith('<')) {
+      if (/^<(code|pre)\b/i.test(seg)) code++;
+      else if (/^<\/(code|pre)>/i.test(seg)) code = Math.max(0, code - 1);
+      return seg;
+    }
+    if (code) return seg;
+    return seg.replace(COLOR_RE, name => `<span class="cref"><i class="cref__chip" style="--cref:var(--c-${name.toLowerCase().replace(/ /g, '-')})"></i>${name}</span>`);
+  }).join('');
+}
+
+/**
  * 고아 단어(orphan) 방지 — 문단·리스트 항목·캡션의 마지막 두 단어 사이 공백을 줄바꿈 없는 공백(&nbsp;)으로 바꿉니다.
  * 마지막 줄에 단어 하나만 남는 일이 없어지고, 영문(단어)·한글(어절) 모두 공백 기준이라 같은 규칙이 통합니다.
  * CSS 의 text-wrap: pretty 가 되는 브라우저에서는 그쪽이 더 넓게 처리하고, 이건 그 폴백입니다. 빌드 시 1회라 런타임 비용 0.
@@ -254,7 +273,7 @@ const glueBlocks = (html: string) =>
 
 function md(src: string): string {
   const s = src.trim();
-  return s ? glueBlocks(wrapKo(smartQuotes(marked.parse(s, { async: false, gfm: true, breaks: false }) as string))) : '';
+  return s ? glueBlocks(wrapKo(colorChips(smartQuotes(marked.parse(s, { async: false, gfm: true, breaks: false }) as string)))) : '';
 }
 
 export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
@@ -360,7 +379,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       const z = flags.find(f => f.startsWith('zoom='));
       if (z && Number.isFinite(parseFloat(z.slice(5)))) item.zoom = parseFloat(z.slice(5));
       if (flags.includes('nozoom')) item.zoom = 1;
-      if (m[3].trim()) item.caption = glueLastWords(wrapKo(smartQuotes(escapeHtml(m[3].trim()))));   // HTML (한글 구간 래핑, 고아 단어 방지)
+      if (m[3].trim()) item.caption = glueLastWords(wrapKo(colorChips(smartQuotes(escapeHtml(m[3].trim())))));   // HTML (컬러 칩, 한글 구간 래핑, 고아 단어 방지)
       section.items.push(item);
       continue;
     }
