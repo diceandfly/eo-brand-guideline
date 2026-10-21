@@ -228,6 +228,7 @@ const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
  * 칩 색은 tokens.css 의 --c-<이름 소문자-하이픈> 이라 팔레트 값이 바뀌면 같이 바뀝니다. 태그 안(속성)과 <code>·<pre> 안은 건드리지 않습니다.
  */
 const COLOR_NAMES = ['Builder Neon', 'Day Blue', 'Bay Green', 'Medium Gray', 'Solid Gray', 'Space Black', 'Air White'];
+const COLOR_DARK = new Set(['Space Black', 'Solid Gray']);   // 어두운 칩: 테두리만 보여 작아 보이는 착시를 CSS(--cref-dark-grow)로 보정
 const COLOR_RE = new RegExp(`(?<![\\w-])(\\[)?(${COLOR_NAMES.join('|')})(?:(?<=\\[.{7,12})\\](?!\\())?(?![\\w-])`, 'g');
 function colorChips(html: string): string {
   let code = 0;
@@ -239,7 +240,7 @@ function colorChips(html: string): string {
     }
     if (code) return seg;
     return seg.replace(COLOR_RE, (m, bracket, name) => {
-      const chip = `<i class="cref__chip" style="--cref:var(--c-${name.toLowerCase().replace(/ /g, '-')})"${bracket ? ` title="${name}"` : ''}></i>`;
+      const chip = `<i class="cref__chip${COLOR_DARK.has(name) ? ' cref__chip--dark' : ''}" style="--cref:var(--c-${name.toLowerCase().replace(/ /g, '-')})"${bracket ? ` title="${name}"` : ''}></i>`;
       if (bracket && !m.endsWith(']')) return m;                      // 여는 괄호만 있음 → 그대로
       return bracket ? `<span class="cref cref--only">${chip}<span class="sr-only">${name}</span></span>` : `<span class="cref">${chip}${name}</span>`;
     });
