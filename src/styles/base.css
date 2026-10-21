@@ -849,6 +849,9 @@ html.js .main {
   background: var(--cref);
   vertical-align: var(--cref-dy);
 }
+.cref--only .cref__chip {
+  margin-right: 0; /* [Builder Neon]: 이름 없이 칩만 */
+}
 
 /* 컬러 카드: 색면 + 이름. 호버하면 스펙이 디졸브로 나타남 (Swatch.astro) */
 .swatch {

@@ -224,10 +224,11 @@ const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
 
 /**
  * 본문·캡션 속 브랜드 컬러의 영문 공식 명칭 앞에 색 칩을 붙입니다 (base.css .cref). 이름은 7색 고정이며 대소문자까지 같아야 합니다.
+ * [Builder Neon] 처럼 대괄호로 감싸면 이름 없이 칩만 보입니다 (이름은 스크린 리더·검색용으로만 남고, 칩에 마우스를 올리면 툴팁).
  * 칩 색은 tokens.css 의 --c-<이름 소문자-하이픈> 이라 팔레트 값이 바뀌면 같이 바뀝니다. 태그 안(속성)과 <code>·<pre> 안은 건드리지 않습니다.
  */
 const COLOR_NAMES = ['Builder Neon', 'Day Blue', 'Bay Green', 'Medium Gray', 'Solid Gray', 'Space Black', 'Air White'];
-const COLOR_RE = new RegExp(`(?<![\\w-])(${COLOR_NAMES.join('|')})(?![\\w-])`, 'g');
+const COLOR_RE = new RegExp(`(?<![\\w-])(\\[)?(${COLOR_NAMES.join('|')})(?:(?<=\\[.{7,12})\\](?!\\())?(?![\\w-])`, 'g');
 function colorChips(html: string): string {
   let code = 0;
   return html.split(/(<[^>]+>)/).map(seg => {
@@ -237,7 +238,11 @@ function colorChips(html: string): string {
       return seg;
     }
     if (code) return seg;
-    return seg.replace(COLOR_RE, name => `<span class="cref"><i class="cref__chip" style="--cref:var(--c-${name.toLowerCase().replace(/ /g, '-')})"></i>${name}</span>`);
+    return seg.replace(COLOR_RE, (m, bracket, name) => {
+      const chip = `<i class="cref__chip" style="--cref:var(--c-${name.toLowerCase().replace(/ /g, '-')})"${bracket ? ` title="${name}"` : ''}></i>`;
+      if (bracket && !m.endsWith(']')) return m;                      // 여는 괄호만 있음 → 그대로
+      return bracket ? `<span class="cref cref--only">${chip}<span class="sr-only">${name}</span></span>` : `<span class="cref">${chip}${name}</span>`;
+    });
   }).join('');
 }
 
