@@ -592,7 +592,7 @@ Below are a few things never to do with color. For general guidance on minimum c
 ![color/dont-8]{dont} Don’t apply color overlays to photography
 ![color/dont-9]{dont} Don’t paint a single graphic unit in multiple colors
 
-# 05 Visual System
+# 05 Graphic System
 
 ## Graphic Unit
 
