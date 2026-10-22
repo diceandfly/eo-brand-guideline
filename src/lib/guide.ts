@@ -353,6 +353,8 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
     section.bodyHtml = md(body.join('\n'), ctx);
     section.layout = pickLayout(pendingLayout, section.items);
     pendingLayout = undefined;
+    if (section.group && section.layout.startsWith('cols-'))
+      console.warn(`[guide] "${section.head}": ::: cols-${section.group.cols} 묶음 안에서 {layout=${section.layout}} 로 또 단을 나눕니다. 너무 좁아질 수 있습니다 (${sub.url})`);
     if (!/^(grid|cols)-/.test(section.layout) && section.layout !== 'wide' && section.items.length > 1)
       console.warn(`[guide] "${section.head}${section.subhead ? ' / ' + section.subhead : ''}" (${section.layout}) 섹션의 이미지 ${section.items.length}개 중 첫 번째만 표시됩니다. 모두 보이려면 {layout=grid-2|3|4} 또는 {layout=wide}`);
     sub.sections.push(section);
@@ -376,6 +378,7 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
 
     if ((m = line.match(/^:::\s*cols-([234])\s*$/))) {              // ::: cols-3  → 다음 섹션들을 한 행에 N단으로 (::: 로 닫음)
       flushSection();
+      if (group) console.warn(`[guide] ::: cols-${m[1]}: 앞의 ::: cols-${group.cols} 묶음이 닫히지 않았습니다 (${sub?.url ?? ''}). 새 묶음으로 넘어갑니다`);
       group = { id: ++groupSeq, cols: Number(m[1]) };
       continue;
     }
