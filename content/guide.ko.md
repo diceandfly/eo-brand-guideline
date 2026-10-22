@@ -16,13 +16,14 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
                             앵커 id = 목차 라벨의 슬러그 (헤드가 페이지 이름과 같으면 서브헤드, 예: #color-pairing).
 
 ■ 교차 링크 (본문·캡션 어디서나)
-  [[pattern#color-pairing]]            → "→ Pattern › Color Pairing" 링크. 글자는 목차에서 자동, 언어별 경로도 자동
-  [[pattern]]                          → "→ Pattern" (페이지로)
-  [[#grammar]]                         → 같은 페이지의 섹션 ("→ Grammar")
+  [[pattern#color-pairing]]            → "Pattern › Color Pairing" 링크. 글자는 목차에서 자동, 언어별 경로도 자동
+  [[pattern]]                          → "Pattern" (페이지로)
+  [[#grammar]]                         → 같은 페이지의 섹션 ("Grammar")
+  [[→ pattern#color-pairing]]          → "→ Pattern › Color Pairing" (화살표까지 한 밑줄. -> 로 써도 됨)
   [[02-logo/symbol#clearspace]]        → 같은 페이지 이름이 여러 챕터에 있을 때 챕터로 한정
   [[pattern#grammar|문법 원칙]]         → 링크 글자를 직접 지정
     → 페이지 이름 = URL 의 slug (symbol, signature, pattern …), 섹션 = 앵커 id. 없는 대상은 빌드 로그에 경고가 뜨고 글자만 남습니다.
-    → 화살표는 tokens.css --xref-arrow. 일반 마크다운 링크 [글자](주소) 도 그대로 됩니다 (화살표 없음).
+    → 일반 마크다운 링크 [글자](주소) 도 그대로 됩니다.
   #### Primary Lockup    ← 서브헤드 (선택). 헤드 바로 다음 줄에만 씁니다. 없으면 표시되지 않습니다.
   그 아래 줄들            ← 본문. 마크다운(문단, 굵게, 링크, 목록)을 쓸 수 있습니다.
 
