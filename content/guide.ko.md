@@ -732,7 +732,9 @@ EO 팔레트는 Builder Neon, Day Blue, Bay Green과 이를 받쳐 주는 네가
 ### Color {layout=wide}
 #### Usage
 
-EO를 처음 만나는 오디언스와 핵심 접점에서는 Space Black 바탕, Air White 텍스트, Builder Neon 그래픽에 크게 의존합니다. 면적으로는 블랙 70, 네온 20, 화이트 10이 기준입니다. 소셜 채널이나 시리즈 아트워크처럼 이미 "EO"로 인식되는 맥락에서는 Day Blue · Bay Green을 시리즈 구분색으로 더 자주 쓸 수 있습니다. 구체적인 에셋별 컬러 사용법은 각 페이지 해당 섹션을 참조하세요.
+Space Black 바탕, Air White 텍스트, Builder Neon 그래픽에 크게 의존합니다. 면적으로는 블랙 70, 네온 20, 화이트 10이 기준입니다. 소셜 채널이나 시리즈 아트워크처럼 이미 "EO"로 인식되는 맥락에서는 Day Blue · Bay Green을 시리즈 구분색으로 더 자주 쓸 수 있습니다. 
+
+구체적인 에셋별 컬러 사용법은 각 페이지 해당 섹션을 참조하세요.
 
 - 텍스트의 컬러는 Air White 또는 Space Black을 기본으로 합니다.
 - 로고
@@ -873,7 +875,7 @@ Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Bl
 - Builder Neon · Day Blue · Bay Green · Air White 를 배경 컬러로 쓸 때는 Space Black 유닛만 올릴 수 있습니다.
 - Solid Gray는 반드시 배경 컬러으로만 사용하며 유닛 컬러로는 사용하지 않습니다.
 - Medium Gray는 디지털 환경에서 가급적 배경 컬러로 사용하지 않습니다. Merch 제작 시 질감이 있는 현실 소재의 컬러를 Medium Gray로 맞출 수 있는 경우에 한해, EO 브랜드팀의 허가를 거쳐 Builder Neon · Space Black 유닛을 제한적으로 올릴 수 있습니다.
-![graphic/unit-color-do-1] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Solid Gray]
+![graphic/unit-color-do-1] {do}[Builder Neon] / [Day Blue] / [Bay Green] / [Medium Gray] / [Air White] on [Solid Gray]
 ![graphic/unit-color-do-2] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Space Black]
 ![graphic/unit-color-do-3] {do}[Space Black] on [Builder Neon] · [Day Blue] · [Bay Green]
 ![graphic/unit-color-do-4] {do}[Space Black] on [Air White]
