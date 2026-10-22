@@ -81,6 +81,7 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
     ### Alignment {layout=half}                ← 텍스트 아래 6컬럼 이미지
     ### Core Palette {layout=grid-4}           ← 개수와 무관하게 4열
     ### Don'ts {layout=grid-3 ratio=4:5}       ← 비율도 함께. 기본값: basic/half 5:4, wide 2:1, grid 4:5
+    ### Credits {layout=cols-2}                ← 문단만으로 묶기: 본문의 문단(엔터 두 번)·목록을 2단(6컬럼씩)으로 차례로. cols-3 = 4컬럼씩 3단, cols-4 = 3컬럼씩 4단. 모바일은 한 단
 
 ■ 자주 하는 작업
   섹션 추가     : ### 헤드 한 줄 + 본문 + ![이미지] 를 원하는 위치에 끼워 넣으면 끝.
@@ -109,7 +110,11 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
 ### Welcome to the EO Brand Guidelines
 EO는 빌더를 위한 미디어입니다. 우리는 클릭이 아니라 신뢰를 쌓습니다. 조회수 대신 다시 돌아오는 사람을 세고, 자극적인 썸네일 대신 창업가의 진짜 여정을 기록합니다.
 
-이 가이드라인은 EO 아이덴티티 시스템의 기본 요소인 로고 · 타이포그래피 · 컬러 · 그래픽 시스템을 설명하고, 우리가 그것을 어떻게 사용해 브랜드를 만들어 가는지 안내합니다. 가이드라인을 이해하고 따르면 샌프란시스코 · 서울 · 베트남 어디에서 만들어진 콘텐츠든 하나의 EO로 보이고 읽힙니다.
+이 가이드라인은 EO 아이덴티티 시스템의 기본 요소인 로고 · 타이포그래피 · 컬러 · 그래픽 시스템을 설명하고, 샌프란시스코 · 서울 · 베트남 어디에서 만들어진 콘텐츠든 하나의 EO로 보이고 읽히게 하는데 그 목적을 두고 있습니다.
+
+Build Anyway.
+
+The EO Brand Team
 
 
 
@@ -978,6 +983,8 @@ EO 의 브랜드 에셋을 사용하려는 외부 파트너, 그리고 새 디�
 
 [[mailto:jemin@eoeoeo.net|jemin@eoeoeo.net]]
 
-Build Anyway.
 
-The EO Brand Team
+### Credits {layout=cols-2}
+**Visual identity guideline** designed and written by DiceAndFly.Studio
+
+**Inspired by** the Discord Corebook by [[https://www.portorocha.com/|Porto Rocha]]

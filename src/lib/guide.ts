@@ -9,7 +9,7 @@ import path from 'node:path';
 import { marked } from 'marked';
 import { tokenHex, type Tokens } from './tokens.ts';
 
-export type Layout = 'basic' | 'text' | 'wide' | 'half' | 'grid-2' | 'grid-3' | 'grid-4';
+export type Layout = 'basic' | 'text' | 'wide' | 'half' | 'grid-2' | 'grid-3' | 'grid-4' | 'cols-2' | 'cols-3' | 'cols-4';   // cols-N: 본문 문단을 N단으로 (데스크탑)
 
 export interface ImageItem {
   kind: 'image';
@@ -160,7 +160,7 @@ function normalizeRatio(r?: string): string | undefined {
 }
 
 function pickLayout(explicit: string | undefined, items: Item[]): Layout {
-  const allowed: Layout[] = ['basic', 'text', 'wide', 'half', 'grid-2', 'grid-3', 'grid-4'];
+  const allowed: Layout[] = ['basic', 'text', 'wide', 'half', 'grid-2', 'grid-3', 'grid-4', 'cols-2', 'cols-3', 'cols-4'];
   if (explicit && (allowed as string[]).includes(explicit)) return explicit as Layout;
   const n = items.length;
   if (n === 0) return 'text';
@@ -350,7 +350,7 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
     section.bodyHtml = md(body.join('\n'), ctx);
     section.layout = pickLayout(pendingLayout, section.items);
     pendingLayout = undefined;
-    if (!section.layout.startsWith('grid-') && section.layout !== 'wide' && section.items.length > 1)
+    if (!/^(grid|cols)-/.test(section.layout) && section.layout !== 'wide' && section.items.length > 1)
       console.warn(`[guide] "${section.head}${section.subhead ? ' / ' + section.subhead : ''}" (${section.layout}) 섹션의 이미지 ${section.items.length}개 중 첫 번째만 표시됩니다. 모두 보이려면 {layout=grid-2|3|4} 또는 {layout=wide}`);
     sub.sections.push(section);
     section = null;
