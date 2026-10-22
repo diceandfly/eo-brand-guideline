@@ -255,12 +255,18 @@ button {
     transform: none;
   }
 }
-html.js .main {
+/* 첫 화면 이미지·폰트가 준비될 때까지(motion.ts, 최대 --page-in-wait) 숨겼다가 page-ready 가 붙으면 디졸브.
+   Layout 의 인라인 스크립트가 안전장치로 일정 시간 뒤 page-ready 를 반드시 붙이므로 JS 오류가 나도 본문이 사라지지 않음 */
+html.js:not(.page-ready) .main {
+  opacity: 0;
+}
+html.js.page-ready .main {
   animation: page-in var(--page-in-dur) var(--page-in-ease) both;
 }
 @media (prefers-reduced-motion: reduce) {
   html.js .main {
     animation: none;
+    opacity: 1; /* 기다리지 않고 바로 */
   }
   .sidebar {
     transition: none; /* 모바일 드로어도 미끄러지지 않고 바로 열고 닫힘 */
@@ -758,6 +764,13 @@ html.js .main {
   height: 100%;
   object-fit: var(--img-fit);
   cursor: zoom-in; /* 클릭하면 확대 보기 */
+  /* 로드가 끝나면(motion.ts 가 is-loaded 를 붙임) 떠오름. 디졸브 전에 준비된 이미지는 본문과 함께, 늦게 오는 이미지는 각자 */
+  opacity: 0;
+  transition: opacity var(--img-in-dur) var(--ease);
+}
+html:not(.js) .fig__frame > img,
+.fig__frame > img.is-loaded {
+  opacity: 1;
 }
 /* Don't 대각선: 왼쪽 아래 → 오른쪽 위. 끝점은 영역 높이 × --strike-inset 만큼 네 변에서 안쪽,
    굵기는 영역 높이 × --strike-w. 전부 영역 크기에 대한 비율이라 화면 크기가 바뀌어도 같은 모양.
