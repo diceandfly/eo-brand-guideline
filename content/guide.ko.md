@@ -86,8 +86,8 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
     ### Core Palette {layout=grid-4}           ← 개수와 무관하게 4열
     ### Don'ts {layout=grid-3 ratio=4:5}       ← 비율도 함께. 기본값: basic/half 5:4, wide 2:1, grid 4:5
     ### Credits {layout=text-2}                ← 문단을 2단으로: 본문의 문단(엔터 두 번)·목록을 차례로 2단에. text-3 · text-4 도. 모바일은 한 단
-  섹션 여러 개를 한 행(12컬럼)에 나란히 놓으려면 ::: row 로 감싸고, 섹션마다 차지할 컬럼 수를 {span=N} 으로 적습니다.
-    ::: row
+  섹션 여러 개를 한 행(12컬럼)에 나란히 놓으려면 ::: split 로 감싸고, 섹션마다 차지할 컬럼 수를 {span=N} 으로 적습니다.
+    ::: split
     ### Thank You {span=4}
     …
     ### Contact {span=4}
@@ -134,7 +134,7 @@ The EO Brand Team
 
 
 ## Legal Brand Guidelines {toc=none}
-
+:::
 ### Legal Brand Guidelines
 EO, EO 모노그램, 블록 심볼, "Build Anyway", "Entrepreneur Onwards" 및 EO Studio(이오스튜디오)가 소유한 기타 상표(이하 **"EO 로고"**)와, 심볼 · 그래픽 유닛 · 패턴 · EO의 룩앤필 등 브랜드 고유의 미적 특징(이하 "브랜드 에셋")은 EO Studio의 독점 자산입니다. 여기에서 허용된 경우를 제외하고 EO 로고나 브랜드 에셋을 사용하려면 EO Studio의 사전 허가가 있어야 합니다.
 
@@ -717,13 +717,13 @@ Founders Grotesk를 사용할 수 없는 환경(이메일, 외부 플랫폼의 �
 
 ## Colors
 
-### Main Color
+### Primary Color
 #### Builder Neon
 Builder Neon은 EO 팔레트의 유일한 주인공이자 브랜드에서 가장 잘 알려진 요소로, 로고 없이도 "EO"를 전달합니다. 검은 하늘 위에서 드라마틱한 대비를 만드는 이 노랑은 밤새 불이 켜진 해커하우스의 창, 빌더의 낙관을 상징합니다. 넓은 면보다 한 구성 안의 한 곳에 집중해서 사용할 때 가장 강합니다.
 ![color/builder-neon]
 
 
-### Sub Color
+### Secondary Colors
 #### Day Blue & Bay Green
 Day Blue와 Bay Green은 샌프란시스코의 푸른 하늘과 청량한 공기, 그 안의 자연에서 가져온 시원한 색으로, 보색인 Builder Neon을 더욱 선명하게 살려 주며 시리즈와 채널을 구분하는 데 사용합니다.
 ![color/builder-neon]
@@ -764,11 +764,11 @@ Space Black 바탕, Air White 텍스트, Builder Neon 그래픽에 크게 의존
 #### In Use
 EO 팔레트가 실제로 사용된 예시입니다.
 ![color/in-use-1] Poster
-![color/in-use-2] Hang Tag
+![color/in-use-2] Billboard
 ![color/in-use-3] Web Magazine
-![color/in-use-4] Episode One Tee
+![color/in-use-4] T-shirt
+![color/in-use-2] Hang Tag
 ![color/in-use-5] Sticker Pack
-![color/in-use-6] Series Thumbnail
 
 
 ### Color {layout=grid-3}
@@ -834,10 +834,10 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 #### + Proportion & Rhythm
 파라미터를 어떻게 잡느냐에 따라 유닛의 비례와 리듬은 달라집니다. 비례는 shaft 두께와 thread 수가 유닛의 길이에 맞을 때 좋아지고, 리듬은 compression으로 thread 간격이 한쪽으로 흐를 때 생깁니다. 이 섹션은 유닛 하나와 쌍까지를 다루며 셋 이상이 모이는 구성은 [[pattern#grammar]]을 참조하세요. 유닛과 배경의 색 조합에 대해선 [[pattern#color]]을 참조하세요.
 
-- **리듬** compression이 0이면 thread가 균일하게 되풀이되어 줄무늬처럼 보입니다. 기본값 2:1처럼 한쪽으로 수렴시켜 방향과 속도를 만드세요.
-- **짧은 유닛** 길이가 짧을수록 thread 수를 줄이고[6–8] shaft를 두껍게 합니다. thread가 많으면 뭉개지고, shaft가 가늘면 힘이 없습니다.
-- **긴 유닛** 길이가 길수록 thread 수를 늘리되[12–16] compression을 유지해 끝까지 흐름이 이어지게 합니다. 같은 thread가 끝없이 되풀이되면 리듬이 사라집니다.
-- **쌍** 두 유닛을 이을 때는 compression의 방향을 맞추고, 마주 놓을 때는 대칭을 정확히 맞춥니다. 두 유닛의 thread 수와 shaft 두께가 다르면 한 몸으로 읽히지 않습니다.
+- **리듬** — compression이 0이면 thread가 균일하게 되풀이되어 줄무늬처럼 보입니다. 기본값 2:1처럼 한쪽으로 수렴시켜 방향과 속도를 만드세요.
+- **짧은 유닛** — 길이가 짧을수록 thread 수를 줄이고[6–8] shaft를 두껍게 합니다. thread가 많으면 뭉개지고, shaft가 가늘면 힘이 없습니다.
+- **긴 유닛** — 길이가 길수록 thread 수를 늘리되[12–16] compression을 유지해 끝까지 흐름이 이어지게 합니다. 같은 thread가 끝없이 되풀이되면 리듬이 사라집니다.
+- **쌍** — 두 유닛을 이을 때는 compression의 방향을 맞추고, 마주 놓을 때는 대칭을 정확히 맞춥니다. 두 유닛의 thread 수와 shaft 두께가 다르면 한 몸으로 읽히지 않습니다.
 ![graphic/unit-rhythm-do-1]{do} 짧은 유닛 — thread는 적게, shaft는 두껍게
 ![graphic/unit-rhythm-dont-1]{dont} 짧은 유닛에 thread를 빽빽하게 넣지 마세요
 ![graphic/unit-rhythm-do-2]{do} 긴 유닛 — thread는 많게, compression은 유지
@@ -863,7 +863,6 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 
 
 ## Pattern
-
 
 ### Pattern
 #### Grammar {layout=grid-3}
@@ -892,7 +891,7 @@ Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Bl
   - Builder Neon · Day Blue · Bay Green · Air White 를 배경 컬러로 쓸 때는 Space Black 유닛만 올릴 수 있습니다.
   - Solid Gray는 반드시 배경 컬러으로만 사용하며 유닛 컬러로는 사용하지 않습니다.
   - Medium Gray는 디지털 환경에서 배경 컬러로 사용하지 않습니다. Merch 제작 시 실물 소재의 컬러를 Medium Gray로 맞출 수 있는 경우에 한해, EO 브랜드팀의 허가를 거쳐 Builder Neon · Space Black 유닛을 제한적으로 올릴 수 있습니다.
-![graphic/unit-color-do-1] {do}[Builder Neon] / [Day Blue] / [Bay Green] / [Medium Gray] / [Air White] on [Solid Gray]
+![graphic/unit-color-do-1] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Solid Gray]
 ![graphic/unit-color-do-2] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Space Black]
 ![graphic/unit-color-do-3] {do}[Space Black] on [Builder Neon] · [Day Blue] · [Bay Green]
 ![graphic/unit-color-do-4] {do}[Space Black] on [Air White]
@@ -988,10 +987,10 @@ Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Bl
 # 06 End
 
 ## End {toc=none}
-::: row
+::: split
 ### Thank You {span=6}
 EO 브랜드 가이드라인을 끝까지 읽어 주셔서 감사합니다. 
-이 문서는 선언된 완성본이 아닌, EO와 함께 성장하고 변화하는 기준입니다. 쓰다가 막히는 곳, 더 나은 방법이 보이는 곳이 있으면 언제든 알려 주세요.
+이 문서는 선언된 완성본이 아닌, EO와 함께 성장하고 변화하는 기준입니다. 더 나은 방법이 보이는 곳이 있으면 언제든 알려 주세요.
 
 디스크립터 · 패턴 · 컬러 조합처럼 EO 브랜드팀의 확인이 필요한 사항이 있다면 문의 주시길 바랍니다.
 

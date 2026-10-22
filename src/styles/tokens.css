@@ -99,12 +99,12 @@
   --section-gap-m: 72px;
   --next-gap: 160px; /* 마지막 섹션 ↔ 다음 버튼 */
   --next-gap-m: 96px;
-  --next-arrow-size: 0.98em; /* 다음 버튼 화살표 크기 (타이틀 글자 기준 em) */
+  --next-arrow-size: 0.995em; /* 다음 버튼 화살표 크기 (타이틀 글자 기준 em) */
   --next-arrow-stroke: 1.5; /* 화살표 선 굵기 (SVG 24 기준 단위) */
   --next-pad-top: 2; /* 다음 버튼 윗선 ↔ 라벨 = 행간 단위 × 값 */
   --next-label-gap: 0.5; /* 라벨(Next) ↔ 타이틀 = 행간 단위 × 값 */
-  --next-arrow-gap: 0.12em; /* 타이틀 텍스트 ↔ 화살표 */
-  --next-arrow-shift: -0.19em; /* 화살표 세로 위치. 음수 = 아래로 (헤딩 32.6px 기준 0.015em ≈ 0.5px) */
+  --next-arrow-gap: 0.02em; /* 타이틀 텍스트 ↔ 화살표 */
+  --next-arrow-shift: -0.185em; /* 화살표 세로 위치. 음수 = 아래로 (헤딩 32.6px 기준 0.015em ≈ 0.5px) */
   --page-pad-bottom: 120px; /* 다음 버튼 ↔ 페이지 바닥 */
   --page-pad-bottom-m: 80px;
 
@@ -113,7 +113,7 @@
   --sec-text-cols-m: 6;
   --sec-media-cols: 6; /* basic: 이미지 컬럼 수 (오른쪽 끝). 모바일은 텍스트 아래로 */
   --sec-textonly-cols: 11; /* text / wide / half / grid: 텍스트 컬럼 수 */
-  --sec-group-text-pad: 1; /* ::: row 안 섹션의 글 오른쪽 여백 (그리드 컬럼 폭 × 값). 단 사이 거터에 더해져 글이 옆 단에 붙지 않게 */
+  --sec-group-text-pad: 1; /* ::: split 안 섹션의 글 오른쪽 여백 (그리드 컬럼 폭 × 값). 단 사이 거터에 더해져 글이 옆 단에 붙지 않게 */
   --sec-textonly-cols-m: 6;
   --grid-n-m: 2; /* 모바일에서 grid-2/3/4 의 열 수 (최대) */
   --head-gap: 52px; /* 헤드(+서브헤드) ↔ 본문 */

@@ -34,7 +34,7 @@ export type Item = ImageItem | SwatchItem;
 export interface Section {
   id: string;             // 앵커 id (목차 라벨 기준: 헤드, 헤드가 페이지 이름과 같으면 서브헤드. 중복 시 -2, -3…)
   label: string;          // 목차 라벨 = 이미지 주제 이름 (헤드, 헤드가 페이지 이름과 같으면 서브헤드)
-  row?: number;           // ::: row … ::: 로 묶인 섹션: 같은 번호끼리 한 12컬럼 행에 (sectionBlocks)
+  split?: number;           // ::: split … ::: 로 묶인 섹션: 같은 번호끼리 한 12컬럼 행에 나란히 (sectionBlocks)
   span?: number;          // 행 안에서 차지하는 그리드 컬럼 수 {span=N}. 생략하면 남은 컬럼을 균등 분배 (loadGuide 끝에서 확정)
   head: string;
   subhead?: string;
@@ -332,8 +332,8 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
   let section: Section | null = null;
   let body: string[] = [];
   let pendingLayout: string | undefined;                   // 헤드/서브헤드 줄의 {layout=…} (섹션을 다 읽은 뒤 pickLayout 에서 확정)
-  let row: number | undefined;                             // 열린 ::: row 묶음 번호
-  let rowSeq = 0;
+  let split: number | undefined;                             // 열린 ::: split 묶음 번호
+  let splitSeq = 0;
   let idsInSub = new Map<string, number>();
 
   // 목차 앵커 라벨: 헤드가 페이지 이름과 같으면(예: Colors 페이지의 "Color") 서브헤드를 쓴다.
@@ -377,20 +377,20 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
   for (const line of lines) {
     let m: RegExpMatchArray | null;
 
-    if (/^:::\s*row\s*$/.test(line)) {                             // ::: row  → 다음 섹션들을 한 12컬럼 행에 (::: 로 닫음). 폭은 섹션의 {span=N}
+    if (/^:::\s*split\s*$/.test(line)) {                             // ::: split  → 다음 섹션들을 한 12컬럼 행에 (::: 로 닫음). 폭은 섹션의 {span=N}
       flushSection();
-      if (row !== undefined) console.warn(`[guide] ::: row: 앞의 ::: row 가 닫히지 않았습니다 (${sub?.url ?? ''}). 새 행으로 넘어갑니다`);
-      row = ++rowSeq;
+      if (split !== undefined) console.warn(`[guide] ::: split: 앞의 ::: split 가 닫히지 않았습니다 (${sub?.url ?? ''}). 새 행으로 넘어갑니다`);
+      split = ++splitSeq;
       continue;
     }
     if (/^:::\s*$/.test(line)) {                                   // :::  → 행 끝
       flushSection();
-      row = undefined;
+      split = undefined;
       continue;
     }
     if ((m = line.match(/^#\s+(\d+)\s+(.+?)\s*$/))) {              // # 02 Logo
       flushSection();
-      row = undefined;
+      split = undefined;
       chapter = { num: m[1], name: m[2], slug: `${m[1]}-${slugify(m[2])}`, subs: [] };
       chapters.push(chapter);
       sub = null;
@@ -398,7 +398,7 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
     }
     if ((m = line.match(/^##\s+(.+?)\s*$/)) && chapter) {           // ## Logo {toc=none}
       flushSection();
-      row = undefined;
+      split = undefined;
       const [name, attrs] = takeAttrs(m[1]);
       const slug = slugify(name);
       sub = {
@@ -418,13 +418,13 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
       const [head, attrs] = takeAttrs(smartQuotes(m[3]));
       section = {
         id: '', label: head, head, bodyHtml: '', layout: 'basic',   // id 는 flushSection 에서 (서브헤드까지 읽은 뒤)
-        ratio: normalizeRatio(attrs.ratio), items: [], tocMark, row,
+        ratio: normalizeRatio(attrs.ratio), items: [], tocMark, split,
         zoom: Number.isFinite(parseFloat(attrs.zoom)) ? parseFloat(attrs.zoom) : undefined
       };
       pendingLayout = attrs.layout;
-      if (attrs.span !== undefined) {                                 // {span=N}: ::: row 안에서 차지하는 컬럼 수
+      if (attrs.span !== undefined) {                                 // {span=N}: ::: split 안에서 차지하는 컬럼 수
         const n = parseInt(attrs.span, 10);
-        if (row === undefined) console.warn(`[guide] "${head}": {span=${attrs.span}} 은 ::: row 안에서만 뜻이 있습니다 (${sub.url}). 무시합니다`);
+        if (split === undefined) console.warn(`[guide] "${head}": {span=${attrs.span}} 은 ::: split 안에서만 뜻이 있습니다 (${sub.url}). 무시합니다`);
         else if (!(n >= 1 && n <= GRID_COLS)) console.warn(`[guide] "${head}": {span=${attrs.span}} 은 1~${GRID_COLS} 사이여야 합니다 (${sub.url}). 무시합니다`);
         else section.span = n;
       }
@@ -466,11 +466,11 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
   flushSection();
   for (const ch of chapters) for (const s of ch.subs) finalizeNav(s);
 
-  // ::: row 의 폭 확정: {span} 을 적지 않은 섹션은 남은 컬럼을 균등하게 나눠 가짐 (남은 게 모자라면 새 행에서 12 를 나눔)
+  // ::: split 의 폭 확정: {span} 을 적지 않은 섹션은 남은 컬럼을 균등하게 나눠 가짐 (남은 게 모자라면 새 행에서 12 를 나눔)
   for (const ch of chapters) for (const s of ch.subs) {
-    const rows = new Map<number, Section[]>();
-    for (const sec of s.sections) if (sec.row !== undefined) rows.set(sec.row, [...(rows.get(sec.row) ?? []), sec]);
-    for (const secs of rows.values()) {
+    const splits = new Map<number, Section[]>();
+    for (const sec of s.sections) if (sec.split !== undefined) splits.set(sec.split, [...(splits.get(sec.split) ?? []), sec]);
+    for (const secs of splits.values()) {
       const open = secs.filter(x => x.span === undefined);
       if (!open.length) continue;
       const used = secs.reduce((a, x) => a + (x.span ?? 0), 0);
@@ -606,14 +606,14 @@ function swatchRows(hex: string, specs: string[]): SwatchRow[] {
 
 /** 이미지 목록(문서 순서). scripts/assets.mjs 가 /asset-manifest.json 으로 받아 폴더를 정리합니다. */
 export interface AssetEntry { page: string; path: string; src: string | null; }
-/** 페이지의 섹션을 렌더 단위로: ::: row 로 묶인 연속 섹션은 하나의 row 블록(12컬럼 행, 섹션마다 span), 나머지는 낱개 */
-export type SectionBlock = { kind: 'section'; section: Section } | { kind: 'row'; id: number; sections: Section[] };
+/** 페이지의 섹션을 렌더 단위로: ::: split 로 묶인 연속 섹션은 하나의 split 블록(12컬럼 행에 나란히, 섹션마다 span), 나머지는 낱개 */
+export type SectionBlock = { kind: 'section'; section: Section } | { kind: 'split'; id: number; sections: Section[] };
 export function sectionBlocks(sub: Sub): SectionBlock[] {
   const blocks: SectionBlock[] = [];
   for (const sec of sub.sections) {
     const last = blocks[blocks.length - 1];
-    if (sec.row !== undefined && last?.kind === 'row' && last.id === sec.row) last.sections.push(sec);
-    else if (sec.row !== undefined) blocks.push({ kind: 'row', id: sec.row, sections: [sec] });
+    if (sec.split !== undefined && last?.kind === 'split' && last.id === sec.split) last.sections.push(sec);
+    else if (sec.split !== undefined) blocks.push({ kind: 'split', id: sec.split, sections: [sec] });
     else blocks.push({ kind: 'section', section: sec });
   }
   return blocks;

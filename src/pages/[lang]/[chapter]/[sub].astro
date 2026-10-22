@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 interface Props { guide: Guide; sub: Sub; lang: Lang; alt: Partial<Record<Lang, string>>; }
 const { guide, sub, lang, alt } = Astro.props;
 const EAGER_IMAGES = 4;   // 페이지 앞쪽에서 eager 로 미리 받을 이미지 수 (첫 화면 + 한 섹션 정도)
-// 섹션 순서대로 이미지 순번을 세어 앞쪽 몇 장만 eager. ::: row 묶음은 .sec-group(12컬럼 행) 안에 span 폭으로
+// 섹션 순서대로 이미지 순번을 세어 앞쪽 몇 장만 eager. ::: split 묶음은 .sec-group(12컬럼 행) 안에 span 폭으로
 let seen = 0;
 const eagerFrom = (s: Sub['sections'][number]) => { const from = seen; seen += s.items.filter(it => it.kind === 'image').length; return from; };
 const blocks = sectionBlocks(sub);
