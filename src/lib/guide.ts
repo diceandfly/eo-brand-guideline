@@ -83,7 +83,7 @@ export const langFromPath = (path: string): Lang => (LANGS as readonly string[])
  * scripts/*.mjs 는 fs. 그래서 이 파서는 Vite 없이도 Node 에서 바로 돌아갑니다.
  */
 const ASSETS = path.join(ROOT, 'public', 'assets');
-const EXTS = ['svg', 'png', 'jpg', 'jpeg', 'webp', 'gif', 'avif'];
+export const EXTS = ['svg', 'png', 'jpg', 'jpeg', 'webp', 'gif', 'avif'];   // 이미지 확장자 (우선순위 순). scripts/*.mjs 도 공유
 
 function slugify(s: string): string {
   return s
@@ -102,7 +102,7 @@ function slugify(s: string): string {
  * 영문·국문 구조가 잠시 달라도 이미지가 끊기지 않습니다. 번호를 지금 순서에 맞추려면 npm run assets (scripts/assets.mjs).
  */
 const stripNum = (dir: string) => dir.replace(/^\d+-/, '');
-const stripFileNum = (name: string) => name.replace(/^\d{2}-/, '');   // 파일명 앞 두 자리 정렬 번호 (예: 04-clearspace → clearspace)
+export const stripFileNum = (name: string) => name.replace(/^\d{2}-/, '');   // 파일명 앞 두 자리 정렬 번호 (예: 04-clearspace → clearspace)
 const pad2 = (n: number) => String(n).padStart(2, '0');
 
 /** 페이지 폴더 안의 이미지 목록: 이름(확장자 제외) → assets 기준 경로들 */

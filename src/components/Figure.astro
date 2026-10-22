@@ -23,7 +23,7 @@ const tone = item.src ? await imageTone(item.src, toneZoom, tokenHex(TOKENS, '--
 <figure class:list={['fig', { 'fig--dodont': item.badge }]} style={`--ratio: ${ratio}${(item.zoom ?? Astro.props.zoom) !== undefined ? `; --img-zoom: ${item.zoom ?? Astro.props.zoom}` : ''}`}>
   <div class="fig__frame" data-tone={tone}>
     {item.src
-      ? <img src={item.src} alt={alt} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : undefined} tabindex="0" aria-haspopup="dialog" />
+      ? <img src={item.src} alt={alt} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : undefined} role="button" tabindex="0" aria-haspopup="dialog" />
       : <div class="fig__placeholder t-label">
           <span>assets/{item.path}</span>
           <span>{ratioLabel}</span>

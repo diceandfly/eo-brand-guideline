@@ -25,14 +25,15 @@ const rel = p => path.relative(ASSETS, p).split(path.sep).join('/');
 const act = (msg, fn) => { console.log(`${dry ? '[dry] ' : ''}${msg}`); if (!dry) fn(); };
 
 // 1·2. 폴더 만들기와 옮기기 (문서 순서대로. 예전 위치의 같은 파일을 두 곳이 가리키면 먼저 나온 쪽이 가져감)
-const expectedDirs = new Set();
+const expectedDirs = new Set();                       // 지금 구조에 있어야 하는 폴더
+const createdDirs = new Set();                        // 이번 실행에서 (만들었거나 dry 로 만든 셈 친) 폴더
 let moved = 0, created = 0, missing = 0;
 const missingByPage = new Map();
 for (const e of entries) {
   const dir = path.join(ASSETS, path.dirname(e.path));
   expectedDirs.add(rel(dir));
-  if (!fs.existsSync(dir) && !expectedDirs.has(`new:${rel(dir)}`)) {
-    expectedDirs.add(`new:${rel(dir)}`);
+  if (!fs.existsSync(dir) && !createdDirs.has(rel(dir))) {
+    createdDirs.add(rel(dir));
     act(`폴더   ${rel(dir)}/`, () => fs.mkdirSync(dir, { recursive: true }));
     created++;
   }
@@ -51,10 +52,10 @@ const prune = dir => {
   const r = rel(dir);
   if (dir === ASSETS || KEEP.includes(r.split('/')[0])) return;
   const left = fs.readdirSync(dir).filter(n => n !== '.DS_Store');
-  const isExpected = [...expectedDirs].filter(x => !x.startsWith('new:')).some(x => x === r || x.startsWith(`${r}/`));
+  const isExpected = [...expectedDirs].some(x => x === r || x.startsWith(`${r}/`));
   if (!left.length && !isExpected) act(`삭제   ${r}/ (빈 폴더)`, () => fs.rmSync(dir, { recursive: true }));
 };
-if (!dry) prune(ASSETS);
+prune(ASSETS);                                        // --dry 면 act 가 출력만 함
 
 // 4. 보고
 const noExt = f => f.replace(/\.[^./]+$/, '');
