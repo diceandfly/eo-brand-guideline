@@ -778,19 +778,19 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 - **샤프트(Shaft)** — shaft는 빌딩의 과정이자 빌더의 여정을 상징합니다. shaft의 두께는 앞으로 나아가는 용기(Build anyway)의 형태를 표현합니다.
 - **스레드(Thread)** — thread 한 바퀴는 문제 해결의 사이클를 상징합니다. 단단한 벽에 맞닥뜨릴수록 저항도 세고 뚫는 시간도 오래 걸립니다. thread가 촘촘할수록 빌더의 시간이 그만큼 밀도 있게 채워져 있음(Build thorough)을 나타냅니다.
 - **헤드(Head)** — head 하나는 작은 승리 하나, 또는 빌더 한 사람을 상징합니다. 작은 나사도 여럿이 모이면 무엇이든 만들 수 있습니다(Build anything). 마찬가지로 빌더 한 사람이 풀지 못하는 난제도, 여러 빌더가 함께 마주하면 결국 풀립니다(Build together).
-![visual/motif-1] {zoom=1.18}
-![visual/motif-2]
+![graphic/motif-1] {zoom=1.18}
+![graphic/motif-2]
 
 
 ### Graphic Unit
 #### + Vocabulary {layout=grid-3}
 유닛은 놓는 방향과 개수만으로 뜻을 얻습니다. 가로로 놓인 유닛 하나는 빌딩의 시간을 재는 가장 작은 단위이고, 그것을 세우거나 이어 붙이거나 마주 놓으면 빌더 · 과정 · 집 같은 읽기가 생겨납니다. 아래는 그 가장 단순한 읽기 여섯 가지입니다. 뜻을 못 박는 사전이 아니라 의미가 어디까지 넓어질 수 있는지 보여 주는 예시이며, 새로운 읽기는 언제든 더해질 수 있습니다. 유닛이 셋 이상 모여 체계를 이루는 단계는 Pattern 챕터에서 다룹니다.
-![visual/unit-voca-1] 01 / 가로 하나 — 시간의 한 단위, 타임라인
-![visual/unit-voca-2] 02 / 가로 둘을 이어서 — 루틴, 되풀이되는 과정
-![visual/unit-voca-3] 03 / 세로 하나 — 빌더 한 사람이 될 잠재력
-![visual/unit-voca-4] 04 / 세로 둘을 나란히 — 두 빌더, 개체로서의 존재감
-![visual/unit-voca-5] 05 / 세로 둘을 대칭으로 — 집, EO House
-![visual/unit-voca-6] 06 / 여럿을 맞물려서 — 팀, 커뮤니티의 시작
+![graphic/unit-voca-1] 01 / 가로 하나 — 시간의 한 단위, 타임라인
+![graphic/unit-voca-2] 02 / 가로 둘을 이어서 — 루틴, 되풀이되는 과정
+![graphic/unit-voca-3] 03 / 세로 하나 — 빌더 한 사람이 될 잠재력
+![graphic/unit-voca-4] 04 / 세로 둘을 나란히 — 두 빌더, 개체로서의 존재감
+![graphic/unit-voca-5] 05 / 세로 둘을 대칭으로 — 집, EO House
+![graphic/unit-voca-6] 06 / 여럿을 맞물려서 — 팀, 커뮤니티의 시작
 
 
 ### Graphic Unit
@@ -804,12 +804,12 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 - **thread compression** — thread 폭이 한쪽으로 갈수록 점점 좁아지는 정도. 0이면 모든 thread의 너비가 균등하고, 값이 커질수록 한쪽으로 압축되는 세기가 강해집니다. 음수/양수 값은 compression의 방향을 결정하며, 개별 thread의 기울기는 반전되지 않고 그대로 유지됩니다.
 - **gutter** — thread가 놓이는 세로 칸과 칸 사이 간격. gutter 구간에서 thread는 비고 shaft만 이어집니다.
 
-![visual/param-shaft-size] shaft size — shaft의 두께 2-95%
-![visual/param-thread-width] thread top / bottom width — 기울기의 변화
-![visual/param-thread-sides] thread sides  — double · single
-![visual/param-thread-amount] thread amount — thread 수
-![visual/param-thread-compression] thread compression — thread 압축 방향 · 세기
-![visual/param-gutter] thread sides — thread 사이 간격 10-50px
+![graphic/param-shaft-size] shaft size — shaft의 두께 2-95%
+![graphic/param-thread-width] thread top / bottom width — 기울기의 변화
+![graphic/param-thread-sides] thread sides  — double · single
+![graphic/param-thread-amount] thread amount — thread 수
+![graphic/param-thread-compression] thread compression — thread 압축 방향 · 세기
+![graphic/param-gutter] thread sides — thread 사이 간격 10-50px
 
 
 ### Graphic Unit {layout=grid-4}
@@ -820,14 +820,14 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 - **짧은 유닛** 길이가 짧을수록 thread 수를 줄이고[6–8] shaft를 두껍게 합니다. thread가 많으면 뭉개지고, shaft가 가늘면 힘이 없습니다.
 - **긴 유닛** 길이가 길수록 thread 수를 늘리되[12–16] compression을 유지해 끝까지 흐름이 이어지게 합니다. 같은 thread가 끝없이 되풀이되면 리듬이 사라집니다.
 - **쌍** 두 유닛을 이을 때는 compression의 방향을 맞추고, 마주 놓을 때는 대칭을 정확히 맞춥니다. 두 유닛의 thread 수와 shaft 두께가 다르면 한 몸으로 읽히지 않습니다.
-![visual/unit-rhythm-do-1]{do} 짧은 유닛 — thread는 적게, shaft는 두껍게
-![visual/unit-rhythm-dont-1]{dont} 짧은 유닛에 thread를 빽빽하게 넣지 마세요
-![visual/unit-rhythm-do-2]{do} 긴 유닛 — thread는 많게, compression은 유지
-![visual/unit-rhythm-dont-2]{dont} compression 0의 균일한 되풀이를 쓰지 마세요
-![visual/unit-rhythm-do-3]{do} 쌍 — compression 방향을 맞춰 연결
-![visual/unit-rhythm-dont-3]{dont} thread 수가 다른 두 유닛을 잇지 마세요
-![visual/unit-rhythm-do-4]{do} 세운 유닛 — 길이 방향으로 충분한 비례
-![visual/unit-rhythm-dont-4]{dont} 세운 유닛을 납작하게 쓰지 마세요
+![graphic/unit-rhythm-do-1]{do} 짧은 유닛 — thread는 적게, shaft는 두껍게
+![graphic/unit-rhythm-dont-1]{dont} 짧은 유닛에 thread를 빽빽하게 넣지 마세요
+![graphic/unit-rhythm-do-2]{do} 긴 유닛 — thread는 많게, compression은 유지
+![graphic/unit-rhythm-dont-2]{dont} compression 0의 균일한 되풀이를 쓰지 마세요
+![graphic/unit-rhythm-do-3]{do} 쌍 — compression 방향을 맞춰 연결
+![graphic/unit-rhythm-dont-3]{dont} thread 수가 다른 두 유닛을 잇지 마세요
+![graphic/unit-rhythm-do-4]{do} 세운 유닛 — 길이 방향으로 충분한 비례
+![graphic/unit-rhythm-dont-4]{dont} 세운 유닛을 납작하게 쓰지 마세요
 
 
 ### Graphic Unit {layout=grid-3}
@@ -835,30 +835,31 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 유닛 지오메트리의 모든 변형은 Graphic Builder의 파라미터 안에서만 이루어져야 하며, 수동으로 변형하는 것은 가급적 지양합니다. 유닛의 심미성과 의미는 평면 위에 펼쳐진 thread의 밀도 변화에서 나오므로, 그 평면이 흐트러지면 compression이 만드는 리듬도 함께 무너지기 때문입니다. 
 
 단, 유닛이 놓인 평면 전체를 아이소메트릭이나 원근으로 투영하는 입체적 확장은 EO 브랜드팀의 검토를 거쳐 제한적으로 시도할 수 있습니다.
-![visual/unit-dont-1]{dont} 유닛을 90° 단위가 아닌 각도로 회전하지 마세요
-![visual/unit-dont-2]{dont} 유닛의 형태를 기울이지 마세요
-![visual/unit-dont-3]{dont} thread를 임의로 지우거나 추가하지 마세요
-![visual/unit-dont-4]{dont} 한 유닛에 두 가지 이상의 색을 칠하지 마세요
-![visual/unit-dont-5]{dont} Solid Gray는 배경 컬러 전용이므로 유닛 컬러로 사용하지 마세요
-![visual/unit-con]{con} 유닛을 입체적인 평면 위에 투영하기
+![graphic/unit-dont-1]{dont} 유닛을 90° 단위가 아닌 각도로 회전하지 마세요
+![graphic/unit-dont-2]{dont} 유닛의 형태를 기울이지 마세요
+![graphic/unit-dont-3]{dont} thread를 임의로 지우거나 추가하지 마세요
+![graphic/unit-dont-4]{dont} 한 유닛에 두 가지 이상의 색을 칠하지 마세요
+![graphic/unit-dont-5]{dont} Solid Gray는 배경 컬러 전용이므로 유닛 컬러로 사용하지 마세요
+![graphic/unit-con]{con} 유닛을 입체적인 평면 위에 투영하기
 
 
 
 ## Pattern
 
 
-### + Grammar {layout=grid-3}
+### Pattern
+#### Grammar {layout=grid-3}
 같은 유닛을 아래 여섯 가지 방법으로 놓아서 패턴은 만듭니다. 30종 모두 이 방법들의 조합입니다.
-![visual/comp-1] 압축 — compression으로 한쪽으로 수렴하는 밀도 차이를 만듭니다
-![visual/comp-2] 세우기 — 유닛을 90° 돌려 세로로 놓습니다. 대부분의 패턴은 세운 유닛의 나열입니다
-![visual/comp-3] 마주 보기 — 좌우 반전한 유닛을 마주 놓아 대칭을 만듭니다
-![visual/comp-4] 쌓기 — 유닛을 행으로 쌓고 행마다 색을 바꿔 띠를 만듭니다
-![visual/comp-5] 도킹 — 두 유닛의 shaft를 이어 하나의 축으로 맞물립니다
-![visual/comp-6] 블렌드 — 같은 유닛을 일정 비율로 작아지게 복제해 원근을 만듭니다
+![graphic/comp-1] 압축 — compression으로 한쪽으로 수렴하는 밀도 차이를 만듭니다
+![graphic/comp-2] 세우기 — 유닛을 90° 돌려 세로로 놓습니다. 대부분의 패턴은 세운 유닛의 나열입니다
+![graphic/comp-3] 마주 보기 — 좌우 반전한 유닛을 마주 놓아 대칭을 만듭니다
+![graphic/comp-4] 쌓기 — 유닛을 행으로 쌓고 행마다 색을 바꿔 띠를 만듭니다
+![graphic/comp-5] 도킹 — 두 유닛의 shaft를 이어 하나의 축으로 맞물립니다
+![graphic/comp-6] 블렌드 — 같은 유닛을 일정 비율로 작아지게 복제해 원근을 만듭니다
 
 
 ### Pattern {layout=grid-4}
-#### + Color
+#### Color
 Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Blue · Bay Green · Medium Gray을 유닛 컬러로 사용하는 것이 기본 조합입니다. 여러 유닛을 나란히 놓을 때는 명도 차가 비슷한 Day Blue · Bay Green · Medium Gray를 균일한 비중 · 위치 · 동세로 배치하거나, 명도가 높은 Builder Neon · Air White를 시각 초점으로 활용해 캔버스의 깊이감을 의도적으로 조절하세요.
 - 하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 
 - **하나의 그래픽에 동시에 사용하는 유닛 컬러는 최대 3가지**까지 권장되며, Builder Neon · Day Blue · Bay Green · Medium Gray 고정 조합에 한해 최대 네 가지까지 사용할 수 있습니다.
@@ -870,57 +871,62 @@ Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Bl
 - Builder Neon · Day Blue · Bay Green · Air White 를 배경 컬러로 쓸 때는 Space Black 유닛만 올릴 수 있습니다.
 - Solid Gray는 반드시 배경 컬러으로만 사용하며 유닛 컬러로는 사용하지 않습니다.
 - Medium Gray는 디지털 환경에서 가급적 배경 컬러로 사용하지 않습니다. Merch 제작 시 질감이 있는 현실 소재의 컬러를 Medium Gray로 맞출 수 있는 경우에 한해, EO 브랜드팀의 허가를 거쳐 Builder Neon · Space Black 유닛을 제한적으로 올릴 수 있습니다.
-![visual/unit-color-do-1] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Solid Gray]
-![visual/unit-color-do-2] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Space Black]
-![visual/unit-color-do-3] {do}[Space Black] on [Builder Neon] · [Day Blue] · [Bay Green]
-![visual/unit-color-do-4] {do}[Space Black] on [Air White]
-![visual/unit-color-dont-1] {dont}[Space Black] on [Solid Gray] or vice versa
-![visual/unit-color-dont-2] {dont}[Medium Gray] alone on [Solid Gray] · [Space Black]
-![visual/unit-color-dont-3] {dont}[Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Builder Neon]
-![visual/unit-color-dont-4] {dont}[Builder Neon] · [Bay Green] · [Medium Gray] · [Air White] on [Day Blue]
-![visual/unit-color-dont-5] {dont}[Builder Neon] · [Day Blue] · [Medium Gray] · [Air White] on [Bay Green]
-![visual/unit-color-dont-6] {dont}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] on [Air White]
-![visual/unit-color-dont-7] {dont}[Day Blue] · [Bay Green] · [Air White] on [Medium Gray]
-![visual/unit-color-con] {con}[Builder Neon] · [Space Black] on [Medium Gray]
+![graphic/unit-color-do-1] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Solid Gray]
+![graphic/unit-color-do-2] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Space Black]
+![graphic/unit-color-do-3] {do}[Space Black] on [Builder Neon] · [Day Blue] · [Bay Green]
+![graphic/unit-color-do-4] {do}[Space Black] on [Air White]
+![graphic/unit-color-dont-1] {dont}[Space Black] on [Solid Gray] or vice versa
+![graphic/unit-color-dont-2] {dont}[Medium Gray] alone on [Solid Gray] · [Space Black]
+![graphic/unit-color-dont-3] {dont}[Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Builder Neon]
+![graphic/unit-color-dont-4] {dont}[Builder Neon] · [Bay Green] · [Medium Gray] · [Air White] on [Day Blue]
+![graphic/unit-color-dont-5] {dont}[Builder Neon] · [Day Blue] · [Medium Gray] · [Air White] on [Bay Green]
+![graphic/unit-color-dont-6] {dont}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] on [Air White]
+![graphic/unit-color-dont-7] {dont}[Day Blue] · [Bay Green] · [Air White] on [Medium Gray]
+![graphic/unit-color-con] {con}[Builder Neon] · [Space Black] on [Medium Gray]
 
 
 ### Pattern {layout=grid-4} {ratio=16:9} {zoom=1.04}
 #### References
 유닛을 조합해 만든 30종의 패턴 라이브러리입니다. 각 패턴은 번호가 아니라 빌더의 여정에서 가져온 키워드 하나를 이름으로 가지며, 캠페인 · 굿즈 · 소셜 · 영상 등 모든 접점에서 재사용합니다. 새 패턴이 필요하면 라이브러리에서 고르는 것이 먼저이고, 추가는 EO 브랜드팀의 승인을 거칩니다.
-![visual/pattern-01] 01 / path of builder
-![visual/pattern-02] 02 / power
-![visual/pattern-03] 03 / resistance
-![visual/pattern-04] 04 / builders
-![visual/pattern-05] 05 / rivals
-![visual/pattern-06] 06 / team
-![visual/pattern-07] 07 / backing
-![visual/pattern-08] 08 / teamwork
-![visual/pattern-09] 09 / co-working
-![visual/pattern-10] 10 / rallying
-![visual/pattern-11] 11 / conviction
-![visual/pattern-12] 12 / resonance
-![visual/pattern-13] 13 / advantage
-![visual/pattern-14] 14 / disadvantage
-![visual/pattern-15] 15 / cycle
-![visual/pattern-16] 16 / routine
-![visual/pattern-17] 17 / competition
-![visual/pattern-18] 18 / collective intelligence
-![visual/pattern-19] 19 / growth
-![visual/pattern-20] 20 / diversity
-![visual/pattern-21] 21 / momentum
-![visual/pattern-22] 22 / real world
-![visual/pattern-23] 23 / singularity
-![visual/pattern-24] 24 / multi-dimension
-![visual/pattern-25] 25 / a-ha
-![visual/pattern-26] 26 / wow
-![visual/pattern-27] 27 / problem
-![visual/pattern-28] 28 / adventure
-![visual/pattern-29] 29 / nature
-![visual/pattern-30] 30 / boom
+![graphic/pattern-01] 01 / path of builder
+![graphic/pattern-02] 02 / power
+![graphic/pattern-03] 03 / resistance
+![graphic/pattern-04] 04 / builders
+![graphic/pattern-05] 05 / rivals
+![graphic/pattern-06] 06 / team
+![graphic/pattern-07] 07 / backing
+![graphic/pattern-08] 08 / teamwork
+![graphic/pattern-09] 09 / co-working
+![graphic/pattern-10] 10 / rallying
+![graphic/pattern-11] 11 / conviction
+![graphic/pattern-12] 12 / resonance
+![graphic/pattern-13] 13 / advantage
+![graphic/pattern-14] 14 / disadvantage
+![graphic/pattern-15] 15 / cycle
+![graphic/pattern-16] 16 / routine
+![graphic/pattern-17] 17 / competition
+![graphic/pattern-18] 18 / collective intelligence
+![graphic/pattern-19] 19 / growth
+![graphic/pattern-20] 20 / diversity
+![graphic/pattern-21] 21 / momentum
+![graphic/pattern-22] 22 / real world
+![graphic/pattern-23] 23 / singularity
+![graphic/pattern-24] 24 / multi-dimension
+![graphic/pattern-25] 25 / a-ha
+![graphic/pattern-26] 26 / wow
+![graphic/pattern-27] 27 / problem
+![graphic/pattern-28] 28 / adventure
+![graphic/pattern-29] 29 / nature
+![graphic/pattern-30] 30 / boom
 
 
 ### Usage
+#### Do's & Dont's {layout=grid-2}
 패턴은 배경이 아니라 주인공으로 사용합니다. 레이아웃의 한쪽 절반(보통 오른쪽)을 통째로 내어 주고, 헤드라인은 반대쪽에 왼쪽 정렬로 놓습니다. 텍스트를 패턴 위에 겹치지 않고, 로고는 패턴 바깥의 여백에 배치합니다. 패턴은 잘라 쓸 수 있지만 thread의 사다리꼴이 중간에서 잘리지 않도록 컬럼 경계에서 크롭합니다.
+![graphic/pattern-do-1] {do}
+![graphic/pattern-do-2] {do}
+![graphic/pattern-dont-1] {dont}
+![graphic/pattern-dont-2] {dont}
 
 
 
@@ -933,25 +939,25 @@ Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Bl
 - **한 장에 여러 변형을 둘 수 있습니다.** 같은 모티프의 변형 여러 개를 한 구성에 놓아 리듬을 만듭니다.
 - **패턴은 어떤 비율에도 맞습니다.** 지면을 서브 레이아웃으로 나누면 한 프레임에 여러 메시지를 실을 수 있습니다.
 - **thread의 방향으로 시선을 이끕니다.** 모든 thread가 한 점으로 모이게 놓으면 그 자리의 마크나 메시지로 시선이 갑니다.
-![visual/app-principles]
+![graphic/app-principles]
 
 
 ### Digital {layout=grid-3}
 웹 매거진 · 소셜 피드 · 영상 썸네일 등 디지털 접점입니다. 유닛은 모션으로 확장되어 compression이 시간에 따라 변하며, 썸네일에서는 유닛의 일부만 컬럼 경계에서 크롭해 사용합니다. 웹의 그리드(12컬럼, 거터 40, 마진 44 @1728)는 유닛의 컬럼 그리드와 같은 체계를 공유합니다.
-![visual/app-web] Web Magazine
-![visual/app-social] Social Feed
-![visual/app-thumbnail] Video Thumbnail
+![graphic/app-web] Web Magazine
+![graphic/app-social] Social Feed
+![graphic/app-thumbnail] Video Thumbnail
 
 
 ### Print {layout=grid-3}
 포스터 · 행택 · 스티커 · 핀 등 인쇄물입니다. Air White 바탕에 Space Black 유닛을 기본으로 하고, Builder Neon은 한 면에만 사용합니다. 행택은 앞면에 패턴, 뒷면에 사이즈와 소재 정보를 모노로 적습니다.
-![visual/app-poster] Poster
-![visual/app-hangtag] Hang Tag
-![visual/app-sticker] Sticker Pack & Pin
+![graphic/app-poster] Poster
+![graphic/app-hangtag] Hang Tag
+![graphic/app-sticker] Sticker Pack & Pin
 
 
 ### Merch {layout=grid-3}
 티셔츠 · 후디 · 캡으로 구성된 굿즈 라인입니다. 실크스크린 단색 그래픽을 기본으로 합니다. 티셔츠는 앞면 가슴에 EO 심볼을 작게, 뒷면에 유닛을 단순하게 정리한 전용 그래픽을 크게 놓고, 후디는 앞면에 블렌드 패턴을 올립니다. 컬러웨이는 원단색에 맞춰 Space Black · Builder Neon · Day Blue 중 하나를 고릅니다.
-![visual/app-tee] Oversized Tee
-![visual/app-hoodie] Hoodie
-![visual/app-cap] 5-panel Cap
+![graphic/app-tee] Oversized Tee
+![graphic/app-hoodie] Hoodie
+![graphic/app-cap] 5-panel Cap

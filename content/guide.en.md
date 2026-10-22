@@ -599,96 +599,96 @@ Below are a few things never to do with color. For general guidance on minimum c
 ### Graphic Unit
 #### Overview
 The graphic unit is the smallest element of the EO visual system. It abstracts the trajectory of a builder stacking blocks into the repetition of a shaft and its threads. The E block of the logo, the pattern library, and every application graphic derive from this unit. Units are never drawn by hand; they are generated from parameters in the EO Graphic Builder.
-![visual/unit-overview]
+![graphic/unit-overview]
 
 ### Construction
 The unit canvas (W × H) is divided into vertical columns (col), with a horizontal bar of height D — the shaft — at the vertical center. In the bands above and below the shaft, each column carries one pair of trapezoidal threads. The vertices of the upper thread are set by Δa (top edge, measured from the right edge of the column) and Δb (bottom edge, measured from the left edge); the lower thread is the upper one rotated 180° about the column center. The shaft runs continuously across the gutters, while the gutters in the thread bands stay empty.
-![visual/unit-construction]
+![graphic/unit-construction]
 
 ### Grid & Pitch
 Column widths are compressed in a geometric sequence. A width ratio between adjacent columns (compression rate) of 1 gives equal division; as it grows, the illusion of convergence to one side strengthens. The defaults are 12 columns and a rate of 1.67 (2:1 pitch). Gutters have two modes — fixed, or proportional to the column width — and the proportional mode is structurally incapable of overflow and gives the strongest convergence.
-![visual/unit-grid]
+![graphic/unit-grid]
 
 ### Variations {layout=grid-3}
 Combine column count, compression rate, shaft height (D), and the Δa·Δb of the threads to create units with different characters. Below are the six representative variations that form the basis of the pattern library.
-![visual/unit-var-1] 01 / path of builder — wide on the left, converging right
-![visual/unit-var-2] 02 / power — equal columns, thick shaft
-![visual/unit-var-3] 03 / resistance — wide on the right, converging left
-![visual/unit-var-4] 04 / builders — repetition of narrow columns
-![visual/unit-var-5] 05 / rivals — symmetrical compression about the center
-![visual/unit-var-6] 06 / team — two interlocking units
+![graphic/unit-var-1] 01 / path of builder — wide on the left, converging right
+![graphic/unit-var-2] 02 / power — equal columns, thick shaft
+![graphic/unit-var-3] 03 / resistance — wide on the right, converging left
+![graphic/unit-var-4] 04 / builders — repetition of narrow columns
+![graphic/unit-var-5] 05 / rivals — symmetrical compression about the center
+![graphic/unit-var-6] 06 / team — two interlocking units
 
 ### Color Application {layout=grid-2}
 Units are used in a single color. Contrast between the unit and its background is the point; within one composition, combine at most one core color and one secondary color. When several units sit side by side, build depth with combinations of clearly different value, such as Medium Gray, Builder Neon, and Air White.
-![visual/unit-color-1] Builder Neon on Space Black
-![visual/unit-color-2] Medium Gray · Builder Neon · Air White on Solid Gray
+![graphic/unit-color-1] Builder Neon on Space Black
+![graphic/unit-color-2] Medium Gray · Builder Neon · Air White on Solid Gray
 
 ### Graphic Unit {layout=grid-3}
 #### Don'ts
 Never modify the geometry of a unit by hand. Every variation must happen within the parameters of the Graphic Builder.
-![visual/unit-dont-1]{dont} Don’t rotate or tilt a unit
-![visual/unit-dont-2]{dont} Don’t remove or add threads by hand
-![visual/unit-dont-3]{dont} Don’t use three or more colors in one unit
-![visual/unit-dont-4]{dont} Don’t add outlines or shadows to a unit
-![visual/unit-dont-5]{dont} Don’t use a unit as a photo mask
-![visual/unit-dont-6]{dont} Don’t adjust the compression column by column by hand
+![graphic/unit-dont-1]{dont} Don’t rotate or tilt a unit
+![graphic/unit-dont-2]{dont} Don’t remove or add threads by hand
+![graphic/unit-dont-3]{dont} Don’t use three or more colors in one unit
+![graphic/unit-dont-4]{dont} Don’t add outlines or shadows to a unit
+![graphic/unit-dont-5]{dont} Don’t use a unit as a photo mask
+![graphic/unit-dont-6]{dont} Don’t adjust the compression column by column by hand
 
 ## Pattern
 
 ### Pattern {layout=grid-4}
 #### 30 Patterns
 A library of thirty patterns built from combinations of units. Each pattern stands for one keyword from the builder’s journey and is reused across every touchpoint — campaigns, merchandise, social, and video. When a new pattern is needed, choosing from the library comes first; additions go through the brand team for approval.
-![visual/pattern-01] 01 / path of builder
-![visual/pattern-02] 02 / power
-![visual/pattern-03] 03 / resistance
-![visual/pattern-04] 04 / builders
-![visual/pattern-05] 05 / rivals
-![visual/pattern-06] 06 / team
-![visual/pattern-07] 07 / backing
-![visual/pattern-08] 08 / teamwork
-![visual/pattern-09] 09 / teamwork
-![visual/pattern-10] 10 / rallying
-![visual/pattern-11] 11 / conviction
-![visual/pattern-12] 12 / community
-![visual/pattern-13] 13 / advantage
-![visual/pattern-14] 14 / disadvantage
-![visual/pattern-15] 15 / cycle
-![visual/pattern-16] 16 / routine
-![visual/pattern-17] 17 / competition
-![visual/pattern-18] 18 / collaborate intelligence
-![visual/pattern-19] 19 / growth
-![visual/pattern-20] 20 / diversity
-![visual/pattern-21] 21 / momentum
-![visual/pattern-22] 22 / real world
-![visual/pattern-23] 23 / singularity
-![visual/pattern-24] 24 / multi-dimension
-![visual/pattern-25] 25 / a-ha
-![visual/pattern-26] 26 / wow
-![visual/pattern-27] 27 / problem
-![visual/pattern-28] 28 / adventure
-![visual/pattern-29] 29 / nature
-![visual/pattern-30] 30 / bang!
+![graphic/pattern-01] 01 / path of builder
+![graphic/pattern-02] 02 / power
+![graphic/pattern-03] 03 / resistance
+![graphic/pattern-04] 04 / builders
+![graphic/pattern-05] 05 / rivals
+![graphic/pattern-06] 06 / team
+![graphic/pattern-07] 07 / backing
+![graphic/pattern-08] 08 / teamwork
+![graphic/pattern-09] 09 / teamwork
+![graphic/pattern-10] 10 / rallying
+![graphic/pattern-11] 11 / conviction
+![graphic/pattern-12] 12 / community
+![graphic/pattern-13] 13 / advantage
+![graphic/pattern-14] 14 / disadvantage
+![graphic/pattern-15] 15 / cycle
+![graphic/pattern-16] 16 / routine
+![graphic/pattern-17] 17 / competition
+![graphic/pattern-18] 18 / collaborate intelligence
+![graphic/pattern-19] 19 / growth
+![graphic/pattern-20] 20 / diversity
+![graphic/pattern-21] 21 / momentum
+![graphic/pattern-22] 22 / real world
+![graphic/pattern-23] 23 / singularity
+![graphic/pattern-24] 24 / multi-dimension
+![graphic/pattern-25] 25 / a-ha
+![graphic/pattern-26] 26 / wow
+![graphic/pattern-27] 27 / problem
+![graphic/pattern-28] 28 / adventure
+![graphic/pattern-29] 29 / nature
+![graphic/pattern-30] 30 / bang!
 
 ### Usage
 Patterns are used as the hero, not as a background. Give the pattern an entire half of the layout (usually the right) and set the headline left-aligned on the other side. Never overlap text on a pattern, and place the logo in the margin outside it. Patterns may be cropped, but crop on column boundaries so that no thread trapezoid is cut through the middle.
-![visual/pattern-usage]
+![graphic/pattern-usage]
 
 ## Applications
 
 ### Merch {layout=grid-3}
 The merchandise line consists of tees, hoodies, and caps. Single-color silkscreen graphics are the default: Space Black on white tees and Builder Neon on gray tees. The front chest carries the Block symbol or monogram at a small size; the back carries a pattern and copy (“Build Anyway.” “Even the Odds”) at a large size.
-![visual/app-tee] Standard Tee
-![visual/app-hoodie] Hoodie
-![visual/app-cap] 5-panel Cap
+![graphic/app-tee] Standard Tee
+![graphic/app-hoodie] Hoodie
+![graphic/app-cap] 5-panel Cap
 
 ### Print {layout=grid-3}
 Printed matter includes posters, hang tags, stickers, and pins. The default is Space Black units on an Air White ground, with Builder Neon on one surface only. Hang tags carry a pattern on the front and size and material information in Mono on the back.
-![visual/app-poster] Poster
-![visual/app-hangtag] Hang Tag
-![visual/app-sticker] Sticker Pack & Pin
+![graphic/app-poster] Poster
+![graphic/app-hangtag] Hang Tag
+![graphic/app-sticker] Sticker Pack & Pin
 
 ### Digital {layout=grid-3}
 Digital touchpoints include the web magazine, social feeds, and video thumbnails. Units extend into motion, with the compression rate changing over time; thumbnails use only part of a unit, cropped on column boundaries. The web grid (12 columns, 40 gutter, 44 margin at 1728) shares the same system as the unit’s column grid.
-![visual/app-web] Web Magazine
-![visual/app-social] Social Feed
-![visual/app-thumbnail] Video Thumbnail
+![graphic/app-web] Web Magazine
+![graphic/app-social] Social Feed
+![graphic/app-thumbnail] Video Thumbnail
