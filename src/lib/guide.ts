@@ -235,8 +235,12 @@ const COLOR_HEX: Record<string, string> = Object.fromEntries(COLOR_NAMES.map(n =
   return [n, m ? m[1].toUpperCase() : ''];
 }));
 const COLOR_DARK = new Set(['Space Black', 'Solid Gray']);   // 어두운 칩: 테두리만 보여 작아 보이는 착시를 CSS(--cref-grow-*)로 색마다 보정
-const COLOR_RE = new RegExp(`(?<![\\w-])(\\[)?(${COLOR_NAMES.join('|')})(?:(?<=\\[.{7,12})\\](?!\\())?(?![\\w-])`, 'g');
-function colorChips(html: string, lang: Lang): string {
+const COLOR_RE = new RegExp(`(?<![\\w-])(\\[\\+?)?(${COLOR_NAMES.join('|')})(?:(?<=\\[\\+?.{7,12})\\](?!\\())?(?![\\w-])`, 'g');
+/**
+ * @param seen  섹션 안에서 이미 칩을 붙인 이름. 주면 "섹션 첫 언급에만 칩" 규칙(본문), 없으면 언급마다 칩(캡션).
+ *              [Builder Neon] 은 칩만, [+Builder Neon] 은 칩 + 이름을 규칙과 무관하게 강제.
+ */
+function colorChips(html: string, lang: Lang, seen?: Set<string>): string {
   const ui = UI_TEXT[lang];
   let code = 0;
   return html.split(/(<[^>]+>)/).map(seg => {
@@ -246,9 +250,15 @@ function colorChips(html: string, lang: Lang): string {
       return seg;
     }
     if (code) return seg;
-    return seg.replace(COLOR_RE, (m, bracket, name) => {
+    return seg.replace(COLOR_RE, (m, open: string | undefined, name: string) => {
       const slug = name.toLowerCase().replace(/ /g, '-');
-      if (bracket && !m.endsWith(']')) return m;                      // 여는 괄호만 있음 → 그대로
+      if (open && !m.endsWith(']')) return m;                         // 여는 괄호만 있음 → 그대로
+      const bracket = open === '[';                                   // [Name] → 칩만
+      const forced = open === '[+';                                   // [+Name] → 칩 + 이름 (첫 언급 규칙 무시)
+      if (!open && seen) {                                            // 본문: 섹션 안 첫 언급에만 칩, 이후는 글자만
+        if (seen.has(name)) return name;
+        seen.add(name);
+      } else if (forced && seen) seen.add(name);
       // 칩 = 복사 버튼. 호버하면 컬러 카드의 값과 같은 Copy 알약이 뜨고, 누르면 HEX 를 복사 (Layout.astro 의 공통 스크립트)
       const hex = COLOR_HEX[name];
       const tip = `<span class="swatch__tip t-label" aria-hidden="true"><span class="swatch__tip-text swatch__tip-text--copy"></span><span class="swatch__tip-text swatch__tip-text--done"></span></span>`;   // 글자는 CSS content (드래그 복사에 섞이지 않게)
@@ -290,7 +300,7 @@ const glueBlocks = (html: string) =>
 
 function md(src: string, lang: Lang): string {
   const s = src.trim();
-  return s ? glueBlocks(wrapKo(colorChips(smartQuotes(marked.parse(s, { async: false, gfm: true, breaks: false }) as string), lang))) : '';
+  return s ? glueBlocks(wrapKo(colorChips(smartQuotes(marked.parse(s, { async: false, gfm: true, breaks: false }) as string), lang, new Set()))) : '';   // 칩은 섹션 첫 언급에만
 }
 
 export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {

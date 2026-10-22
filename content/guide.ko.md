@@ -16,10 +16,10 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
                             앵커 id = 목차 라벨의 슬러그 (헤드가 페이지 이름과 같으면 서브헤드, 예: #color-pairing).
 
 ■ 참조 링크 (본문·캡션 어디서나)
-  [[pattern#color-pairing]]            → "Pattern › Color Pairing" 링크. 글자는 목차에서 자동, 언어별 경로도 자동
+  [[pattern#color]]            → "Pattern › Color" 링크. 글자는 목차에서 자동, 언어별 경로도 자동
   [[pattern]]                          → "Pattern" (페이지로)
   [[#grammar]]                         → 같은 페이지의 섹션 ("Grammar")
-  [[→ pattern#color-pairing]]          → "→ Pattern › Color Pairing" (화살표까지 한 밑줄. -> 로 써도 됨)
+  [[→ pattern#color]]          → "→ Pattern › Color" (화살표까지 한 밑줄. -> 로 써도 됨)
   [[02-logo/symbol#clearspace]]        → 같은 페이지 이름이 여러 챕터에 있을 때 챕터로 한정
   [[pattern#grammar|문법 원칙]]         → 링크 글자를 직접 지정
   [[https://eopla.net|EO Planet]]      → 외부 링크 (새 탭). 라벨이 없으면 "eopla.net" 처럼 주소가 글자로
@@ -64,7 +64,9 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
     → 이름 | HEX | 이후는 자유 항목. HEX 는 색면 채우기에 쓰입니다.
   본문·캡션에 Builder Neon · Day Blue · Bay Green · Medium Gray · Solid Gray · Space Black · Air White 를
     영문 공식 명칭 그대로 쓰면 이름 앞에 색 네모가 자동으로 붙습니다 (대소문자 동일, 7색 고정).
-    [Builder Neon] 처럼 대괄호로 감싸면 이름 없이 색 네모만 보입니다 (마우스를 올리면 이름이 툴팁으로).
+    본문에서는 한 섹션 안에서 처음 나올 때만 네모가 붙고, 같은 이름이 다시 나오면 글자만 나옵니다 (캡션은 매번 붙음).
+    [Builder Neon] 처럼 대괄호로 감싸면 이름 없이 색 네모만, [+Builder Neon] 은 첫 언급이 아니어도 네모 + 이름을 강제로 보입니다.
+    (마우스를 올리면 이름이 툴팁으로.)
     색 네모에 마우스를 올리면 Copy 알약이 뜨고, 누르면 HEX 값이 복사됩니다 (컬러 카드의 값과 같은 동작).
 
 ■ 레이아웃
@@ -727,12 +729,12 @@ EO 팔레트는 Builder Neon, Day Blue, Bay Green과 이를 받쳐 주는 네가
 [swatch] Air White | #FCFBF5 | R252 G251 B245 | C1 M2 Y2 K0 or raw paper
 
 
-### Color {layout=grid-3}
+### Color {layout=wide}
 #### Usage
 
 EO를 처음 만나는 오디언스와 핵심 접점에서는 Space Black 바탕, Air White 텍스트, Builder Neon 그래픽에 크게 의존합니다. 면적으로는 블랙 70, 네온 20, 화이트 10이 기준입니다. 소셜 채널이나 시리즈 아트워크처럼 이미 "EO"로 인식되는 맥락에서는 Day Blue · Bay Green을 시리즈 구분색으로 더 자주 쓸 수 있습니다. 구체적인 에셋별 컬러 사용법은 각 페이지 해당 섹션을 참조하세요.
 
-- 텍스트의 컬러 사용법는 Air White 또는 Space Black을 기본으로 합니다.
+- 텍스트의 컬러는 Air White 또는 Space Black을 기본으로 합니다.
 - 로고
   - 심볼의 컬러 사용법은 [[symbol#color]]를 참조하세요.
   - 시그니처의 컬러 사용법은 [[signature#color]]를 참조하세요.
@@ -814,7 +816,7 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 
 ### Graphic Unit {layout=grid-4}
 #### + Proportion & Rhythm
-파라미터를 어떻게 잡느냐에 따라 유닛의 비례와 리듬은 달라집니다. 비례는 shaft 두께와 thread 수가 유닛의 길이에 맞을 때 좋아지고, 리듬은 compression으로 thread 간격이 한쪽으로 흐를 때 생깁니다. 이 섹션은 유닛 하나와 쌍까지를 다루며 셋 이상이 모이는 구성은 [[pattern#grammar]]을 참조하세요. 유닛과 배경의 색 조합에 대해선 [[pattern#color-pairing]]을 참조하세요.
+파라미터를 어떻게 잡느냐에 따라 유닛의 비례와 리듬은 달라집니다. 비례는 shaft 두께와 thread 수가 유닛의 길이에 맞을 때 좋아지고, 리듬은 compression으로 thread 간격이 한쪽으로 흐를 때 생깁니다. 이 섹션은 유닛 하나와 쌍까지를 다루며 셋 이상이 모이는 구성은 [[pattern#grammar]]을 참조하세요. 유닛과 배경의 색 조합에 대해선 [[pattern#color]]을 참조하세요.
 
 - **리듬** compression이 0이면 thread가 균일하게 되풀이되어 줄무늬처럼 보입니다. 기본값 2:1처럼 한쪽으로 수렴시켜 방향과 속도를 만드세요.
 - **짧은 유닛** 길이가 짧을수록 thread 수를 줄이고[6–8] shaft를 두껍게 합니다. thread가 많으면 뭉개지고, shaft가 가늘면 힘이 없습니다.
