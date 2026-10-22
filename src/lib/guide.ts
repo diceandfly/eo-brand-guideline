@@ -439,7 +439,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
     if (i < flat.length - 1) s.next = ref(flat[i + 1]);
   });
 
-  // 교차 링크 [[page#section|라벨]] → <a class="xref">. 본문·캡션 모두. 라벨을 생략하면 목차 라벨에서 "페이지 › 섹션" 을 만든다.
+  // 교차 링크 [[page#section|라벨]] → <a class="xref">. 본문·캡션 모두. 라벨을 생략하면 목차 라벨에서 "페이지 › 섹션" 을 만든다 (화살표·구분기호는 tokens.css --xref-arrow / --xref-sep).
   //   [[pattern]]                → Pattern 페이지         [[pattern#grammar]] → "Pattern › Grammar"
   //   [[#grammar]]               → 같은 페이지의 섹션      [[02-logo/symbol#clearspace]] → 챕터로 한정 (같은 slug 가 여러 챕터에 있을 때)
   //   [[pattern#grammar|문법 원칙]] → 라벨 직접 지정.   대상이 없으면 빌드 로그에 경고하고 글자만 남긴다
@@ -455,7 +455,8 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       const sec = s.sections.find(x => x.id === secId);
       if (!sec) { console.warn(`[guide] [[${target}]]: ${s.name} 페이지에 #${secId} 섹션이 없습니다 (${here.url}). 있는 id: ${s.sections.map(x => x.id).join(', ')}`); return fallback(); }
       href += `#${secId}`;
-      text = pagePart ? `${escapeHtml(s.name)} › ${escapeHtml(navLabel(sec, s))}` : escapeHtml(navLabel(sec, s));
+      // 페이지 › 섹션: 사이 기호는 CSS(--xref-sep)가 넣음
+      text = pagePart ? `<span class="xref__page">${escapeHtml(s.name)}</span><span class="xref__sec">${escapeHtml(navLabel(sec, s))}</span>` : escapeHtml(navLabel(sec, s));
     }
     return `<a class="xref" href="${href}">${label ?? text}</a>`;
   });
