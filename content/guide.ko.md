@@ -15,13 +15,14 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
   ### Construction       ← 섹션 헤드. 목차의 앵커로도 쓰입니다.
                             앵커 id = 목차 라벨의 슬러그 (헤드가 페이지 이름과 같으면 서브헤드, 예: #color-pairing).
 
-■ 교차 링크 (본문·캡션 어디서나)
+■ 참조 링크 (본문·캡션 어디서나)
   [[pattern#color-pairing]]            → "Pattern › Color Pairing" 링크. 글자는 목차에서 자동, 언어별 경로도 자동
   [[pattern]]                          → "Pattern" (페이지로)
   [[#grammar]]                         → 같은 페이지의 섹션 ("Grammar")
   [[→ pattern#color-pairing]]          → "→ Pattern › Color Pairing" (화살표까지 한 밑줄. -> 로 써도 됨)
   [[02-logo/symbol#clearspace]]        → 같은 페이지 이름이 여러 챕터에 있을 때 챕터로 한정
   [[pattern#grammar|문법 원칙]]         → 링크 글자를 직접 지정
+  [[https://eopla.net|EO Planet]]      → 외부 링크 (새 탭). 라벨이 없으면 "eopla.net" 처럼 주소가 글자로
     → 페이지 이름 = URL 의 slug (symbol, signature, pattern …), 섹션 = 앵커 id. 없는 대상은 빌드 로그에 경고가 뜨고 글자만 남습니다.
     → 일반 마크다운 링크 [글자](주소) 도 그대로 됩니다.
   #### Primary Lockup    ← 서브헤드 (선택). 헤드 바로 다음 줄에만 씁니다. 없으면 표시되지 않습니다.
@@ -785,7 +786,18 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 
 
 ### Graphic Unit
-#### + Parameters {layout=grid-3}
+#### + Vocabulary {layout=grid-3}
+유닛은 놓는 방향과 개수만으로 뜻을 얻습니다. 가로로 놓인 유닛 하나는 빌딩의 시간을 재는 가장 작은 단위이고, 그것을 세우거나 이어 붙이거나 마주 놓으면 빌더 · 과정 · 집 같은 읽기가 생겨납니다. 아래는 그 가장 단순한 읽기 여섯 가지입니다. 뜻을 못 박는 사전이 아니라 의미가 어디까지 넓어질 수 있는지 보여 주는 예시이며, 새로운 읽기는 언제든 더해질 수 있습니다. 유닛이 셋 이상 모여 체계를 이루는 단계는 Pattern 챕터에서 다룹니다.
+![visual/unit-voca-1] 01 / 가로 하나 — 시간의 한 단위, 타임라인
+![visual/unit-voca-2] 02 / 가로 둘을 이어서 — 루틴, 되풀이되는 과정
+![visual/unit-voca-3] 03 / 세로 하나 — 빌더 한 사람이 될 잠재력
+![visual/unit-voca-4] 04 / 세로 둘을 나란히 — 두 빌더, 개체로서의 존재감
+![visual/unit-voca-5] 05 / 세로 둘을 대칭으로 — 집, EO House
+![visual/unit-voca-6] 06 / 여럿을 맞물려서 — 팀, 커뮤니티의 시작
+
+
+### Graphic Unit
+#### + Geometry & Parameters {layout=grid-3}
 **EO 그래픽 유닛**(이하 유닛)은 그래픽 시스템의 최소 단위이며, 로고의 E 블록 · 패턴 라이브러리 · 애플리케이션 그래픽 모두 동일한 시스템으로 제작되었습니다. 유닛은 **EO Graphic Builder**에서 파라미터로 생성하며, 자세한 사용 방법은 빌더 내 도움말(Help) 메뉴를 참고하시길 바랍니다.
 
 - **shaft size** — 나사축 직사각형의 두께, 단위는 양쪽의 thread 포함 유닛 전체 높이 대비 %입니다. shaft size가 기본 값 35% 전후의 수준일 때, 비교적 복잡한 그래픽 패턴에서도 시각적 밀도를 이상적으로 유지하기 쉽습니다.
@@ -803,20 +815,9 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 ![visual/param-gutter] thread sides — thread 사이 간격 10-50px
 
 
-### Graphic Unit
-#### + Vocabulary {layout=grid-3}
-유닛은 놓는 방향과 개수만으로 뜻을 얻습니다. 가로로 놓인 유닛 하나는 빌딩의 시간을 재는 가장 작은 단위이고, 그것을 세우거나 이어 붙이거나 마주 놓으면 빌더 · 과정 · 집 같은 읽기가 생겨납니다. 아래는 그 가장 단순한 읽기 여섯 가지입니다. 뜻을 못 박는 사전이 아니라 의미가 어디까지 넓어질 수 있는지 보여 주는 예시이며, 새로운 읽기는 언제든 더해질 수 있습니다. 유닛이 셋 이상 모여 체계를 이루는 단계는 Pattern 챕터에서 다룹니다.
-![visual/unit-voca-1] 01 / 가로 하나 — 시간의 한 단위, 타임라인
-![visual/unit-voca-2] 02 / 가로 둘을 이어서 — 루틴, 되풀이되는 과정
-![visual/unit-voca-3] 03 / 세로 하나 — 빌더 한 사람이 될 잠재력
-![visual/unit-voca-4] 04 / 세로 둘을 나란히 — 두 빌더, 개체로서의 존재감
-![visual/unit-voca-5] 05 / 세로 둘을 대칭으로 — 집, EO House
-![visual/unit-voca-6] 06 / 여럿을 맞물려서 — 팀, 커뮤니티의 시작
-
-
 ### Graphic Unit {layout=grid-4}
 #### + Proportion & Rhythm
-유닛은 어떤 파라미터 설정에서나 좋아 보이지는 않습니다. 시각성과 심미성이 좋은 유닛은 두 가지를 갖추고 있습니다. **비례**는 shaft 두께와 thread 수가 유닛의 길이에 맞는 것이고, **리듬**은 compression으로 thread 간격이 한쪽으로 흐르는 것입니다. 이 섹션은 유닛 하나와 쌍까지의 권장 사항입니다. 금지 사항은 Don'ts에, 유닛이 셋 이상 모이는 구성은 [[pattern#grammar]]의 원칙에 있습니다.
+파라미터를 어떻게 잡느냐에 따라 유닛의 비례와 리듬은 달라집니다. 비례는 shaft 두께와 thread 수가 유닛의 길이에 맞을 때 좋아지고, 리듬은 compression으로 thread 간격이 한쪽으로 흐를 때 생깁니다. 이 섹션은 유닛 하나와 쌍까지를 다루며 셋 이상이 모이는 구성은 [[pattern#grammar]]을 참조하세요. 유닛과 배경의 색 조합에 대해선 [[pattern#color-pairing]]을 참조하세요.
 
 - **리듬** compression이 0이면 thread가 균일하게 되풀이되어 줄무늬처럼 보입니다. 기본값 2:1처럼 한쪽으로 수렴시켜 방향과 속도를 만드세요.
 - **짧은 유닛** 길이가 짧을수록 thread 수를 줄이고[6–8] shaft를 두껍게 합니다. thread가 많으면 뭉개지고, shaft가 가늘면 힘이 없습니다.
@@ -834,7 +835,7 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 
 ### Graphic Unit {layout=grid-3}
 #### + Don'ts
-유닛 지오메트리의 모든 변형은 Graphic Builder의 파라미터 안에서만 이루어져야 하며, 수동으로 변형해선 안 됩니다. 유닛과 배경의 색 조합은 [[pattern#color-pairing]]을 따릅니다. 단, 유닛이 놓인 평면 전체를 아이소메트릭이나 원근으로 투영하는 입체적 확장은 EO 브랜드팀의 검토를 거쳐 제한적으로 시도할 수 있습니다.
+유닛 지오메트리의 모든 변형은 Graphic Builder의 파라미터 안에서만 이루어져야 하며, 수동으로 변형해선 안 됩니다. 단, 유닛이 놓인 평면 전체를 아이소메트릭이나 원근으로 투영하는 입체적 확장은 EO 브랜드팀의 검토를 거쳐 제한적으로 시도할 수 있습니다.
 ![visual/unit-dont-1]{dont} 유닛을 90° 단위가 아닌 각도로 회전하지 마세요
 ![visual/unit-dont-2]{dont} 유닛의 형태를 기울이지 마세요
 ![visual/unit-dont-3]{dont} thread를 임의로 지우거나 추가하지 마세요

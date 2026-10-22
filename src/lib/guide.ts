@@ -439,16 +439,21 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
     if (i < flat.length - 1) s.next = ref(flat[i + 1]);
   });
 
-  // 교차 링크 [[page#section|라벨]] → <a class="xref">. 본문·캡션 모두. 라벨을 생략하면 목차 라벨에서 "페이지 › 섹션" 을 만든다.
+  // 참조 링크 [[page#section|라벨]] → <a class="xref">. 본문·캡션 모두. 라벨을 생략하면 목차 라벨에서 "페이지 › 섹션" 을 만든다.
   //   [[pattern]]                → Pattern 페이지         [[pattern#grammar]] → "Pattern › Grammar"
   //   [[#grammar]]               → 같은 페이지의 섹션      [[02-logo/symbol#clearspace]] → 챕터로 한정 (같은 slug 가 여러 챕터에 있을 때)
   //   [[→ pattern#grammar]]      → "→ Pattern › Grammar" (화살표도 링크 글자의 일부라 밑줄이 이어짐. -> 도 됨)
   //   [[pattern#grammar|문법 원칙]] → 라벨 직접 지정.   대상이 없으면 빌드 로그에 경고하고 글자만 남긴다
+  //   [[https://eopla.net|EO Planet]] → 외부 링크 (새 탭). 라벨 없으면 "eopla.net"
   const NB = '\u00A0';
   const resolveXrefs = (html: string, here: Sub): string => html.replace(/\[\[([^\]|]*?)(?:\|([^\]]*))?\]\]/g, (_m, rawTarget: string, label?: string) => {
     const arrowM = rawTarget.match(/^\s*(→|->)\s*/);
     const arrow = arrowM ? `→${NB}` : '';
     const target = rawTarget.slice(arrowM?.[0].length ?? 0).trim();
+    if (/^(https?:)?\/\//i.test(target) || /^mailto:/i.test(target)) {                 // 외부 링크: 새 탭. 라벨이 없으면 주소에서 프로토콜·끝 슬래시를 뺀 글자
+      const shown = target.replace(/^(https?:)?\/\//i, '').replace(/^mailto:/i, '').replace(/\/$/, '');
+      return `<a class="xref xref--ext" href="${escapeHtml(target)}" target="_blank" rel="noopener">${arrow}${label ?? escapeHtml(shown)}</a>`;
+    }
     const [pagePart, secId] = target.split('#');
     const bySlug = (slug: string, chapterSlug?: string) => flat.find(x => x.slug === slug && (!chapterSlug || chapters.find(c => c.subs.includes(x))!.slug === chapterSlug));
     const [a, b] = pagePart.split('/');

@@ -839,7 +839,7 @@ html.js .main {
   color: var(--c-con);
 }
 
-/* 본문 교차 링크 [[page#section]] (guide.ts resolveXrefs): "→ 페이지 › 섹션" 이 한 글줄·한 밑줄로. 기호도 링크 글자의 일부 */
+/* 본문 참조 링크 [[page#section]] · [[https://…]] (guide.ts resolveXrefs): "→ 페이지 › 섹션" 이 한 글줄·한 밑줄로. 기호도 링크 글자의 일부 */
 .xref {
   white-space: nowrap;
 }
