@@ -28,6 +28,7 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
   ![dont-stretch]{dont} 로고를 늘리거나 왜곡하지 마세요
     → {do} 또는 {dont} 를 붙이면 캡션 줄 맨 앞에 체크 / 엑스 아이콘이 붙습니다.
     → {dont} 이미지에는 빨간 대각선이 자동으로 그려집니다 (카드와 확대 보기 모두). 끄려면 {dont nostrike}.
+    → {con} 은 조건부(conditional, 애매한 경우): 흰 삼각형 아이콘, 대각선 없음. 캡션이 없으면 "Conditional".
     → 카드 안 배율: {zoom=1.2} 를 붙이면 그 이미지만 카드 안에서 가운데 기준 1.2배로 보입니다 (확대 보기는 원본).
       Do/Don't 카드는 그리드별 기본 배율(tokens.css --dodont-zoom-2/3/4)을 따르고, {do nozoom} 처럼 쓰면 그 카드만 끕니다.
       여러 개는 띄어서 함께 씁니다: ![dont-3]{dont nostrike zoom=1.3} 캡션
@@ -48,6 +49,10 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
 ■ 스와치 (컬러 스펙 카드)
   [swatch] Builder Neon | #F9EE3A | R249 G238 B58 | C5 M0 Y95 K0 | PANTONE 3945 C
     → 이름 | HEX | 이후는 자유 항목. HEX 는 색면 채우기에 쓰입니다.
+  본문·캡션에 Builder Neon · Day Blue · Bay Green · Medium Gray · Solid Gray · Space Black · Air White 를
+    영문 공식 명칭 그대로 쓰면 이름 앞에 색 네모가 자동으로 붙습니다 (대소문자 동일, 7색 고정).
+    [Builder Neon] 처럼 대괄호로 감싸면 이름 없이 색 네모만 보입니다 (마우스를 올리면 이름이 툴팁으로).
+    색 네모에 마우스를 올리면 Copy 알약이 뜨고, 누르면 HEX 값이 복사됩니다 (컬러 카드의 값과 같은 동작).
 
 ■ 레이아웃
   섹션 안의 이미지/스와치 개수로 자동 결정됩니다.
@@ -129,14 +134,14 @@ EO, EO 모노그램, 블록 심볼, "Build Anyway", "Entrepreneur Onwards" 및 E
 
 ### Logo
 #### + Overview 
-EO 로고는 이 챕터에서 다루는 EO 심볼 · EO 시그니처 · 서비스 시그니처 · EO 서브심볼을 모두 아우르는 총칭입니다. 
+EO 로고는 이 챕터에서 다루는 EO 심볼 · EO 시그니처 · 서비스 시그니처 · EO 서브심볼을 모두 아우르는 총칭입니다. 이 서브챕터는 작은 사인오프부터 큰 디스플레이 집행까지 다양한 상황 · 포맷 · 커뮤니케이션에 맞춰 EO 심볼을 어떻게 적용할 수 있는지 설명합니다. 
 ![logo/hero]{zoom=1.2}
 
 
 ### Symbol
-EO 심볼은 나사 모티프로서 식별 기능을 가진 그래픽 메타포이자 E와 O 두 글자를 담은 모노그램 로고입니다. 이 형태의 로고를 이하 **EO 심볼**이라 칭합니다. 
+나사 모티프로의 식별 기능을 가진 그래픽 메타포이자 E와 O 두 글자를 담은 모노그램 로고입니다. 이 형태의 로고를 이하 **EO 심볼**이라 부릅니다.
 
-EO 심볼은 EO 브랜드를 알리는 가장 상징적이고 효과적인 방법이며, 이 서브챕터는 작은 사인오프부터 큰 디스플레이 집행까지 다양한 상황 · 포맷 · 커뮤니케이션에 맞춰 EO 심볼을 어떻게 적용할 수 있는지 설명하는 데 목적을 두고 있습니다.
+EO 심볼은 미디어 브랜드 EO를 알리는 가장 상징적이고 효과적인 방법입니다.
 ![logo/symbol]{zoom=1.3}
 
 
@@ -182,15 +187,15 @@ EO 심볼은 강렬하지만 단순한 셰이프로 이뤄졌습니다. 따라�
 
 ### Usage {layout=grid-2}
 #### Do's & Don'ts
-심볼을 디스플레이 목적으로 사용할 때는 **단지 사이즈를 크게 키워 시각적 위계를 높이는 방식은 지양합니다.** 심볼의 배치 위치 주변의 여백 공간을 충분히 확보해 적절한 사이즈로도 임팩트를 유지하도록 합니다. 심볼의 실질 점유 면적은 빈 구역 전체의 10–20% 수준, 주변 요소와의 여백 간격은 심볼 크기의 2–3배 이상을 두는 것이 가장 좋습니다.
+심볼을 디스플레이 목적으로 사용할 때는 **단지 사이즈를 크게 키워 시각적 위계를 높이는 방식은 지양합니다.** 심볼의 배치 위치 주변의 여백 공간을 충분히 확보해 적절한 사이즈로도 임팩트를 유지하도록 합니다. 심볼의 실질 점유 면적은 빈 구역 전체의 10% 수준, 주변 여백 공간은 심볼 너비의 2–3배 이상을 두는 것이 가장 좋습니다.
 ![logo/usage-do-1]{do} 심볼 크기를 배치하는 여백 공간 면적의 10–20% 수준으로 조절합니다 
 ![logo/usage-do-2]{do} 심볼 주변에 넉넉한 여백을 두어, 적당한 크기로도 충분한 존재감을 만듭니다
-![logo/usage-dont-1]{dont} 빈 공간을 가득 채우려고 심볼을 크게 키우지 마세요
+![logo/usage-dont-1]{dont} 심볼로 빈 공간을 가득 채우지 마세요
 ![logo/usage-dont-2]{dont} 여백 없이 심볼을 다른 요소에 붙이지 마세요
 
 
 ### Symbol
-#### + Color {layout=grid-3} {zoom=1.6}
+#### + Color{layout=grid-3} {zoom=1.6}
 EO 심볼에는 여섯 가지 기본 컬러 페어링이 있습니다. **심볼은 항상 단색으로 표현되어야 하며**, 배경색에 확신이 서지 않을 때는 다음 중 하나를 사용하세요. 
 ![logo/color-1] 1. Space Black on Builder Neon
 ![logo/color-2] 2. Air White on Space Black
@@ -239,7 +244,7 @@ EO 심볼은 사진 위에서도 항상 또렷하게 읽혀야 하므로 충분�
 
 ### + App & Social Icons
 #### Alignment
-EO 심볼은 좌우 비대칭이므로 앱 아이콘이나 프로필 이미지 중앙에 그대로 배치하면 작게 볼수록 무게중심이 왼쪽으로 미세하게 치우쳐 보이게 됩니다. 좁은 프레임 안에 심볼을 적용할 때, 다음 규칙에 따라 심볼을 n px만큼 오른쪽으로 보정합니다.
+EO 심볼을 앱 아이콘이나 프로필 이미지 중앙에 그대로 배치할 때, 작게 볼수록 무게중심이 왼쪽으로 미세하게 치우쳐 보이게 됩니다. 좁은 프레임 안에 심볼을 적용할 때, 다음 규칙에 따라 심볼을 n px만큼 오른쪽으로 보정합니다.
 
 **n = H × (4 − 0.06 × S) %**
 
@@ -263,11 +268,11 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 ![dont-1]{dont} 심볼을 늘리거나 왜곡하지 마세요
 ![dont-2]{dont} 심볼을 회전시키지 마세요
 ![dont-3]{dont} 심볼에 외곽선을 넣지 마세요
-![dont-4]{dont} 밝은 배경에서 컬러 심볼과 검은 외곽선을 쓰지 마세요
+![dont-4]{dont} 밝은 배경에서 Space Black 이외의 컬러와 검은 외곽선을 쓰지 마세요
 ![dont-5]{dont} E의 스레드 수나 O의 각도, 블록 간격이 달라진 상태(로고 애니메이션 캡처 등)를 사용하지 마세요
 ![dont-6]{dont} 심볼에 글로우, 그림자, 그라데이션 등 시각효과를 적용하지 마세요
 ![dont-7]{dont} 배치할 공간의 대부분을 차지할만큼 과도하게 큰 사이즈를 적용하지 마세요
-![dont-8]{dont} 심볼을 이어 붙이거나 단순 반복하는 방식으로 새로운 시각 요소를 만들지 마세요
+![dont-8]{dont} 심볼을 이어 붙이거나 단순 반복하는 방식으로 그래픽을 만들지 마세요
 ![dont-9]{dont} EO 브랜드팀의 허가 없이 심볼 주변에 임의의 맥락을 추가하지 마세요
 
 
@@ -275,25 +280,54 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 
 ### Signature
 #### + Overview
-**시그니처**는 EO 심볼과 회사명 · 서비스명 가로 또는 세로로 묶은 조합입니다. 미디어 브랜드 EO가 아니라 회사 EO Studio나 회사가 운영하는 서비스를 우선적으로 드러내고자 할 때 사용합니다. 
+**시그니처**는 EO 심볼과 회사명 · 서비스명의 텍스트를 가로 또는 세로로 묶은 콤비네이션 로고입니다. 이 서브챕터는 다양한 상황 · 포맷 · 커뮤니케이션에 맞춰 EO 시그니처를 어떻게 적용할 수 있는지 설명합니다. 
 
-명함, 계약서와 제안서, 채용 공고, 파트너 제안서, 공식 문서와 웹사이트 푸터처럼 회사 · 서비스가 주체가 되는 자리에서는 각 시그니처의 사용을 우선하고, 영상, 썸네일, 소셜 게시물, 포스터 같은 미디어 콘텐츠, 브랜드 자신이 주체가 되는 자리에서는 EO 심볼의 사용을 우선합니다.
+심볼과 "EO Studio" 텍스트가 결합된 콤비네이션 로고를 이하 **회사 시그니처**, 심볼과 각 서비스명이 결합된 콤비네이션 로고는 **서비스 시그니처**라고 부릅니다.
 
-이하 EO 심볼이 "EO Studio"와 결합된 콤비네이션 로고를 **회사 시그니처**, 각 서비스명과 결합된 콤비네이션 로고는 **서비스 시그니처**라고 칭합니다.
+계약서 · 제안서 · 공식 문서 · 채용 공고 · 웹사이트 푸터 등 회사가 전면에 나서는 자리에는 회사 시그니처를, 서비스 별 브랜드 커뮤니케이션에는 각 서비스 시그니처의 사용을 우선합니다. 그 밖에 영상 · 썸네일 · 소셜 게시물 · 포스터 · 콘텐츠 사인오프 등 미디어 브랜드 EO를 알려야하는 모든 자리에는 EO 심볼의 사용을 우선합니다.
 ![overview]
 
 
-### + Descriptor {layout=grid-2}
-시그니처에서 EO 심볼과 함께 쓰는 텍스트 부분을 디스크립터라고 칭합니다. 디스크립터를 조직이나 서비스, 도메인 이름으로 바꾸면 같은 규칙으로 새 시그니처를 만들 수 있으며, 어떤 단어든 아래 규격을 그대로 따릅니다.
+### Signature
+#### + Descriptor {layout=wide}
+시그니처에서 심볼을 제외한 텍스트 부분을 **디스크립터**라고 부릅니다. 회사명 · 서비스명 · 도메인 등 어떤 단어든 아래 규격을 그대로 따릅니다.
 
-- **세로형:** 디스크립터는 Founders Grotesk Regular, 조판 사이즈 (7/15)H, 자간 0으로 조판합니다. 심볼의 하단 경계에서 H/5 아래에 캡 박스의 윗변을 두고 심볼과 중앙 정렬한 뒤, H/100만큼 왼쪽으로 보정합니다. EO 심볼은 왼쪽 E 블록의 회색도가 더 높아 시각적 중심이 왼쪽에 있기 때문입니다.
-- **가로형:** 디스크립터는 Founders Grotesk Regular, 조판 사이즈 (5/4)H, 자간 0으로 조판합니다. 심볼의 우측 경계에서 H/2 떨어진 곳에 캡 박스의 왼쪽 변을 두고, 베이스라인을 심볼의 하단 경계에서 H/10만큼 올립니다. 이렇게 하면 캡 박스가 심볼 높이의 위아래 H/10씩을 뺀 가운데 80% 영역에 정확히 맞습니다.
+- **세로형:** 디스크립터는 Founders Grotesk Regular, 조판 사이즈 (7/15)H, 자간 0으로 조판합니다. 심볼의 하단 경계로부터 H/5 아래에 캡 박스의 윗변을 두고, 심볼과 중앙 정렬한 뒤 H/100만큼 왼쪽으로 보정합니다. EO 심볼은 E 블록의 회색도가 더 높아 시각적 중심이 왼쪽에 있기 때문입니다.
+- **가로형:** 디스크립터는 Founders Grotesk Regular, 조판 사이즈 (5/4)H, 자간 0으로 조판하고, 단어 사이 포함된 공백 문자에 한해 -6%의 자간을 별도 적용합니다. 심볼의 우측 경계로부터 H/2 떨어진 곳에 캡 박스의 왼쪽 변을 두고, 베이스라인을 심볼의 하단 경계에서 H/10만큼 올립니다. 
+- 디스크립터의 첫 글자나 끝 글자가 S · o처럼 측면 형태가 곡선인 글리프인 경우, 텍스트 기준선에 좌측 정렬을 유지한 채로 대문자 H, 소문자는 h로 잠시 바꿔 경계를 잡습니다. 예를 들어 “Studio”는 “Htudio”로 왼쪽 경계를, “Studih”로 오른쪽 경계를 잡습니다.
 
-캡 박스는 곡선의 오버슛을 뺀, 직선 획 기준의 글자 영역입니다. 디스크립터의 첫 글자나 끝 글자가 S · o처럼 곡선이라면 잠시 직선 글자로 바꿔 경계를 잡으세요. 예를 들어 "Studio"는 "Htudih"로 바꿔 잽니다.
+새 디스크립터를 만들거나 기존 디스크립터를 변경할 때는 반드시 EO 브랜드팀의 컨펌을 받아야 합니다. 캠페인이나 이벤트 이름처럼 한시적인 이름은 디스크립터로 사용하지 않습니다.
+![descriptor-system-v]
+![descriptor-system-h]
 
-새 디스크립터를 만들거나 기존 디스크립터를 변경할 때는 반드시 EO 브랜드팀의 컨펌을 받아야 합니다. 또한 캠페인이나 이벤트 이름처럼 한시적인 이름은 디스크립터로 사용하지 않습니다.
-![descriptor-system-v] 세로형 구성
-![descriptor-system-h] 가로형 구성
+
+### Signature
+#### + Clearspace
+시그니처 주변에도 EO 심볼과 같은 기준의 여백이 필요합니다. E 블록 하나의 수직 방향 높이를 H라 할 때, 시그니처 전체를 감싸는 상하좌우 각 H/2 이상의 최소 여백을 확보합니다.
+![clearspace]
+
+
+### Signature
+#### + Scalability {layout=grid-2}
+시그니처는 작게 볼수록 심볼과 디스크립터가 하나의 덩어리로 읽히고, 크게 볼수록 디스크립터의 글자 하나하나가 또렷해집니다.따라서 지면에서 실제로 보이는 크기를 고려해 가장 알맞은 형태의 시그니처를 선택해야 합니다.
+
+- **보이는 크기가 비교적 클 때는 세로형을 우선 사용하세요.** 세로형은 심볼과 디스크립터의 크기 대비가 커서 또렷한 인상을 주기에 유리하지만, 너무 작은 크기에서는 디스크립터의 가독성이 떨어집니다.
+- **보이는 크기가 비교적 작을 때는 가로형을 우선 사용하세요.** 가로형은 작은 크기에서도 심볼과 디스크립터가 고른 가시성을 유지하지만, 너무 큰 크기에서는 두 요소가 가로로 흩어져 시각적 리듬감이 떨어집니다.
+![size-1] 큰 크기 · 세로형 "EO Studio"
+![size-2] 작은 크기 · 가로형 "EO Studio"
+![size-dont-1]{dont} 작은 크기에서 세로형 시그니처를 쓰지 마세요
+![size-dont-2]{dont} 큰 크기에서 가로형 시그니처를 쓰지 마세요
+
+
+### Signature
+#### + Inversion {layout=grid-2}
+시그니처도 심볼과 같이 Space Black · Solid Gray 등 어두운 배경 위에 Builder Neon · Air White 등 밝은 색의 라이트 시그니처를 기본으로 제작되었습니다. 밝은 배경 위에 다크 시그니처를 쓰고자 할 때 단지 색을 반전하면, 심볼은 가늘고 벌어져 보이고 디스크립터의 글자도 같은 웨이트인데 한 단계 가늘어 보이는 착시가 생깁니다.
+
+이때 심볼은 Symbol 챕터의 Inversion 규칙대로 변환한 다크 심볼을 그대로 씁니다. 디스크립터는 웨이트를 바꾸지 않고(Medium으로 올리면 글자 폭이 달라져 캡 박스 규격이 어긋납니다) Regular 글자에 조판 사이즈 S의 S/250만큼 바깥으로 외곽선 오프셋을 줍니다. 가로형 (5/4)H 조판에서는 H/200, 세로형 (7/15)H 조판에서는 약 H/540입니다. 이렇게 하면 밝은 배경에서도 심볼과 디스크립터의 회색도 균형이 라이트 시그니처와 같게 유지됩니다.
+
+다크 시그니처의 레이아웃은 라이트 시그니처의 것을 그대로 둡니다. 디스크립터의 캡 박스 위치와 심볼과의 간격은 라이트 심볼의 경계를 기준으로 잡은 값을 유지하고, 그 자리에 다크 심볼을 중앙 정렬해 올립니다. 다크 심볼이 네 방향으로 커진 만큼 심볼과 디스크립터 사이의 간격이 조금 줄어드는데, 이는 두 블록 사이 간격을 줄인 것과 같은 보정이므로 다시 벌리지 않습니다. 클리어스페이스 역시 동일 레벨의 라이트 시그니처 영역을 그대로 씁니다.
+![inversion-v] 세로형 — 라이트 시그니처 위에 다크 시그니처를 겹친 비교
+![inversion-h] 가로형 — 라이트 시그니처 위에 다크 시그니처를 겹친 비교
 
 
 ### + Company Signature
@@ -307,40 +341,30 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 
 ### Company Signature
 #### Horizontal
-회사 시그니처-H는 EO 심볼 오른쪽에 "Studio" 또는 "EO Studio"를 놓은 가로 조합입니다. 구성 규칙은 아래 Descriptor System의 가로형 규격을 따릅니다.
+회사 시그니처-H는 EO 심볼 오른쪽에 "Studio" 또는 "EO Studio"를 놓은 가로 조합입니다. 구성 규칙은 아래 Descriptor System의 가로형 규격을 따릅니다. 
+
+EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힐 수 있으므로, 가로형 사용 시 디스크립터에 "Studio"만 표기하는 것을 고려하세요.
 
 특별한 이유가 없다면 회사 시그니처-H의 텍스트를 다시 조판하지 말고 제공된 원본 파일을 사용하세요.
 ![horizontal]
 
 
-### Company Signature
-#### Which to Use {layout=grid-2}
-
-EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힙니다. 그래서 회사 시그니처는 "Studio"만 표기하는 것을 우선적으로 고려하되, 회사명을 분명히 밝혀야 할 때 "EO Studio"를 사용합니다.
-
-로고는 보이는 크기에 따라 다르게 읽힙니다. 작게 볼수록 심볼과 텍스트가 각각 하나의 덩어리로 읽히고, 크게 볼수록 글자 하나하나의 형태가 또렷해집니다. 회사 시그니처는 다음 두 단계로 알맞은 형태를 고릅니다.
-
-1. **회사명이 분명히 읽혀야 한다면, 세로형을 먼저 고려합니다.** 세로형은 심볼 아래에 "EO Studio"를 두었기 때문에, 회사명을 온전히 전하면서 또렷한 시각성을 지키기 유리합니다.
-2. **보이는 크기로 한 번 더 판단합니다.** 큰 크기에서는 세로형을, 작은 크기에서는 가로형을 우선적으로 사용합니다. 가로형은 "Studio"를 기본으로 폭넓은 크기에 두루 쓸 수 있고, 회사명이 필요하면 작은 크기에 한해 "EO Studio"를 사용합니다.
-![size-1] 작은 크기 · 가로형 "Studio" (기본)
-![size-2] 작은 크기 · 가로형 "EO Studio" (회사명이 꼭 필요할 때)
-![size-3] 큰 크기 · 세로형 "EO Studio"
-![size-dont-1]{dont} 큰 크기에서 가로형 "EO Studio"를 쓰지 마세요
-
-
 ### + Service Signature
-#### In Use{layout=grid-2}
-현재 사용 중인 회사 시그니처와 서비스 시그니처입니다. 모두 같은 디스크립터 규격으로 구성되어, 이름이 달라도 하나의 가족으로 읽힙니다.
+#### Vertical {layout=grid-4}
+현재 사용 중인 회사 시그니처와 서비스 시그니처입니다. 모두 같은 디스크립터 규격으로 구성되어, 이름이 달라도 하나의 가족으로 읽히는지 체크합니다.
 ![lineup-studio] EO Studio · 회사
 ![lineup-magazine] EO Magazine · 웹 매거진
 ![lineup-planet] EO Planet · 커뮤니티 (eopla.net)
 ![lineup-newsletter] EO Newsletter · 뉴스레터
 
 
-### Signature
-#### + Clearspace
-시그니처 주변에도 EO 심볼과 같은 기준의 여백이 필요합니다. E 블록 하나의 수직 방향 높이를 H라 할 때, 시그니처 전체를 감싸는 상하좌우 각 H/2 이상의 최소 여백을 확보합니다.
-![clearspace]
+### Service Signature
+#### Horizontal {layout=grid-4}
+현재 사용 중인 회사 시그니처와 서비스 시그니처입니다. 모두 같은 디스크립터 규격으로 구성되어, 이름이 달라도 하나의 가족으로 읽히는지 체크합니다.
+![lineup-studio] EO Studio · 회사
+![lineup-magazine] EO Magazine · 웹 매거진
+![lineup-planet] EO Planet · 커뮤니티 (eopla.net)
+![lineup-newsletter] EO Newsletter · 뉴스레터
 
 
 ### + Usage {layout=grid-2}
@@ -409,7 +433,7 @@ EO 시그니처은 파트너 브랜드 및 협업사 로고와 세로로도 락�
 ## Sub Symbol
 
 ### + Sub Symbol
-서브 심볼은 EO 심볼에서 E 블록만 떼어 쓰는 형태를 칭합니다. 앱 아이콘 · 파비콘 · 소셜 미디어 아바타 · 핀 배지처럼 EO 심볼 전체를 알아보기 어려운 작은 정사각형 공간에 한하여 사용합니다.
+EO 심볼에서 E 블록만 떼어 쓰는 형태를 이하 **서브 심볼**이라 부릅니다. 앱 아이콘 · 파비콘 · 소셜 미디어 아바타 · 핀 배지처럼 EO 심볼 전체를 알아보기 어려운 작은 정사각형 공간에 한하여 사용합니다.
 
 서브 심볼은 EO 심볼을 완전히 대신할 수 없으므로, 충분한 크기가 확보된 곳에서는 항상 EO 심볼을 사용하세요. E 블록은 그래픽 유닛과 같은 지오메트리를 공유하므로, 작게 쓰여도 비주얼 시스템 전체와 자연스럽게 이어집니다.
 ![overview]
@@ -670,7 +694,7 @@ Builder Neon은 EO 팔레트의 유일한 주인공이자 브랜드에서 가장
 ![color/builder-neon]
 
 
-### Color {layout=grid-3}
+### Color {layout=grid-4}
 #### Palette
 EO 팔레트는 Builder Neon과 이를 받쳐 주는 여섯 가지 색으로 이루어집니다. 
 
@@ -688,7 +712,11 @@ Day Blue와 Bay Green은 샌프란시스코의 푸른 하늘과 청량한 공기
 
 ### Color {layout=grid-3}
 #### Pairings
-승인된 페어링은 아래 여덟 가지입니다. 텍스트는 Air White 또는 Space Black을 기본으로 하고, Builder Neon과 Day Blue · Bay Green은 면과 그래픽 유닛에 사용합니다.
+
+이 섹션은 전반적인 컬러의 사용성에 대해 설명합니다. 에셋 별 구체적인 컬러 사용법에 대해선 해당 서브챕터의 내용을 참고하세요.
+- 텍스트는 Air White 또는 Space Black을 기본으로 합니다. 
+- 그래픽 유닛의 컬러는 Builder Neon · Air White  · Day Blue · Bay Green · Medium Gray를 기본으로 사용합니다. 
+- 배경 컬러는 Solid Gray · Space Black를 기본으로 합니다. 일반적인 상황 · 마일드한 무드에는 Solid Gray 배경을, 좀 더 강렬한 무드를 추구할 땐 Space Black 배경을 사용합니다. 브랜드의 존재감을 강하게 어필해야할 때, 전달할 정보량이 적은 지면에 한해 Builder Neon을 배경 컬러로 사용하고 그 위에 Space Black 유닛을 올립니다.
 ![color/pairing-1] Air White on Space Black
 ![color/pairing-2] Space Black on Air White
 ![color/pairing-3] Space Black on Builder Neon
@@ -736,46 +764,36 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 
 ### Graphic Unit
 #### + Motif  {layout=grid-2}
-**EO 그래픽 시스템**은 나사의 3요소인 샤프트(Shaft, 나사 축) · 스레드(Thread, 나사산) · 헤드(Head, 나사 머리)을 모티프로 고안되었습니다. 로고의 E 블록 · 패턴 라이브러리 · 모든 애플리케이션 그래픽 모두 이 시스템으로 제작되었습니다.
+**EO 그래픽 유닛**은 나사의 3요소인 나사축(Shaft) · 나사산(Thread) · 나사머리(Head)을 모티프로 고안되었습니다.
 
-- **샤프트(Shaft)** 샤프트는 빌딩의 과정이자 빌더가 앞으로 나아가는 여정(Build anyway)을 상징합니다. 샤프트가 두꺼울수록 앞으로 나아가는 힘의 강함을 표현합니다.
-- **스레드(Thread)** 스레드 한 바퀴는 문제 해결의 사이클를 상징합니다. 단단한 벽에 맞닥뜨릴수록 저항도 세고 뚫는 시간도 오래 걸립니다. 스레드가 촘촘할수록 빌더의 시간이 그만큼 밀도 있게 채워져 있음(Build thorough)을 나타냅니다.
-- **헤드(Head)** 헤드 하나는 작은 승리 하나, 또는 빌더 한 사람을 상징합니다. 작은 나사도 여럿이 모이면 무엇이든 만들 수 있습니다(Build anything). 마찬가지로 빌더 한 사람이 풀지 못하는 난제도, 여러 빌더가 함께 마주하면 결국 풀립니다(Build together).
+- **샤프트(Shaft)** — shaft는 빌딩의 과정이자 빌더의 여정을 상징합니다. shaft의 두께는 앞으로 나아가는 용기(Build anyway)의 형태를 표현합니다.
+- **스레드(Thread)** — thread 한 바퀴는 문제 해결의 사이클를 상징합니다. 단단한 벽에 맞닥뜨릴수록 저항도 세고 뚫는 시간도 오래 걸립니다. thread가 촘촘할수록 빌더의 시간이 그만큼 밀도 있게 채워져 있음(Build thorough)을 나타냅니다.
+- **헤드(Head)** — head 하나는 작은 승리 하나, 또는 빌더 한 사람을 상징합니다. 작은 나사도 여럿이 모이면 무엇이든 만들 수 있습니다(Build anything). 마찬가지로 빌더 한 사람이 풀지 못하는 난제도, 여러 빌더가 함께 마주하면 결국 풀립니다(Build together).
 ![visual/motif-1] {zoom=1.18}
 ![visual/motif-2]
 
 
-### + Graphic Unit
-#### + Parameters
-**EO 그래픽 유닛**은 그래픽 시스템의 최소 단위이며, 유닛 하나로 EO의 모든 패턴을 만듭니다. 로고의 E 블록 · 패턴 라이브러리 · 모든 애플리케이션 그래픽이 이 유닛에서 파생됩니다. 유닛은 EO Graphic Builder에서 파라미터로 생성합니다.
+### Graphic Unit
+#### + Parameters {layout=grid-3}
+**EO 그래픽 유닛**(이하 유닛)은 그래픽 시스템의 최소 단위이며, 로고의 E 블록 · 패턴 라이브러리 · 애플리케이션 그래픽 모두 동일한 시스템으로 제작되었습니다. 유닛은 **EO Graphic Builder**에서 파라미터로 생성하며, 자세한 사용 방법은 빌더 내 도움말(Help) 메뉴를 참고하시길 바랍니다.
 
-- **shaft** — 세로 중앙을 가로지르는 나사축. 유닛 전체 폭을 끊김 없이 지나갑니다.
-- **thread** — shaft 위아래에 컬럼마다 하나씩 붙는 사다리꼴 빗살. 오른쪽 변은 컬럼 끝에 수직으로 서고, 왼쪽 변은 기울어집니다. 아래쪽 thread는 위쪽을 컬럼 중심 기준으로 180° 돌린 모양입니다.
-- **column · gutter** — thread가 놓이는 세로 칸과 칸 사이 간격. gutter 구간에서 thread는 비고 shaft만 이어집니다.
-- **thread sides** — double은 shaft 위아래 모두에, single은 위쪽에만 thread가 붙고 shaft가 바닥에 놓입니다.
-![visual/unit-overview]
+- **shaft size** — 나사축 직사각형의 두께, 단위는 양쪽의 thread 포함 유닛 전체 높이 대비 %입니다. shaft size가 기본 값 35% 전후의 수준일 때, 비교적 복잡한 그래픽 패턴에서도 시각적 밀도를 이상적으로 유지하기 쉽습니다.
+- **thread top / bottom width** — thread 윗변과 아랫변의 폭. 두 값의 차이가 thread의 기울기를 결정합니다. 기본 값은 위 40% · 아래 0%.
+- **thread sides** — double은 shaft 위아래 양쪽, single은 위쪽에만 thread가 붙고 shaft가 아래쪽 바닥에 놓입니다.
+- **thread amount** — shaft 위아래에 하나씩 붙는, 나사산을 추상화한 사다리꼴 쉐입. 오른쪽 변은 컬럼 끝에 수직으로 서고, 왼쪽 변은 기울어집니다. 아래쪽 thread는 위쪽을 컬럼 중심 기준으로 180° 회전한 모양입니다.
+- **thread compression** — thread 폭이 한쪽으로 갈수록 점점 좁아지는 정도. 0이면 모든 thread의 너비가 균등하고, 값이 커질수록 한쪽으로 압축되는 세기가 강해집니다. 음수/양수 값은 compression의 방향을 결정하며, 개별 thread의 기울기는 반전되지 않고 그대로 유지됩니다.
+- **gutter** — thread가 놓이는 세로 칸과 칸 사이 간격. gutter 구간에서 thread는 비고 shaft만 이어집니다.
 
-
-
-### + Parameters {layout=grid-2}
-유닛의 형태는 EO Graphic Builder의 파라미터로만 정합니다. 패널의 이름을 그대로 씁니다.
-
-- **SIZE** — 유닛의 가로 · 세로. 비율 버튼(12:5 ~ 9:16)으로 바로 맞출 수 있습니다.
-- **threads** — 빗살 개수. 기본 12.
-- **thread compression** — 빗살 폭이 한쪽으로 갈수록 점점 좁아지는 정도. 0이면 균등하고, 값이 커질수록 한쪽으로 수렴하는 착시가 강해집니다. 비율 버튼(1:1 ~ 1+√2)으로 자주 쓰는 값을 고르며 기본은 2:1입니다. 방향을 바꿔도 빗살의 기울기는 유지됩니다.
-- **gutter** — 빗살 사이 간격(px).
-- **shaft size** — 축의 두께. 유닛 높이 대비 %이며 기본 35%.
-- **thread top / bottom width** — 빗살 윗변과 아랫변의 폭. 두 값의 차이가 빗살의 기울기를 정합니다. 기본은 위 40% · 아래 0%.
-- **thread sides** — double / single.
-
-여기에 90° 단위 회전과 좌우 반전을 더해 유닛을 세우거나 마주 보게 놓습니다.
-![visual/param-compression] thread compression — 1:1 · φ · 2:1 · 1+√2
-![visual/param-shaft] shaft size — 20% · 35% · 50% · 75%
+![visual/param-shaft-size] shaft size — shaft의 두께 2-95%
 ![visual/param-thread-width] thread top / bottom width — 기울기의 변화
-![visual/param-sides] thread sides — double · single
+![visual/param-thread-sides] thread sides  — double · single
+![visual/param-thread-amount] thread amount — thread 수
+![visual/param-thread-compression] thread compression — thread 압축 방향 · 세기
+![visual/param-gutter] thread sides — thread 사이 간격 10-50px
 
 
-### + Variations {layout=grid-3}
+### Graphic Unit
+#### + Variations {layout=grid-3}
 threads · compression · shaft size · thread width를 조합해 성격이 다른 유닛을 만듭니다. 아래는 패턴 라이브러리의 바탕이 되는 대표 변형 여섯 가지입니다.
 ![visual/unit-var-1] 01 / path of builder — 왼쪽이 넓고 오른쪽으로 수렴하는 기본형
 ![visual/unit-var-2] 02 / power — 두꺼운 shaft의 single 유닛 두 개를 위아래로 마주 놓음
@@ -785,10 +803,37 @@ threads · compression · shaft size · thread width를 조합해 성격이 다�
 ![visual/unit-var-6] 06 / team — 세운 유닛 네 개를 도킹으로 맞물림
 
 
-### Color Application {layout=grid-2}
-유닛 하나는 단색입니다. 바탕은 Space Black 또는 Solid Gray를 기본으로 하고, 유닛에는 Builder Neon · Day Blue · Bay Green · Medium Gray · Air White를 씁니다. 배경과 유닛 사이의 대비가 핵심이며, 여러 유닛을 나란히 놓을 때는 명도 차가 뚜렷한 색끼리 짝지어 깊이를 만듭니다. 패턴 라이브러리의 색 조합을 그대로 쓰는 것이 기본이고, 새 조합은 EO 브랜드팀의 승인을 거칩니다.
-![visual/unit-color-1] Builder Neon on Space Black
-![visual/unit-color-2] Medium Gray · Builder Neon · Air White on Solid Gray
+### Graphic Unit
+#### + ????
+????
+
+
+### Graphic Unit
+#### + Color {layout=grid-4}
+
+Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Blue · Bay Green · Medium Gray을 유닛 컬러로 사용하는 것이 기본 조합입니다. 여러 유닛을 나란히 놓을 때는 명도 차가 비슷한 Day Blue · Bay Green · Medium Gray를 균일한 비중 · 위치 · 동세로 배치하거나, 명도가 높은 Builder Neon · Air White를 시각 초점으로 활용해 캔버스의 깊이감을 의도적으로 조절하세요.
+- 하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 
+- **하나의 그래픽에 동시에 사용하는 유닛 컬러는 최대 3가지**까지 권장되며, Builder Neon · Day Blue · Bay Green · Medium Gray 고정 조합에 한해 최대 네 가지까지 사용할 수 있습니다.
+- Medium Gray 유닛만을 단독으로 사용하지 않고 다른 컬러의 유닛과 조합하여 사용합니다. 
+
+일반적인 상황 · 마일드한 무드에는 Solid Gray 배경을, 좀 더 강렬한 무드를 추구할 땐 Space Black 배경을 사용합니다. 브랜드의 존재감을 강하게 어필해야할 때, 전달할 정보량이 적은 지면에 한해 Builder Neon을 배경 컬러로 사용하고 그 위에 Space Black 유닛을 올립니다.
+
+- 배경 컬러로 Solid Gray를 사용하면, 5개의 유닛 컬러 모두 충분한 균형을 유지하면서 전체 대비가 한 단계 낮아져 차분하게 묶이므로 우선적으로 고려합니다. 
+- Builder Neon · Day Blue · Bay Green · Air White 를 배경 컬러로 쓸 때는 Space Black 유닛만 올릴 수 있습니다.
+- Solid Gray는 반드시 배경 컬러으로만 사용하며 유닛 컬러로는 사용하지 않습니다.
+- Medium Gray는 디지털 환경에서 가급적 배경 컬러로 사용하지 않습니다. Merch 제작 시 질감이 있는 현실 소재의 컬러를 Medium Gray로 맞출 수 있는 경우에 한해, EO 브랜드팀의 허가를 거쳐 Builder Neon · Space Black 유닛을 제한적으로 올릴 수 있습니다.
+![visual/unit-color-do-1] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Solid Gray]
+![visual/unit-color-do-2] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Space Black]
+![visual/unit-color-do-3] {do}[Space Black] on [Builder Neon] · [Day Blue] · [Bay Green]
+![visual/unit-color-do-4] {do}[Space Black] on [Air White]
+![visual/unit-color-dont-1] {dont}[Space Black] on [Solid Gray] or vice versa
+![visual/unit-color-dont-2] {dont}[Medium Gray] alone on [Solid Gray] · [Space Black]
+![visual/unit-color-dont-3] {dont}[Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Builder Neon]
+![visual/unit-color-dont-4] {dont}[Builder Neon] · [Bay Green] · [Medium Gray] · [Air White] on [Day Blue]
+![visual/unit-color-dont-5] {dont}[Builder Neon] · [Day Blue] · [Medium Gray] · [Air White] on [Bay Green]
+![visual/unit-color-dont-6] {dont}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] on [Air White]
+![visual/unit-color-dont-7] {dont}[Day Blue] · [Bay Green] · [Air White] on [Medium Gray]
+![visual/unit-color-con] {con}[Builder Neon] · [Space Black] on [Medium Gray] 
 
 
 ### Graphic Unit {layout=grid-3}
@@ -805,7 +850,19 @@ threads · compression · shaft size · thread width를 조합해 성격이 다�
 
 ## Pattern
 
-### Pattern References {layout=grid-4} {ratio=16:9} {zoom=1.04}
+
+### + Composition {layout=grid-3}
+같은 유닛을 아래 여섯 가지 방법으로 놓아서 패턴은 만듭니다. 30종 모두 이 방법들의 조합입니다.
+![visual/comp-1] 압축 — compression으로 한쪽으로 수렴하는 밀도 차이를 만듭니다
+![visual/comp-2] 세우기 — 유닛을 90° 돌려 세로로 놓습니다. 대부분의 패턴은 세운 유닛의 나열입니다
+![visual/comp-3] 마주 보기 — 좌우 반전한 유닛을 마주 놓아 대칭을 만듭니다
+![visual/comp-4] 쌓기 — 유닛을 행으로 쌓고 행마다 색을 바꿔 띠를 만듭니다
+![visual/comp-5] 도킹 — 두 유닛의 shaft를 이어 하나의 축으로 맞물립니다
+![visual/comp-6] 블렌드 — 같은 유닛을 일정 비율로 작아지게 복제해 원근을 만듭니다
+
+
+### Pattern {layout=grid-4} {ratio=16:9} {zoom=1.04}
+#### References
 유닛을 조합해 만든 30종의 패턴 라이브러리입니다. 각 패턴은 번호가 아니라 빌더의 여정에서 가져온 키워드 하나를 이름으로 가지며, 캠페인 · 굿즈 · 소셜 · 영상 등 모든 접점에서 재사용합니다. 새 패턴이 필요하면 라이브러리에서 고르는 것이 먼저이고, 추가는 EO 브랜드팀의 승인을 거칩니다.
 ![visual/pattern-01] 01 / path of builder
 ![visual/pattern-02] 02 / power
@@ -837,16 +894,6 @@ threads · compression · shaft size · thread width를 조합해 성격이 다�
 ![visual/pattern-28] 28 / adventure
 ![visual/pattern-29] 29 / nature
 ![visual/pattern-30] 30 / boom
-
-
-### + Composition {layout=grid-3}
-패턴은 유닛을 새로 그리는 것이 아니라, 같은 유닛을 아래 여섯 가지 방법으로 놓아서 만듭니다. 30종 모두 이 방법들의 조합입니다.
-![visual/comp-1] 압축 — compression으로 한쪽으로 수렴하는 밀도 차이를 만듭니다
-![visual/comp-2] 세우기 — 유닛을 90° 돌려 세로로 놓습니다. 대부분의 패턴은 세운 유닛의 나열입니다
-![visual/comp-3] 마주 보기 — 좌우 반전한 유닛을 마주 놓아 대칭을 만듭니다
-![visual/comp-4] 쌓기 — 유닛을 행으로 쌓고 행마다 색을 바꿔 띠를 만듭니다
-![visual/comp-5] 도킹 — 두 유닛의 shaft를 이어 하나의 축으로 맞물립니다
-![visual/comp-6] 블렌드 — 같은 유닛을 일정 비율로 작아지게 복제해 원근을 만듭니다
 
 
 ### Usage
