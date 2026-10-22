@@ -100,7 +100,7 @@ const ui = UI_TEXT[lang];
         (window as any).__smoother?.paused(open);   // 드로어가 열린 동안 본문 스크롤 정지
       };
       btn?.addEventListener('click', () => set(!root.classList.contains('nav-open')));
-      document.querySelectorAll('.sidebar a').forEach(a => a.addEventListener('click', () => set(false)));
+      document.querySelectorAll('.sidebar a:not([data-chapter-toggle])').forEach(a => a.addEventListener('click', () => set(false)));   // 챕터는 목록만 접고 펴므로 드로어를 닫지 않음
       desktop.addEventListener('change', () => set(false));
       set(false);
     </script>

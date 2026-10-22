@@ -16,7 +16,8 @@ const { guide, current, lang, alt } = Astro.props;
       const active = current?.chapterSlug === ch.slug;
       return (
         <li class:list={['nav__chapter', { 'is-active': active }]}>
-          <a class="nav__chapter-link" href={ch.subs[0]?.url ?? `/${lang}`} aria-current={active ? 'true' : undefined}>
+          <!-- 챕터는 이동하지 않고 페이지 목록만 접고 폅니다 (JS). JS 가 없으면 첫 페이지로 가는 링크 -->
+          <a class="nav__chapter-link" href={ch.subs[0]?.url ?? `/${lang}`} aria-current={active ? 'true' : undefined} aria-expanded={active ? 'true' : 'false'} data-chapter-toggle>
             <span class="nav__num">{ch.num}</span><span>{ch.name}</span>
           </a>
           <!-- 접고 펴는 묶음(nav__fold). 모든 목록을 미리 그려 두고 활성 쪽만 열어 둡니다. 클릭하면 아래 스크립트가 슬라이드로 전환 -->
@@ -61,7 +62,7 @@ const { guide, current, lang, alt } = Astro.props;
 </nav>
 
 <script>
-  // 목차 슬라이드: 다른 페이지로 가는 챕터·페이지 링크를 누르면, 열린 목록은 접고 갈 곳의 목록은 펼칩니다.
+  // 목차 슬라이드: 챕터를 누르면 페이지 목록만 접고 펴고(이동 없음), 페이지 링크를 누르면 열린 목록은 접고 갈 곳의 목록은 펼친 뒤 이동합니다.
   // 본문이 사라지는 동안(motion.ts 페이지 전환) 슬라이드가 끝나고, 새 페이지는 같은 모양으로 열리므로 끊김이 없습니다.
   const sidebar = document.querySelector<HTMLElement>('.sidebar');
   const setFold = (fold: Element | null | undefined, open: boolean) => {
@@ -72,9 +73,21 @@ const { guide, current, lang, alt } = Astro.props;
   sidebar?.addEventListener('click', e => {
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     const a = (e.target as HTMLElement).closest<HTMLAnchorElement>('.nav__chapter-link, .nav__sub-link');
-    if (!a || new URL(a.href).pathname === location.pathname) return;
+    if (!a) return;
+    // 챕터: 이동하지 않고 그 챕터의 페이지 목록만 접고 폄 (한 번에 한 챕터만 열림). 페이지 링크를 눌러야 실제로 이동
+    if (a.classList.contains('nav__chapter-link')) {
+      e.preventDefault();
+      const chapter = a.closest('.nav__chapter')!;
+      const fold = chapter.querySelector(':scope > .nav__fold');
+      const open = !fold?.classList.contains('is-open');
+      sidebar.querySelectorAll('.nav__chapter > .nav__fold.is-open').forEach(f => { if (f !== fold) { setFold(f, false); f.parentElement?.querySelector('.nav__chapter-link')?.setAttribute('aria-expanded', 'false'); } });
+      setFold(fold, open);
+      a.setAttribute('aria-expanded', String(open));
+      return;
+    }
+    if (new URL(a.href).pathname === location.pathname) return;
     const chapter = a.closest('.nav__chapter');
-    const sub = a.classList.contains('nav__sub-link') ? a.closest('.nav__sub') : chapter?.querySelector('.nav__sub');
+    const sub = a.closest('.nav__sub');
     const keep = new Set([chapter?.querySelector(':scope > .nav__fold'), sub?.querySelector(':scope > .nav__fold')]);
     sidebar.querySelectorAll('.nav__fold.is-open').forEach(f => { if (!keep.has(f)) setFold(f, false); });
     keep.forEach(f => setFold(f, true));

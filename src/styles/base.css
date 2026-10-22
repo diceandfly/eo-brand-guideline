@@ -342,8 +342,9 @@ html.js .main {
   transition: color var(--dur) var(--ease);
 }
 .nav__chapter-link:hover,
+.nav__chapter-link[aria-expanded='true'],
 .nav__chapter.is-active > .nav__chapter-link {
-  color: var(--nav-fg-active);
+  color: var(--nav-fg-active); /* 펼쳐진 챕터도 활성 색 (웨이트는 현재 페이지의 챕터만) */
 }
 .nav__chapter.is-active > .nav__chapter-link {
   font-weight: var(--nav-w-active);
