@@ -13,6 +13,7 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
   # 02 Logo              ← 챕터.   "번호 이름" 형식. 번호는 목차와 URL(/02-logo/…)에 쓰입니다.
   ## Logo                ← 서브챕터. 페이지 하나가 됩니다. URL: /02-logo/logo
   ### Construction       ← 섹션 헤드. 목차의 앵커로도 쓰입니다.
+                            앵커 id = 목차 라벨의 슬러그 (헤드가 페이지 이름과 같으면 서브헤드, 예: #color-pairing). 본문에서 [글자](/ko/05-visual-system/pattern#color-pairing) 로 링크.
   #### Primary Lockup    ← 서브헤드 (선택). 헤드 바로 다음 줄에만 씁니다. 없으면 표시되지 않습니다.
   그 아래 줄들            ← 본문. 마크다운(문단, 굵게, 링크, 목록)을 쓸 수 있습니다.
 
@@ -793,7 +794,7 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 
 
 ### Graphic Unit
-#### + Variations {layout=grid-3}
+#### + Vocabulary {layout=grid-3}
 threads · compression · shaft size · thread width를 조합해 성격이 다른 유닛을 만듭니다. 아래는 패턴 라이브러리의 바탕이 되는 대표 변형 여섯 가지입니다.
 ![visual/unit-var-1] 01 / path of builder — 왼쪽이 넓고 오른쪽으로 수렴하는 기본형
 ![visual/unit-var-2] 02 / power — 두꺼운 shaft의 single 유닛 두 개를 위아래로 마주 놓음
@@ -804,36 +805,13 @@ threads · compression · shaft size · thread width를 조합해 성격이 다�
 
 
 ### Graphic Unit
-#### + ????
+#### + Proportion & Rhythm
 ????
 
 
 ### Graphic Unit
-#### + Color {layout=grid-4}
-
-Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Blue · Bay Green · Medium Gray을 유닛 컬러로 사용하는 것이 기본 조합입니다. 여러 유닛을 나란히 놓을 때는 명도 차가 비슷한 Day Blue · Bay Green · Medium Gray를 균일한 비중 · 위치 · 동세로 배치하거나, 명도가 높은 Builder Neon · Air White를 시각 초점으로 활용해 캔버스의 깊이감을 의도적으로 조절하세요.
-- 하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 
-- **하나의 그래픽에 동시에 사용하는 유닛 컬러는 최대 3가지**까지 권장되며, Builder Neon · Day Blue · Bay Green · Medium Gray 고정 조합에 한해 최대 네 가지까지 사용할 수 있습니다.
-- Medium Gray 유닛만을 단독으로 사용하지 않고 다른 컬러의 유닛과 조합하여 사용합니다. 
-
-일반적인 상황 · 마일드한 무드에는 Solid Gray 배경을, 좀 더 강렬한 무드를 추구할 땐 Space Black 배경을 사용합니다. 브랜드의 존재감을 강하게 어필해야할 때, 전달할 정보량이 적은 지면에 한해 Builder Neon을 배경 컬러로 사용하고 그 위에 Space Black 유닛을 올립니다.
-
-- 배경 컬러로 Solid Gray를 사용하면, 5개의 유닛 컬러 모두 충분한 균형을 유지하면서 전체 대비가 한 단계 낮아져 차분하게 묶이므로 우선적으로 고려합니다. 
-- Builder Neon · Day Blue · Bay Green · Air White 를 배경 컬러로 쓸 때는 Space Black 유닛만 올릴 수 있습니다.
-- Solid Gray는 반드시 배경 컬러으로만 사용하며 유닛 컬러로는 사용하지 않습니다.
-- Medium Gray는 디지털 환경에서 가급적 배경 컬러로 사용하지 않습니다. Merch 제작 시 질감이 있는 현실 소재의 컬러를 Medium Gray로 맞출 수 있는 경우에 한해, EO 브랜드팀의 허가를 거쳐 Builder Neon · Space Black 유닛을 제한적으로 올릴 수 있습니다.
-![visual/unit-color-do-1] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Solid Gray]
-![visual/unit-color-do-2] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Space Black]
-![visual/unit-color-do-3] {do}[Space Black] on [Builder Neon] · [Day Blue] · [Bay Green]
-![visual/unit-color-do-4] {do}[Space Black] on [Air White]
-![visual/unit-color-dont-1] {dont}[Space Black] on [Solid Gray] or vice versa
-![visual/unit-color-dont-2] {dont}[Medium Gray] alone on [Solid Gray] · [Space Black]
-![visual/unit-color-dont-3] {dont}[Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Builder Neon]
-![visual/unit-color-dont-4] {dont}[Builder Neon] · [Bay Green] · [Medium Gray] · [Air White] on [Day Blue]
-![visual/unit-color-dont-5] {dont}[Builder Neon] · [Day Blue] · [Medium Gray] · [Air White] on [Bay Green]
-![visual/unit-color-dont-6] {dont}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] on [Air White]
-![visual/unit-color-dont-7] {dont}[Day Blue] · [Bay Green] · [Air White] on [Medium Gray]
-![visual/unit-color-con] {con}[Builder Neon] · [Space Black] on [Medium Gray] 
+#### + Color
+하나의 유닛에는 반드시 하나의 컬러만 적용합니다. Solid Gray는 반드시 배경 컬러로만 사용하며 유닛 컬러로는 사용하지 않습니다. 배경 컬러와 유닛 컬러의 조합 규칙은 [Pattern › Color Pairing](/ko/05-visual-system/pattern#color-pairing)을 따릅니다.
 
 
 ### Graphic Unit {layout=grid-3}
@@ -851,7 +829,7 @@ Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Bl
 ## Pattern
 
 
-### + Composition {layout=grid-3}
+### + Grammar {layout=grid-3}
 같은 유닛을 아래 여섯 가지 방법으로 놓아서 패턴은 만듭니다. 30종 모두 이 방법들의 조합입니다.
 ![visual/comp-1] 압축 — compression으로 한쪽으로 수렴하는 밀도 차이를 만듭니다
 ![visual/comp-2] 세우기 — 유닛을 90° 돌려 세로로 놓습니다. 대부분의 패턴은 세운 유닛의 나열입니다
@@ -862,7 +840,7 @@ Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Bl
 
 
 ### Pattern {layout=grid-4} {ratio=16:9} {zoom=1.04}
-#### References
+#### Library
 유닛을 조합해 만든 30종의 패턴 라이브러리입니다. 각 패턴은 번호가 아니라 빌더의 여정에서 가져온 키워드 하나를 이름으로 가지며, 캠페인 · 굿즈 · 소셜 · 영상 등 모든 접점에서 재사용합니다. 새 패턴이 필요하면 라이브러리에서 고르는 것이 먼저이고, 추가는 EO 브랜드팀의 승인을 거칩니다.
 ![visual/pattern-01] 01 / path of builder
 ![visual/pattern-02] 02 / power
@@ -894,6 +872,34 @@ Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Bl
 ![visual/pattern-28] 28 / adventure
 ![visual/pattern-29] 29 / nature
 ![visual/pattern-30] 30 / boom
+
+
+
+### Pattern {layout=grid-4}
+#### + Color Pairing
+Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Blue · Bay Green · Medium Gray을 유닛 컬러로 사용하는 것이 기본 조합입니다. 여러 유닛을 나란히 놓을 때는 명도 차가 비슷한 Day Blue · Bay Green · Medium Gray를 균일한 비중 · 위치 · 동세로 배치하거나, 명도가 높은 Builder Neon · Air White를 시각 초점으로 활용해 캔버스의 깊이감을 의도적으로 조절하세요.
+- 하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 
+- **하나의 그래픽에 동시에 사용하는 유닛 컬러는 최대 3가지**까지 권장되며, Builder Neon · Day Blue · Bay Green · Medium Gray 고정 조합에 한해 최대 네 가지까지 사용할 수 있습니다.
+- Medium Gray 유닛만을 단독으로 사용하지 않고 다른 컬러의 유닛과 조합하여 사용합니다. 
+
+일반적인 상황 · 마일드한 무드에는 Solid Gray 배경을, 좀 더 강렬한 무드를 추구할 땐 Space Black 배경을 사용합니다. 브랜드의 존재감을 강하게 어필해야할 때, 전달할 정보량이 적은 지면에 한해 Builder Neon을 배경 컬러로 사용하고 그 위에 Space Black 유닛을 올립니다.
+
+- 배경 컬러로 Solid Gray를 사용하면, 5개의 유닛 컬러 모두 충분한 균형을 유지하면서 전체 대비가 한 단계 낮아져 차분하게 묶이므로 우선적으로 고려합니다. 
+- Builder Neon · Day Blue · Bay Green · Air White 를 배경 컬러로 쓸 때는 Space Black 유닛만 올릴 수 있습니다.
+- Solid Gray는 반드시 배경 컬러으로만 사용하며 유닛 컬러로는 사용하지 않습니다.
+- Medium Gray는 디지털 환경에서 가급적 배경 컬러로 사용하지 않습니다. Merch 제작 시 질감이 있는 현실 소재의 컬러를 Medium Gray로 맞출 수 있는 경우에 한해, EO 브랜드팀의 허가를 거쳐 Builder Neon · Space Black 유닛을 제한적으로 올릴 수 있습니다.
+![visual/unit-color-do-1] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Solid Gray]
+![visual/unit-color-do-2] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Space Black]
+![visual/unit-color-do-3] {do}[Space Black] on [Builder Neon] · [Day Blue] · [Bay Green]
+![visual/unit-color-do-4] {do}[Space Black] on [Air White]
+![visual/unit-color-dont-1] {dont}[Space Black] on [Solid Gray] or vice versa
+![visual/unit-color-dont-2] {dont}[Medium Gray] alone on [Solid Gray] · [Space Black]
+![visual/unit-color-dont-3] {dont}[Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Builder Neon]
+![visual/unit-color-dont-4] {dont}[Builder Neon] · [Bay Green] · [Medium Gray] · [Air White] on [Day Blue]
+![visual/unit-color-dont-5] {dont}[Builder Neon] · [Day Blue] · [Medium Gray] · [Air White] on [Bay Green]
+![visual/unit-color-dont-6] {dont}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] on [Air White]
+![visual/unit-color-dont-7] {dont}[Day Blue] · [Bay Green] · [Air White] on [Medium Gray]
+![visual/unit-color-con] {con}[Builder Neon] · [Space Black] on [Medium Gray]
 
 
 ### Usage

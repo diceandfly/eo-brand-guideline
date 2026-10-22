@@ -316,6 +316,12 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
 
   const flushSection = () => {
     if (!section || !sub) return;
+    // 앵커 id = 목차 라벨의 슬러그 (헤드가 페이지 이름과 같으면 서브헤드). 같은 서브챕터 안에서 겹치면 -2, -3 …
+    // 섹션을 다 읽은 뒤에 정해야 서브헤드를 쓸 수 있으므로 여기서 확정
+    const base = slugify(navLabel(section, sub));
+    const count = (idsInSub.get(base) ?? 0) + 1;
+    idsInSub.set(base, count);
+    section.id = count === 1 ? base : `${base}-${count}`;
     section.bodyHtml = md(body.join('\n'), lang);
     section.layout = pickLayout((section as any)._layout, section.items);
     delete (section as any)._layout;
@@ -364,12 +370,8 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       flushSection();
       const tocMark = m[1] === '+' || !!m[2];
       const [head, attrs] = takeAttrs(smartQuotes(m[3]));
-      const base = slugify(head);
-      const count = (idsInSub.get(base) ?? 0) + 1;
-      idsInSub.set(base, count);
-      const id = count === 1 ? base : `${base}-${count}`;
       section = {
-        id, head, bodyHtml: '', layout: 'basic',
+        id: '', head, bodyHtml: '', layout: 'basic',   // id 는 flushSection 에서 (서브헤드까지 읽은 뒤)
         ratio: normalizeRatio(attrs.ratio), items: [], tocMark,
         zoom: Number.isFinite(parseFloat(attrs.zoom)) ? parseFloat(attrs.zoom) : undefined
       };
