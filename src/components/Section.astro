@@ -7,10 +7,14 @@
 import Figure from './Figure.astro';
 import Swatch from './Swatch.astro';
 import type { Section } from '../lib/guide';
+import { TOKENS } from '../lib/content';
+import { tokenNumber } from '../lib/tokens';
 
 interface Props { section: Section; eagerFrom?: number; eagerCount?: number; }   // eager*: 페이지 기준 이미지 순번 → 앞쪽 몇 장만 eager 로드 ([sub].astro)
 const { section: s, eagerFrom = 0, eagerCount = 0 } = Astro.props;
 const eager = (i: number) => eagerFrom + i < eagerCount;
+// 이미지 톤 판정(imageTone)에 넘길 실제 카드 배율: 이미지 {zoom} > 섹션 {zoom} > Do/Don't 그리드 기본값(tokens --dodont-zoom-N) > 1
+const toneZoom = (it: { zoom?: number; badge?: string }) => it.zoom ?? s.zoom ?? (isGrid && it.badge ? tokenNumber(TOKENS, `--dodont-zoom-${n}`, 1) : 1);
 
 const isGrid = s.layout.startsWith('grid-');
 const n = isGrid ? Number(s.layout.split('-')[1]) : 1;
@@ -32,14 +36,14 @@ if (!isGrid && s.items.length > stacked.length) console.warn(`[guide] "${s.head}
   {!isGrid && stacked.length > 0 && (
     <div class="sec__media">
       {stacked.map((it, i) => it.kind === 'image'
-        ? <Figure item={it} ratio={ratio} zoom={s.zoom} label={s.subhead ?? s.head} eager={eager(i)} />
+        ? <Figure item={it} ratio={ratio} zoom={s.zoom} label={s.subhead ?? s.head} eager={eager(i)} toneZoom={toneZoom(it)} />
         : <Swatch item={it} ratio={s.ratio} />)}
     </div>
   )}
 
   {isGrid && (
     <div class:list={['sec__grid', { 'sec__grid--swatch': s.items.some(it => it.kind === 'swatch') }]} style={`--n: ${n}`} data-n={n}>
-      {s.items.map((it, i) => it.kind === 'image' ? <Figure item={it} ratio={ratio} zoom={s.zoom} label={s.subhead ?? s.head} eager={eager(i)} /> : <Swatch item={it} ratio={s.ratio} />)}
+      {s.items.map((it, i) => it.kind === 'image' ? <Figure item={it} ratio={ratio} zoom={s.zoom} label={s.subhead ?? s.head} eager={eager(i)} toneZoom={toneZoom(it)} /> : <Swatch item={it} ratio={s.ratio} />)}
     </div>
   )}
 </section>

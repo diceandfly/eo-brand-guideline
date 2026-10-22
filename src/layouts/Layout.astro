@@ -100,7 +100,8 @@ const ui = UI_TEXT[lang];
         (window as any).__smoother?.paused(open);   // 드로어가 열린 동안 본문 스크롤 정지
       };
       btn?.addEventListener('click', () => set(!root.classList.contains('nav-open')));
-      document.querySelectorAll('.sidebar a:not([data-chapter-toggle])').forEach(a => a.addEventListener('click', () => set(false)));   // 챕터는 목록만 접고 펴므로 드로어를 닫지 않음
+      // 목차·검색 결과(나중에 만들어지는 것 포함)의 링크를 누르면 닫힘. 챕터는 목록만 접고 펴므로 제외
+      sidebar?.addEventListener('click', e => { const a = (e.target as HTMLElement).closest('a'); if (a && !a.hasAttribute('data-chapter-toggle')) set(false); });
       desktop.addEventListener('change', () => set(false));
       set(false);
     </script>

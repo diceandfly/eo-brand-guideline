@@ -1,16 +1,15 @@
 ---
 /**
- * 목차 상단 검색창. 빌드 시 만든 섹션 색인(JSON)을 클라이언트에서 필터링합니다.
- * 헤드·서브헤드·본문·캡션을 대상으로 하며, 결과를 누르면 해당 섹션 앵커로 이동합니다.
+ * 목차 상단 검색창. 섹션 색인(/<lang>/search-index.json, 빌드 때 생성)을 검색창을 처음 쓸 때 받아 클라이언트에서 필터링합니다.
+ * 헤드·서브헤드·본문·캡션을 대상으로 하며, 결과를 누르면 해당 섹션 앵커로 이동합니다 (이동·드로어 닫기는 motion.ts 와 Layout 이 처리).
  */
-import { buildSearchIndex, UI_TEXT, type Guide } from '../lib/guide';
+import { UI_TEXT, type Guide } from '../lib/guide';
 interface Props { guide: Guide; }
 const { guide } = Astro.props;
-const index = buildSearchIndex(guide);
 const ui = UI_TEXT[guide.lang];
 const found = { zero: ui.found(0), many: ui.found(999).replace('999', '{n}') };   // 결과 개수 알림 문구 (클라이언트에서 {n} 치환)
 ---
-<form class="search" role="search" data-search onsubmit="return false" data-found-zero={found.zero} data-found-many={found.many}>
+<form class="search" role="search" data-search onsubmit="return false" data-found-zero={found.zero} data-found-many={found.many} data-index-url={`/${guide.lang}/search-index.json`}>
   <input class="search__input t-ui" type="search" placeholder="Search" aria-label={ui.search} autocomplete="off" spellcheck="false"
     role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="search-results" data-search-input />
   <button class="search__clear" type="button" aria-label={ui.clear} hidden data-search-clear>
@@ -18,7 +17,6 @@ const found = { zero: ui.found(0), many: ui.found(999).replace('999', '{n}') }; 
   </button>
   <ul class="search__results t-ui" id="search-results" role="listbox" aria-label={ui.results} data-search-results></ul>
   <p class="sr-only" aria-live="polite" data-search-status></p>
-  <script type="application/json" data-search-index set:html={JSON.stringify(index)} />
 </form>
 
 <script>
@@ -29,7 +27,13 @@ const found = { zero: ui.found(0), many: ui.found(999).replace('999', '{n}') }; 
     const clear = form.querySelector<HTMLButtonElement>('[data-search-clear]')!;
     const list = form.querySelector<HTMLUListElement>('[data-search-results]')!;
     const status = form.querySelector<HTMLElement>('[data-search-status]')!;
-    const index: Entry[] = JSON.parse(form.querySelector('[data-search-index]')!.textContent || '[]');
+    // 색인은 처음 포커스/입력 때 한 번 받음. 검색용 소문자 복사본(hl·sl·bl)을 그때 만들어 두고 입력마다 다시 만들지 않음
+    type Row = Entry & { hl: string; sl: string; bl: string };
+    let index: Row[] = [];
+    let loading: Promise<void> | null = null;
+    const load = () => loading ??= fetch(form.dataset.indexUrl!).then(r => r.json()).then((rows: Entry[]) => {
+      index = rows.map(e => ({ ...e, hl: `${e.h} ${e.t}`.toLowerCase(), sl: `${e.c} ${e.s}`.toLowerCase(), bl: e.b.toLowerCase() }));
+    }).catch(() => { loading = null; });
     let active = -1;
 
     const open = (v: boolean) => {
@@ -41,13 +45,7 @@ const found = { zero: ui.found(0), many: ui.found(999).replace('999', '{n}') }; 
     const announce = (n: number) => { status.textContent = n ? form.dataset.foundMany!.replace('{n}', String(n)) : form.dataset.foundZero!; };
 
     // 어디에서 걸렸는지: 3 제목(헤드·서브헤드) > 2 본문 > 1 페이지·챕터 이름만
-    const score = (e: Entry, q: string) => {
-      const h = `${e.h} ${e.t}`.toLowerCase(), s = `${e.c} ${e.s}`.toLowerCase(), b = e.b.toLowerCase();
-      if (h.includes(q)) return 3;
-      if (b.includes(q)) return 2;
-      if (s.includes(q)) return 1;
-      return 0;
-    };
+    const score = (e: Row, q: string) => e.hl.includes(q) ? 3 : e.bl.includes(q) ? 2 : e.sl.includes(q) ? 1 : 0;
 
     const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     // 검색어를 <mark> 로 감쌈 (대소문자 무시)
@@ -68,9 +66,11 @@ const found = { zero: ui.found(0), many: ui.found(999).replace('999', '{n}') }; 
 
     // 아이템 = 두 줄. 윗줄: 인용 텍스트(제목에서 걸리면 제목, 본문에서 걸리면 본문 발췌) 한 줄 말줄임.
     //               아랫줄: 경로(챕터 / 페이지 / 섹션 헤드), 줄바꿈 허용. 검색어는 어디든 강조.
-    const render = () => {
+    const render = async () => {
       const q = input.value.trim().toLowerCase();
       if (!q) { list.innerHTML = ''; status.textContent = ''; open(false); return; }
+      await load();
+      if (input.value.trim().toLowerCase() !== q) return;   // 받는 동안 입력이 바뀜 → 최신 입력의 render 가 그림
       const hits = index
         .map(e => ({ e, n: score(e, q) }))
         .filter(x => x.n > 0)
@@ -106,7 +106,7 @@ const found = { zero: ui.found(0), many: ui.found(999).replace('999', '{n}') }; 
     input.addEventListener('input', () => { syncClear(); render(); });
     clear.addEventListener('click', () => { input.value = ''; syncClear(); render(); input.focus(); });
     syncClear();
-    input.addEventListener('focus', () => { if (input.value.trim()) open(true); });
+    input.addEventListener('focus', () => { load(); if (input.value.trim()) open(true); });   // 포커스 때 색인을 미리 받아 첫 글자부터 바로 결과
     input.addEventListener('keydown', e => {
       if (e.key === 'ArrowDown') { e.preventDefault(); setActive(active + 1); }
       else if (e.key === 'ArrowUp') { e.preventDefault(); setActive(active - 1); }
@@ -118,20 +118,7 @@ const found = { zero: ui.found(0), many: ui.found(999).replace('999', '{n}') }; 
     });
     document.addEventListener('click', e => { if (!form.contains(e.target as Node)) open(false); });
 
-    // 같은 페이지 안의 앵커로 이동할 때는 결과를 닫고 스크롤만
-    list.addEventListener('click', e => {
-      const a = (e.target as HTMLElement).closest('a');
-      if (!a) return;
-      const url = new URL(a.href);
-      if (url.pathname === location.pathname && url.hash) {
-        e.preventDefault();
-        const id = decodeURIComponent(url.hash.slice(1));
-        const go = (window as any).__scrollToId as ((id: string) => boolean) | undefined;   // motion.ts (스무스 스크롤)
-        if (go) go(id); else document.getElementById(id)?.scrollIntoView({ block: 'start' });
-        history.replaceState(null, '', url.hash);
-      }
-      open(false);
-      document.documentElement.classList.remove('nav-open');
-    });
+    // 결과를 누르면 패널만 닫음. 같은 페이지 앵커 이동은 motion.ts 의 공통 앵커 처리, 모바일 드로어 닫기는 Layout 의 .sidebar 위임이 맡음
+    list.addEventListener('click', e => { if ((e.target as HTMLElement).closest('a')) open(false); });
   }
 </script>

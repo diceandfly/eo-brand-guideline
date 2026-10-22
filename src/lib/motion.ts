@@ -199,7 +199,7 @@ if (main) {
 /* ---------- 2. 앵커 링크 ---------- */
 document.addEventListener('click', e => {
   const a = (e.target as HTMLElement).closest('a[href*="#"]') as HTMLAnchorElement | null;
-  if (!a || a.closest('[data-search]')) return;          // 검색 결과는 Search.astro 가 처리
+  if (!a) return;
   const url = new URL(a.href);
   if (url.pathname !== location.pathname || !url.hash) return;
   const id = decodeURIComponent(url.hash.slice(1));

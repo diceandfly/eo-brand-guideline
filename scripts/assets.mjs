@@ -11,6 +11,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { loadManifest } from './lib/manifest.mjs';
 
 const MASTER = 'ko';
 const ROOT = process.cwd();
@@ -18,12 +19,7 @@ const ASSETS = path.join(ROOT, 'public', 'assets');
 const KEEP = ['brand'];                               // 사이트 자체 로고 등, 콘텐츠 이미지가 아닌 폴더
 const dry = process.argv.includes('--dry');
 
-const manifestFile = path.join(ROOT, 'dist', 'asset-manifest.json');
-if (!fs.existsSync(manifestFile)) {
-  console.error('dist/asset-manifest.json 이 없습니다. npm run assets 로 실행하세요 (빌드 후 정리).');
-  process.exit(1);
-}
-const manifest = JSON.parse(fs.readFileSync(manifestFile, 'utf8'));
+const manifest = loadManifest(ROOT);                  // 빌드 없이 md 를 직접 파싱 (scripts/lib/manifest.mjs)
 const entries = manifest[MASTER];
 const rel = p => path.relative(ASSETS, p).split(path.sep).join('/');
 const act = (msg, fn) => { console.log(`${dry ? '[dry] ' : ''}${msg}`); if (!dry) fn(); };

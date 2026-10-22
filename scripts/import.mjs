@@ -19,6 +19,7 @@ import os from 'node:os';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
+import { loadManifest } from './lib/manifest.mjs';
 
 const ROOT = process.cwd();
 const ASSETS = path.join(ROOT, 'public', 'assets');
@@ -27,9 +28,7 @@ const args = process.argv.slice(2).filter(a => a !== '--dry');
 const dry = process.argv.includes('--dry');
 const [subArg, dirArg] = args;
 
-const manifestFile = path.join(ROOT, 'dist', 'asset-manifest.json');
-if (!fs.existsSync(manifestFile)) { console.error('dist/asset-manifest.json 이 없습니다. npm run import 로 실행하세요 (빌드 후 가져오기).'); process.exit(1); }
-const entries = JSON.parse(fs.readFileSync(manifestFile, 'utf8')).ko;
+const entries = loadManifest(ROOT).ko;              // 빌드 없이 md 를 직접 파싱 (scripts/lib/manifest.mjs)
 const pages = [...new Set(entries.map(e => e.page))];
 const slugOf = p => p.split('/').slice(-1)[0];
 

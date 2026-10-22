@@ -1,6 +1,7 @@
 ---
 // 루트(/) → 마지막으로 보던 언어(localStorage)로, 없으면 기본 언어의 첫 페이지로.
-import { loadAllGuides, firstUrl, DEFAULT_LANG, LANGS } from '../lib/guide';
+import { loadAllGuides } from '../lib/content';
+import { firstUrl, DEFAULT_LANG, LANGS } from '../lib/guide';
 const guides = loadAllGuides();
 const firsts = Object.fromEntries(LANGS.map(l => [l, firstUrl(guides[l])]));
 const fallback = firsts[DEFAULT_LANG];

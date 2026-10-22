@@ -1,7 +1,8 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import Section from '../../../components/Section.astro';
-import { loadAllGuides, altUrl, LANGS, type Guide, type Sub, type Lang } from '../../../lib/guide';
+import { loadAllGuides } from '../../../lib/content';
+import { altUrl, LANGS, type Guide, type Sub, type Lang } from '../../../lib/guide';
 
 export async function getStaticPaths() {
   const guides = loadAllGuides();

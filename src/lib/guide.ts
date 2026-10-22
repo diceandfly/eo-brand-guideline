@@ -7,6 +7,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { marked } from 'marked';
+import { tokenHex, type Tokens } from './tokens.ts';
 
 export type Layout = 'basic' | 'text' | 'wide' | 'half' | 'grid-2' | 'grid-3' | 'grid-4';
 
@@ -77,11 +78,9 @@ export const UI_TEXT = {
 /** 페이지 경로(/ko/…, /en/…)로 언어 판별. 언어 정보가 props 로 오지 않는 컴포넌트용 */
 export const langFromPath = (path: string): Lang => (LANGS as readonly string[]).includes(path.split('/')[1]) ? (path.split('/')[1] as Lang) : DEFAULT_LANG;
 /**
- * 콘텐츠 파일은 fs 가 아니라 Vite 모듈로 읽습니다. 그래야 dev 서버가 파일을 의존성으로 추적해서,
- * 저장 즉시 라우트(새 페이지 등)와 페이지를 다시 계산하고 브라우저를 새로고침합니다.
+ * 콘텐츠(md)와 tokens.css 는 호출자가 읽어 넘깁니다: 사이트는 src/lib/content.ts(Vite 모듈 → dev 서버가 의존성 추적),
+ * scripts/*.mjs 는 fs. 그래서 이 파서는 Vite 없이도 Node 에서 바로 돌아갑니다.
  */
-const CONTENT_FILES = import.meta.glob('/content/guide.*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
-import tokensCss from '../styles/tokens.css?raw';   // 브랜드 팔레트 HEX (--c-*) — 컬러 칩의 복사 값
 const ASSETS = path.join(ROOT, 'public', 'assets');
 const EXTS = ['svg', 'png', 'jpg', 'jpeg', 'webp', 'gif', 'avif'];
 
@@ -136,11 +135,7 @@ function resolveAsset(item: ImageItem, index: Map<string, string[]>): string | n
   const noExt = (r: string) => r.replace(/\.[^./]+$/, '');
   const rank = (r: string) => `${noExt(r) === item.path ? 0 : 1}\0${EXTS.indexOf(r.split('.').pop()!.toLowerCase())}`;   // 제자리 우선, 같으면 svg → png …
   const hits = (index.get(item.name) ?? []).sort((a, b) => rank(a).localeCompare(rank(b)));
-  if (hits[0]) return `/assets/${hits[0]}`;
-  for (const ext of EXTS) {                                   // 예전 위치(public/assets/logo/clearspace.png 등) 폴백
-    if (fs.existsSync(path.join(ASSETS, `${item.token}.${ext}`))) return `/assets/${item.token}.${ext}`;
-  }
-  return null;
+  return hits[0] ? `/assets/${hits[0]}` : null;
 }
 
 /** 줄 끝의 {…} 속성을 떼어 냅니다. {layout=grid-3} {zoom=1.6} 처럼 여러 개로 나눠 써도 모두 합칩니다. */
@@ -229,19 +224,20 @@ const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
  * 칩 색은 tokens.css 의 --c-<이름 소문자-하이픈> 이라 팔레트 값이 바뀌면 같이 바뀝니다. 태그 안(속성)과 <code>·<pre> 안은 건드리지 않습니다.
  */
 const COLOR_NAMES = ['Builder Neon', 'Day Blue', 'Bay Green', 'Medium Gray', 'Solid Gray', 'Space Black', 'Air White'];
+const colorSlug = (name: string) => name.toLowerCase().replace(/ /g, '-');
 /** 이름 → HEX (tokens.css 3. COLOR 의 --c-* 를 빌드 때 읽음). 칩을 누르면 이 값을 복사 */
-const COLOR_HEX: Record<string, string> = Object.fromEntries(COLOR_NAMES.map(n => {
-  const m = tokensCss.match(new RegExp(`--c-${n.toLowerCase().replace(/ /g, '-')}:\\s*(#[0-9a-f]{6})`, 'i'));
-  return [n, m ? m[1].toUpperCase() : ''];
-}));
+const colorHexes = (tokens: Tokens): Record<string, string> =>
+  Object.fromEntries(COLOR_NAMES.map(n => [n, tokenHex(tokens, `--c-${colorSlug(n)}`, '').toUpperCase()]));
+/** 한 번의 파싱 동안 공유하는 것: 언어(UI 문구), 컬러 HEX */
+interface Ctx { lang: Lang; hex: Record<string, string>; }
 const COLOR_DARK = new Set(['Space Black', 'Solid Gray']);   // 어두운 칩: 테두리만 보여 작아 보이는 착시를 CSS(--cref-grow-*)로 색마다 보정
 const COLOR_RE = new RegExp(`(?<![\\w-])(\\[\\+?)?(${COLOR_NAMES.join('|')})(?:(?<=\\[\\+?.{7,12})\\](?!\\())?(?![\\w-])`, 'g');
 /**
  * @param seen  섹션 안에서 이미 칩을 붙인 이름. 주면 "섹션 첫 언급에만 칩" 규칙(본문), 없으면 언급마다 칩(캡션).
  *              [Builder Neon] 은 칩만, [+Builder Neon] 은 칩 + 이름을 규칙과 무관하게 강제.
  */
-function colorChips(html: string, lang: Lang, seen?: Set<string>): string {
-  const ui = UI_TEXT[lang];
+function colorChips(html: string, ctx: Ctx, seen?: Set<string>): string {
+  const ui = UI_TEXT[ctx.lang];
   let code = 0;
   return html.split(/(<[^>]+>)/).map(seg => {
     if (seg.startsWith('<')) {
@@ -251,7 +247,7 @@ function colorChips(html: string, lang: Lang, seen?: Set<string>): string {
     }
     if (code) return seg;
     return seg.replace(COLOR_RE, (m, open: string | undefined, name: string) => {
-      const slug = name.toLowerCase().replace(/ /g, '-');
+      const slug = colorSlug(name);
       if (open && !m.endsWith(']')) return m;                         // 여는 괄호만 있음 → 그대로
       const bracket = open === '[';                                   // [Name] → 칩만
       const forced = open === '[+';                                   // [+Name] → 칩 + 이름 (첫 언급 규칙 무시)
@@ -260,7 +256,7 @@ function colorChips(html: string, lang: Lang, seen?: Set<string>): string {
         seen.add(name);
       } else if (forced && seen) seen.add(name);
       // 칩 = 복사 버튼. 호버하면 컬러 카드의 값과 같은 Copy 알약이 뜨고, 누르면 HEX 를 복사 (Layout.astro 의 공통 스크립트)
-      const hex = COLOR_HEX[name];
+      const hex = ctx.hex[name];
       const tip = `<span class="swatch__tip t-label" aria-hidden="true"><span class="swatch__tip-text swatch__tip-text--copy"></span><span class="swatch__tip-text swatch__tip-text--done"></span></span>`;   // 글자는 CSS content (드래그 복사에 섞이지 않게)
       const chip = `<button type="button" class="cref__btn swatch__val" data-copy="${hex}" aria-label="${ui.copy} ${name} ${hex}"${bracket ? ` title="${name} ${hex}"` : ''}><i class="cref__chip${COLOR_DARK.has(name) ? ` cref__chip--dark cref__chip--${slug}` : ''}" style="--cref:var(--c-${slug})"></i>${tip}</button>`;
       return bracket ? `<span class="cref cref--only">${chip}<span class="sr-only">${name}</span></span>` : `<span class="cref">${chip}${name}</span>`;
@@ -298,15 +294,27 @@ function glueLastWords(html: string): string {
 const glueBlocks = (html: string) =>
   html.replace(/(<(p|li)\b[^>]*>)([\s\S]*?)(<\/\2>)/g, (_m, open, _tag, inner, close) => open + glueLastWords(inner) + close);
 
-function md(src: string, lang: Lang): string {
+function md(src: string, ctx: Ctx): string {
   const s = src.trim();
-  return s ? glueBlocks(wrapKo(colorChips(smartQuotes(marked.parse(s, { async: false, gfm: true, breaks: false }) as string), lang, new Set()))) : '';   // 칩은 섹션 첫 언급에만
+  return s ? glueBlocks(wrapKo(colorChips(smartQuotes(marked.parse(s, { async: false, gfm: true, breaks: false }) as string), ctx, new Set()))) : '';   // 칩은 섹션 첫 언급에만
 }
 
-export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
-  const source = CONTENT_FILES[`/content/guide.${lang}.md`];
-  if (source === undefined) throw new Error(`content/guide.${lang}.md 가 없습니다`);
-  const raw = source.replace(/<!--[\s\S]*?-->/g, '');
+/**
+ * 참조 링크 [[…]] 는 마크다운 변환 전에 자리표시자로 바꿔 둡니다. marked 가 안의 URL 을 자동 링크로 바꾸거나
+ * 라벨이 다른 패스(컬러 칩 등)에 걸리지 않게 하기 위해서이며, 모든 섹션을 읽어 앵커 id 가 정해진 뒤 resolveXrefs 가 복원합니다.
+ */
+const XREF_MARK = (i: number) => `%%XREF${i}%%`;
+const stashXrefs = (text: string, store: string[]): string =>
+  text.replace(/\[\[([^\]]*?)\]\]/g, (_m, inner: string) => { store.push(inner); return XREF_MARK(store.length - 1); });
+
+/**
+ * @param source    content/guide.<lang>.md 전문
+ * @param tokens    tokens.css 를 parseTokens 한 것 (컬러 칩 HEX)
+ */
+export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
+  const ctx: Ctx = { lang, hex: colorHexes(tokens) };
+  const xrefs: string[] = [];                                   // [[…]] 원문. 자리표시자 번호 = 배열 index
+  const raw = stashXrefs(source.replace(/<!--[\s\S]*?-->/g, ''), xrefs);
   const lines = raw.split(/\r?\n/);
 
   const chapters: Chapter[] = [];
@@ -332,7 +340,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
     const count = (idsInSub.get(base) ?? 0) + 1;
     idsInSub.set(base, count);
     section.id = count === 1 ? base : `${base}-${count}`;
-    section.bodyHtml = md(body.join('\n'), lang);
+    section.bodyHtml = md(body.join('\n'), ctx);
     section.layout = pickLayout((section as any)._layout, section.items);
     delete (section as any)._layout;
     sub.sections.push(section);
@@ -409,7 +417,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       const z = flags.find(f => f.startsWith('zoom='));
       if (z && Number.isFinite(parseFloat(z.slice(5)))) item.zoom = parseFloat(z.slice(5));
       if (flags.includes('nozoom')) item.zoom = 1;
-      if (m[3].trim()) item.caption = glueLastWords(wrapKo(colorChips(smartQuotes(escapeHtml(m[3].trim())), lang)));   // HTML (컬러 칩, 한글 구간 래핑, 고아 단어 방지)
+      if (m[3].trim()) item.caption = glueLastWords(wrapKo(colorChips(smartQuotes(escapeHtml(m[3].trim())), ctx)));   // HTML (컬러 칩, 한글 구간 래핑, 고아 단어 방지)
       section.items.push(item);
       continue;
     }
@@ -455,30 +463,36 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
   //   [[→ pattern#grammar]]      → "→ Pattern › Grammar" (화살표도 링크 글자의 일부라 밑줄이 이어짐. -> 도 됨)
   //   [[pattern#grammar|문법 원칙]] → 라벨 직접 지정.   대상이 없으면 빌드 로그에 경고하고 글자만 남긴다
   //   [[https://eopla.net|EO Planet]] → 외부 링크 (새 탭). 라벨 없으면 "eopla.net"
+  // 원문은 마크다운 변환 전에 자리표시자로 빠져 있었으므로(stashXrefs) 여기서 링크로 복원한다. 라벨은 본문과 같은 글자 처리(따옴표·한글 래핑)를 거친다.
   const NB = '\u00A0';
-  const resolveXrefs = (html: string, here: Sub): string => html.replace(/\[\[([^\]|]*?)(?:\|([^\]]*))?\]\]/g, (_m, rawTarget: string, label?: string) => {
+  const text = (plain: string) => wrapKo(smartQuotes(escapeHtml(plain)));
+  const bySlug = (slug: string, chapterSlug?: string) => flat.find(x => x.slug === slug && (!chapterSlug || chapters.find(c => c.subs.includes(x))!.slug === chapterSlug));
+  const xrefHtml = (inner: string, here: Sub): string => {
+    const bar = inner.indexOf('|');
+    const rawTarget = bar >= 0 ? inner.slice(0, bar) : inner;
+    const label = bar >= 0 ? text(inner.slice(bar + 1).trim()) : undefined;
     const arrowM = rawTarget.match(/^\s*(→|->)\s*/);
     const arrow = arrowM ? `→${NB}` : '';
     const target = rawTarget.slice(arrowM?.[0].length ?? 0).trim();
+    const fallback = () => label ?? text(target);
     if (/^(https?:)?\/\//i.test(target) || /^mailto:/i.test(target)) {                 // 외부 링크: 새 탭. 라벨이 없으면 주소에서 프로토콜·끝 슬래시를 뺀 글자
       const shown = target.replace(/^(https?:)?\/\//i, '').replace(/^mailto:/i, '').replace(/\/$/, '');
-      return `<a class="xref xref--ext" href="${escapeHtml(target)}" target="_blank" rel="noopener">${arrow}${label ?? escapeHtml(shown)}</a>`;
+      return `<a class="xref" href="${escapeHtml(target)}" target="_blank" rel="noopener">${arrow}${label ?? escapeHtml(shown)}</a>`;
     }
     const [pagePart, secId] = target.split('#');
-    const bySlug = (slug: string, chapterSlug?: string) => flat.find(x => x.slug === slug && (!chapterSlug || chapters.find(c => c.subs.includes(x))!.slug === chapterSlug));
     const [a, b] = pagePart.split('/');
     const s = !pagePart ? here : b ? bySlug(b, a) : bySlug(a);
-    const fallback = () => label ?? escapeHtml(target);
     if (!s) { console.warn(`[guide] [[${target}]]: "${pagePart}" 페이지가 없습니다 (${here.url})`); return fallback(); }
-    let href = s.url, text = escapeHtml(s.name);
+    let href = s.url, auto = text(s.name);
     if (secId !== undefined) {
       const sec = s.sections.find(x => x.id === secId);
       if (!sec) { console.warn(`[guide] [[${target}]]: ${s.name} 페이지에 #${secId} 섹션이 없습니다 (${here.url}). 있는 id: ${s.sections.map(x => x.id).join(', ')}`); return fallback(); }
       href += `#${secId}`;
-      text = pagePart ? `${escapeHtml(s.name)}${NB}›${NB}${escapeHtml(navLabel(sec, s))}` : escapeHtml(navLabel(sec, s));
+      auto = pagePart ? `${text(s.name)}${NB}›${NB}${text(navLabel(sec, s))}` : text(navLabel(sec, s));
     }
-    return `<a class="xref" href="${href}">${arrow}${label ?? text}</a>`;
-  });
+    return `<a class="xref" href="${href}">${arrow}${label ?? auto}</a>`;
+  };
+  const resolveXrefs = (html: string, here: Sub): string => html.replace(/%%XREF(\d+)%%/g, (_m, i: string) => xrefHtml(xrefs[Number(i)], here));
   for (const s of flat) for (const sec of s.sections) {
     sec.bodyHtml = resolveXrefs(sec.bodyHtml, s);
     for (const it of sec.items) if (it.kind === 'image' && it.caption) it.caption = resolveXrefs(it.caption, s);
@@ -549,11 +563,6 @@ export function assetEntries(guide: Guide): AssetEntry[] {
 
 export function firstUrl(guide: Guide): string {
   return guide.chapters[0]?.subs[0]?.url ?? `/${guide.lang}`;
-}
-
-/** 모든 언어의 가이드를 한 번에 */
-export function loadAllGuides(): Record<Lang, Guide> {
-  return Object.fromEntries(LANGS.map(l => [l, loadGuide(l)])) as Record<Lang, Guide>;
 }
 
 /** 다른 언어의 같은 페이지 URL. 같은 챕터·페이지 slug 가 없으면 그 언어의 첫 페이지. */
