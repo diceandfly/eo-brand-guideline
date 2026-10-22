@@ -1,5 +1,5 @@
 /**
- * content/guide.<lang>.md (en, ko) 를 파싱해 챕터 > 서브챕터 > 섹션 트리를 만듭니다.
+ * content/guide.<lang>.md (en, ko) 를 파싱해 챕터 > 페이지 > 섹션 트리를 만듭니다.
  * 빌드(또는 dev 서버) 시점에 Node 에서만 실행됩니다.
  *
  * 문법은 content/guide.ko.md 상단 튜토리얼 주석을 참고하세요 (국문이 최종 기준).
@@ -13,7 +13,7 @@ export type Layout = 'basic' | 'text' | 'wide' | 'half' | 'grid-2' | 'grid-3' | 
 export interface ImageItem {
   kind: 'image';
   token: string;          // guide.<lang>.md 에 쓴 그대로. 예: clearspace (예전 형식 logo/clearspace 도 허용)
-  name: string;           // 파일 이름(확장자 제외). 토큰의 마지막 / 뒤. 서브챕터 폴더 안에서 이 이름으로 찾음
+  name: string;           // 파일 이름(확장자 제외). 토큰의 마지막 / 뒤. 페이지 폴더 안에서 이 이름으로 찾음
   path: string;           // 넣을 자리: 02-logo/01-symbol/04-clearspace (확장자 제외, 플레이스홀더에 표시. 앞 번호 = 주제 순서)
   src: string | null;     // 파일이 있으면 /assets/… 경로, 없으면 null(플레이스홀더)
   badge?: 'do' | 'dont' | 'con';   // 캡션 앞 아이콘: 체크 / 엑스 / 삼각형(conditional, 조건부)
@@ -31,7 +31,7 @@ export interface SwatchRow { label: string; values: string[]; note?: string; }
 export type Item = ImageItem | SwatchItem;
 
 export interface Section {
-  id: string;             // 앵커 id (헤드 기준, 중복 시 -2, -3…)
+  id: string;             // 앵커 id (목차 라벨 기준: 헤드, 헤드가 페이지 이름과 같으면 서브헤드. 중복 시 -2, -3…)
   head: string;
   subhead?: string;
   bodyHtml: string;
@@ -78,7 +78,7 @@ export const UI_TEXT = {
 export const langFromPath = (path: string): Lang => (LANGS as readonly string[]).includes(path.split('/')[1]) ? (path.split('/')[1] as Lang) : DEFAULT_LANG;
 /**
  * 콘텐츠 파일은 fs 가 아니라 Vite 모듈로 읽습니다. 그래야 dev 서버가 파일을 의존성으로 추적해서,
- * 저장 즉시 라우트(새 서브챕터 등)와 페이지를 다시 계산하고 브라우저를 새로고침합니다.
+ * 저장 즉시 라우트(새 페이지 등)와 페이지를 다시 계산하고 브라우저를 새로고침합니다.
  */
 const CONTENT_FILES = import.meta.glob('/content/guide.*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
 import tokensCss from '../styles/tokens.css?raw';   // 브랜드 팔레트 HEX (--c-*) — 컬러 칩의 복사 값
@@ -95,17 +95,17 @@ function slugify(s: string): string {
 }
 
 /**
- * 이미지 파일 규칙: public/assets/<챕터>/<서브챕터>/<주제 번호>-<이름>.<확장자>
+ * 이미지 파일 규칙: public/assets/<챕터>/<페이지>/<주제 번호>-<이름>.<확장자>
  *   예: 02-logo/01-symbol/04-clearspace.png  (주제 = 목차 항목, 번호 = 페이지 안 주제 순서)
  * 폴더와 파일명 앞 번호는 탐색기에서 페이지 순서대로 정렬되게 하는 용도라 파서는 무시합니다(번호를 떼고 이름으로 비교).
- * 이미지는 그 서브챕터 폴더 안에서 파일 이름으로 찾습니다. 그래서 섹션 순서를 바꿔 번호가 달라져도,
+ * 이미지는 그 페이지 폴더 안에서 파일 이름으로 찾습니다. 그래서 섹션 순서를 바꿔 번호가 달라져도,
  * 영문·국문 구조가 잠시 달라도 이미지가 끊기지 않습니다. 번호를 지금 순서에 맞추려면 npm run assets (scripts/assets.mjs).
  */
 const stripNum = (dir: string) => dir.replace(/^\d+-/, '');
 const stripFileNum = (name: string) => name.replace(/^\d{2}-/, '');   // 파일명 앞 두 자리 정렬 번호 (예: 04-clearspace → clearspace)
 const pad2 = (n: number) => String(n).padStart(2, '0');
 
-/** 서브챕터 폴더 안의 이미지 목록: 이름(확장자 제외) → assets 기준 경로들 */
+/** 페이지 폴더 안의 이미지 목록: 이름(확장자 제외) → assets 기준 경로들 */
 function subAssetIndex(chapterSlug: string, chapterName: string, subSlug: string): Map<string, string[]> {
   const index = new Map<string, string[]>();
   const findDir = (parent: string, ...slugs: string[]) => {
@@ -316,7 +316,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
 
   const flushSection = () => {
     if (!section || !sub) return;
-    // 앵커 id = 목차 라벨의 슬러그 (헤드가 페이지 이름과 같으면 서브헤드). 같은 서브챕터 안에서 겹치면 -2, -3 …
+    // 앵커 id = 목차 라벨의 슬러그 (헤드가 페이지 이름과 같으면 서브헤드). 같은 페이지 안에서 겹치면 -2, -3 …
     // 섹션을 다 읽은 뒤에 정해야 서브헤드를 쓸 수 있으므로 여기서 확정
     const base = slugify(navLabel(section, sub));
     const count = (idsInSub.get(base) ?? 0) + 1;
@@ -330,7 +330,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
     body = [];
   };
 
-  // 서브챕터의 목차 항목 확정: ### + 표시가 있으면 그것만, 없으면 전부. 같은 라벨은 첫 섹션 하나만.
+  // 페이지의 목차 항목 확정: ### + 표시가 있으면 그것만, 없으면 전부. 같은 라벨은 첫 섹션 하나만.
   const finalizeNav = (s: Sub) => {
     const marked = s.sections.filter(sec => sec.tocMark);
     const pool = marked.length ? marked : s.sections;
@@ -390,7 +390,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
     if ((m = line.match(/^!\[([^\]]+)\]\s*(?:\{([^}]*)\})?\s*(.*)$/)) && section) {   // ![token]{dont nostrike zoom=1.2} caption  (] 와 { 사이 공백 허용)
       const token = m[1].trim();
       const name = token.split('/').pop()!.trim();
-      const item: ImageItem = { kind: 'image', token, name, path: '', src: null };   // path·src 는 서브챕터를 다 읽은 뒤 확정
+      const item: ImageItem = { kind: 'image', token, name, path: '', src: null };   // path·src 는 페이지를 다 읽은 뒤 확정
       const flags = (m[2] ?? '').trim().split(/\s+/).filter(Boolean);
       if (flags.includes('do')) item.badge = 'do';
       if (flags.includes('dont')) item.badge = 'dont';
@@ -414,7 +414,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
   flushSection();
   for (const ch of chapters) for (const s of ch.subs) finalizeNav(s);
 
-  // 이미지 경로 확정: <챕터>/<서브챕터 번호-이름>/<주제 번호>-<이름>.
+  // 이미지 경로 확정: <챕터>/<페이지 번호-이름>/<주제 번호>-<이름>.
   // 주제 = 목차 라벨 규칙과 같음(헤드, 헤드가 페이지 이름과 같으면 서브헤드). 번호는 페이지 안 주제 순서(목차 표시와 무관하게 전부 셈).
   for (const ch of chapters) ch.subs.forEach((s, si) => {
     const topics: string[] = [];
@@ -439,11 +439,36 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
     if (i < flat.length - 1) s.next = ref(flat[i + 1]);
   });
 
+  // 교차 링크 [[page#section|라벨]] → <a class="xref">. 본문·캡션 모두. 라벨을 생략하면 목차 라벨에서 "페이지 › 섹션" 을 만든다.
+  //   [[pattern]]                → Pattern 페이지         [[pattern#grammar]] → "Pattern › Grammar"
+  //   [[#grammar]]               → 같은 페이지의 섹션      [[02-logo/symbol#clearspace]] → 챕터로 한정 (같은 slug 가 여러 챕터에 있을 때)
+  //   [[pattern#grammar|문법 원칙]] → 라벨 직접 지정.   대상이 없으면 빌드 로그에 경고하고 글자만 남긴다
+  const resolveXrefs = (html: string, here: Sub): string => html.replace(/\[\[([^\]|]*?)(?:\|([^\]]*))?\]\]/g, (_m, target: string, label?: string) => {
+    const [pagePart, secId] = target.trim().split('#');
+    const bySlug = (slug: string, chapterSlug?: string) => flat.find(x => x.slug === slug && (!chapterSlug || chapters.find(c => c.subs.includes(x))!.slug === chapterSlug));
+    const [a, b] = pagePart.split('/');
+    const s = !pagePart ? here : b ? bySlug(b, a) : bySlug(a);
+    const fallback = () => label ?? escapeHtml(target);
+    if (!s) { console.warn(`[guide] [[${target}]]: "${pagePart}" 페이지가 없습니다 (${here.url})`); return fallback(); }
+    let href = s.url, text = escapeHtml(s.name);
+    if (secId !== undefined) {
+      const sec = s.sections.find(x => x.id === secId);
+      if (!sec) { console.warn(`[guide] [[${target}]]: ${s.name} 페이지에 #${secId} 섹션이 없습니다 (${here.url}). 있는 id: ${s.sections.map(x => x.id).join(', ')}`); return fallback(); }
+      href += `#${secId}`;
+      text = pagePart ? `${escapeHtml(s.name)} › ${escapeHtml(navLabel(sec, s))}` : escapeHtml(navLabel(sec, s));
+    }
+    return `<a class="xref" href="${href}">${label ?? text}</a>`;
+  });
+  for (const s of flat) for (const sec of s.sections) {
+    sec.bodyHtml = resolveXrefs(sec.bodyHtml, s);
+    for (const it of sec.items) if (it.kind === 'image' && it.caption) it.caption = resolveXrefs(it.caption, s);
+  }
+
   return { lang, chapters };
 }
 
 /** 검색 색인: 섹션 단위. 클라이언트 스크립트가 JSON 으로 받아 필터링합니다. */
-/** u: url#id, c: 챕터, s: 서브챕터, h: 섹션 헤드, t: 제목(서브헤드, 없으면 헤드), b: 본문 */
+/** u: url#id, c: 챕터, s: 페이지, h: 섹션 헤드, t: 제목(서브헤드, 없으면 헤드), b: 본문 */
 export interface SearchEntry { u: string; c: string; s: string; h: string; t: string; b: string; }
 const straightQuotes = (t: string) => t.replace(/[“”]/g, '"').replace(/[‘’]/g, "'");   // 검색어는 곧은 따옴표로 입력되므로 색인도 맞춤
 const stripTags = (html: string) => straightQuotes(html.replace(/<span class="swatch__tip[^>]*>(?:<span[^>]*>[^<]*<\/span>)*<\/span>/g, '').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim());
@@ -511,7 +536,7 @@ export function loadAllGuides(): Record<Lang, Guide> {
   return Object.fromEntries(LANGS.map(l => [l, loadGuide(l)])) as Record<Lang, Guide>;
 }
 
-/** 다른 언어의 같은 페이지 URL. 같은 챕터·서브챕터 slug 가 없으면 그 언어의 첫 페이지. */
+/** 다른 언어의 같은 페이지 URL. 같은 챕터·페이지 slug 가 없으면 그 언어의 첫 페이지. */
 export function altUrl(guides: Record<Lang, Guide>, sub: Sub, target: Lang): string {
   const g = guides[target];
   const ch = g.chapters.find(c => c.slug === sub.chapterSlug);

@@ -4,7 +4,7 @@ EO 리브랜딩의 웹용 브랜드 가이드라인. Astro 정적 사이트, 로
 
 ## 구조와 역할 분리
 - `content/guide.en.md` / `content/guide.ko.md` — 모든 글·이미지 배치. 언어별 한 파일, 문법 동일(상단 주석). 두 언어가 함께 빌드되어 `/en/…`, `/ko/…` 로 나뉘고 목차 하단 EN | KR 로 전환. 콘텐츠 변경은 이 파일만 수정.
-- `public/assets/<NN-chapter>/<NN-subchapter>/<NN>-<name>.*` — 이미지. `![name]` 토큰과 1:1(서브챕터 폴더 안에서 이름으로 찾음, 파일명 앞 NN = 주제 순서, 정렬용이라 파서는 무시). 주제 = 목차 라벨. 없으면 넣을 경로가 적힌 플레이스홀더. `npm run assets`(scripts/assets.mjs)가 국문 구조 기준으로 폴더 생성·번호 맞춤·빈 폴더 정리.
+- `public/assets/<NN-chapter>/<NN-subchapter>/<NN>-<name>.*` — 이미지. `![name]` 토큰과 1:1(페이지 폴더 안에서 이름으로 찾음, 파일명 앞 NN = 주제 순서, 정렬용이라 파서는 무시). 주제 = 목차 라벨. 없으면 넣을 경로가 적힌 플레이스홀더. `npm run assets`(scripts/assets.mjs)가 국문 구조 기준으로 폴더 생성·번호 맞춤·빈 폴더 정리.
 - `src/styles/tokens.css` — 모든 디자인 수치(레이아웃·타이포·컬러·비율). 디자인 튜닝은 이 파일만 수정.
 - `src/styles/base.css` — 토큰을 참조하는 레이아웃 CSS. 숫자를 직접 쓰지 말고 토큰을 추가해 참조할 것.
 - `src/lib/guide.ts` — guide.<lang>.md 파서. 문법을 바꾸면 guide.<lang>.md 상단 튜토리얼도 같이 갱신.
@@ -13,7 +13,7 @@ EO 리브랜딩의 웹용 브랜드 가이드라인. Astro 정적 사이트, 로
 - `src/lib/motion.ts` — GSAP 모션(스무스 스크롤 ScrollSmoother, 앵커 이동, 이미지 라이트박스). 수치는 tokens.css 5. MOTION 에서 읽음. 고정 요소(목차·상단 바·라이트박스)는 `#smooth-wrapper` 밖에 둘 것.
 
 ## 용어 (대화에서 이 이름으로 통일)
-챕터(`# 02 Logo`) > 서브챕터(`## Logo`, 페이지 하나; `{toc=none}` 을 붙이면 목차에 섹션 목록을 펼치지 않음) > 섹션(`### Head`, 선택적 `#### Subhead`). `### ++ Head` 는 목차에 올릴 섹션 표시 — 한 페이지에 `+` 가 하나라도 있으면 표시된 것만, 없으면 전부 자동.
+챕터(`# 02 Logo`) > 페이지(`## Logo`, 화면 하나 = URL 하나; `{toc=none}` 을 붙이면 목차에 섹션 목록을 펼치지 않음) > 섹션(`### Head`, 선택적 `#### Subhead`). `### ++ Head` 는 목차에 올릴 섹션 표시 — 한 페이지에 `+` 가 하나라도 있으면 표시된 것만, 없으면 전부 자동.
 레이아웃: `text`(이미지 없음) / `basic`(텍스트 5컬럼 + 이미지 6컬럼, `--sec-text-cols` / `--sec-media-cols`) / `wide`(12컬럼, 여러 장이면 세로로 쌓임) / `half`(6컬럼) / `grid-2|3|4`.
 아이템: 이미지, 카드(이미지+캡션), 스와치. 배지 `{do}` `{dont}` `{con}`(conditional, 흰 삼각형).
 
@@ -23,6 +23,7 @@ EO 리브랜딩의 웹용 브랜드 가이드라인. Astro 정적 사이트, 로
 
 ## 컬러 규칙
 브랜드 팔레트 7색(`--c-*`)은 `EO color palette final.svg` 기준이며 임의로 바꾸지 않는다. UI는 시맨틱 토큰(`--bg`, `--fg`, `--accent` …)만 참조. 중간 톤은 새 HEX 대신 `color-mix()`. Do/Don't 색(`--c-do`, `--c-dont`)은 UI 전용이며 브랜드 컬러가 아님.
+본문·캡션의 교차 링크는 `[[page#section|라벨]]`(guide.ts `resolveXrefs`, 라벨은 목차에서 자동, 화살표는 `--xref-arrow`).
 본문·캡션에 영문 공식 명칭(Builder Neon 등 7색)을 쓰면 파서(`colorChips`)가 이름 앞에 색 칩을 붙인다. 이름 표기는 대소문자까지 고정. `[Builder Neon]` 은 칩만. 칩은 복사 버튼(호버 Copy 알약, 클릭 시 HEX 복사, 스크립트는 Layout.astro).
 
 ## 작업 방식

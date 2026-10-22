@@ -838,6 +838,14 @@ html.js .main {
   color: var(--c-con);
 }
 
+/* 본문 교차 링크 [[page#section]] (guide.ts resolveXrefs): 화살표 + 링크, 한 줄에 */
+.xref {
+  white-space: nowrap;
+}
+.xref::before {
+  content: var(--xref-arrow);
+}
+
 /* 본문 속 컬러 칩: 브랜드 컬러 영문 명칭 앞의 색 네모 (guide.ts colorChips). 칩과 이름은 한 줄에 */
 .cref {
   white-space: nowrap;

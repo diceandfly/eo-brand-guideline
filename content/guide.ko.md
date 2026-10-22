@@ -4,23 +4,32 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
 =====================================================================
 이 파일은 한국어판입니다. 영어판은 guide.en.md 이며 문법은 같습니다.
 두 언어가 한 사이트에 같이 빌드됩니다. 영어판은 /en/… , 한국어판은 /ko/… 이고
-목차 하단의 EN | KR 로 전환합니다. 같은 챕터·서브챕터 이름(slug)이 있으면 같은 페이지로, 없으면 첫 페이지로 갑니다.
+목차 하단의 EN | KR 로 전환합니다. 같은 챕터·페이지 이름(slug)이 있으면 같은 페이지로, 없으면 첫 페이지로 갑니다.
 
 이 파일 하나가 사이트의 모든 글과 이미지 배치를 결정합니다.
 이 주석 블록(<!-- -->)은 화면에 나오지 않습니다. 자유롭게 메모를 남기세요.
 
 ■ 위계 (기호로 구분)
   # 02 Logo              ← 챕터.   "번호 이름" 형식. 번호는 목차와 URL(/02-logo/…)에 쓰입니다.
-  ## Logo                ← 서브챕터. 페이지 하나가 됩니다. URL: /02-logo/logo
+  ## Logo                ← 페이지. 화면 하나 = URL 하나. URL: /02-logo/logo
   ### Construction       ← 섹션 헤드. 목차의 앵커로도 쓰입니다.
-                            앵커 id = 목차 라벨의 슬러그 (헤드가 페이지 이름과 같으면 서브헤드, 예: #color-pairing). 본문에서 [글자](/ko/05-visual-system/pattern#color-pairing) 로 링크.
+                            앵커 id = 목차 라벨의 슬러그 (헤드가 페이지 이름과 같으면 서브헤드, 예: #color-pairing).
+
+■ 교차 링크 (본문·캡션 어디서나)
+  [[pattern#color-pairing]]            → "→ Pattern › Color Pairing" 링크. 글자는 목차에서 자동, 언어별 경로도 자동
+  [[pattern]]                          → "→ Pattern" (페이지로)
+  [[#grammar]]                         → 같은 페이지의 섹션 ("→ Grammar")
+  [[02-logo/symbol#clearspace]]        → 같은 페이지 이름이 여러 챕터에 있을 때 챕터로 한정
+  [[pattern#grammar|문법 원칙]]         → 링크 글자를 직접 지정
+    → 페이지 이름 = URL 의 slug (symbol, signature, pattern …), 섹션 = 앵커 id. 없는 대상은 빌드 로그에 경고가 뜨고 글자만 남습니다.
+    → 화살표는 tokens.css --xref-arrow. 일반 마크다운 링크 [글자](주소) 도 그대로 됩니다 (화살표 없음).
   #### Primary Lockup    ← 서브헤드 (선택). 헤드 바로 다음 줄에만 씁니다. 없으면 표시되지 않습니다.
   그 아래 줄들            ← 본문. 마크다운(문단, 굵게, 링크, 목록)을 쓸 수 있습니다.
 
 ■ 이미지 (한 줄에 하나)
   ![construction]
-    → 파일 이름만 씁니다. 이 서브챕터의 이미지 폴더 안에서 같은 이름의 .svg .png .jpg .webp 를 찾아 넣습니다.
-      파일: public/assets/<챕터>/<서브챕터>/<주제 번호>-<이름>  예) public/assets/02-logo/01-symbol/04-clearspace.png
+    → 파일 이름만 씁니다. 이 페이지의 이미지 폴더 안에서 같은 이름의 .svg .png .jpg .webp 를 찾아 넣습니다.
+      파일: public/assets/<챕터>/<페이지>/<주제 번호>-<이름>  예) public/assets/02-logo/01-symbol/04-clearspace.png
       주제 = 목차 항목(헤드, 헤드가 페이지 이름과 같으면 서브헤드). 앞 번호는 페이지 순서대로 정렬하기 위한 것이라
       없거나 틀려도 이미지는 나옵니다. 이름만 붙여 넣어도(clearspace.png) 됩니다.
     → 파일이 아직 없으면 넣을 경로와 비율이 적힌 플레이스홀더 박스가 나옵니다.
@@ -71,7 +80,7 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
 ■ 자주 하는 작업
   섹션 추가     : ### 헤드 한 줄 + 본문 + ![이미지] 를 원하는 위치에 끼워 넣으면 끝.
   섹션 순서 변경 : 블록째 잘라 붙이기.
-  서브챕터 추가  : ## 이름 한 줄. 목차·URL·다음 버튼이 자동으로 갱신됩니다.
+  페이지 추가  : ## 이름 한 줄. 목차·URL·다음 버튼이 자동으로 갱신됩니다.
   섹션 목록 숨김 : ## 이름 {toc=none}  ← 이 페이지는 목차에서 섹션 목록을 펼치지 않음 (섹션이 하나뿐이면 자동으로 숨김)
   같은 헤드 반복 : 가능합니다 (예: Character Set 3개). 목차에는 한 번만 표시되고 첫 번째로 이동합니다.
   목차에 올릴 섹션 고르기 : ### + Construction  ← 헤드 앞에 + 를 붙이면 그 섹션만 목차에 오름 (에디터에서는 제목으로 보임).
@@ -135,7 +144,7 @@ EO, EO 모노그램, 블록 심볼, "Build Anyway", "Entrepreneur Onwards" 및 E
 
 ### Logo
 #### + Overview 
-EO 로고는 이 챕터에서 다루는 EO 심볼 · EO 시그니처 · 서비스 시그니처 · EO 서브심볼을 모두 아우르는 총칭입니다. 이 서브챕터는 작은 사인오프부터 큰 디스플레이 집행까지 다양한 상황 · 포맷 · 커뮤니케이션에 맞춰 EO 심볼을 어떻게 적용할 수 있는지 설명합니다. 
+EO 로고는 이 챕터에서 다루는 EO 심볼 · EO 시그니처 · 서비스 시그니처 · EO 서브심볼을 모두 아우르는 총칭입니다. 이 페이지는 작은 사인오프부터 큰 디스플레이 집행까지 다양한 상황 · 포맷 · 커뮤니케이션에 맞춰 EO 심볼을 어떻게 적용할 수 있는지 설명합니다. 
 ![logo/hero]{zoom=1.2}
 
 
@@ -281,7 +290,7 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 
 ### Signature
 #### + Overview
-**시그니처**는 EO 심볼과 회사명 · 서비스명의 텍스트를 가로 또는 세로로 묶은 콤비네이션 로고입니다. 이 서브챕터는 다양한 상황 · 포맷 · 커뮤니케이션에 맞춰 EO 시그니처를 어떻게 적용할 수 있는지 설명합니다. 
+**시그니처**는 EO 심볼과 회사명 · 서비스명의 텍스트를 가로 또는 세로로 묶은 콤비네이션 로고입니다. 이 페이지는 다양한 상황 · 포맷 · 커뮤니케이션에 맞춰 EO 시그니처를 어떻게 적용할 수 있는지 설명합니다. 
 
 심볼과 "EO Studio" 텍스트가 결합된 콤비네이션 로고를 이하 **회사 시그니처**, 심볼과 각 서비스명이 결합된 콤비네이션 로고는 **서비스 시그니처**라고 부릅니다.
 
@@ -714,7 +723,7 @@ Day Blue와 Bay Green은 샌프란시스코의 푸른 하늘과 청량한 공기
 ### Color {layout=grid-3}
 #### Pairings
 
-이 섹션은 전반적인 컬러의 사용성에 대해 설명합니다. 에셋 별 구체적인 컬러 사용법에 대해선 해당 서브챕터의 내용을 참고하세요.
+이 섹션은 전반적인 컬러의 사용성에 대해 설명합니다. 에셋 별 구체적인 컬러 사용법에 대해선 해당 페이지의 내용을 참고하세요.
 - 텍스트는 Air White 또는 Space Black을 기본으로 합니다. 
 - 그래픽 유닛의 컬러는 Builder Neon · Air White  · Day Blue · Bay Green · Medium Gray를 기본으로 사용합니다. 
 - 배경 컬러는 Solid Gray · Space Black를 기본으로 합니다. 일반적인 상황 · 마일드한 무드에는 Solid Gray 배경을, 좀 더 강렬한 무드를 추구할 땐 Space Black 배경을 사용합니다. 브랜드의 존재감을 강하게 어필해야할 때, 전달할 정보량이 적은 지면에 한해 Builder Neon을 배경 컬러로 사용하고 그 위에 Space Black 유닛을 올립니다.
@@ -795,34 +804,42 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 
 ### Graphic Unit
 #### + Vocabulary {layout=grid-3}
-threads · compression · shaft size · thread width를 조합해 성격이 다른 유닛을 만듭니다. 아래는 패턴 라이브러리의 바탕이 되는 대표 변형 여섯 가지입니다.
-![visual/unit-var-1] 01 / path of builder — 왼쪽이 넓고 오른쪽으로 수렴하는 기본형
-![visual/unit-var-2] 02 / power — 두꺼운 shaft의 single 유닛 두 개를 위아래로 마주 놓음
-![visual/unit-var-3] 03 / resistance — 가는 shaft의 single 유닛을 좌우 반전
-![visual/unit-var-4] 04 / builders — 세운 유닛 두 개를 나란히
-![visual/unit-var-5] 05 / rivals — 세운 유닛 두 개를 마주 보게
-![visual/unit-var-6] 06 / team — 세운 유닛 네 개를 도킹으로 맞물림
+유닛은 놓는 방향과 개수만으로 뜻을 얻습니다. 가로로 놓인 유닛 하나는 빌딩의 시간을 재는 가장 작은 단위이고, 그것을 세우거나 이어 붙이거나 마주 놓으면 빌더 · 과정 · 집 같은 읽기가 생겨납니다. 아래는 그 가장 단순한 읽기 여섯 가지입니다. 뜻을 못 박는 사전이 아니라 의미가 어디까지 넓어질 수 있는지 보여 주는 예시이며, 새로운 읽기는 언제든 더해질 수 있습니다. 유닛이 셋 이상 모여 체계를 이루는 단계는 Pattern 챕터에서 다룹니다.
+![visual/unit-voca-1] 01 / 가로 하나 — 시간의 한 단위, 타임라인
+![visual/unit-voca-2] 02 / 가로 둘을 이어서 — 루틴, 되풀이되는 과정
+![visual/unit-voca-3] 03 / 세로 하나 — 빌더 한 사람이 될 잠재력
+![visual/unit-voca-4] 04 / 세로 둘을 나란히 — 두 빌더, 개체로서의 존재감
+![visual/unit-voca-5] 05 / 세로 둘을 대칭으로 — 집, EO House
+![visual/unit-voca-6] 06 / 여럿을 맞물려서 — 팀, 커뮤니티의 시작
 
 
-### Graphic Unit
+### Graphic Unit {layout=grid-4}
 #### + Proportion & Rhythm
-????
+유닛은 어떤 파라미터 설정에서나 좋아 보이지는 않습니다. 시각성과 심미성이 좋은 유닛은 두 가지를 갖추고 있습니다. **비례**는 shaft 두께와 thread 수가 유닛의 길이에 맞는 것이고, **리듬**은 compression으로 thread 간격이 한쪽으로 흐르는 것입니다. 이 섹션은 유닛 하나와 쌍까지의 권장 사항입니다. 금지 사항은 Don'ts에, 유닛이 셋 이상 모이는 구성은 [[pattern#grammar]]의 원칙에 있습니다.
 
-
-### Graphic Unit
-#### + Color
-하나의 유닛에는 반드시 하나의 컬러만 적용합니다. Solid Gray는 반드시 배경 컬러로만 사용하며 유닛 컬러로는 사용하지 않습니다. 배경 컬러와 유닛 컬러의 조합 규칙은 [Pattern › Color Pairing](/ko/05-visual-system/pattern#color-pairing)을 따릅니다.
+- **리듬** compression이 0이면 thread가 균일하게 되풀이되어 줄무늬처럼 보입니다. 기본값 2:1처럼 한쪽으로 수렴시켜 방향과 속도를 만드세요.
+- **짧은 유닛** 길이가 짧을수록 thread 수를 줄이고[6–8] shaft를 두껍게 합니다. thread가 많으면 뭉개지고, shaft가 가늘면 힘이 없습니다.
+- **긴 유닛** 길이가 길수록 thread 수를 늘리되[12–16] compression을 유지해 끝까지 흐름이 이어지게 합니다. 같은 thread가 끝없이 되풀이되면 리듬이 사라집니다.
+- **쌍** 두 유닛을 이을 때는 compression의 방향을 맞추고, 마주 놓을 때는 대칭을 정확히 맞춥니다. 두 유닛의 thread 수와 shaft 두께가 다르면 한 몸으로 읽히지 않습니다.
+![visual/unit-rhythm-do-1]{do} 짧은 유닛 — thread는 적게, shaft는 두껍게
+![visual/unit-rhythm-dont-1]{dont} 짧은 유닛에 thread를 빽빽하게 넣지 마세요
+![visual/unit-rhythm-do-2]{do} 긴 유닛 — thread는 많게, compression은 유지
+![visual/unit-rhythm-dont-2]{dont} compression 0의 균일한 되풀이를 쓰지 마세요
+![visual/unit-rhythm-do-3]{do} 쌍 — compression 방향을 맞춰 연결
+![visual/unit-rhythm-dont-3]{dont} thread 수가 다른 두 유닛을 잇지 마세요
+![visual/unit-rhythm-do-4]{do} 세운 유닛 — 길이 방향으로 충분한 비례
+![visual/unit-rhythm-dont-4]{dont} 세운 유닛을 납작하게 쓰지 마세요
 
 
 ### Graphic Unit {layout=grid-3}
 #### + Don'ts
-유닛의 지오메트리를 손으로 변형하지 마세요. 모든 변형은 Graphic Builder의 파라미터 안에서만 이루어져야 합니다.
-![visual/unit-dont-1]{dont} 유닛을 90° 단위가 아닌 각도로 회전하거나 기울이지 마세요
-![visual/unit-dont-2]{dont} thread를 임의로 지우거나 추가하지 마세요
-![visual/unit-dont-3]{dont} 한 유닛에 두 가지 이상의 색을 칠하지 마세요
-![visual/unit-dont-4]{dont} 유닛에 외곽선이나 그림자를 넣지 마세요
-![visual/unit-dont-5]{dont} 유닛을 사진의 마스크로 사용하지 마세요
-![visual/unit-dont-6]{dont} 빗살 폭을 하나씩 손으로 조정하지 마세요
+유닛 지오메트리의 모든 변형은 Graphic Builder의 파라미터 안에서만 이루어져야 하며, 수동으로 변형해선 안 됩니다. 유닛과 배경의 색 조합은 [[pattern#color-pairing]]을 따릅니다. 단, 유닛이 놓인 평면 전체를 아이소메트릭이나 원근으로 투영하는 입체적 확장은 EO 브랜드팀의 검토를 거쳐 제한적으로 시도할 수 있습니다.
+![visual/unit-dont-1]{dont} 유닛을 90° 단위가 아닌 각도로 회전하지 마세요
+![visual/unit-dont-2]{dont} 유닛의 형태를 기울이지 마세요
+![visual/unit-dont-3]{dont} thread를 임의로 지우거나 추가하지 마세요
+![visual/unit-dont-4]{dont} 한 유닛에 두 가지 이상의 색을 칠하지 마세요
+![visual/unit-dont-5]{dont} Solid Gray는 배경 컬러 전용이므로 유닛 컬러로 사용하지 마세요
+![visual/unit-con]{con} 유닛을 입체적인 평면 위에 투영하기
 
 
 
@@ -839,8 +856,35 @@ threads · compression · shaft size · thread width를 조합해 성격이 다�
 ![visual/comp-6] 블렌드 — 같은 유닛을 일정 비율로 작아지게 복제해 원근을 만듭니다
 
 
+### Pattern {layout=grid-4}
+#### + Color Pairing
+Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Blue · Bay Green · Medium Gray을 유닛 컬러로 사용하는 것이 기본 조합입니다. 여러 유닛을 나란히 놓을 때는 명도 차가 비슷한 Day Blue · Bay Green · Medium Gray를 균일한 비중 · 위치 · 동세로 배치하거나, 명도가 높은 Builder Neon · Air White를 시각 초점으로 활용해 캔버스의 깊이감을 의도적으로 조절하세요.
+- 하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 
+- **하나의 그래픽에 동시에 사용하는 유닛 컬러는 최대 3가지**까지 권장되며, Builder Neon · Day Blue · Bay Green · Medium Gray 고정 조합에 한해 최대 네 가지까지 사용할 수 있습니다.
+- Medium Gray 유닛만을 단독으로 사용하지 않고 다른 컬러의 유닛과 조합하여 사용합니다. 
+
+일반적인 상황 · 마일드한 무드에는 Solid Gray 배경을, 좀 더 강렬한 무드를 추구할 땐 Space Black 배경을 사용합니다. 브랜드의 존재감을 강하게 어필해야할 때, 전달할 정보량이 적은 지면에 한해 Builder Neon을 배경 컬러로 사용하고 그 위에 Space Black 유닛을 올립니다.
+
+- 배경 컬러로 Solid Gray를 사용하면, 5개의 유닛 컬러 모두 충분한 균형을 유지하면서 전체 대비가 한 단계 낮아져 차분하게 묶이므로 우선적으로 고려합니다. 
+- Builder Neon · Day Blue · Bay Green · Air White 를 배경 컬러로 쓸 때는 Space Black 유닛만 올릴 수 있습니다.
+- Solid Gray는 반드시 배경 컬러으로만 사용하며 유닛 컬러로는 사용하지 않습니다.
+- Medium Gray는 디지털 환경에서 가급적 배경 컬러로 사용하지 않습니다. Merch 제작 시 질감이 있는 현실 소재의 컬러를 Medium Gray로 맞출 수 있는 경우에 한해, EO 브랜드팀의 허가를 거쳐 Builder Neon · Space Black 유닛을 제한적으로 올릴 수 있습니다.
+![visual/unit-color-do-1] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Solid Gray]
+![visual/unit-color-do-2] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Space Black]
+![visual/unit-color-do-3] {do}[Space Black] on [Builder Neon] · [Day Blue] · [Bay Green]
+![visual/unit-color-do-4] {do}[Space Black] on [Air White]
+![visual/unit-color-dont-1] {dont}[Space Black] on [Solid Gray] or vice versa
+![visual/unit-color-dont-2] {dont}[Medium Gray] alone on [Solid Gray] · [Space Black]
+![visual/unit-color-dont-3] {dont}[Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Builder Neon]
+![visual/unit-color-dont-4] {dont}[Builder Neon] · [Bay Green] · [Medium Gray] · [Air White] on [Day Blue]
+![visual/unit-color-dont-5] {dont}[Builder Neon] · [Day Blue] · [Medium Gray] · [Air White] on [Bay Green]
+![visual/unit-color-dont-6] {dont}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] on [Air White]
+![visual/unit-color-dont-7] {dont}[Day Blue] · [Bay Green] · [Air White] on [Medium Gray]
+![visual/unit-color-con] {con}[Builder Neon] · [Space Black] on [Medium Gray]
+
+
 ### Pattern {layout=grid-4} {ratio=16:9} {zoom=1.04}
-#### Library
+#### References
 유닛을 조합해 만든 30종의 패턴 라이브러리입니다. 각 패턴은 번호가 아니라 빌더의 여정에서 가져온 키워드 하나를 이름으로 가지며, 캠페인 · 굿즈 · 소셜 · 영상 등 모든 접점에서 재사용합니다. 새 패턴이 필요하면 라이브러리에서 고르는 것이 먼저이고, 추가는 EO 브랜드팀의 승인을 거칩니다.
 ![visual/pattern-01] 01 / path of builder
 ![visual/pattern-02] 02 / power
@@ -872,34 +916,6 @@ threads · compression · shaft size · thread width를 조합해 성격이 다�
 ![visual/pattern-28] 28 / adventure
 ![visual/pattern-29] 29 / nature
 ![visual/pattern-30] 30 / boom
-
-
-
-### Pattern {layout=grid-4}
-#### + Color Pairing
-Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Blue · Bay Green · Medium Gray을 유닛 컬러로 사용하는 것이 기본 조합입니다. 여러 유닛을 나란히 놓을 때는 명도 차가 비슷한 Day Blue · Bay Green · Medium Gray를 균일한 비중 · 위치 · 동세로 배치하거나, 명도가 높은 Builder Neon · Air White를 시각 초점으로 활용해 캔버스의 깊이감을 의도적으로 조절하세요.
-- 하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 
-- **하나의 그래픽에 동시에 사용하는 유닛 컬러는 최대 3가지**까지 권장되며, Builder Neon · Day Blue · Bay Green · Medium Gray 고정 조합에 한해 최대 네 가지까지 사용할 수 있습니다.
-- Medium Gray 유닛만을 단독으로 사용하지 않고 다른 컬러의 유닛과 조합하여 사용합니다. 
-
-일반적인 상황 · 마일드한 무드에는 Solid Gray 배경을, 좀 더 강렬한 무드를 추구할 땐 Space Black 배경을 사용합니다. 브랜드의 존재감을 강하게 어필해야할 때, 전달할 정보량이 적은 지면에 한해 Builder Neon을 배경 컬러로 사용하고 그 위에 Space Black 유닛을 올립니다.
-
-- 배경 컬러로 Solid Gray를 사용하면, 5개의 유닛 컬러 모두 충분한 균형을 유지하면서 전체 대비가 한 단계 낮아져 차분하게 묶이므로 우선적으로 고려합니다. 
-- Builder Neon · Day Blue · Bay Green · Air White 를 배경 컬러로 쓸 때는 Space Black 유닛만 올릴 수 있습니다.
-- Solid Gray는 반드시 배경 컬러으로만 사용하며 유닛 컬러로는 사용하지 않습니다.
-- Medium Gray는 디지털 환경에서 가급적 배경 컬러로 사용하지 않습니다. Merch 제작 시 질감이 있는 현실 소재의 컬러를 Medium Gray로 맞출 수 있는 경우에 한해, EO 브랜드팀의 허가를 거쳐 Builder Neon · Space Black 유닛을 제한적으로 올릴 수 있습니다.
-![visual/unit-color-do-1] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Solid Gray]
-![visual/unit-color-do-2] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Space Black]
-![visual/unit-color-do-3] {do}[Space Black] on [Builder Neon] · [Day Blue] · [Bay Green]
-![visual/unit-color-do-4] {do}[Space Black] on [Air White]
-![visual/unit-color-dont-1] {dont}[Space Black] on [Solid Gray] or vice versa
-![visual/unit-color-dont-2] {dont}[Medium Gray] alone on [Solid Gray] · [Space Black]
-![visual/unit-color-dont-3] {dont}[Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Builder Neon]
-![visual/unit-color-dont-4] {dont}[Builder Neon] · [Bay Green] · [Medium Gray] · [Air White] on [Day Blue]
-![visual/unit-color-dont-5] {dont}[Builder Neon] · [Day Blue] · [Medium Gray] · [Air White] on [Bay Green]
-![visual/unit-color-dont-6] {dont}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] on [Air White]
-![visual/unit-color-dont-7] {dont}[Day Blue] · [Bay Green] · [Air White] on [Medium Gray]
-![visual/unit-color-con] {con}[Builder Neon] · [Space Black] on [Medium Gray]
 
 
 ### Usage

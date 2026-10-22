@@ -1,18 +1,18 @@
 /**
- * 이미지 가져오기: npm run import -- <서브챕터> [폴더]      (미리 보기: npm run import -- <서브챕터> --dry)
+ * 이미지 가져오기: npm run import -- <페이지> [폴더]      (미리 보기: npm run import -- <페이지> --dry)
  *   예) npm run import -- symbol
  *       npm run import -- sub-symbol ~/Desktop/export
  *
  * 폴더(기본: 다운로드/temp)의 이미지를 국문 가이드(content/guide.ko.md)의 이미지 이름에 맞춰
- * public/assets/<챕터>/<서브챕터>/<주제 번호>-<이름>.<확장자> 로 복사합니다. 원본은 그대로 둡니다.
+ * public/assets/<챕터>/<페이지>/<주제 번호>-<이름>.<확장자> 로 복사합니다. 원본은 그대로 둡니다.
  *   - 파일명 앞 접두어(마지막 _ 까지, 예: "20261016 Finalization_")와 앞 번호(예: 03-)는 떼고 비교합니다.
  *   - 공백은 - 로 바꿉니다 ("icon-in use" → icon-in-use). 대소문자는 무시합니다.
  *   - 같은 이름의 예전 파일(번호·확장자가 달라도)은 새 파일로 바꿉니다. 단 그림이 같으면 건드리지 않습니다.
  *     다시 내보내면 그림이 같아도 바이트가 달라질 수 있어서, 바이트가 다르면 픽셀로 한 번 더 비교합니다(macOS sips).
  *   - 가이드에 자리가 없는 파일은 복사하지 않고 목록으로 알려 줍니다.
- * 같은 이미지 이름이 여러 서브챕터에 있으므로(clearspace, dont-1 …) 서브챕터를 꼭 지정합니다.
- * 폴더 안에 서브챕터 이름의 하위 폴더(예: temp/typography/)가 있으면 그 폴더에서만 가져옵니다.
- * 서브챕터별로 하위 폴더를 나눠 두면 이름이 겹쳐도 다른 페이지 이미지가 섞이지 않습니다.
+ * 같은 이미지 이름이 여러 페이지에 있으므로(clearspace, dont-1 …) 페이지를 꼭 지정합니다.
+ * 폴더 안에 페이지 이름의 하위 폴더(예: temp/typography/)가 있으면 그 폴더에서만 가져옵니다.
+ * 페이지별로 하위 폴더를 나눠 두면 이름이 겹쳐도 다른 페이지 이미지가 섞이지 않습니다.
  */
 import fs from 'node:fs';
 import os from 'node:os';
@@ -34,18 +34,18 @@ const pages = [...new Set(entries.map(e => e.page))];
 const slugOf = p => p.split('/').slice(-1)[0];
 
 if (!subArg) {
-  console.log('서브챕터를 지정하세요. 예) npm run import -- symbol\n\n가능한 서브챕터:');
+  console.log('페이지를 지정하세요. 예) npm run import -- symbol\n\n가능한 페이지:');
   for (const p of pages) console.log(`  ${slugOf(p).padEnd(18)} ${entries.filter(e => e.page === p).length}자리`);
   process.exit(1);
 }
 const page = pages.find(p => slugOf(p) === subArg) ?? pages.find(p => p.endsWith(subArg));
-if (!page) { console.error(`"${subArg}" 서브챕터를 찾지 못했습니다. 인자 없이 실행하면 목록이 나옵니다.`); process.exit(1); }
+if (!page) { console.error(`"${subArg}" 페이지를 찾지 못했습니다. 인자 없이 실행하면 목록이 나옵니다.`); process.exit(1); }
 
 const baseDir = (dirArg ?? path.join(os.homedir(), 'Downloads', 'temp')).replace(/^~(?=\/|$)/, os.homedir());
 if (!fs.existsSync(baseDir)) { console.error(`폴더가 없습니다: ${baseDir}`); process.exit(1); }
 const subDir = path.join(baseDir, slugOf(page));
 const srcDir = fs.existsSync(subDir) && fs.statSync(subDir).isDirectory() ? subDir : baseDir;
-console.log(`가져오는 폴더: ${srcDir}${srcDir === baseDir ? '  (서브챕터 하위 폴더 없음)' : ''}`);
+console.log(`가져오는 폴더: ${srcDir}${srcDir === baseDir ? '  (페이지 하위 폴더 없음)' : ''}`);
 
 const norm = s => s.toLowerCase().replace(/^.*_/, '').replace(/^\d{2}-/, '').trim().replace(/\s+/g, '-');
 const strip = s => s.replace(/^\d{2}-/, '');

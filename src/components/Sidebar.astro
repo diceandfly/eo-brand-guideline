@@ -61,7 +61,7 @@ const { guide, current, lang, alt } = Astro.props;
 </nav>
 
 <script>
-  // 목차 슬라이드: 다른 페이지로 가는 챕터·서브챕터 링크를 누르면, 열린 목록은 접고 갈 곳의 목록은 펼칩니다.
+  // 목차 슬라이드: 다른 페이지로 가는 챕터·페이지 링크를 누르면, 열린 목록은 접고 갈 곳의 목록은 펼칩니다.
   // 본문이 사라지는 동안(motion.ts 페이지 전환) 슬라이드가 끝나고, 새 페이지는 같은 모양으로 열리므로 끊김이 없습니다.
   const sidebar = document.querySelector<HTMLElement>('.sidebar');
   const setFold = (fold: Element | null | undefined, open: boolean) => {
