@@ -35,10 +35,10 @@ const tone = item.src ? await imageTone(item.src, toneZoom, tokenHex(TOKENS, '--
       {item.badge && (
         <span class:list={['fig__badge', `fig__badge--${item.badge}`]} role="img" aria-label={ui[item.badge]}>
           {item.badge === 'do'
-            ? <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M2.5 8.5l3.5 3.5L13.5 4" /></svg>
+            ? <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="square"><path d="M2.5 8.5l3.5 3.5L13.5 4" /></svg>
             : item.badge === 'dont'
-            ? <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M3 3l10 10M13 3L3 13" /></svg>
-            : <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"><path d="M8 2.8L13.5 12.5H2.5Z" /></svg>}
+            ? <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="square"><path d="M3 3l10 10M13 3L3 13" /></svg>
+            : <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linejoin="miter"><path d="M8 2.8L13.5 12.5H2.5Z" /></svg>}
         </span>
       )}
       <span class="fig__caption-text" set:html={captionHtml} />

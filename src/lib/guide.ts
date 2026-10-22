@@ -33,6 +33,7 @@ export type Item = ImageItem | SwatchItem;
 
 export interface Section {
   id: string;             // 앵커 id (목차 라벨 기준: 헤드, 헤드가 페이지 이름과 같으면 서브헤드. 중복 시 -2, -3…)
+  label: string;          // 목차 라벨 = 이미지 주제 이름 (헤드, 헤드가 페이지 이름과 같으면 서브헤드)
   head: string;
   subhead?: string;
   bodyHtml: string;
@@ -176,10 +177,22 @@ function pickLayout(explicit: string | undefined, items: Item[]): Layout {
  */
 const KO_RUN = /[가-힣ㄱ-ㅎㅏ-ㅣ](?:[가-힣ㄱ-ㅎㅏ-ㅣ\s.,·:;!?'"‘’“”()~…]*[가-힣ㄱ-ㅎㅏ-ㅣ.,·:;!?’”)…])?/g;
 function wrapKo(html: string): string {
-  return html
-    .split(/(<[^>]+>)/)                         // 태그와 텍스트 분리
-    .map(seg => seg.startsWith('<') ? seg : seg.replace(KO_RUN, m => `<span class="ko">${m}</span>`))
-    .join('');
+  return mapText(html, seg => seg.replace(KO_RUN, m => `<span class="ko">${m}</span>`));
+}
+
+/** HTML 의 텍스트 세그먼트에만 fn 을 적용 (태그는 그대로). skipInside 면 <code>·<pre>·<a> 안은 건너뜀 (코드는 글자 그대로, 링크 안에는 버튼을 넣지 않음) */
+function mapText(html: string, fn: (seg: string) => string, skipInside = false): string {
+  let depth = 0;
+  return html.split(/(<[^>]+>)/).map(seg => {
+    if (seg.startsWith('<')) {
+      if (skipInside) {
+        if (/^<(code|pre|a)\b/i.test(seg)) depth++;
+        else if (/^<\/(code|pre|a)>/i.test(seg)) depth = Math.max(0, depth - 1);
+      }
+      return seg;
+    }
+    return depth || !seg ? seg : fn(seg);
+  }).join('');
 }
 
 /**
@@ -231,27 +244,20 @@ const colorHexes = (tokens: Tokens): Record<string, string> =>
 /** 한 번의 파싱 동안 공유하는 것: 언어(UI 문구), 컬러 HEX */
 interface Ctx { lang: Lang; hex: Record<string, string>; }
 const COLOR_DARK = new Set(['Space Black', 'Solid Gray']);   // 어두운 칩: 테두리만 보여 작아 보이는 착시를 CSS(--cref-grow-*)로 색마다 보정
-const COLOR_RE = new RegExp(`(?<![\\w-])(\\[\\+?)?(${COLOR_NAMES.join('|')})(?:(?<=\\[\\+?.{7,12})\\](?!\\())?(?![\\w-])`, 'g');
+const NAMES = COLOR_NAMES.join('|');
+const COLOR_RE = new RegExp(`(?<![\\w-])(?:\\[(\\+?)(${NAMES})\\]|(${NAMES}))(?![\\w-])`, 'g');   // [Name] · [+Name] · Name
 /**
  * @param seen  섹션 안에서 이미 칩을 붙인 이름. 주면 "섹션 첫 언급에만 칩" 규칙(본문), 없으면 언급마다 칩(캡션).
  *              [Builder Neon] 은 칩만, [+Builder Neon] 은 칩 + 이름을 규칙과 무관하게 강제.
  */
 function colorChips(html: string, ctx: Ctx, seen?: Set<string>): string {
   const ui = UI_TEXT[ctx.lang];
-  let code = 0;
-  return html.split(/(<[^>]+>)/).map(seg => {
-    if (seg.startsWith('<')) {
-      if (/^<(code|pre)\b/i.test(seg)) code++;
-      else if (/^<\/(code|pre)>/i.test(seg)) code = Math.max(0, code - 1);
-      return seg;
-    }
-    if (code) return seg;
-    return seg.replace(COLOR_RE, (m, open: string | undefined, name: string) => {
+  return mapText(html, seg => seg.replace(COLOR_RE, (_m, plus: string | undefined, bracketName: string | undefined, plainName: string | undefined) => {
+      const name = (bracketName ?? plainName)!;
       const slug = colorSlug(name);
-      if (open && !m.endsWith(']')) return m;                         // 여는 괄호만 있음 → 그대로
-      const bracket = open === '[';                                   // [Name] → 칩만
-      const forced = open === '[+';                                   // [+Name] → 칩 + 이름 (첫 언급 규칙 무시)
-      if (!open && seen) {                                            // 본문: 섹션 안 첫 언급에만 칩, 이후는 글자만
+      const bracket = bracketName !== undefined && !plus;             // [Name] → 칩만
+      const forced = bracketName !== undefined && !!plus;             // [+Name] → 칩 + 이름 (첫 언급 규칙 무시)
+      if (bracketName === undefined && seen) {                        // 본문: 섹션 안 첫 언급에만 칩, 이후는 글자만
         if (seen.has(name)) return name;
         seen.add(name);
       } else if (forced && seen) seen.add(name);
@@ -260,8 +266,7 @@ function colorChips(html: string, ctx: Ctx, seen?: Set<string>): string {
       const tip = `<span class="swatch__tip t-label" aria-hidden="true"><span class="swatch__tip-text swatch__tip-text--copy"></span><span class="swatch__tip-text swatch__tip-text--done"></span></span>`;   // 글자는 CSS content (드래그 복사에 섞이지 않게)
       const chip = `<button type="button" class="cref__btn swatch__val" data-copy="${hex}" aria-label="${ui.copy} ${name} ${hex}"${bracket ? ` title="${name} ${hex}"` : ''}><i class="cref__chip${COLOR_DARK.has(name) ? ` cref__chip--dark cref__chip--${slug}` : ''}" style="--cref:var(--c-${slug})"></i>${tip}</button>`;
       return bracket ? `<span class="cref cref--only">${chip}<span class="sr-only">${name}</span></span>` : `<span class="cref">${chip}${name}</span>`;
-    });
-  }).join('');
+    }), true);
 }
 
 /**
@@ -322,6 +327,7 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
   let sub: Sub | null = null;
   let section: Section | null = null;
   let body: string[] = [];
+  let pendingLayout: string | undefined;                   // 헤드/서브헤드 줄의 {layout=…} (섹션을 다 읽은 뒤 pickLayout 에서 확정)
   let idsInSub = new Map<string, number>();
 
   // 목차 앵커 라벨: 헤드가 페이지 이름과 같으면(예: Colors 페이지의 "Color") 서브헤드를 쓴다.
@@ -336,13 +342,16 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
     if (!section || !sub) return;
     // 앵커 id = 목차 라벨의 슬러그 (헤드가 페이지 이름과 같으면 서브헤드). 같은 페이지 안에서 겹치면 -2, -3 …
     // 섹션을 다 읽은 뒤에 정해야 서브헤드를 쓸 수 있으므로 여기서 확정
-    const base = slugify(navLabel(section, sub));
+    section.label = navLabel(section, sub);
+    const base = slugify(section.label);
     const count = (idsInSub.get(base) ?? 0) + 1;
     idsInSub.set(base, count);
     section.id = count === 1 ? base : `${base}-${count}`;
     section.bodyHtml = md(body.join('\n'), ctx);
-    section.layout = pickLayout((section as any)._layout, section.items);
-    delete (section as any)._layout;
+    section.layout = pickLayout(pendingLayout, section.items);
+    pendingLayout = undefined;
+    if (!section.layout.startsWith('grid-') && section.layout !== 'wide' && section.items.length > 1)
+      console.warn(`[guide] "${section.head}${section.subhead ? ' / ' + section.subhead : ''}" (${section.layout}) 섹션의 이미지 ${section.items.length}개 중 첫 번째만 표시됩니다. 모두 보이려면 {layout=grid-2|3|4} 또는 {layout=wide}`);
     sub.sections.push(section);
     section = null;
     body = [];
@@ -354,7 +363,7 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
     const pool = marked.length ? marked : s.sections;
     s.navSections = [];
     for (const sec of pool) {
-      const label = navLabel(sec, s);
+      const label = sec.label;
       if (!s.navSections.some(n => n.head === label)) s.navSections.push({ id: sec.id, head: label });
     }
   };
@@ -389,17 +398,17 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
       const tocMark = m[1] === '+' || !!m[2];
       const [head, attrs] = takeAttrs(smartQuotes(m[3]));
       section = {
-        id: '', head, bodyHtml: '', layout: 'basic',   // id 는 flushSection 에서 (서브헤드까지 읽은 뒤)
+        id: '', label: head, head, bodyHtml: '', layout: 'basic',   // id 는 flushSection 에서 (서브헤드까지 읽은 뒤)
         ratio: normalizeRatio(attrs.ratio), items: [], tocMark,
         zoom: Number.isFinite(parseFloat(attrs.zoom)) ? parseFloat(attrs.zoom) : undefined
       };
-      (section as any)._layout = attrs.layout;
+      pendingLayout = attrs.layout;
       continue;
     }
     if ((m = line.match(/^####\s+(\+\s*)?(.+?)\s*$/)) && section) { // #### Subhead  /  #### + Subhead {layout=…}  (+ 와 {…} 는 헤드 줄과 동일하게 동작)
       const [subhead, attrs] = takeAttrs(smartQuotes(m[2]));
       if (m[1]) section.tocMark = true;
-      if (attrs.layout) (section as any)._layout = attrs.layout;
+      if (attrs.layout) pendingLayout = attrs.layout;
       if (attrs.ratio) section.ratio = normalizeRatio(attrs.ratio);
       if (Number.isFinite(parseFloat(attrs.zoom))) section.zoom = parseFloat(attrs.zoom);
       section.subhead = subhead;
@@ -436,10 +445,10 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
   // 주제 = 목차 라벨 규칙과 같음(헤드, 헤드가 페이지 이름과 같으면 서브헤드). 번호는 페이지 안 주제 순서(목차 표시와 무관하게 전부 셈).
   for (const ch of chapters) ch.subs.forEach((s, si) => {
     const topics: string[] = [];
-    for (const sec of s.sections) { const l = navLabel(sec, s); if (!topics.includes(l)) topics.push(l); }
+    for (const sec of s.sections) if (!topics.includes(sec.label)) topics.push(sec.label);
     const index = subAssetIndex(ch.slug, ch.name, s.slug);
     for (const sec of s.sections) {
-      const label = navLabel(sec, s);
+      const label = sec.label;
       const topicNum = pad2(topics.indexOf(label) + 1);
       for (const it of sec.items) {
         if (it.kind !== 'image') continue;
@@ -488,7 +497,7 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
       const sec = s.sections.find(x => x.id === secId);
       if (!sec) { console.warn(`[guide] [[${target}]]: ${s.name} 페이지에 #${secId} 섹션이 없습니다 (${here.url}). 있는 id: ${s.sections.map(x => x.id).join(', ')}`); return fallback(); }
       href += `#${secId}`;
-      auto = pagePart ? `${text(s.name)}${NB}›${NB}${text(navLabel(sec, s))}` : text(navLabel(sec, s));
+      auto = pagePart ? `${text(s.name)}${NB}›${NB}${text(sec.label)}` : text(sec.label);
     }
     return `<a class="xref" href="${href}">${arrow}${label ?? auto}</a>`;
   };

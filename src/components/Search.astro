@@ -13,7 +13,7 @@ const found = { zero: ui.found(0), many: ui.found(999).replace('999', '{n}') }; 
   <input class="search__input t-ui" type="search" placeholder="Search" aria-label={ui.search} autocomplete="off" spellcheck="false"
     role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="search-results" data-search-input />
   <button class="search__clear" type="button" aria-label={ui.clear} hidden data-search-clear>
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" /></svg>
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="square" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" /></svg>
   </button>
   <ul class="search__results t-ui" id="search-results" role="listbox" aria-label={ui.results} data-search-results></ul>
   <p class="sr-only" aria-live="polite" data-search-status></p>

@@ -45,7 +45,7 @@ const ms = (name: string, fallback: number) => {
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------- 1. 스무스 스크롤 ---------- */
-const smoothAmount = reduced ? 0 : ms('--scroll-smooth', 0);
+const smoothAmount = reduced ? 0 : ms('--scroll-smooth', 1.2);
 const wrapper = document.getElementById('smooth-wrapper');
 const content = document.getElementById('smooth-content');
 let smoother: ScrollSmoother | null = null;
@@ -55,7 +55,7 @@ if (smoothAmount > 0 && wrapper && content) {
 }
 (window as any).__smoother = smoother;
 
-const anchorOffset = () => num('--anchor-offset', 0);
+const anchorOffset = () => num('--anchor-offset', 64);
 
 /**
  * 브라우저는 주소의 #앵커로 들어오면 overflow:hidden 인 래퍼까지 안쪽에서 몰래 스크롤해 버립니다.
@@ -109,20 +109,19 @@ export function scrollToId(id: string, animate = true) {
     anchorTween = gsap.to(smoother, {
       scrollTop: y,
       duration: ms('--anchor-dur', 0.56),
-      ease: easeOf('--anchor-ease', 'power2.inOut'),
+      ease: easeOf('--anchor-ease', 'cubic-bezier(0.7, 0, 0.3, 1)'),
       overwrite: true,
       onComplete: stopAnchorTween,
     });
   } else el.scrollIntoView({ block: 'start', behavior: animate ? 'smooth' : 'auto' });
   return true;
 }
-(window as any).__scrollToId = scrollToId;
 
 /* ---------- 1.2 목차 목록의 휠 스크롤 ----------
    목차는 스무스 스크롤 영역 밖(고정)이라 브라우저 기본 스크롤입니다. 마우스 휠의 끊기는 칸 단위 이동만
    본문과 같은 감속으로 목표 위치까지 따라가게 하고, 트랙패드(이미 관성이 있음)는 기본 스크롤 그대로 둡니다. */
 const navScroller = document.querySelector<HTMLElement>('[data-nav-scroll]');
-const navSmooth = reduced ? 0 : ms('--nav-scroll-smooth', 0);
+const navSmooth = reduced ? 0 : ms('--nav-scroll-smooth', 1.2);
 if (navScroller && navSmooth > 0) {
   let target = navScroller.scrollTop;
   let tweening = false;
@@ -160,7 +159,7 @@ if (navScroller && navSmooth > 0) {
     target = Math.max(0, Math.min(max, target + stepOf(e)));
     tweening = true;
     gsap.to(navScroller, {
-      scrollTop: target, duration: navSmooth, ease: 'expo.out', overwrite: true,
+      scrollTop: target, duration: navSmooth, ease: easeOf('--nav-scroll-ease', 'expo.out'), overwrite: true,
       onComplete: () => { tweening = false; },
     });
   }, { passive: false });
@@ -173,8 +172,8 @@ const main = document.querySelector<HTMLElement>('.main');
 if (main) {
   const outDur = ms('--page-out-dur', 0.46);
   const navSlide = ms('--nav-slide-dur', 0.46);             // 목차 링크면 하위 목록 슬라이드가 끝날 때까지 기다림
-  const shift = num('--page-shift', 0);
-  const ease = easeOf('--page-ease', 'power2.inOut');
+  const shift = num('--page-shift', 8);
+  const ease = easeOf('--page-ease', 'cubic-bezier(0.7, 0, 0.3, 1)');
   const buffer = ms('--page-out-buffer', 0.04);
   document.addEventListener('click', e => {
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
@@ -243,6 +242,8 @@ if (box && boxImg) {
   boxImg.addEventListener('load', placeStrike);
   window.addEventListener('resize', () => { if (opened) placeStrike(); });
 
+  const behind = [document.getElementById('smooth-wrapper'), document.querySelector('.sidebar'), document.querySelector('.topbar')].filter((el): el is HTMLElement => !!el);
+
   let opener: HTMLElement | null = null;   // 닫을 때 포커스를 돌려줄 요소
   const open = (src: string, alt: string, strike = false) => {
     if (opened) return;
@@ -254,6 +255,7 @@ if (box && boxImg) {
     if (boxImg.complete) placeStrike();
     box.classList.add('is-open');
     box.setAttribute('aria-hidden', 'false');
+    for (const el of behind) el.setAttribute('inert', '');          // 뒤 페이지는 키보드·낭독기에서 제외 (Tab 트랩과 짝)
     box.focus({ preventScroll: true });
     stopAnchorTween();
     smoother?.paused(true);
@@ -273,6 +275,7 @@ if (box && boxImg) {
       onComplete: () => {
         box.classList.remove('is-open');
         box.setAttribute('aria-hidden', 'true');
+        for (const el of behind) el.removeAttribute('inert');
         boxImg.removeAttribute('src');
         smoother?.paused(false);
         document.documentElement.classList.remove('lightbox-open');

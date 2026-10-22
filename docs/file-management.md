@@ -64,10 +64,12 @@ npm run import                      # 페이지 목록 보기
 
 | 파일명 | 웨이트 |
 |---|---|
-| FoundersGrotesk-Light.woff2 | 300 |
-| FoundersGrotesk-Regular.woff2 | 400 |
-| FoundersGrotesk-Medium.woff2 | 500 |
-| FoundersGroteskMono-Regular.woff2 | 400 (모노) |
+| founders-grotesk-light.woff2 | 300 |
+| founders-grotesk-regular.woff2 | 400 |
+| founders-grotesk-medium.woff2 | 500 |
+| founders-grotesk-semibold.woff2 | 600 (등록만, 미사용) |
+| founders-grotesk-mono-regular.woff2 | 400 (모노) |
+| founders-grotesk-mono-medium.woff2 | 500 (모노) |
 
 파일명이 다르면 `src/styles/fonts.css` 의 경로만 고칩니다. 폰트 폴더는 `.gitignore` 에 들어 있어 저장소에 커밋되지 않습니다(유료 폰트 재배포 방지). 폰트가 없으면 시스템 산세리프로 폴백되니, 토큰 튜닝은 폰트를 넣은 뒤에 하세요.
 

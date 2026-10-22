@@ -72,7 +72,7 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
 ■ 레이아웃
   섹션 안의 이미지/스와치 개수로 자동 결정됩니다.
     0개 → text    (텍스트만, 8컬럼)
-    1개 → basic   (텍스트 4컬럼 + 이미지 6컬럼, 레퍼런스와 동일)
+    1개 → basic   (텍스트 5컬럼 + 이미지 6컬럼)
     2개 → grid-2  (텍스트 아래 2열)
     3·6·9개 → grid-3
     그 외 → grid-4
@@ -865,16 +865,16 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 ### Pattern {layout=grid-4}
 #### Color
 Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Blue · Bay Green · Medium Gray을 유닛 컬러로 사용하는 것이 기본 조합입니다. 여러 유닛을 나란히 놓을 때는 명도 차가 비슷한 Day Blue · Bay Green · Medium Gray를 균일한 비중 · 위치 · 동세로 배치하거나, 명도가 높은 Builder Neon · Air White를 시각 초점으로 활용해 캔버스의 깊이감을 의도적으로 조절하세요.
-- 하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 
-- **하나의 그래픽에 동시에 사용하는 유닛 컬러는 최대 3가지**까지 권장되며, Builder Neon · Day Blue · Bay Green · Medium Gray 고정 조합에 한해 최대 네 가지까지 사용할 수 있습니다.
-- Medium Gray 유닛만을 단독으로 사용하지 않고 다른 컬러의 유닛과 조합하여 사용합니다. 
 
 일반적인 상황 · 마일드한 무드에는 Solid Gray 배경을, 좀 더 강렬한 무드를 추구할 땐 Space Black 배경을 사용합니다. 브랜드의 존재감을 강하게 어필해야할 때, 전달할 정보량이 적은 지면에 한해 Builder Neon을 배경 컬러로 사용하고 그 위에 Space Black 유닛을 올립니다.
 
+- 하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 
+- **하나의 그래픽에 동시에 사용하는 유닛 컬러는 최대 3가지**까지 권장되며, Builder Neon · Day Blue · Bay Green · Medium Gray 고정 조합에 한해 최대 네 가지까지 사용할 수 있습니다.
+- Medium Gray 유닛만을 단독으로 사용하지 않고 다른 컬러의 유닛과 조합하여 사용합니다. 
 - 배경 컬러로 Solid Gray를 사용하면, 5개의 유닛 컬러 모두 충분한 균형을 유지하면서 전체 대비가 한 단계 낮아져 차분하게 묶이므로 우선적으로 고려합니다. 
 - Builder Neon · Day Blue · Bay Green · Air White 를 배경 컬러로 쓸 때는 Space Black 유닛만 올릴 수 있습니다.
 - Solid Gray는 반드시 배경 컬러으로만 사용하며 유닛 컬러로는 사용하지 않습니다.
-- Medium Gray는 디지털 환경에서 가급적 배경 컬러로 사용하지 않습니다. Merch 제작 시 질감이 있는 현실 소재의 컬러를 Medium Gray로 맞출 수 있는 경우에 한해, EO 브랜드팀의 허가를 거쳐 Builder Neon · Space Black 유닛을 제한적으로 올릴 수 있습니다.
+- Medium Gray는 디지털 환경에서 배경 컬러로 사용하지 않습니다. Merch 제작 시 실물 소재의 컬러를 Medium Gray로 맞출 수 있는 경우에 한해, EO 브랜드팀의 허가를 거쳐 Builder Neon · Space Black 유닛을 제한적으로 올릴 수 있습니다.
 ![graphic/unit-color-do-1] {do}[Builder Neon] / [Day Blue] / [Bay Green] / [Medium Gray] / [Air White] on [Solid Gray]
 ![graphic/unit-color-do-2] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Space Black]
 ![graphic/unit-color-do-3] {do}[Space Black] on [Builder Neon] · [Day Blue] · [Bay Green]
