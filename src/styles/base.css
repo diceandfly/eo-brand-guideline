@@ -597,15 +597,16 @@ html.js .main {
 .sec--grid .sec__text {
   grid-column: 1 / span var(--sec-textonly-cols);
 }
-/* 섹션 묶음 ::: cols-N … ::: — 섹션들을 한 행에 N단으로. 단 사이는 컬럼 거터, 행이 넘치면 섹션 간격으로 줄바꿈.
-   한 단 안에서는 섹션이 12컬럼 그리드가 아니라 세로 흐름(텍스트 → 미디어)이 됨 */
+/* 섹션 행 ::: row … ::: — 12컬럼 한 행. 각 섹션은 --span 컬럼을 차지하고(파서가 확정), 합이 넘치면 섹션 간격으로 다음 행.
+   행 안에서는 섹션이 12컬럼 그리드가 아니라 세로 흐름(텍스트 → 미디어)이 됨 */
 .sec-group {
   display: grid;
-  grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
   column-gap: var(--gutter);
   row-gap: var(--section-gap);
 }
 .sec-group > .sec {
+  grid-column: span var(--span, var(--cols));
   display: flex;
   flex-direction: column;
   gap: var(--sec-row-gap);
@@ -614,17 +615,17 @@ html.js .main {
   --_col: calc((100cqw - (var(--cols) - 1) * var(--gutter)) / var(--cols)); /* 그리드 컬럼 하나의 폭 (.sections 기준) */
   padding-right: calc(var(--_col) * var(--sec-group-text-pad));
 }
-/* cols-N: 헤드는 그대로, 본문의 문단(p · 목록)을 전폭 N단에 차례로 놓음. 단 사이는 컬럼 거터, 줄(행) 사이는 문단 간격 */
-.sec--cols .sec__text {
+/* text-N: 헤드는 그대로, 본문의 문단(p · 목록)을 전폭 N단에 차례로 놓음. 단 사이는 컬럼 거터, 줄(행) 사이는 문단 간격 */
+.sec--textcols .sec__text {
   grid-column: 1 / -1;
 }
-.sec--cols .sec__body {
+.sec--textcols .sec__body {
   display: grid;
   grid-template-columns: repeat(var(--n), minmax(0, 1fr));
   column-gap: var(--gutter);
   row-gap: calc(var(--lh-unit) * var(--t-body-m) * var(--t-body-para-gap));
 }
-.sec--cols .sec__body > * {
+.sec--textcols .sec__body > * {
   margin-top: 0; /* 문단 간격은 row-gap 이 맡음 */
 }
 
@@ -662,9 +663,11 @@ html.js .main {
 
 /* 모바일: PC 토큰 이름을 -m 값으로 바꿔 끼웁니다. 위의 규칙들은 그대로 PC 이름을 씁니다. */
 @media (max-width: 899px) {
-  .sec--cols .sec__body,
-  .sec-group {
+  .sec--textcols .sec__body {
     grid-template-columns: 1fr; /* 모바일: 한 단으로 */
+  }
+  .sec-group > .sec {
+    grid-column: 1 / -1; /* 모바일: 행의 섹션은 전폭으로 세로 나열 */
   }
   .sec-group > .sec > .sec__text {
     padding-right: 0;

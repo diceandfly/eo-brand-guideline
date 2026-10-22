@@ -9,7 +9,7 @@ import path from 'node:path';
 import { marked } from 'marked';
 import { tokenHex, type Tokens } from './tokens.ts';
 
-export type Layout = 'basic' | 'text' | 'wide' | 'half' | 'grid-2' | 'grid-3' | 'grid-4' | 'cols-2' | 'cols-3' | 'cols-4';   // cols-N: 본문 문단을 N단으로 (데스크탑)
+export type Layout = 'basic' | 'text' | 'wide' | 'half' | 'grid-2' | 'grid-3' | 'grid-4' | 'text-2' | 'text-3' | 'text-4';   // text-N: 본문 문단을 N단으로 (데스크탑)
 
 export interface ImageItem {
   kind: 'image';
@@ -34,7 +34,8 @@ export type Item = ImageItem | SwatchItem;
 export interface Section {
   id: string;             // 앵커 id (목차 라벨 기준: 헤드, 헤드가 페이지 이름과 같으면 서브헤드. 중복 시 -2, -3…)
   label: string;          // 목차 라벨 = 이미지 주제 이름 (헤드, 헤드가 페이지 이름과 같으면 서브헤드)
-  group?: { id: number; cols: number };   // ::: cols-N … ::: 로 묶인 섹션: 같은 id 끼리 한 행에 N단으로 (sectionBlocks)
+  row?: number;           // ::: row … ::: 로 묶인 섹션: 같은 번호끼리 한 12컬럼 행에 (sectionBlocks)
+  span?: number;          // 행 안에서 차지하는 그리드 컬럼 수 {span=N}. 생략하면 남은 컬럼을 균등 분배 (loadGuide 끝에서 확정)
   head: string;
   subhead?: string;
   bodyHtml: string;
@@ -85,6 +86,8 @@ export const langFromPath = (path: string): Lang => (LANGS as readonly string[])
  */
 const ASSETS = path.join(ROOT, 'public', 'assets');
 export const EXTS = ['svg', 'png', 'jpg', 'jpeg', 'webp', 'gif', 'avif'];   // 이미지 확장자 (우선순위 순). scripts/*.mjs 도 공유
+
+const GRID_COLS = 12;   // 본문 그리드 컬럼 수 (tokens.css --cols 와 같음). {span} 의 상한
 
 function slugify(s: string): string {
   return s
@@ -161,7 +164,7 @@ function normalizeRatio(r?: string): string | undefined {
 }
 
 function pickLayout(explicit: string | undefined, items: Item[]): Layout {
-  const allowed: Layout[] = ['basic', 'text', 'wide', 'half', 'grid-2', 'grid-3', 'grid-4', 'cols-2', 'cols-3', 'cols-4'];
+  const allowed: Layout[] = ['basic', 'text', 'wide', 'half', 'grid-2', 'grid-3', 'grid-4', 'text-2', 'text-3', 'text-4'];
   if (explicit && (allowed as string[]).includes(explicit)) return explicit as Layout;
   const n = items.length;
   if (n === 0) return 'text';
@@ -329,8 +332,8 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
   let section: Section | null = null;
   let body: string[] = [];
   let pendingLayout: string | undefined;                   // 헤드/서브헤드 줄의 {layout=…} (섹션을 다 읽은 뒤 pickLayout 에서 확정)
-  let group: Section['group'] | undefined;                 // 열린 ::: cols-N 묶음
-  let groupSeq = 0;
+  let row: number | undefined;                             // 열린 ::: row 묶음 번호
+  let rowSeq = 0;
   let idsInSub = new Map<string, number>();
 
   // 목차 앵커 라벨: 헤드가 페이지 이름과 같으면(예: Colors 페이지의 "Color") 서브헤드를 쓴다.
@@ -353,9 +356,7 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
     section.bodyHtml = md(body.join('\n'), ctx);
     section.layout = pickLayout(pendingLayout, section.items);
     pendingLayout = undefined;
-    if (section.group && section.layout.startsWith('cols-'))
-      console.warn(`[guide] "${section.head}": ::: cols-${section.group.cols} 묶음 안에서 {layout=${section.layout}} 로 또 단을 나눕니다. 너무 좁아질 수 있습니다 (${sub.url})`);
-    if (!/^(grid|cols)-/.test(section.layout) && section.layout !== 'wide' && section.items.length > 1)
+    if (!/^(grid|text)-/.test(section.layout) && section.layout !== 'wide' && section.items.length > 1)
       console.warn(`[guide] "${section.head}${section.subhead ? ' / ' + section.subhead : ''}" (${section.layout}) 섹션의 이미지 ${section.items.length}개 중 첫 번째만 표시됩니다. 모두 보이려면 {layout=grid-2|3|4} 또는 {layout=wide}`);
     sub.sections.push(section);
     section = null;
@@ -376,20 +377,20 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
   for (const line of lines) {
     let m: RegExpMatchArray | null;
 
-    if ((m = line.match(/^:::\s*cols-([234])\s*$/))) {              // ::: cols-3  → 다음 섹션들을 한 행에 N단으로 (::: 로 닫음)
+    if (/^:::\s*row\s*$/.test(line)) {                             // ::: row  → 다음 섹션들을 한 12컬럼 행에 (::: 로 닫음). 폭은 섹션의 {span=N}
       flushSection();
-      if (group) console.warn(`[guide] ::: cols-${m[1]}: 앞의 ::: cols-${group.cols} 묶음이 닫히지 않았습니다 (${sub?.url ?? ''}). 새 묶음으로 넘어갑니다`);
-      group = { id: ++groupSeq, cols: Number(m[1]) };
+      if (row !== undefined) console.warn(`[guide] ::: row: 앞의 ::: row 가 닫히지 않았습니다 (${sub?.url ?? ''}). 새 행으로 넘어갑니다`);
+      row = ++rowSeq;
       continue;
     }
-    if (/^:::\s*$/.test(line)) {                                   // :::  → 묶음 끝
+    if (/^:::\s*$/.test(line)) {                                   // :::  → 행 끝
       flushSection();
-      group = undefined;
+      row = undefined;
       continue;
     }
     if ((m = line.match(/^#\s+(\d+)\s+(.+?)\s*$/))) {              // # 02 Logo
       flushSection();
-      group = undefined;
+      row = undefined;
       chapter = { num: m[1], name: m[2], slug: `${m[1]}-${slugify(m[2])}`, subs: [] };
       chapters.push(chapter);
       sub = null;
@@ -397,7 +398,7 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
     }
     if ((m = line.match(/^##\s+(.+?)\s*$/)) && chapter) {           // ## Logo {toc=none}
       flushSection();
-      group = undefined;
+      row = undefined;
       const [name, attrs] = takeAttrs(m[1]);
       const slug = slugify(name);
       sub = {
@@ -417,10 +418,16 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
       const [head, attrs] = takeAttrs(smartQuotes(m[3]));
       section = {
         id: '', label: head, head, bodyHtml: '', layout: 'basic',   // id 는 flushSection 에서 (서브헤드까지 읽은 뒤)
-        ratio: normalizeRatio(attrs.ratio), items: [], tocMark, group,
+        ratio: normalizeRatio(attrs.ratio), items: [], tocMark, row,
         zoom: Number.isFinite(parseFloat(attrs.zoom)) ? parseFloat(attrs.zoom) : undefined
       };
       pendingLayout = attrs.layout;
+      if (attrs.span !== undefined) {                                 // {span=N}: ::: row 안에서 차지하는 컬럼 수
+        const n = parseInt(attrs.span, 10);
+        if (row === undefined) console.warn(`[guide] "${head}": {span=${attrs.span}} 은 ::: row 안에서만 뜻이 있습니다 (${sub.url}). 무시합니다`);
+        else if (!(n >= 1 && n <= GRID_COLS)) console.warn(`[guide] "${head}": {span=${attrs.span}} 은 1~${GRID_COLS} 사이여야 합니다 (${sub.url}). 무시합니다`);
+        else section.span = n;
+      }
       continue;
     }
     if ((m = line.match(/^####\s+(\+\s*)?(.+?)\s*$/)) && section) { // #### Subhead  /  #### + Subhead {layout=…}  (+ 와 {…} 는 헤드 줄과 동일하게 동작)
@@ -458,6 +465,25 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
   }
   flushSection();
   for (const ch of chapters) for (const s of ch.subs) finalizeNav(s);
+
+  // ::: row 의 폭 확정: {span} 을 적지 않은 섹션은 남은 컬럼을 균등하게 나눠 가짐 (남은 게 모자라면 새 행에서 12 를 나눔)
+  for (const ch of chapters) for (const s of ch.subs) {
+    const rows = new Map<number, Section[]>();
+    for (const sec of s.sections) if (sec.row !== undefined) rows.set(sec.row, [...(rows.get(sec.row) ?? []), sec]);
+    for (const secs of rows.values()) {
+      const open = secs.filter(x => x.span === undefined);
+      if (!open.length) continue;
+      const used = secs.reduce((a, x) => a + (x.span ?? 0), 0);
+      const left = GRID_COLS - used;
+      const each = Math.max(1, Math.floor((left >= open.length ? left : GRID_COLS) / open.length));
+      for (const x of open) x.span = each;
+    }
+    for (const sec of s.sections) {                              // 좁은 폭에서 문단까지 나누면 글이 깨짐
+      const m = sec.layout.match(/^text-(\d)$/);
+      if (m && sec.span !== undefined && sec.span / Number(m[1]) < 3)
+        console.warn(`[guide] "${sec.head}": 폭 ${sec.span}컬럼에서 {layout=${sec.layout}} 은 단이 ${(sec.span / Number(m[1])).toFixed(1)}컬럼이 되어 너무 좁습니다 (${s.url})`);
+    }
+  }
 
   // 이미지 경로 확정: <챕터>/<페이지 번호-이름>/<주제 번호>-<이름>.
   // 주제 = 목차 라벨 규칙과 같음(헤드, 헤드가 페이지 이름과 같으면 서브헤드). 번호는 페이지 안 주제 순서(목차 표시와 무관하게 전부 셈).
@@ -580,14 +606,14 @@ function swatchRows(hex: string, specs: string[]): SwatchRow[] {
 
 /** 이미지 목록(문서 순서). scripts/assets.mjs 가 /asset-manifest.json 으로 받아 폴더를 정리합니다. */
 export interface AssetEntry { page: string; path: string; src: string | null; }
-/** 페이지의 섹션을 렌더 단위로: ::: cols-N 으로 묶인 연속 섹션은 하나의 group 블록, 나머지는 낱개 */
-export type SectionBlock = { kind: 'section'; section: Section } | { kind: 'group'; id: number; cols: number; sections: Section[] };
+/** 페이지의 섹션을 렌더 단위로: ::: row 로 묶인 연속 섹션은 하나의 row 블록(12컬럼 행, 섹션마다 span), 나머지는 낱개 */
+export type SectionBlock = { kind: 'section'; section: Section } | { kind: 'row'; id: number; sections: Section[] };
 export function sectionBlocks(sub: Sub): SectionBlock[] {
   const blocks: SectionBlock[] = [];
   for (const sec of sub.sections) {
     const last = blocks[blocks.length - 1];
-    if (sec.group && last?.kind === 'group' && last.id === sec.group.id) last.sections.push(sec);
-    else if (sec.group) blocks.push({ kind: 'group', id: sec.group.id, cols: sec.group.cols, sections: [sec] });
+    if (sec.row !== undefined && last?.kind === 'row' && last.id === sec.row) last.sections.push(sec);
+    else if (sec.row !== undefined) blocks.push({ kind: 'row', id: sec.row, sections: [sec] });
     else blocks.push({ kind: 'section', section: sec });
   }
   return blocks;

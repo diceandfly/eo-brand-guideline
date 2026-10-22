@@ -85,16 +85,18 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
     ### Alignment {layout=half}                ← 텍스트 아래 6컬럼 이미지
     ### Core Palette {layout=grid-4}           ← 개수와 무관하게 4열
     ### Don'ts {layout=grid-3 ratio=4:5}       ← 비율도 함께. 기본값: basic/half 5:4, wide 2:1, grid 4:5
-    ### Credits {layout=cols-2}                ← 문단만으로 묶기: 본문의 문단(엔터 두 번)·목록을 2단(6컬럼씩)으로 차례로. cols-3 = 4컬럼씩 3단, cols-4 = 3컬럼씩 4단. 모바일은 한 단
-  섹션 여러 개를 한 행에 나란히 놓으려면 ::: 로 감쌉니다 (각 섹션 = 한 단. 단 안에서는 텍스트 아래에 이미지).
-    ::: cols-3
-    ### Thank You
+    ### Credits {layout=text-2}                ← 문단을 2단으로: 본문의 문단(엔터 두 번)·목록을 차례로 2단에. text-3 · text-4 도. 모바일은 한 단
+  섹션 여러 개를 한 행(12컬럼)에 나란히 놓으려면 ::: row 로 감싸고, 섹션마다 차지할 컬럼 수를 {span=N} 으로 적습니다.
+    ::: row
+    ### Thank You {span=4}
     …
-    ### Contact
+    ### Contact {span=4}
     …
-    ### Credits
+    ### Credits {span=4}
     …
     :::
+    → span 을 생략하면 남은 컬럼을 균등하게 나눕니다 (셋이면 4·4·4, 하나만 6이면 6·3·3). 합이 12를 넘으면 다음 행으로.
+    → 행 안에서는 섹션이 세로 흐름(헤드 → 본문 → 이미지)이 됩니다. 이미지가 많은 섹션은 좁아지니 글 위주 섹션에 쓰세요. 모바일은 전부 전폭.
 
 ■ 자주 하는 작업
   섹션 추가     : ### 헤드 한 줄 + 본문 + ![이미지] 를 원하는 위치에 끼워 넣으면 끝.
@@ -985,25 +987,25 @@ Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Bl
 
 # 06 End
 
-## Contact {toc=none}
-::: cols-2
-### Thank You
+## End {toc=none}
+::: row
+### Thank You {span=6}
 EO 브랜드 가이드라인을 끝까지 읽어 주셔서 감사합니다. 
 이 문서는 선언된 완성본이 아닌, EO와 함께 성장하고 변화하는 기준입니다. 쓰다가 막히는 곳, 더 나은 방법이 보이는 곳이 있으면 언제든 알려 주세요.
 
 디스크립터 · 패턴 · 컬러 조합처럼 EO 브랜드팀의 확인이 필요한 사항이 있다면 문의 주시길 바랍니다.
 
-### Imagery
+### Imagery {span=6}
 이 가이드라인에 쓰인 사진 · 일러스트 · 목업 가운데 일부는 브랜드 규칙을 설명하기 위한 예시로, EO Studio가 소유하거나 사용 허가를 받은 것이 아닙니다. 가이드 안의 사진 · 일러스트 · 예시 장표를 외부 커뮤니케이션에 그대로 사용하지 마세요. 
 
 외부로 나가는 EO 제작물에 이미지 · 일러스트 · 영상 등 타인의 지적재산을 쓸 때는 반드시 저작권자의 허가를 먼저 받으세요.
 
 
-### Contact
+### Contact {span=6}
 [[mailto:jemin@eoeoeo.net|jemin@eoeoeo.net]]
 
 
-### Credits
+### Credits {span=6}
 Visual identity guideline designed and written by [[https://diceandfly.studio|DiceAndFly.Studio]]\
 Inspired by the Discord brand guidelines ([[https://www.portorocha.com/|Porto Rocha]])
 :::

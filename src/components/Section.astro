@@ -1,8 +1,9 @@
 ---
 /**
  * 섹션 = 텍스트 블록(헤드 / 서브헤드 / 본문) + 미디어 슬롯.
- * 미디어 슬롯의 아이템 수와 layout 속성에 따라 basic / text / wide / half / grid-N / cols-N 으로 렌더됩니다.
- * cols-N: 본문의 문단(p · 목록)을 N단 그리드에 차례로 놓음 (데스크탑). 이미지가 있으면 같은 N열 그리드로 아래에.
+ * 미디어 슬롯의 아이템 수와 layout 속성에 따라 basic / text / wide / half / grid-N / text-N 으로 렌더됩니다.
+ * text-N: 본문의 문단(p · 목록)을 N단 그리드에 차례로 놓음 (데스크탑). 이미지가 있으면 같은 N열 그리드로 아래에.
+ * ::: row 안의 섹션은 span(그리드 컬럼 수)을 받아 --span 으로 넘김 (.sec-group 이 12컬럼 행).
  * wide 는 이미지가 여러 개면 전폭으로 세로로 쌓습니다.
  */
 import Figure from './Figure.astro';
@@ -11,22 +12,23 @@ import type { Section } from '../lib/guide';
 import { TOKENS } from '../lib/content';
 import { tokenNumber } from '../lib/tokens';
 
-interface Props { section: Section; eagerFrom?: number; eagerCount?: number; }   // eager*: 페이지 기준 이미지 순번 → 앞쪽 몇 장만 eager 로드 ([sub].astro)
-const { section: s, eagerFrom = 0, eagerCount = 0 } = Astro.props;
+interface Props { section: Section; eagerFrom?: number; eagerCount?: number; span?: number; }   // eager*: 페이지 기준 이미지 순번 → 앞쪽 몇 장만 eager 로드 ([sub].astro)
+const { section: s, eagerFrom = 0, eagerCount = 0, span } = Astro.props;
 const eager = (i: number) => eagerFrom + i < eagerCount;
 // 이미지 톤 판정(imageTone)에 넘길 실제 카드 배율: 이미지 {zoom} > 섹션 {zoom} > Do/Don't 그리드 기본값(tokens --dodont-zoom-N) > 1
 const toneZoom = (it: { zoom?: number; badge?: string }) => it.zoom ?? s.zoom ?? (isGrid && it.badge ? tokenNumber(TOKENS, `--dodont-zoom-${n}`, 1) : 1);
 
-const isCols = s.layout.startsWith('cols-');                 // 본문 문단을 N단으로. 이미지가 있으면 같은 열 수의 그리드로 아래에
-const isGrid = s.layout.startsWith('grid-') || isCols;
+const isTextCols = /^text-\d$/.test(s.layout);              // 본문 문단을 N단으로. 이미지가 있으면 같은 열 수의 그리드로 아래에
+const isGrid = s.layout.startsWith('grid-') || isTextCols;
 const n = isGrid ? Number(s.layout.split('-')[1]) : 1;
-const kind = isCols ? 'cols' : isGrid ? 'grid' : s.layout;
+const kind = isTextCols ? 'textcols' : isGrid ? 'grid' : s.layout;
+const vars = [isTextCols ? `--n: ${n}` : '', span ? `--span: ${span}` : ''].filter(Boolean).join('; ');
 const defaultRatio = isGrid ? 'var(--ratio-card)' : s.layout === 'wide' ? 'var(--ratio-wide)' : 'var(--ratio-basic)';
 const allDoDont = s.items.length > 0 && s.items.every(it => it.kind === 'image' && it.badge);
 const ratio = s.ratio ?? (allDoDont ? 'var(--ratio-dodont)' : defaultRatio);   // Do/Don't 시리즈는 --ratio-dodont ({ratio=} 가 있으면 그 값)
 const stacked = s.layout === 'wide' ? s.items : s.items.slice(0, 1);
 ---
-<section class:list={['sec', `sec--${kind}`]} id={s.id} data-section style={isCols ? `--n: ${n}` : undefined}>
+<section class:list={['sec', `sec--${kind}`]} id={s.id} data-section style={vars || undefined}>
   <div class="sec__text">
     <h2 class="sec__head t-heading">{s.head}</h2>
     {s.subhead && <h3 class="sec__subhead t-heading t-subhead">{s.subhead}</h3>}
