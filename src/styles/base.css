@@ -573,6 +573,7 @@ html.js .main {
   display: flex;
   flex-direction: column;
   gap: var(--section-gap);
+  container-type: inline-size; /* 자식에서 100cqw = 12컬럼 그리드 폭 (섹션 묶음의 컬럼 폭 계산용) */
 }
 
 .sec {
@@ -608,6 +609,10 @@ html.js .main {
   display: flex;
   flex-direction: column;
   gap: var(--sec-row-gap);
+}
+.sec-group > .sec > .sec__text {
+  --_col: calc((100cqw - (var(--cols) - 1) * var(--gutter)) / var(--cols)); /* 그리드 컬럼 하나의 폭 (.sections 기준) */
+  padding-right: calc(var(--_col) * var(--sec-group-text-pad));
 }
 /* cols-N: 헤드는 그대로, 본문의 문단(p · 목록)을 전폭 N단에 차례로 놓음. 단 사이는 컬럼 거터, 줄(행) 사이는 문단 간격 */
 .sec--cols .sec__text {
@@ -660,6 +665,9 @@ html.js .main {
   .sec--cols .sec__body,
   .sec-group {
     grid-template-columns: 1fr; /* 모바일: 한 단으로 */
+  }
+  .sec-group > .sec > .sec__text {
+    padding-right: 0;
   }
   :root {
     --cols: var(--cols-m);
