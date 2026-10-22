@@ -51,6 +51,10 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
     → Do/Don't 만 있는 섹션은 4:3 카드입니다. 원본은 16:9 로 만들면 카드에서는 가운데 4:3 이 보이고, 확대하면 전체가 보입니다.
     → 뒤에 글을 쓰면 이미지 아래 캡션이 붙습니다 (= 카드). 배지만 있고 글이 없으면 "Do" / "Don't" 가 기본 문구.
 
+■ 줄바꿈
+  엔터 두 번 = 새 문단(문단 간격). 엔터 한 번은 같은 문단으로 이어집니다(공백 하나).
+  문단을 나누지 않고 줄만 바꾸려면 줄 끝에 \ 를 붙입니다: Build Anyway.\ ← 다음 줄이 바로 아래에
+
 ■ 따옴표
   본문·캡션·헤드 어디서든 곧은 따옴표 " 와 ' 로 씁니다. 화면에는 자동으로 둥근 따옴표 “ ” ‘ ’ 로 바뀝니다.
     → "Build Anyway." 는 “Build Anyway.” 로, Don't 는 Don’t 로 표시됩니다. `코드` 안은 바뀌지 않습니다.
@@ -983,19 +987,19 @@ Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Bl
 
 ## Contact {toc=none}
 
-::: cols-3
+::: cols-2
+### Contact
+[[mailto:jemin@eoeoeo.net|jemin@eoeoeo.net]]
+
+
 ### Thank You
 EO 브랜드 가이드라인을 끝까지 읽어 주셔서 감사합니다. 이 문서는 완성본이 아니라 EO 와 함께 자라는 살아 있는 기준입니다. 쓰다가 막히는 곳, 더 나은 방법이 보이는 곳이 있으면 언제든 알려 주세요.
 
-
-### Contact
-EO 의 브랜드 에셋을 사용하려는 외부 파트너, 그리고 새 디스크립터 · 새 패턴 · 새 컬러 조합처럼 EO 브랜드팀의 확인이 필요한 사항은 아래로 연락해 주세요.
-
-[[mailto:jemin@eoeoeo.net|jemin@eoeoeo.net]]
-
+EO 의 브랜드 에셋을 사용하려는 외부 파트너, 그리고 새 디스크립터 · 새 패턴 · 새 컬러 조합처럼 EO 브랜드팀의 확인이 필요한 사항이 있다면 연락해 주세요.
+:::
 
 ### Credits
 Visual identity guideline designed and written by [[https://diceandfly.studio|DiceAndFly.Studio]]
 
 Inspired by the Discord brand guidelines by [[https://www.portorocha.com/|Porto Rocha]]
-:::
+
