@@ -44,29 +44,6 @@ const ms = (name: string, fallback: number) => {
 // 운영체제의 "동작 줄이기"를 켠 사용자: 스무스 스크롤 끔, 섹션 이동은 바로 점프, 라이트박스는 배율 없이 짧은 디졸브
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---------- 0. 페이지 준비 (들어올 때) ----------
-   본문 디졸브(base.css page-in)는 첫 화면에 보이는 이미지와 폰트가 준비된 뒤에 시작합니다. 그래야 이미지가 디졸브 중간에
-   따로 "툭" 뜨지 않고 본문과 한 덩어리로 떠오릅니다. 오래 걸리면 --page-in-wait 에서 그냥 시작하고, 그 뒤에 오는 이미지는
-   각자 --img-in-dur 로 떠오릅니다 (is-loaded). */
-{
-  const html = document.documentElement;
-  const imgs = Array.from(document.querySelectorAll<HTMLImageElement>('.fig__frame > img'));
-  const mark = (img: HTMLImageElement) => img.classList.add('is-loaded');
-  for (const img of imgs) {
-    if (img.complete && img.naturalWidth > 0) mark(img);
-    else { img.addEventListener('load', () => mark(img), { once: true }); img.addEventListener('error', () => mark(img), { once: true }); }
-  }
-  const wait = reduced ? 0 : ms('--page-in-wait', 0.32);
-  const ready = () => html.classList.add('page-ready');
-  if (wait <= 0) ready();
-  else {
-    const inView = imgs.filter(img => img.getBoundingClientRect().top < innerHeight * 1.2);   // 첫 화면(+조금 아래)에 보이는 이미지만 기다림
-    const decodes = inView.map(img => (img.complete && img.naturalWidth > 0 ? Promise.resolve() : img.decode()).catch(() => {}));
-    const fonts = 'fonts' in document ? document.fonts.ready.then(() => {}, () => {}) : Promise.resolve();
-    Promise.race([Promise.all([...decodes, fonts]), new Promise(r => setTimeout(r, wait * 1000))]).then(ready);
-  }
-}
-
 /* ---------- 1. 스무스 스크롤 ---------- */
 const smoothAmount = reduced ? 0 : ms('--scroll-smooth', 0);
 const wrapper = document.getElementById('smooth-wrapper');
