@@ -725,10 +725,10 @@ Day Blue와 Bay Green은 샌프란시스코의 푸른 하늘과 청량한 공기
 ### Color {layout=grid-3}
 #### Pairings
 
-이 섹션은 전반적인 컬러의 사용성에 대해 설명합니다. 에셋 별 구체적인 컬러 사용법에 대해선 해당 페이지의 내용을 참고하세요.
-- 텍스트는 Air White 또는 Space Black을 기본으로 합니다. 
-- 그래픽 유닛의 컬러는 Builder Neon · Air White  · Day Blue · Bay Green · Medium Gray를 기본으로 사용합니다. 
-- 배경 컬러는 Solid Gray · Space Black를 기본으로 합니다. 일반적인 상황 · 마일드한 무드에는 Solid Gray 배경을, 좀 더 강렬한 무드를 추구할 땐 Space Black 배경을 사용합니다. 브랜드의 존재감을 강하게 어필해야할 때, 전달할 정보량이 적은 지면에 한해 Builder Neon을 배경 컬러로 사용하고 그 위에 Space Black 유닛을 올립니다.
+이 섹션은 전반적인 컬러의 사용성에 대해 설명합니다. 에셋별 구체적인 컬러 사용법은 각 페이지의 해당 섹션에 있습니다.
+- **텍스트** Air White 또는 Space Black을 기본으로 합니다.
+- **로고** 심볼 · 시그니처 · 서브심볼의 컬러 페어링과 반전 규칙은 각 페이지에 있습니다. [[symbol#color]] · [[signature#color]] · [[sub-symbol#color]]
+- **그래픽 유닛 · 패턴** 유닛 컬러는 Builder Neon · Air White · Day Blue · Bay Green · Medium Gray를, 배경 컬러는 Solid Gray · Space Black를 기본으로 합니다. 일반적인 상황 · 마일드한 무드에는 Solid Gray 배경을, 좀 더 강렬한 무드를 추구할 땐 Space Black 배경을 사용합니다. 브랜드의 존재감을 강하게 어필해야할 때, 전달할 정보량이 적은 지면에 한해 Builder Neon을 배경 컬러로 사용하고 그 위에 Space Black 유닛을 올립니다. 조합 규칙과 Do · Don't는 [[pattern#color-pairing]]에 있습니다.
 ![color/pairing-1] Air White on Space Black
 ![color/pairing-2] Space Black on Air White
 ![color/pairing-3] Space Black on Builder Neon
@@ -835,7 +835,9 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 
 ### Graphic Unit {layout=grid-3}
 #### + Don'ts
-유닛 지오메트리의 모든 변형은 Graphic Builder의 파라미터 안에서만 이루어져야 하며, 수동으로 변형해선 안 됩니다. 단, 유닛이 놓인 평면 전체를 아이소메트릭이나 원근으로 투영하는 입체적 확장은 EO 브랜드팀의 검토를 거쳐 제한적으로 시도할 수 있습니다.
+유닛 지오메트리의 모든 변형은 Graphic Builder의 파라미터 안에서만 이루어져야 하며, 수동으로 변형하는 것은 가급적 지양합니다. 유닛의 심미성과 의미는 평면 위에 펼쳐진 thread의 밀도 변화에서 나오므로, 그 평면이 흐트러지면 compression이 만드는 리듬도 함께 무너지기 때문입니다. 
+
+단, 유닛이 놓인 평면 전체를 아이소메트릭이나 원근으로 투영하는 입체적 확장은 EO 브랜드팀의 검토를 거쳐 제한적으로 시도할 수 있습니다.
 ![visual/unit-dont-1]{dont} 유닛을 90° 단위가 아닌 각도로 회전하지 마세요
 ![visual/unit-dont-2]{dont} 유닛의 형태를 기울이지 마세요
 ![visual/unit-dont-3]{dont} thread를 임의로 지우거나 추가하지 마세요
