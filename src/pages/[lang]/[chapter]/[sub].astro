@@ -2,7 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import Section from '../../../components/Section.astro';
 import { loadAllGuides } from '../../../lib/content';
-import { altUrl, LANGS, type Guide, type Sub, type Lang } from '../../../lib/guide';
+import { altUrl, sectionBlocks, LANGS, type Guide, type Sub, type Lang } from '../../../lib/guide';
 
 export async function getStaticPaths() {
   const guides = loadAllGuides();
@@ -19,6 +19,10 @@ export async function getStaticPaths() {
 interface Props { guide: Guide; sub: Sub; lang: Lang; alt: Partial<Record<Lang, string>>; }
 const { guide, sub, lang, alt } = Astro.props;
 const EAGER_IMAGES = 4;   // 페이지 앞쪽에서 eager 로 미리 받을 이미지 수 (첫 화면 + 한 섹션 정도)
+// 섹션 순서대로 이미지 순번을 세어 앞쪽 몇 장만 eager. ::: cols-N 묶음은 .sec-group 안에 N단으로
+let seen = 0;
+const eagerFrom = (s: Sub['sections'][number]) => { const from = seen; seen += s.items.filter(it => it.kind === 'image').length; return from; };
+const blocks = sectionBlocks(sub);
 ---
 <Layout guide={guide} current={sub} lang={lang} alt={alt} title={`${sub.chapterNum} ${sub.chapterName} / ${sub.name}`}>
   <header class="page-head">
@@ -27,7 +31,11 @@ const EAGER_IMAGES = 4;   // 페이지 앞쪽에서 eager 로 미리 받을 이�
 
   <div class="sections">
     <!-- 첫 화면에 걸리는 이미지 몇 장은 eager + 높은 우선순위로 HTML 단계에서 바로 요청해, 본문 디졸브가 시작될 때 이미 떠 있게 함. 나머지는 lazy -->
-    {(() => { let seen = 0; return sub.sections.map(s => { const from = seen; seen += s.items.filter(it => it.kind === 'image').length; return <Section section={s} eagerFrom={from} eagerCount={EAGER_IMAGES} />; }); })()}
+    {blocks.map(b => b.kind === 'section'
+      ? <Section section={b.section} eagerFrom={eagerFrom(b.section)} eagerCount={EAGER_IMAGES} />
+      : <div class="sec-group" style={`--n: ${b.cols}`}>
+          {b.sections.map(s => <Section section={s} eagerFrom={eagerFrom(s)} eagerCount={EAGER_IMAGES} />)}
+        </div>)}
   </div>
 
   {sub.next && (

@@ -34,6 +34,7 @@ export type Item = ImageItem | SwatchItem;
 export interface Section {
   id: string;             // 앵커 id (목차 라벨 기준: 헤드, 헤드가 페이지 이름과 같으면 서브헤드. 중복 시 -2, -3…)
   label: string;          // 목차 라벨 = 이미지 주제 이름 (헤드, 헤드가 페이지 이름과 같으면 서브헤드)
+  group?: { id: number; cols: number };   // ::: cols-N … ::: 로 묶인 섹션: 같은 id 끼리 한 행에 N단으로 (sectionBlocks)
   head: string;
   subhead?: string;
   bodyHtml: string;
@@ -328,6 +329,8 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
   let section: Section | null = null;
   let body: string[] = [];
   let pendingLayout: string | undefined;                   // 헤드/서브헤드 줄의 {layout=…} (섹션을 다 읽은 뒤 pickLayout 에서 확정)
+  let group: Section['group'] | undefined;                 // 열린 ::: cols-N 묶음
+  let groupSeq = 0;
   let idsInSub = new Map<string, number>();
 
   // 목차 앵커 라벨: 헤드가 페이지 이름과 같으면(예: Colors 페이지의 "Color") 서브헤드를 쓴다.
@@ -371,8 +374,19 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
   for (const line of lines) {
     let m: RegExpMatchArray | null;
 
+    if ((m = line.match(/^:::\s*cols-([234])\s*$/))) {              // ::: cols-3  → 다음 섹션들을 한 행에 N단으로 (::: 로 닫음)
+      flushSection();
+      group = { id: ++groupSeq, cols: Number(m[1]) };
+      continue;
+    }
+    if (/^:::\s*$/.test(line)) {                                   // :::  → 묶음 끝
+      flushSection();
+      group = undefined;
+      continue;
+    }
     if ((m = line.match(/^#\s+(\d+)\s+(.+?)\s*$/))) {              // # 02 Logo
       flushSection();
+      group = undefined;
       chapter = { num: m[1], name: m[2], slug: `${m[1]}-${slugify(m[2])}`, subs: [] };
       chapters.push(chapter);
       sub = null;
@@ -380,6 +394,7 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
     }
     if ((m = line.match(/^##\s+(.+?)\s*$/)) && chapter) {           // ## Logo {toc=none}
       flushSection();
+      group = undefined;
       const [name, attrs] = takeAttrs(m[1]);
       const slug = slugify(name);
       sub = {
@@ -399,7 +414,7 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
       const [head, attrs] = takeAttrs(smartQuotes(m[3]));
       section = {
         id: '', label: head, head, bodyHtml: '', layout: 'basic',   // id 는 flushSection 에서 (서브헤드까지 읽은 뒤)
-        ratio: normalizeRatio(attrs.ratio), items: [], tocMark,
+        ratio: normalizeRatio(attrs.ratio), items: [], tocMark, group,
         zoom: Number.isFinite(parseFloat(attrs.zoom)) ? parseFloat(attrs.zoom) : undefined
       };
       pendingLayout = attrs.layout;
@@ -562,6 +577,19 @@ function swatchRows(hex: string, specs: string[]): SwatchRow[] {
 
 /** 이미지 목록(문서 순서). scripts/assets.mjs 가 /asset-manifest.json 으로 받아 폴더를 정리합니다. */
 export interface AssetEntry { page: string; path: string; src: string | null; }
+/** 페이지의 섹션을 렌더 단위로: ::: cols-N 으로 묶인 연속 섹션은 하나의 group 블록, 나머지는 낱개 */
+export type SectionBlock = { kind: 'section'; section: Section } | { kind: 'group'; id: number; cols: number; sections: Section[] };
+export function sectionBlocks(sub: Sub): SectionBlock[] {
+  const blocks: SectionBlock[] = [];
+  for (const sec of sub.sections) {
+    const last = blocks[blocks.length - 1];
+    if (sec.group && last?.kind === 'group' && last.id === sec.group.id) last.sections.push(sec);
+    else if (sec.group) blocks.push({ kind: 'group', id: sec.group.id, cols: sec.group.cols, sections: [sec] });
+    else blocks.push({ kind: 'section', section: sec });
+  }
+  return blocks;
+}
+
 export function assetEntries(guide: Guide): AssetEntry[] {
   const out: AssetEntry[] = [];
   for (const ch of guide.chapters) for (const s of ch.subs) for (const sec of s.sections) for (const it of sec.items) {

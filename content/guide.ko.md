@@ -82,6 +82,15 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
     ### Core Palette {layout=grid-4}           ← 개수와 무관하게 4열
     ### Don'ts {layout=grid-3 ratio=4:5}       ← 비율도 함께. 기본값: basic/half 5:4, wide 2:1, grid 4:5
     ### Credits {layout=cols-2}                ← 문단만으로 묶기: 본문의 문단(엔터 두 번)·목록을 2단(6컬럼씩)으로 차례로. cols-3 = 4컬럼씩 3단, cols-4 = 3컬럼씩 4단. 모바일은 한 단
+  섹션 여러 개를 한 행에 나란히 놓으려면 ::: 로 감쌉니다 (각 섹션 = 한 단. 단 안에서는 텍스트 아래에 이미지).
+    ::: cols-3
+    ### Thank You
+    …
+    ### Contact
+    …
+    ### Credits
+    …
+    :::
 
 ■ 자주 하는 작업
   섹션 추가     : ### 헤드 한 줄 + 본문 + ![이미지] 를 원하는 위치에 끼워 넣으면 끝.
@@ -974,6 +983,7 @@ Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Bl
 
 ## Contact {toc=none}
 
+::: cols-3
 ### Thank You
 EO 브랜드 가이드라인을 끝까지 읽어 주셔서 감사합니다. 이 문서는 완성본이 아니라 EO 와 함께 자라는 살아 있는 기준입니다. 쓰다가 막히는 곳, 더 나은 방법이 보이는 곳이 있으면 언제든 알려 주세요.
 
@@ -984,7 +994,8 @@ EO 의 브랜드 에셋을 사용하려는 외부 파트너, 그리고 새 디�
 [[mailto:jemin@eoeoeo.net|jemin@eoeoeo.net]]
 
 
-### Credits {layout=cols-2}
-**Visual identity guideline** designed and written by DiceAndFly.Studio
+### Credits
+Visual identity guideline designed and written by [[https://diceandfly.studio|DiceAndFly.Studio]]
 
-**Inspired by** the Discord Corebook by [[https://www.portorocha.com/|Porto Rocha]]
+Inspired by the Discord brand guidelines by [[https://www.portorocha.com/|Porto Rocha]]
+:::
