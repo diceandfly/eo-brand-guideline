@@ -1067,6 +1067,7 @@ html.js .main {
   background: var(--swatch-tip-bg);
   color: var(--swatch-tip-fg);
   white-space: nowrap;
+  user-select: none; /* 드래그 선택에 안 들어감 (글자도 아래 content 라 DOM 에 없음) */
   opacity: 0;
   pointer-events: none;
   scale: calc(1 / var(--swatch-panel-zoom)); /* 스펙 블록 축소(--swatch-panel-zoom)를 되돌려 알약은 원래 크기 */
@@ -1088,6 +1089,13 @@ html.js .main {
 }
 .swatch__tip-text--copy {
   translate: var(--swatch-tip-copy-nudge) var(--swatch-tip-text-dy); /* + 끝 글자 Y 의 오른쪽이 비어 보이는 착시 보정 */
+}
+/* 알약 글자는 CSS 로 그림: 본문을 드래그해 복사할 때 "Copy" 가 섞이지 않도록 DOM 에 두지 않음 */
+.swatch__tip-text--copy::before {
+  content: 'Copy';
+}
+.swatch__tip-text--done::before {
+  content: 'Copied';
 }
 .swatch__tip-text--done,
 .swatch__val.is-copied .swatch__tip-text--copy {

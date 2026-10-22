@@ -251,7 +251,7 @@ function colorChips(html: string, lang: Lang): string {
       if (bracket && !m.endsWith(']')) return m;                      // 여는 괄호만 있음 → 그대로
       // 칩 = 복사 버튼. 호버하면 컬러 카드의 값과 같은 Copy 알약이 뜨고, 누르면 HEX 를 복사 (Layout.astro 의 공통 스크립트)
       const hex = COLOR_HEX[name];
-      const tip = `<span class="swatch__tip t-label" aria-hidden="true"><span class="swatch__tip-text swatch__tip-text--copy">Copy</span><span class="swatch__tip-text swatch__tip-text--done">Copied</span></span>`;
+      const tip = `<span class="swatch__tip t-label" aria-hidden="true"><span class="swatch__tip-text swatch__tip-text--copy"></span><span class="swatch__tip-text swatch__tip-text--done"></span></span>`;   // 글자는 CSS content (드래그 복사에 섞이지 않게)
       const chip = `<button type="button" class="cref__btn swatch__val" data-copy="${hex}" aria-label="${ui.copy} ${name} ${hex}"${bracket ? ` title="${name} ${hex}"` : ''}><i class="cref__chip${COLOR_DARK.has(name) ? ` cref__chip--dark cref__chip--${slug}` : ''}" style="--cref:var(--c-${slug})"></i>${tip}</button>`;
       return bracket ? `<span class="cref cref--only">${chip}<span class="sr-only">${name}</span></span>` : `<span class="cref">${chip}${name}</span>`;
     });
