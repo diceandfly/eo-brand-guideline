@@ -983,23 +983,28 @@ Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Bl
 
 
 
-# 06 Contact
+# 06 End
 
 ## Contact {toc=none}
-
 ::: cols-2
+### Thank You
+EO 브랜드 가이드라인을 끝까지 읽어 주셔서 감사합니다. 
+이 문서는 선언된 완성본이 아닌, EO와 함께 성장하고 변화하는 기준입니다. 쓰다가 막히는 곳, 더 나은 방법이 보이는 곳이 있으면 언제든 알려 주세요.
+
+디스크립터 · 패턴 · 컬러 조합처럼 EO 브랜드팀의 확인이 필요한 사항이 있다면 문의 주시길 바랍니다.
+
+### Imagery
+이 가이드라인에 쓰인 사진 · 일러스트 · 목업 가운데 일부는 브랜드 규칙을 설명하기 위한 예시로, EO Studio가 소유하거나 사용 허가를 받은 것이 아닙니다. 가이드 안의 사진 · 일러스트 · 예시 장표를 외부 커뮤니케이션에 그대로 사용하지 마세요. 
+
+외부로 나가는 EO 제작물에 이미지 · 일러스트 · 영상 등 타인의 지적재산을 쓸 때는 반드시 저작권자의 허가를 먼저 받으세요.
+
+
 ### Contact
 [[mailto:jemin@eoeoeo.net|jemin@eoeoeo.net]]
 
 
-### Thank You
-EO 브랜드 가이드라인을 끝까지 읽어 주셔서 감사합니다. 이 문서는 완성본이 아니라 EO 와 함께 자라는 살아 있는 기준입니다. 쓰다가 막히는 곳, 더 나은 방법이 보이는 곳이 있으면 언제든 알려 주세요.
-
-EO 의 브랜드 에셋을 사용하려는 외부 파트너, 그리고 새 디스크립터 · 새 패턴 · 새 컬러 조합처럼 EO 브랜드팀의 확인이 필요한 사항이 있다면 연락해 주세요.
-:::
-
 ### Credits
-Visual identity guideline designed and written by [[https://diceandfly.studio|DiceAndFly.Studio]]
-
-Inspired by the Discord brand guidelines by [[https://www.portorocha.com/|Porto Rocha]]
+Visual identity guideline designed and written by [[https://diceandfly.studio|DiceAndFly.Studio]]\
+Inspired by the Discord brand guidelines ([[https://www.portorocha.com/|Porto Rocha]])
+:::
 
