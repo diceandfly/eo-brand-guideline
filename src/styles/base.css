@@ -869,9 +869,13 @@ html.js .main {
   background: none; /* 값 버튼의 드래그 박스 하이라이트는 끔 (.swatch__val:hover 보다 구체적이어야 이김) */
 }
 .cref__btn .swatch__tip {
-  /* 알약은 컬러 카드와 같이 아래로 (위치·방향은 .swatch__tip 그대로). 위로 띄우려면 top: auto; bottom: calc(100% + gap); transform-origin: 0 100%; translateY(+rise) */
+  /* 글줄 안에서는 알약을 칩 위로: 아래로 띄우면 아직 읽지 않은 다음 줄을 가림 (컬러 카드는 패널이 위에 붙어 있어 아래로) */
+  top: auto;
+  bottom: calc(100% + var(--swatch-tip-gap));
   left: calc(50% + (var(--cref-side) - var(--cref-gap)) / 2); /* 좌우 여백이 달라 칩의 실제 가운데로 보정 */
   scale: 1; /* 패널 축소 되돌림은 카드 안에서만 */
+  transform-origin: 0 100%;
+  transform: translate(-50%, var(--swatch-tip-rise));
 }
 .cref--only .cref__btn .swatch__tip {
   left: 50%;
