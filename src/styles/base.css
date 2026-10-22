@@ -856,6 +856,29 @@ html.js .main {
 .cref--only .cref__chip {
   margin-right: var(--cref-side); /* [Builder Neon]: 이름 없이 칩만 → 양쪽 다 바깥 여백 */
 }
+/* 칩은 복사 버튼: 컬러 카드의 값(.swatch__val)과 같은 Copy 알약을 쓰되, 글줄 안이므로 하이라이트 박스는 없고 알약은 칩 위에 뜸 */
+.cref__btn {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  line-height: 0;
+}
+.swatch__val.cref__btn:hover,
+.swatch__val.cref__btn:focus-visible,
+.swatch__val.cref__btn.is-copied {
+  background: none; /* 값 버튼의 드래그 박스 하이라이트는 끔 (.swatch__val:hover 보다 구체적이어야 이김) */
+}
+.cref__btn .swatch__tip {
+  top: auto;
+  bottom: calc(100% + var(--swatch-tip-gap));
+  left: calc(50% + (var(--cref-side) - var(--cref-gap)) / 2); /* 좌우 여백이 달라 칩의 실제 가운데로 보정 */
+  scale: 1; /* 패널 축소 되돌림은 카드 안에서만 */
+  transform-origin: 0 100%;
+  transform: translate(-50%, var(--swatch-tip-rise));
+}
+.cref--only .cref__btn .swatch__tip {
+  left: 50%;
+}
 .cref__chip--solid-gray {
   --_grow: var(--cref-grow-solid-gray);
 }

@@ -64,6 +64,29 @@ const ui = UI_TEXT[lang];
       import '../lib/motion';
     </script>
     <script>
+      // 값 복사 (컬러 카드의 값 · 본문 컬러 칩). 버튼에 is-copied 를 잠깐 붙여 Copy → Copied 로 바꿉니다.
+      const raw = getComputedStyle(document.documentElement).getPropertyValue('--swatch-copied-dur').trim();
+      const copiedMs = raw.endsWith('ms') ? parseFloat(raw) : (parseFloat(raw) || 1.2) * 1000;
+      const write = async (text: string) => {
+        try { await navigator.clipboard.writeText(text); return true; }
+        catch {                                                     // 클립보드 API 를 못 쓰는 환경 폴백
+          const ta = Object.assign(document.createElement('textarea'), { value: text });
+          ta.style.cssText = 'position:fixed;opacity:0';
+          document.body.appendChild(ta); ta.select();
+          const ok = document.execCommand('copy'); ta.remove(); return ok;
+        }
+      };
+      const timers = new WeakMap<HTMLElement, number>();
+      document.addEventListener('click', async e => {
+        const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-copy]');
+        if (!btn) return;
+        if (!(await write(btn.dataset.copy ?? ''))) return;
+        btn.classList.add('is-copied');
+        clearTimeout(timers.get(btn));
+        timers.set(btn, window.setTimeout(() => btn.classList.remove('is-copied'), copiedMs));
+      });
+    </script>
+    <script>
       // 모바일: 상단 바 버튼으로 목차 드로어 토글. 링크를 누르면 닫힘.
       // 닫힌 드로어는 화면 밖에 있어도 키보드 탭이 들어가지 않도록 inert. 기준 폭은 base.css 의 @media (max-width: 899px) 와 같게.
       const root = document.documentElement;

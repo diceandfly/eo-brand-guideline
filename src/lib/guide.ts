@@ -81,6 +81,7 @@ export const langFromPath = (path: string): Lang => (LANGS as readonly string[])
  * 저장 즉시 라우트(새 서브챕터 등)와 페이지를 다시 계산하고 브라우저를 새로고침합니다.
  */
 const CONTENT_FILES = import.meta.glob('/content/guide.*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+import tokensCss from '../styles/tokens.css?raw';   // 브랜드 팔레트 HEX (--c-*) — 컬러 칩의 복사 값
 const ASSETS = path.join(ROOT, 'public', 'assets');
 const EXTS = ['svg', 'png', 'jpg', 'jpeg', 'webp', 'gif', 'avif'];
 
@@ -228,9 +229,15 @@ const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
  * 칩 색은 tokens.css 의 --c-<이름 소문자-하이픈> 이라 팔레트 값이 바뀌면 같이 바뀝니다. 태그 안(속성)과 <code>·<pre> 안은 건드리지 않습니다.
  */
 const COLOR_NAMES = ['Builder Neon', 'Day Blue', 'Bay Green', 'Medium Gray', 'Solid Gray', 'Space Black', 'Air White'];
+/** 이름 → HEX (tokens.css 3. COLOR 의 --c-* 를 빌드 때 읽음). 칩을 누르면 이 값을 복사 */
+const COLOR_HEX: Record<string, string> = Object.fromEntries(COLOR_NAMES.map(n => {
+  const m = tokensCss.match(new RegExp(`--c-${n.toLowerCase().replace(/ /g, '-')}:\\s*(#[0-9a-f]{6})`, 'i'));
+  return [n, m ? m[1].toUpperCase() : ''];
+}));
 const COLOR_DARK = new Set(['Space Black', 'Solid Gray']);   // 어두운 칩: 테두리만 보여 작아 보이는 착시를 CSS(--cref-grow-*)로 색마다 보정
 const COLOR_RE = new RegExp(`(?<![\\w-])(\\[)?(${COLOR_NAMES.join('|')})(?:(?<=\\[.{7,12})\\](?!\\())?(?![\\w-])`, 'g');
-function colorChips(html: string): string {
+function colorChips(html: string, lang: Lang): string {
+  const ui = UI_TEXT[lang];
   let code = 0;
   return html.split(/(<[^>]+>)/).map(seg => {
     if (seg.startsWith('<')) {
@@ -241,8 +248,11 @@ function colorChips(html: string): string {
     if (code) return seg;
     return seg.replace(COLOR_RE, (m, bracket, name) => {
       const slug = name.toLowerCase().replace(/ /g, '-');
-      const chip = `<i class="cref__chip${COLOR_DARK.has(name) ? ` cref__chip--dark cref__chip--${slug}` : ''}" style="--cref:var(--c-${slug})"${bracket ? ` title="${name}"` : ''}></i>`;
       if (bracket && !m.endsWith(']')) return m;                      // 여는 괄호만 있음 → 그대로
+      // 칩 = 복사 버튼. 호버하면 컬러 카드의 값과 같은 Copy 알약이 뜨고, 누르면 HEX 를 복사 (Layout.astro 의 공통 스크립트)
+      const hex = COLOR_HEX[name];
+      const tip = `<span class="swatch__tip t-label" aria-hidden="true"><span class="swatch__tip-text swatch__tip-text--copy">Copy</span><span class="swatch__tip-text swatch__tip-text--done">Copied</span></span>`;
+      const chip = `<button type="button" class="cref__btn swatch__val" data-copy="${hex}" aria-label="${ui.copy} ${name} ${hex}"${bracket ? ` title="${name} ${hex}"` : ''}><i class="cref__chip${COLOR_DARK.has(name) ? ` cref__chip--dark cref__chip--${slug}` : ''}" style="--cref:var(--c-${slug})"></i>${tip}</button>`;
       return bracket ? `<span class="cref cref--only">${chip}<span class="sr-only">${name}</span></span>` : `<span class="cref">${chip}${name}</span>`;
     });
   }).join('');
@@ -278,9 +288,9 @@ function glueLastWords(html: string): string {
 const glueBlocks = (html: string) =>
   html.replace(/(<(p|li)\b[^>]*>)([\s\S]*?)(<\/\2>)/g, (_m, open, _tag, inner, close) => open + glueLastWords(inner) + close);
 
-function md(src: string): string {
+function md(src: string, lang: Lang): string {
   const s = src.trim();
-  return s ? glueBlocks(wrapKo(colorChips(smartQuotes(marked.parse(s, { async: false, gfm: true, breaks: false }) as string)))) : '';
+  return s ? glueBlocks(wrapKo(colorChips(smartQuotes(marked.parse(s, { async: false, gfm: true, breaks: false }) as string), lang))) : '';
 }
 
 export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
@@ -306,7 +316,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
 
   const flushSection = () => {
     if (!section || !sub) return;
-    section.bodyHtml = md(body.join('\n'));
+    section.bodyHtml = md(body.join('\n'), lang);
     section.layout = pickLayout((section as any)._layout, section.items);
     delete (section as any)._layout;
     sub.sections.push(section);
@@ -387,7 +397,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
       const z = flags.find(f => f.startsWith('zoom='));
       if (z && Number.isFinite(parseFloat(z.slice(5)))) item.zoom = parseFloat(z.slice(5));
       if (flags.includes('nozoom')) item.zoom = 1;
-      if (m[3].trim()) item.caption = glueLastWords(wrapKo(colorChips(smartQuotes(escapeHtml(m[3].trim())))));   // HTML (컬러 칩, 한글 구간 래핑, 고아 단어 방지)
+      if (m[3].trim()) item.caption = glueLastWords(wrapKo(colorChips(smartQuotes(escapeHtml(m[3].trim())), lang)));   // HTML (컬러 칩, 한글 구간 래핑, 고아 단어 방지)
       section.items.push(item);
       continue;
     }
@@ -434,7 +444,7 @@ export function loadGuide(lang: Lang = DEFAULT_LANG): Guide {
 /** u: url#id, c: 챕터, s: 서브챕터, h: 섹션 헤드, t: 제목(서브헤드, 없으면 헤드), b: 본문 */
 export interface SearchEntry { u: string; c: string; s: string; h: string; t: string; b: string; }
 const straightQuotes = (t: string) => t.replace(/[“”]/g, '"').replace(/[‘’]/g, "'");   // 검색어는 곧은 따옴표로 입력되므로 색인도 맞춤
-const stripTags = (html: string) => straightQuotes(html.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim());
+const stripTags = (html: string) => straightQuotes(html.replace(/<span class="swatch__tip[^>]*>(?:<span[^>]*>[^<]*<\/span>)*<\/span>/g, '').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim());
 export function buildSearchIndex(guide: Guide): SearchEntry[] {
   const out: SearchEntry[] = [];
   for (const ch of guide.chapters) for (const sub of ch.subs) for (const sec of sub.sections) {
