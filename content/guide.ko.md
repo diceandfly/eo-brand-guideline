@@ -25,6 +25,7 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
   [[https://eopla.net|EO Planet]]      → 외부 링크 (새 탭). 라벨이 없으면 "eopla.net" 처럼 주소가 글자로
     → 페이지 이름 = URL 의 slug (symbol, signature, pattern …), 섹션 = 앵커 id. 없는 대상은 빌드 로그에 경고가 뜨고 글자만 남습니다.
     → 일반 마크다운 링크 [글자](주소) 도 그대로 됩니다.
+    → 트리로 쓰려면 마크다운 중첩 불렛 그대로: "- 항목" 아래 두 칸 들여쓴 "  - [[symbol#color]]"
   #### Primary Lockup    ← 서브헤드 (선택). 헤드 바로 다음 줄에만 씁니다. 없으면 표시되지 않습니다.
   그 아래 줄들            ← 본문. 마크다운(문단, 굵게, 링크, 목록)을 쓸 수 있습니다.
 
@@ -725,10 +726,14 @@ Day Blue와 Bay Green은 샌프란시스코의 푸른 하늘과 청량한 공기
 ### Color {layout=grid-3}
 #### Pairings
 
-이 섹션은 전반적인 컬러의 사용성에 대해 설명합니다. 에셋별 구체적인 컬러 사용법은 각 페이지의 해당 섹션에 있습니다.
+이 섹션은 전반적인 컬러의 사용성에 대해 설명합니다. 구체적인 에셋별 컬러 사용법은 해당 섹션을 참조하세요.
 - **텍스트** Air White 또는 Space Black을 기본으로 합니다.
-- **로고** 심볼 · 시그니처 · 서브심볼의 컬러 페어링과 반전 규칙은 각 페이지에 있습니다. [[symbol#color]] · [[signature#color]] · [[sub-symbol#color]]
-- **그래픽 유닛 · 패턴** 유닛 컬러는 Builder Neon · Air White · Day Blue · Bay Green · Medium Gray를, 배경 컬러는 Solid Gray · Space Black를 기본으로 합니다. 일반적인 상황 · 마일드한 무드에는 Solid Gray 배경을, 좀 더 강렬한 무드를 추구할 땐 Space Black 배경을 사용합니다. 브랜드의 존재감을 강하게 어필해야할 때, 전달할 정보량이 적은 지면에 한해 Builder Neon을 배경 컬러로 사용하고 그 위에 Space Black 유닛을 올립니다. 조합 규칙과 Do · Don't는 [[pattern#color-pairing]]에 있습니다.
+- **로고** 심볼 · 시그니처 · 서브심볼의 컬러 페어링과 반전 규칙은 각 페이지에 있습니다.
+  - [[symbol#color]]
+  - [[signature#color]]
+  - [[sub-symbol#color]]
+- **그래픽 유닛 · 패턴** 유닛 컬러는 Builder Neon · Air White · Day Blue · Bay Green · Medium Gray를, 배경 컬러는 Solid Gray · Space Black를 기본으로 합니다. 일반적인 상황 · 마일드한 무드에는 Solid Gray 배경을, 좀 더 강렬한 무드를 추구할 땐 Space Black 배경을 사용합니다. 브랜드의 존재감을 강하게 어필해야할 때, 전달할 정보량이 적은 지면에 한해 Builder Neon을 배경 컬러로 사용하고 그 위에 Space Black 유닛을 올립니다.
+  - [[pattern#color-pairing]] — 조합 규칙과 Do · Don't
 ![color/pairing-1] Air White on Space Black
 ![color/pairing-2] Space Black on Air White
 ![color/pairing-3] Space Black on Builder Neon
