@@ -99,12 +99,12 @@
   --section-gap-m: 72px;
   --next-gap: 160px; /* 마지막 섹션 ↔ 다음 버튼 */
   --next-gap-m: 96px;
-  --next-arrow-size: 0.95em; /* 다음 버튼 화살표 크기 (타이틀 글자 기준 em) */
+  --next-arrow-size: 0.98em; /* 다음 버튼 화살표 크기 (타이틀 글자 기준 em) */
   --next-arrow-stroke: 1.5; /* 화살표 선 굵기 (SVG 24 기준 단위) */
   --next-pad-top: 2; /* 다음 버튼 윗선 ↔ 라벨 = 행간 단위 × 값 */
   --next-label-gap: 0.5; /* 라벨(Next) ↔ 타이틀 = 행간 단위 × 값 */
-  --next-arrow-gap: 0.18em; /* 타이틀 텍스트 ↔ 화살표 */
-  --next-arrow-shift: -0.205em; /* 화살표 세로 위치. 음수 = 아래로 (헤딩 32.6px 기준 0.015em ≈ 0.5px) */
+  --next-arrow-gap: 0.12em; /* 타이틀 텍스트 ↔ 화살표 */
+  --next-arrow-shift: -0.19em; /* 화살표 세로 위치. 음수 = 아래로 (헤딩 32.6px 기준 0.015em ≈ 0.5px) */
   --page-pad-bottom: 120px; /* 다음 버튼 ↔ 페이지 바닥 */
   --page-pad-bottom-m: 80px;
 
