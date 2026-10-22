@@ -111,12 +111,6 @@ EO는 빌더를 위한 미디어입니다. 우리는 클릭이 아니라 신뢰�
 
 이 가이드라인은 EO 아이덴티티 시스템의 기본 요소인 로고 · 타이포그래피 · 컬러 · 그래픽 시스템을 설명하고, 우리가 그것을 어떻게 사용해 브랜드를 만들어 가는지 안내합니다. 가이드라인을 이해하고 따르면 샌프란시스코 · 서울 · 베트남 어디에서 만들어진 콘텐츠든 하나의 EO로 보이고 읽힙니다.
 
-EO의 브랜드 에셋을 사용하려는 외부 파트너는 jemin@eoeoeo.net으로 연락해 주시기 바랍니다.
-
-Build Anyway.
-
-The EO Brand Team
-
 
 
 ## Legal Brand Guidelines {toc=none}
@@ -866,15 +860,18 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 #### Color
 Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Blue · Bay Green · Medium Gray을 유닛 컬러로 사용하는 것이 기본 조합입니다. 여러 유닛을 나란히 놓을 때는 명도 차가 비슷한 Day Blue · Bay Green · Medium Gray를 균일한 비중 · 위치 · 동세로 배치하거나, 명도가 높은 Builder Neon · Air White를 시각 초점으로 활용해 캔버스의 깊이감을 의도적으로 조절하세요.
 
-일반적인 상황 · 마일드한 무드에는 Solid Gray 배경을, 좀 더 강렬한 무드를 추구할 땐 Space Black 배경을 사용합니다. 브랜드의 존재감을 강하게 어필해야할 때, 전달할 정보량이 적은 지면에 한해 Builder Neon을 배경 컬러로 사용하고 그 위에 Space Black 유닛을 올립니다.
+일반적인 상황 · 마일드한 무드에는 Solid Gray 배경을, 좀 더 강렬한 무드를 추구할 땐 Space Black 배경을 사용합니다. 브랜드의 존재감을 가장 강하게 어필해야 하면서 전달할 정보량이 적은 지면에 한해서, Builder Neon을 배경 컬러로 사용하고 그 위에 Space Black 유닛을 올립니다.
 
-- 하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 
-- **하나의 그래픽에 동시에 사용하는 유닛 컬러는 최대 3가지**까지 권장되며, Builder Neon · Day Blue · Bay Green · Medium Gray 고정 조합에 한해 최대 네 가지까지 사용할 수 있습니다.
-- Medium Gray 유닛만을 단독으로 사용하지 않고 다른 컬러의 유닛과 조합하여 사용합니다. 
-- 배경 컬러로 Solid Gray를 사용하면, 5개의 유닛 컬러 모두 충분한 균형을 유지하면서 전체 대비가 한 단계 낮아져 차분하게 묶이므로 우선적으로 고려합니다. 
-- Builder Neon · Day Blue · Bay Green · Air White 를 배경 컬러로 쓸 때는 Space Black 유닛만 올릴 수 있습니다.
-- Solid Gray는 반드시 배경 컬러으로만 사용하며 유닛 컬러로는 사용하지 않습니다.
-- Medium Gray는 디지털 환경에서 배경 컬러로 사용하지 않습니다. Merch 제작 시 실물 소재의 컬러를 Medium Gray로 맞출 수 있는 경우에 한해, EO 브랜드팀의 허가를 거쳐 Builder Neon · Space Black 유닛을 제한적으로 올릴 수 있습니다.
+- 유닛 컬러
+  - 하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 
+  - **하나의 그래픽에 동시에 사용하는 유닛 컬러는 최대 3가지**까지 권장되며, Builder Neon · Day Blue · Bay Green · Medium Gray 고정 조합에 한해 최대 네 가지까지 사용할 수 있습니다.
+  - Medium Gray 유닛만을 단독으로 사용하지 않고 다른 컬러의 유닛과 조합하여 사용합니다. 
+  - Solid Gray는 유닛 컬러로 사용하지 않습니다.
+- 배경 컬러
+  - Solid Gray를 배경 컬러로 사용하면, 5개의 유닛 컬러와의 대비가 한 단계 낮아져 모든 컬러가 차분하게 묶이므로 우선적으로 고려합니다. 
+  - Builder Neon · Day Blue · Bay Green · Air White 를 배경 컬러로 쓸 때는 Space Black 유닛만 올릴 수 있습니다.
+  - Solid Gray는 반드시 배경 컬러으로만 사용하며 유닛 컬러로는 사용하지 않습니다.
+  - Medium Gray는 디지털 환경에서 배경 컬러로 사용하지 않습니다. Merch 제작 시 실물 소재의 컬러를 Medium Gray로 맞출 수 있는 경우에 한해, EO 브랜드팀의 허가를 거쳐 Builder Neon · Space Black 유닛을 제한적으로 올릴 수 있습니다.
 ![graphic/unit-color-do-1] {do}[Builder Neon] / [Day Blue] / [Bay Green] / [Medium Gray] / [Air White] on [Solid Gray]
 ![graphic/unit-color-do-2] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Space Black]
 ![graphic/unit-color-do-3] {do}[Space Black] on [Builder Neon] · [Day Blue] · [Bay Green]
@@ -965,3 +962,22 @@ Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Bl
 ![graphic/app-tee] Oversized Tee
 ![graphic/app-hoodie] Hoodie
 ![graphic/app-cap] 5-panel Cap
+
+
+
+# 06 Contact
+
+## Contact {toc=none}
+
+### Thank You
+EO 브랜드 가이드라인을 끝까지 읽어 주셔서 감사합니다. 이 문서는 완성본이 아니라 EO 와 함께 자라는 살아 있는 기준입니다. 쓰다가 막히는 곳, 더 나은 방법이 보이는 곳이 있으면 언제든 알려 주세요.
+
+
+### Contact
+EO 의 브랜드 에셋을 사용하려는 외부 파트너, 그리고 새 디스크립터 · 새 패턴 · 새 컬러 조합처럼 EO 브랜드팀의 확인이 필요한 사항은 아래로 연락해 주세요.
+
+[[mailto:jemin@eoeoeo.net|jemin@eoeoeo.net]]
+
+Build Anyway.
+
+The EO Brand Team
