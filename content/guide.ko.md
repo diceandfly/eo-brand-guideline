@@ -123,9 +123,9 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
 ## Welcome
 
 ### Welcome to the EO Brand Guidelines
-EO는 빌더를 위한 미디어입니다. 우리는 클릭이 아니라 신뢰를 쌓습니다. 조회수 대신 다시 돌아오는 사람을 세고, 자극적인 썸네일 대신 창업가의 진짜 여정을 기록합니다.
+EO는 빌더를 위한 미디어입니다. 빌더를 불러 모으고(Rallying), 확신 위에 서며(Conviction), 그들의 등 뒤를 지킵니다(Backing). 창업가의 여정을 있는 그대로 기록하고, 그 이야기가 다음 빌더에게 닿게 하는 것. 그것이 EO가 하는 일입니다.
 
-이 가이드라인은 EO 아이덴티티 시스템의 기본 요소인 로고 · 타이포그래피 · 컬러 · 그래픽 시스템을 설명하고, 샌프란시스코 · 서울 · 베트남 어디에서 만들어진 콘텐츠든 하나의 EO로 보이고 읽히게 하는데 그 목적을 두고 있습니다.
+이 가이드라인은 EO 아이덴티티 시스템의 기본 요소인 로고 · 타이포그래피 · 컬러 · 그래픽 시스템을 설명합니다. 샌프란시스코 · 서울 · 베트남 어디서든 브랜드의 콘텐츠와 서비스가 하나의 EO로 보이고 읽히게 하는데 그 목적을 두고 있습니다.
 
 Build Anyway.
 
@@ -172,6 +172,16 @@ EO 로고는 이 챕터에서 다루는 EO 심볼 · EO 시그니처 · 서비�
 
 EO 심볼은 미디어 브랜드 EO를 알리는 가장 상징적이고 효과적인 방법입니다.
 ![symbol]{zoom=1.3}
+
+
+### Symbol
+#### + motif
+**EO 심볼**은 나사의 3요소인 나사축(Shaft) · 나사산(Thread) · 나사머리(Head)을 모티프로 고안되었습니다.
+
+- **샤프트(Shaft)** — shaft는 빌딩의 과정이자 빌더의 여정을 상징합니다. shaft의 두께는 앞으로 나아가는 용기(Build anyway)의 형태를 표현합니다.
+- **스레드(Thread)** — thread 한 바퀴는 문제 해결의 사이클를 상징합니다.
+- **헤드(Head)** — head는 작은 문제 해결 하나, 또는 빌더 한 사람을 상징합니다. 
+![motif]
 
 
 ### Symbol
@@ -365,7 +375,7 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 회사 시그니처-V는 EO 심볼 아래에 "EO Studio"를 중앙 정렬로 놓은 세로 조합입니다. 구성 규칙은 아래 Descriptor System의 세로형 규격을 따릅니다.
 
 특별한 이유가 없다면 회사 시그니처-V의 텍스트를 다시 조판하지 말고 제공된 원본 파일을 사용하세요.
-![vertical]
+![company-vertical]
 
 
 ### Company Signature
@@ -375,25 +385,25 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힐 수 있으므로, 가로형 사용 시 디스크립터에 "Studio"만 표기하는 것을 고려하세요.
 
 특별한 이유가 없다면 회사 시그니처-H의 텍스트를 다시 조판하지 말고 제공된 원본 파일을 사용하세요.
-![horizontal]
+![company-horizontal]
 
 
 ### + Service Signature
 #### Vertical {layout=grid-4}
 현재 사용 중인 회사 시그니처와 서비스 시그니처입니다. 모두 같은 디스크립터 규격으로 구성되어, 이름이 달라도 하나의 가족으로 읽히는지 체크합니다.
-![lineup-studio] EO Studio · 회사
-![lineup-magazine] EO Magazine · 웹 매거진
-![lineup-planet] EO Planet · 커뮤니티 (eopla.net)
-![lineup-newsletter] EO Newsletter · 뉴스레터
+![service-studio-vertical] EO Studio · 회사
+![service-magazine-vertical] EO Magazine · 웹 매거진
+![service-planet-vertical] EO Planet · 커뮤니티 (eopla.net)
+![service-newsletter-vertical] EO Newsletter · 뉴스레터
 
 
 ### Service Signature
 #### Horizontal {layout=grid-4}
 현재 사용 중인 회사 시그니처와 서비스 시그니처입니다. 모두 같은 디스크립터 규격으로 구성되어, 이름이 달라도 하나의 가족으로 읽히는지 체크합니다.
-![lineup-studio] EO Studio · 회사
-![lineup-magazine] EO Magazine · 웹 매거진
-![lineup-planet] EO Planet · 커뮤니티 (eopla.net)
-![lineup-newsletter] EO Newsletter · 뉴스레터
+![service-studio-horizontal] EO Studio · 회사
+![service-magazine-horizontal] EO Magazine · 웹 매거진
+![service-planet-horizontal] EO Planet · 커뮤니티 (eopla.net)
+![service-newsletter-horizontal] EO Newsletter · 뉴스레터
 
 
 ### + Usage {layout=grid-2}
@@ -728,9 +738,8 @@ Builder Neon은 EO 팔레트의 유일한 주인공이자 브랜드에서 가장
 Day Blue와 Bay Green은 샌프란시스코의 푸른 하늘과 청량한 공기, 그 안의 자연에서 가져온 시원한 색으로, 보색인 Builder Neon을 더욱 선명하게 살려 주며 시리즈와 채널을 구분하는 데 사용합니다.
 ![builder-neon]
 
-
-### Color 
-#### Palette {layout=grid-4}
+### Color
+#### EO Palette {layout=grid-4}
 EO 팔레트는 Builder Neon, Day Blue, Bay Green과 이를 받쳐 주는 네가지 무채색 컬러로 이루어집니다. Solid Gray와 Medium Gray는 미디어의 중립성을 담아, 어두운 회색은 배경에, 밝은 회색은 그래픽 요소에 사용합니다. Space Black과 Air White는 바탕과 텍스트의 기본이 됩니다. 
 
 각 컬러는 화면용 HEX · RGB와 인쇄용 CMYK · Pantone으로 제공되므로, 매체에 맞는 컬러 모드를 사용하세요. Air White는 인쇄에서 잉크 대신 백색 · 미색 용지로 대체할 수 있습니다.
@@ -767,8 +776,8 @@ EO 팔레트가 실제로 사용된 예시입니다.
 ![in-use-2] Billboard
 ![in-use-3] Web Magazine
 ![in-use-4] T-shirt
-![in-use-2] Hang Tag
-![in-use-5] Sticker Pack
+![in-use-5] Hang Tag
+![in-use-6] Sticker Pack
 
 
 ### Color {layout=grid-3}
@@ -790,13 +799,13 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 ## Graphic Unit
 
 ### Graphic Unit
-#### + Motif  {layout=grid-2}
+#### + Motif  {layout=grid}
 **EO 그래픽 유닛**은 나사의 3요소인 나사축(Shaft) · 나사산(Thread) · 나사머리(Head)을 모티프로 고안되었습니다.
 
 - **샤프트(Shaft)** — shaft는 빌딩의 과정이자 빌더의 여정을 상징합니다. shaft의 두께는 앞으로 나아가는 용기(Build anyway)의 형태를 표현합니다.
 - **스레드(Thread)** — thread 한 바퀴는 문제 해결의 사이클를 상징합니다. 단단한 벽에 맞닥뜨릴수록 저항도 세고 뚫는 시간도 오래 걸립니다. thread가 촘촘할수록 빌더의 시간이 그만큼 밀도 있게 채워져 있음(Build thorough)을 나타냅니다.
-- **헤드(Head)** — head 하나는 작은 승리 하나, 또는 빌더 한 사람을 상징합니다. 작은 나사도 여럿이 모이면 무엇이든 만들 수 있습니다(Build anything). 마찬가지로 빌더 한 사람이 풀지 못하는 난제도, 여러 빌더가 함께 마주하면 결국 풀립니다(Build together).
-![motif-1] {zoom=1.18}
+- **헤드(Head)** — head는 작은 문제 해결 하나, 또는 빌더 한 사람을 상징합니다. 작은 나사도 여럿이 모이면 무엇이든 만들 수 있습니다(Build anything). 마찬가지로 빌더 한 사람이 풀지 못하는 난제도, 여러 빌더가 함께 마주하면 결국 풀립니다(Build together).
+![motif-1] {zoom=1.17}
 ![motif-2]
 
 
