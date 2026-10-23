@@ -811,16 +811,16 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 
 ### Graphic Unit
 #### + Color {layout=grid-4}
-하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 컬러는 형태가 말하지 못하는 역할을 맡습니다. 누가 주인공이고, 무엇이 환경이며, 어디서 상태가 바뀌는지. 패턴 라이브러리 30종에서 읽히는 역할은 네 가지이고, 아래 Vocabulary 의 모든 항목이 이 역할을 전제로 합니다. 바탕과 유닛의 조합 규칙은 [[pattern#color]]을 따릅니다.
+하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 컬러는 형태가 말하지 못하는 것을 맡습니다. 누가 주인공이고 무엇이 환경이며 어디서 상태가 바뀌는지. 라이브러리 30종에서 읽히는 역할은 네 갈래이고, 한 컬러가 여러 역할을 겸합니다. 아래 Vocabulary 의 항목들은 이 역할을 전제로 합니다. 바탕과 유닛의 조합 규칙은 [[pattern#color]]을 따릅니다.
 
-- **Builder Neon** 빌더 · 주인공 · 초점. 한 패턴에 신호는 하나이며, 여러 유닛 가운데 Builder Neon 하나가 그 안의 빌더를 가리킵니다.
-- **Air White** 맞은편의 주체 · 전환 뒤의 상태 · 성숙. Builder Neon 과 짝을 이루면 둘째 인물이 되고, 한 흐름 안에서 색이 Builder Neon 에서 Air White 로 바뀌면 전환이 됩니다.
-- **Medium Gray** 환경 · 세상 · 저항 · 타자. Medium Gray 만으로 된 패턴은 빌더가 아니라 환경이 주체인 장면입니다.
-- **Day Blue · Bay Green** 서로 다른 성격의 빌더들 · 커뮤니티. 뜻의 차이는 크지 않지만 Day Blue 는 하늘처럼 에너지 · 낙관 쪽, Bay Green 은 땅처럼 부드러움 · 친화 쪽입니다. 풍경을 그릴 때는 위아래 순서로 나눕니다.
-![color-neon] Builder Neon — 군중 속의 주인공 (conviction)
-![color-white] Air White — 전환 뒤의 상태 (a-ha)
-![color-gray] Medium Gray — 환경이 주체인 장면 (real world)
-![color-blue-green] Day Blue · Bay Green — 다른 성격의 빌더들 (nature)
+- **Builder Neon** 빌더 · 주인공 · 초점. 한 패턴에 신호 하나 (path of builder, momentum, conviction 의 중심, advantage 의 큰 쪽)
+- **Air White** 맞은편의 주체 · 전환 뒤의 상태 · 성숙 (builders 의 둘째, a-ha 의 오른쪽, growth 의 끝)
+- **Medium Gray** 환경 · 세상 · 저항 · 타자 (resistance 전부, real world, disadvantage 의 큰 쪽, conviction 의 군중)
+- **Day Blue · Bay Green** 서로 다른 성격의 빌더들 · 커뮤니티. Day Blue 는 하늘처럼 에너지 · 낙관 쪽, Bay Green 은 땅처럼 부드러움 · 친화 쪽 (team, teamwork, co-working, diversity, nature)
+![color-neon] Builder Neon — 빌더 · 주인공 · 초점
+![color-white] Air White — 맞은편 · 전환 · 성숙
+![color-gray] Medium Gray — 환경 · 세상 · 저항
+![color-blue-green] Day Blue · Bay Green — 다른 성격의 빌더들 · 커뮤니티
 
 
 ### Vocabulary
@@ -855,13 +855,13 @@ shaft 는 유닛의 몸통입니다. 두께는 그 메타포의 핵심 속성이
 - **동료** 함께 서 있는 빌더들. 세로 유닛 둘을 같은 쪽을 보게 나란히 세웁니다. 색이 다르면 성격이 다른 동료입니다.
 - **집** 쉘터 · 함께 · EO House. 세로 유닛 둘을 바깥쪽을 향하게 붙이면 실루엣이 지붕이 됩니다. Builder Neon.
 - **라이벌** 대립 · 경쟁. 세로 유닛 둘이 마주 봅니다. Builder Neon 과 Medium Gray.
-- **포착** 창업가의 한순간을 줌인. 가로 유닛 둘을 촘촘한 쪽끼리(`><`) 또는 넓은 쪽끼리(`<>`) 맞대면 가운데에 초점이 생깁니다. `><` 는 모여드는 순간(합류 · 만남), `<>` 는 갈라지는 순간(분기 · 선택)이며, 모션의 출발점이기도 합니다. Builder Neon.
+- **포착** 창업가의 한순간을 줌인. 가로 유닛 둘을 촘촘한 쪽끼리(`><`) 맞대거나 넓은 쪽끼리(`<>`) 맞대면 가운데에 초점이 생깁니다. 두 상태 모두 시선이 가운데로 모이며, 모션의 출발점이기도 합니다. Builder Neon.
 - **파동** 펄스 · 퍼져 나가는 신호. 번개 둘을 도킹합니다. Builder Neon 과 Air White.
 ![pair-journey] 여정 — 같은 방향으로 도킹 >> (path of builder)
 ![pair-peers] 동료 — 세로 둘, 같은 쪽 (builders)
 ![pair-house] 집 — 세로 둘, 바깥쪽을 향해 지붕 실루엣
 ![pair-rivals] 라이벌 — 세로 둘, 마주 봄 (rivals)
-![pair-capture] 포착 — 촘촘한 쪽끼리 >< 또는 넓은 쪽끼리 <> (momentum)
+![pair-capture] 포착 — 가운데로 초점이 모이는 두 상태 >< · <> (momentum)
 ![pair-pulse] 파동 — 번개 둘을 도킹 (wow)
 
 
