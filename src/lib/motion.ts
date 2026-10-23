@@ -242,7 +242,10 @@ if (box && boxImg) {
   boxImg.addEventListener('load', placeStrike);
   window.addEventListener('resize', () => { if (opened) placeStrike(); });
 
-  const behind = [document.getElementById('smooth-wrapper'), document.querySelector('.sidebar'), document.querySelector('.topbar')].filter((el): el is HTMLElement => !!el);
+  const SCROLL_EVENTS = ['wheel', 'touchmove'] as const;
+const SCROLL_KEYS = new Set(['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ']);
+const blockScroll = (e: Event) => { e.preventDefault(); };
+const behind = [document.getElementById('smooth-wrapper'), document.querySelector('.sidebar'), document.querySelector('.topbar')].filter((el): el is HTMLElement => !!el);
 
   let opener: HTMLElement | null = null;   // 닫을 때 포커스를 돌려줄 요소
   const open = (src: string, alt: string, strike = false) => {
@@ -259,10 +262,8 @@ if (box && boxImg) {
     box.focus({ preventScroll: true });
     stopAnchorTween();
     smoother?.paused(true);
-    const html = document.documentElement;
-    const scrollbar = window.innerWidth - html.clientWidth;          // 보이는 스크롤바 폭 (오버레이면 0)
-    html.style.setProperty('--scrollbar-w', `${scrollbar}px`);       // overflow: hidden 으로 사라지는 폭. base.css 가 본문 컨테이너(#smooth-wrapper)의 오른쪽 패딩으로 채워 폭이 튀지 않게
-    html.classList.add('lightbox-open');
+    document.documentElement.classList.add('lightbox-open');
+    for (const t of SCROLL_EVENTS) window.addEventListener(t, blockScroll, { passive: false });   // 스크롤바는 그대로 두고 스크롤만 막음 (숨기면 폭이 튐)
     gsap.killTweensOf([box, ...parts]);
     gsap.fromTo(box, { opacity: 0 }, { opacity: 1, duration: dur, ease });
     gsap.fromTo(parts, { scale: scaleFrom, opacity: 0 }, { scale: 1, opacity: 1, duration: dur, ease });
@@ -282,7 +283,7 @@ if (box && boxImg) {
         boxImg.removeAttribute('src');
         smoother?.paused(false);
         document.documentElement.classList.remove('lightbox-open');
-        document.documentElement.style.removeProperty('--scrollbar-w');
+        for (const t of SCROLL_EVENTS) window.removeEventListener(t, blockScroll);
       }
     });
     opener?.focus({ preventScroll: true });
@@ -298,7 +299,7 @@ if (box && boxImg) {
   document.addEventListener('keydown', e => {
     if (opened) {
       if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); close(); }
-      else if (e.key === 'Tab') e.preventDefault();             // 열려 있는 동안 포커스는 라이트박스에 머묾
+      else if (e.key === 'Tab' || SCROLL_KEYS.has(e.key)) e.preventDefault();   // 열려 있는 동안 포커스는 라이트박스에 머물고, 키로도 뒤 페이지를 스크롤하지 않음
       return;
     }
     const img = (e.target as HTMLElement).closest?.('.fig__frame > img') as HTMLImageElement | null;
