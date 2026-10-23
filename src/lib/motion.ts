@@ -261,7 +261,7 @@ if (box && boxImg) {
     smoother?.paused(true);
     const html = document.documentElement;
     const scrollbar = window.innerWidth - html.clientWidth;          // 보이는 스크롤바 폭 (오버레이면 0)
-    html.style.paddingRight = scrollbar ? `${scrollbar}px` : '';     // overflow: hidden 으로 사라지는 폭을 채워 본문이 튀지 않게
+    html.style.setProperty('--scrollbar-w', `${scrollbar}px`);       // overflow: hidden 으로 사라지는 폭. base.css 가 본문 컨테이너(#smooth-wrapper)의 오른쪽 패딩으로 채워 폭이 튀지 않게
     html.classList.add('lightbox-open');
     gsap.killTweensOf([box, ...parts]);
     gsap.fromTo(box, { opacity: 0 }, { opacity: 1, duration: dur, ease });
@@ -282,7 +282,7 @@ if (box && boxImg) {
         boxImg.removeAttribute('src');
         smoother?.paused(false);
         document.documentElement.classList.remove('lightbox-open');
-        document.documentElement.style.paddingRight = '';
+        document.documentElement.style.removeProperty('--scrollbar-w');
       }
     });
     opener?.focus({ preventScroll: true });

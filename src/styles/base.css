@@ -1145,7 +1145,10 @@ html.js .main {
    이미지 확대 보기 (라이트박스) — 열고 닫는 모션은 GSAP (src/lib/motion.ts)
    --------------------------------------------------------------------- */
 html.lightbox-open {
-  overflow: hidden; /* 뒤 페이지가 스크롤되지 않게. 사라진 스크롤바 폭만큼 motion.ts 가 padding-right 를 줘서 본문 폭은 그대로, 라이트박스가 그 자리까지 덮음 */
+  overflow: hidden; /* 뒤 페이지가 스크롤되지 않게 */
+}
+html.lightbox-open #smooth-wrapper {
+  padding-right: var(--scrollbar-w, 0px); /* 사라진 스크롤바 폭(motion.ts 가 잼)만큼 채워 본문 폭은 그대로. 본문은 position: fixed 컨테이너 안이라 html 패딩으로는 안 됨. 라이트박스가 그 자리까지 덮음 */
 }
 .lightbox:focus {
   outline: none; /* 열릴 때 포커스를 받지만 화면 전체 테두리는 그리지 않음 */
