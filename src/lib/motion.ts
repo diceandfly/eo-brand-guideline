@@ -259,7 +259,10 @@ if (box && boxImg) {
     box.focus({ preventScroll: true });
     stopAnchorTween();
     smoother?.paused(true);
-    document.documentElement.classList.add('lightbox-open');
+    const html = document.documentElement;
+    const scrollbar = window.innerWidth - html.clientWidth;          // 보이는 스크롤바 폭 (오버레이면 0)
+    html.style.paddingRight = scrollbar ? `${scrollbar}px` : '';     // overflow: hidden 으로 사라지는 폭을 채워 본문이 튀지 않게
+    html.classList.add('lightbox-open');
     gsap.killTweensOf([box, ...parts]);
     gsap.fromTo(box, { opacity: 0 }, { opacity: 1, duration: dur, ease });
     gsap.fromTo(parts, { scale: scaleFrom, opacity: 0 }, { scale: 1, opacity: 1, duration: dur, ease });
@@ -279,6 +282,7 @@ if (box && boxImg) {
         boxImg.removeAttribute('src');
         smoother?.paused(false);
         document.documentElement.classList.remove('lightbox-open');
+        document.documentElement.style.paddingRight = '';
       }
     });
     opener?.focus({ preventScroll: true });
