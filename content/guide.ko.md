@@ -813,10 +813,10 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 #### + Color {layout=grid-4}
 하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 컬러는 형태가 말하지 못하는 것을 맡습니다. 누가 주인공이고 무엇이 환경이며 어디서 상태가 바뀌는지. 라이브러리 30종에서 읽히는 역할은 네 갈래이고, 한 컬러가 여러 역할을 겸합니다. 아래 Vocabulary 의 항목들은 이 역할을 전제로 합니다. 바탕과 유닛의 조합 규칙은 [[pattern#color]]을 따릅니다.
 
-- **Builder Neon** 빌더 · 주인공 · 초점. 한 패턴에 신호 하나 (path of builder, momentum, conviction 의 중심, advantage 의 큰 쪽)
-- **Air White** 맞은편의 주체 · 전환 뒤의 상태 · 성숙 (builders 의 둘째, a-ha 의 오른쪽, growth 의 끝)
-- **Medium Gray** 환경 · 세상 · 저항 · 타자 (resistance 전부, real world, disadvantage 의 큰 쪽, conviction 의 군중)
-- **Day Blue · Bay Green** 서로 다른 성격의 빌더들 · 커뮤니티. Day Blue 는 하늘처럼 에너지 · 낙관 쪽, Bay Green 은 땅처럼 부드러움 · 친화 쪽 (team, teamwork, co-working, diversity, nature)
+- Builder Neon 빌더 · 주인공 · 초점. 한 패턴에 신호 하나 (path of builder, momentum, conviction 의 중심, advantage 의 큰 쪽)
+- Air White 맞은편의 주체 · 전환 뒤의 상태 · 성숙 (builders 의 둘째, a-ha 의 오른쪽, growth 의 끝)
+- Medium Gray 환경 · 세상 · 저항 · 타자 (resistance 전부, real world, disadvantage 의 큰 쪽, conviction 의 군중)
+- Day Blue · Bay Green 서로 다른 성격의 빌더들 · 커뮤니티. Day Blue 는 하늘처럼 에너지 · 낙관 쪽, Bay Green 은 땅처럼 부드러움 · 친화 쪽 (team, teamwork, co-working, diversity, nature)
 ![color-neon] Builder Neon — 빌더 · 주인공 · 초점
 ![color-white] Air White — 맞은편 · 전환 · 성숙
 ![color-gray] Medium Gray — 환경 · 세상 · 저항
