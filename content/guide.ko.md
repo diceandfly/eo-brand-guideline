@@ -178,8 +178,8 @@ EO 심볼은 미디어 브랜드 EO를 알리는 가장 상징적이고 효과�
 #### + Motif
 **EO 심볼**은 나사의 3요소인 나사축(Shaft) · 나사산(Thread) · 나사머리(Head)을 모티프로 고안되었습니다.
 
-- **샤프트(Shaft)** — shaft는 빌딩의 과정이자 빌더의 여정을 상징합니다. shaft의 두께는 앞으로 나아가는 용기(Build anyway)의 형태를 표현합니다.
 - **스레드(Thread)** — thread 한 바퀴는 문제 해결의 사이클을 상징합니다.
+- **샤프트(Shaft)** — shaft는 빌딩의 과정이자 빌더의 여정을 상징합니다. shaft의 두께는 앞으로 나아가는 용기(Build anyway)의 형태를 표현합니다.
 - **헤드(Head)** — head는 작은 문제 해결 하나, 또는 빌더 한 사람을 상징합니다. 
 ![motif]
 
@@ -742,7 +742,7 @@ Day Blue와 Bay Green은 샌프란시스코의 푸른 하늘과 청량한 공기
 #### EO Palette {layout=grid-4}
 EO 팔레트는 Builder Neon, Day Blue, Bay Green과 이를 받쳐 주는 네가지 무채색 컬러로 이루어집니다. Solid Gray와 Medium Gray는 미디어의 중립성을 담아, 어두운 회색은 배경에, 밝은 회색은 그래픽 요소에 사용합니다. Space Black과 Air White는 바탕과 텍스트의 기본이 됩니다. 
 
-각 컬러는 화면용 HEX · RGB와 인쇄용 CMYK · Pantone으로 제공되므로, 매체에 맞는 컬러 모드를 사용하세요. Air White는 인쇄에서 잉크 대신 백색 · 미색 용지로 대체할 수 있습니다.
+각 컬러는 화면용 HEX · RGB와 인쇄용 CMYK · Pantone으로 제공되므로, 매체에 맞는 컬러 모드를 사용하세요. Air White는 인쇄에서 잉크 대신 백색 용지로 대체할 수 있습니다.
 [swatch] Builder Neon | #F9EE3A | R249 G238 B58 | C5 M0 Y95 K0 | PANTONE 3945 C
 [swatch] Day Blue | #6EC6D2 | R110 G198 B210 | C60 M0 Y10 K0 | PANTONE 298 C
 [swatch] Bay Green | #66B88A | R102 G184 B138 | C60 M0 Y50 K0 | PANTONE 2248 C
@@ -848,34 +848,36 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 
 ### Graphic Unit
 #### + Vocabulary
-유닛은 놓는 방향 · 개수 · 밀도만으로 새로운 의미를 가집니다. 이를테면 shaft는 시간의 흐름, thread는 문제 해결의 단위이므로, 좁은 구간에 thread가 촘촘히 모일수록 그만큼 힘들고 긴 시간을 표현할 수 있습니다. 자연히 그 부분의 시각적 세기도 함께 커지는데, 이처럼 파라미터 기반의 형태와 브랜드가 전하려는 가치가 같은 방향을 가리키는 것을 **비주얼과 브랜딩의 맵핑(Mapping)** 이라 부릅니다.
+유닛은 놓는 방향 · 개수 · 밀도만으로 새로운 의미를 가집니다. 이를테면 shaft는 시간의 흐름, thread는 문제 해결의 단위이므로, 좁은 구간에 thread가 촘촘히 모일수록 그만큼 힘들고 긴 시간을 표현할 수 있습니다. 자연히 그 부분의 시각적 세기도 함께 커지는데, 이처럼 파라미터 기반의 형태와 브랜드가 전하려는 가치가 같은 방향을 가리키는 것을 **비주얼과 브랜딩의 맵핑(Mapping)** 이라 정의합니다.
 
-Vocabulary는 이러한 맵핑을 모은 **EO 그래픽 시스템의 어휘 사전**이며,특정한 가치 키워드를 표현하려면 어떤 시각 속성과 컬러를 조합하는지에 대한 전빈적 지침을 담고 있습니다. 단, 이하 내용은 지금까지 구축한 맵핑일 뿐 전부는 아니며 새로운 메타포는 언제든 더해질 수 있습니다. 
+Vocabulary는 이러한 맵핑을 모은 **EO 그래픽 시스템의 어휘 사전**이며, 특정한 가치 키워드를 표현하려면 어떤 시각 속성과 컬러를 조합하는지에 대한 전반적 지침을 담고 있습니다. 단, 이하 내용은 지금까지 구축한 맵핑일 뿐 전부는 아니며 새로운 메타포는 언제든 더해질 수 있습니다. 
 
 이 섹션은 키워드 표현을 주로 설명하며, 그래픽 시각성의 관한 지침은 [[graphic-unit#proportion-and-rhythm]] 및 [[pattern#grammar]]를 참조하세요.
 ![thread-vocabulary]
 
 
 ### Vocabulary
-#### + Thread {layout=grid-3}
+#### + Thread {layout=grid-2} 
 Thread는 나사산 한 바퀴로서 한 번의 문제 해결을 의미합니다. 유닛 안에서 thread가 얼마나 촘촘한지 · 어느 쪽으로 쏠리는지 · 얼마나 길게 이어지는지는 그 시간의 성격을 표현합니다.
 
 - **난관** — 어려움의 시간, 환경의 저항. 유닛을 가로 방향으로 눕히는 것으로 표현합니다. thread가 촘촘할수록 더 큰 어려움을 표현, 어느 쪽이 촘촘한지는 시작과 끝의 고비를 표현합니다.
 - **가속** — thread 밀도의 변화는 때론 가속도, 힘이 붙는 구간 변화처럼 느껴질 수도 있습니다. compression이 진행 방향으로 촘촘해지면 가속이고, 반대인 감속이 될 수도 있습니다. 유닛을 반복해서 이어붙이면 루틴처럼 되풀이되는 흐름처럼 보이기도 합니다.
-- **번개** — 스파크 · 영감 · 에너지. 형태가 충분히 길고, thread의 compression이 비교적 극적으로 벌어질 때, 마치 번개 줄기와 같은 인상을 줄 수 있습니다. 이 메타포에는 Builder Neon, Air White만 사용합니다.
+- **번개** — 스파크 · 영감 · 에너지. 샤프트가 충분히 길고 thread의 compression이 비교적 극적으로 벌어질 때, 마치 번개 줄기와 같은 인상을 줄 수 있습니다. 이 메타포에는 Builder Neon, Air White만 사용합니다.
+- **빌더** — 한명의 빌더 · 사람 · 개체. 유닛을 세로 방향으로 세우는 것으로 표현합니다. Compression은 하단을 촘촘하게 하며, 상단 thread가 기운 방향이 바라보는 방향이 됩니다. EO나 주인공을 대변하는 유닛에 Builder Neon, 당사자성은 있으나 주인공은 아닌 유닛에 Air White, 동료 · 친구에는 Day Blue · Bay Green, 타자 · 적대적 존재에는 Medium Gray를 사용합니다.
 ![thread-hardship] 난관 — 한쪽으로 촘촘한 thread (problem moment)
 ![thread-acceleration] 가속 — compression이 진행 방향으로 쏠림 (path of builder)
 ![thread-lightning] 번개 — 길고 촘촘한, compression이 강하게 적용된 thread (spark)
+![thread-builder] 번개 — 길고 촘촘한, compression이 강하게 적용된 thread (spark)
 
 
 ### Vocabulary
 #### Shaft {layout=grid-3}
 Shaft는 나사의 축이자 빌딩 과정의 타임라인을 상징하고, shaft의 두께는 그 과정의 핵심 속성이 얼마나 강한지를 표현합니다.
 
-- **성장** — 두께가 확신과 힘의 크기를 나타냅니다. 3개 이상의 shaft가 단계적으로 두꺼워지는 방식으로 표현합니다. 이때 컬러도 Medium Gray → Day Blue → Builder Neon 순서대로 위계를 높여가면 보다 극적인 표현이 됩니다.
-- **다양성** — 성격의 차이. 두께가 다른 shaft를 나란히 둡니다. 두께가 높을수록 thread의 폭 역시 짧아져 유닛의 인상이 크게 달라지고, 두꺼울수록 좋은 것이 아니라 각기 다른 것이란 뉘앙스에 가깝습니다. 다양한 컬러를 고루 씁니다.
-- **지지** — 무게를 받쳐 주거나(Backing) 힘을 받아주는 한 쪽을 나타냅니다. thread를 한쪽에만 두면 한쪽의 shaft가 바닥이 되고 그 위에 thread가 서는데, 이때 thread가 높고 기울기가 가파를수록 더 극적인 표현이 가능합니다.
-당사자성이 높은 유닛에 Builder Neon을 적용하세요.
+- **성장** — 두께가 확신 · 힘의 크기. 3개 이상의 shaft가 단계적으로 두꺼워지는 방식으로 표현합니다. 이때 컬러도 Medium Gray → Day Blue → Builder Neon 순서대로 위계를 높여가면 보다 극적인 표현이 됩니다.
+- **다양성** — 성격의 차이. 두께가 다른 shaft를 나란히 대비하는 방식으로 표현합니다. 두께가 높을수록 thread의 폭 역시 짧아져 유닛의 인상이 크게 달라지고, 두꺼울수록 좋은 것이 아니라 각기 다른 것이란 뉘앙스에 가깝습니다. 다양한 유닛 컬러를 고루 씁니다.
+- **지지** — 무게를 받쳐 주거나(Backing) 힘을 받아주는 한 쪽. thread를 한쪽에만 두면 한쪽의 shaft가 바닥이 되고 그 위에 thread가 서는데, 이때 thread가 높고 기울기가 가파를수록 더 극적인 표현이 가능합니다.
+EO나 주인공을 대변하는 유닛에 Builder Neon을 적용하세요.
 ![shaft-growth] 성장 — 단계적으로 두꺼워지는 shaft (growth)
 ![shaft-diversity] 다양성 — 두께가 다른 shaft를 나란히 (diversity)
 ![shaft-support] 지지 — single thread, shaft가 바닥에 (backing)
@@ -883,59 +885,66 @@ Shaft는 나사의 축이자 빌딩 과정의 타임라인을 상징하고, shaf
 
 ### Vocabulary
 #### Pair {layout=grid-3}
-유닛 둘이면 관계가 생깁니다. 방향(가로 · 세로)과 서로를 향하는 쪽, 그리고 도킹으로 잇느냐에 따라 뜻이 갈립니다. 모두 유닛 둘로 만들 수 있는 가장 작은 문장입니다.
+유닛 둘을 연결하면 새로운 관계가 생깁니다. 가로 · 세로 어느 방향으로 조합할지, 같은 방향 · 반대 방향으로 놓을지에 따라 다른 맥락이 표현됩니다. 쌍(pair)은 유닛 둘로 만들 수 있는 phrase의 개념에 해당합니다.
 
-- **여정** — 시간의 길이, 되풀이되는 과정. 가로 유닛 둘을 같은 방향으로 도킹합니다(`>>`). 한 챕터가 끝나고 다음 챕터로 이어지며, 180° 회전 도킹도 같은 뜻입니다. 반복되면 루틴 · 사이클이 됩니다. Builder Neon.
-- **동료** — 함께 서 있는 빌더들. 세로 유닛 둘을 같은 쪽을 보게 나란히 세웁니다. 색이 다르면 성격이 다른 동료입니다.
-- **집** — 쉘터 · 함께 · EO House. 세로 유닛 둘을 바깥쪽을 향하게 붙이면 실루엣이 지붕이 됩니다. Builder Neon.
-- **라이벌** — 대립 · 경쟁. 세로 유닛 둘이 마주 봅니다. Builder Neon과 Medium Gray.
-- **포착** — 창업가의 한순간을 줌인. 가로 유닛 둘을 촘촘한 쪽끼리(`><`) 맞대거나 넓은 쪽끼리(`<>`) 맞대면 가운데에 초점이 생깁니다. 두 상태 모두 시선이 가운데로 모이며, 모션의 출발점이기도 합니다. Builder Neon.
-- **파동** — 펄스 · 퍼져 나가는 신호. 번개 둘을 도킹합니다. Builder Neon과 Air White.
-![pair-journey] 여정 — 같은 방향으로 도킹 >> (path of builder)
-![pair-peers] 동료 — 세로 둘, 같은 쪽 (builders)
-![pair-house] 집 — 세로 둘, 바깥쪽을 향해 지붕 실루엣
-![pair-rivals] 라이벌 — 세로 둘, 마주 봄 (rivals)
-![pair-capture] 포착 — 가운데로 초점이 모이는 두 상태 >< · <> (momentum)
+- **여정** — 시간의 길이, 되풀이되는 과정. 가로 유닛 둘을 같은 compression 방향으로 도킹하여 표현합니다. 한 챕터가 끝나고 다음 챕터로 이어지는 것을 표현하며, 반복되면 루틴 · 사이클이 됩니다. 도킹된 유닛 쌍에는 같은 컬러를 적용합니다.
+- **포착** — 빌더의 순간을 줌인 · 줌아웃. 가로 유닛 둘을 compression이 촘촘한 쪽끼리 맞대는 것과 넓은 쪽끼리 맞대는 것으로 표현합니다. 두 상태 모두 시선이 가운데로 모이도록 compression을 조절합니다.
+- **파동** — 펄스 · 주파수 · 퍼져 나가는 신호. 번개 둘을 180도 회전하여 이어 붙입니다. shaft가 얆고 compressiond이 강할수록 파동처럼 보이기 쉽습니다.
+- **동료** — 함께 서 있는 두 인물. 세로 유닛 둘을 같은 방향을 보게 나란히 세워 표현합니다. O나 주인공을 대변하는 유닛에 Builder Neon를, 동료 유닛에는 성격을 알맞게 표현할 다른 컬러를 적용합니다.
+- **라이벌** — 대립 · 경쟁. 세로 유닛 둘을 안쪽을 보는도록 나란히 세워 표현합니다. 나 주인공을 대변하는 유닛에 Builder Neon을, 라이벌 유닛에는 Air White · Medium Gray를 적용합니다.
+- **집** — 쉘터 · 커뮤니티 · EO House. 세로 유닛 둘을 바깥쪽을 향하게 나란히 세워, 실루엣을 지붕처럼 만들어 표현합니다. EO 하우스를 표현할 때는 양쪽 유닛에 모두 Builder Neon을 적용하거나, 왼쪽 유닛에 Builder Neon 오른쪽 유닛에 Day Blue를 적용하세요. EO House가 아닌 일반적 메타포라면 Day Blue와 Bay Green을 적용하세요.
+![pair-journey] 여정 · 루틴 — 같은 방향으로 도킹 (path of builder)
+![pair-capture] 포착 — 가운데로 초점이 상태 (moment)
 ![pair-pulse] 파동 — 번개 둘을 도킹 (wow)
+![pair-peers] 동료 — 세로 둘, 같은 방향 (builders)
+![pair-rivals] 라이벌 — 세로 둘, 마주 봄 (rivals)
+![pair-house] 집 — 지붕 실루엣 (EO House)
 
 
 ### Vocabulary
-#### Relation {layout=grid-3}
-유닛이 셋 이상 모이면 개체가 아니라 관계가 읽힙니다. 수 · 층 · 축 · 교차가 뜻을 만들고, 그 구성을 잘 만드는 형식 규칙은 [[pattern#grammar]]에 있습니다.
+#### Formation {layout=grid-3}
+지금까지의 메타포를 양적으로 확장 배열하여, 메타포가 속한 관계 · 공간 · 세계 · 차원 등을 표현할 수 있습니다.
 
-- **규모** — 많은 빌더, 긴 시간, 쌓인 성과. 같은 유닛이 여럿입니다. Medium Gray 여럿 속의 Builder Neon 하나는 그 안의 빌더입니다.
-- **차원** — 여러 사람 · 여러 시간의 동시 진행. 한 줄이 기본 차원이고, 줄을 쌓으면 시공간이 됩니다. 층마다 색 하나.
-- **방향성** — 기세, 흐름을 표현. 네거티브 스페이스가 규칙적으로 한쪽을 가리키면 위는 상승, 아래는 하락, 옆은 전진입니다.
-- **방사** — 분출하는 에너지 · 공명. 중심에서 거울 대칭으로 퍼집니다. 에너지의 발생원에 Builder Neon 사용을 고려합니다.
-- **엇갈림** — 동시다발의 교신, 순간의 번뜩임. 병렬로 놓되 compression을 반대로 하면 한 줄이 촘촘할 때 다른 줄은 성겨서 속도감과 리듬감이 생깁니다. 엇갈리는 지점에서 색이 바뀌면(Builder Neon → Air White) 전환입니다.
-![relation-scale] 규모 — 같은 유닛이 여럿 (conviction)
-![relation-dimension] 차원 — 줄을 쌓아 시공간으로 (collective intelligence → multi-dimension)
+- **규모** — 복수의 개체 · 과정 · 상태. 기존 메타포를 반복 배치하는 방식을 가리킵니다. 컬러를 더욱더 능동적으로 사용하는 것을 고려하세요. 이를테면, Medium Gray 여럿 속의 Builder Neon 하나는 그 안의 주인공입니다.
+- **차원** — 평행세계. 유닛 쌍을 등비로 블렌드 하는 방식을 가리킵니다. 한 줄이 하나의 시간선이라면, 줄을 쌓으면 과거 · 미래를 아우르는 시공간이나 평행세계가 됩니다. Medium Gray 시간선들 속의 Builder Neon 하나는 현재의 시간선입니다.
+- **방향성** — 기세, 흐름을 표현. 좌우반전된 유닛이 shaft 축 방향으로 평행 배치될 때, 유닛 사이의 네거티브 스페이스가 화살표의 모양을 띄며 규칙적으로 한쪽을 향하게 됩니다. 이렇게 만들어진 방향성을 맥락에 맞게 배치하는 방식을 가리킵니다.
+- **방사** — 분출하는 에너지 · 공명. 위 방향성의 패턴을 거울 대칭하는 방식을 가리킵니다. 에너지의 발생원에 Builder Neon의 사용을 고려합니다.
+- **엇갈림** — 동시다발의 교신 · 순간적 싱크. 번개 유닛을 교차 순서로 쌓아올리면서 꼭지점 · 경계선을 긴장감있게 배치하는 방식을 가리킵니다. 
+![relation-scale] 규모 — 같은 유닛 · 그룹이 여럿
+![relation-dimension] 차원 — 평행세계
 ![relation-direction] 방향성 — 네거티브 스페이스가 한쪽을 가리킴 (conviction)
-![relation-radiation] 방사 — 중심에서 거울 대칭으로 (boom)
+![relation-radiation] 방사 — 중심에서 거울 대칭으로 (resonation)
 ![relation-crossing] 엇갈림 — 병렬 + compression 반대 (a-ha)
 
 
 ### Graphic Unit {layout=grid-4}
 #### + Proportion & Rhythm
-Vocabulary가 뜻이라면 여기는 보이는 법입니다. 파라미터를 어떻게 잡느냐에 따라 유닛의 비례와 리듬이 달라지고, 뜻이 같아도 잘못 잡으면 읽히지 않습니다. 비례는 shaft 두께와 thread 수가 유닛의 길이에 맞을 때 서고, 리듬은 compression으로 thread 간격이 한쪽으로 흐를 때 생깁니다. 이 섹션은 유닛 하나와 쌍까지를 다루며, 셋 이상이 모이는 구성은 [[pattern#grammar]]을, 유닛과 바탕의 색 조합은 [[pattern#color]]을 참조하세요.
+잘 만든 유닛은 멀리서 봐도 촘촘한 쪽이 회색 덩어리가 아니라 각자 떨어진 선으로 읽힙니다. 하나하나를 세어 보지는 않지만, 그 구분감이 있을 때와 없을 때의 덩어리감은 분명히 다릅니다. 같은 Vocabulary라도 파라미터를 어떻게 잡느냐에 따라 이 느낌이 갈리므로, 항목마다 권장 범위를 빌더의 파라미터 그대로 적습니다. 범위를 벗어난 값이 틀린 것은 아니지만, 벗어날수록 구분감을 직접 확인하세요. 이 섹션은 유닛 하나와 쌍까지를 다루며, 셋 이상의 구성은 [[pattern#grammar]]을, 유닛과 바탕의 색 조합은 [[pattern#color]]을 참조하세요.
 
-- **비례** shaft가 두꺼울수록 thread는 짧아집니다. 짧은 유닛은 thread를 줄이고[6–8] shaft를 두껍게, 긴 유닛은 thread를 늘리되[12–16] compression을 유지해 끝까지 흐름이 이어지게 합니다.
-- **기울기** thread 윗변과 아랫변의 폭 차이입니다. 수직에 가까우면 톱니처럼 날카롭고, 너무 누우면 흐름이 사라집니다. 뜻을 담는 변수가 아니라 회색도와 긴장감을 정하는 변수입니다.
-- **거터** thread 사이의 빈 간격입니다. 0이면 면으로, 넓으면 선으로 읽힙니다. 역시 뜻이 아니라 회색도를 정합니다.
-- **리듬** compression이 0이면 thread가 균일하게 되풀이되어 줄무늬처럼 보입니다. 기본값 2:1처럼 한쪽으로 수렴시켜 방향과 속도를 만드세요.
-- **쌍** 두 유닛을 이을 때는 compression의 방향을 맞추고, 마주 놓을 때는 대칭을 정확히 맞춥니다. thread 수와 shaft 두께가 다르면 한 몸으로 읽히지 않습니다.
-![rhythm-do-1]{do} 짧은 유닛 — thread는 적게, shaft는 두껍게
-![rhythm-dont-1]{dont} 짧은 유닛에 thread를 빽빽하게 넣지 마세요
-![rhythm-do-2]{do} 긴 유닛 — thread는 많게, compression은 유지
-![rhythm-dont-2]{dont} compression 0의 균일한 되풀이를 쓰지 마세요
-![rhythm-do-3]{do} 기울기 — 기본값 위 40% · 아래 0% 근처
-![rhythm-dont-3]{dont} thread를 수직으로 세워 톱니로 만들지 마세요
-![rhythm-do-4]{do} 거터 — 0 또는 일정한 간격
-![rhythm-dont-4]{dont} 거터를 thread 폭보다 넓게 벌리지 마세요
-![rhythm-do-5]{do} 쌍 — compression 방향을 맞춰 연결
-![rhythm-dont-5]{dont} thread 수가 다른 두 유닛을 잇지 마세요
-![rhythm-do-6]{do} 세운 유닛 — 길이 방향으로 충분한 비례
-![rhythm-dont-6]{dont} 세운 유닛을 납작하게 쓰지 마세요
+- **비례** shaft가 두꺼울수록 thread는 짧아집니다. 짧은 유닛은 threads를 줄이고 shaft를 두껍게, 긴 유닛은 threads를 늘리되 compression은 유지합니다. (shaft size 20~50%, 기본 35~40 · threads 9~14, 기본 12 · 비율 12:5 ~ 9:16)
+- **리듬** compression이 0이면 균일한 줄무늬입니다. 한쪽으로 수렴시켜 방향과 속도를 만드세요. (compression 1.5~2.5, 기본 2:1 · 방향은 한쪽)
+- **구분감** 촘촘한 쪽에서 thread는 머리카락처럼 가늘어져도 간격은 gutter 아래로 내려가지 않습니다. 구분감을 지키는 것은 thread가 아니라 gutter의 하한이므로, compression을 올리면 gutter도 함께 올리세요. (gutter 10~35px, 기본 10 · compression이 2를 넘으면 15px 이상)
+- **기울기** thread 윗변과 아랫변의 폭 차이입니다. 수직에 가까우면 톱니처럼 날카롭고, 너무 누우면 흐름이 사라집니다. 뜻이 아니라 회색도와 긴장감을 정하는 변수입니다. (thread top width 35~50%, 기본 40 · bottom width 0~20%, 기본 0)
+- **크기** 작게 쓰이면 가는 thread부터 사라집니다. 출력 크기에 맞춰 threads와 gutter를 조절하세요. (썸네일처럼 작게: threads 6~8 · gutter 20px 이상 / 옥외처럼 크게: threads 12~14)
+- **세움** 세운 유닛은 폭이 곧 thread의 길이라, 눕힌 값 그대로 세우면 납작해집니다. (orientation 90 · 세운 비율 5:12 ~ 9:16 · threads 10~12)
+- **쌍** 이을 때는 compression의 방향을 맞추고, 마주 놓을 때는 대칭을 정확히 맞춥니다. threads와 shaft size가 다르면 한 몸으로 읽히지 않습니다. (threads · shaft size · compression 동일, 도킹)
+- **반전** 밝은 유닛은 어두운 바탕에서 부풀어 보여 촘촘한 쪽이 뭉칩니다. 완성한 패턴의 색만 뒤집지 마세요. 뒤집어야 하면 gutter를 넓히고 compression을 낮춰 다시 맞춥니다. (뒤집을 때 gutter 늘리고 compression 줄임)
+![rhythm-proportion-do]{do} 비례 — 짧은 유닛은 두꺼운 shaft에 적은 threads, 긴 유닛은 그 반대
+![rhythm-proportion-dont]{dont} 긴 유닛의 값을 그대로 짧은 유닛에 쓰지 마세요
+![rhythm-tempo-do]{do} 리듬 — compression 2:1로 한쪽으로 수렴
+![rhythm-tempo-dont]{dont} compression 0의 균일한 줄무늬를 쓰지 마세요
+![rhythm-separation-do]{do} 구분감 — 촘촘한 끝에서도 gutter만큼 떨어진 선
+![rhythm-separation-dont]{dont} gutter를 줄여 촘촘한 끝을 뭉치게 하지 마세요
+![rhythm-slope-do]{do} 기울기 — top 40% · bottom 0%
+![rhythm-slope-dont]{dont} thread를 수직으로 세워 톱니로 만들지 마세요
+![rhythm-size-do]{do} 크기 — 작게 쓸 때는 threads를 줄이고 gutter를 넓힘
+![rhythm-size-dont]{dont} 큰 화면의 값을 썸네일에 그대로 쓰지 마세요
+![rhythm-upright-do]{do} 세움 — 세운 비율로 다시 맞춘 유닛
+![rhythm-upright-dont]{dont} 눕힌 값 그대로 세워 납작하게 쓰지 마세요
+![rhythm-pair-do]{do} 쌍 — compression 방향과 threads를 맞춰 도킹
+![rhythm-pair-dont]{dont} threads와 shaft size가 다른 두 유닛을 잇지 마세요
+![rhythm-inversion-do]{do} 반전 — gutter를 넓히고 compression을 낮춰 다시 맞춘 밝은 유닛
+![rhythm-inversion-dont]{dont} 같은 값으로 색만 뒤집지 마세요
 
 
 ### Graphic Unit {layout=grid-3}
