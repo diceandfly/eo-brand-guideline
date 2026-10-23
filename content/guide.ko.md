@@ -810,33 +810,60 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 
 
 ### Graphic Unit
-#### + Color {layout=grid-4}
-하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 컬러는 형태가 말하지 못하는 것을 맡습니다. 누가 주인공이고 무엇이 환경이며 어디서 상태가 바뀌는지. 라이브러리 30종에서 읽히는 역할은 네 갈래이고, 한 컬러가 여러 역할을 겸합니다. 아래 Vocabulary 의 항목들은 이 역할을 전제로 합니다. 바탕과 유닛의 조합 규칙은 [[pattern#color]]을 따릅니다.
+#### + Geometry & Parameters {layout=grid-3}
+**EO 그래픽 유닛**(이하 유닛)은 그래픽 시스템의 최소 단위이며, 로고의 E 블록 · 패턴 라이브러리 · 애플리케이션 그래픽 모두 동일한 시스템으로 제작되었습니다. 유닛은 EO Graphic Builder에서 파라미터로 생성하며, 자세한 사용 방법은 빌더 내 도움말(Help) 메뉴를 참고하시길 바랍니다.
 
-- Builder Neon 빌더 · 주인공 · 초점. 한 패턴에 신호 하나 (path of builder, momentum, conviction 의 중심, advantage 의 큰 쪽)
-- Air White 맞은편의 주체 · 전환 뒤의 상태 · 성숙 (builders 의 둘째, a-ha 의 오른쪽, growth 의 끝)
-- Medium Gray 환경 · 세상 · 저항 · 타자 (resistance 전부, real world, disadvantage 의 큰 쪽, conviction 의 군중)
-- Day Blue · Bay Green 서로 다른 성격의 빌더들 · 커뮤니티. Day Blue 는 하늘처럼 에너지 · 낙관 쪽, Bay Green 은 땅처럼 부드러움 · 친화 쪽 (team, teamwork, co-working, diversity, nature)
-![color-neon] Builder Neon — 빌더 · 주인공 · 초점
-![color-white] Air White — 맞은편 · 전환 · 성숙
-![color-gray] Medium Gray — 환경 · 세상 · 저항
-![color-blue-green] Day Blue · Bay Green — 다른 성격의 빌더들 · 커뮤니티
+- **shaft size** — 나사축 직사각형의 두께, 단위는 양쪽의 thread 포함 유닛 전체 높이 대비 %입니다. shaft size가 기본 값 35% 전후의 수준일 때, 비교적 복잡한 그래픽 패턴에서도 시각적 밀도를 이상적으로 유지하기 쉽습니다.
+- **thread top / bottom width** — thread 윗변과 아랫변의 폭. 두 값의 차이가 thread의 기울기를 결정합니다. 기본 값은 위 40% · 아래 0%.
+- **thread sides** — double은 shaft 위아래 양쪽, single은 위쪽에만 thread가 붙고 shaft가 아래쪽 바닥에 놓입니다.
+- **thread amount** — shaft 위아래에 하나씩 붙는, 나사산을 추상화한 사다리꼴 쉐입. 오른쪽 변은 컬럼 끝에 수직으로 서고, 왼쪽 변은 기울어집니다. 아래쪽 thread는 위쪽을 컬럼 중심 기준으로 180° 회전한 모양입니다.
+- **thread compression** — thread 폭이 한쪽으로 갈수록 점점 좁아지는 정도. 0이면 모든 thread의 너비가 균등하고, 값이 커질수록 한쪽으로 압축되는 세기가 강해집니다. 음수/양수 값은 compression의 방향을 결정하며, 개별 thread의 기울기는 반전되지 않고 그대로 유지됩니다.
+- **gutter** — thread가 놓이는 세로 칸과 칸 사이 간격. gutter 구간에서 thread는 비고 shaft만 이어집니다.
+
+![param-shaft-size] shaft size — shaft의 두께 2-95%
+![param-thread-width] thread top / bottom width — 기울기의 변화
+![param-thread-sides] thread sides  — double · single
+![param-thread-amount] thread amount — thread 수
+![param-thread-compression] thread compression — thread 압축 방향 · 세기
+![param-gutter] thread sides — thread 사이 간격 10-50px
+
+
+### Graphic Unit
+#### + Color {layout=grid-3}
+하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 컬러는 형태를 보조하는 맥락이 되어, 누가 주인공이고, 무엇이 환경이며, 어디서 상태가 바뀌는지를 표현합니다. 라이브러리 30종에서 읽히는 역할은 네 갈래이고, 한 컬러가 여러 역할을 겸합니다. 아래 Vocabulary 의 항목들은 이 역할을 전제로 합니다. 바탕과 유닛의 조합 규칙은 [[pattern#color]]을 따릅니다.
+
+- Builder Neon — 위계가 가장 높은 메인 컬러로서, 빌더 · 주인공 · 초점 · 하이라이팅의 뉘앙스를 표현합니다. 사용 면적이 전체 캔버스 기준 10-40% 수준일 때 가장 이상적입니다.
+- Air White — 위계는 높지만 아이덴티티가 없는 뉴트럴 컬러로서, 에너지 · 맞은편의 주체 · 세미 하이라이팅의 뉘앙스를 표현합니다. 사용 면적이 전체 캔버스 기준 10-40% 수준일 때 가장 이상적입니다.
+- Day Blue — 다른 성격의 빌더 · 커뮤니티 · 환경 요소. 푸른 하늘에서 오는 긍정적 에너지 · 낙관의 뉘앙스를 강조합니다.
+- Bay Green — 다른 성격의 빌더 · 커뮤니티 · 환경 요소. 채퍼럴 언덕의 녹음에서 오는 부드러움 · 친화적 뉘앙스를 강조합니다. (team, teamwork, co-working, diversity, nature)
+- Medium Gray — 주변 환경 · 타자 · 무관심 · 보수성 등 기계적 중립 또는 근소하게 부정적인 뉘앙스를 표현합니다.
+- Space Black — 시각적 임팩트 최우선 상황에서, Builder Neon 배경과 고정 조합으로 제한적으로 사용하며 압도성을 표현합니다.
+![color-neon] [Builder Neon] 빌더 · 주인공 · 초점
+![color-white] [Air White] 에너지 · 맞은편 · 균형
+![color-blue] [Day Blue] 다른 빌더 · 커뮤니티 · 환경 · 낙관
+![color-green] [Bay Green] 다른 빌더 · 커뮤니티 · 환경 · 친화성
+![color-gray] [Medium Gray] 타자 · 비활성 · 보수성 · 물질세계
+![color-black] [Space Black] on [Builder Neon] 고정 조합, 압도성
 
 
 ### Vocabulary
-#### + thread {layout=grid-3}
-유닛은 놓는 방향 · 개수 · 밀도만으로 뜻을 넓혀 갑니다. 이를테면 thread 한 바퀴는 문제 해결의 한 단위이므로, 좁은 구간에 촘촘히 모일수록 그만큼 힘들고 긴 시간을 뜻하고, 그때 시각적 세기도 함께 커집니다. 파라미터로 만드는 형태와 브랜드가 전하려는 가치가 이렇게 같은 방향을 가리키는 것을 **비주얼과 브랜딩의 맵핑(Mapping)** 이라 부르고, Vocabulary 는 그 맵핑을 모은 사전입니다. 가치 키워드를 단위로 삼고, 키워드 하나에 시각 속성과 컬러를 함께 대응시킵니다. 아래는 지금까지 찾은 맵핑이며 전부는 아닙니다. 새로운 읽기는 언제든 더해질 수 있습니다. 뜻이 아니라 잘 보이게 만드는 법은 [[#proportion-and-rhythm]], 셋 이상을 엮는 규칙은 [[pattern#grammar]]에 있습니다.
+#### + Thread {layout=grid-3}
+유닛은 놓는 방향 · 개수 · 밀도만으로 뜻을 넓혀 갑니다. 이를테면 thread 한 바퀴는 문제 해결의 한 단위이므로, 좁은 구간에 촘촘히 모일수록 그만큼 힘들고 긴 시간을 뜻하고, 그때 시각적 세기도 함께 커집니다. 파라미터로 만드는 형태와 브랜드가 전하려는 가치가 이렇게 같은 방향을 가리키는 것을 **비주얼과 브랜딩의 맵핑(Mapping)** 이라 부릅니다.
 
-- **난관** 어려움의 시간, 환경의 저항. thread 가 촘촘할수록 벽이 높았고, 어느 쪽이 촘촘한지가 시작의 고비와 끝의 고비를 가릅니다. 빌더가 주체면 Builder Neon, 환경이 주체면 Medium Gray.
-- **가속** 힘이 붙는 구간. compression 이 진행 방향으로 촘촘해지면 가속이고, 반대면 감속 · 순항입니다. 같은 형태의 음양이며, 루틴처럼 되풀이되는 흐름도 여기서 읽힙니다. Builder Neon.
-- **번개** 스파크 · 영감 · 에너지. 길고 thread 가 많고 압축이 셀 때 생기는 인상으로, 어느 파라미터 하나가 아니라 그 조합에서 옵니다. Builder Neon, Air White 와 짝이면 더 선명합니다.
+Vocabulary는 이러한 맵핑을 모은 **EO 그래픽 시스템의 어휘 사전**이며,특정한 가치 키워드를 표현하려면 어떤 시각 속성과 컬러를 조합하는지에 대한 지침입니다. 단 이하 내용은 지금까지 구축한 맵핑일 뿐 전부는 아니며, 새로운 메타포는 언제든 더해질 수 있습니다. 키워드 표현과 별개로 그래픽의 시각성에 특화된 지침은 [[graphic-unit#proportion-and-rhythm]], 셋 이상을 엮는 규칙은 [[pattern#grammar]]를 참조하세요.
+
+
+thread 는 나사산입니다. 한 바퀴가 문제 해결의 한 단위이고, 얼마나 촘촘한지 · 어느 쪽으로 쏠리는지 · 얼마나 길게 이어지는지가 그 시간의 성격을 말합니다.
+- **난관** — 어려움의 시간, 환경의 저항. thread 가 촘촘할수록 벽이 높았고, 어느 쪽이 촘촘한지가 시작의 고비와 끝의 고비를 가릅니다. 빌더가 주체면 Builder Neon, 환경이 주체면 Medium Gray.
+- **가속** — 힘이 붙는 구간. compression 이 진행 방향으로 촘촘해지면 가속이고, 반대면 감속 · 순항입니다. 같은 형태의 음양이며, 루틴처럼 되풀이되는 흐름도 여기서 읽힙니다. Builder Neon.
+- **번개** — 스파크 · 영감 · 에너지. 길고 thread 가 많고 압축이 셀 때 생기는 인상이며, Builder Neon, Air White만 사용합니다.
 ![thread-hardship] 난관 — 한쪽으로 촘촘한 thread (problem)
 ![thread-acceleration] 가속 — compression 이 진행 방향으로 쏠림 (path of builder)
 ![thread-lightning] 번개 — 길고 촘촘하고 압축이 센 thread (wow)
 
 
 ### Vocabulary
-#### shaft {layout=grid-3}
+#### Shaft {layout=grid-3}
 shaft 는 유닛의 몸통입니다. 두께는 그 메타포의 핵심 속성이 얼마나 강한지를 말하고, thread 를 어느 쪽에 두느냐는 shaft 의 역할을 바꿉니다.
 
 - **성장** 확신과 힘이 자라남. shaft 가 단계적으로 두꺼워지는 열입니다. 단계마다 색을 바꾸면(Medium Gray → Builder Neon → Air White) 성숙의 순서가 됩니다.
@@ -848,7 +875,7 @@ shaft 는 유닛의 몸통입니다. 두께는 그 메타포의 핵심 속성이
 
 
 ### Vocabulary
-#### pair {layout=grid-3}
+#### Pair {layout=grid-3}
 유닛 둘이면 관계가 생깁니다. 방향(가로 · 세로)과 서로를 향하는 쪽, 그리고 도킹으로 잇느냐에 따라 뜻이 갈립니다. 모두 유닛 둘로 만들 수 있는 가장 작은 문장입니다.
 
 - **여정** 시간의 길이, 되풀이되는 과정. 가로 유닛 둘을 같은 방향으로 도킹합니다(`>>`). 한 챕터가 끝나고 다음 챕터로 이어지며, 180° 회전 도킹도 같은 뜻입니다. 반복되면 루틴 · 사이클이 됩니다. Builder Neon.
@@ -866,7 +893,7 @@ shaft 는 유닛의 몸통입니다. 두께는 그 메타포의 핵심 속성이
 
 
 ### Vocabulary
-#### relation {layout=grid-3}
+#### Relation {layout=grid-3}
 유닛이 셋 이상 모이면 개체가 아니라 관계가 읽힙니다. 수 · 층 · 축 · 교차가 뜻을 만들고, 그 구성을 잘 만드는 형식 규칙은 [[pattern#grammar]]에 있습니다.
 
 - **규모** 많은 빌더, 긴 시간, 쌓인 성과. 같은 유닛이 여럿입니다. Medium Gray 여럿 속의 Builder Neon 하나는 그 안의 빌더입니다.
@@ -879,25 +906,6 @@ shaft 는 유닛의 몸통입니다. 두께는 그 메타포의 핵심 속성이
 ![relation-direction] 방향성 — 네거티브 스페이스가 한쪽을 가리킴 (conviction)
 ![relation-radiation] 방사 — 중심에서 거울 대칭으로 (boom)
 ![relation-crossing] 엇갈림 — 병렬 + compression 반대 (a-ha)
-
-
-### Graphic Unit
-#### + Geometry & Parameters {layout=grid-3}
-**EO 그래픽 유닛**(이하 유닛)은 그래픽 시스템의 최소 단위이며, 로고의 E 블록 · 패턴 라이브러리 · 애플리케이션 그래픽 모두 동일한 시스템으로 제작되었습니다. 유닛은 **EO Graphic Builder**에서 파라미터로 생성하며, 자세한 사용 방법은 빌더 내 도움말(Help) 메뉴를 참고하시길 바랍니다.
-
-- **shaft size** — 나사축 직사각형의 두께, 단위는 양쪽의 thread 포함 유닛 전체 높이 대비 %입니다. shaft size가 기본 값 35% 전후의 수준일 때, 비교적 복잡한 그래픽 패턴에서도 시각적 밀도를 이상적으로 유지하기 쉽습니다.
-- **thread top / bottom width** — thread 윗변과 아랫변의 폭. 두 값의 차이가 thread의 기울기를 결정합니다. 기본 값은 위 40% · 아래 0%.
-- **thread sides** — double은 shaft 위아래 양쪽, single은 위쪽에만 thread가 붙고 shaft가 아래쪽 바닥에 놓입니다.
-- **thread amount** — shaft 위아래에 하나씩 붙는, 나사산을 추상화한 사다리꼴 쉐입. 오른쪽 변은 컬럼 끝에 수직으로 서고, 왼쪽 변은 기울어집니다. 아래쪽 thread는 위쪽을 컬럼 중심 기준으로 180° 회전한 모양입니다.
-- **thread compression** — thread 폭이 한쪽으로 갈수록 점점 좁아지는 정도. 0이면 모든 thread의 너비가 균등하고, 값이 커질수록 한쪽으로 압축되는 세기가 강해집니다. 음수/양수 값은 compression의 방향을 결정하며, 개별 thread의 기울기는 반전되지 않고 그대로 유지됩니다.
-- **gutter** — thread가 놓이는 세로 칸과 칸 사이 간격. gutter 구간에서 thread는 비고 shaft만 이어집니다.
-
-![param-shaft-size] shaft size — shaft의 두께 2-95%
-![param-thread-width] thread top / bottom width — 기울기의 변화
-![param-thread-sides] thread sides  — double · single
-![param-thread-amount] thread amount — thread 수
-![param-thread-compression] thread compression — thread 압축 방향 · 세기
-![param-gutter] thread sides — thread 사이 간격 10-50px
 
 
 ### Graphic Unit {layout=grid-4}
