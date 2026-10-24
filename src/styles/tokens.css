@@ -163,6 +163,10 @@
   --swatch-tip-gap: 6px; /* 숫자 ↔ Copy 버튼 (숫자 아래에 뜸) */
   --swatch-tip-rise: 4px; /* Copy 버튼이 나타날 때 숫자 쪽에서 내려오는 거리 */
   --swatch-tip-radius: 999px; /* Copy 버튼 라운드. 999px = 알약 */
+  --tip-arrow-size: 0.9em; /* 링크 알약(OPEN)의 ↗ 화살표 한 변 (알약 글자 크기 기준) */
+  --tip-arrow-stroke: 1.5; /* 화살표 선 두께 (viewBox 14 기준) */
+  --tip-arrow-gap: 0.3em; /* OPEN ↔ 화살표 */
+  --tip-arrow-dy: 0.5px; /* 화살표 세로 시각 보정. 양수 = 아래로. OPEN 대문자의 세로 가운데에 맞춘 값 */
 
   /* 1-8 이미지 확대 보기 (라이트박스) */
   --lightbox-pad: 0px; /* 화면 가장자리 ↔ 이미지. 0 = 먼저 닿는 변이 화면에 꽉 참 */

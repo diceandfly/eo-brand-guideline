@@ -887,7 +887,34 @@ html.js .main {
 
 /* 본문 참조 링크 [[page#section]] · [[https://…]] (guide.ts resolveXrefs): "→ 페이지 › 섹션" 이 한 글줄·한 밑줄로. 기호도 링크 글자의 일부 */
 .xref {
+  position: relative; /* 호버 알약(.swatch__tip)의 기준 상자. nowrap 이라 한 줄 상자 하나 */
   white-space: nowrap;
+}
+/* 링크 호버 알약: 칩의 Copy 알약과 같은 부품을 링크 글자 위에 띄움. 글자는 아래 content (JUMP · OPEN · MAIL) */
+.xref .swatch__tip {
+  top: auto;
+  bottom: calc(100% + var(--swatch-tip-gap));
+  left: 50%;
+  scale: 1;
+  transform-origin: 0 100%;
+  transform: translate(-50%, var(--swatch-tip-rise));
+}
+.xref:hover .swatch__tip,
+.xref:focus-visible .swatch__tip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.xref__arrow {
+  flex: none;
+  width: var(--tip-arrow-size);
+  height: var(--tip-arrow-size);
+  margin-left: var(--tip-arrow-gap);
+  translate: 0 var(--tip-arrow-dy);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--tip-arrow-stroke);
+  stroke-linecap: square;
+  stroke-linejoin: miter;
 }
 
 /* 본문 속 컬러 칩: 브랜드 컬러 영문 명칭 앞의 색 네모 (guide.ts colorChips). 칩과 이름은 한 줄에 */
@@ -1132,6 +1159,15 @@ html.js .main {
 }
 .swatch__tip-text--done::before {
   content: 'Copied';
+}
+.swatch__tip-text--jump::before {
+  content: 'Jump';
+}
+.swatch__tip-text--open::before {
+  content: 'Open';
+}
+.swatch__tip-text--mail::before {
+  content: 'Mail';
 }
 .swatch__tip-text--done,
 .swatch__val.is-copied .swatch__tip-text--copy {

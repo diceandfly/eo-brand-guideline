@@ -520,6 +520,10 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
   const NB = '\u00A0';
   const text = (plain: string) => wrapKo(smartQuotes(escapeHtml(plain)));
   const bySlug = (slug: string, chapterSlug?: string) => flat.find(x => x.slug === slug && (!chapterSlug || chapters.find(c => c.subs.includes(x))!.slug === chapterSlug));
+  // 호버 알약: 컬러 칩의 Copy 알약(.swatch__tip)과 같은 부품. 글자(JUMP · OPEN · MAIL)는 CSS content 라 드래그 복사에 섞이지 않음. Open 은 ↗ 화살표 SVG 를 덧붙임
+  const XREF_ARROW = `<svg class="xref__arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M3.5 10.5 10.5 3.5M5 3.5h5.5V9"/></svg>`;
+  const xrefTip = (kind: 'jump' | 'open' | 'mail') =>
+    `<span class="swatch__tip t-label" aria-hidden="true"><span class="swatch__tip-text swatch__tip-text--${kind}"></span>${kind === 'open' ? XREF_ARROW : ''}</span>`;
   const xrefHtml = (inner: string, here: Sub): string => {
     const bar = inner.indexOf('|');
     const rawTarget = bar >= 0 ? inner.slice(0, bar) : inner;
@@ -530,7 +534,8 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
     const fallback = () => label ?? text(target);
     if (/^(https?:)?\/\//i.test(target) || /^mailto:/i.test(target)) {                 // 외부 링크: 새 탭. 라벨이 없으면 주소에서 프로토콜·끝 슬래시를 뺀 글자
       const shown = target.replace(/^(https?:)?\/\//i, '').replace(/^mailto:/i, '').replace(/\/$/, '');
-      return `<a class="xref" href="${escapeHtml(target)}" target="_blank" rel="noopener">${arrow}${label ?? escapeHtml(shown)}</a>`;
+      const kind = /^mailto:/i.test(target) ? 'mail' : 'open';
+      return `<a class="xref xref--${kind}" href="${escapeHtml(target)}" target="_blank" rel="noopener">${arrow}${label ?? escapeHtml(shown)}${xrefTip(kind)}</a>`;
     }
     const [pagePart, secId] = target.split('#');
     const [a, b] = pagePart.split('/');
@@ -543,7 +548,7 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
       href += `#${secId}`;
       auto = pagePart ? `${text(s.name)}${NB}›${NB}${text(sec.label)}` : text(sec.label);
     }
-    return `<a class="xref" href="${href}">${arrow}${label ?? auto}</a>`;
+    return `<a class="xref xref--jump" href="${href}">${arrow}${label ?? auto}${xrefTip('jump')}</a>`;
   };
   const resolveXrefs = (html: string, here: Sub): string => html.replace(/%%XREF(\d+)%%/g, (_m, i: string) => xrefHtml(xrefs[Number(i)], here));
   for (const s of flat) for (const sec of s.sections) {
