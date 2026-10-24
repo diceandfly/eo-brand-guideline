@@ -159,12 +159,15 @@
   --swatch-tip-h: 24px; /* Copy 버튼 높이 */
   --swatch-tip-pad-x: 10px; /* Copy 버튼 좌우 패딩 */
   --swatch-tip-copy-nudge: 0.8px; /* COPY 글자를 오른쪽으로 옮기는 시각 보정. 끝 글자 Y 가 오른쪽을 비어 보이게 함. 0 = 기하 중앙 */
+  --swatch-tip-jump-nudge: 0.2px; /* JUMP 글자 오른쪽 보정 (링크 알약) */
+  --swatch-tip-open-nudge: 0.5px; /* OPEN + 화살표 오른쪽 보정 */
+  --swatch-tip-mail-nudge: 0.5px; /* MAIL 글자 오른쪽 보정 */
   --swatch-tip-text-dy: 0.4px; /* 알약 안 글자(COPY · COPIED)를 아래로 내리는 시각 보정 */
   --swatch-tip-gap: 6px; /* 숫자 ↔ Copy 버튼 (숫자 아래에 뜸) */
   --swatch-tip-rise: 4px; /* Copy 버튼이 나타날 때 숫자 쪽에서 내려오는 거리 */
   --swatch-tip-radius: 999px; /* Copy 버튼 라운드. 999px = 알약 */
-  --tip-arrow-size: 0.9em; /* 링크 알약(OPEN)의 ↗ 화살표 한 변 (알약 글자 크기 기준) */
-  --tip-arrow-stroke: 1.5; /* 화살표 선 두께 (viewBox 14 기준) */
+  --tip-arrow-size: 0.62em; /* 링크 알약(OPEN)의 ↗ 화살표 한 변 = 선 바깥까지의 실제 크기 (viewBox 가 선에 딱 맞음). 대문자 높이와 비슷하게 */
+  --tip-arrow-stroke: 1.5; /* 화살표 선 두께 (viewBox 8.5 기준, 선 폭 ≈ 한 변의 18%) */
   --tip-arrow-gap: 0.3em; /* OPEN ↔ 화살표 */
   --tip-arrow-dy: 0.5px; /* 화살표 세로 시각 보정. 양수 = 아래로. OPEN 대문자의 세로 가운데에 맞춘 값 */
 

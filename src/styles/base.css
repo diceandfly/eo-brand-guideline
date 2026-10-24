@@ -892,12 +892,7 @@ html.js .main {
 }
 /* 링크 호버 알약: 칩의 Copy 알약과 같은 부품을 링크 글자 위에 띄움. 글자는 아래 content (JUMP · OPEN · MAIL) */
 .xref .swatch__tip {
-  top: auto;
-  bottom: calc(100% + var(--swatch-tip-gap));
-  left: 50%;
-  scale: 1;
-  transform-origin: 0 100%;
-  transform: translate(-50%, var(--swatch-tip-rise));
+  scale: 1; /* 패널 축소 되돌림은 카드 안에서만. 위치는 기본값대로 글자 아래 */
 }
 .xref:hover .swatch__tip,
 .xref:focus-visible .swatch__tip {
@@ -909,7 +904,7 @@ html.js .main {
   width: var(--tip-arrow-size);
   height: var(--tip-arrow-size);
   margin-left: var(--tip-arrow-gap);
-  translate: 0 var(--tip-arrow-dy);
+  translate: var(--swatch-tip-open-nudge) var(--tip-arrow-dy); /* 글자와 함께 오른쪽 보정 */
   fill: none;
   stroke: currentColor;
   stroke-width: var(--tip-arrow-stroke);
@@ -948,13 +943,9 @@ html.js .main {
   background: none; /* 값 버튼의 드래그 박스 하이라이트는 끔 (.swatch__val:hover 보다 구체적이어야 이김) */
 }
 .cref__btn .swatch__tip {
-  /* 글줄 안에서는 알약을 칩 위로: 아래로 띄우면 아직 읽지 않은 다음 줄을 가림 (컬러 카드는 패널이 위에 붙어 있어 아래로) */
-  top: auto;
-  bottom: calc(100% + var(--swatch-tip-gap));
+  /* 글줄 안에서도 알약은 칩 아래로 (컬러 카드와 같은 방향) */
   left: calc(50% + (var(--cref-side) - var(--cref-gap)) / 2); /* 좌우 여백이 달라 칩의 실제 가운데로 보정 */
   scale: 1; /* 패널 축소 되돌림은 카드 안에서만 */
-  transform-origin: 0 100%;
-  transform: translate(-50%, var(--swatch-tip-rise));
 }
 .cref--only .cref__btn .swatch__tip {
   left: 50%;
@@ -1159,6 +1150,15 @@ html.js .main {
 }
 .swatch__tip-text--done::before {
   content: 'Copied';
+}
+.swatch__tip-text--jump {
+  translate: var(--swatch-tip-jump-nudge) var(--swatch-tip-text-dy);
+}
+.swatch__tip-text--open {
+  translate: var(--swatch-tip-open-nudge) var(--swatch-tip-text-dy);
+}
+.swatch__tip-text--mail {
+  translate: var(--swatch-tip-mail-nudge) var(--swatch-tip-text-dy);
 }
 .swatch__tip-text--jump::before {
   content: 'Jump';
