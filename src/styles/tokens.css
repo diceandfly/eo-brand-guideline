@@ -387,6 +387,8 @@
   --lightbox-bg: color-mix(in srgb, var(--c-space-black), transparent 8%); /* 뒤를 덮는 막 */
 
   /* 3-10 텍스트 선택 영역 (드래그) */
+  --xref-hover-c: var(--c-builder-neon); /* 참조·외부 링크 호버 때 글자색 (밑줄도 같이) */
+  --xref-hover-dur: 120ms; /* 링크 글자색이 바뀌는 시간 */
   --selection-bg: var(--c-builder-neon);
   --selection-fg: var(--c-space-black);
 

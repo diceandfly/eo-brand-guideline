@@ -889,6 +889,11 @@ html.js .main {
 .xref {
   position: relative; /* 호버 알약(.swatch__tip)의 기준 상자. nowrap 이라 한 줄 상자 하나 */
   white-space: nowrap;
+  transition: color var(--xref-hover-dur) var(--ease);
+}
+.xref:hover,
+.xref:focus-visible {
+  color: var(--xref-hover-c); /* 글자와 밑줄이 네온으로 (박스 없음) */
 }
 /* 링크 호버 알약: 칩의 Copy 알약과 같은 부품을 링크 글자 위에 띄움. 글자는 아래 content (JUMP · OPEN · MAIL) */
 .xref .swatch__tip {
