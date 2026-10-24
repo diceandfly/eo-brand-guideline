@@ -894,6 +894,13 @@ html.js .main {
 .xref .swatch__tip {
   scale: 1; /* 패널 축소 되돌림은 카드 안에서만. 위치는 기본값대로 글자 아래 */
 }
+/* 알약 종류별 오른쪽 보정: 글자와 화살표가 함께 움직임 */
+.xref--jump .swatch__tip { --_nudge: var(--swatch-tip-jump-nudge); }
+.xref--open .swatch__tip { --_nudge: var(--swatch-tip-open-nudge); }
+.xref--mail .swatch__tip { --_nudge: var(--swatch-tip-mail-nudge); }
+.xref .swatch__tip-text {
+  translate: var(--_nudge) var(--swatch-tip-text-dy);
+}
 .xref:hover .swatch__tip,
 .xref:focus-visible .swatch__tip {
   opacity: 1;
@@ -904,7 +911,7 @@ html.js .main {
   width: var(--tip-arrow-size);
   height: var(--tip-arrow-size);
   margin-left: var(--tip-arrow-gap);
-  translate: var(--swatch-tip-open-nudge) var(--tip-arrow-dy); /* 글자와 함께 오른쪽 보정 */
+  translate: var(--_nudge) var(--tip-arrow-dy); /* 글자와 함께 오른쪽 보정 */
   fill: none;
   stroke: currentColor;
   stroke-width: var(--tip-arrow-stroke);
@@ -1150,15 +1157,6 @@ html.js .main {
 }
 .swatch__tip-text--done::before {
   content: 'Copied';
-}
-.swatch__tip-text--jump {
-  translate: var(--swatch-tip-jump-nudge) var(--swatch-tip-text-dy);
-}
-.swatch__tip-text--open {
-  translate: var(--swatch-tip-open-nudge) var(--swatch-tip-text-dy);
-}
-.swatch__tip-text--mail {
-  translate: var(--swatch-tip-mail-nudge) var(--swatch-tip-text-dy);
 }
 .swatch__tip-text--jump::before {
   content: 'Jump';
