@@ -200,7 +200,7 @@ EO 심볼은 두 개의 블록으로 이루어진 모노그램입니다. 나사�
 #### + Scalability
 EO 심볼은 다양한 크기에서 작동하도록 설계되고 테스트되었습니다.
 
-**최적 범위**는 16인치 맥 디스플레이를 500mm 거리에서 볼 때 높이 40–100px(약 8–20mm)입니다. 보는 거리로 환산하면 거리의 1/60–1/25이며, 다른 매체에서는 이 비율로 크기를 정합니다. thread 각도의 시각 보정도 이 범위를 기준으로 맞췄습니다.
+**최적 범위**는 16인치 맥 디스플레이를 500mm 거리에서 볼 때 높이 40-100px(약 8-20mm)입니다. 보는 거리로 환산하면 거리의 1/60-1/25이며, 다른 매체에서는 이 비율로 크기를 정합니다. thread 각도의 시각 보정도 이 범위를 기준으로 맞췄습니다.
 
 **최소 크기**는 화면에서 높이 20px(약 4mm, 보는 거리의 1/125), 인쇄물에서 높이 5mm입니다. 이보다 작은 크기에서는 E 블록의 thread가 뭉개지므로 EO 디자인팀에 확인을 요청하세요.
 ![scalability]
@@ -226,8 +226,8 @@ EO 심볼은 강렬하지만 단순한 셰이프로 이뤄졌습니다. 따라�
 
 ### Usage {layout=grid-2}
 #### Do's & Don'ts
-심볼을 디스플레이 목적으로 사용할 때는 **단지 사이즈를 크게 키워 시각적 위계를 높이는 방식은 지양합니다.** 심볼의 배치 위치 주변의 여백 공간을 충분히 확보해 적절한 사이즈로도 임팩트를 유지하도록 합니다. 심볼의 실질 점유 면적은 빈 구역 전체의 10% 수준, 주변 여백 공간은 심볼 너비의 2–3배 이상을 두는 것이 가장 좋습니다.
-![usage-do-1]{do} 심볼 크기를 배치하는 여백 공간 면적의 10–20% 수준으로 조절합니다 
+심볼을 디스플레이 목적으로 사용할 때는 **단지 사이즈를 크게 키워 시각적 위계를 높이는 방식은 지양합니다.** 심볼의 배치 위치 주변의 여백 공간을 충분히 확보해 적절한 사이즈로도 임팩트를 유지하도록 합니다. 심볼의 실질 점유 면적은 빈 구역 전체의 10% 수준, 주변 여백 공간은 심볼 너비의 2-3배 이상을 두는 것이 가장 좋습니다.
+![usage-do-1]{do} 심볼 크기를 배치하는 여백 공간 면적의 10-20% 수준으로 조절합니다 
 ![usage-do-2]{do} 심볼 주변에 넉넉한 여백을 두어, 적당한 크기로도 충분한 존재감을 만듭니다
 ![usage-dont-1]{dont} 심볼로 빈 공간을 가득 채우지 마세요
 ![usage-dont-2]{dont} 여백 없이 심볼을 다른 요소에 붙이지 마세요
@@ -736,7 +736,7 @@ Builder Neon은 EO 팔레트의 유일한 주인공이자 브랜드에서 가장
 ### Secondary Colors
 #### Day Blue & Bay Green
 Day Blue와 Bay Green은 샌프란시스코의 푸른 하늘과 청량한 공기, 그 안의 자연에서 가져온 시원한 색으로, 보색인 Builder Neon을 더욱 선명하게 살려 주며 시리즈와 채널을 구분하는 데 사용합니다.
-![builder-neon]
+![builder-blue-green]
 
 ### Color
 #### EO Palette {layout=grid-4}
@@ -854,7 +854,7 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 Vocabulary는 이러한 맵핑을 모은 **EO 그래픽 시스템의 어휘 사전**이며, 특정한 가치 키워드를 표현하려면 어떤 시각 속성과 컬러를 조합하는지에 대한 전반적 지침을 담고 있습니다. 단, 이하 내용은 지금까지 구축한 맵핑일 뿐 전부는 아니며 새로운 메타포는 언제든 더해질 수 있습니다. 
 
 이 섹션은 키워드 표현을 주로 설명하며, 그래픽 시각성의 관한 지침은 [[graphic-unit#morphology]] 및 [[graphic-pattern#grammar]]를 참조하세요.
-![thread-vocabulary]
+![vocabulary-overview]
 
 
 ### Vocabulary
@@ -888,15 +888,15 @@ EO나 주인공을 대변하는 유닛에 Builder Neon을 적용하세요.
 #### Pair {layout=grid-3}
 유닛 둘을 연결하면 새로운 관계가 생깁니다. 가로 · 세로 어느 방향으로 조합할지, 같은 방향 · 반대 방향으로 놓을지에 따라 다른 맥락이 표현됩니다. pair로 표현하는 키워드는 여정 · 포착 · 파동 · 동료 · 라이벌 · 집입니다.
 
-- **여정** — 시간의 길이, 되풀이되는 과정. 가로 유닛 둘을 같은 compression 방향으로 도킹하여 표현합니다. 한 챕터가 끝나고 다음 챕터로 이어지는 것을 표현하며, 반복되면 루틴 · 사이클이 됩니다. 도킹된 유닛 쌍에는 같은 컬러를 적용합니다.
+- **여정** — 시간의 길이, 되풀이되는 과정. 가로 유닛 둘을 같은 compression 방향으로 docking하여 표현합니다. 한 챕터가 끝나고 다음 챕터로 이어지는 것을 표현하며, 반복되면 루틴 · 사이클이 됩니다. docking된 유닛 pair에는 같은 컬러를 적용합니다.
 - **포착** — 빌더의 순간을 줌인 · 줌아웃. 가로 유닛 둘을 compression이 촘촘한 쪽끼리 맞대는 것과 넓은 쪽끼리 맞대는 것으로 표현합니다. 두 상태 모두 시선이 가운데로 모이도록 compression을 조절합니다.
 - **파동** — 펄스 · 주파수 · 퍼져 나가는 신호. 번개 둘을 180도 회전하여 이어 붙입니다. shaft가 얆고 compression이 강할수록 파동처럼 보이기 쉽습니다.
 - **동료** — 함께 서 있는 두 인물. 세로 유닛 둘을 같은 방향을 보게 나란히 세워 표현합니다. O나 주인공을 대변하는 유닛에 Builder Neon를, 동료 유닛에는 성격을 알맞게 표현할 다른 컬러를 적용합니다.
 - **라이벌** — 대립 · 경쟁. 세로 유닛 둘을 안쪽을 보는도록 나란히 세워 표현합니다. 나 주인공을 대변하는 유닛에 Builder Neon을, 라이벌 유닛에는 Air White · Medium Gray를 적용합니다.
 - **집** — 쉘터 · 커뮤니티 · EO House. 세로 유닛 둘을 바깥쪽을 향하게 나란히 세워, 실루엣을 지붕처럼 만들어 표현합니다. EO 하우스를 표현할 때는 양쪽 유닛에 모두 Builder Neon을 적용하거나, 왼쪽 유닛에 Builder Neon 오른쪽 유닛에 Day Blue를 적용하세요.
-![pair-journey] 여정 · 루틴 — 같은 방향으로 도킹
-![pair-capture] 포착 — shaft 시작점 기준 중심대칭으로 도킹 
-![pair-pulse] 파동 — 번개 둘을 중심대칭 · 좌우대칭으로 도킹
+![pair-journey] 여정 · 루틴 — 같은 방향으로 docking
+![pair-capture] 포착 — shaft 시작점 기준 중심대칭으로 docking 
+![pair-pulse] 파동 — 번개 둘을 중심대칭 · 좌우대칭으로 docking
 ![pair-peers] 동료 — 세로 둘, 같은 방향
 ![pair-rivals] 라이벌 — 세로 둘, 마주 봄
 ![pair-house] 집 — 지붕 실루엣 (EO House)
@@ -911,11 +911,11 @@ EO나 주인공을 대변하는 유닛에 Builder Neon을 적용하세요.
 - **방향** — 기세 · 흐름을 표현. 좌우반전된 유닛이 shaft 축 방향으로 평행 배치될 때, 유닛 사이의 네거티브 스페이스가 화살표의 모양을 띄며 규칙적으로 한쪽을 향하게 되는 방식을 가리킵니다.
 - **방사** — 분출하는 에너지 · 공명. 위 방향성의 패턴을 거울 대칭하는 방식을 가리킵니다. 에너지의 발생원에 Builder Neon의 사용을 고려합니다.
 - **교차** — 동시다발적 · 순간적 싱크. 번개 유닛을 교차 순서로 쌓아올리면서 꼭지점 · 경계선을 긴장감있게 배치하는 방식을 가리킵니다. 
-![relation-scale] 규모 — 같은 유닛 · 그룹의 메타포 확장
-![relation-dimension] 차원 — 시공간 · 평행세계
-![relation-direction] 방향 — 기세 · 흐름
-![relation-radiation] 방사 — 분출하는 에너지 · 공명
-![relation-crossing] 교차 — 동시다발적 · 순간적 싱크
+![formation-scale] 규모 — 같은 유닛 · 그룹의 메타포 확장
+![formation-dimension] 차원 — 시공간 · 평행세계
+![formation-direction] 방향 — 기세 · 흐름
+![formation-radiation] 방사 — 분출하는 에너지 · 공명
+![formation-crossing] 교차 — 동시다발적 · 순간적 싱크
 
 
 ### Graphic Unit
@@ -923,7 +923,7 @@ EO나 주인공을 대변하는 유닛에 Builder Neon을 적용하세요.
 어떤 형태의 유닛이든 파라미터 몇 개로 간단히 만들 수 있지만, 좋은 형태의 유닛은 절대적 값이 아니라 비례와 리듬에서 나옵니다. 
 
 이 섹션은 시각적으로 이상적인 유닛의 체크리스트를 제시하고, 항목별로 파라미터의 권장 범위를 제공합니다. 단 이것은 절대적인 기준이 아니며, 실제 파라미터 값은 디자이너의 미적 판단에 따라 결정하세요. 이 섹션은 주로 유닛 하나의 형태론을 다루며, 복수 유닛의 조합 규칙은 [[graphic-pattern#grammar]]을 참조하세요.
-![rhythm-overview]
+![morphology-overview]
 
 
 ### Morphology {layout=grid-4}
@@ -946,11 +946,11 @@ thread는 한쪽으로 갈수록 좁아지며 리듬감을 만듭니다. 일반�
 - compression이 충분해야 thread가 리듬을 구성하며 동세가 생깁니다. 촘촘한 선들이 유닛의 경계로 수렴하면서 시선의 흐름을 만들고, 멈춰 있는 평면에 의도적으로 텐션을 부여할 수 있습니다.
 - compression이 과하면, 촘촘한 쪽에서 헤어라인 두께로 압축된 thread들이 반복되면서 마찬가지로 지루한 인상을 주게 됩니다. 그럴 때는 thread amount를 줄이거나 compression을 조금 내려 반복 횟수를 낮춰보세요. 또는 thread gutter를 내려 그 구간을 하나의 덩어리로 뭉치게 하면 반복적인 느낌을 상쇄시킬 수 있습니다.
 - 길이가 짧은 유닛은 thread amount가 작고 compression을 약하게 적용해도, thread 하나하나의 형태가 두드러지며 단조로움이 줄어드는 경향이 있습니다. 반면 길이가 긴 유닛은 thread amount가 크고 compression도 강하게 적용하는 것이 적당한 리듬감을 구성하기 좋습니다.
-![rhythm-motion-do]{do} 적당한 리듬감을 만드는 compression
-![rhythm-motion-dont]{dont} 간격이 일정해 단조로운 유닛
+![rhythm-uniform-do]{do} 적당한 리듬감을 만드는 compression
+![rhythm-uniform-dont]{dont} 간격이 일정해 단조로운 유닛
 ![rhythm-excess-do]{do} 경계로 수렴하며 동세를 만드는 compression
 ![rhythm-excess-dont]{dont} compression이 과해서 헤어라인이 거듭되는 유닛
-![rhythm-length-do-1]{do} 긴 유닛에 적합한 thread amount와 compression
+![rhythm-length-do]{do} 긴 유닛에 적합한 thread amount와 compression
 ![rhythm-length-dont]{dont} 긴 shaft에 많은 threads와 약한 compression 적용
 
 
@@ -962,7 +962,7 @@ thread는 가까이서/크게 볼수록 하나하나의 덩어리가 읽히지�
 - 회색 면의 밀도는 thread gutter가 큰 인상을 정하지만, thread의 기울기에도 미세하게 영향을 받습니다. 두꺼운 쪽 thread의 기울기를 조절할 때는 촘촘한 쪽의 회색 면에 변화가 생기는지 유의하세요.
 - Space Black 유닛은 밝은 배경에서 쪼그라드는데, 이때 촘촘한 쪽의 회색 면이 thread 하나하나로 흩어지며 기존의 리듬감을 무너뜨릴 수 있습니다. 밝은 색에서 어두운 색으로 반전할 때는(반대의 경우도 같습니다) thread gutter와 compression을 새로 잡아야 합니다.
 ![density-mass-do]{do} thread gutter가 작아 회색 면으로 뭉친 촘촘한 구간
-![density-mass-dont]{dont} thread gutter가 코소 헤어라인을 하나하나 돌출시킨 구간
+![density-mass-dont]{dont} thread gutter가 커서 헤어라인을 하나하나 돌출시킨 구간
 ![density-slope-do]{do} 기울기를 조절한 뒤 회색 면을 다시 맞춘 유닛
 ![density-slope-dont]{dont} 기울기만 바꿔 회색 면의 밀도가 달라진 유닛
 ![density-inversion-do]{do} 반전하면서 thread gutter와 compression을 새로 잡은 유닛
@@ -993,9 +993,9 @@ thread 윗변과 아랫변의 폭 차이입니다. thread의 날카로움과 점
 단, 유닛이 놓인 평면 전체를 아이소메트릭이나 원근으로 투영하는 입체적 확장은 EO 디자인팀의 검토를 거쳐 제한적으로 시도할 수 있습니다.
 ![unit-dont-1]{dont} 유닛을 90° 단위가 아닌 각도로 회전하지 마세요
 ![unit-dont-2]{dont} 유닛의 형태를 임의로왜곡하지 마세요
-![unit-dont-4]{dont} 한 유닛에 두 가지 이상의 색을 칠하지 마세요
-![unit-dont-5]{dont} Solid Gray는 배경 컬러 전용이므로 유닛 컬러로 사용하지 마세요
-![unit-dont-6]{dont} shaft size가 일치하지 않는 두 유닛을 연결해 사용하지 마세요
+![unit-dont-3]{dont} 한 유닛에 두 가지 이상의 색을 칠하지 마세요
+![unit-dont-4]{dont} Solid Gray는 배경 컬러 전용이므로 유닛 컬러로 사용하지 마세요
+![unit-dont-5]{dont} shaft size가 일치하지 않는 두 유닛을 연결해 사용하지 마세요
 ![unit-con]{con} 유닛을 입체적인 평면 위에 투영하기
 
 
@@ -1005,12 +1005,11 @@ thread 윗변과 아랫변의 폭 차이입니다. thread의 날카로움과 점
 ### Graphic Pattern
 #### + Grammar
 그래픽 시스템은 언어처럼 세 층위로 짜여 있습니다. 
-* [[graphic-unit#vocabulary]]는 단어입니다. 유닛 하나와 쌍이 어떤 뜻을 갖는지 정합니다.
+* [[graphic-unit#vocabulary]]는 단어입니다. 유닛 하나와 pair가 어떤 뜻을 갖는지 정합니다.
 * [[graphic-unit#morphology]]는 그 단어의 형태입니다. 뜻은 같아도 어떻게 생겨야 잘 읽히는지, 유닛 하나의 비례와 리듬을 다룹니다. 
-* Grammar는 문법입니다. 단어들을 한 지면에 늘어놓을 때 문장이 되게 하는 형식 규칙입니다. 뜻은 Vocabulary가, 생김새는 Morphology가 맡으므로, Grammar는 표현.
+* Grammar는 문법입니다. 단어들을 한 지면에 늘어놓을 때 문장이 되게 하는 형식 규칙입니다.
 
-[[graphic-pattern#references]]의 라이브러리는 이 규칙을 이해하기 위한 참고입니다. 이해한 뒤에는 디자이너가 스스로 창작합니다. 회색 면을 지면 어디에 얼마나 둘지는 규칙으로 적지 않고 디자이너의 판단에 맡깁니다.
-![grammar-overview]
+유닛의 의미는 Vocabulary가, 유닛의 생김새는 Morphology가 맡으므로, Grammar 섹션에서는 뜻보다는 배치 형식에 대해 다룹니다.[[graphic-pattern#references]]의 라이브러리는 이 규칙을 이해하기 위한 예시이며, 이를 바탕으로 디자이너가 재해석해 새로운 패턴을 제작합니다.
 
 
 ### Grammar {layout=grid-4}
@@ -1022,13 +1021,13 @@ thread 윗변과 아랫변의 폭 차이입니다. thread의 날카로움과 점
 
 ### Grammar {layout=grid-4}
 #### Grid Gutter
-grid gutter는 유닛과 유닛 사이의 간격입니다. 일반적으로 0~15px를 권장합니다.
+grid gutter는 유닛과 유닛 사이의 간격입니다. 일반적으로 0-15px를 권장합니다.
 
 - grid gutter는 thread gutter와 밸런스를 맞춥니다. 적절한 grid gutter로 유닛을 쌓아 올리면 시각적 긴장감이 생겨 흥미를 끕니다.
-- 유닛은 겹치지 않습니다. grid gutter를 사이에 두고 떨어지거나, 도킹으로 연결되거나, 완전히 붙어 있거나 셋 중 하나입니다.
+- 유닛은 겹치지 않습니다. grid gutter를 사이에 두고 떨어지거나, docking으로 연결되거나, 완전히 붙어 있거나 셋 중 하나입니다.
 ![gutter-balance-do]{do} thread gutter와 밸런스를 맞춘 grid gutter
 ![gutter-balance-dont]{dont} thread gutter와 어긋난 grid gutter
-![gutter-overlap-do]{do} 떨어지거나 · 도킹되거나 · 붙어 있는 유닛
+![gutter-overlap-do]{do} 떨어지거나 · docking되거나 · 붙어 있는 유닛
 ![gutter-overlap-dont]{dont} 서로 겹친 유닛
 
 
