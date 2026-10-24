@@ -4,6 +4,7 @@
  * 새로고침합니다. (이 모듈이 다시 평가되면 메모도 함께 비워집니다.)
  * 파서 자체(guide.ts)는 Vite 없이도 돌아가므로 scripts/*.mjs 는 fs 로 읽어 직접 호출합니다.
  */
+import fs from 'node:fs';
 import { loadGuide as parseGuide, LANGS, type Guide, type Lang } from './guide';
 import { parseTokens } from './tokens';
 import tokensCss from '../styles/tokens.css?raw';
@@ -14,7 +15,26 @@ const CONTENT_FILES = import.meta.glob('/content/guide.*.md', { query: '?raw', i
 export const TOKENS = parseTokens(tokensCss);
 
 const cache = new Map<Lang, Guide>();
+
+// 개발 서버: public/assets 에 파일을 넣거나 지우면 이미지 색인이 낡는다 (md 를 저장해야만 다시 계산됐음).
+// 폴더의 mtime 은 안의 파일이 생기거나 없어질 때 바뀌므로, 폴더 mtime 합을 서명으로 삼아 바뀌면 메모를 비운다. 빌드에서는 한 번만 계산.
+let assetsSig = '';
+function assetsSignature(): string {
+  const root = `${process.cwd()}/public/assets`;
+  const parts: string[] = [];
+  const walk = (dir: string) => {
+    let st; try { st = fs.statSync(dir); } catch { return; }
+    parts.push(String(st.mtimeMs));
+    for (const d of fs.readdirSync(dir, { withFileTypes: true })) if (d.isDirectory()) walk(`${dir}/${d.name}`);
+  };
+  walk(root);
+  return parts.join('|');
+}
 export function loadGuide(lang: Lang): Guide {
+  if (import.meta.env.DEV) {
+    const sig = assetsSignature();
+    if (sig !== assetsSig) { assetsSig = sig; cache.clear(); }
+  }
   let g = cache.get(lang);
   if (!g) {
     const source = CONTENT_FILES[`/content/guide.${lang}.md`];

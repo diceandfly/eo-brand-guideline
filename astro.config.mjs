@@ -7,9 +7,20 @@ import { defineConfig } from 'astro/config';
 // 브라우저에 "504 Outdated Optimize Dep" 가 나고 스크립트(스무스 스크롤, 이미지 확대)가 통째로 멈춥니다.
 const isBuild = process.argv.includes('build');
 
+// public/assets 에 이미지를 넣거나 지우면 브라우저를 새로고침한다 (색인은 src/lib/content.ts 가 폴더 mtime 으로 다시 계산).
+const watchAssets = () => ({
+  name: 'eo-watch-assets',
+  configureServer(server) {
+    const dir = new URL('./public/assets', import.meta.url).pathname;
+    server.watcher.add(dir);
+    const reload = (file) => { if (file.startsWith(dir)) server.ws.send({ type: 'full-reload', path: '*' }); };
+    server.watcher.on('add', reload).on('unlink', reload).on('addDir', reload).on('unlinkDir', reload);
+  },
+});
+
 export default defineConfig({
   site: 'http://localhost:4321',
-  vite: { cacheDir: isBuild ? 'node_modules/.vite-build' : 'node_modules/.vite' },
+  vite: { cacheDir: isBuild ? 'node_modules/.vite-build' : 'node_modules/.vite', plugins: [watchAssets()] },
   trailingSlash: 'never',
   build: { format: 'file' },
   devToolbar: { enabled: false }
