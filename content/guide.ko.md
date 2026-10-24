@@ -819,14 +819,14 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 - **thread sides** — double은 shaft 위아래 양쪽, single은 위쪽에만 thread가 붙고 shaft가 아래쪽 바닥에 놓입니다.
 - **thread amount** — shaft 위아래에 하나씩 붙는, 나사산을 추상화한 사다리꼴 쉐입. 오른쪽 변은 컬럼 끝에 수직으로 서고, 왼쪽 변은 기울어집니다. 아래쪽 thread는 위쪽을 컬럼 중심 기준으로 180° 회전한 모양입니다.
 - **thread compression** — thread 폭이 한쪽으로 갈수록 점점 좁아지는 정도. 0이면 모든 thread의 너비가 균등하고, 값이 커질수록 한쪽으로 압축되는 세기가 강해집니다. 음수/양수 값은 compression의 방향을 결정하며, 개별 thread의 기울기는 반전되지 않고 그대로 유지됩니다.
-- **gutter** — thread가 놓이는 세로 칸과 칸 사이 간격입니다.
+- **thread gutter** — thread가 놓이는 세로 칸과 칸 사이 간격입니다. 빌더에서는 gutter로 표기합니다.
 
 ![param-shaft-size] shaft size — shaft의 두께 2-95%
 ![param-thread-width] thread top / bottom width — 기울기의 변화
 ![param-thread-sides] thread sides  — double · single
 ![param-thread-amount] thread amount — thread 수
 ![param-thread-compression] thread compression — thread 압축 방향 · 세기
-![param-gutter] thread sides — thread 사이 간격 10-50px
+![param-gutter] thread gutter — thread 사이 간격 10-50px
 
 
 ### Graphic Unit
@@ -945,7 +945,7 @@ thread는 한쪽으로 갈수록 좁아지며 리듬감을 만듭니다. 일반�
 
 - thread의 비례와 간격이 일정하면 리듬감이 단조로워지고, 유닛은 줄무늬처럼 밋밋한 인상을 주게 되며 시각적인 흥미를 일으키기 어려워집니다.
 - compression이 충분해야 thread가 리듬을 구성하며 동세가 생깁니다. 촘촘한 선들이 유닛의 경계로 수렴하면서 시선의 흐름을 만들고, 멈춰 있는 평면에 의도적으로 텐션을 부여할 수 있습니다.
-- compression이 과하면, 촘촘한 쪽에서 헤어라인 두께로 압축된 thread들이 반복되면서 마찬가지로 지루한 인상을 주게 됩니다. 그럴 때는 thread amount를 줄이거나 compression을 조금 내려 반복 횟수를 낮춰보세요. 또는 gutter를 내려 그 구간을 하나의 덩어리로 뭉치게 하면 반복적인 느낌을 상쇄시킬 수 있습니다.
+- compression이 과하면, 촘촘한 쪽에서 헤어라인 두께로 압축된 thread들이 반복되면서 마찬가지로 지루한 인상을 주게 됩니다. 그럴 때는 thread amount를 줄이거나 compression을 조금 내려 반복 횟수를 낮춰보세요. 또는 thread gutter를 내려 그 구간을 하나의 덩어리로 뭉치게 하면 반복적인 느낌을 상쇄시킬 수 있습니다.
 - 길이가 짧은 유닛은 thread amount가 작고 compression을 약하게 적용해도, thread 하나하나의 형태가 두드러지며 단조로움이 줄어드는 경향이 있습니다. 반면 길이가 긴 유닛은 thread amount가 크고 compression도 강하게 적용하는 것이 적당한 리듬감을 구성하기 좋습니다.
 ![rhythm-motion-do]{do} 적당한 리듬감을 만드는 compression
 ![rhythm-motion-dont]{dont} 간격이 일정해 단조로운 유닛
@@ -957,16 +957,16 @@ thread는 한쪽으로 갈수록 좁아지며 리듬감을 만듭니다. 일반�
 
 ### Morphology {layout=grid-4}
 #### Density
-thread는 가까이서/크게 볼수록 하나하나의 덩어리가 읽히지만, 멀리서/작게 볼수록 인접한 형태끼리 뭉치며 일정한 밀도의 회색 면을 이룹니다. 이때 회색 면의 경계는 compression에 따라 변화하고, 밀도는 gutter와 thread의 기울기에 따라 변화합니다. gutter는 thread 사이의 최소 간격이며, 촘촘한 thread가 각각의 선으로 보일지 회색 면으로 뭉칠지에 결정적 영향을 줍니다. 일반적인 해상도의 디지털 에셋에는 10-20px 수준의 gutter를 권장합니다.
+thread는 가까이서/크게 볼수록 하나하나의 덩어리가 읽히지만, 멀리서/작게 볼수록 인접한 형태끼리 뭉치며 일정한 밀도의 회색 면을 이룹니다. 이때 회색 면의 경계는 compression에 따라 변화하고, 밀도는 thread gutter와 thread의 기울기에 따라 변화합니다. thread gutter는 thread 사이의 최소 간격이며, 촘촘한 thread가 각각의 선으로 보일지 회색 면으로 뭉칠지에 결정적 영향을 줍니다. 일반적인 해상도의 디지털 에셋에는 10-20px 수준의 thread gutter를 권장합니다.
 
-- 촘촘한 구간은 회색 면으로 뭉쳐 보이는 쪽이 거의 언제나 좋습니다. 헤어라인 두께로 일정하게 얇아진 thread를 돌출시키기보다, 그 구간이 유닛 끝의 좁은 띠로 뭉치게 gutter를 낮추세요. 일반적인 해상도의 디지털 에셋에서는 gutter를 30px 이상으로 올리는 일이 드뭅니다.
-- 회색 면의 밀도는 gutter가 큰 인상을 정하지만, thread의 기울기에도 미세하게 영향을 받습니다. 두꺼운 쪽 thread의 기울기를 조절할 때는 촘촘한 쪽의 회색 면에 변화가 생기는지 유의하세요.
-- Space Black 유닛은 밝은 배경에서 쪼그라드는데, 이때 촘촘한 쪽의 회색 면이 thread 하나하나로 흩어지며 기존의 리듬감을 무너뜨릴 수 있습니다. 밝은 색에서 어두운 색으로 반전할 때는(반대의 경우도 같습니다) gutter와 compression을 새로 잡아야 합니다.
-![density-mass-do]{do} gutter가 작아 회색 면으로 뭉친 촘촘한 구간
-![density-mass-dont]{dont} gutter가 코소 헤어라인을 하나하나 돌출시킨 구간
+- 촘촘한 구간은 회색 면으로 뭉쳐 보이는 쪽이 거의 언제나 좋습니다. 헤어라인 두께로 일정하게 얇아진 thread를 돌출시키기보다, 그 구간이 유닛 끝의 좁은 띠로 뭉치게 thread gutter를 낮추세요. 일반적인 해상도의 디지털 에셋에서는 thread gutter를 30px 이상으로 올리는 일이 드뭅니다.
+- 회색 면의 밀도는 thread gutter가 큰 인상을 정하지만, thread의 기울기에도 미세하게 영향을 받습니다. 두꺼운 쪽 thread의 기울기를 조절할 때는 촘촘한 쪽의 회색 면에 변화가 생기는지 유의하세요.
+- Space Black 유닛은 밝은 배경에서 쪼그라드는데, 이때 촘촘한 쪽의 회색 면이 thread 하나하나로 흩어지며 기존의 리듬감을 무너뜨릴 수 있습니다. 밝은 색에서 어두운 색으로 반전할 때는(반대의 경우도 같습니다) thread gutter와 compression을 새로 잡아야 합니다.
+![density-mass-do]{do} thread gutter가 작아 회색 면으로 뭉친 촘촘한 구간
+![density-mass-dont]{dont} thread gutter가 코소 헤어라인을 하나하나 돌출시킨 구간
 ![density-slope-do]{do} 기울기를 조절한 뒤 회색 면을 다시 맞춘 유닛
 ![density-slope-dont]{dont} 기울기만 바꿔 회색 면의 밀도가 달라진 유닛
-![density-inversion-do]{do} 반전하면서 gutter와 compression을 새로 잡은 유닛
+![density-inversion-do]{do} 반전하면서 thread gutter와 compression을 새로 잡은 유닛
 ![density-inversion-dont]{dont} 값을 그대로 두고 색만 반전한 유닛
 
 
@@ -1013,26 +1013,26 @@ thread 윗변과 아랫변의 폭 차이입니다. thread의 날카로움과 점
 
 ### Grammar {layout=grid-4}
 #### Grid
-패턴의 그리드는 콘텐츠 영역의 그리드와 연계합니다. 유닛은 콘텐츠 그리드의 컬럼과 로우를 따라 놓이며, 로우와 컬럼을 나누는 방법은 Typography 챕터의 그리드 설명과 함께 다룹니다. 그리드에서 패턴에 가장 중요한 것은 거터와 마진이며, 아래 두 섹션에서 따로 다룹니다.
+패턴의 그리드는 콘텐츠 영역의 그리드와 연계합니다. 유닛은 콘텐츠 그리드의 컬럼과 로우를 따라 놓이며, 로우와 컬럼을 나누는 방법은 Typography 챕터의 그리드 설명과 함께 다룹니다. 그리드에서 패턴에 가장 중요한 것은 grid gutter와 grid margin이며, 아래 두 섹션에서 따로 다룹니다.
 ![grid-do]{do} 콘텐츠 그리드의 컬럼과 로우에 물린 유닛
 ![grid-dont]{dont} 그리드와 무관하게 놓인 유닛
 
 
 ### Grammar {layout=grid-4}
 #### Grid Gutter
-그리드 거터는 유닛과 유닛 사이의 간격입니다. 일반적으로 0~15px를 권장합니다.
+grid gutter는 유닛과 유닛 사이의 간격입니다. 일반적으로 0~15px를 권장합니다.
 
-- 그리드 거터는 유닛 안의 gutter와 밸런스를 맞춥니다. 적절한 거터로 유닛을 쌓아 올리면 시각적 긴장감이 생겨 흥미를 끕니다.
-- 유닛은 겹치지 않습니다. 그리드 거터를 사이에 두고 떨어지거나, 도킹으로 연결되거나, 완전히 붙어 있거나 셋 중 하나입니다.
-![gutter-balance-do]{do} 유닛 안의 gutter와 밸런스를 맞춘 그리드 거터
-![gutter-balance-dont]{dont} 유닛 안의 gutter와 어긋난 그리드 거터
+- grid gutter는 thread gutter와 밸런스를 맞춥니다. 적절한 grid gutter로 유닛을 쌓아 올리면 시각적 긴장감이 생겨 흥미를 끕니다.
+- 유닛은 겹치지 않습니다. grid gutter를 사이에 두고 떨어지거나, 도킹으로 연결되거나, 완전히 붙어 있거나 셋 중 하나입니다.
+![gutter-balance-do]{do} thread gutter와 밸런스를 맞춘 grid gutter
+![gutter-balance-dont]{dont} thread gutter와 어긋난 grid gutter
 ![gutter-overlap-do]{do} 떨어지거나 · 도킹되거나 · 붙어 있는 유닛
 ![gutter-overlap-dont]{dont} 서로 겹친 유닛
 
 
 ### Grammar {layout=grid-4}
 #### Grid Margin
-그리드 마진은 0부터 콘텐츠 그리드의 마진까지 씁니다. 값은 표현하는 메타포의 동세를 따라 정합니다.
+grid margin은 0부터 콘텐츠 그리드의 margin까지 씁니다. 값은 표현하는 메타포의 동세를 따라 정합니다.
 
 - 유닛의 compression이 촘촘한 구간을 지면의 경계에 붙이면 텐션이 생깁니다. 지면 바깥에서 진입하거나 바깥으로 뻗어 나가는 착시를 주어 시각적 흥미를 만듭니다.
 - 유닛이 잘리는 것은 그 결과로만 일어납니다. 빈 자리를 채우려고 유닛을 자르지 마세요.
@@ -1151,7 +1151,7 @@ Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Bl
 
 
 ### Digital {layout=grid-3}
-웹 매거진 · 소셜 피드 · 영상 썸네일 등 디지털 접점입니다. 유닛은 모션으로 확장되어 compression이 시간에 따라 변하며, 썸네일에서는 유닛의 일부만 컬럼 경계에서 크롭해 사용합니다. 웹의 그리드(12컬럼, 거터 40, 마진 44 @1728)는 유닛의 컬럼 그리드와 같은 체계를 공유합니다.
+웹 매거진 · 소셜 피드 · 영상 썸네일 등 디지털 접점입니다. 유닛은 모션으로 확장되어 compression이 시간에 따라 변하며, 썸네일에서는 유닛의 일부만 컬럼 경계에서 크롭해 사용합니다. 웹의 그리드(12컬럼, grid gutter 40, grid margin 44 @1728)는 유닛의 컬럼 그리드와 같은 체계를 공유합니다.
 ![app-web] Web Magazine
 ![app-social] Social Feed
 ![app-thumbnail] Video Thumbnail
