@@ -917,34 +917,65 @@ EO나 주인공을 대변하는 유닛에 Builder Neon을 적용하세요.
 ![relation-crossing] 엇갈림 — 병렬 + compression 반대 (a-ha)
 
 
-### Graphic Unit {layout=grid-4}
+### Graphic Unit
 #### + Proportion & Rhythm
-잘 만든 유닛은 멀리서 봐도 촘촘한 쪽이 회색 덩어리가 아니라 각자 떨어진 선으로 읽힙니다. 하나하나를 세어 보지는 않지만, 그 구분감이 있을 때와 없을 때의 덩어리감은 분명히 다릅니다. 같은 Vocabulary라도 파라미터를 어떻게 잡느냐에 따라 이 느낌이 갈리므로, 항목마다 권장 범위를 빌더의 파라미터 그대로 적습니다. 범위를 벗어난 값이 틀린 것은 아니지만, 벗어날수록 구분감을 직접 확인하세요. 이 섹션은 유닛 하나와 쌍까지를 다루며, 셋 이상의 구성은 [[pattern#grammar]]을, 유닛과 바탕의 색 조합은 [[pattern#color]]을 참조하세요.
+유닛은 파라미터 몇 개로 만들어지지만, 좋은 유닛은 값이 아니라 비례와 리듬에서 나옵니다. 이 섹션은 시각적으로 이상적인 유닛의 체크리스트를 제시하고, 항목별로 파라미터의 권장 범위를 제공합니다. 단 이것은 절대적인 기준이 아니며, 실제 파라미터 값은 디자이너의 미적 판단에 따라 결정하세요. 이 섹션은 주로 유닛 하나와 쌍까지를 다루며, 셋 이상의 복잡한 구성에 대한 규칙은 [[pattern#grammar]]을 참조하세요.
+![rhythm-overview]
 
-- **비례** shaft가 두꺼울수록 thread는 짧아집니다. 짧은 유닛은 threads를 줄이고 shaft를 두껍게, 긴 유닛은 threads를 늘리되 compression은 유지합니다. (shaft size 20~50%, 기본 35~40 · threads 9~14, 기본 12 · 비율 12:5 ~ 9:16)
-- **리듬** compression이 0이면 균일한 줄무늬입니다. 한쪽으로 수렴시켜 방향과 속도를 만드세요. (compression 1.5~2.5, 기본 2:1 · 방향은 한쪽)
-- **구분감** 촘촘한 쪽에서 thread는 머리카락처럼 가늘어져도 간격은 gutter 아래로 내려가지 않습니다. 구분감을 지키는 것은 thread가 아니라 gutter의 하한이므로, compression을 올리면 gutter도 함께 올리세요. (gutter 10~35px, 기본 10 · compression이 2를 넘으면 15px 이상)
-- **기울기** thread 윗변과 아랫변의 폭 차이입니다. 수직에 가까우면 톱니처럼 날카롭고, 너무 누우면 흐름이 사라집니다. 뜻이 아니라 회색도와 긴장감을 정하는 변수입니다. (thread top width 35~50%, 기본 40 · bottom width 0~20%, 기본 0)
-- **크기** 작게 쓰이면 가는 thread부터 사라집니다. 출력 크기에 맞춰 threads와 gutter를 조절하세요. (썸네일처럼 작게: threads 6~8 · gutter 20px 이상 / 옥외처럼 크게: threads 12~14)
-- **세움** 세운 유닛은 폭이 곧 thread의 길이라, 눕힌 값 그대로 세우면 납작해집니다. (orientation 90 · 세운 비율 5:12 ~ 9:16 · threads 10~12)
-- **쌍** 이을 때는 compression의 방향을 맞추고, 마주 놓을 때는 대칭을 정확히 맞춥니다. threads와 shaft size가 다르면 한 몸으로 읽히지 않습니다. (threads · shaft size · compression 동일, 도킹)
-- **반전** 밝은 유닛은 어두운 바탕에서 부풀어 보여 촘촘한 쪽이 뭉칩니다. 완성한 패턴의 색만 뒤집지 마세요. 뒤집어야 하면 gutter를 넓히고 compression을 낮춰 다시 맞춥니다. (뒤집을 때 gutter 늘리고 compression 줄임)
-![rhythm-proportion-do]{do} 비례 — 짧은 유닛은 두꺼운 shaft에 적은 threads, 긴 유닛은 그 반대
-![rhythm-proportion-dont]{dont} 긴 유닛의 값을 그대로 짧은 유닛에 쓰지 마세요
-![rhythm-tempo-do]{do} 리듬 — compression 2:1로 한쪽으로 수렴
-![rhythm-tempo-dont]{dont} compression 0의 균일한 줄무늬를 쓰지 마세요
-![rhythm-separation-do]{do} 구분감 — 촘촘한 끝에서도 gutter만큼 떨어진 선
-![rhythm-separation-dont]{dont} gutter를 줄여 촘촘한 끝을 뭉치게 하지 마세요
-![rhythm-slope-do]{do} 기울기 — top 40% · bottom 0%
-![rhythm-slope-dont]{dont} thread를 수직으로 세워 톱니로 만들지 마세요
-![rhythm-size-do]{do} 크기 — 작게 쓸 때는 threads를 줄이고 gutter를 넓힘
-![rhythm-size-dont]{dont} 큰 화면의 값을 썸네일에 그대로 쓰지 마세요
-![rhythm-upright-do]{do} 세움 — 세운 비율로 다시 맞춘 유닛
-![rhythm-upright-dont]{dont} 눕힌 값 그대로 세워 납작하게 쓰지 마세요
-![rhythm-pair-do]{do} 쌍 — compression 방향과 threads를 맞춰 도킹
-![rhythm-pair-dont]{dont} threads와 shaft size가 다른 두 유닛을 잇지 마세요
-![rhythm-inversion-do]{do} 반전 — gutter를 넓히고 compression을 낮춰 다시 맞춘 밝은 유닛
-![rhythm-inversion-dont]{dont} 같은 값으로 색만 뒤집지 마세요
+
+### Graphic Unit {layout=grid-4}
+#### Proportion
+thread 축과 수직인 방향으로 과도하게 넓어진, 납작한 인상의 유닛은 가급적 사용하지 않습니다. 복잡한 패턴의 일부로 쓰이는 경우는 예외입니다.
+
+- shaft 축 방향으로 긴 인상의 유닛을 위주로 패턴을 만드세요. shaft가 납작해지면 모든 thread가 한데 뭉쳐 버리므로 메타포를 표현하기에 이상적이지 않습니다.
+- 축 방향으로 가는 선처럼 길어진 비례도 이상적이지 않습니다. 이 경우에는 가늘고 긴 shaft를 따라 thread가 같은 메타포로 인식되지 않을 만큼 두꺼워지기 때문입니다.
+![proportion-flat-do]{do} shaft 축 방향으로 긴 비례
+![proportion-flat-dont]{dont} 축과 수직 방향으로 넓어져 thread가 한데 뭉친 납작한 비례
+![proportion-line-do]{do} shaft가 몸통으로 남는 비례
+![proportion-line-dont]{dont} 가는 선처럼 길어져 thread만 두꺼워진 비례
+
+
+### Graphic Unit {layout=grid-4}
+#### Rhythm
+thread는 한쪽으로 갈수록 좁아지며 리듬감을 만듭니다. 일반적으로 compression의 절댓값은 1.618~2.5 수준을 유지하는 것을 권장합니다.
+
+- compression이 충분해야 thread가 한쪽으로 빨려 들어가며 동세가 생깁니다. 촘촘한 선들이 경계로 수렴하면서, 멈춰 있는 평면에 긴장과 시선의 흐름이 만들어집니다.
+- thread의 비례와 간격이 일정하면 유닛은 줄무늬처럼 멈춰 섭니다. 같은 형태와 간격이 일정 수 이상 반복되면 리듬이 단조로워지고 시각적인 흥미를 일으키기 어려워집니다.
+- compression이 과하면 촘촘한 쪽에서 헤어라인의 반복이 과도해지고, 같은 형태의 리듬이 되풀이되어 다시 단조로워집니다. 그럴 때는 threads를 줄이거나 compression을 조금 내려 반복 횟수를 낮추거나, gutter를 내려 그 구간을 한 덩어리로 뭉치게 합니다.
+- shaft가 짧고 threads가 적은 유닛은 compression이 약해도 리듬감이 충분할 때가 많습니다. shaft가 긴 유닛은 threads를 늘리더라도 compression을 강하게 걸어 균일한 반복을 피합니다.
+![rhythm-motion-do]{do} 경계로 수렴하며 시선의 흐름을 만드는 thread
+![rhythm-motion-dont]{dont} compression이 약해 동세가 생기지 않는 유닛
+![rhythm-uniform-do]{do} 한쪽으로 갈수록 형태와 간격이 변하는 리듬
+![rhythm-uniform-dont]{dont} 같은 형태와 간격이 반복되는 줄무늬
+![rhythm-excess-do]{do} 헤어라인 구간이 좁은 띠에 그친 유닛
+![rhythm-excess-dont]{dont} compression이 과해 헤어라인이 반복되는 유닛
+![rhythm-length-do]{do} 긴 shaft에 많은 threads와 강한 compression
+![rhythm-length-dont]{dont} 긴 shaft에 많은 threads를 약한 compression으로 반복
+
+
+### Graphic Unit {layout=grid-4}
+#### Density
+thread는 가까이서 크게 볼수록 하나하나의 덩어리가 읽히지만, 멀리서 작게 볼수록 가까운 형태끼리 뭉치며 일정한 밀도의 회색 면을 이룹니다. 이때 회색 면의 경계는 compression에 따라 움직이고, 밀도는 gutter와 thread의 기울기에 따라 변합니다. gutter는 thread 사이의 최소 간격이며, 촘촘한 thread가 각각의 선으로 보일지, 회색 면으로 뭉칠지에 결정적인 영향을 줍니다. 일반적인 해상도의 디지털 에셋에는 10~20px 수준의 gutter를 권장합니다.
+
+- 촘촘한 구간은 회색 면으로 뭉쳐 보이는 쪽이 거의 언제나 좋습니다. 헤어라인 두께로 일정하게 얇아진 thread를 돌출시키기보다, 그 구간이 유닛 끝의 좁은 띠로 뭉치게 gutter를 낮추세요. 일반적인 해상도의 디지털 에셋에서는 gutter를 30px 이상으로 올리는 일이 드뭅니다.
+- 회색 면의 밀도는 gutter가 큰 인상을 정하지만, thread의 기울기에도 미세하게 영향을 받습니다. 두꺼운 쪽 thread의 기울기를 조절할 때는 촘촘한 쪽의 회색 면에 변화가 생기는지 유의하세요.
+- Space Black 유닛은 밝은 배경에서 쪼그라드는데, 이때 촘촘한 쪽의 회색 면이 thread 하나하나로 흩어지며 기존의 리듬감을 무너뜨릴 수 있습니다. 밝은 색에서 어두운 색으로 반전할 때는(반대의 경우도 같습니다) gutter와 compression을 새로 잡아야 합니다.
+![density-mass-do]{do} 회색 면으로 뭉친 촘촘한 구간
+![density-mass-dont]{dont} gutter를 올려 헤어라인을 하나하나 돌출시킨 구간
+![density-slope-do]{do} 기울기를 조절한 뒤 회색 면을 다시 맞춘 유닛
+![density-slope-dont]{dont} 기울기만 바꿔 회색 면의 밀도가 달라진 유닛
+![density-inversion-do]{do} 반전하면서 gutter와 compression을 새로 잡은 유닛
+![density-inversion-dont]{dont} 값을 그대로 두고 색만 반전한 유닛
+
+
+### Graphic Unit {layout=grid-4}
+#### Shape
+thread 윗변과 아랫변의 폭 차이입니다. thread의 날카로움과 점유 면적을 결정하고, compression 구간의 회색도에 영향을 줍니다. thread top width는 35~50%, bottom width는 0~20%를 권장합니다.
+
+- shaft가 두꺼워지면 thread가 짧아지고 기울기는 완만해집니다. shaft size를 만질 때는 기울기가 함께 움직인다는 점을 유의하세요.
+- 유닛이 많은 패턴일수록 기울기는 하나하나 인지되지 않고 회색도 덩어리에 녹아듭니다. 유닛 한둘을 한쪽으로 몰아 클로즈업하는 연출이 아니라면 기본 범위 안에서 쓰고, 패턴을 짜는 과정에서는 회색도를 맞추는 미세 조정에만 쓰세요.
+![shape-do]{do} top 40% · bottom 0%의 thread
+![shape-dont]{dont} 범위를 벗어난 기울기로 회색도가 달라진 thread
 
 
 ### Graphic Unit {layout=grid-3}
@@ -957,6 +988,7 @@ EO나 주인공을 대변하는 유닛에 Builder Neon을 적용하세요.
 ![unit-dont-3]{dont} thread를 임의로 지우거나 추가하지 마세요
 ![unit-dont-4]{dont} 한 유닛에 두 가지 이상의 색을 칠하지 마세요
 ![unit-dont-5]{dont} Solid Gray는 배경 컬러 전용이므로 유닛 컬러로 사용하지 마세요
+![unit-dont-6]{dont} threads와 shaft size가 다른 유닛을 한 쌍으로 잇지 마세요
 ![unit-con]{con} 유닛을 입체적인 평면 위에 투영하기
 
 
