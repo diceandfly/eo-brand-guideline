@@ -1,0 +1,10 @@
+#!/bin/sh
+# 유료 폰트 파일(Founders Grotesk)이 커밋에 들어가는 것을 막습니다. git add -f 로 강제 추가해도 여기서 걸립니다.
+PATTERN='(\.(woff2?|ttf|otf|eot)$|^public/fonts/.*\.(woff2?|ttf|otf|eot)$|^dist/)'
+bad=$(git diff --cached --name-only --diff-filter=ACMR | grep -iE "$PATTERN")
+if [ -n "$bad" ]; then
+  echo "✗ 폰트 파일(또는 dist/)은 커밋할 수 없습니다. 라이선스상 저장소에 올리지 않습니다:" >&2
+  echo "$bad" | sed 's/^/    /' >&2
+  echo "  git reset HEAD <파일> 로 스테이지에서 빼고 다시 커밋하세요." >&2
+  exit 1
+fi

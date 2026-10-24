@@ -1,0 +1,16 @@
+#!/bin/sh
+# 푸시되는 커밋 어디에도 폰트 파일이 없는지 한 번 더 확인합니다 (과거 커밋에 섞여 들어간 경우까지).
+PATTERN='\.(woff2?|ttf|otf|eot)$'
+zero=0000000000000000000000000000000000000000
+status=0
+while read local_ref local_sha remote_ref remote_sha; do
+  [ "$local_sha" = "$zero" ] && continue            # 브랜치 삭제
+  if [ "$remote_sha" = "$zero" ]; then range="$local_sha"; else range="$remote_sha..$local_sha"; fi
+  hits=$( { git log --pretty=format: --name-only "$range"; git ls-tree -r --name-only "$local_sha"; } | grep -iE "$PATTERN" | sort -u)
+  if [ -n "$hits" ]; then
+    echo "✗ 푸시 중단: $local_ref 의 커밋에 폰트 파일이 들어 있습니다:" >&2
+    echo "$hits" | sed 's/^/    /' >&2
+    status=1
+  fi
+done
+exit $status

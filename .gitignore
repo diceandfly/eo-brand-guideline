@@ -11,3 +11,10 @@ public/fonts/*
 
 # 장표 공장 산출물 (최종본만 public/assets 로 복사)
 research/figure-lab/out/
+
+# 폰트 파일은 어느 폴더에 있어도 추적하지 않습니다 (.githooks 가 커밋·푸시도 막음)
+*.woff2
+*.woff
+*.ttf
+*.otf
+*.eot
