@@ -20,7 +20,7 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
   [[graphic-pattern]]                          → "Graphic Pattern" (페이지로)
   [[#grammar]]                         → 같은 페이지의 섹션 ("Grammar")
   [[→ graphic-pattern#color]]          → "→ Graphic Pattern › Color" (화살표까지 한 밑줄. -> 로 써도 됨)
-  [[02-logo/symbol#clearspace]]        → 같은 페이지 이름이 여러 챕터에 있을 때 챕터로 한정
+  [[symbol#clearspace]]        → 같은 페이지 이름이 여러 챕터에 있을 때 챕터로 한정
   [[graphic-pattern#grammar|문법 원칙]]         → 링크 글자를 직접 지정
   [[https://eopla.net|EO Planet]]      → 외부 링크 (새 탭). 라벨이 없으면 "eopla.net" 처럼 주소가 글자로
     → 페이지 이름 = URL의 slug (symbol, signature, pattern …), 섹션 = 앵커 id. 없는 대상은 빌드 로그에 경고가 뜨고 글자만 남습니다.
@@ -934,9 +934,8 @@ EO 그래픽 유닛의 특징은 크기와 종횡비를 자유롭게 변형할 �
 - shaft 축 방향으로 가는 선처럼 긴 유닛도 이상적이지 않습니다. 이 경우에는 가늘고 긴 shaft를 따라 thread가 기존 메타포로 인식되지 않을 만큼 두꺼워지기 때문입니다.
 ![proportion-flat-do]{do} shaft 축 방향으로 적당히 긴 인상의 유닛
 ![proportion-flat-dont]{dont} 축과 수직 방향으로 넓어져 thread가 한데 뭉친 납작한 유닛
-![proportion-line-do]{do} shaft의 길이가 적당하게 긴 유닛
+![proportion-line-do]{do} 적당한 길이의 shaft가 몸통처럼 균형이 잡힌 유닛
 ![proportion-line-dont]{dont} shaft가 가는 선처럼 길어지며 thread도 길게 늘어난 유닛
-![proportion-shaft-do]{do} shaft가 몸통처럼 균형이 잡힌 유닛
 
 
 ### Morphology {layout=grid-4}
@@ -982,9 +981,9 @@ thread 윗변과 아랫변의 폭 차이입니다. thread의 날카로움과 점
 
 ### Morphology {layout=grid-4}
 #### Docking
-도킹은 두 유닛을 shaft 축 방향으로 이어 하나의 긴 유닛처럼 보이게 하는 연결입니다. 맞닿는 자리에서 thread 간격이 양쪽의 리듬을 그대로 이어야 하며, 그러려면 두 유닛의 shaft size와 thread amount가 같아야 합니다. 그냥 붙이기만 하면 이음새에서 간격이 튀어 리듬이 끊깁니다.
-![docking-do]{do} 이음새에서 리듬이 이어지는 도킹
-![docking-dont]{dont} 도킹 없이 붙여 이음새에서 리듬이 끊긴 두 유닛
+같은 컬러의 두 유닛을 shaft 축 방향으로 이어 하나의 긴 유닛처럼 만들때, 그 틈새를 처리하는 방법을 docking이라고 부릅니다. 맞닿는 자리에서 thread 간격이 양쪽의 리듬을 그대로 이어야 하며, 그러려면 두 유닛의 shaft size와 thread gutter가 같아야 합니다. 그냥 붙이기만 하면 이음새에서 간격이 사라져 thread의 리듬감이 튀게 됩니다. 
+![docking-do]{do} 이음새에서 리듬이 이어지는 docking
+![docking-dont]{dont} docking 없이 붙여 이음새에서 리듬이 끊긴 두 유닛
 
 
 ### Graphic Unit {layout=grid-3}
@@ -1005,9 +1004,12 @@ thread 윗변과 아랫변의 폭 차이입니다. thread의 날카로움과 점
 
 ### Graphic Pattern
 #### + Grammar
-그래픽 시스템은 언어처럼 세 층위로 짜여 있습니다. [[graphic-unit#vocabulary]]는 단어입니다. 유닛 하나와 쌍이 어떤 뜻을 갖는지 정합니다. [[graphic-unit#morphology]]는 그 단어의 형태입니다. 뜻은 같아도 어떻게 생겨야 잘 읽히는지, 유닛 하나의 비례와 리듬을 다룹니다. Grammar는 문법입니다. 단어들을 한 지면에 셋 이상 늘어놓을 때 문장이 되게 하는 형식 규칙입니다. 뜻은 어휘가, 생김새는 형태가 맡으므로 Grammar는 뜻을 말하지 않습니다.
+그래픽 시스템은 언어처럼 세 층위로 짜여 있습니다. 
+* [[graphic-unit#vocabulary]]는 단어입니다. 유닛 하나와 쌍이 어떤 뜻을 갖는지 정합니다.
+* [[graphic-unit#morphology]]는 그 단어의 형태입니다. 뜻은 같아도 어떻게 생겨야 잘 읽히는지, 유닛 하나의 비례와 리듬을 다룹니다. 
+* Grammar는 문법입니다. 단어들을 한 지면에 늘어놓을 때 문장이 되게 하는 형식 규칙입니다. 뜻은 Vocabulary가, 생김새는 Morphology가 맡으므로, Grammar는 표현.
 
-[[#references]]의 라이브러리는 이 규칙을 이해하기 위한 참고입니다. 이해한 뒤에는 디자이너가 스스로 창작합니다. 회색 면을 지면 어디에 얼마나 둘지는 규칙으로 적지 않고 디자이너의 판단에 맡깁니다.
+[[graphic-pattern#references]]의 라이브러리는 이 규칙을 이해하기 위한 참고입니다. 이해한 뒤에는 디자이너가 스스로 창작합니다. 회색 면을 지면 어디에 얼마나 둘지는 규칙으로 적지 않고 디자이너의 판단에 맡깁니다.
 ![grammar-overview]
 
 
