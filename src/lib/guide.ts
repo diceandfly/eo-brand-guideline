@@ -520,10 +520,14 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
   const NB = '\u00A0';
   const text = (plain: string) => wrapKo(smartQuotes(escapeHtml(plain)));
   const bySlug = (slug: string, chapterSlug?: string) => flat.find(x => x.slug === slug && (!chapterSlug || chapters.find(c => c.subs.includes(x))!.slug === chapterSlug));
-  // 호버 알약: 컬러 칩의 Copy 알약(.swatch__tip)과 같은 부품. 글자(JUMP · OPEN · MAIL)는 CSS content 라 드래그 복사에 섞이지 않음. 셋 다 글자 뒤에 ↗ 화살표 SVG
-  const XREF_ARROW = `<svg class="xref__arrow" viewBox="2.75 2.75 8.5 8.5" aria-hidden="true"><path d="M3.5 10.5 10.5 3.5M5 3.5h5.5V9"/></svg>`;
+  // 호버 알약: 컬러 칩의 Copy 알약(.swatch__tip)과 같은 부품. 글자(JUMP · OPEN · MAIL)는 CSS content 라 드래그 복사에 섞이지 않음.
+  // 글자 뒤 화살표 SVG: 문서 안 이동(jump)은 →, 밖으로 나가는 링크(open · mail)는 ↗. 둘 다 같은 상자(viewBox 가 선에 딱 맞음)
+  const XREF_ARROWS = {
+    jump: `<svg class="xref__arrow" viewBox="2.75 2.75 8.5 8.5" aria-hidden="true"><path d="M3.5 7h7M7 3.5 10.5 7 7 10.5"/></svg>`,
+    out: `<svg class="xref__arrow" viewBox="2.75 2.75 8.5 8.5" aria-hidden="true"><path d="M3.5 10.5 10.5 3.5M5 3.5h5.5V9"/></svg>`,
+  };
   const xrefTip = (kind: 'jump' | 'open' | 'mail') =>
-    `<span class="swatch__tip t-label" aria-hidden="true"><span class="swatch__tip-text swatch__tip-text--${kind}"></span>${XREF_ARROW}</span>`;
+    `<span class="swatch__tip t-label" aria-hidden="true"><span class="swatch__tip-text swatch__tip-text--${kind}"></span>${XREF_ARROWS[kind === 'jump' ? 'jump' : 'out']}</span>`;
   const xrefHtml = (inner: string, here: Sub): string => {
     const bar = inner.indexOf('|');
     const rawTarget = bar >= 0 ? inner.slice(0, bar) : inner;
