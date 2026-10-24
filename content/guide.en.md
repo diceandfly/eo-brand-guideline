@@ -659,12 +659,12 @@ A library of thirty patterns built from combinations of units. Each pattern stan
 ![pattern-19] 19 / growth
 ![pattern-20] 20 / diversity
 ![pattern-21] 21 / momentum
-![pattern-22] 22 / real world
-![pattern-23] 23 / singularity
-![pattern-24] 24 / multi-dimension
-![pattern-25] 25 / a-ha
-![pattern-26] 26 / wow
-![pattern-27] 27 / problem
+![pattern-22] 22 / problem
+![pattern-23] 23 / a-ha
+![pattern-24] 24 / wow
+![pattern-25] 25 / real world
+![pattern-26] 26 / singularity
+![pattern-27] 27 / multi-dimension
 ![pattern-28] 28 / adventure
 ![pattern-29] 29 / nature
 ![pattern-30] 30 / bang!
