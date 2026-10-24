@@ -452,7 +452,8 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
       const z = flags.find(f => f.startsWith('zoom='));
       if (z && Number.isFinite(parseFloat(z.slice(5)))) item.zoom = parseFloat(z.slice(5));
       if (flags.includes('nozoom')) item.zoom = 1;
-      if (m[3].trim()) item.caption = glueLastWords(wrapKo(colorChips(smartQuotes(escapeHtml(m[3].trim())), ctx)));   // HTML (컬러 칩, 한글 구간 래핑, 고아 단어 방지)
+      // 캡션은 한 줄. 본문처럼 \ 가 줄바꿈 (<br>): "위 줄 \ 아래 줄". 앞뒤 공백은 줄바꿈에 흡수
+      if (m[3].trim()) item.caption = glueLastWords(wrapKo(colorChips(smartQuotes(escapeHtml(m[3].trim()).replace(/\s*\\\s*/g, '<br>')), ctx)));   // HTML (컬러 칩, 한글 구간 래핑, 고아 단어 방지)
       section.items.push(item);
       continue;
     }
