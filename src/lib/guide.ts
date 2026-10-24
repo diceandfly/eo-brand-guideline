@@ -346,10 +346,11 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
 
   const flushSection = () => {
     if (!section || !sub) return;
-    // 앵커 id = 목차 라벨의 슬러그 (헤드가 페이지 이름과 같으면 서브헤드). 같은 페이지 안에서 겹치면 -2, -3 …
+    // 앵커 id = 목차 라벨의 슬러그 (헤드가 페이지 이름과 같으면 서브헤드). 헤드가 페이지 이름과 다르고 서브헤드까지 있으면
+    // "헤드-서브헤드" (morphology-proportion) 로 서브헤드까지 참조할 수 있게. 같은 페이지 안에서 겹치면 -2, -3 …
     // 섹션을 다 읽은 뒤에 정해야 서브헤드를 쓸 수 있으므로 여기서 확정
     section.label = navLabel(section, sub);
-    const base = slugify(section.label);
+    const base = section.subhead && section.label === section.head ? `${slugify(section.head)}-${slugify(section.subhead)}` : slugify(section.label);
     const count = (idsInSub.get(base) ?? 0) + 1;
     idsInSub.set(base, count);
     section.id = count === 1 ? base : `${base}-${count}`;
@@ -541,7 +542,8 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
       const kind = /^mailto:/i.test(target) ? 'mail' : 'open';
       return `<a class="xref xref--${kind}" href="${escapeHtml(target)}" target="_blank" rel="noopener">${arrow}${label ?? escapeHtml(shown)}${xrefTip(kind)}</a>`;
     }
-    const [pagePart, secId] = target.split('#');
+    const [pagePart, ...secParts] = target.split('#');
+    const secId = secParts.length ? secParts.join('-') : undefined;            // page#head#subhead → id "head-subhead"
     const [a, b] = pagePart.split('/');
     const s = !pagePart ? here : b ? bySlug(b, a) : bySlug(a);
     if (!s) { console.warn(`[guide] [[${target}]]: "${pagePart}" 페이지가 없습니다 (${here.url})`); return fallback(); }
@@ -550,7 +552,8 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
       const sec = s.sections.find(x => x.id === secId);
       if (!sec) { console.warn(`[guide] [[${target}]]: ${s.name} 페이지에 #${secId} 섹션이 없습니다 (${here.url}). 있는 id: ${s.sections.map(x => x.id).join(', ')}`); return fallback(); }
       href += `#${secId}`;
-      auto = pagePart ? `${text(s.name)}${NB}›${NB}${text(sec.label)}` : text(sec.label);
+      const crumb = sec.subhead && sec.subhead !== sec.label ? `${text(sec.label)}${NB}›${NB}${text(sec.subhead)}` : text(sec.label);   // 헤드 › 서브헤드
+      auto = pagePart ? `${text(s.name)}${NB}›${NB}${crumb}` : crumb;
     }
     return `<a class="xref xref--jump" href="${href}">${arrow}${label ?? auto}${xrefTip('jump')}</a>`;
   };
