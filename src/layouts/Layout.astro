@@ -19,6 +19,27 @@ const ui = UI_TEXT[lang];
     <meta name="robots" content="noindex" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <script is:inline>document.documentElement.classList.add('js');</script>
+    <!-- 스무스 스크롤(motion.ts, GSAP)이 준비되기 전 잠깐은 브라우저 기본 스크롤이라 휠이 튄다.
+         그 사이의 휠·터치·키 스크롤을 막아 두고, 스무더가 만들어지면 motion.ts 가 풀어 준다. 못 풀면 3초 뒤 자동 해제 -->
+    <script is:inline>
+      (function () {
+        var keys = { ArrowUp: 1, ArrowDown: 1, PageUp: 1, PageDown: 1, Home: 1, End: 1, ' ': 1 };
+        var opts = { passive: false };
+        var block = function (e) { e.preventDefault(); };
+        var keyBlock = function (e) { if (keys[e.key] && !/^(INPUT|TEXTAREA)$/.test(e.target.tagName)) e.preventDefault(); };
+        addEventListener('wheel', block, opts);
+        addEventListener('touchmove', block, opts);
+        addEventListener('keydown', keyBlock);
+        var off = function () {
+          removeEventListener('wheel', block, opts);
+          removeEventListener('touchmove', block, opts);
+          removeEventListener('keydown', keyBlock);
+          window.__scrollGuardOff = null;
+        };
+        window.__scrollGuardOff = off;
+        setTimeout(function () { if (window.__scrollGuardOff) off(); }, 3000);
+      })();
+    </script>
     <!-- 매 페이지에서 쓰는 웹폰트를 CSS 파싱 전에 미리 받습니다 (페이지 전환 시 시스템 폰트가 스치는 것 방지).
          파일명은 fonts.css 와 같아야 합니다. -->
     <link rel="preload" href="/fonts/founders-grotesk-light.woff2" as="font" type="font/woff2" crossorigin />

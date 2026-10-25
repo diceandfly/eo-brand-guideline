@@ -55,6 +55,7 @@ if (smoothAmount > 0 && wrapper && content) {
   smoother = ScrollSmoother.create({ wrapper, content, smooth: smoothAmount, effects: false, smoothTouch: 0 });
 }
 (window as any).__smoother = smoother;
+(window as any).__scrollGuardOff?.();                          // 준비 끝: 로드 중 막아 둔 휠·터치·키 스크롤을 품 (Layout.astro 의 인라인 가드)
 
 const anchorOffset = () => num('--anchor-offset', 64);
 
