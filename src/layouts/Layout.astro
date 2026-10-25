@@ -20,9 +20,12 @@ const ui = UI_TEXT[lang];
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <script is:inline>document.documentElement.classList.add('js');</script>
     <!-- 스무스 스크롤(motion.ts, GSAP)이 준비되기 전 잠깐은 브라우저 기본 스크롤이라 휠이 튄다.
-         그 사이의 휠·터치·키 스크롤을 막아 두고, 스무더가 만들어지면 motion.ts 가 풀어 준다. 못 풀면 3초 뒤 자동 해제 -->
+         그 사이에는 html.scroll-hold(overflow: hidden)로 페이지 자체를 못 굴리게 하고, 휠·터치·키 이벤트도 막아 둔다.
+         (이벤트 막기만으로는 부족: 직전 페이지에서 시작된 관성 스크롤(트랙패드·매직 마우스)은 취소할 수 없는 이벤트로 들어온다)
+         스무더가 만들어지고 시작 단계가 지나면 motion.ts 가 풀어 준다. 못 풀면 3초 뒤 자동 해제 -->
     <script is:inline>
       (function () {
+        document.documentElement.classList.add('scroll-hold');
         var keys = { ArrowUp: 1, ArrowDown: 1, PageUp: 1, PageDown: 1, Home: 1, End: 1, ' ': 1 };
         var opts = { passive: false };
         var block = function (e) { e.preventDefault(); };
@@ -31,6 +34,7 @@ const ui = UI_TEXT[lang];
         addEventListener('touchmove', block, opts);
         addEventListener('keydown', keyBlock);
         var off = function () {
+          document.documentElement.classList.remove('scroll-hold');
           removeEventListener('wheel', block, opts);
           removeEventListener('touchmove', block, opts);
           removeEventListener('keydown', keyBlock);
