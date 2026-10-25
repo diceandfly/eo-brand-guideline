@@ -707,7 +707,7 @@ Below are a few things never to do with typography. To guarantee consistency acr
 
 
 ### Backup Typeface
-#### Pretendard
+#### Inter
 In environments where Founders Grotesk cannot be used (email, system-font restrictions on external platforms, and so on), Inter is the preferred alternative. Use Inter Medium for headlines and Inter Light for body copy.
 
 Keep the basic rules of our typography in mind and act in their spirit. Avoid other substitute fonts (Arial and the like), and use Inter only when Founders Grotesk is unavailable.
@@ -1040,7 +1040,7 @@ pattern gutter is the gap between units within a graphic pattern. For typical di
 Set pattern margin to 0 so the pattern fills 100% of the layout's graphic pattern area. Depending on the nuance of the metaphor, it can extend past the layout's margin to the edge of the page · output medium. Butting a unit's densely compressed stretch against the edge of the page creates the illusion of entering from outside the page or reaching out beyond it, which creates visual interest.
 
 ![margin-crop-do]{do} A pattern filling 100% of the content area
-![margin-crop-dont]{do} A pattern extended to the edge of the output medium
+![margin-crop-dont]{dont} A pattern extended to the edge of the output medium
 
 
 ### Grammar {layout=grid-4}
