@@ -2,57 +2,111 @@
 =====================================================================
 EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (영어판)
 =====================================================================
-이 파일은 영어판입니다. 한국어판은 guide.ko.md 이며 문법은 같습니다.
+이 파일은 영어판입니다. 한국어판은 guide.ko.md이며 문법은 같습니다.
 두 언어가 한 사이트에 같이 빌드됩니다. 영어판은 /en/… , 한국어판은 /ko/… 이고
-목차 하단의 EN | KR 로 전환합니다. 같은 챕터·서브챕터 이름(slug)이 있으면 같은 페이지로, 없으면 첫 페이지로 갑니다.
+목차 하단의 EN | KR로 전환합니다. 같은 챕터·페이지 이름(slug)이 있으면 같은 페이지로, 없으면 첫 페이지로 갑니다.
+
+이 파일 하나가 사이트의 모든 글과 이미지 배치를 결정합니다.
+이 주석 블록(<!-- -->)은 화면에 나오지 않습니다. 자유롭게 메모를 남기세요.
 
 ■ 위계 (기호로 구분)
   # 02 Logo              ← 챕터.   "번호 이름" 형식. 번호는 목차와 URL(/02-logo/…)에 쓰입니다.
-  ## Logo                ← 서브챕터. 페이지 하나가 됩니다. URL: /02-logo/logo
+  ## Logo                ← 페이지. 화면 하나 = URL 하나. URL: /02-logo/logo
   ### Construction       ← 섹션 헤드. 목차의 앵커로도 쓰입니다.
+                            앵커 id = 목차 라벨의 슬러그 (헤드가 페이지 이름과 같으면 서브헤드, 예: #color-pairing).
+
+■ 참조 링크 (본문·캡션 어디서나)
+  [[graphic-pattern#color]]            → "Graphic Pattern › Color" 링크. 글자는 목차에서 자동, 언어별 경로도 자동
+  [[graphic-pattern]]                          → "Graphic Pattern" (페이지로)
+  [[#grammar]]                         → 같은 페이지의 섹션 ("Grammar")
+  [[graphic-unit#morphology#proportion]] → "Graphic Unit › Morphology › Proportion" (헤드 › 서브헤드까지)
+  [[→ graphic-pattern#color]]          → "→ Graphic Pattern › Color" (화살표까지 한 밑줄. -> 로 써도 됨)
+  [[symbol#clearspace]]        → 같은 페이지 이름이 여러 챕터에 있을 때 챕터로 한정
+  [[graphic-pattern#grammar|grammar rules]]         → 링크 글자를 직접 지정
+  [[https://eopla.net|EO Planet]]      → 외부 링크 (새 탭). 라벨이 없으면 "eopla.net" 처럼 주소가 글자로
+    → 페이지 이름 = URL의 slug (symbol, signature, graphic-pattern …), 섹션 = 앵커 id = 헤드(헤드가 페이지 이름과 같으면 서브헤드).
+      헤드가 페이지 이름과 다르고 서브헤드가 있으면 id 는 헤드-서브헤드 (morphology-proportion). 없는 대상은 빌드 로그에 경고가 뜨고 글자만 남습니다.
+    → 일반 마크다운 링크 [글자](주소)도 그대로 됩니다.
+    → 트리로 쓰려면 마크다운 중첩 불렛 그대로: "- 항목" 아래 두 칸 들여쓴 "  - [[symbol#color]]"
   #### Primary Lockup    ← 서브헤드 (선택). 헤드 바로 다음 줄에만 씁니다. 없으면 표시되지 않습니다.
   그 아래 줄들            ← 본문. 마크다운(문단, 굵게, 링크, 목록)을 쓸 수 있습니다.
 
 ■ 이미지 (한 줄에 하나)
   ![construction]
-    → 파일 이름만 씁니다. 이 서브챕터의 이미지 폴더 안에서 같은 이름의 .svg .png .jpg .webp 를 찾아 넣습니다.
-      파일: public/assets/<챕터>/<서브챕터>/<주제 번호>-<이름>  예) public/assets/02-logo/01-symbol/04-clearspace.png
+    → 파일 이름만 씁니다. 이 페이지의 이미지 폴더 안에서 같은 이름의 .svg .png .jpg .webp를 찾아 넣습니다.
+      파일: public/assets/<챕터>/<페이지>/<주제 번호>-<이름>  예) public/assets/02-logo/01-symbol/04-clearspace.png
       주제 = 목차 항목(헤드, 헤드가 페이지 이름과 같으면 서브헤드). 앞 번호는 페이지 순서대로 정렬하기 위한 것이라
       없거나 틀려도 이미지는 나옵니다. 이름만 붙여 넣어도(clearspace.png) 됩니다.
     → 파일이 아직 없으면 넣을 경로와 비율이 적힌 플레이스홀더 박스가 나옵니다.
-    → 섹션 순서를 바꾸거나 이름만 붙여 넣은 뒤 npm run assets 를 실행하면 파일 앞 번호를 지금 순서에 맞춰 줍니다.
-    → 예전 형식 ![construction] 도 그대로 동작합니다 (앞의 logo/ 는 무시).
-  ![dont-stretch]{dont} Don't stretch the logo
+    → 섹션 순서를 바꾸거나 이름만 붙여 넣은 뒤 npm run assets를 실행하면 파일 앞 번호를 지금 순서에 맞춰 줍니다.
+    → 예전 형식 ![construction]도 그대로 동작합니다 (앞의 logo/ 는 무시).
+  ![dont-stretch]{dont} Don't stretch or distort the logo
     → {do} 또는 {dont} 를 붙이면 캡션 줄 맨 앞에 체크 / 엑스 아이콘이 붙습니다.
+    → {dont} 이미지에는 빨간 대각선이 자동으로 그려집니다 (카드와 확대 보기 모두). 끄려면 {dont nostrike}.
+    → {con} 은 조건부(conditional, 애매한 경우): 흰 삼각형 아이콘, 대각선 없음. 캡션이 없으면 "Conditional".
+    → 카드 안 배율: {zoom=1.2} 를 붙이면 그 이미지만 카드 안에서 가운데 기준 1.2배로 보입니다 (확대 보기는 원본).
+      Do/Don't 카드는 그리드별 기본 배율(tokens.css --dodont-zoom-2/3/4)을 따르고, {do nozoom} 처럼 쓰면 그 카드만 끕니다.
+      여러 개는 띄어서 함께 씁니다: ![dont-3]{dont nostrike zoom=1.3} 캡션
+      섹션 전체에 걸려면 헤드나 서브헤드 줄에 씁니다: ### Symbol {layout=grid-3 zoom=1.5}
+      중괄호는 나눠 써도 됩니다: {layout=grid-3} {zoom=1.5}
+      (이미지 태그 > 섹션 zoom > Do/Don't 그리드 기본값 순서로 적용)
+    → Do/Don't만 있는 섹션은 4:3 카드입니다. 원본은 16:9로 만들면 카드에서는 가운데 4:3이 보이고, 확대하면 전체가 보입니다.
     → 뒤에 글을 쓰면 이미지 아래 캡션이 붙습니다 (= 카드). 배지만 있고 글이 없으면 "Do" / "Don't" 가 기본 문구.
 
+■ 줄바꿈
+  엔터 두 번 = 새 문단(문단 간격). 엔터 한 번은 같은 문단으로 이어집니다(공백 하나).
+  문단을 나누지 않고 줄만 바꾸려면 줄 끝에 \ 를 붙입니다: Build Anyway.\ ← 다음 줄이 바로 아래에
+  이미지·Do/Don't 캡션은 한 줄로 쓰므로, 줄바꿈 자리에 \ 를 넣습니다: ![token]{do} 윗줄 \ 아랫줄
+
 ■ 따옴표
-  본문·캡션·헤드 어디서든 곧은 따옴표 " 와 ' 로 씁니다. 화면에는 자동으로 둥근 따옴표 “ ” ‘ ’ 로 바뀝니다.
-    → "Build Anyway." 는 “Build Anyway.” 로, Don't 는 Don’t 로 표시됩니다. `코드` 안은 바뀌지 않습니다.
+  본문·캡션·헤드 어디서든 곧은 따옴표 " 와 '로 씁니다. 화면에는 자동으로 둥근 따옴표 “ ” ‘ ’로 바뀝니다.
+    → "Build Anyway." 는 “Build Anyway.”로, Don't는 Don’t로 표시됩니다. `코드` 안은 바뀌지 않습니다.
+
+■ 나열 (가운뎃점)
+  나열은 앞뒤를 띄운 가운뎃점으로 씁니다: situations · formats · communications. 숫자 사이는 "2 or 3 times"처럼 말로 풉니다.
+    → 점 앞 공백은 화면에서 줄바꿈 없는 공백이 되어, 줄이 점으로 시작하지 않습니다.
 
 ■ 스와치 (컬러 스펙 카드)
   [swatch] Builder Neon | #F9EE3A | R249 G238 B58 | C5 M0 Y95 K0 | PANTONE 3945 C
-    → 이름 | HEX | 이후는 자유 항목. HEX 는 색면 채우기에 쓰입니다.
+    → 이름 | HEX | 이후는 자유 항목. HEX는 색면 채우기에 쓰입니다.
+  본문·캡션에 Builder Neon · Day Blue · Bay Green · Medium Gray · Solid Gray · Space Black · Air White를
+    영문 공식 명칭 그대로 쓰면 이름 앞에 색 네모가 자동으로 붙습니다 (대소문자 동일, 7색 고정).
+    본문에서는 한 섹션 안에서 처음 나올 때만 네모가 붙고, 같은 이름이 다시 나오면 글자만 나옵니다 (캡션은 매번 붙음).
+    [Builder Neon]처럼 대괄호로 감싸면 이름 없이 색 네모만, [+Builder Neon]은 첫 언급이 아니어도 네모 + 이름을 강제로 보입니다.
+    (마우스를 올리면 이름이 툴팁으로.)
+    색 네모에 마우스를 올리면 Copy 알약이 뜨고, 누르면 HEX 값이 복사됩니다 (컬러 카드의 값과 같은 동작).
 
 ■ 레이아웃
   섹션 안의 이미지/스와치 개수로 자동 결정됩니다.
     0개 → text    (텍스트만, 8컬럼)
-    1개 → basic   (텍스트 4컬럼 + 이미지 6컬럼)
+    1개 → basic   (텍스트 5컬럼 + 이미지 6컬럼)
     2개 → grid-2  (텍스트 아래 2열)
     3·6·9개 → grid-3
     그 외 → grid-4
   직접 지정하려면 헤드 뒤에 중괄호로 씁니다.
-    ### Character Set {layout=wide}            ← 텍스트 아래 12컬럼 전폭 이미지
+    ### Character Set {layout=wide}            ← 텍스트 아래 12컬럼 전폭 이미지(여러 장이면 세로로 쌓임)
     ### Alignment {layout=half}                ← 텍스트 아래 6컬럼 이미지
     ### Core Palette {layout=grid-4}           ← 개수와 무관하게 4열
     ### Don'ts {layout=grid-3 ratio=4:5}       ← 비율도 함께. 기본값: basic/half 5:4, wide 2:1, grid 4:5
+    ### Credits {layout=text-2}                ← 문단을 2단으로: 본문의 문단(엔터 두 번)·목록을 차례로 2단에. text-3 · text-4도. 모바일은 한 단
+  섹션 여러 개를 한 행(12컬럼)에 나란히 놓으려면 ::: split로 감싸고, 섹션마다 차지할 컬럼 수를 {span=N} 으로 적습니다.
+    ::: split
+    ### Thank You {span=4}
+    …
+    ### Contact {span=4}
+    …
+    ### Credits {span=4}
+    …
+    :::
+    → span을 생략하면 남은 컬럼을 균등하게 나눕니다 (셋이면 4·4·4, 하나만 6이면 6·3·3). 합이 12를 넘으면 다음 행으로.
+    → 행 안에서는 섹션이 세로 흐름(헤드 → 본문 → 이미지)이 됩니다. 이미지가 많은 섹션은 좁아지니 글 위주 섹션에 쓰세요. 모바일은 전부 전폭.
 
 ■ 자주 하는 작업
-  섹션 추가     : ### 헤드 한 줄 + 본문 + ![이미지] 를 원하는 위치에 끼워 넣으면 끝.
+  섹션 추가     : ### 헤드 한 줄 + 본문 + ![이미지]를 원하는 위치에 끼워 넣으면 끝.
   섹션 순서 변경 : 블록째 잘라 붙이기.
-  서브챕터 추가  : ## 이름 한 줄. 목차·URL·다음 버튼이 자동으로 갱신됩니다.
+  페이지 추가  : ## 이름 한 줄. 목차·URL·다음 버튼이 자동으로 갱신됩니다.
   섹션 목록 숨김 : ## 이름 {toc=none}  ← 이 페이지는 목차에서 섹션 목록을 펼치지 않음 (섹션이 하나뿐이면 자동으로 숨김)
-  같은 헤드 반복 : 가능합니다. 목차에는 한 번만 표시되고 첫 번째로 이동합니다.
+  같은 헤드 반복 : 가능합니다 (예: Character Set 3개). 목차에는 한 번만 표시되고 첫 번째로 이동합니다.
   목차에 올릴 섹션 고르기 : ### + Construction  ← 헤드 앞에 + 를 붙이면 그 섹션만 목차에 오름 (에디터에서는 제목으로 보임).
                         한 페이지에 + 가 하나라도 있으면 + 붙은 것만, 하나도 없으면 전부(자동) 올라갑니다.
                         헤드가 반복되는 섹션은 서브헤드 줄에 붙여도 됩니다: #### + Clearspace
@@ -60,7 +114,8 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (영어판)
                   헤드가 페이지 이름과 같으면(Colors 페이지의 "Color") 목차에는 서브헤드가 표시됩니다.
 
 ■ 지금 상태
-  EO 버전 더미 콘텐츠 초안의 영어 번역입니다. [대괄호] 안은 아직 확정되지 않아 채워야 하는 값입니다.
+  guide.ko.md의 영어 번역입니다. 헤드·이미지 줄·split 블록은 국문과 줄 단위로 같게 유지합니다 (구조가 어긋나면 에셋 폴더가 어긋남).
+  [대괄호] 안은 아직 확정되지 않아 채워야 하는 값입니다.
 =====================================================================
 -->
 
@@ -69,104 +124,119 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (영어판)
 ## Welcome
 
 ### Welcome to the EO Brand Guidelines
-EO is media for builders. We earn trust, not clicks. We count the people who come back instead of views, and we record the real journeys of founders instead of chasing the loudest thumbnail.
+EO is media for builders. We rally builders (Rallying), stand on conviction (Conviction), and have their backs (Backing). Recording the founder's journey as it is, and making sure that story reaches the next builder: that is what EO does.
 
-These guidelines explain the basic elements of the EO identity system — logo, typography, color, and the visual system — and how we use them to build the brand. When you understand and follow them, content made in Seoul, San Francisco, or Saigon looks and reads as one EO.
-
-External partners who wish to use EO brand assets should contact jemin@eoeoeo.net. 
+These guidelines explain the basic elements of the EO identity system: logo · typography · color · graphic system. Their purpose is to make the brand's content and services look and read as one EO, whether in San Francisco · Seoul · Vietnam.
 
 Build Anyway.
 
 The EO Brand Team
 
-## Legal Brand Guidelines
+
+
+## Legal Brand Guidelines {toc=none}
 
 ### Legal Brand Guidelines
-EO, the EO monogram, the Block symbol, “Build Anyway”, “Even the Odds”, and any other trademark owned by EO Studio (the “EO Marks”), together with other brand materials such as logos, graphic units, patterns, and the EO look and feel (the “Brand Assets”), are the exclusive property of EO Studio. Except as permitted here, you must have prior permission from EO before using any of the EO Marks or Brand Assets.
+EO · the EO monogram · the block symbol · "Build Anyway" · "Entrepreneur Onwards" and any other trademark owned by EO Studio (the **"EO Logo"**), together with the brand's distinctive aesthetic features such as the symbol · graphic units · patterns · the EO look and feel (the "Brand Assets"), are the exclusive property of EO Studio. Except as permitted here, you must have prior permission from EO Studio before using the EO Logo or Brand Assets.
 
+::: split
 ### Do's
-- Always follow these Brand Guidelines when using the EO Marks and Brand Assets.
-- You may use the EO Marks to let people know that you appeared in EO content or took part in an EO program, as long as it does not imply that EO endorses or sponsors your product or service.
-- When quoting EO videos or articles, credit the source clearly as “EO” and link to the original.
-- Use the EO Marks and Brand Assets only as provided, in the original files and within the approved color pairings.
+- Always follow these Brand Guidelines when using the EO Logo and Brand Assets.
+- You may use the EO Logo to let people know that you appeared in EO content or took part in an EO program. It must not, however, give the impression that EO endorses or sponsors the product or service.
+- When quoting EO videos and articles, credit the source clearly as "EO" and provide a link to the original.
+- Use the EO Logo and Brand Assets only as provided in the original files, and only within the approved color pairings.
+
 
 ### Don'ts
-- Incorporate the EO Marks, or any mark confusingly similar to them, into the name of a company, product, service, event, community, URL, social media account, or trademark.
-- Modify or recombine the Block symbol, graphic units, or patterns into graphics of your own.
-- Re-edit or re-upload EO videos, articles, or thumbnails without EO’s permission.
-- Copy or imitate the look and feel of the EO website, magazine, or social channels, including layouts, color combinations, typefaces, and the graphic system.
-- Use the EO Marks alongside political or religious messaging, adult content, or discriminatory content.
-- Use the EO Marks or Brand Assets on merchandise without permission.
+- Do not incorporate the EO Logo, or any logo confusingly similar to it, into the name of a company · product · service · event · community, a URL, a social media account, or a trademark.
+- Do not modify or recombine the EO symbol · graphic units · patterns into graphics of your own.
+- Do not re-edit or re-upload EO videos · articles · thumbnails without EO's permission.
+- Do not copy or imitate the look and feel of the EO website · magazine · social channels (layout · color combinations · typefaces · graphic system).
+- Do not use the EO Logo alongside political or religious messaging · adult content · discriminatory content.
+- Do not use the EO Logo or Brand Assets on merchandise without permission.
+:::
+
+
 
 # 02 Logo
 
 ## Symbol
 
 ### Logo
-#### + Overview
-The EO logo is the umbrella term for every mark covered in this chapter: the EO Symbol, the EO Signature, the Service Signatures, and the EO Sub Symbol.
-![hero]{zoom=1.25}
+#### + Overview 
+The EO logo is the umbrella term for everything covered in this chapter: the EO symbol · EO signature · service signatures · EO sub symbol. This page explains how to apply the EO symbol across situations · formats · communications, from small sign-offs to large display executions.
+![hero]{zoom=1.2}
 
 
 ### Symbol
-The EO Symbol is both a graphic metaphor built on a screw motif that makes the brand recognizable, and a monogram that holds the two letters E and O. Throughout these guidelines, this logo is referred to as the **EO Symbol**.
+A graphic metaphor whose screw motif makes it identifiable, and a monogram holding the two letters E and O. This form of the logo is referred to below as the **EO symbol**.
 
-The EO Symbol is the most iconic and effective way to signal the EO brand. This page explains how to apply it across situations, formats, and communications, from small sign-offs to large display executions.
+The EO symbol is the most iconic and effective way to signal the media brand EO.
 ![symbol]{zoom=1.3}
 
 
 ### Symbol
-#### + Geometry
-The EO Symbol is a monogram built from two blocks. The E block depicts the facade of a screw and consists of a shaft — the base geometry of our graphic unit — and three tiers of threads. The O block is an octagonal screw head pierced by a cross. Set side by side, the two blocks stand for “Entrepreneur Onwards.”
+#### + Motif
+The **EO symbol** is designed on the motif of the three elements of a screw: the shaft · the thread · the head.
+
+- **thread** — one turn of thread symbolizes a cycle of problem solving.
+- **shaft** — the shaft symbolizes the process of building and the builder's journey, and expresses the courage to move forward (Build anyway).
+- **head** — the head symbolizes one small act of problem solving, or one builder.
+![motif]
+
+
+### Symbol
+#### + Geometry {layout=wide}
+The EO symbol is a monogram made of two blocks. The E block, depicting the facade of a screw, consists of a shaft and three threads, the base geometry of the graphic unit. The O block is an octagonal screw head pierced by a cross socket; set side by side, the two blocks stand for "Entrepreneur Onwards".
 ![geometry]
 
 
 ### Symbol
-#### + Clearspace
-Clearspace is the minimum safeguard that protects the symbol whenever it sits next to other visual elements, such as typography, graphic units, images, or the edges of the canvas. Taking the vertical height of one E block as H, always keep a margin of at least H/2 on every side between the symbol and anything around it.
+#### + Clearspace 
+Clearspace is the minimum safeguard that protects the symbol when it sits next to other visual elements such as typography · graphic units · images · the edge of the canvas. Taking the vertical height of one E block as H, always keep a minimum margin of at least H/2 on every side between the symbol and any adjacent element.
 ![clearspace]
 
 
 ### Symbol
 #### + Scalability
-The EO Symbol is designed and tested to work across a wide range of sizes.
+The EO symbol is designed and tested to work across a range of sizes.
 
-The **optimal range** is 40–100px in height (approx. 8–20mm) on a 16-inch Mac display viewed from 500mm. Relative to viewing distance, that is 1/60–1/25 of the distance; use this ratio to size the symbol in other media. The optical correction of the thread angles is also tuned to this range.
+The **optimal range** is a height of 40-100px (approx. 8-20mm) on a 16-inch Mac display viewed from 500mm. Converted to viewing distance, that is 1/60-1/25 of the distance; in other media, size the symbol by this ratio. The optical correction of the thread angles is also tuned to this range.
 
-The **minimum size** is 20px in height on screen (approx. 4mm, 1/125 of the viewing distance) and 5mm in height in print. Below this, the threads of the E block begin to fill in, so check with the EO Brand Team before going smaller.
+The **minimum size** is a height of 20px on screen (approx. 4mm, 1/125 of the viewing distance) and 5mm in print. Below this the threads of the E block fill in, so ask the EO design team to check.
 ![scalability]
 
 
 ### Symbol
-#### + Inversion
-The EO Symbol is built primarily for a light symbol in a bright color, such as Builder Neon or Air White, on a dark background such as Space Black or Solid Gray. When you need a dark symbol on a light background, simply inverting the colors creates an optical illusion: the shape looks thinner and more loosely spaced.
+#### + Inversion 
+The EO symbol is built primarily as a light symbol in Builder Neon · Air White on a dark background such as Space Black · Solid Gray. When you want a dark symbol on a light background, simply inverting the colors creates an optical illusion: the symbol's shape looks smaller and its gaps look wider.
 
-In this case, offset the outline of the light symbol outward by H/100, then scale each of the two blocks up proportionally by H/30 in all four directions. Finally, reduce the gap between the two expanded blocks from the original (4/30)H to (3/30)H to complete the dark symbol. This converts a light symbol anywhere on the size spectrum into its equivalent dark symbol.
+In this case, offset the outline of the light symbol outward by H/100, then scale each of the two blocks up proportionally by H/30 in all four directions. Then reduce the gap between the two expanded blocks from the original (4/30)H to (3/30)H to complete the dark symbol. This converts a light symbol anywhere on the size spectrum into a dark symbol of the same level.
 
-On a light background, clearspace also tends to look larger than it is. Keep the clearspace of the equivalent light symbol as is, and center the dark symbol within it.
+Also, because clearspace on a light background creates the illusion of looking larger, center the dark symbol as is within the clearspace area of the light symbol of the same level.
 ![inversion]
 
 
 ### + Usage
 #### Placement
-The EO Symbol is a bold yet simple shape. In a typical layout, we therefore recommend using it as a sign-off in one of the four corners of the content area. The symbol should take a step back, so that the main content can lead in a video thumbnail that has to earn a click, and the graphic pattern can lead in a poster that has to catch the eye.
+The EO symbol is made of bold yet simple shapes. In a typical layout, we therefore recommend using it as a sign-off in one of the four corners of the content area. The symbol's presence should take a step back so that the main content can lead in a video thumbnail that has to earn the click, and the graphic pattern can lead in a poster that has to catch the eye.
 
-When used as a sign-off, place the symbol in the corner farthest from the hero of the layout — a person or a graphic pattern — with comfortable distance from the surrounding visual elements. This keeps symbol placement simple and consistent, while leaving enough flexibility to accommodate our dynamic graphic system.
+When used as a sign-off, place the symbol in the corner farthest from the hero of the layout, a person or a graphic pattern, with appropriate distance from the surrounding visual elements. This keeps symbol placement simple and consistent while securing enough flexibility to accommodate the dynamic graphic system.
 ![usage-placement]
 
 
 ### Usage {layout=grid-2}
 #### Do's & Don'ts
-When using the symbol for display purposes, **avoid raising its visual hierarchy simply by making it bigger.** Secure generous empty space around the symbol so that it keeps its impact at a moderate size. As a rule of thumb, the symbol works best when it occupies around 10–20% of the empty area, with a margin of at least 2–3 times its size from surrounding elements.
-![usage-do-1]{do} Size the symbol at around 10–20% of the empty space it sits in
-![usage-do-2]{do} Surround the symbol with generous space so it holds strong presence even at a moderate size
-![usage-dont-1]{dont} Don’t enlarge the symbol to fill the empty space
-![usage-dont-2]{dont} Don’t place the symbol against other elements without space
+When using the symbol for display purposes, **avoid raising its visual hierarchy simply by making it bigger.** Secure enough empty space around the symbol's position so that it keeps its impact at an appropriate size. It is best when the symbol's actual footprint is around 10% of the whole empty area, and the surrounding empty space is at least 2-3 times the symbol's width.
+![usage-do-1]{do} Size the symbol at around 10-20% of the empty area it is placed in
+![usage-do-2]{do} Leave generous space around the symbol so it has enough presence even at a moderate size
+![usage-dont-1]{dont} Don't fill the empty space with the symbol
+![usage-dont-2]{dont} Don't butt the symbol against other elements without space
 
 
 ### Symbol
-#### + Color {layout=grid-3} {zoom=1.6}
-The EO Symbol has six primary color pairings. **The symbol is always rendered in a single color**; when you’re unsure about the background, use one of the following.
+#### + Color{layout=grid-3} {zoom=1.6}
+The EO symbol has six basic color pairings. **The symbol must always be rendered in a single color**; when you are unsure about the background color, use one of the following.
 ![color-1] 1. Space Black on Builder Neon
 ![color-2] 2. Air White on Space Black
 ![color-3] 3. Air White on Solid Gray
@@ -177,36 +247,36 @@ The EO Symbol has six primary color pairings. **The symbol is always rendered in
 
 ### + Over Imagery {layout=grid-2}
 #### Do's & Don'ts
-The EO Symbol must always read clearly over photography, so overlay the Air White symbol on images that provide sufficient contrast. If an image is too bright or has areas that are too white, the symbol risks getting lost in the composition; in that case, overlay a gradient or a black box at around 30% opacity before applying the symbol.
+The EO symbol must always read clearly over photography, so overlay the Air White symbol on images that provide sufficient contrast. If an image is too bright or has areas that are excessively white, the symbol risks sinking into the composition; in that case, overlay a gradient or a black box at around 30% opacity before applying the symbol.
 
-The composition should be simple enough to let the symbol stand out. Images that are overly complex or have the key subject dead center become cluttered once the symbol is placed on them. Keep this in mind when choosing images, or reposition the image to suit its relationship with the logo.
+The photo composition must be simple enough for the symbol to stand out. Images that are overly complex or have the key subject dead center become confusing once the symbol is placed on them. Keep this in mind when choosing images, or adjust the image position to suit its relationship with the logo.
 
 The guidance in this section focuses on overlays on still images rather than video sequences, where the composition keeps changing.
-![imagery-do-1]{do} Place the symbol where it contrasts clearly with the background
-![imagery-do-2]{do} When a photo’s brightness is uneven, overlay a gradient at around 30% opacity to secure contrast
-![imagery-dont-1]{dont} Don’t place the symbol over a person’s face or the key subject
-![imagery-dont-2]{dont} Don’t place the symbol where it lacks contrast with the photo
+![imagery-do-1]{do} Place the symbol where it contrasts sufficiently with the background
+![imagery-do-2]{do} When you must use a photo with uneven brightness, overlay a gradient at around 30% opacity to secure contrast
+![imagery-dont-1]{dont} Don't place the symbol over the main silhouette of the person or object the photo illuminates
+![imagery-dont-2]{dont} Don't place the symbol where it lacks contrast with the photo
 
 
 ### + Partner Lockup
 #### Horizontal
-The following image shows the primary horizontal lockup of the EO Symbol with partner brands and collaborators’ logos.
+The following image is an example of the basic horizontal lockup of the EO symbol with partner brands' and collaborators' logos.
 
-The elements should be optically adjusted so that they appear to be the same size. Once each logo is sized, add space between them along with a vertical dividing line or a collaboration mark. The space between the EO Symbol and the partner logo equals 2 or 3 times the width of one E block (W), and the two logos must always be optically centered on the vertical axis.
+The elements must be optically adjusted so that they appear the same size; once each logo is sized, add space between them along with a vertical dividing line · collaboration mark. The space between the EO symbol and the partner logo equals 2 or 3 times the width of one E block (W), and the two logos must always be optically centered on the vertical axis.
 ![partner-horizontal]
 
 
 ### Partner Lockup
 #### Vertical
-The following image shows the primary vertical lockup of the EO Symbol with partner brands and collaborators’ logos.
+The following image is an example of the basic vertical lockup of the EO symbol with partner brands' and collaborators' logos.
 
-The elements should be optically adjusted so that they appear to be the same size. Once each logo is sized, add a horizontal dividing line between them. The space between the EO Symbol and the partner logo equals 1.5 times the height of the EO Symbol (H), and the two logos must always be optically centered on the horizontal axis.
+The elements must be optically adjusted so that they appear the same size. Once each logo is sized, add a horizontal dividing line between them. The space between the EO symbol and the partner logo equals 1.5 times the height of the EO symbol (H), and the two logos must always be optically centered on the horizontal axis.
 ![partner-vertical]
 
 
 ### Partner Lockup
 #### Optical Adjustment
-In some cases, a partner’s logo may not look perfectly balanced when aligned with the EO Symbol. Because the EO Symbol is wide and heavy, a thin or tall partner logo can look smaller even at a mathematically equal height.
+A partner brand's logo may not look perfectly balanced when aligned with the EO symbol. Because the EO symbol is wide and heavy, a thin or tall partner logo looks smaller even at a mathematically equal height.
 
 In such cases, optically scale the partner logo up or down to create a more equal hierarchy.
 ![partner-optical]
@@ -214,430 +284,810 @@ In such cases, optically scale the partner logo up or down to create a more equa
 
 ### + App & Social Icons
 #### Alignment
-Because the EO Symbol is asymmetrical from left to right, placing it dead center in an app icon or profile image makes its visual weight appear to lean slightly to the left — and the smaller it appears, the more noticeable this becomes. When applying the symbol within a tight frame, shift it to the right by n px according to the following rule.
+When the EO symbol is placed as is in the center of an app icon or profile image, the smaller it is seen, the more its center of gravity appears to lean slightly to the left. When applying the symbol within a narrow frame, correct it to the right by n px according to the following rule.
 
 **n = H × (4 − 0.06 × S) %**
 
-H is the symbol’s height in the working file (px), and S is the height at which the symbol actually appears on screen or in the end user’s view (mm). When n is positive, shift the symbol to the right; when n is negative, no correction is needed. The formula is an approximation derived from the optimal correction values measured at each symbol size under typical desktop working conditions. It was tested for a visible symbol height S of 4–50mm (at a viewing distance of 500mm), with a maximum error of ±0.02mm.
+H is the symbol's height in the working file (px), and S is the height at which the symbol is actually drawn on screen or in the end user's view (mm). When n is positive, correct to the right; when n is negative, no correction is made. The formula is an approximation derived from the appropriate correction values measured at each symbol size under typical desktop working conditions; the tested range is a visible symbol height S of 4mm-50mm (viewing distance 500mm), with a maximum error of ±0.02mm.
 
-When applying the symbol to surfaces larger than a desktop monitor, set the range by the end user’s typical viewing distance and apply the formula using the average size across the key range.
+When applying the symbol to a surface larger than a desktop monitor, set the range by the end user's typical viewing distance and apply the formula above with the average size of the key range in mind.
 ![icon-alignment]
 
 
 ### App & Social Icons
 #### In Use
-The following image shows the EO Symbol in use as an app icon.
+The following image is an example of the EO symbol used as an app icon.
 ![icon-in-use]
 
 
 ### Symbol {layout=grid-3}
 #### + Don'ts
-To keep the EO Symbol consistent and impactful, it should never be reinterpreted, modified, or embellished. This page shows examples of modifications to avoid. When the company name needs to appear, use the EO Signature instead of the symbol. When a sub-brand needs to be identified, consult the EO Brand Team and create a service signature.
+To keep the EO symbol consistent and impactful, it must not be reinterpreted, modified, or embellished. This page shows examples of modifications to avoid. When the company name needs to appear, use the EO signature instead of the symbol. When a sub-brand needs to be identified, create a service signature in consultation with the EO design team.
 
 
-![dont-1]{dont} Don’t stretch or distort the symbol
-![dont-2]{dont} Don’t rotate the symbol
-![dont-3]{dont} Don’t outline the symbol
-![dont-4]{dont} Don’t use a color symbol with a black outline on a light background
-![dont-5]{dont} Don’t change the number, angle, or spacing of the E’s threads
-![dont-6]{dont} Don’t apply visual effects such as glows, shadows, or gradients
-![dont-7]{dont} Don’t scale the symbol so large that it fills most of the space
-![dont-8]{dont} Don’t use the symbol as a mask for photos or patterns, or in unapproved colors
-![dont-9]{dont} Don’t add arbitrary context around the symbol
+![dont-1]{dont} Don't stretch or distort the symbol
+![dont-2]{dont} Don't rotate the symbol
+![dont-3]{dont} Don't outline the symbol
+![dont-4]{dont} Don't use colors other than Space Black, or a black outline, on a light background
+![dont-5]{dont} Don't use a state where the E's thread count, the O's angle, or the block spacing has changed (such as a logo animation capture)
+![dont-6]{dont} Don't apply visual effects such as glows, shadows, or gradients to the symbol
+![dont-7]{dont} Don't apply a size so large that it takes up most of the space it is placed in
+![dont-8]{dont} Don't create graphics by joining or simply repeating the symbol
+![dont-9]{dont} Don't add arbitrary context around the symbol without the EO design team's permission
 
 
-## Discripter
+## Signature
 
-### Symbol
-#### Overview
-In specific instances the EO logo can be reduced to the E block alone. We call this the Block symbol. The most prominent uses of the symbol by itself are contexts where size constraints rule out the full monogram: app icons, favicons, social media avatars, and pin badges. The Block symbol shares its geometry with the graphic unit, so it connects naturally with the whole visual system.
+### Signature
+#### + Overview
+The **signature** is a combination logo that groups the EO symbol with the text of the company or service name, horizontally or vertically. This page explains how to apply the EO signature across situations · formats · communications.
+
+The combination logo of the symbol and the text "EO Studio" is referred to below as the **company signature**, and the combination logo of the symbol and each service name as the **service signature**.
+
+Where the company comes to the front, such as contracts · proposals · official documents · job postings · website footers, prefer the company signature; in brand communication for each service, prefer that service's signature. Everywhere else the media brand EO needs to be signaled, such as videos · thumbnails · social posts · posters · content sign-offs, prefer the EO symbol.
 ![overview]
 
-### Symbol
-#### Clearspace
-A certain amount of space is needed around the symbol to prevent it from becoming cluttered by surrounding artwork, imagery, or the edge of a page. To the right is the minimum spacing for the Block symbol: one third of the symbol’s width, applied equally on the left side where the threads project.
+
+### Signature
+#### + Descriptor {layout=wide}
+The text part of the signature, excluding the symbol, is called the **descriptor**. Whatever the word, company name · service name · domain, it follows the specification below as is.
+
+- **Vertical:** the descriptor is set in Founders Grotesk Regular at a type size of (7/15)H with 0 tracking. Place the top of the cap box H/5 below the bottom edge of the symbol, center it on the symbol, then correct it to the left by H/100. This is because the E block of the EO symbol has a higher gray level, so the visual center sits to the left.
+- **Horizontal:** the descriptor is set in Founders Grotesk Regular at a type size of (5/4)H with 0 tracking, and only the space characters between words get a separate -6% tracking. Place the left edge of the cap box H/2 from the right edge of the symbol, and raise the baseline H/10 above the bottom edge of the symbol.
+- When the first or last letter of the descriptor is a glyph with a curved side, such as S · o, keep the text left-aligned on its baseline and temporarily swap the letter for a capital H (or lowercase h) to set the boundary. For example, "Studio" takes its left boundary from "Htudio" and its right boundary from "Studih".
+
+Creating a new descriptor or changing an existing one always requires confirmation from the EO design team. Temporary names such as campaign or event names are not used as descriptors.
+![descriptor-system-v]
+![descriptor-system-h]
+
+
+### Signature
+#### + Clearspace
+The signature also needs margin on the same basis as the EO symbol. Taking the vertical height of one E block as H, keep a minimum margin of at least H/2 on every side around the whole signature.
 ![clearspace]
 
-### Symbol
-#### Scalability
-The Block symbol is designed and tested to work at various sizes. The minimum symbol size for adequate legibility in digital applications is 16px in height. For favicons smaller than 16px, use the reduced version with two steps of thread.
-![scalability]
 
-### Symbol
-#### Horizontal Lockup
-The Block symbol can be locked up with partner brands and collaborators’ logos. To the right is an example of our primary lockup construction.
+### Signature
+#### + Scalability {layout=grid-2}
+The smaller the signature is seen, the more the symbol and descriptor read as one mass; the larger, the more each letter of the descriptor stands out. Choose the most suitable form of the signature with the size actually seen on the page in mind.
 
-The size of the elements should be optically adjusted so that they appear to be the same size. Once the logos have been sized, we can add space and a dividing line between them. The space between the symbol and the partner logo (X) is half the width of the symbol.
-![lockup-horizontal]
+- **When the visible size is relatively large, prefer the vertical form.** The vertical form's strong size contrast between symbol and descriptor gives a crisp impression, but at very small sizes the descriptor loses legibility.
+- **When the visible size is relatively small, prefer the horizontal form.** The horizontal form keeps the symbol and descriptor evenly visible even at small sizes, but at very large sizes the two elements scatter horizontally and the visual rhythm weakens.
+![size-1] Large size · vertical "EO Studio"
+![size-2] Small size · horizontal "EO Studio"
+![size-dont-1]{dont} Don't use the vertical signature at small sizes
+![size-dont-2]{dont} Don't use the horizontal signature at large sizes
 
-### App & Social Icons
+
+### Signature
+#### + Inversion {layout=grid-2}
+Like the symbol, the signature is built primarily as a light signature in bright colors such as Builder Neon · Air White on dark backgrounds such as Space Black · Solid Gray. When you want a dark signature on a light background and simply invert the colors, the symbol looks thin and spread apart, and the descriptor's letters look one step lighter even at the same weight.
+
+In this case, use the dark symbol converted by the Inversion rule of the Symbol page as is. For the descriptor, do not change the weight (raising it to Medium changes the letter widths and breaks the cap box specification); instead give the Regular letters an outward outline offset of S/250, where S is the type size. For the horizontal form set at (5/4)H that is H/200, and for the vertical form set at (7/15)H about H/540. This keeps the gray level balance between symbol and descriptor the same as the light signature, even on a light background.
+
+The layout of the dark signature stays the same as the light signature's. Keep the descriptor's cap box position and its distance from the symbol at the values set against the light symbol's boundary, and center the dark symbol in that spot. Because the dark symbol has grown in four directions, the gap between symbol and descriptor shrinks a little; this is the same correction as reducing the gap between the two blocks, so do not widen it again. Clearspace likewise uses the area of the light signature of the same level as is.
+![inversion-v] Vertical — dark signature overlaid on the light signature for comparison
+![inversion-h] Horizontal — dark signature overlaid on the light signature for comparison
+
+
+### + Company Signature
+#### Vertical
+
+Company signature-V is the vertical combination placing "EO Studio" centered beneath the EO symbol. Its construction follows the vertical specification of the Descriptor System below.
+
+Unless there is a specific reason, do not re-set the text of company signature-V; use the original files provided.
+![company-vertical]
+
+
+### Company Signature
+#### Horizontal
+Company signature-H is the horizontal combination placing "Studio" or "EO Studio" to the right of the EO symbol. Its construction follows the horizontal specification of the Descriptor System below.
+
+For anyone who has encountered EO at least once, the EO symbol may already read as "EO", so consider marking only "Studio" in the descriptor when using the horizontal form.
+
+Unless there is a specific reason, do not re-set the text of company signature-H; use the original files provided.
+![company-horizontal]
+
+
+### + Service Signature
+#### Vertical {layout=grid-4}
+The company signature and service signatures currently in use. All are built to the same descriptor specification; check that they read as one family even though the names differ.
+![service-studio-vertical] EO Studio · company
+![service-magazine-vertical] EO Magazine · web magazine
+![service-planet-vertical] EO Planet · community (eopla.net)
+![service-newsletter-vertical] EO Newsletter · newsletter
+
+
+### Service Signature
+#### Horizontal {layout=grid-4}
+The company signature and service signatures currently in use. All are built to the same descriptor specification; check that they read as one family even though the names differ.
+![service-studio-horizontal] EO Studio · company
+![service-magazine-horizontal] EO Magazine · web magazine
+![service-planet-horizontal] EO Planet · community (eopla.net)
+![service-newsletter-horizontal] EO Newsletter · newsletter
+
+
+### + Usage {layout=grid-2}
+#### Symbol or Signature
+The signature and the EO symbol are used according to who is speaking. Where the company EO Studio or a service the company runs is the subject, use the signature; for content of the media EO, use the EO symbol. Use only one of the two in a single piece.
+
+Because the signature carries text, it needs a more generous size than the EO symbol. In spaces too small for the text to read crisply (symbol height under [20px] digital, [4mm] print), use the EO symbol alone instead of the signature.
+
+If the call is difficult, first check whether that piece really needs the company name EO Studio. If not, the EO symbol is enough; if it is still unclear, ask the EO design team.
+![usage-do-1]{do} Use the signature on official documents that represent the company's position
+![usage-do-2]{do} Use the EO symbol for content sign-offs
+![usage-dont-1]{dont} Don't use the signature for content sign-offs
+![usage-dont-2]{dont} Don't use the signature and the EO symbol together in one piece
+
+
+### Signature
+#### + Color {layout=grid-3}
+The signature uses the same six color pairings as the EO symbol. The symbol and the letters are always rendered in the same single color.
+![color-1] 1. Builder Neon on Space Black
+![color-2] 2. Space Black on Builder Neon
+![color-3] 3. Air White on Space Black
+![color-4] 4. Space Black on Air White
+![color-5] 5. Air White on Solid Gray
+![color-6] 6. Space Black on Color
+
+
+### + Partner Lockup
+#### Horizontal
+The EO signature can be locked up with partner brands' and collaborators' logos. The images in this section are examples of the basic lockup construction.
+
+The elements must be optically adjusted so that they appear the same size. Once each logo is sized, you can add space and a dividing line · collaboration mark between them. The space between the EO symbol and the partner logo is 2 or 3 times the width of one E block (W).
+![partner-horizontal]
+
+
+### Partner Lockup
+#### Vertical
+The EO signature can also be locked up vertically with partner brands' and collaborators' logos. On the right is an example of the basic vertical lockup construction.
+
+The elements must be optically adjusted so that they appear the same size. Once each logo is sized, you can add space and a dividing line between them. Make the space equal to the height of the EO signature (H), and place the dividing line horizontally at its center.
+
+Make sure the logos are always optically centered.
+![partner-vertical]
+
+
+### Partner Lockup
+#### Optical Adjustment
+Because the signature is a wide horizontal form, a partner logo matched to the same height easily looks relatively small and light. Adjust the partner logo's size so that the visual weights, not the heights, are similar.
+![partner-optical]
+
+
+### Signature {layout=grid-3}
+#### + Don'ts
+The signature is a single combination with a fixed relationship between symbol and letters. Do not change or re-create its components separately.
+![dont-1]{dont} Don't set EO Studio in a different typeface
+![dont-2]{dont} Don't change the spacing or size ratio between the symbol and the letters
+![dont-3]{dont} Don't move the letters to the left of the symbol or to another position
+![dont-4]{dont} Don't use the EO Studio letters on their own
+![dont-5]{dont} Don't combine the sub symbol with the letters
+![dont-6]{dont} Don't color the symbol and the letters differently
+![dont-7]{dont} Don't stretch or distort the signature
+![dont-8]{dont} Don't apply glows · shadows · gradients
+![dont-9]{dont} Don't use it as a sign-off for media content
+
+
+
+## Sub Symbol
+
+### + Sub Symbol
+The form that uses only the E block taken from the EO symbol is referred to below as the **sub symbol**. Use it only in small square spaces where the whole EO symbol is hard to recognize, such as app icons · favicons · social media avatars · pin badges.
+
+The sub symbol cannot fully replace the EO symbol, so always use the EO symbol wherever there is enough room. Because the E block shares its geometry with the graphic unit, it connects naturally with the whole graphic system even at small sizes.
+![overview]
+
+
+### Sub Symbol
+#### + Clearspace
+The sub symbol also needs margin on the same basis as the EO symbol. Taking the vertical height of one E block as H, keep a margin of at least [H/2] on every side, and apply the same value on the side where the thread protrudes.
+![clearspace]
+
+
+### Sub Symbol
+#### + Color {layout=grid-2}
+The sub symbol uses color pairings 1 and 2 of the EO symbol. Always render it in a single color.
+![color-1] 1. Builder Neon on Space Black
+![color-2] 2. Space Black on Builder Neon
+
+
+### + Favicon
 #### Alignment
-For digital applications the symbol is locked up in a rounded-square container (app icon) or a circular container (social avatar). To the right is how to align the symbol inside each. The symbol is optically aligned to the center of the shaft — excluding the threads — rather than the geometric center of the container, and its height is [50]% of the container height.
-![icon-alignment]
+In app icons and social avatars, the sub symbol sits inside a square or circular container. Optically align the sub symbol to the center of the container, and fine-tune its position so that the side where the thread protrudes does not make it look off-center. In a circular container, set it slightly smaller than in a square so it does not touch the edge.
+![alignment]
 
-### App & Social Icons
-#### Scalability
-The symbol icon is designed and tested to work at various sizes. The smallest symbol icon should be 32px tall to be legible; below that, use the reduced symbol.
-![icon-scalability]
 
-### App & Social Icons {layout=grid-2}
-#### Color Pairings
-There are two primary color pairings for the EO app and social icons. When in doubt, use one of these. The main YouTube and Instagram channels use Builder Neon on Space Black; regional channels (KR, US, VN) use Space Black on Builder Neon to tell them apart.
-![icon-color-1] Builder Neon on Space Black
-![icon-color-2] Space Black on Builder Neon
+### Sub Symbol {layout=grid-3}
+#### + Don'ts
+The sub symbol is part of the EO symbol, so it follows the same principles as the EO symbol. Do not change its form or decorate it, and do not use it outside its designated purpose.
+![dont-1]{dont} Don't stretch or distort the sub symbol
+![dont-2]{dont} Don't rotate the sub symbol
+![dont-3]{dont} Don't flip the sub symbol horizontally
+![dont-4]{dont} Don't change the number or angle of the threads
+![dont-5]{dont} Don't outline the sub symbol
+![dont-6]{dont} Don't apply glows · shadows · gradients
+![dont-7]{dont} Don't color it in two colors or use unapproved pairings
+![dont-8]{dont} Don't use the O block as the sub symbol instead of the E block
 
-### App & Social Icons
-#### In Use
-To the right is an example of the EO app icon and social avatar in use.
-![icon-in-use]
 
-### Symbol {layout=grid-3}
-#### Don'ts
-To ensure our brand signature remains consistent and impactful, the symbol should not be reinterpreted, modified, or embellished. This page illustrates some modifications to avoid.
-![dont-stretch]{dont} Don’t stretch or distort the symbol
-![dont-tilt]{dont} Don’t tilt the symbol
-![dont-flip]{dont} Don’t flip the symbol horizontally
-![dont-outline]{dont} Don’t outline the symbol
-![dont-thread]{dont} Don’t add or remove threads
-![dont-mask]{dont} Don’t use the symbol as a mask
-![dont-shadow]{dont} Don’t apply drop shadows or 3D effects
-![dont-color]{dont} Don’t use unapproved color pairings on the symbol
-![dont-o]{dont} Don’t use the O block as a standalone symbol
 
 # 03 Typography
 
 ## Typography
 
 ### Our Typefaces
-EO’s typeface is the Founders Grotesk family. Founders Grotesk is used for headlines and body copy; Founders Grotesk Mono is used for informational text — labels, tags, dates, and specifications.
+EO's typeface is the Founders Grotesk family. Founders Grotesk is used for headlines and body copy, and Founders Grotesk Mono for informational text (labels · tags · dates · specs).
 
-Founders Grotesk is plain and clear. Its wide proportions and low contrast make it read like solid blocks at large sizes, which carries EO’s voice of “clear, open confidence” directly. The Mono is the typeface of information, recalling a builder’s terminal and spec sheet.
+Founders Grotesk is clear without ornament, and thanks to its wide proportions and low contrast it reads like solid blocks at large sizes. This character carries EO's voice of "clear, open confidence" directly. The Mono is the typeface of information, recalling a builder's terminal and spec sheet.
 
 Korean body copy is set in Pretendard and Vietnamese body copy in Noto Sans. See the Backup Typeface section for multilingual pairing.
 ![our-typefaces]
 
+
 ### Custom Characters
-EO does not modify the glyphs of its typefaces. Instead, two brand marks taken from the O block are used alongside text. The plus (+) is the conjunction in “Entrepreneur + Optimism” and the action mark on buttons and links; the spark (✦) is the bullet for lists and quotes. Both marks are supplied as vector files rather than taken from the font, and they are sized to the x-height of the text they accompany.
+A cross-shaped brand mark taken from the O block of the EO symbol is used alongside text. The cross socket of the screw head, which carries the image of both the plus (+) and the spark (✦), can be used as a visual element: the action mark on buttons and links, the bullet for lists and quotes, and so on. Use the vector files provided rather than the typeface's default glyphs, and size it with the x-height and gray level of the accompanying text in mind.
 ![custom-characters]
+
 
 ### Character Set {layout=wide}
 #### Founders Grotesk Medium
-This page shows an overview of most of the characters in Founders Grotesk Medium. Medium is the default weight for headlines and display typography. The typeface supports Latin Extended characters, including Vietnamese tone marks. For scripts it does not support, such as Hangul, use the alternatives in the Backup Typeface section.
+This page shows most of the characters of Founders Grotesk Medium at a glance. Medium is the default weight for headlines and display typography. The typeface supports Latin Extended characters, including Vietnamese tone marks. For scripts it does not support, such as Hangul, use the alternative typefaces in the Backup Typeface section.
 ![charset-medium]
+
 
 ### Character Set {layout=wide}
 #### Founders Grotesk Light
-This page shows an overview of most of the characters in Founders Grotesk Light. Light is the default weight for body copy, subheads, and captions. It can look thin at large sizes, so use it at 24pt and below.
+This page shows most of the characters of Founders Grotesk Light at a glance. Light is the default weight for body copy · subheads · captions. It can look thin at large sizes, so use it at 24pt and below.
 ![charset-light]
+
 
 ### Character Set {layout=wide}
 #### Founders Grotesk Mono
-This page shows an overview of most of the characters in Founders Grotesk Mono Regular.
+This page shows most of the characters of Founders Grotesk Mono Regular at a glance.
 
-NOTE: The Mono is for informational text only. Use it for tags, dates, reading time, color specifications, and caption numbers — never for headlines or body copy.
+Note: the Mono is for informational text only. Use it for tags · dates · reading time · color specs · caption numbers, and not for headlines or body copy.
 ![charset-mono]
 
+
 ### Typeface Usage
-To balance EO’s solid visual identity with clear communication, weight selection should be approached with clear intention.
+To balance EO's solid visual identity with clear communication, weight selection must be clearly intentional.
 
 Use Founders Grotesk Medium for headlines and display.
 
-Use Founders Grotesk Light for body copy, subheads, and captions.
+Use Founders Grotesk Light for body copy · subheads · captions.
 
-Use Founders Grotesk Mono Regular for informational text such as tags, dates, and specifications.
+Use Founders Grotesk Mono Regular for informational text such as tags · dates · specs.
 
-Regular and Semibold are reserved for UI components (buttons, navigation) and are not used in communication design.
+Regular and Semibold are used only for UI components (buttons, navigation) and not in communication design.
 ![typeface-usage]
 
+
 ### Case Setting
-EO headlines are set in sentence case and end with a period. “Build Anyway.” “Trust, not clicks.” A headline is a sentence, not a slogan, and the period is the conviction behind it. All caps is used only for Mono labels, never for headlines.
+EO headlines are set in sentence case and end with a period. Like "Build Anyway." and "Trust, not clicks.", a headline is a sentence, not a slogan, and the period is the conviction behind that sentence. All caps is used only for Mono labels, never for headlines.
 ![case-setting]
 
+
 ### Linespacing
-EO typography is calculated from line spacing, not font size. Once a base line-spacing unit (L) is set, each level’s line spacing is a multiple of it, and the font size is that line spacing divided by the level’s ratio. This keeps the space text occupies fixed as layouts develop, and lets you fine-tune the gray value of each level by eye through ratio and letterspacing alone.
+EO typography is calculated from line spacing, not font size. Once a base line-spacing unit (L) is set, each level's line spacing is a multiple of it, and the font size is that line spacing divided by the level's ratio. This keeps the space text occupies fixed as layouts develop, and lets you fine-tune the gray level of each level by eye through ratio and letterspacing alone.
 
 Display 7L / 87.5%, Head 3L / 109%, Sub-head 2L / 133%, Body 1.5L / 150%, Caption 0.5L / 125%.
 ![linespacing]
 
+
 ### Linespacing
 #### Founders Grotesk Medium
-To the right are headline examples of correct and incorrect linespacing set in Founders Grotesk Medium.
+To the right are examples of correct and incorrect linespacing in headlines set in Founders Grotesk Medium.
 
-At the Display and Head levels, line spacing is smaller than the font size (87.5%, 109%). Lines are meant to interlock like blocks, but ascenders and descenders must never touch. If they do, change the copy — not the ratio.
+At the Display and Head levels, line spacing is smaller than the font size (87.5%, 109%). Lines are meant to interlock like blocks, but ascenders and descenders must never touch. If they do, change the copy, not the ratio.
 ![linespacing-medium]
 
+
 ### Linespacing
 #### Founders Grotesk Light
-To the right are examples of correct and incorrect linespacing of body copy set in Founders Grotesk Light.
+To the right are examples of correct and incorrect linespacing in body copy set in Founders Grotesk Light.
 
-At the Body level, line spacing is 150%. Tighter than this, the thin strokes of the Light weight clump together; looser, the paragraph falls apart. If set right, it should allow readers to breeze through text.
+At the Body level, line spacing is 150%. Tighter than this, the thin strokes of the Light weight clump together; looser, the paragraph falls apart. Set right, it lets readers move down the text without obstruction.
 ![linespacing-light]
 
+
 ### Linespacing Scale {layout=wide}
 #### Founders Grotesk Medium
-To the right are some examples of linespacing for headlines at different scales.
+To the right are examples of headline linespacing at various sizes.
 
-Note that as a general rule, the bigger the typography, the tighter the linespacing ratio should be. Display 87.5%, Head 109%, and Sub-head 133% are ratios that change with size on the same base unit.
+As a general rule, the bigger the typography, the tighter the linespacing ratio should be. Display 87.5%, Head 109%, and Sub-head 133% are ratios that change with size on the same base unit.
 ![linespacing-scale-medium]
 
+
 ### Linespacing Scale {layout=wide}
 #### Founders Grotesk Light
-To the right are some examples of linespacing for body copy at different scales.
+To the right are examples of body copy linespacing at various sizes.
 
-Note that as a general rule, the smaller the typography, the looser the linespacing ratio should be. Body 150% and Caption 125% are ratios that change with size on the same base unit.
+As a general rule, the smaller the typography, the looser the linespacing ratio should be. Body 150% and Caption 125% are ratios that change with size on the same base unit.
 ![linespacing-scale-light]
 
+
 ### Letterspacing
-For large headlines and title moments, the typography must go through a three-step process to ensure letterspacing is both tight and optically equal across all letters. This process is outlined below:
+For large headlines and titles, letterspacing must go through a three-step process so that it is tight yet optically even across all letters. The process is as follows.
 
 **Step 1: Original**
-This is the space between the letters before letterspacing metrics have been applied.
+This is the space between the letters before any letterspacing value is applied.
 
 **Step 2: Tracking**
-This is the spacing that is applied across all letters. The defaults per level are Display -3%, Head -2%, Sub-head -1.5%, Body -1%, Caption 0.
+This is the spacing applied uniformly across all letters. The defaults per level are Display -3%, Head -2%, Sub-head -1.5%, Body -1%, Caption 0.
 
 **Step 3: Kerning**
-Once the right tracking amount has been set, you need to manually adjust (or kern) specific spaces between letters to ensure no letters are touching and there is equal spacing across all the letters. Founders Grotesk particularly needs kerning where diagonal strokes meet, as in “A” and “y” or “W” and “a”.
+Once the right tracking value is set, manually adjust (kern) the space between specific letters so that no letters touch and the spacing is even across all letters. Founders Grotesk particularly needs kerning where diagonal strokes meet, as in "A" and "y" or "W" and "a".
 ![letterspacing]
 
+
 ### Letterspacing
 #### Founders Grotesk Medium
-To the right are examples of correct and incorrect letterspacing of headlines set in Founders Grotesk Medium.
+To the right are examples of correct and incorrect letterspacing in headlines set in Founders Grotesk Medium.
 
-At Display size, tracking is -3%. This is the point where letters sit together like blocks without strokes touching. Any tighter and combinations of consecutive vertical strokes, such as “ild”, read as one mass.
+At Display size, tracking is -3%. This is the point where letters sit together like blocks without strokes touching. Any tighter and combinations of consecutive vertical strokes, such as "ild", read as one mass.
 ![letterspacing-medium]
 
+
 ### Letterspacing
 #### Founders Grotesk Light
-To the right are examples of correct and incorrect letterspacing of body copy set in Founders Grotesk Light.
+To the right are examples of correct and incorrect letterspacing in body copy set in Founders Grotesk Light.
 
-At Body size, tracking is between -1% and 0. The Light weight loses legibility quickly when tracked tighter, so if you want to adjust the gray value, adjust the line spacing rather than the letterspacing.
+At Body size, tracking is between -1% and 0. The Light weight loses legibility quickly when tracked tighter, so if you want to tune the gray level, adjust the line spacing rather than the letterspacing.
 ![letterspacing-light]
 
+
 ### Letterspacing Scale {layout=wide}
 #### Founders Grotesk Medium
-To the right are some additional examples of letterspacing set in Founders Grotesk Medium at different scales.
+To the right are additional examples of letterspacing set in Founders Grotesk Medium at various sizes.
 
-Note that as a general rule, the bigger the type size, the tighter the letterspacing should be and vice versa; the smaller the type size, the looser the letterspacing should be.
+As a general rule, the bigger the type size, the tighter the letterspacing should be, and vice versa. The smaller the type size, the looser the letterspacing should be.
 ![letterspacing-scale-medium]
 
+
 ### Letterspacing Scale {layout=wide}
 #### Founders Grotesk Light
-To the right are some additional examples of letterspacing set in Founders Grotesk Light at different scales.
+To the right are additional examples of letterspacing set in Founders Grotesk Light at various sizes.
 
-Note that as a general rule, the bigger the type size, the tighter the letterspacing should be and vice versa; the smaller the type size, the looser the letterspacing should be.
+As a general rule, the bigger the type size, the tighter the letterspacing should be, and vice versa. The smaller the type size, the looser the letterspacing should be.
 ![letterspacing-scale-light]
+
 
 ### Alignment
 #### Founders Grotesk Medium
-All headlines in EO brand communications are left-aligned. A headline starts on the left grid line of the layout and faces the graphic unit on the right. Centered alignment is allowed only for single-line text such as standalone symbol icons and merchandise back prints. Never right-align or force-justify.
+All headlines in EO brand communication are left-aligned. A headline starts on the left grid line of the layout and faces the right, where the graphic unit sits. Centered alignment is allowed only for single-line text such as standalone symbol icons and merch back prints; right alignment and forced justification are not used.
 ![alignment-medium]
+
 
 ### Alignment
 #### Founders Grotesk Light
-Body copy and captions are also left-aligned. When body copy runs in multiple columns, align the first baseline of every column; align captions to the left edge of the image. Never right-align or force-justify.
+Body copy and captions are also left-aligned. When body copy runs in several columns, align the first-line baselines of all columns, and align captions to the left edge of the image. Right alignment and forced justification are not used.
 ![alignment-light]
 
-### Ragging
-In typography, the ‘rag’ refers to the right-hand edge of a block of type. A paragraph or headline is badly ragged when the optical edge feels irregular, with certain lines sticking out more than others, or when a single word is left by itself on the last line, known as a widow.
 
-EO headlines are short with few lines, so the rag is fully exposed. Break lines so that each line holds a unit of meaning, as in “Build / Anyway.”, and avoid the staircase shape of alternating long and short lines. In body copy, shift words to new lines until the edge is smooth and the copy reads well.
+### Ragging
+In typography, the 'rag' is the right-hand edge of a block of text. A paragraph or headline is said to be badly ragged when the optical edge feels irregular and certain lines stick out, or when a single word is left alone on the last line (a widow).
+
+EO headlines are short with few lines, so the rag is fully exposed. Break lines so that each line holds a unit of meaning, as in "Build / Anyway.", and avoid the staircase shape of alternating long and short lines. In body copy, move words to the next line until the edge is even and the copy reads well.
 ![ragging]
 
+
 ### Sizing
-In order to make sure our communications are simple, a single layout generally uses no more than two type levels: one headline and one body, or one headline and one caption.
+To keep communication simple, a single layout generally uses no more than two type levels: one headline and one body, or one headline and one caption.
 
 Sizes between levels are determined by multiples of the base line-spacing unit (L): Display 7L, Head 3L, Sub-head 2L, Body 1.5L, Caption 0.5L. Changing L scales every level together, so you only need to set L for each format. For example, if L is 24pt on an A2 poster, Display line spacing is 168pt and Body line spacing is 36pt.
 
-Take note that this rule is a guide for communication design. On the web and in product, the size difference between levels is smaller.
+Note that this rule is a guideline for communication design. On the web and in product, the size difference between levels is smaller.
 ![sizing]
+
 
 ### Sizing {layout=grid-2}
 #### In Layout
-To the right are two examples of how headline typography should be sized and spaced within compositions.
+To the right are two examples of how to size and space headline typography within a composition.
 
-**Large:** The headline fills the left half of the layout and the graphic unit occupies the right half. The headline’s line-spacing blocks and the unit’s columns sit on the same grid.
+**Large:** the headline fills the left half of the layout, and the graphic unit occupies the right half. The headline's line-spacing blocks and the unit's columns sit on the same grid.
 
-**Small:** The headline is scaled down and the space beneath it is left empty in multiples of the Body line spacing. Use this when a photo or video still is the hero.
+**Small:** the headline is scaled down, and the space beneath it is left empty in multiples of the Body line spacing. Use this when a photo or video still is the hero.
 ![sizing-large] Large — the headline fills the left half and shares its grid with the graphic unit.
-![sizing-small] Small — the headline is reduced and the space beneath is a multiple of the Body line spacing.
+![sizing-small] Small — the headline is reduced and the space beneath it is left empty in multiples of the Body line spacing.
+
 
 ### Don'ts {layout=grid-3}
 #### Headline
-Below are a few things never to do with typography. To guarantee consistency across all touchpoints, follow the typesetting rules and recommendations provided in the typography section of these guidelines.
-![dont-1]{dont} Don’t set headlines in all caps
-![dont-2]{dont} Don’t use the Light weight for headlines
-![dont-3]{dont} Don’t tighten line spacing below 87.5% so strokes touch
-![dont-4]{dont} Don’t open up tracking and scatter the letters
-![dont-5]{dont} Don’t center or right-align
-![dont-6]{dont} Don’t use three or more levels in one layout
-![dont-7]{dont} Don’t use more than one color in a headline
-![dont-8]{dont} Don’t apply outlines, shadows, or italics
-![dont-9]{dont} Don’t overlap a headline on a graphic unit
+Below are a few things never to do with typography. To guarantee consistency across all touchpoints, follow the typesetting rules and recommendations given in the typography section of these guidelines.
+![dont-1]{dont} Don't set headlines in all caps
+![dont-2]{dont} Don't use the Light weight for headlines
+![dont-3]{dont} Don't tighten line spacing below 87.5% so that strokes touch
+![dont-4]{dont} Don't open up tracking and scatter the letters
+![dont-5]{dont} Don't center or right-align
+![dont-6]{dont} Don't use three or more levels in one layout
+![dont-7]{dont} Don't apply two or more colors to a headline
+![dont-8]{dont} Don't apply outlines · shadows · italics
+![dont-9]{dont} Don't overlap a headline on a graphic unit
+
 
 ### Backup Typeface
-#### Primary – Inter
-When it isn’t possible to use Founders Grotesk — in email, or on external platforms restricted to system fonts — Inter is the preferred alternative. Use Inter Medium for headlines and Inter Light for body copy.
+#### Pretendard
+In environments where Founders Grotesk cannot be used (email, system-font restrictions on external platforms, and so on), Inter is the preferred alternative. Use Inter Medium for headlines and Inter Light for body copy.
 
-Keep in mind the basic rules of our typography and try to act in the spirit of these. Avoid using other alternative fonts (like Arial), and only use Inter if Founders Grotesk is not available.
+Keep the basic rules of our typography in mind and act in their spirit. Avoid other substitute fonts (Arial and the like), and use Inter only when Founders Grotesk is unavailable.
 
 The comparison on this page shows some of the differences between Founders Grotesk Medium and Inter Medium.
 ![backup-inter]
 
-### Backup Typeface
-#### Secondary – Pretendard
-Korean text is set in Pretendard. Since Korean is one of EO’s primary languages, Pretendard is treated as the default Hangul typeface rather than a fallback. When mixed with English, use the reference pairing of Pretendard Light 20pt, -6% tracking, baseline +5pt, matched to Founders Grotesk Light 22pt.
-
-Where Pretendard is unavailable, use Noto Sans KR.
-
-The comparison on this page shows the adjustments when Founders Grotesk Light and Pretendard Light share a line.
-![backup-pretendard]
 
 ### Backup Typeface
 #### Non-latin – Noto Sans
-For Vietnamese and other languages not supported by Founders Grotesk or Pretendard, Noto Sans is the preferred alternative. Vietnamese uses the reference pairing of Noto Sans Light 18pt, -3.5% tracking, baseline +2pt, matched to Founders Grotesk Light 22pt. If Noto Sans is unavailable for a particular language, use the closest approximation to Founders Grotesk available in that language.
+For Vietnamese and other languages not supported by Founders Grotesk or Pretendard, Noto Sans is the preferred alternative. Vietnamese uses the reference pairing of Noto Sans Light 18pt, -3.5% tracking, baseline +2pt, matched to Founders Grotesk Light 22pt. If Noto Sans cannot be used for a particular language, use the typeface closest to Founders Grotesk available in that language.
 ![backup-non-latin]
+
+
+
 
 # 04 Color
 
 ## Colors
 
-### Color
+### Primary Color
 #### Builder Neon
-Builder Neon is the foundation of the EO color palette and the most recognizable element of the brand — so much so that it can communicate “EO” even without the logo. Set against a black sky it creates dramatic contrast; it is the lit window of a hacker house at night, the optimism of the builder.
-
-It is important that we use Builder Neon consistently and deliberately in our communications. It is strongest when concentrated in one place within a composition rather than spread across wide areas.
+Builder Neon is the sole hero of the EO palette and the brand's best-known element, communicating "EO" even without the logo. Creating dramatic contrast against a black sky, this yellow symbolizes the window of a hacker house lit all night, the optimism of the builder. It is strongest when concentrated in one place within a composition rather than spread over wide areas.
 ![builder-neon]
 
-### Color {layout=grid-3}
-#### Core Palette
-The core palette consists of three colors: Builder Neon, Space Black, and Air White. It forms the basis of our color strategy and should serve as the first impression across core brand touchpoints. Its consistent usage establishes a recognizable visual cue for the EO brand and is complemented by the secondary palette.
 
-The information to the right shows the approved color values for each color in the palette in Pantone inks (for solid color printing), CMYK (for four-color process printing), as well as HEX and RGB (for screens).
+### Secondary Colors
+#### Day Blue & Bay Green
+Day Blue and Bay Green are cool-toned colors taken from San Francisco's blue sky, its crisp air, and the nature within it. As complements to Builder Neon they make it even more vivid, and they are used to distinguish series and channels.
+![builder-blue-green]
 
-Always use the correct color mode and ink formulation for the appropriate application type to ensure color consistency across all media. In print, Air White can be left unprinted and replaced by an off-white raw paper stock.
+### Color
+#### EO Palette {layout=grid-4}
+The EO palette consists of Builder Neon, Day Blue, Bay Green, and four achromatic colors that support them. Solid Gray and Medium Gray carry the neutrality of media: the dark one is used for background colors, the light one for graphic elements. Space Black and Air White are the basis of grounds and text.
+
+Each color is provided as HEX · RGB for screen and CMYK · Pantone for print, so use the color mode suited to the medium. In print, Air White can be replaced by white paper stock instead of ink.
 [swatch] Builder Neon | #F9EE3A | R249 G238 B58 | C5 M0 Y95 K0 | PANTONE 3945 C
-[swatch] Space Black | #000000 | R0 G0 B0 | C60 M60 Y0 K100
-[swatch] Air White | #FCFBF5 | R252 G251 B245 | C1 M2 Y2 K0 or raw paper
-
-### Color {layout=grid-4}
-#### Core Pairings
-There are four core pairings that we use with typography. Text is Air White or Space Black; Builder Neon is reserved for surfaces and graphic units rather than text by default.
-![core-pair-1] 1. Air White on Space Black
-![core-pair-2] 2. Space Black on Air White
-![core-pair-3] 3. Space Black on Builder Neon
-![core-pair-4] 4. Builder Neon on Space Black
-
-### Color {layout=grid-3}
-#### In Use
-Here are some examples of the core palette in use.
-![core-in-use-1] Poster
-![core-in-use-2] Hang Tag
-![core-in-use-3] Web Magazine
-
-### Color {layout=grid-4}
-#### Secondary Palette
-The secondary palette opens our range of brand expression. Day Blue and Bay Green are taken from the sky and the bay of the San Francisco landscape and toned down a step or two, so they can distinguish series and channels without challenging Builder Neon’s lead role. Medium Gray and Solid Gray stand for the neutrality of media: the lighter gray is used for graphic elements, the darker gray for backgrounds.
-
-The information below shows the approved color values for each color in the palette in Pantone, CMYK, HEX, and RGB.
 [swatch] Day Blue | #6EC6D2 | R110 G198 B210 | C60 M0 Y10 K0 | PANTONE 298 C
 [swatch] Bay Green | #66B88A | R102 G184 B138 | C60 M0 Y50 K0 | PANTONE 2248 C
 [swatch] Medium Gray | #8E8E8E | R142 G142 B142 | C2 M0 Y0 K45 or K45 only
-[swatch] Solid Gray | #333333 | R51 G51 B51 | C4 M0 Y0 K100 or K100 only
+[swatch] Solid Gray | #2A2B2B | R42 G43 B43 | C4 M0 Y0 K95 or K95 only
+[swatch] Space Black | #000000 | R0 G0 B0 | C60 M60 Y0 K100
+[swatch] Air White | #FCFBF5 | R252 G251 B245 | C1 M2 Y2 K0 or raw paper
 
-### Secondary Palette {layout=grid-4}
-#### Pairings
-There are four secondary pairings that we use with typography. Avoid using any pairings outside of this approved set. Secondary colors are always paired with Space Black only.
-![secondary-pair-1] Day Blue on Space Black
-![secondary-pair-2] Bay Green on Space Black
-![secondary-pair-3] Space Black on Day Blue
-![secondary-pair-4] Space Black on Bay Green
 
-### Secondary Palette {layout=grid-4}
-#### Pairings to Avoid
-To the right are examples of pairings to avoid when using our secondary colors.
+### Color {layout=wide}
+#### Usage
 
-In general, avoid placing Day Blue and Bay Green against each other in the same composition, and avoid layering a secondary color over Builder Neon.
-![avoid-1]{dont} Builder Neon on Air White
-![avoid-2]{dont} Day Blue on Bay Green
-![avoid-3]{dont} Medium Gray on Solid Gray
-![avoid-4]{dont} Day Blue on Builder Neon
+We rely heavily on a Space Black ground, Air White text, and Builder Neon graphics. By area, the reference ratio is 70 black, 20 neon, 10 white. In contexts already recognized as "EO", such as social channels or series artwork, Day Blue · Bay Green can be used more often as series colors.
 
-### Color
-#### Usage Ratio
-To the right is the correct ratio of color usage that should be applied across EO communications from a holistic perspective.
+For specific color usage per asset, see the relevant section of each page.
 
-For core touchpoints and when introducing EO to new audiences, we lean heavily on the core palette: Air White text and Builder Neon graphics on a Space Black ground. By area, the reference ratio is 70 black, 20 neon, 10 white.
+- Text color defaults to Air White or Space Black.
+- Logo
+  - For symbol color usage, see [[symbol#color]].
+  - For signature color usage, see [[signature#color]].
+  - For sub symbol color usage, see [[sub-symbol#color]].
+- Graphic system
+  - For graphic unit color usage, see [[graphic-unit#color]].
+  - For pattern color usage, see [[graphic-pattern#color]].
+![usage]
 
-In contexts that users already understand as “EO”, such as our social channels and series artwork, Day Blue and Bay Green can be used more frequently as series colors. Even then, a single composition uses only one secondary color.
-![usage-ratio]
 
-### Secondary Palette {layout=grid-3}
+### Color {layout=grid-3}
 #### In Use
-Here are some examples of the secondary palette in use.
-![secondary-in-use-1] Episode One Tee
-![secondary-in-use-2] Sticker Pack
-![secondary-in-use-3] Series Thumbnail
+Examples of the EO palette in actual use.
+![in-use-1] Poster
+![in-use-2] Billboard
+![in-use-3] Web Magazine
+![in-use-4] T-shirt
+![in-use-5] Hang Tag
+![in-use-6] Sticker Pack
+
 
 ### Color {layout=grid-3}
 #### Don'ts
-Below are a few things never to do with color. For general guidance on minimum contrast requirements, please visit WCAG.
-![dont-1]{dont} Don’t use Builder Neon as a body text color
-![dont-2]{dont} Don’t create gradients
-![dont-3]{dont} Don’t add colors outside the palette
-![dont-4]{dont} Don’t use two secondary colors in one composition
-![dont-5]{dont} Don’t change the brightness or saturation of Builder Neon
-![dont-6]{dont} Don’t set Builder Neon text on Air White
-![dont-7]{dont} Don’t lower opacity to create new tints
-![dont-8]{dont} Don’t apply color overlays to photography
-![dont-9]{dont} Don’t paint a single graphic unit in multiple colors
+To keep EO's colors consistent, avoid the following. For minimum contrast between text and background, refer to the WCAG criteria.
+![dont-1]{dont} Don't use Builder Neon for body text or for text on light grounds
+![dont-2]{dont} Don't create gradients
+![dont-3]{dont} Don't add colors outside the palette
+![dont-4]{dont} Don't create new tones by changing brightness · saturation · opacity
+![dont-5]{dont} Don't use low-contrast combinations such as Medium Gray and Solid Gray
+![dont-6]{dont} Don't apply color overlays to photography
+![dont-7]{dont} Don't apply several colors to a single graphic unit
+
+
 
 # 05 Graphic System
 
 ## Graphic Unit
 
 ### Graphic Unit
-#### Overview
-The graphic unit is the smallest element of the EO visual system. It abstracts the trajectory of a builder stacking blocks into the repetition of a shaft and its threads. The E block of the logo, the pattern library, and every application graphic derive from this unit. Units are never drawn by hand; they are generated from parameters in the EO Graphic Builder.
-![unit-overview]
+#### + Motif  {layout=grid}
+The **EO graphic unit** (hereafter the unit) is designed on the motif of the three elements of a screw: the shaft · the thread · the head.
 
-### Construction
-The unit canvas (W × H) is divided into vertical columns (col), with a horizontal bar of height D — the shaft — at the vertical center. In the bands above and below the shaft, each column carries one pair of trapezoidal threads. The vertices of the upper thread are set by Δa (top edge, measured from the right edge of the column) and Δb (bottom edge, measured from the left edge); the lower thread is the upper one rotated 180° about the column center. The shaft runs continuously across the gutters, while the gutters in the thread bands stay empty.
-![unit-construction]
+- **thread** — one turn of thread symbolizes a cycle of problem solving. The harder the wall you run into, the stronger the resistance and the longer it takes to drill through. The denser the thread, the more densely the builder's time has been filled (Build thorough).
+- **shaft** — the shaft symbolizes the process of building and the builder's journey. shaft size expresses how strong the core attribute of that process is.
+- **head** — the head symbolizes one small act of problem solving, or one builder. Even small screws, gathered in numbers, can build anything (Build anything). Likewise, a problem one builder cannot solve is eventually solved when many builders face it together (Build together).
+![motif-1] {zoom=1.17}
+![motif-2]
 
-### Grid & Pitch
-Column widths are compressed in a geometric sequence. A width ratio between adjacent columns (compression rate) of 1 gives equal division; as it grows, the illusion of convergence to one side strengthens. The defaults are 12 columns and a rate of 1.67 (2:1 pitch). Gutters have two modes — fixed, or proportional to the column width — and the proportional mode is structurally incapable of overflow and gives the strongest convergence.
-![unit-grid]
 
-### Variations {layout=grid-3}
-Combine column count, compression rate, shaft height (D), and the Δa·Δb of the threads to create units with different characters. Below are the six representative variations that form the basis of the pattern library.
-![unit-var-1] 01 / path of builder — wide on the left, converging right
-![unit-var-2] 02 / power — equal columns, thick shaft
-![unit-var-3] 03 / resistance — wide on the right, converging left
-![unit-var-4] 04 / builders — repetition of narrow columns
-![unit-var-5] 05 / rivals — symmetrical compression about the center
-![unit-var-6] 06 / team — two interlocking units
+### + Parameters {layout=grid-3}
+The **EO graphic unit** (hereafter the unit) is the smallest element of the graphic system; the E block of the logo · the pattern library · application graphics are all produced with the same system. Units are generated from parameters in the EO Graphic Builder; for detailed usage, refer to the Help menu inside the builder.
 
-### Color Application {layout=grid-2}
-Units are used in a single color. Contrast between the unit and its background is the point; within one composition, combine at most one core color and one secondary color. When several units sit side by side, build depth with combinations of clearly different value, such as Medium Gray, Builder Neon, and Air White.
-![color-1] Builder Neon on Space Black
-![color-2] Medium Gray · Builder Neon · Air White on Solid Gray
+- **shaft size** — the thickness of the shaft rectangle, as a % of the unit's total height including the threads on both sides. At the default of around 35%, visual density is easy to keep ideal even in relatively complex graphic patterns.
+- **thread top / bottom width** — the widths of the top and bottom edges of a thread. The difference between the two sets the slope of the thread. Defaults are top 40% · bottom 0%.
+- **thread sides** — double attaches threads above and below the shaft; single attaches threads only on top, with the shaft resting on the bottom.
+- **thread amount** — the trapezoid shapes abstracted from screw threads, one attached above and one below the shaft. The right side stands vertical at the end of the column and the left side slopes. The lower thread is the upper one rotated 180° about the column center.
+- **thread compression** — how much the thread width narrows progressively toward one side. At 0 all threads have equal width; the larger the value, the stronger the compression toward one side. Negative/positive values set the direction of compression, and the slope of individual threads stays as is without being flipped.
+- **thread gutter** — the gap between the vertical cells in which threads sit. Labelled gutter in the builder.
+
+![param-shaft-size] shaft size — thickness of the shaft, 2-95%
+![param-thread-width] thread top / bottom width — change of slope
+![param-thread-sides] thread sides  — double · single
+![param-thread-amount] thread amount — number of threads
+![param-thread-compression] thread compression — direction · strength of thread compression
+![param-gutter] thread gutter — fixed gap between threads
+
+
+### Graphic Unit
+#### + Color {layout=grid-2} {ratio=16:9} {zoom=1.042}
+Only one color is ever applied to a unit. Color expresses who is the hero in the graphic, what is the environment, and where a state changes. Color can carry a broader, shallower context than the unit's form or layout, even an abstract supporting one. The contexts readable through [[graphic-pattern#references|the library of 30 patterns]] fall into four strands, and the entries in Vocabulary below assume these roles. Combination rules for ground and unit follow [[graphic-pattern#color]].
+
+- Builder Neon — the main color with the highest hierarchy, expressing the nuance of builder · hero · focus · highlighting. Most ideal when its area is around 10-40% of the whole canvas.
+- Air White — a neutral color with high hierarchy but no identity, expressing the nuance of energy · the counterpart · semi-highlighting. Most ideal when its area is around 10-40% of the whole canvas.
+- Day Blue — a builder of a different character · community · surrounding elements. Emphasizes the nuance of positive energy · optimism that comes from a blue sky.
+- Bay Green — a builder of a different character · community · surrounding elements. Emphasizes the nuance of softness · friendliness that comes from the greenery of chaparral hills. (team, teamwork, co-working, diversity, nature)
+- Medium Gray — expresses the nuance of mechanical neutrality: inactive · the other · indifference · conservatism.
+- Space Black — used in limited cases where visual impact comes first, in a fixed combination on a Builder Neon ground, expressing dominance.
+- Solid Gray is not used as a unit color.
+![color-neon-white] [Builder Neon] Builder · hero · core / [Air White] Energy · counterpart · balance
+![color-blue-green] [Day Blue] Other builders · surrounding elements · optimism / [Bay Green] Other builders · surrounding elements · friendliness
+![color-gray] [Medium Gray] Inactive · the other · conservatism · the material world
+![color-black-on-neon] [Space Black] on [Builder Neon] fixed combination, dominance
+
+
+### + Vocabulary
+A unit takes on new meaning through its orientation · count · density alone. For instance, the shaft is the flow of time and the thread is a unit of problem solving, so the more densely threads gather in a narrow stretch, the harder and longer the time they can express. Naturally the visual intensity of that part grows with it; when the parameter-driven form and the value the brand wants to convey point in the same direction like this, we define it as **mapping between visual and branding**.
+
+Vocabulary is the lexicon of the EO graphic system that collects these mapping rules, and gives comprehensive guidance on which visual attributes and colors to combine to express a given value keyword. Note that what follows is only the rules organized so far, not all of them; new metaphors can be added at any time.
+
+This section mainly explains keyword expression; for guidance on graphic visibility, see [[graphic-unit#morphology]] and [[graphic-pattern#grammar]]. For docking, the way two units are aligned, see [[graphic-unit#morphology#docking]].
+![vocabulary-overview]
+
+
+### Vocabulary
+#### Thread {layout=grid-3} {zoom=1.1}
+A thread is one turn of a screw thread and means one act of problem solving. Within a unit, how dense the threads are · which side they lean toward · how long they run expresses the character of that time. Keywords expressed with thread are Adversity · Acceleration · Lightning · Builder.
+
+- **Adversity** — a time of difficulty, the resistance of the environment. Expressed by laying the unit horizontally. The denser the thread, the greater the difficulty; which side is denser expresses whether the crisis is at the start or the end.
+- **Acceleration** — a change in thread density can sometimes feel like acceleration, a stretch where force builds. When compression densifies in the direction of travel it is acceleration; the reverse can be deceleration. Repeating units joined end to end can also look like a flow that recurs like a routine.
+- **Lightning** — spark · inspiration · energy. When the shaft is long enough and the thread compression spreads relatively gently, it can give the impression of a bolt of lightning. Only Builder Neon and Air White are used for this metaphor.
+- **Builder** — one builder · a person · an individual. Expressed by standing the unit vertically. compression makes the bottom dense, and the direction the top thread leans becomes the direction it faces. Use Builder Neon for the unit representing EO or the hero, Air White for a unit that is involved but not the hero, Day Blue · Bay Green for peers · friends, and Medium Gray for others · hostile presences.
+![thread-adversity] Adversity — thread densifying along the timeline
+![thread-acceleration] Acceleration — thread with compression leaning in the direction of travel
+![thread-lightning] Lightning — long, thin thread with gentle compression
+![thread-builder] Builder — compression weighted at the bottom, as if standing on the ground
+
+
+### Vocabulary
+#### Shaft {layout=grid-3} {zoom=1.08}
+The shaft is the axis of the screw and symbolizes the timeline of the building process; shaft size expresses how strong the core attribute of that process is. Keywords expressed with shaft are Growth · Diversity · Backing.
+
+- **Growth** — conviction · magnitude of force. Expressed by three or more shafts thickening step by step.
+- **Diversity** — difference of character. Expressed by placing several units with different shaft sizes side by side in random order. The larger the shaft size, the shorter the thread width too, so the unit's impression changes greatly; the nuance is not that thicker is better but that each is different. Use the various unit colors evenly.
+- **Backing** — the side that supports (Backing) or receives the weight. Put threads on one side only and that side's shaft becomes the floor with the threads standing on it; the taller the threads and the steeper their slope, the more dramatic the expression.
+- Apply Builder Neon to the unit representing EO or the hero.
+![shaft-growth] Growth — shaft thickening step by step
+![shaft-diversity] Diversity — several units with different shaft sizes side by side in random order
+![shaft-support] Backing — expressed through the relationship of two single threads
+
+
+### Vocabulary
+#### Pair {layout=grid-3} {zoom=1.1}
+Connecting two units creates a new relationship. Whether they combine horizontally · vertically, and whether they face the same · opposite directions, expresses a different context. Keywords expressed with pair are Journey · Momentum · Pulse · Peers · Rivals · House.
+
+- **Journey** — the length of time, a recurring process. Expressed by point-reflecting two units and docking them at their dense-thread ends. It expresses one chapter ending and the next continuing; repeated, it becomes a routine · cycle. Apply the same color to a docked unit pair.
+- **Momentum** — the moment acceleration crosses a threshold and direction changes. Expressed by point-reflecting two horizontal units and docking them. Meeting as `<>` is the moment force gathers; meeting as `><` is the moment it bursts out. In both states, adjust compression so the eye gathers at the center.
+- **Pulse** — pulse · frequency · a signal spreading out. Expressed by docking two lightning units in the same compression direction. The thinner the shaft and the stronger the compression, the more easily it looks like a wave.
+- **Peers** — two figures standing together. Expressed by standing two vertical units side by side facing the same direction. Apply Builder Neon to the unit representing EO or the hero, and a different color that fittingly expresses its character to the peer unit.
+- **Rivals** — opposition · competition. Expressed by standing two vertical units side by side facing inward. Apply Builder Neon to the unit representing EO or the hero, and Air White · Medium Gray to the rival unit.
+- **House** — shelter · community · EO House. Expressed by standing two vertical units side by side facing outward, making the silhouette into a roof. To express EO House, apply Builder Neon to both units, or Builder Neon to the left unit and Day Blue to the right.
+![pair-journey] {zoom=1.12} Journey · routine — docked in the same direction
+![pair-momentum] {zoom=1.12} Momentum — two states docked after point reflection (<> gathering · >< bursting)
+![pair-pulse] {zoom=1.12} Pulse — two lightning units docked in point symmetry · mirror symmetry
+![pair-peers] Peers — two vertical, same direction
+![pair-rivals] Rivals — two vertical, facing each other
+![pair-house] House — roof silhouette (EO House)
+
+
+### Vocabulary
+#### Formation {layout=grid-3} {zoom=1.09}
+The metaphors so far can be arrayed and extended in quantity to express the relationship · space · world · dimension a metaphor belongs to. Keywords expressed with formation are Scale · Dimension · Direction · Radiation · Crossing.
+
+- **Scale** — multiple individuals · processes · states. Refers to repeating an existing metaphor. Consider using color even more actively; for instance, one Builder Neon among many Medium Gray is the hero among them.
+- **Dimension** — parallel worlds. Refers to blending pairs in geometric progression. If one row is one timeline, stacking rows makes multidimensional spacetime or parallel worlds. One Builder Neon among Medium Gray timelines is the present timeline.
+- **Direction** — expresses momentum · flow. Refers to the way that, when mirrored units are placed in parallel along the shaft axis, the negative space between the units takes the shape of arrows pointing regularly to one side.
+- **Radiation** — erupting energy · resonance. Refers to mirror-reflecting the direction pattern above. Consider using Builder Neon at the source of the energy.
+- **Crossing** — simultaneous · instantaneous sync. Refers to stacking lightning units in alternating order while placing vertices · boundaries with tension.
+![formation-scale] Scale — extending the metaphor of the same unit · group
+![formation-dimension] Dimension — spacetime · parallel worlds
+![formation-direction] Direction — momentum · flow
+![formation-radiation] Radiation — erupting energy · resonance
+![formation-crossing] Crossing — simultaneous · instantaneous sync
+
+
+### + Morphology
+Any form of unit can be made simply with a few parameters, but a good-looking unit comes from proportion and rhythm, not absolute values.
+
+* [[graphic-unit#vocabulary|Vocabulary]] covers what units and pairs mean: meaning and metaphor.
+* [[graphic-unit#morphology|Morphology]] covers how a unit should look to be ideal even when the meaning is the same: the proportion and rhythm of a single unit.
+
+This section provides a checklist for a visually ideal unit and recommended parameter ranges for each item. These are not absolute criteria, so decide the actual parameter values by the designer's aesthetic judgment. This section is the morphology of a single unit; for the combination rules of multiple units, see [[graphic-pattern#grammar]].
+![morphology-overview]
+
+
+### Morphology {layout=grid-4}
+#### Proportion
+A feature of the EO graphic unit is that its size and aspect ratio can be transformed freely. But not every proportion of unit is visually appropriate.
+
+- Units that read long along the shaft axis are recommended. When the shaft flattens, all the threads clump together, which is not ideal for expressing the intended metaphor. As an exception, units used as part · periphery of a complex pattern may take a flat form.
+- Units long like a thin line along the shaft axis are not ideal either. In this case the threads along the thin, long shaft become too thick to be recognized as the established metaphor.
+![proportion-flat-do]{do} A unit that reads moderately long along the shaft axis
+![proportion-flat-dont]{dont} A flat unit widened perpendicular to the axis, with the threads clumped together
+![proportion-line-do]{do} A balanced unit whose shaft of moderate length acts as a body
+![proportion-line-dont]{dont} A unit whose shaft stretches like a thin line and whose threads stretch long with it
+
+
+### Morphology {layout=grid-4}
+#### Rhythm
+Threads narrow toward one side and create rhythm. In general, keep the absolute value of compression around 1.5-2.5.
+
+- When the proportion and spacing of the threads are uniform, the rhythm turns monotonous, the unit gives a flat impression like stripes, and it becomes hard to arouse visual interest.
+- compression must be sufficient for the threads to compose a rhythm and create motion. Dense lines converging on the unit's boundary create a flow for the eye and can deliberately give tension to a static plane.
+- When compression is excessive, threads compressed to hairline thickness repeat on the dense side and give an equally dull impression. In that case, reduce thread amount or lower compression a little to reduce the number of repetitions. Alternatively, lower thread gutter so that stretch clumps into a single mass, which offsets the repetitive feel.
+- Short units tend to show each thread's form distinctly and feel less monotonous even with a small thread amount and weak compression. Long units, on the other hand, compose a fitting rhythm better with a large thread amount and strong compression.
+![rhythm-uniform-do]{do} compression that creates a fitting rhythm
+![rhythm-uniform-dont]{dont} A monotonous unit with uniform spacing
+![rhythm-excess-do]{do} compression converging on the boundary and creating motion
+![rhythm-excess-dont]{dont} A unit with excessive compression and repeated hairlines
+![rhythm-length-do]{do} thread amount and compression suited to a long unit
+![rhythm-length-dont]{dont} Many threads and weak compression on a long shaft
+
+
+### Morphology {layout=grid-4}
+#### Density
+Seen close up or large, each thread reads as its own mass, but seen from afar or small, adjacent forms merge into a gray plane of uniform density. The boundary of this gray plane changes with compression, and its density with thread gutter and the slope of the threads. thread gutter is the minimum gap between threads and decisively affects whether dense threads read as individual lines or merge into a gray plane. For digital assets at typical resolution, a thread gutter of around 10-20px is recommended.
+
+- It is almost always better for the dense stretch to merge into a gray plane. Rather than letting threads thinned uniformly to hairline thickness stick out, lower thread gutter so that stretch clumps into a narrow band at the end of the unit. In digital assets at typical resolution, thread gutter is rarely raised above 30px.
+- thread gutter largely sets the density of the gray plane, but the slope of the threads also affects it subtly. When adjusting the slope of the threads on the thick side, watch for changes in the gray plane on the dense side.
+- A Space Black unit shrinks on a light background, and the gray plane on the dense side can scatter into individual threads and break the established rhythm. When inverting from light to dark colors (and the reverse is the same), reset thread gutter and compression.
+![density-mass-do]{do} A dense stretch merged into a gray plane with a small thread gutter
+![density-mass-dont]{dont} A stretch with a large thread gutter, each hairline sticking out
+![density-slope-do]{do} A unit whose gray plane was re-tuned after adjusting the slope
+![density-slope-dont]{dont} A unit whose gray plane density changed because only the slope was changed
+![density-inversion-do]{do} A unit whose thread gutter and compression were reset on inversion
+![density-inversion-dont]{dont} A unit with only the colors inverted and the values left as they were
+
+
+### Morphology {layout=grid-4}
+#### Shape
+The difference between the widths of a thread's top and bottom edges. It determines the sharpness and footprint of the thread and affects the gray level of the densely compressed stretch. A thread whose diagonal takes up about 60% of its area is ideal, so thread top width of 35-50% and bottom width of 0-20% are recommended.
+
+- As the shaft thickens, the threads shorten and their slope flattens. When adjusting shaft size, keep in mind that the slope moves with it.
+- The more units a pattern has, the more the threads read as a gray plane · mass rather than as individual slopes. Adjust thread top/bottom width only within the recommended range, and only when the gray level needs fine-tuning. Close-up treatments with thread sides set to single are the exception, since there the slope of the thread is the key metaphor.
+![shape-do]{do} A thread with top 40% · bottom 0%
+![shape-dont]{dont} A thread with top · bottom outside the recommended range
+
+
+### Morphology {layout=grid-4}
+#### Docking
+When two units of the same color are joined along the shaft axis to form what looks like one long unit, the way the seam is handled is called docking. The thread spacing at the meeting point must continue the rhythm of both sides, which requires the two units to have the same shaft size and thread gutter. Simply butting them together loses the gap at the seam, and the thread rhythm jumps.
+![docking-do]{do} docking whose rhythm continues across the seam
+![docking-dont]{dont} Two units butted together without docking, their rhythm broken at the seam
+
 
 ### Graphic Unit {layout=grid-3}
-#### Don'ts
-Never modify the geometry of a unit by hand. Every variation must happen within the parameters of the Graphic Builder.
-![unit-dont-1]{dont} Don’t rotate or tilt a unit
-![unit-dont-2]{dont} Don’t remove or add threads by hand
-![unit-dont-3]{dont} Don’t use three or more colors in one unit
-![unit-dont-4]{dont} Don’t add outlines or shadows to a unit
-![unit-dont-5]{dont} Don’t use a unit as a photo mask
-![unit-dont-6]{dont} Don’t adjust the compression column by column by hand
+#### + Don'ts
+The meaning and aesthetics of a unit come from the change in thread density spread across a plane, so when that plane is disturbed, the rhythm compression creates easily collapses with it. Every transformation of unit geometry must happen within the parameters of the Graphic Builder; avoid manual transformation wherever possible.
+
+As an exception, a three-dimensional extension that projects the whole plane the unit sits on into isometric or perspective may be attempted in limited cases after review by the EO design team.
+![unit-dont-1]{dont} Don't rotate a unit by angles other than multiples of 90°
+![unit-dont-2]{dont} Don't distort a unit's form arbitrarily
+![unit-dont-3]{dont} Don't apply two or more colors to one unit
+![unit-dont-4]{dont} Don't use Solid Gray as a unit color; it is for backgrounds only
+![unit-dont-5]{dont} Don't connect two units whose shaft sizes do not match
+![unit-con]{con} Projecting units onto a three-dimensional plane
+
+
 
 ## Graphic Pattern
 
+### Graphic Pattern
+#### + Grammar
+The EO graphic system is woven in three layers, like a language.
+* [[graphic-unit#vocabulary|Vocabulary]] is the words. It covers what units and pairs mean: meaning and metaphor.
+* [[graphic-unit#morphology|Morphology]] is the form of those words. It covers how a unit should look to be ideal even when the meaning is the same: the proportion and rhythm of a single unit.
+* [[graphic-pattern#grammar|Grammar]] is the grammar that builds sentences from words: the layout rules for placing multiple units on one canvas.
+
+Vocabulary handles a unit's meaning and Morphology its appearance, so the Grammar section deals with layout form rather than meaning. The library in [[graphic-pattern#references]] is a set of representative examples with these rules applied, and designers can reinterpret them to create new patterns.
+![grammar]
+
+
+### Grammar {layout=grid-4}
+#### Grid
+Compose the page layout with the graphic pattern area and the content area together; ideally the graphic pattern area takes up 50-70% of the whole page. Counting about 10% in between as margin, it is good to make the remaining 20-40% the content area.
+
+Within the graphic pattern area divided this way, place units on the pattern grid. The frame grid set in the EO Graphic Builder corresponds to the pattern grid. The recommended workflow is to first combine units in the builder · graphic tool workspace into a draft graphic with a new metaphor, then refine it by aligning the units on a properly set pattern grid.
+![grid-do-1]{do} Area division at ideal proportions
+![grid-dont-1]{dont} A layout whose graphic area is too small, weakening visibility
+![grid-do-2]{do} Units snapped to the columns and rows of the pattern grid
+![grid-dont-2]{dont} Units placed without regard to the pattern grid
+
+
+### Grammar {layout=grid-4}
+#### Pattern Gutter
+pattern gutter is the gap between units within a graphic pattern. For typical digital assets, 0-20px, with 15px recommended.
+
+- pattern gutter is balanced against thread gutter. Stacking units with an appropriate pattern gutter creates visual tension and draws interest.
+- Units must never overlap. They are one of three: separated by a pattern gutter, connected by docking, or fully touching.
+![gutter-balance-do]{do} pattern gutter balanced against thread gutter
+![gutter-balance-dont]{dont} pattern gutter out of step with thread gutter
+![gutter-overlap-do]{do} Units separated · docked · touching
+![gutter-overlap-dont]{dont} Units overlapping each other
+
+
+### Grammar {layout=grid-2}
+#### Pattern Margin
+Set pattern margin to 0 so the pattern fills 100% of the layout's graphic pattern area. Depending on the nuance of the metaphor, it can extend past the layout's margin to the edge of the page · output medium. Butting a unit's densely compressed stretch against the edge of the page creates the illusion of entering from outside the page or reaching out beyond it, which creates visual interest.
+
+![margin-crop-do]{do} A pattern filling 100% of the content area
+![margin-crop-dont]{do} A pattern extended to the edge of the output medium
+
+
+### Grammar {layout=grid-4}
+#### Alignment
+There are no particular restrictions on combining horizontal and vertical units, but having each unit's form follow the Morphology recommendations as far as possible helps create a graceful pattern.
+
+- In general, units should align to the pattern margin 0 lines on all four sides, but depending on the metaphor you can mix: some on the pattern margin 0 line, some extending to the page edge.
+- Once units are aligned on the pattern grid, look closely at the shaft and thread lines that happen to form between intersecting units. Unintended misalignment can hurt the finish of the whole pattern. Fine-tune the compression of the vertical units and the shaft size of the horizontal units so that the shaft lines of horizontal units and the thread lines of vertical units coincide. This is recommended as the last step in completing a layout.
+![alignment-do-1]{do} Units aligned to the pattern margin 0 line
+![alignment-do-2]{dont} Units mixing alignment methods by intent
+![alignment-do-3]{do} An intersection where shaft line and thread line meet
+![alignment-dont]{dont} An intersection with misaligned lines
+
+
 ### Graphic Pattern {layout=grid-4}
-#### 30 Patterns
-A library of thirty patterns built from combinations of units. Each pattern stands for one keyword from the builder’s journey and is reused across every touchpoint — campaigns, merchandise, social, and video. When a new pattern is needed, choosing from the library comes first; additions go through the brand team for approval.
+#### Color
+The basic combination uses Solid Gray · Space Black as background colors and Builder Neon · Air White  · Day Blue · Bay Green · Medium Gray as unit colors. When placing several units side by side, either arrange Day Blue · Bay Green · Medium Gray, whose values are similar, with even weight · position · motion, or use the high-value Builder Neon · Air White as the visual focus to deliberately control the depth of the canvas.
+
+For typical situations · a mild mood, use a Solid Gray background; for a more intense mood, use a Space Black background. Only on pages that must assert the brand's presence most strongly while carrying little information, use Builder Neon as the background color with Space Black units on top.
+
+- Unit color
+  - Only one color is ever applied to a unit.
+  - **At most 3 unit colors are recommended in one graphic at the same time**; up to four may be used only in the fixed combination Builder Neon · Day Blue · Bay Green · Medium Gray.
+  - Medium Gray units are not used alone; combine them with units of other colors.
+  - Solid Gray is not used as a unit color.
+- Background color
+  - Consider Solid Gray first as a background color: it lowers contrast with the five unit colors by one step, so all the colors bind together calmly.
+  - When Builder Neon · Day Blue · Bay Green · Air White are used as background colors, only Space Black units may be placed on them.
+  - Solid Gray is used strictly as a background color and never as a unit color.
+  - Medium Gray is not used as a background color in digital environments. Only in merch production, where the color of the physical material can be matched to Medium Gray, may Builder Neon · Space Black units be placed on it in limited cases with the EO design team's permission.
+![color-do-1] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Solid Gray]
+![color-do-2] {do}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Space Black]
+![color-do-3] {do}[Space Black] on [Builder Neon] · [Day Blue] · [Bay Green]
+![color-do-4] {do}[Space Black] on [Air White]
+![color-dont-1] {dont}[Space Black] on [Solid Gray] or vice versa
+![color-dont-2] {dont}[Medium Gray] alone on [Solid Gray] · [Space Black]
+![color-dont-3] {dont}[Day Blue] · [Bay Green] · [Medium Gray] · [Air White] on [Builder Neon]
+![color-dont-4] {dont}[Builder Neon] · [Bay Green] · [Medium Gray] · [Air White] on [Day Blue]
+![color-dont-5] {dont}[Builder Neon] · [Day Blue] · [Medium Gray] · [Air White] on [Bay Green]
+![color-dont-6] {dont}[Builder Neon] · [Day Blue] · [Bay Green] · [Medium Gray] on [Air White]
+![color-dont-7] {dont}[Day Blue] · [Bay Green] · [Air White] on [Medium Gray]
+![color-con] {con}[Builder Neon] · [Space Black] on [Medium Gray]
+
+
+### Graphic Pattern {layout=grid-4} {ratio=16:9} {zoom=1.03}
+#### References
+A library of 30 patterns made by combining units. Each pattern is named not by a number but by one keyword taken from the builder's journey, and is reused across every touchpoint: campaigns · merch · social · video. When a new pattern is needed, choosing from the library comes first; additions go through the EO design team's approval.
 ![pattern-01] 01 / path of builder
 ![pattern-02] 02 / power
 ![pattern-03] 03 / resistance
@@ -646,16 +1096,16 @@ A library of thirty patterns built from combinations of units. Each pattern stan
 ![pattern-06] 06 / team
 ![pattern-07] 07 / backing
 ![pattern-08] 08 / teamwork
-![pattern-09] 09 / teamwork
+![pattern-09] 09 / co-working
 ![pattern-10] 10 / rallying
 ![pattern-11] 11 / conviction
-![pattern-12] 12 / community
+![pattern-12] 12 / resonance
 ![pattern-13] 13 / advantage
 ![pattern-14] 14 / disadvantage
 ![pattern-15] 15 / cycle
 ![pattern-16] 16 / routine
 ![pattern-17] 17 / competition
-![pattern-18] 18 / collaborate intelligence
+![pattern-18] 18 / collective intelligence
 ![pattern-19] 19 / growth
 ![pattern-20] 20 / diversity
 ![pattern-21] 21 / momentum
@@ -667,28 +1117,75 @@ A library of thirty patterns built from combinations of units. Each pattern stan
 ![pattern-27] 27 / multi-dimension
 ![pattern-28] 28 / adventure
 ![pattern-29] 29 / nature
-![pattern-30] 30 / bang!
+![pattern-30] 30 / boom
+
 
 ### Usage
-Patterns are used as the hero, not as a background. Give the pattern an entire half of the layout (usually the right) and set the headline left-aligned on the other side. Never overlap text on a pattern, and place the logo in the margin outside it. Patterns may be cropped, but crop on column boundaries so that no thread trapezoid is cut through the middle.
-![pattern-usage]
+#### Do's & Dont's {layout=grid-2}
+Patterns are used as the hero, not as a background. Give the pattern an entire half of the layout (usually the right) and set the headline left-aligned on the other side. Do not overlap text on the pattern, and place the logo in the margin outside it. Patterns may be cropped, but crop on column boundaries so that no thread trapezoid is cut through the middle.
+![pattern-do-1] {do}
+![pattern-do-2] {do}
+![pattern-dont-1] {dont}
+![pattern-dont-2] {dont}
+
+
 
 ## Applications
 
-### Merch {layout=grid-3}
-The merchandise line consists of tees, hoodies, and caps. Single-color silkscreen graphics are the default: Space Black on white tees and Builder Neon on gray tees. The front chest carries the Block symbol or monogram at a small size; the back carries a pattern and copy (“Build Anyway.” “Even the Odds”) at a large size.
-![app-tee] Standard Tee
-![app-hoodie] Hoodie
-![app-cap] 5-panel Cap
+### + Principles
+Four things to keep when putting a pattern on a page.
+
+- **Match density to viewing distance.** Large surfaces seen from afar, like billboards, push complexity all the way up and hold the eye with density; posters seen up close stay at medium complexity.
+- **One page can hold several variations.** Place several variations of the same motif in one composition to create rhythm.
+- **Patterns fit any aspect ratio.** Dividing the page into sub-layouts lets one frame carry several messages.
+- **Lead the eye with the direction of the thread.** Place all threads so they converge on one point, and the eye goes to the mark or message there.
+![app-principles]
+
+
+### Digital {layout=grid-3}
+Digital touchpoints such as the web magazine · social feeds · video thumbnails. Units extend into motion, with compression changing over time; thumbnails use only part of a unit, cropped on column boundaries. The web grid (12 columns, grid gutter 40, grid margin 44 @1728) shares the same system as the unit's column grid.
+![app-web] Web Magazine
+![app-social] Social Feed
+![app-thumbnail] Video Thumbnail
+
 
 ### Print {layout=grid-3}
-Printed matter includes posters, hang tags, stickers, and pins. The default is Space Black units on an Air White ground, with Builder Neon on one surface only. Hang tags carry a pattern on the front and size and material information in Mono on the back.
+Printed matter such as posters · hang tags · stickers · pins. The default is Space Black units on an Air White ground, with Builder Neon used on one surface only. Hang tags carry a pattern on the front and size and material information in Mono on the back.
 ![app-poster] Poster
 ![app-hangtag] Hang Tag
 ![app-sticker] Sticker Pack & Pin
 
-### Digital {layout=grid-3}
-Digital touchpoints include the web magazine, social feeds, and video thumbnails. Units extend into motion, with the compression rate changing over time; thumbnails use only part of a unit, cropped on column boundaries. The web grid (12 columns, 40 gutter, 44 margin at 1728) shares the same system as the unit’s column grid.
-![app-web] Web Magazine
-![app-social] Social Feed
-![app-thumbnail] Video Thumbnail
+
+### Merch {layout=grid-3}
+A merch line of tees · hoodies · caps. Single-color silkscreen graphics are the default. Tees carry a small EO symbol on the front chest and a large dedicated graphic of simply arranged units on the back; hoodies carry a blended pattern on the front. The colorway is one of Space Black · Builder Neon · Day Blue, chosen to suit the fabric color of the ground.
+![app-tee] Oversized Tee
+![app-hoodie] Hoodie
+![app-cap] 5-panel Cap
+
+
+
+# 06 End
+
+## End {toc=none}
+::: split
+### Thank You {span=6}
+Thank you for reading the EO Brand Guidelines to the end.
+This document is not a declared final version but a standard that grows and changes with EO. If you see somewhere a better way is possible, let us know anytime.
+
+If anything needs confirmation from the EO design team, such as descriptors · patterns · color combinations, please get in touch.
+
+### Imagery {span=6}
+Some of the photos · illustrations · mockups used in these guidelines are examples for explaining brand rules, and EO Studio does not directly hold the primary license to them. Do not use the photos · illustrations · example figures in the guide as they are in external communication.
+
+When using others' intellectual property such as images · illustrations · video in EO productions that go outside, always obtain the copyright holder's permission first.
+
+
+### Contact {span=6}
+[[mailto:jemin@eoeoeo.net|jemin@eoeoeo.net]]
+
+
+### Credits {span=6}
+Visual identity guideline designed and written by [[https://diceandfly.studio|DiceAndFly.Studio]]\
+Inspired by the Discord brand guidelines ([[https://www.portorocha.com/|Porto Rocha]])
+:::
+
