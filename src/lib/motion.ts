@@ -122,49 +122,37 @@ export function scrollToId(id: string, animate = true) {
   return true;
 }
 
-/* ---------- 1.2 목차 목록의 휠 스크롤 ----------
-   목차는 스무스 스크롤 영역 밖(고정)이라 브라우저 기본 스크롤입니다. 마우스 휠의 끊기는 칸 단위 이동만
-   본문과 같은 지수 감속으로 목표 위치까지 따라가게 하고, 트랙패드(이미 관성이 있음)는 기본 스크롤 그대로 둡니다. */
+/* ---------- 1.2 목차 목록의 스크롤 ----------
+   목차는 스무스 스크롤 영역 밖(고정)이라 브라우저 기본 스크롤입니다. 본문(ScrollSmoother)처럼 휠·트랙패드 입력을 모두 받아
+   목표 위치만 옮기고 매 프레임 지수 감속으로 따라갑니다. 이동 거리는 브라우저가 주는 deltaY 그대로(기본 스크롤과 같은 양),
+   휠 한 칸이 120 단위(wheelDeltaY)로 오는 환경만 --nav-wheel-step 으로 환산. */
 const navScroller = document.querySelector<HTMLElement>('[data-nav-scroll]');
 const navSmooth = reduced ? 0 : ms('--nav-scroll-smooth', 1.2);
 if (navScroller && navSmooth > 0) {
-  let target = navScroller.scrollTop;
-  // 휠 판별
-  //  1) 크롬·사파리: wheelDeltaY 가 120 단위(±120, 240…)면 마우스 휠, 그 밖의 작은 값이면 트랙패드
-  //     (맥에서는 마우스 휠도 deltaY 가 4.0002 처럼 소수로 와서 deltaY 만으로는 구분이 안 됨)
-  //  2) 파이어폭스: 휠은 줄 단위(deltaMode 1)로 옴
-  //  3) 둘 다 없으면: 가로 성분 없이 큰 단위(40px 이상)로 오면 휠
   const legacyOf = (e: WheelEvent) => (e as WheelEvent & { wheelDeltaY?: number }).wheelDeltaY;
-  const isWheel = (e: WheelEvent) => {
-    const legacy = legacyOf(e);
-    if (e.deltaMode !== 0) return true;
-    if (typeof legacy === 'number' && legacy !== 0) return legacy % 120 === 0;
-    return e.deltaX === 0 && Math.abs(e.deltaY) >= 40;
-  };
-  // 휠 한 칸 이동 거리. 맥은 휠 한 칸의 deltaY 가 4px 처럼 작게 와서, 칸 수(120 단위)로 세어 토큰 거리만큼 움직임
   const stepPx = num('--nav-wheel-step', 80);
   const stepOf = (e: WheelEvent) => {
     const legacy = legacyOf(e);
-    if (e.deltaMode === 1) return e.deltaY * stepPx / 3;                    // 파이어폭스: 보통 한 칸 = 3줄
-    if (e.deltaMode === 2) return e.deltaY * navScroller.clientHeight;
-    if (typeof legacy === 'number' && legacy !== 0 && legacy % 120 === 0) return Math.sign(e.deltaY) * (Math.abs(legacy) / 120) * stepPx;   // 방향은 deltaY, 칸 수는 wheelDeltaY
-    return e.deltaY;
+    if (e.deltaMode === 1) return e.deltaY * stepPx / 3;                    // 줄 단위(파이어폭스): 한 칸 = 3줄
+    if (e.deltaMode === 2) return e.deltaY * navScroller.clientHeight;      // 페이지 단위
+    if (typeof legacy === 'number' && legacy !== 0 && legacy % 120 === 0) return Math.sign(e.deltaY) * (Math.abs(legacy) / 120) * stepPx;   // 120 단위 휠: 칸 수 × 토큰 거리
+    return e.deltaY;                                                        // 그 밖(맥 휠·트랙패드): 브라우저가 준 픽셀 그대로
   };
   // 확인 모드: 브라우저 콘솔에서 localStorage.guideWheelDebug = '1' 후 새로고침하면 휠 값이 콘솔에 찍힘
   let debug = false;
   try { debug = localStorage.getItem('guideWheelDebug') === '1'; } catch {}
-  // 따라가기: 휠이 올 때마다 목표만 옮기고, 매 프레임 현재 위치를 목표 쪽으로 지수 감속으로 당깁니다 (ScrollSmoother 와 같은 방식).
-  // 칸마다 트윈을 새로 시작하면 속도가 끊겨 뚝뚝 걸리므로, 트윈 대신 연속 추종. --nav-scroll-smooth = 거의 다 따라붙기까지 걸리는 시간
+  // 따라가기 (ScrollSmoother 와 같은 방식): 입력은 목표만 옮기고, 매 프레임 현재 위치를 목표 쪽으로 지수 감속으로 당김.
+  // --nav-scroll-smooth = 거의 다 따라붙기까지 걸리는 시간. 지수 감속은 꼬리가 길어 마지막 몇 px 를 1px 씩 띄엄띄엄 가게 되므로
+  // (scrollTop 은 정수 반올림), 프레임당 최소 이동(--nav-scroll-min-step)으로 꼬리를 자르고 목표에 닿으면 바로 멈춤
   const tau = navSmooth / 3;                                    // 시간 상수: 3τ 에 95% 도달
+  const minStep = num('--nav-scroll-min-step', 1.5);
+  let target = navScroller.scrollTop;
   let current = target;
   let running = false;
-  // 지수 감속은 꼬리가 길어 마지막 몇 px 를 1px 씩 띄엄띄엄 가게 됨(scrollTop 은 정수로 반올림되므로 뚝뚝 보임).
-  // 그래서 프레임당 최소 이동을 두어 꼬리를 자르고, 목표에 닿으면 바로 멈춤
-  const minStep = num('--nav-scroll-min-step', 1.5);
   const tick = () => {
-    const dt = gsap.ticker.deltaRatio(60) / 60;
+    const ratio = gsap.ticker.deltaRatio(60);
     const d = target - current;
-    const step = Math.max(Math.abs(d) * (1 - Math.exp(-dt / tau)), minStep * gsap.ticker.deltaRatio(60));
+    const step = Math.max(Math.abs(d) * (1 - Math.exp(-(ratio / 60) / tau)), minStep * ratio);
     if (Math.abs(d) <= step) { current = target; stop(); }
     else current += Math.sign(d) * step;
     navScroller.scrollTop = current;
@@ -172,12 +160,12 @@ if (navScroller && navSmooth > 0) {
   const start = () => { if (!running) { running = true; gsap.ticker.add(tick); } };
   const stop = () => { if (running) { running = false; gsap.ticker.remove(tick); } };
   navScroller.addEventListener('wheel', e => {
-    if (debug) console.log('[nav wheel]', { deltaY: e.deltaY, deltaMode: e.deltaMode, wheelDeltaY: legacyOf(e), wheel: isWheel(e), step: stepOf(e) });
-    if (e.ctrlKey || !isWheel(e)) { stop(); return; }           // 트랙패드·확대 제스처: 브라우저 기본 스크롤
+    if (debug) console.log('[nav wheel]', { deltaY: e.deltaY, deltaMode: e.deltaMode, wheelDeltaY: legacyOf(e), step: stepOf(e) });
+    if (e.ctrlKey) return;                                      // 확대 제스처는 브라우저에
     const max = navScroller.scrollHeight - navScroller.clientHeight;
     if (max <= 0) return;
     e.preventDefault();
-    if (!running) { current = navScroller.scrollTop; target = current; }   // 다른 방법으로 움직인 뒤라면 현재 위치에서 출발
+    if (!running) { current = navScroller.scrollTop; target = current; }   // 다른 방법(드래그·키)으로 움직인 뒤라면 현재 위치에서 출발
     target = Math.max(0, Math.min(max, target + stepOf(e)));
     start();
   }, { passive: false });
