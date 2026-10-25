@@ -55,7 +55,10 @@ if (smoothAmount > 0 && wrapper && content) {
   smoother = ScrollSmoother.create({ wrapper, content, smooth: smoothAmount, effects: false, smoothTouch: 0 });
 }
 (window as any).__smoother = smoother;
-(window as any).__scrollGuardOff?.();                          // 준비 끝: 로드 중 막아 둔 휠·터치·키 스크롤을 품 (Layout.astro 의 인라인 가드)
+// 로드 중 막아 둔 휠·터치·키 스크롤(Layout.astro 의 인라인 가드)을 품.
+// ScrollSmoother 는 만들어진 뒤 0.5초 동안 "시작 단계" 라서 스크롤을 부드럽게 따라가지 않고 바로 점프하므로, 그 시간이 지난 뒤에 풉니다.
+const releaseGuard = () => (window as any).__scrollGuardOff?.();
+if (smoother) gsap.delayedCall(ms('--scroll-guard-hold', 0.6), releaseGuard); else releaseGuard();
 
 const anchorOffset = () => num('--anchor-offset', 64);
 
@@ -121,12 +124,11 @@ export function scrollToId(id: string, animate = true) {
 
 /* ---------- 1.2 목차 목록의 휠 스크롤 ----------
    목차는 스무스 스크롤 영역 밖(고정)이라 브라우저 기본 스크롤입니다. 마우스 휠의 끊기는 칸 단위 이동만
-   본문과 같은 감속으로 목표 위치까지 따라가게 하고, 트랙패드(이미 관성이 있음)는 기본 스크롤 그대로 둡니다. */
+   본문과 같은 지수 감속으로 목표 위치까지 따라가게 하고, 트랙패드(이미 관성이 있음)는 기본 스크롤 그대로 둡니다. */
 const navScroller = document.querySelector<HTMLElement>('[data-nav-scroll]');
 const navSmooth = reduced ? 0 : ms('--nav-scroll-smooth', 1.2);
 if (navScroller && navSmooth > 0) {
   let target = navScroller.scrollTop;
-  let tweening = false;
   // 휠 판별
   //  1) 크롬·사파리: wheelDeltaY 가 120 단위(±120, 240…)면 마우스 휠, 그 밖의 작은 값이면 트랙패드
   //     (맥에서는 마우스 휠도 deltaY 가 4.0002 처럼 소수로 와서 deltaY 만으로는 구분이 안 됨)
@@ -151,19 +153,28 @@ if (navScroller && navSmooth > 0) {
   // 확인 모드: 브라우저 콘솔에서 localStorage.guideWheelDebug = '1' 후 새로고침하면 휠 값이 콘솔에 찍힘
   let debug = false;
   try { debug = localStorage.getItem('guideWheelDebug') === '1'; } catch {}
+  // 따라가기: 휠이 올 때마다 목표만 옮기고, 매 프레임 현재 위치를 목표 쪽으로 지수 감속으로 당깁니다 (ScrollSmoother 와 같은 방식).
+  // 칸마다 트윈을 새로 시작하면 속도가 끊겨 뚝뚝 걸리므로, 트윈 대신 연속 추종. --nav-scroll-smooth = 거의 다 따라붙기까지 걸리는 시간
+  const tau = navSmooth / 3;                                    // 시간 상수: 3τ 에 95% 도달
+  let current = target;
+  let running = false;
+  const tick = () => {
+    const dt = gsap.ticker.deltaRatio(60) / 60;
+    current += (target - current) * (1 - Math.exp(-dt / tau));
+    if (Math.abs(target - current) < 0.5) { current = target; stop(); }
+    navScroller.scrollTop = current;
+  };
+  const start = () => { if (!running) { running = true; gsap.ticker.add(tick); } };
+  const stop = () => { if (running) { running = false; gsap.ticker.remove(tick); } };
   navScroller.addEventListener('wheel', e => {
     if (debug) console.log('[nav wheel]', { deltaY: e.deltaY, deltaMode: e.deltaMode, wheelDeltaY: legacyOf(e), wheel: isWheel(e), step: stepOf(e) });
-    if (e.ctrlKey || !isWheel(e)) { if (tweening) { gsap.killTweensOf(navScroller); tweening = false; } return; }   // 트랙패드·확대 제스처
+    if (e.ctrlKey || !isWheel(e)) { stop(); return; }           // 트랙패드·확대 제스처: 브라우저 기본 스크롤
     const max = navScroller.scrollHeight - navScroller.clientHeight;
     if (max <= 0) return;
     e.preventDefault();
-    if (!tweening) target = navScroller.scrollTop;                // 다른 방법으로 움직인 뒤라면 현재 위치에서 출발
+    if (!running) { current = navScroller.scrollTop; target = current; }   // 다른 방법으로 움직인 뒤라면 현재 위치에서 출발
     target = Math.max(0, Math.min(max, target + stepOf(e)));
-    tweening = true;
-    gsap.to(navScroller, {
-      scrollTop: target, duration: navSmooth, ease: easeOf('--nav-scroll-ease', 'expo.out'), overwrite: true,
-      onComplete: () => { tweening = false; },
-    });
+    start();
   }, { passive: false });
 }
 
