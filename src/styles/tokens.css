@@ -283,9 +283,9 @@
   --nav-w-chapter: 400; /* 01 Logo */
   --nav-w-sub: 400; /* 서브챕터 = 페이지 타이틀 */
   --nav-w-section: 300; /* 섹션 */
-  --nav-w-active: 500; /* 활성 항목 (챕터·서브챕터·섹션 공통) */
+  --nav-w-active: 400; /* 활성 항목 (챕터·서브챕터·섹션 공통) */
   --nav-w-lang: 400; /* 언어 전환 EN | KR (비활성 쪽) */
-  --nav-w-lang-active: 500; /* 언어 전환 현재 언어 */
+  --nav-w-lang-active: 400; /* 언어 전환 현재 언어 */
 
   /* ui · 검색 — 입력창과 결과는 ui 레벨 크기를 쓰되 아래로 조정. 결과의 경로 줄은 label 레벨 */
   --search-input-w: 300; /* 입력 글자 웨이트 */
@@ -436,6 +436,7 @@
   --anchor-offset: 64px; /* 목차·검색으로 섹션에 도착할 때 헤드 위 여백 */
   --anchor-dur: 0.56; /* 목차·검색의 섹션 이동 시간 (초, 또는 ms). 거리와 무관, 휠 스크롤과 별개 */
   --anchor-ease: var(--ease-inout); /* 섹션 이동 곡선 (GSAP 이름 또는 cubic-bezier) */
+  --spy-line: 0.2; /* 스크롤스파이 기준선: 화면 위 --anchor-offset 아래로 화면 높이의 이 비율만큼. 기준선을 지난 마지막 섹션이 목차에서 활성 */
 
   /* 컬러 카드 */
   --swatch-reveal-dur: 420ms; /* 호버하면 스펙이 차오르는 디졸브 시간 */

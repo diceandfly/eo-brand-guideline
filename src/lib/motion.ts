@@ -2,6 +2,7 @@
  * 클라이언트 모션 (GSAP)
  *  1. 스무스 스크롤 — ScrollSmoother. --scroll-smooth 가 0 이면 만들지 않음(브라우저 기본 스크롤).
  *  2. 앵커 이동 — 같은 페이지의 #섹션 링크는 스무스 스크롤로, --anchor-offset 만큼 위를 띄움.
+ *  2.5 스크롤스파이 — 스크롤 위치에 따라 목차의 섹션 목록에서 현재 섹션을 강조 (--spy-line).
  *  1.5 페이지 전환 — 다른 페이지 링크를 누르면 본문을 먼저 사라지게 한 뒤 이동 (들어올 때는 CSS).
  *  3. 이미지 확대 보기 — .fig__frame 의 <img> 를 누르면 라이트박스. 디졸브 + 스케일.
  * 수치는 전부 tokens.css 5. MOTION 에서 읽습니다 (Don't 대각선 영역만 4. RATIO 의 --ratio-dodont).
@@ -213,6 +214,41 @@ if (location.hash) {
   const go = () => requestAnimationFrame(() => { ScrollTrigger.refresh(); scrollToId(id, true); });
   if (document.readyState === 'complete') go();
   else window.addEventListener('load', go, { once: true });
+}
+
+/* ---------- 2.5 스크롤스파이 ----------
+   본문을 스크롤하면 목차의 섹션 목록([data-scrollspy], 현재 페이지에만 있음)에서 지금 보고 있는 섹션을 강조합니다.
+   기준선 = 화면 위에서 --anchor-offset + 화면 높이 × --spy-line. 기준선을 지난 마지막 섹션이 활성.
+   목차 클릭으로 도착하면 섹션 머리가 정확히 --anchor-offset 에 놓이므로 그 섹션이 바로 활성이 됩니다.
+   맨 끝까지 내리면 마지막 섹션(짧아서 기준선에 못 닿더라도)을 활성으로. 스무더가 있으면 보이는 위치(transform 반영) 기준. */
+{
+  const list = document.querySelector<HTMLElement>('[data-scrollspy]');
+  const links = list ? Array.from(list.querySelectorAll<HTMLAnchorElement>('a[data-target]')) : [];
+  const targets = links.map(a => ({ a, el: document.getElementById(a.dataset.target!) })).filter((t): t is { a: HTMLAnchorElement; el: HTMLElement } => !!t.el);
+  if (targets.length) {
+    let current: HTMLAnchorElement | null = null;
+    let lastY = -1;
+    const setActive = (a: HTMLAnchorElement | null) => {
+      if (a === current) return;
+      current?.classList.remove('is-active'); current?.removeAttribute('aria-current');
+      a?.classList.add('is-active'); a?.setAttribute('aria-current', 'location');
+      current = a;
+    };
+    const spy = () => {
+      const y = smoother ? smoother.scrollTop() : window.scrollY;
+      if (y === lastY) return;
+      lastY = y;
+      const line = anchorOffset() + num('--spy-line', 0.2) * window.innerHeight + 1;
+      let hit: HTMLAnchorElement | null = null;
+      for (const t of targets) if (t.el.getBoundingClientRect().top <= line) hit = t.a;
+      const max = ScrollTrigger.maxScroll(window);
+      if (max > 0 && y >= max - 2) hit = targets[targets.length - 1].a;   // 바닥: 마지막 섹션 (스크롤할 수 없는 상태면 건너뜀)
+      setActive(hit ?? targets[0].a);
+    };
+    gsap.ticker.add(spy);
+    window.addEventListener('resize', () => { lastY = -1; });
+    (window as any).__spy = spy;                                  // 디버그용 (브라우저 콘솔에서 상태 확인)
+  }
 }
 
 /* ---------- 3. 이미지 확대 보기 ---------- */
