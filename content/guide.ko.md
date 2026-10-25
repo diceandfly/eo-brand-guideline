@@ -885,7 +885,7 @@ shaft는 나사의 축이자 빌딩 과정의 타임라인을 상징하고, shaf
 
 
 ### Vocabulary
-#### Pair {layout=grid-3} {zoom=1.1}
+#### Pair {layout=grid-3} {zoom=1.08}
 유닛 둘을 연결하면 새로운 관계가 생깁니다. 가로 · 세로 어느 방향으로 조합할지, 같은 방향 · 반대 방향으로 놓을지에 따라 다른 맥락이 표현됩니다. pair로 표현하는 키워드는 여정 · 모멘텀 · 파동 · 동료 · 라이벌 · 집입니다.
 
 - **여정** — 시간의 길이, 되풀이되는 과정. 유닛 둘을 중심 반전 후 thread가 촘촘한 쪽끼리 docking하는 것으로 표현합니다. 한 챕터가 끝나고 다음 챕터로 이어지는 것을 표현하며, 반복되면 루틴 · 사이클이 됩니다. docking된 유닛 pair에는 같은 컬러를 적용합니다.
@@ -894,11 +894,11 @@ shaft는 나사의 축이자 빌딩 과정의 타임라인을 상징하고, shaf
 - **동료** — 함께 서 있는 두 인물. 세로 유닛 둘을 같은 방향을 보게 나란히 세워 표현합니다. EO나 주인공을 대변하는 유닛에 Builder Neon를, 동료 유닛에는 성격을 알맞게 표현할 다른 컬러를 적용합니다.
 - **라이벌** — 대립 · 경쟁. 세로 유닛 둘을 안쪽을 보는도록 나란히 세워 표현합니다. EO나 주인공을 대변하는 유닛에 Builder Neon을, 라이벌 유닛에는 Air White · Medium Gray를 적용합니다.
 - **집** — 쉘터 · 커뮤니티 · EO House. 세로 유닛 둘을 바깥쪽을 향하게 나란히 세워, 실루엣을 지붕처럼 만들어 표현합니다. EO 하우스를 표현할 때는 양쪽 유닛에 모두 Builder Neon을 적용하거나, 왼쪽 유닛에 Builder Neon 오른쪽 유닛에 Day Blue를 적용하세요.
-![pair-journey] {zoom=1.12} 여정 · 루틴 — 같은 방향으로 docking
-![pair-momentum] {zoom=1.12} 모멘텀 — 중심 반전 후 docking한 두 상태 (<> 모임 · >< 발산) 
-![pair-pulse] {zoom=1.12} 파동 — 번개 둘을 중심대칭 · 좌우대칭으로 docking
-![pair-peers] 동료 — 세로 둘, 같은 방향
-![pair-rivals] 라이벌 — 세로 둘, 마주 봄
+![pair-journey] 여정 · 루틴 — 같은 방향으로 docking
+![pair-momentum] 모멘텀 — 중심 반전 후 docking한 두 상태 (<> 모임 · >< 발산) 
+![pair-pulse] 파동 — 번개 둘을 중심대칭 · 좌우대칭으로 docking
+![pair-peers] {zoom=1.5} 동료 — 세로 둘, 같은 방향
+![pair-rivals] {zoom=1.25} 라이벌 — 세로 둘, 마주 봄
 ![pair-house] 집 — 지붕 실루엣 (EO House)
 
 
