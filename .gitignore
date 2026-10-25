@@ -18,3 +18,6 @@ research/figure-lab/out/
 *.ttf
 *.otf
 *.eot
+
+# 실험·참고 자료 (저장소에 올리지 않음): 장표 공장, 시그니처 실험, 디스코드 레퍼런스 번역본
+research/
