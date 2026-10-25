@@ -10,6 +10,7 @@
 }
 html {
   -webkit-text-size-adjust: 100%;
+  overscroll-behavior-y: none; /* 페이지 맨 위·맨 아래에서 고무줄 튕김 없음. 튕김이 스무스 스크롤의 본문 이동과 겹치면 끝에서 뚝뚝 걸려 보임. 가로(뒤로 가기 제스처)는 그대로 */
   /* scroll-behavior: smooth 은 쓰지 않습니다. 브라우저 자체 스크롤 애니메이션이 켜져 있으면 GSAP 섹션 이동 트윈이
      지정한 위치를 브라우저가 느리게 따라가다 트윈이 끝난 뒤 되돌아가는 충돌이 생깁니다. 부드러운 이동은 motion.ts 가 맡습니다. */
 }
@@ -219,7 +220,7 @@ button {
   flex: 1 1 auto;
   min-height: 0;
   overflow-y: auto;
-  overscroll-behavior: contain; /* 목록 끝에서 본문까지 스크롤이 번지지 않게 */
+  overscroll-behavior: none; /* 목록 끝에서 본문으로 번지지 않게 + 끝에서 고무줄처럼 튕기지 않게 */
   scrollbar-width: none;
   padding: var(--search-gap) 0 var(--nav-lang-gap);
   scroll-padding: var(--search-gap) 0 var(--nav-lang-gap); /* 활성 항목으로 스크롤할 때 페이드 밖에 멈춤 */

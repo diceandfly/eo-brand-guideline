@@ -158,10 +158,15 @@ if (navScroller && navSmooth > 0) {
   const tau = navSmooth / 3;                                    // 시간 상수: 3τ 에 95% 도달
   let current = target;
   let running = false;
+  // 지수 감속은 꼬리가 길어 마지막 몇 px 를 1px 씩 띄엄띄엄 가게 됨(scrollTop 은 정수로 반올림되므로 뚝뚝 보임).
+  // 그래서 프레임당 최소 이동을 두어 꼬리를 자르고, 목표에 닿으면 바로 멈춤
+  const minStep = num('--nav-scroll-min-step', 1.5);
   const tick = () => {
     const dt = gsap.ticker.deltaRatio(60) / 60;
-    current += (target - current) * (1 - Math.exp(-dt / tau));
-    if (Math.abs(target - current) < 0.5) { current = target; stop(); }
+    const d = target - current;
+    const step = Math.max(Math.abs(d) * (1 - Math.exp(-dt / tau)), minStep * gsap.ticker.deltaRatio(60));
+    if (Math.abs(d) <= step) { current = target; stop(); }
+    else current += Math.sign(d) * step;
     navScroller.scrollTop = current;
   };
   const start = () => { if (!running) { running = true; gsap.ticker.add(tick); } };
