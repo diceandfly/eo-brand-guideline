@@ -112,8 +112,9 @@
   --sec-text-cols: 5; /* basic: 텍스트 컬럼 수 (왼쪽부터) */
   --sec-text-cols-m: 6;
   --sec-media-cols: 6; /* basic: 이미지 컬럼 수 (오른쪽 끝). 모바일은 텍스트 아래로 */
-  --sec-textonly-cols: 11; /* text / wide / half / grid: 텍스트 컬럼 수 */
-  --sec-split-text-pad: 1; /* ::: split 안 섹션의 글 오른쪽 여백 (그리드 컬럼 폭 × 값). 단 사이 거터에 더해져 글이 옆 단에 붙지 않게 */
+  --sec-textonly-cols: 10; /* text / wide / half / grid: 텍스트 컬럼 수 (글 상자의 폭) */
+  --sec-text-measure: 44em; /* text / wide / half / grid 본문의 최대 줄 길이 (본문 글자 크기 기준, 한글 약 40자). 컬럼 폭이 이보다 넓어지는 큰 화면에서만 걸림. none = 제한 없음 */
+  --sec-split-text-pad: 0.4; /* ::: split 안 섹션의 글 오른쪽 여백 (그리드 컬럼 폭 × 값). 단 사이 거터에 더해져 글이 옆 단에 붙지 않게 */
   --sec-textonly-cols-m: 6;
   --grid-n-m: 2; /* 모바일에서 grid-2/3/4 의 열 수 (최대) */
   --head-gap: 52px; /* 헤드(+서브헤드) ↔ 본문 */
