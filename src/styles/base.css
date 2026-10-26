@@ -71,7 +71,7 @@ button {
   font-family: var(--font-en);
   font-weight: var(--t-display-w);
   line-height: calc(var(--lh-unit) * var(--t-display-m));
-  font-size: calc(var(--lh-unit) * var(--t-display-m) / var(--t-display-p));
+  font-size: calc(var(--lh-unit) * var(--t-display-m) / (var(--t-display-p) / 100));
   letter-spacing: var(--t-display-ls);
   color: var(--t-display-c);
 }
@@ -79,7 +79,7 @@ button {
   font-family: var(--font-en);
   font-weight: var(--t-heading-w);
   line-height: calc(var(--lh-unit) * var(--t-heading-m));
-  font-size: calc(var(--lh-unit) * var(--t-heading-m) / var(--t-heading-p));
+  font-size: calc(var(--lh-unit) * var(--t-heading-m) / (var(--t-heading-p) / 100));
   letter-spacing: var(--t-heading-ls);
   color: var(--t-heading-c);
 }
@@ -92,7 +92,7 @@ button {
   font-family: var(--font-body);
   font-weight: var(--t-body-w);
   line-height: calc(var(--lh-unit) * var(--t-body-m));
-  font-size: calc(var(--lh-unit) * var(--t-body-m) / var(--t-body-p));
+  font-size: calc(var(--lh-unit) * var(--t-body-m) / (var(--t-body-p) / 100));
   letter-spacing: var(--t-body-ls);
   color: var(--t-body-c);
 }
@@ -100,7 +100,7 @@ button {
   font-family: var(--font-en);
   font-weight: var(--t-ui-w);
   line-height: calc(var(--lh-unit) * var(--t-ui-m));
-  font-size: calc(var(--lh-unit) * var(--t-ui-m) / var(--t-ui-p));
+  font-size: calc(var(--lh-unit) * var(--t-ui-m) / (var(--t-ui-p) / 100));
   letter-spacing: var(--t-ui-ls);
   color: var(--t-ui-c);
 }
@@ -108,7 +108,7 @@ button {
   font-family: var(--font-mono);
   font-weight: var(--t-label-w);
   line-height: calc(var(--lh-unit) * var(--t-label-m));
-  font-size: calc(var(--lh-unit) * var(--t-label-m) / var(--t-label-p));
+  font-size: calc(var(--lh-unit) * var(--t-label-m) / (var(--t-label-p) / 100));
   letter-spacing: var(--t-label-ls);
   color: var(--t-label-c);
   text-transform: uppercase;
@@ -519,7 +519,7 @@ html.js .main {
   max-height: var(--search-results-max-h);
   overflow-y: auto;
   /* 결과 제목: ui 레벨 × 배율 */
-  font-size: calc(var(--lh-unit) * var(--t-ui-m) / var(--t-ui-p) * var(--search-result-scale));
+  font-size: calc(var(--lh-unit) * var(--t-ui-m) / (var(--t-ui-p) / 100) * var(--search-result-scale));
   line-height: calc(var(--lh-unit) * var(--t-ui-m) * var(--search-result-scale));
   font-weight: var(--search-result-w);
 }
@@ -1105,14 +1105,14 @@ html.js .main {
 /* 스펙 글자 크기 보정: 색면 위에서는 본문보다 작아 보여 살짝 키움. 행간은 본문 행간 × --swatch-panel-lh */
 .swatch__label,
 .swatch__value {
-  font-size: calc(var(--lh-unit) * var(--t-body-m) / var(--t-body-p) * var(--swatch-panel-scale));
+  font-size: calc(var(--lh-unit) * var(--t-body-m) / (var(--t-body-p) / 100) * var(--swatch-panel-scale));
   line-height: calc(var(--lh-unit) * var(--t-body-m) * var(--swatch-panel-lh));
 }
 /* 밝은 색면의 검은 글자: 밝은 바탕이 글자 쪽으로 번져 보여(광삼) 같은 크기의 흰 글자보다 가늘고 성기게 보이므로,
    위 보정에 더해 크기는 살짝 더 키우고 자간은 살짝 좁힘 */
 .swatch__card--light .swatch__label,
 .swatch__card--light .swatch__value {
-  font-size: calc(var(--lh-unit) * var(--t-body-m) / var(--t-body-p) * var(--swatch-panel-scale) * var(--swatch-panel-fg-light-scale));
+  font-size: calc(var(--lh-unit) * var(--t-body-m) / (var(--t-body-p) / 100) * var(--swatch-panel-scale) * var(--swatch-panel-fg-light-scale));
   letter-spacing: calc(var(--t-body-ls) + var(--swatch-panel-fg-light-ls));
 }
 /* 숫자 하나 = 복사 버튼. 호버하면 드래그 박스 색 하이라이트 + 위에 Copy */
