@@ -698,11 +698,9 @@ html.js .main {
   .sec--basic .sec__media {
     grid-row: 2; /* basic 도 텍스트 아래로 */
   }
-  .sec__grid {
-    grid-template-columns: minmax(0, 1fr); /* grid-2 · grid-3: 한 줄에 하나 */
-  }
-  .sec__grid[data-n="4"] {
-    grid-template-columns: repeat(var(--grid-4-cols-m), minmax(0, 1fr)); /* grid-4 만 두 줄 */
+  .sec__grid,
+  .sec__grid--swatch {
+    grid-template-columns: minmax(0, 1fr); /* 모바일은 grid-2/3/4 · 스와치 모두 한 줄에 하나 */
   }
 }
 

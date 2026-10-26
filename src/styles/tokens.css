@@ -116,7 +116,6 @@
   --sec-text-measure: 48em; /* text / wide / half / grid 본문의 최대 줄 길이 (본문 글자 크기 기준, 한글 약 40자). 컬럼 폭이 이보다 넓어지는 큰 화면에서만 걸림. none = 제한 없음 */
   --sec-split-text-pad: 0.4; /* ::: split 안 섹션의 글 오른쪽 여백 (그리드 컬럼 폭 × 값). 단 사이 거터에 더해져 글이 옆 단에 붙지 않게 */
   --sec-textonly-cols-m: 6;
-  --grid-4-cols-m: 2; /* 모바일에서 grid-4 의 열 수. grid-2 · grid-3 는 모바일에서 한 줄에 하나 */
   --head-gap: 52px; /* 헤드(+서브헤드) ↔ 본문 */
   --head-gap-m: 24px;
   --sec-row-gap: 40px; /* 세로 간격 하나로 통일: 텍스트 ↔ 이미지(wide · half · grid · 모바일 basic), grid 카드 행 ↔ 행, wide 여러 장 장 ↔ 장 */
