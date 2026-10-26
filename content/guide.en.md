@@ -918,8 +918,8 @@ The metaphors so far can be arrayed and extended in quantity to express the rela
 ### + Morphology
 Any form of unit can be made simply with a few parameters, but a good-looking unit comes from proportion and rhythm, not absolute values.
 
-* [[graphic-unit#vocabulary|Vocabulary]] covers what units and pairs mean: meaning and metaphor.
-* [[graphic-unit#morphology|Morphology]] covers how a unit should look to be ideal even when the meaning is the same: the proportion and rhythm of a single unit.
+- [[graphic-unit#vocabulary|Vocabulary]] covers what units and pairs mean: meaning and metaphor.
+- [[graphic-unit#morphology|Morphology]] covers how a unit should look to be ideal even when the meaning is the same: the proportion and rhythm of a single unit.
 
 This section provides a checklist for a visually ideal unit and recommended parameter ranges for each item. These are not absolute criteria, so decide the actual parameter values by the designer's aesthetic judgment. This section is the morphology of a single unit; for the combination rules of multiple units, see [[graphic-pattern#grammar]].
 ![morphology-overview]
@@ -1004,9 +1004,9 @@ As an exception, a three-dimensional extension that projects the whole plane the
 ### Graphic Pattern
 #### + Grammar
 The EO graphic system is woven in three layers, like a language.
-* [[graphic-unit#vocabulary|Vocabulary]] is the words. It covers what units and pairs mean: meaning and metaphor.
-* [[graphic-unit#morphology|Morphology]] is the form of those words. It covers how a unit should look to be ideal even when the meaning is the same: the proportion and rhythm of a single unit.
-* [[graphic-pattern#grammar|Grammar]] is the grammar that builds sentences from words: the layout rules for placing multiple units on one canvas.
+- [[graphic-unit#vocabulary|Vocabulary]] is the words. It covers what units and pairs mean: meaning and metaphor.
+- [[graphic-unit#morphology|Morphology]] is the form of those words. It covers how a unit should look to be ideal even when the meaning is the same: the proportion and rhythm of a single unit.
+- [[graphic-pattern#grammar|Grammar]] is the grammar that builds sentences from words: the layout rules for placing multiple units on one canvas.
 
 Vocabulary handles a unit's meaning and Morphology its appearance, so the Grammar section deals with layout form rather than meaning. The library in [[graphic-pattern#references]] is a set of representative examples with these rules applied, and designers can reinterpret them to create new patterns.
 ![grammar]
