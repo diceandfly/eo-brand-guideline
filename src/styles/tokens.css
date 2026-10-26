@@ -175,6 +175,7 @@
   /* 1-8 이미지 확대 보기 (라이트박스) */
   --lightbox-pad: 0px; /* 화면 가장자리 ↔ 이미지. 0 = 먼저 닿는 변이 화면에 꽉 참 */
   --lightbox-max: 100%; /* 이미지 최대 폭·높이 (여백을 뺀 화면 대비) */
+  --lightbox-bg-uniform: 6; /* 이미지 가장자리를 '단색'으로 볼 흩어짐 상한 (0~255, 표준편차). 단색이면 라이트박스 배경을 그 색으로 깖. 사진·그라데이션은 넘어서 기본 막 */
 
   /* 1-9 공통 */
   --radius: 0px; /* 이미지·카드·컬러 카드·검색창 라운드 */
@@ -248,7 +249,7 @@
   /* body (영문) — 본문, 카드 캡션, 컬러 카드 스펙. Founders Grotesk */
   --t-body-m: 2;
   --t-body-p: 1.5;
-  --t-body-ls: 0em;
+  --t-body-ls: 0.00em;
   --t-body-w: 300;
   --t-body-w-swatch: var(--t-body-w); /* 컬러 카드 이름. 본문과 같은 웨이트 */
   --t-body-c: var(--fg);
@@ -387,6 +388,7 @@
 
   /* 3-9 이미지 확대 보기 (라이트박스) */
   --lightbox-bg: color-mix(in srgb, var(--c-space-black), transparent 8%); /* 뒤를 덮는 막 */
+  --lightbox-bg-mix: 0%; /* 가장자리 색 배경에 Space Black 을 섞는 비율. 0% = 이미지 색 그대로, 100% = 항상 검정 */
 
   /* 3-10 텍스트 선택 영역 (드래그) */
   --xref-hover-c: var(--c-builder-neon); /* 참조·외부 링크 호버 때 글자색 (밑줄도 같이) */
@@ -404,7 +406,7 @@
   --ratio-wide: 16 / 9; /* wide 전폭 이미지 */
   --ratio-card: 4 / 3; /* grid-2/3/4 카드 이미지 */
   --ratio-dodont: 4 / 3; /* Do/Don't 시리즈 (섹션 이미지가 모두 do/dont 일 때). 원본 16:9 의 가운데가 보임 */
-  --ratio-swatch: 2 / 1.97; /* 컬러 카드 */
+  --ratio-swatch: 2 / 2.2; /* 컬러 카드 */
 
   /* ------------------------------------------------------------------
      5. MOTION

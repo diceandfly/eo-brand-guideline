@@ -1221,6 +1221,9 @@ html.js .main {
 .lightbox.is-open {
   visibility: visible;
 }
+.lightbox.has-edge {
+  background: color-mix(in srgb, var(--lightbox-edge), var(--c-space-black) var(--lightbox-bg-mix)); /* 가장자리가 단색인 이미지: 그 색이 화면을 채움 (motion.ts 3) */
+}
 .lightbox__img,
 .lightbox__strike {
   grid-area: 1 / 1; /* 이미지와 대각선을 같은 칸 가운데에 겹침 */

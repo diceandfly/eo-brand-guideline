@@ -290,11 +290,14 @@ const blockScroll = (e: Event) => { e.preventDefault(); };
 const behind = [document.getElementById('smooth-wrapper'), document.querySelector('.sidebar'), document.querySelector('.topbar')].filter((el): el is HTMLElement => !!el);
 
   let opener: HTMLElement | null = null;   // 닫을 때 포커스를 돌려줄 요소
-  const open = (src: string, alt: string, strike = false) => {
+  const open = (src: string, alt: string, strike = false, edge: string | null = null) => {
     if (opened) return;
     opened = true;
     opener = document.activeElement as HTMLElement | null;
     box.classList.toggle('has-strike', strike);
+    // 배경: 이미지 가장자리가 단색이면(빌드 때 판정, data-lb-bg) 그 색으로 깔아 프레임이 화면 끝까지 이어지게. 아니면 기본 막(--lightbox-bg)
+    if (edge) box.style.setProperty('--lightbox-edge', edge); else box.style.removeProperty('--lightbox-edge');
+    box.classList.toggle('has-edge', !!edge);
     boxImg.src = src;
     boxImg.alt = alt;
     if (boxImg.complete) placeStrike();
@@ -332,7 +335,7 @@ const behind = [document.getElementById('smooth-wrapper'), document.querySelecto
     opener = null;
   };
 
-  const openFrom = (img: HTMLImageElement) => open(img.currentSrc || img.src, img.alt, !!img.parentElement?.querySelector('.strike'));
+  const openFrom = (img: HTMLImageElement) => open(img.currentSrc || img.src, img.alt, !!img.parentElement?.querySelector('.strike'), img.dataset.lbBg || null);
   document.addEventListener('click', e => {
     const img = (e.target as HTMLElement).closest('.fig__frame > img') as HTMLImageElement | null;
     if (img) { e.preventDefault(); openFrom(img); }
