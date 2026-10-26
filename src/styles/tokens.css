@@ -258,6 +258,7 @@
   --t-body-w-swatch: var(--t-body-w); /* 컬러 카드 이름. 본문과 같은 웨이트 */
   --t-body-c: var(--fg);
   --t-body-para-gap: 0.75; /* 문단 ↔ 문단 (엔터 두 번) = 본문 행간 × 값. 1 = 빈 줄 한 행 */
+  --t-body-list-gap: 0.5; /* 불렛 ↔ 불렛 = 본문 행간 × 값. 0 = 줄처럼 붙음, 문단 간격(--t-body-para-gap)보다 작게 */
   --t-body-list-indent: 1.25em; /* 본문 목록(•, 1.) 들여쓰기 */
   /* 본문 **강조** — 웨이트 대신 언더라인으로 구분 */
   --t-body-strong-w: var(--t-body-w); /* 강조 웨이트. 기본은 본문과 동일 */

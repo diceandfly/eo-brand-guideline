@@ -155,6 +155,9 @@ button {
 .t-body ol {
   padding-left: var(--t-body-list-indent);
 }
+.t-body li + li {
+  margin-top: calc(var(--lh-unit) * var(--t-body-m) * var(--t-body-list-gap)); /* 불렛 사이 = 본문 행간 × 배수 */
+}
 .t-body strong {
   font-weight: var(--t-body-strong-w);
   text-decoration: underline;
