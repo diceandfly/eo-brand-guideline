@@ -706,7 +706,10 @@ html.js .main {
     grid-row: 2; /* basic 도 텍스트 아래로 */
   }
   .sec__grid {
-    grid-template-columns: repeat(min(var(--n), var(--grid-n-m)), minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr); /* grid-2 · grid-3: 한 줄에 하나 */
+  }
+  .sec__grid[data-n="4"] {
+    grid-template-columns: repeat(var(--grid-4-cols-m), minmax(0, 1fr)); /* grid-4 만 두 줄 */
   }
 }
 
@@ -1228,6 +1231,74 @@ html.js .main {
 .lightbox__strike,
 .lightbox__mirror {
   grid-area: 1 / 1; /* 이미지·대각선·거울 확장을 같은 칸 가운데에 겹침 */
+}
+.lightbox__pan,
+.lightbox__crop {
+  display: contents; /* PC: 래퍼 없음. 모바일에서만 상자가 됨 (아래 @media) */
+}
+.lightbox__close {
+  display: none; /* PC 는 아무 곳이나 클릭해 닫음. 모바일에서만 × */
+}
+/* 모바일 확대 보기: 2:3 창(.lightbox__pan, 가로 스크롤) 안에 원본의 가운데 4:3(.lightbox__crop)을 창 높이에 맞춰 넣음.
+   처음엔 4:3 의 왼쪽 끝에 정렬되고 옆으로 밀어 봄. 크기는 motion.ts 가 이미지 비율로 계산 (--_crop-w, --_img-x) */
+@media (max-width: 899px) {
+  .lightbox__pan {
+    display: block;
+    grid-area: 1 / 1;
+    width: 100%;
+    height: min(100%, calc(100vw / (var(--lightbox-m-ratio))));
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .lightbox__pan::-webkit-scrollbar {
+    display: none;
+  }
+  .lightbox__crop {
+    display: block;
+    position: relative;
+    height: 100%;
+    width: var(--_crop-w, 100%);
+    overflow: hidden;
+  }
+  .lightbox__crop .lightbox__img {
+    height: 100%;
+    width: auto;
+    max-width: none;
+    max-height: none;
+    margin-left: var(--_img-x, 0px);
+  }
+  .lightbox__crop .lightbox__strike {
+    position: absolute;
+    inset: 0;
+    width: auto !important; /* motion.ts 가 PC 용으로 넣는 px 크기를 무시하고 4:3 영역 전체 */
+    height: auto !important;
+  }
+  .lightbox__mirror {
+    display: none; /* 모바일은 거울 확장 없이 가장자리 색만 */
+  }
+  .lightbox__close {
+    display: grid;
+    place-items: center;
+    position: fixed;
+    top: calc(var(--lightbox-close-inset) + env(safe-area-inset-top, 0px));
+    right: calc(var(--lightbox-close-inset) + env(safe-area-inset-right, 0px));
+    width: var(--lightbox-close-size);
+    height: var(--lightbox-close-size);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--lightbox-close-fg);
+    cursor: pointer;
+  }
+  .lightbox__close svg {
+    width: var(--lightbox-close-icon);
+    height: var(--lightbox-close-icon);
+    stroke-width: var(--lightbox-close-stroke);
+  }
 }
 /* 거울 확장 — 이미지와 같은 크기의 상자(motion.ts 가 크기를 맞춤)를 중심으로, 8방향에 뒤집은 사본을 이어 붙임.
    사본마다 이미지에 닿은 쪽부터 --lightbox-mirror-hold 까지는 그대로, --lightbox-mirror-fade 에서 완전히 사라지는 마스크 */

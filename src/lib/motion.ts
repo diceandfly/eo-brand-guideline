@@ -262,6 +262,11 @@ const box = document.querySelector<HTMLElement>('[data-lightbox]');
 const boxImg = box?.querySelector<HTMLImageElement>('.lightbox__img');
 const boxStrike = box?.querySelector<HTMLElement>('.lightbox__strike');
 const boxMirror = box?.querySelector<HTMLElement>('.lightbox__mirror');
+const boxPan = box?.querySelector<HTMLElement>('[data-lightbox-pan]');
+const boxCrop = box?.querySelector<HTMLElement>('.lightbox__crop');
+const boxClose = box?.querySelector<HTMLElement>('[data-lightbox-close]');
+const mobileMQ = matchMedia('(max-width: 899px)');            // base.css 의 모바일 브레이크포인트와 같게
+const isMobile = () => mobileMQ.matches;
 const mirrorImgs = boxMirror ? Array.from(boxMirror.querySelectorAll<HTMLImageElement>('img')) : [];
 
 if (box && boxImg) {
@@ -276,7 +281,18 @@ if (box && boxImg) {
   const parts = [boxImg, ...(boxStrike ? [boxStrike] : []), ...(useMirror && boxMirror ? [boxMirror] : [])];   // 이미지·대각선·거울 확장은 함께 커지고 사라짐
 
   // Don't 대각선: 화면에 그려진 이미지의 가운데 --ratio-dodont 영역 (카드에서 보이던 영역과 같음)
+  // 모바일: 2:3 창(.lightbox__pan) 높이에 맞춰, 원본의 가운데 --ratio-dodont(4:3) 폭만 보이게 crop 상자와 이미지 위치를 정함. 처음엔 왼쪽 끝
+  const placeMobile = () => {
+    if (!boxPan || !boxCrop || !boxImg.naturalWidth) return;
+    const H = boxPan.clientHeight;
+    const imgRatio = boxImg.naturalWidth / boxImg.naturalHeight;
+    const cropRatio = Math.min(imgRatio, dodont);
+    boxCrop.style.setProperty('--_crop-w', `${H * cropRatio}px`);
+    boxCrop.style.setProperty('--_img-x', `${-(H * imgRatio - H * cropRatio) / 2}px`);
+    boxPan.scrollLeft = 0;
+  };
   const placeStrike = () => {
+    if (isMobile()) { placeMobile(); return; }
     const w = boxImg.offsetWidth, h = boxImg.offsetHeight;      // transform 과 무관한 레이아웃 크기
     if (boxMirror) { boxMirror.style.width = `${w}px`; boxMirror.style.height = `${h}px`; }   // 거울 확장 상자 = 이미지 크기
     if (!boxStrike) return;
@@ -290,7 +306,10 @@ if (box && boxImg) {
 
   const SCROLL_EVENTS = ['wheel', 'touchmove'] as const;
 const SCROLL_KEYS = new Set(['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ']);
-const blockScroll = (e: Event) => { e.preventDefault(); };
+const blockScroll = (e: Event) => {
+  if ((e.target as Element | null)?.closest?.('[data-lightbox-pan]')) return;   // 모바일 확대 보기 창 안의 옆으로 밀기는 통과
+  e.preventDefault();
+};
 const behind = [document.getElementById('smooth-wrapper'), document.querySelector('.sidebar'), document.querySelector('.topbar')].filter((el): el is HTMLElement => !!el);
 
   let opener: HTMLElement | null = null;   // 닫을 때 포커스를 돌려줄 요소
@@ -302,8 +321,9 @@ const behind = [document.getElementById('smooth-wrapper'), document.querySelecto
     // 배경: 이미지 가장자리가 단색이면(빌드 때 판정, data-lb-bg) 그 색으로 깔아 프레임이 화면 끝까지 이어지게. 아니면 기본 막(--lightbox-bg)
     if (edge) box.style.setProperty('--lightbox-edge', edge); else box.style.removeProperty('--lightbox-edge');
     box.classList.toggle('has-edge', !!edge);
-    box.classList.toggle('has-mirror', useMirror);
-    if (useMirror) for (const im of mirrorImgs) im.src = src;    // 거울 사본 8장 (같은 파일이라 캐시에서 옴)
+    const mirror = useMirror && !isMobile();                    // 모바일은 거울 확장 없이 가장자리 색만
+    box.classList.toggle('has-mirror', mirror);
+    if (mirror) for (const im of mirrorImgs) im.src = src;      // 거울 사본 8장 (같은 파일이라 캐시에서 옴)
     boxImg.src = src;
     boxImg.alt = alt;
     if (boxImg.complete) placeStrike();
@@ -347,7 +367,11 @@ const behind = [document.getElementById('smooth-wrapper'), document.querySelecto
     const img = (e.target as HTMLElement).closest('.fig__frame > img') as HTMLImageElement | null;
     if (img) { e.preventDefault(); openFrom(img); }
   });
-  box.addEventListener('click', close);
+  box.addEventListener('click', e => {
+    if (isMobile() && (e.target as Element).closest('[data-lightbox-pan]')) return;   // 모바일: 창 안을 탭해도 닫히지 않음 (× 로 닫음)
+    close();
+  });
+  boxClose?.addEventListener('click', e => { e.stopPropagation(); close(); });
   document.addEventListener('keydown', e => {
     if (opened) {
       if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); close(); }

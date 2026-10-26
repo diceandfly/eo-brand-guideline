@@ -92,8 +92,16 @@ const ui = UI_TEXT[lang];
         <div class="lb-m lb-m--bl"><div class="lb-m__x"><img alt="" /></div></div>
         <div class="lb-m lb-m--br"><div class="lb-m__x"><img alt="" /></div></div>
       </div>
-      <img class="lightbox__img" alt="" />
-      <span class="strike lightbox__strike" aria-hidden="true"></span>
+      <!-- 모바일(899px 이하): 가운데 4:3 만 잘라 2:3 창에 띄우고 옆으로 밀어 봄 (.lightbox__pan 이 가로 스크롤). PC 에서는 두 래퍼가 display: contents 라 없는 것과 같음 -->
+      <div class="lightbox__pan" data-lightbox-pan>
+        <div class="lightbox__crop">
+          <img class="lightbox__img" alt="" />
+          <span class="strike lightbox__strike" aria-hidden="true"></span>
+        </div>
+      </div>
+      <button class="lightbox__close" type="button" aria-label={ui.close} data-lightbox-close>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="square" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" /></svg>
+      </button>
     </div>
 
     <script>

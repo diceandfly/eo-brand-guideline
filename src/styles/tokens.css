@@ -116,7 +116,7 @@
   --sec-text-measure: 48em; /* text / wide / half / grid 본문의 최대 줄 길이 (본문 글자 크기 기준, 한글 약 40자). 컬럼 폭이 이보다 넓어지는 큰 화면에서만 걸림. none = 제한 없음 */
   --sec-split-text-pad: 0.4; /* ::: split 안 섹션의 글 오른쪽 여백 (그리드 컬럼 폭 × 값). 단 사이 거터에 더해져 글이 옆 단에 붙지 않게 */
   --sec-textonly-cols-m: 6;
-  --grid-n-m: 2; /* 모바일에서 grid-2/3/4 의 열 수 (최대) */
+  --grid-4-cols-m: 2; /* 모바일에서 grid-4 의 열 수. grid-2 · grid-3 는 모바일에서 한 줄에 하나 */
   --head-gap: 52px; /* 헤드(+서브헤드) ↔ 본문 */
   --head-gap-m: 24px;
   --sec-row-gap: 40px; /* 세로 간격 하나로 통일: 텍스트 ↔ 이미지(wide · half · grid · 모바일 basic), grid 카드 행 ↔ 행, wide 여러 장 장 ↔ 장 */
@@ -180,6 +180,11 @@
   --lightbox-mirror-hold: 0%; /* 이미지에 닿은 쪽부터 사본이 100% 로 보이는 폭 (사본 크기 대비). 0 = 닿은 곳부터 바로 옅어짐 */
   --lightbox-mirror-fade: 18%; /* 사본이 완전히 사라지는 지점 (사본 크기 대비). 사본의 가운데 쪽은 전혀 보이지 않음 */
   --lightbox-mirror-opacity: 1; /* 사본 전체 불투명도. 1 = 그대로, 0.5 = 반투명 */
+  --lightbox-m-ratio: 2 / 3; /* 모바일 확대 보기 창의 비율 (가로 / 세로). 이 창 안에 원본의 가운데 4:3(--ratio-dodont)만 잘라 넣고 옆으로 밀어 봄 */
+  --lightbox-close-size: 44px; /* 모바일 × 버튼 누르는 영역 */
+  --lightbox-close-icon: 18px; /* 그 안의 × 아이콘 */
+  --lightbox-close-stroke: 1.6; /* × 선 굵기 (SVG 16 기준 단위) */
+  --lightbox-close-inset: 8px; /* × 버튼 ↔ 화면 모서리 (안전 영역은 따로 더함) */
 
   /* 1-9 공통 */
   --radius: 0px; /* 이미지·카드·컬러 카드·검색창 라운드 */
@@ -335,7 +340,7 @@
   --bg: color-mix(in srgb, var(--c-solid-gray), var(--c-space-black) 24%); /* 본문 영역. Solid Gray 를 조금 어둡게 = 기존 사이트 배경(#202020 근사) */
   --bg-sidebar: var(--bg); /* 목차 */
   --sidebar-border: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 0%); /* 목차 우측선. 0% = 안 보임 */
-  --bg-topbar: var(--c-space-black); /* 모바일 상단 바 */
+  --bg-topbar: var(--bg); /* 모바일 상단 바. 페이지 배경과 같은 색 */
 
   /* 3-2 글자 */
   --fg: var(--c-air-white);
@@ -393,6 +398,7 @@
   /* 3-9 이미지 확대 보기 (라이트박스) */
   --lightbox-bg: color-mix(in srgb, var(--c-space-black), transparent 8%); /* 뒤를 덮는 막 */
   --lightbox-bg-mix: 0%; /* 가장자리 색 배경에 Space Black 을 섞는 비율. 0% = 이미지 색 그대로, 100% = 항상 검정 */
+  --lightbox-close-fg: var(--c-air-white); /* 모바일 × 버튼 색 */
 
   /* 3-10 텍스트 선택 영역 (드래그) */
   --xref-hover-c: var(--c-builder-neon); /* 참조·외부 링크 호버 때 글자색 (밑줄도 같이) */
