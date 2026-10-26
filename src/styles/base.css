@@ -1298,16 +1298,16 @@ html.js .main {
 .lb-m img {
   filter: blur(var(--lightbox-mirror-blur)); /* 사본만 흐리게. 이미지 밑으로 blur 만큼 겹쳐 두어 흐린 가장자리가 경계에 비치지 않음 */
 }
-.lb-m--l { right: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); top: 0; mask-image: linear-gradient(to left, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
-.lb-m--r { left: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); top: 0; mask-image: linear-gradient(to right, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
-.lb-m--t { bottom: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); left: 0; mask-image: linear-gradient(to top, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
-.lb-m--b { top: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); left: 0; mask-image: linear-gradient(to bottom, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
-.lb-m--tl { right: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); bottom: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); mask-image: linear-gradient(to top, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
-.lb-m--tr { left: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); bottom: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); mask-image: linear-gradient(to top, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
-.lb-m--bl { right: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); top: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); mask-image: linear-gradient(to bottom, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
-.lb-m--br { left: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); top: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); mask-image: linear-gradient(to bottom, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
-.lb-m--tl .lb-m__x, .lb-m--bl .lb-m__x { mask-image: linear-gradient(to left, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
-.lb-m--tr .lb-m__x, .lb-m--br .lb-m__x { mask-image: linear-gradient(to right, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
+.lb-m--l { right: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); top: 0; mask-image: linear-gradient(to left, #000 var(--lightbox-mirror-hold-x), transparent var(--lightbox-mirror-fade-x)); }
+.lb-m--r { left: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); top: 0; mask-image: linear-gradient(to right, #000 var(--lightbox-mirror-hold-x), transparent var(--lightbox-mirror-fade-x)); }
+.lb-m--t { bottom: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); left: 0; mask-image: linear-gradient(to top, #000 var(--lightbox-mirror-hold-y), transparent var(--lightbox-mirror-fade-y)); }
+.lb-m--b { top: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); left: 0; mask-image: linear-gradient(to bottom, #000 var(--lightbox-mirror-hold-y), transparent var(--lightbox-mirror-fade-y)); }
+.lb-m--tl { right: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); bottom: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); mask-image: linear-gradient(to top, #000 var(--lightbox-mirror-hold-y), transparent var(--lightbox-mirror-fade-y)); }
+.lb-m--tr { left: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); bottom: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); mask-image: linear-gradient(to top, #000 var(--lightbox-mirror-hold-y), transparent var(--lightbox-mirror-fade-y)); }
+.lb-m--bl { right: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); top: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); mask-image: linear-gradient(to bottom, #000 var(--lightbox-mirror-hold-y), transparent var(--lightbox-mirror-fade-y)); }
+.lb-m--br { left: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); top: calc(100% - var(--lightbox-mirror-overlap) - var(--lightbox-mirror-blur)); mask-image: linear-gradient(to bottom, #000 var(--lightbox-mirror-hold-y), transparent var(--lightbox-mirror-fade-y)); }
+.lb-m--tl .lb-m__x, .lb-m--bl .lb-m__x { mask-image: linear-gradient(to left, #000 var(--lightbox-mirror-hold-x), transparent var(--lightbox-mirror-fade-x)); }
+.lb-m--tr .lb-m__x, .lb-m--br .lb-m__x { mask-image: linear-gradient(to right, #000 var(--lightbox-mirror-hold-x), transparent var(--lightbox-mirror-fade-x)); }
 .lb-m--l img, .lb-m--r img { transform: scaleX(-1); }
 .lb-m--t img, .lb-m--b img { transform: scaleY(-1); }
 .lb-m--tl img, .lb-m--tr img, .lb-m--bl img, .lb-m--br img { transform: scale(-1, -1); }
