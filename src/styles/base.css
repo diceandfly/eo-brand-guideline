@@ -1225,9 +1225,44 @@ html.js .main {
   background: color-mix(in srgb, var(--lightbox-edge), var(--c-space-black) var(--lightbox-bg-mix)); /* 가장자리가 단색인 이미지: 그 색이 화면을 채움 (motion.ts 3) */
 }
 .lightbox__img,
-.lightbox__strike {
-  grid-area: 1 / 1; /* 이미지와 대각선을 같은 칸 가운데에 겹침 */
+.lightbox__strike,
+.lightbox__mirror {
+  grid-area: 1 / 1; /* 이미지·대각선·거울 확장을 같은 칸 가운데에 겹침 */
 }
+/* 거울 확장 — 이미지와 같은 크기의 상자(motion.ts 가 크기를 맞춤)를 중심으로, 8방향에 뒤집은 사본을 이어 붙임.
+   사본마다 이미지에 닿은 쪽부터 --lightbox-mirror-hold 까지는 그대로, --lightbox-mirror-fade 에서 완전히 사라지는 마스크 */
+.lightbox__mirror {
+  position: relative;
+  pointer-events: none;
+  opacity: var(--lightbox-mirror-opacity);
+}
+.lightbox:not(.has-mirror) .lightbox__mirror {
+  display: none;
+}
+.lb-m {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.lb-m__x,
+.lb-m img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.lb-m--l { right: 100%; top: 0; mask-image: linear-gradient(to left, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
+.lb-m--r { left: 100%; top: 0; mask-image: linear-gradient(to right, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
+.lb-m--t { bottom: 100%; left: 0; mask-image: linear-gradient(to top, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
+.lb-m--b { top: 100%; left: 0; mask-image: linear-gradient(to bottom, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
+.lb-m--tl { right: 100%; bottom: 100%; mask-image: linear-gradient(to top, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
+.lb-m--tr { left: 100%; bottom: 100%; mask-image: linear-gradient(to top, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
+.lb-m--bl { right: 100%; top: 100%; mask-image: linear-gradient(to bottom, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
+.lb-m--br { left: 100%; top: 100%; mask-image: linear-gradient(to bottom, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
+.lb-m--tl .lb-m__x, .lb-m--bl .lb-m__x { mask-image: linear-gradient(to left, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
+.lb-m--tr .lb-m__x, .lb-m--br .lb-m__x { mask-image: linear-gradient(to right, #000 var(--lightbox-mirror-hold), transparent var(--lightbox-mirror-fade)); }
+.lb-m--l img, .lb-m--r img { transform: scaleX(-1); }
+.lb-m--t img, .lb-m--b img { transform: scaleY(-1); }
+.lb-m--tl img, .lb-m--tr img, .lb-m--bl img, .lb-m--br img { transform: scale(-1, -1); }
 .lightbox__strike {
   position: relative;
 }

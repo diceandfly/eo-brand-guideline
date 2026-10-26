@@ -261,6 +261,8 @@ if (location.hash) {
 const box = document.querySelector<HTMLElement>('[data-lightbox]');
 const boxImg = box?.querySelector<HTMLImageElement>('.lightbox__img');
 const boxStrike = box?.querySelector<HTMLElement>('.lightbox__strike');
+const boxMirror = box?.querySelector<HTMLElement>('.lightbox__mirror');
+const mirrorImgs = boxMirror ? Array.from(boxMirror.querySelectorAll<HTMLImageElement>('img')) : [];
 
 if (box && boxImg) {
   const dur = reduced ? ms('--lightbox-dur-reduced', 0.12) : ms('--lightbox-dur', 0.36);
@@ -270,12 +272,14 @@ if (box && boxImg) {
   const dodont = (() => { const [a, b] = token('--ratio-dodont').split('/').map(parseFloat); return a > 0 && b > 0 ? a / b : 4 / 3; })();
   const ease = easeOf('--lightbox-ease', 'power3.out');
   let opened = false;
-  const parts = boxStrike ? [boxImg, boxStrike] : [boxImg];   // 이미지와 대각선은 함께 커지고 사라짐
+  const useMirror = !!boxMirror && num('--lightbox-mirror', 1) > 0;
+  const parts = [boxImg, ...(boxStrike ? [boxStrike] : []), ...(useMirror && boxMirror ? [boxMirror] : [])];   // 이미지·대각선·거울 확장은 함께 커지고 사라짐
 
   // Don't 대각선: 화면에 그려진 이미지의 가운데 --ratio-dodont 영역 (카드에서 보이던 영역과 같음)
   const placeStrike = () => {
-    if (!boxStrike) return;
     const w = boxImg.offsetWidth, h = boxImg.offsetHeight;      // transform 과 무관한 레이아웃 크기
+    if (boxMirror) { boxMirror.style.width = `${w}px`; boxMirror.style.height = `${h}px`; }   // 거울 확장 상자 = 이미지 크기
+    if (!boxStrike) return;
     const r = dodont;
     const sw = w / h > r ? h * r : w, sh = w / h > r ? h : w / r;
     boxStrike.style.width = `${sw}px`;
@@ -298,6 +302,8 @@ const behind = [document.getElementById('smooth-wrapper'), document.querySelecto
     // 배경: 이미지 가장자리가 단색이면(빌드 때 판정, data-lb-bg) 그 색으로 깔아 프레임이 화면 끝까지 이어지게. 아니면 기본 막(--lightbox-bg)
     if (edge) box.style.setProperty('--lightbox-edge', edge); else box.style.removeProperty('--lightbox-edge');
     box.classList.toggle('has-edge', !!edge);
+    box.classList.toggle('has-mirror', useMirror);
+    if (useMirror) for (const im of mirrorImgs) im.src = src;    // 거울 사본 8장 (같은 파일이라 캐시에서 옴)
     boxImg.src = src;
     boxImg.alt = alt;
     if (boxImg.complete) placeStrike();
@@ -326,6 +332,7 @@ const behind = [document.getElementById('smooth-wrapper'), document.querySelecto
         box.setAttribute('aria-hidden', 'true');
         for (const el of behind) el.removeAttribute('inert');
         boxImg.removeAttribute('src');
+        for (const im of mirrorImgs) im.removeAttribute('src');
         smoother?.paused(false);
         document.documentElement.classList.remove('lightbox-open');
         for (const t of SCROLL_EVENTS) window.removeEventListener(t, blockScroll);
