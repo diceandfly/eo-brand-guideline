@@ -264,7 +264,6 @@ const boxStrike = box?.querySelector<HTMLElement>('.lightbox__strike');
 const boxMirror = box?.querySelector<HTMLElement>('.lightbox__mirror');
 const boxPan = box?.querySelector<HTMLElement>('[data-lightbox-pan]');
 const boxCrop = box?.querySelector<HTMLElement>('.lightbox__crop');
-const boxClose = box?.querySelector<HTMLElement>('[data-lightbox-close]');
 const mobileMQ = matchMedia('(max-width: 899px)');            // base.css 의 모바일 브레이크포인트와 같게
 const isMobile = () => mobileMQ.matches;
 const mirrorImgs = boxMirror ? Array.from(boxMirror.querySelectorAll<HTMLImageElement>('img')) : [];
@@ -367,11 +366,7 @@ const behind = [document.getElementById('smooth-wrapper'), document.querySelecto
     const img = (e.target as HTMLElement).closest('.fig__frame > img') as HTMLImageElement | null;
     if (img) { e.preventDefault(); openFrom(img); }
   });
-  box.addEventListener('click', e => {
-    if (isMobile() && (e.target as Element).closest('[data-lightbox-pan]')) return;   // 모바일: 창 안을 탭해도 닫히지 않음 (× 로 닫음)
-    close();
-  });
-  boxClose?.addEventListener('click', e => { e.stopPropagation(); close(); });
+  box.addEventListener('click', close);                        // 아무 곳이나 클릭·탭하면 닫힘 (모바일에서 옆으로 민 뒤에는 click 이 오지 않음)
   document.addEventListener('keydown', e => {
     if (opened) {
       if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); close(); }

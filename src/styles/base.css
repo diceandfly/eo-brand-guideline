@@ -174,36 +174,33 @@ button {
   min-height: 100dvh;
 }
 
+/* 모바일 목차 버튼: 상단 바 없이 오른쪽 위에 떠 있음 (스무스 스크롤 래퍼 밖에 고정). 본문 위를 지나가므로 페이지 색 바탕을 깔아 읽히게 */
 .topbar {
   display: none;
-  position: fixed; /* 스무스 스크롤 래퍼 밖에 고정 */
-  top: 0;
-  left: 0;
-  right: 0;
+  position: fixed;
+  top: calc(var(--topbar-menu-inset) + env(safe-area-inset-top, 0px));
+  right: calc(var(--page-margin-m) * (1 - var(--topbar-menu-pull)) + env(safe-area-inset-right, 0px));
   z-index: var(--z-topbar);
-  height: var(--topbar-h);
-  background: var(--bg-topbar);
   color: var(--fg);
-  align-items: center;
-  padding: 0 var(--page-margin-m);
 }
 .topbar__menu {
   width: var(--topbar-menu-size);
   height: var(--topbar-menu-size);
-  margin-left: calc(var(--page-margin-m) * var(--topbar-menu-pull) * -1);
   display: grid;
   place-items: center;
+  background: var(--topbar-menu-bg);
 }
 .topbar__menu svg {
   stroke-width: var(--topbar-menu-stroke);
   width: var(--topbar-menu-icon);
   height: var(--topbar-menu-icon);
 }
-.topbar__logo {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.topbar__menu-close,
+html.nav-open .topbar__menu-open {
+  display: none; /* 닫혀 있으면 햄버거, 열려 있으면 × (같은 버튼) */
+}
+html.nav-open .topbar__menu-close {
+  display: block;
 }
 
 .sidebar {
@@ -285,7 +282,7 @@ html.js .main {
     display: flex;
   }
   .sidebar {
-    inset: var(--topbar-h) 0 0 0;
+    inset: 0; /* 드로어는 화면 전체. 로고는 드로어 안(.nav__logo)에 그대로 */
     width: 100%;
     transform: translateX(-100%);
     transition: transform var(--dur) var(--ease);
@@ -296,12 +293,8 @@ html.js .main {
   html.nav-open {
     overflow: hidden;
   }
-  .nav__logo {
-    display: none;
-  } /* 모바일은 상단 바에 로고가 있으므로 드로어 안에서는 숨김 */
   .main {
-    margin-left: 0;
-    padding-top: var(--topbar-h); /* 고정 상단 바 높이만큼. 좌우는 --page-margin 이 모바일 값으로 바뀌어 그대로 따라감 */
+    margin-left: 0; /* 상단 바가 없으므로 위 여백도 없음. 좌우는 --page-margin 이 모바일 값으로 바뀌어 그대로 따라감 */
   }
 }
 
@@ -1236,9 +1229,6 @@ html.js .main {
 .lightbox__crop {
   display: contents; /* PC: 래퍼 없음. 모바일에서만 상자가 됨 (아래 @media) */
 }
-.lightbox__close {
-  display: none; /* PC 는 아무 곳이나 클릭해 닫음. 모바일에서만 × */
-}
 /* 모바일 확대 보기: 2:3 창(.lightbox__pan, 가로 스크롤) 안에 원본의 가운데 4:3(.lightbox__crop)을 창 높이에 맞춰 넣음.
    처음엔 4:3 의 왼쪽 끝에 정렬되고 옆으로 밀어 봄. 크기는 motion.ts 가 이미지 비율로 계산 (--_crop-w, --_img-x) */
 @media (max-width: 899px) {
@@ -1278,26 +1268,6 @@ html.js .main {
   }
   .lightbox__mirror {
     display: none; /* 모바일은 거울 확장 없이 가장자리 색만 */
-  }
-  .lightbox__close {
-    display: grid;
-    place-items: center;
-    position: fixed;
-    top: calc(var(--lightbox-close-inset) + env(safe-area-inset-top, 0px));
-    right: calc(var(--lightbox-close-inset) + env(safe-area-inset-right, 0px));
-    width: var(--lightbox-close-size);
-    height: var(--lightbox-close-size);
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: none;
-    color: var(--lightbox-close-fg);
-    cursor: pointer;
-  }
-  .lightbox__close svg {
-    width: var(--lightbox-close-icon);
-    height: var(--lightbox-close-icon);
-    stroke-width: var(--lightbox-close-stroke);
   }
 }
 /* 거울 확장 — 이미지와 같은 크기의 상자(motion.ts 가 크기를 맞춤)를 중심으로, 8방향에 뒤집은 사본을 이어 붙임.

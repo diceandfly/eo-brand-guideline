@@ -3,7 +3,6 @@ import '../styles/tokens.css';
 import '../styles/fonts.css';
 import '../styles/base.css';
 import Sidebar from '../components/Sidebar.astro';
-import Logo from '../components/Logo.astro';
 import { UI_TEXT, type Guide, type Sub, type Lang } from '../lib/guide';
 
 interface Props { guide: Guide; current?: Sub; lang: Lang; alt: Partial<Record<Lang, string>>; title: string; }
@@ -56,13 +55,14 @@ const ui = UI_TEXT[lang];
   </head>
   <body>
     <div class="shell">
+      <!-- 모바일: 상단 바 없이 떠 있는 목차 버튼 하나 (오른쪽 위). 열리면 같은 자리에서 × 로 바뀌고, 목차 드로어는 화면 전체 (로고는 드로어 안) -->
       <header class="topbar">
         <button class="topbar__menu" type="button" aria-label={ui.openToc} aria-expanded="false" data-nav-toggle>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square">
-            <path d="M3 6h18M3 12h18M3 18h18" />
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="square" aria-hidden="true">
+            <path class="topbar__menu-open" d="M3 6h18M3 12h18M3 18h18" />
+            <path class="topbar__menu-close" d="M5 5l14 14M19 5L5 19" />
           </svg>
         </button>
-        <a class="topbar__logo" href={`/${lang}`}><Logo /></a>
       </header>
 
       <Sidebar guide={guide} current={current} lang={lang} alt={alt} />
@@ -92,16 +92,13 @@ const ui = UI_TEXT[lang];
         <div class="lb-m lb-m--bl"><div class="lb-m__x"><img alt="" /></div></div>
         <div class="lb-m lb-m--br"><div class="lb-m__x"><img alt="" /></div></div>
       </div>
-      <!-- 모바일(899px 이하): 가운데 4:3 만 잘라 2:3 창에 띄우고 옆으로 밀어 봄 (.lightbox__pan 이 가로 스크롤). PC 에서는 두 래퍼가 display: contents 라 없는 것과 같음 -->
+      <!-- 모바일(899px 이하): 가운데 4:3 만 잘라 2:3 창에 띄우고 옆으로 밀어 봄 (.lightbox__pan 이 가로 스크롤). 탭하면 닫힘. PC 에서는 두 래퍼가 display: contents 라 없는 것과 같음 -->
       <div class="lightbox__pan" data-lightbox-pan>
         <div class="lightbox__crop">
           <img class="lightbox__img" alt="" />
           <span class="strike lightbox__strike" aria-hidden="true"></span>
         </div>
       </div>
-      <button class="lightbox__close" type="button" aria-label={ui.close} data-lightbox-close>
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="square" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" /></svg>
-      </button>
     </div>
 
     <script>

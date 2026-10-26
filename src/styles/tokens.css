@@ -36,11 +36,11 @@
 
   /* 1-1 페이지 셸 */
   --sidebar-w: 360px; /* PC 목차 폭 */
-  --topbar-h: 56px; /* 모바일 상단 로고바 높이 */
+  --topbar-menu-inset: 8px; /* 모바일 목차 버튼 ↔ 화면 위 (안전 영역은 따로 더함) */
   --topbar-menu-size: 40px; /* 모바일 상단 바 목차 버튼 (누르는 영역) */
   --topbar-menu-icon: 22px; /* 그 안의 햄버거 아이콘 */
   --topbar-menu-stroke: 2; /* 햄버거 선 굵기 (SVG 24 기준 단위) */
-  --topbar-menu-pull: 0.5; /* 버튼을 왼쪽 여백 쪽으로 당기는 정도 (모바일 페이지 여백 × 값). 아이콘이 여백 선에 맞게 */
+  --topbar-menu-pull: 0.5; /* 버튼을 오른쪽 여백 쪽으로 당기는 정도 (모바일 페이지 여백 × 값). 아이콘이 여백 선에 맞게 */
 
   /* 1-2 목차 · 패딩과 로고 (고정) */
   --nav-pad-top: 60px; /* 목차 내부 패딩: 위 */
@@ -181,10 +181,6 @@
   --lightbox-mirror-fade: 18%; /* 사본이 완전히 사라지는 지점 (사본 크기 대비). 사본의 가운데 쪽은 전혀 보이지 않음 */
   --lightbox-mirror-opacity: 1; /* 사본 전체 불투명도. 1 = 그대로, 0.5 = 반투명 */
   --lightbox-m-ratio: 2 / 3; /* 모바일 확대 보기 창의 비율 (가로 / 세로). 이 창 안에 원본의 가운데 4:3(--ratio-dodont)만 잘라 넣고 옆으로 밀어 봄 */
-  --lightbox-close-size: 44px; /* 모바일 × 버튼 누르는 영역 */
-  --lightbox-close-icon: 18px; /* 그 안의 × 아이콘 */
-  --lightbox-close-stroke: 1.6; /* × 선 굵기 (SVG 16 기준 단위) */
-  --lightbox-close-inset: 8px; /* × 버튼 ↔ 화면 모서리 (안전 영역은 따로 더함) */
 
   /* 1-9 공통 */
   --radius: 0px; /* 이미지·카드·컬러 카드·검색창 라운드 */
@@ -195,7 +191,7 @@
   --z-media-label: 2; /* 플레이스홀더 경로 글자 (대각선 위) · Copy 버튼 */
   --z-search: 5; /* 검색 결과 패널 */
   --z-sidebar: 20; /* 목차 */
-  --z-topbar: 30; /* 모바일 상단 바 */
+  --z-topbar: 30; /* 모바일 목차 버튼 (드로어 위에 떠서 × 로도 씀) */
   --z-lightbox: 100; /* 이미지 확대 보기 */
 
   /* 1-10 본문 컬러 칩 — 본문·캡션에 "Builder Neon" 처럼 영문 공식 명칭을 쓰면 파서가 이름 앞에 붙이는 색 네모 (guide.ts colorChips) */
@@ -340,7 +336,7 @@
   --bg: color-mix(in srgb, var(--c-solid-gray), var(--c-space-black) 24%); /* 본문 영역. Solid Gray 를 조금 어둡게 = 기존 사이트 배경(#202020 근사) */
   --bg-sidebar: var(--bg); /* 목차 */
   --sidebar-border: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 0%); /* 목차 우측선. 0% = 안 보임 */
-  --bg-topbar: var(--bg); /* 모바일 상단 바. 페이지 배경과 같은 색 */
+  --topbar-menu-bg: var(--bg); /* 모바일 목차 버튼 바탕 (본문 위를 지나도 읽히게). 페이지 배경과 같은 색 */
 
   /* 3-2 글자 */
   --fg: var(--c-air-white);
@@ -398,7 +394,6 @@
   /* 3-9 이미지 확대 보기 (라이트박스) */
   --lightbox-bg: color-mix(in srgb, var(--c-space-black), transparent 8%); /* 뒤를 덮는 막 */
   --lightbox-bg-mix: 0%; /* 가장자리 색 배경에 Space Black 을 섞는 비율. 0% = 이미지 색 그대로, 100% = 항상 검정 */
-  --lightbox-close-fg: var(--c-air-white); /* 모바일 × 버튼 색 */
 
   /* 3-10 텍스트 선택 영역 (드래그) */
   --xref-hover-c: var(--c-builder-neon); /* 참조·외부 링크 호버 때 글자색 (밑줄도 같이) */
