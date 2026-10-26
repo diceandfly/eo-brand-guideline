@@ -336,7 +336,7 @@
   --bg: color-mix(in srgb, var(--c-solid-gray), var(--c-space-black) 24%); /* 본문 영역. Solid Gray 를 조금 어둡게 = 기존 사이트 배경(#202020 근사) */
   --bg-sidebar: var(--bg); /* 목차 */
   --sidebar-border: color-mix(in srgb, var(--bg-sidebar), var(--c-air-white) 0%); /* 목차 우측선. 0% = 안 보임 */
-  --topbar-menu-bg: var(--bg); /* 모바일 목차 버튼 바탕 (본문 위를 지나도 읽히게). 페이지 배경과 같은 색 */
+  --topbar-menu-bg: transparent; /* 모바일 목차 버튼 바탕. transparent = 아이콘만 떠 있음, var(--bg) = 페이지 색 네모를 깔아 본문 위에서도 읽히게 */
 
   /* 3-2 글자 */
   --fg: var(--c-air-white);

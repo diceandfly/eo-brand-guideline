@@ -1267,7 +1267,10 @@ html.js .main {
     height: auto !important;
   }
   .lightbox__mirror {
-    display: none; /* 모바일은 거울 확장 없이 가장자리 색만 */
+    display: none; /* 모바일은 거울 확장 없음 */
+  }
+  .lightbox.has-edge {
+    background: var(--lightbox-bg); /* 모바일은 가장자리 색도 쓰지 않고 기본 막(검정) */
   }
 }
 /* 거울 확장 — 이미지와 같은 크기의 상자(motion.ts 가 크기를 맞춤)를 중심으로, 8방향에 뒤집은 사본을 이어 붙임.
