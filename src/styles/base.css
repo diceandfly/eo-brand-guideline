@@ -172,6 +172,14 @@ button {
 .t-body li + li {
   margin-top: calc(var(--lh-unit) * var(--t-body-m) * var(--t-body-list-gap)); /* 불렛 사이 = 본문 행간 × 배수 */
 }
+/* 중첩 목록: 묶음 불렛 아래 하위 불렛은 간격을 따로 (상위보다 좁게) */
+.t-body li > ul,
+.t-body li > ol {
+  margin-top: calc(var(--lh-unit) * var(--t-body-m) * var(--t-body-sublist-gap));
+}
+.t-body li li + li {
+  margin-top: calc(var(--lh-unit) * var(--t-body-m) * var(--t-body-sublist-item-gap));
+}
 .t-body strong {
   font-weight: var(--t-body-strong-w);
   text-decoration: underline;
