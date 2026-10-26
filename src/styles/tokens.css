@@ -200,7 +200,7 @@
   --cref-dy: -0.01em; /* 칩 세로 위치 (vertical-align). 음수 = 아래로. Do/Don't 아이콘과 같은 높이로 보이게 맞춤 */
   --cref-grow-solid-gray: 2px; /* Solid Gray 칩을 키우는 양. 어두운 칩은 면이 아니라 테두리로 읽혀 같은 크기여도 작아 보이는 착시 보정. 0 = 끔 */
   --cref-grow-space-black: 3.8px; /* Space Black 칩을 키우는 양. 더 어두우므로 더 많이 */
-  --swatch-tip-jump-nudge: 0.2px; /* JUMP + 화살표를 오른쪽으로 옮기는 시각 보정 */
+  --swatch-tip-jump-nudge: 0.8px; /* JUMP + 화살표를 오른쪽으로 옮기는 시각 보정 (→ 가 ↗ 보다 오른쪽이 비어 보여 다른 알약보다 크게) */
   --swatch-tip-open-nudge: 0.5px; /* OPEN + 화살표 오른쪽 보정 */
   --swatch-tip-mail-nudge: 0.5px; /* MAIL + 화살표 오른쪽 보정 */
   --tip-arrow-size: 0.59em; /* 알약 화살표(→ · ↗) 한 변 = 선 바깥까지의 실제 크기 (viewBox 가 선에 딱 맞음). 대문자 높이보다 살짝 작게 */
@@ -249,7 +249,7 @@
 
   /* heading — 섹션 헤드, 서브헤드, 다음 버튼 타이틀 */
   --t-heading-m: 1.25; /* 행간 = 본문 행간 × 1.25 */
-  --t-heading-p: 113%; /* 행간 113% */
+  --t-heading-p: 110%; /* 행간 113% */
   --t-heading-ls: -0.01em;
   --t-heading-w: 400;
   --t-heading-c: var(--c-builder-neon);
@@ -279,7 +279,7 @@
 
   /* body (한글) — 본문 안의 한글 구간. Pretendard. 행간은 영문과 공유 */
   --t-body-ko-scale: 0.85; /* 영문 폰트 대비 배율 (R6: 20pt / 22pt) */
-  --t-body-ko-ls: -0.03em; /* 자간 (R6: -6%) */
+  --t-body-ko-ls: -0.024em; /* 자간 (R6: -6%) */
   --t-body-ko-w: 300; /* 웨이트 (Pretendard 100–900) */
   --t-body-ko-baseline: 0.02em; /* 베이스라인 보정, 양수 = 위로 (R6: +5pt) */
   --t-body-ko-break: keep-all; /* 줄바꿈 단위. keep-all = 어절, normal = 글자 */
