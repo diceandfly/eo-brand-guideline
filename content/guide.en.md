@@ -392,7 +392,7 @@ The company signature and service signatures currently in use. All are built to 
 ![service-v-studio] EO Studio · company
 ![service-v-magazine] EO Magazine · web magazine
 ![service-v-planet] EO Planet · community (eopla.net)
-![service-v-ventures] EO Ventures · venture investment
+![service-v-newsletter] EO Newsletter · newsletter
 
 
 ### Service Signature
@@ -401,7 +401,7 @@ The company signature and service signatures currently in use. All are built to 
 ![service-h-studio] EO Studio · company
 ![service-h-magazine] EO Magazine · web magazine
 ![service-h-planet] EO Planet · community (eopla.net)
-![service-h-ventures] EO Ventures · venture investment
+![service-h-newsletter] EO Newsletter · newsletter
 
 
 ### + Usage {layout=grid-2}

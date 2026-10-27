@@ -350,7 +350,7 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 
 
 ### Signature
-#### + Scalability
+#### + Scalability 
 이 페이지의 크기는 Symbol 페이지와 같이 16인치 맥 디스플레이(약 5px/mm)를 500mm 거리에서 볼 때의 심볼 높이로 적습니다. 다른 매체에서는 괄호의 비율(보는 거리 대비 심볼 높이)로 환산하세요.
 
 시그니처는 작게 볼수록 심볼과 디스크립터가 하나의 덩어리로 읽히고, 크게 볼수록 디스크립터의 글자 하나하나가 또렷해집니다. 그래서 보이는 크기에 따라 형태가 갈리며, 경계는 심볼 높이 10mm(50px, 1/50)입니다.
@@ -367,7 +367,7 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 회사 시그니처-V는 EO 심볼 아래에 "EO Studio"를 중앙 정렬로 놓은 세로 조합입니다. 구성 규칙은 위 Descriptor 섹션의 세로형 규격을 따릅니다.
 
 특별한 이유가 없다면 회사 시그니처-V의 텍스트를 다시 조판하지 말고 제공된 원본 파일을 사용하세요.
-![company-v]
+![company-v] {zoom=1.6}
 
 
 ### Company Signature
@@ -377,25 +377,25 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힐 수 있으므로, 가로형 사용 시 디스크립터에 "Studio"만 표기하는 것을 고려하세요.
 
 특별한 이유가 없다면 회사 시그니처-H의 텍스트를 다시 조판하지 말고 제공된 원본 파일을 사용하세요.
-![company-h]
+![company-h] {zoom=1.8}
 
 
 ### + Service Signature
-#### Vertical {layout=grid-4} {zoom=2.4}
-현재 사용 중인 회사 시그니처와 서비스 시그니처입니다. 모두 같은 디스크립터 규격으로 구성되어, 이름이 달라도 하나의 가족으로 읽히는지 체크합니다.
+#### Vertical {layout=grid-4} {zoom=2.7}
+서비스 시그니처 세로형 예시입니다. 모두 같은 디스크립터 규격으로 구성되어, 이름이 달라도 하나의 가족으로 읽히는지 체크합니다.
 ![service-v-studio] EO Studio · 회사
 ![service-v-magazine] EO Magazine · 웹 매거진
 ![service-v-planet] EO Planet · 커뮤니티 (eopla.net)
-![service-v-ventures] EO Ventures · 벤처 투자
+![service-v-newsletter] EO Newsletter · 뉴스레터
 
 
 ### Service Signature
-#### Horizontal {layout=grid-4} {zoom=2.5}
-현재 사용 중인 회사 시그니처와 서비스 시그니처입니다. 모두 같은 디스크립터 규격으로 구성되어, 이름이 달라도 하나의 가족으로 읽히는지 체크합니다.
+#### Horizontal {layout=grid-4} {zoom=2.9}
+서비스 시그니처 가로형 예시입니다. 모두 같은 디스크립터 규격으로 구성되어, 이름이 달라도 하나의 가족으로 읽히는지 체크합니다.
 ![service-h-studio] EO Studio · 회사
 ![service-h-magazine] EO Magazine · 웹 매거진
 ![service-h-planet] EO Planet · 커뮤니티 (eopla.net)
-![service-h-ventures] EO Ventures · 벤처 투자
+![service-h-newsletter] EO Newsletter · 뉴스레터
 
 
 ### + Usage {layout=grid-2}
@@ -412,12 +412,12 @@ EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힐 수 
 
 
 ### Signature
-#### + Color {layout=grid-2} {zoom=1.03}
+#### + Color {layout=grid-2}
 시그니처는 EO 심볼의 여섯 가지 컬러 페어링 중 네 가지를 사용합니다. 심볼과 글자는 항상 같은 한 가지 컬러로 통일합니다.
-![color-1] 1. Air White on Solid Gray
-![color-2] 2. Air White on Space Black
-![color-3] 3. Space Black on Builder Neon
-![color-4] 4. Space Black on Air White
+![color-1] {zoom=1.6} 1. Air White on Solid Gray 
+![color-2] {zoom=1.6} 2. Air White on Space Black
+![color-3] {zoom=1.85} 3. Space Black on Builder Neon
+![color-4] {zoom=1.85} 4. Space Black on Air White
 
 
 ### Signature
