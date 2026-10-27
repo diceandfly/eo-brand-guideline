@@ -457,17 +457,15 @@ Because the signature is a wide horizontal form, a partner logo matched to the s
 The signature is a single combination with a fixed relationship between symbol and letters. Do not change or re-create its components separately.
 ![dont-1]{dont} Don't use the vertical signature at small sizes
 ![dont-2]{dont} Don't use the horizontal signature at large sizes
-![dont-3]{dont} Don't use the signature below a symbol height of 4mm (20px)
-![dont-4]{dont} Don't set EO Studio in a different typeface
-![dont-5]{dont} Don't change the spacing or size ratio between the symbol and the letters
-![dont-6]{dont} Don't move the letters to the left of the symbol or to another position
-![dont-7]{dont} Don't use the EO Studio letters on their own
-![dont-8]{dont} Don't combine the sub symbol with the letters
-![dont-9]{dont} Don't color the symbol and the letters differently
-![dont-10]{dont} Don't stretch or distort the signature
-![dont-11]{dont} Don't rotate the signature
-![dont-12]{dont} Don't apply glows · shadows · gradients
-![dont-13]{dont} Don't use it as a sign-off for media content
+![dont-3]{dont} Don't set EO Studio in a different typeface
+![dont-4]{dont} Don't change the spacing or size ratio between the symbol and the letters
+![dont-5]{dont} Don't move the letters to the left of the symbol or to another position
+![dont-6]{dont} Don't use the EO Studio letters on their own
+![dont-7]{dont} Don't combine the sub symbol with the letters
+![dont-8]{dont} Don't color the symbol and the letters differently
+![dont-9]{dont} Don't stretch or distort the signature
+![dont-10]{dont} Don't apply glows · shadows · gradients
+![dont-11]{dont} Don't use it as a sign-off for media content
 
 
 
