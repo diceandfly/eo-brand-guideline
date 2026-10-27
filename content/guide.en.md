@@ -48,7 +48,7 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (영어판)
       Do/Don't 카드는 그리드별 기본 배율(tokens.css --dodont-zoom-2/3/4)을 따르고, {do nozoom} 처럼 쓰면 그 카드만 끕니다.
       여러 개는 띄어서 함께 씁니다: ![dont-3]{dont nostrike zoom=1.3} 캡션
       섹션 전체에 걸려면 헤드나 서브헤드 줄에 씁니다: ### Symbol {layout=grid-3 zoom=1.5}
-      중괄호는 나눠 써도 됩니다: {layout=grid-3} {zoom=1.5}
+      중괄호는 나눠 써도 됩니다: {layout=grid-3} {zoom=1.5}, 이미지 줄도 마찬가지: ![dont-8]{zoom=1.55} {dont} 캡션
       (이미지 태그 > 섹션 zoom > Do/Don't 그리드 기본값 순서로 적용)
     → Do/Don't만 있는 섹션은 4:3 카드입니다. 원본은 16:9로 만들면 카드에서는 가운데 4:3이 보이고, 확대하면 전체가 보입니다.
     → 뒤에 글을 쓰면 이미지 아래 캡션이 붙습니다 (= 카드). 배지만 있고 글이 없으면 "Do" / "Don't" 가 기본 문구.
@@ -337,8 +337,8 @@ The text part of the signature, excluding the symbol, is called the **descriptor
 - When the first or last letter of the descriptor is a glyph with a curved side, such as S · o, keep the text left-aligned on its baseline and temporarily swap the letter for a capital H (or lowercase h) to set the boundary. For example, "Studio" takes its left boundary from "Htudio" and its right boundary from "Studih".
 
 Creating a new descriptor or changing an existing one always requires confirmation from the EO design team. Temporary names such as campaign or event names are not used as descriptors.
-![descriptor-system-v]
-![descriptor-system-h]
+![descriptor-v]
+![descriptor-h]
 
 
 ### Signature
@@ -353,10 +353,9 @@ The smaller the signature is seen, the more the symbol and descriptor read as on
 
 - **When the visible size is relatively large, prefer the vertical form.** The vertical form's strong size contrast between symbol and descriptor gives a crisp impression, but at very small sizes the descriptor loses legibility.
 - **When the visible size is relatively small, prefer the horizontal form.** The horizontal form keeps the symbol and descriptor evenly visible even at small sizes, but at very large sizes the two elements scatter horizontally and the visual rhythm weakens.
-![size-1] Large size · vertical "EO Studio"
-![size-2] Small size · horizontal "EO Studio"
-![size-dont-1]{dont} Don't use the vertical signature at small sizes
-![size-dont-2]{dont} Don't use the horizontal signature at large sizes
+![scalability]
+![scalability-dont-1]{dont} Don't use the vertical signature at small sizes
+![scalability-dont-2]{dont} Don't use the horizontal signature at large sizes
 
 
 ### Signature
@@ -376,7 +375,7 @@ The layout of the dark signature stays the same as the light signature's. Keep t
 Company signature-V is the vertical combination placing "EO Studio" centered beneath the EO symbol. Its construction follows the vertical specification of the Descriptor System below.
 
 Unless there is a specific reason, do not re-set the text of company signature-V; use the original files provided.
-![company-vertical]
+![company-v]
 
 
 ### Company Signature
@@ -386,25 +385,25 @@ Company signature-H is the horizontal combination placing "Studio" or "EO Studio
 For anyone who has encountered EO at least once, the EO symbol may already read as "EO", so consider marking only "Studio" in the descriptor when using the horizontal form.
 
 Unless there is a specific reason, do not re-set the text of company signature-H; use the original files provided.
-![company-horizontal]
+![company-h]
 
 
 ### + Service Signature
 #### Vertical {layout=grid-4}
 The company signature and service signatures currently in use. All are built to the same descriptor specification; check that they read as one family even though the names differ.
-![service-studio-vertical] EO Studio · company
-![service-magazine-vertical] EO Magazine · web magazine
-![service-planet-vertical] EO Planet · community (eopla.net)
-![service-newsletter-vertical] EO Newsletter · newsletter
+![service-v-studio] EO Studio · company
+![service-v-magazine] EO Magazine · web magazine
+![service-v-planet] EO Planet · community (eopla.net)
+![service-v-ventures] EO Ventures
 
 
 ### Service Signature
 #### Horizontal {layout=grid-4}
 The company signature and service signatures currently in use. All are built to the same descriptor specification; check that they read as one family even though the names differ.
-![service-studio-horizontal] EO Studio · company
-![service-magazine-horizontal] EO Magazine · web magazine
-![service-planet-horizontal] EO Planet · community (eopla.net)
-![service-newsletter-horizontal] EO Newsletter · newsletter
+![service-h-studio] EO Studio · company
+![service-h-magazine] EO Magazine · web magazine
+![service-h-planet] EO Planet · community (eopla.net)
+![service-h-ventures] EO Ventures
 
 
 ### + Usage {layout=grid-2}
@@ -436,7 +435,7 @@ The signature uses the same six color pairings as the EO symbol. The symbol and 
 The EO signature can be locked up with partner brands' and collaborators' logos. The images in this section are examples of the basic lockup construction.
 
 The elements must be optically adjusted so that they appear the same size. Once each logo is sized, you can add space and a dividing line · collaboration mark between them. The space between the EO symbol and the partner logo is 2 or 3 times the width of one E block (W).
-![partner-horizontal]
+![partner-h]
 
 
 ### Partner Lockup
@@ -446,7 +445,7 @@ The EO signature can also be locked up vertically with partner brands' and colla
 The elements must be optically adjusted so that they appear the same size. Once each logo is sized, you can add space and a dividing line between them. Make the space equal to the height of the EO signature (H), and place the dividing line horizontally at its center.
 
 Make sure the logos are always optically centered.
-![partner-vertical]
+![partner-v]
 
 
 ### Partner Lockup

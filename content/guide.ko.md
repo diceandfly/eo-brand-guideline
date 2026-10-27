@@ -48,7 +48,7 @@ EO Brand Guidelines — 콘텐츠 파일 튜토리얼 (한국어판)
       Do/Don't 카드는 그리드별 기본 배율(tokens.css --dodont-zoom-2/3/4)을 따르고, {do nozoom} 처럼 쓰면 그 카드만 끕니다.
       여러 개는 띄어서 함께 씁니다: ![dont-3]{dont nostrike zoom=1.3} 캡션
       섹션 전체에 걸려면 헤드나 서브헤드 줄에 씁니다: ### Symbol {layout=grid-3 zoom=1.5}
-      중괄호는 나눠 써도 됩니다: {layout=grid-3} {zoom=1.5}
+      중괄호는 나눠 써도 됩니다: {layout=grid-3} {zoom=1.5}, 이미지 줄도 마찬가지: ![dont-8]{zoom=1.55} {dont} 캡션
       (이미지 태그 > 섹션 zoom > Do/Don't 그리드 기본값 순서로 적용)
     → Do/Don't만 있는 섹션은 4:3 카드입니다. 원본은 16:9로 만들면 카드에서는 가운데 4:3이 보이고, 확대하면 전체가 보입니다.
     → 뒤에 글을 쓰면 이미지 아래 캡션이 붙습니다 (= 카드). 배지만 있고 글이 없으면 "Do" / "Don't" 가 기본 문구.
@@ -238,7 +238,7 @@ EO 심볼에는 여섯 가지 기본 컬러 페어링이 있습니다. **심볼�
 ![color-3] 3. Air White on Solid Gray
 ![color-4] 4. Space Black on Air White
 ![color-5] 5. Builder Neon on Space Black
-![color-6] 6. Space Black on Solid Gray
+![color-6] 6. Builder Neon on Solid Gray
 
 
 ### Symbol
@@ -316,7 +316,7 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 ![dont-5]{dont} E의 thread 수나 O의 각도, 블록 간격이 달라진 상태(로고 애니메이션 캡처 등)를 사용하지 마세요
 ![dont-6]{dont} 심볼에 글로우, 그림자, 그라데이션 등 시각효과를 적용하지 마세요
 ![dont-7]{dont} 배치할 공간의 대부분을 차지할만큼 과도하게 큰 사이즈를 적용하지 마세요
-![dont-8]{zoom=1.5} {dont} 심볼을 이어 붙이거나 단순 반복하는 방식으로 그래픽을 만들지 마세요
+![dont-8]{zoom=1.55} {dont} 심볼을 이어 붙이거나 단순 반복하는 방식으로 그래픽을 만들지 마세요
 ![dont-9]{dont} EO 디자인팀의 허가 없이 심볼 주변에 임의의 맥락을 추가하지 마세요
 
 
@@ -341,66 +341,66 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 - 디스크립터의 첫 글자나 끝 글자가 S · o처럼 측면 형태가 곡선인 글리프인 경우, 텍스트 기준선에 좌측 정렬을 유지한 채로 대문자 H, 소문자는 h로 잠시 바꿔 캡 박스의 경계를 잡습니다. 예를 들어 “Studio”는 “Htudio”로 왼쪽 경계를, “Studih”로 오른쪽 경계를 잡습니다.
 
 새 디스크립터를 만들거나 기존 디스크립터를 변경할 때는 반드시 EO 디자인팀의 컨펌을 받아야 합니다. 캠페인이나 이벤트 이름처럼 한시적인 이름은 디스크립터로 사용하지 않습니다.
-![descriptor-system-v]
-![descriptor-system-h]
+![descriptor-v]
+![descriptor-h]
 
 
 ### Signature
-#### + Clearspace
+#### + Clearspace {layout=grid-2}
 시그니처 주변에도 EO 심볼과 같은 기준의 여백이 필요합니다. E 블록 하나의 수직 방향 높이를 H라 할 때, 시그니처 전체를 감싸는 상하좌우 각 H/2 이상의 최소 여백을 확보합니다.
-![clearspace]
+![clearspace-v]
+![clearspace-h]
 
 
 ### Signature
 #### + Scalability {layout=grid-2}
 이 페이지의 크기는 Symbol 페이지와 같이 16인치 맥 디스플레이(약 5px/mm)를 500mm 거리에서 볼 때의 심볼 높이로 적습니다. 다른 매체에서는 괄호의 비율(보는 거리 대비 심볼 높이)로 환산하세요.
 
-시그니처는 작게 볼수록 심볼과 디스크립터가 하나의 덩어리로 읽히고, 크게 볼수록 디스크립터의 글자 하나하나가 또렷해집니다. 그래서 보이는 크기에 따라 형태가 갈리며, 경계는 심볼 높이 8mm(40px, 1/60)입니다.
+시그니처는 작게 볼수록 심볼과 디스크립터가 하나의 덩어리로 읽히고, 크게 볼수록 디스크립터의 글자 하나하나가 또렷해집니다. 그래서 보이는 크기에 따라 형태가 갈리며, 경계는 심볼 높이 10mm(50px, 1/50)입니다.
 
-- **4mm 미만(20px, 1/125)에서는 심볼도 시그니처도 쓰지 않습니다.** 심볼의 최소 크기와 같습니다.
-- **4-8mm(20-40px)에서는 가로형을 씁니다.** 가로형은 작은 크기에서도 심볼과 디스크립터가 고른 가시성을 유지합니다. 다만 "EO Studio"는 5mm(25px, 1/100)를 넘으면 단어 사이 공백이 눈에 띄어 심볼 · EO · Studio 세 덩어리로 나뉘어 보이므로, 5mm 이하에서는 "EO Studio"를, 5-8mm에서는 "Studio"를 쓰세요.
-- **8mm(40px, 1/60) 이상에서는 세로형을 씁니다.** 이 크기부터 세로형의 디스크립터(캡 높이 약 2.4mm)가 또렷이 읽히고, 반대로 가로형은 디스크립터가 심볼과 같은 무게로 맞서 위계가 무너집니다. 권장 최대 크기는 심볼 높이 15mm(70px, 1/40, 시그니처 전체 높이 약 22mm)이고, 최대는 심볼 높이 30mm(135px, 1/20, 전체 높이 약 45mm)입니다.
-![size-1] 큰 크기 · 세로형 "EO Studio"
-![size-2] 작은 크기 · 가로형 "EO Studio"
-![size-dont-1]{dont} 작은 크기에서 세로형 시그니처를 쓰지 마세요
-![size-dont-2]{dont} 큰 크기에서 가로형 시그니처를 쓰지 마세요
+- **4-10mm(20-50px)에서는 가로형 시그니처만 사용합니다.** 가로형은 작은 크기에서도 심볼과 디스크립터가 고른 가시성을 유지합니다. "EO Studio"는 6mm(30px, 1/80)를 넘으면 단어 사이 공백이 눈에 띄어 심볼 · EO · Studio 세 덩어리로 나뉘어 보일 수 있습니다. 4-6mm의 사이즈 범위 내에서는 "Studio" 버전의 사용을 고려하세요. 
+- **10mm(50px, 1/50) 이상에서는 세로형 시그니처만 사용합니다.** 이 크기부터 세로형의 디스크립터(캡 높이 약 2.4mm)가 또렷이 읽히기 때문입니다. 권장 최대 크기는 심볼 높이 15mm(70px, 1/40), 최대는 심볼 높이 30mm(135px, 1/20)입니다.
+- 심볼의 최소 크기 제한과 마찬가지로, 4mm 미만(20px, 1/125)에서는 시그니처도 쓰지 않습니다.
+![scalability]
+![scalability-dont-1]{dont} 디스크립터를 읽기 어려울만큼 작은 크기로 세로형 시그니처를 쓰지 마세요
+![scalability-dont-2]{dont} 심볼 높이 8mm(40px, 1/50)보다 큰 크기로 가로형 시그니처를 쓰지 마세요
 
 
 ### + Company Signature
 #### Vertical
 
-회사 시그니처-V는 EO 심볼 아래에 "EO Studio"를 중앙 정렬로 놓은 세로 조합입니다. 구성 규칙은 아래 Descriptor System의 세로형 규격을 따릅니다.
+회사 시그니처-V는 EO 심볼 아래에 "EO Studio"를 중앙 정렬로 놓은 세로 조합입니다. 구성 규칙은 위 Descriptor 섹션의 세로형 규격을 따릅니다.
 
 특별한 이유가 없다면 회사 시그니처-V의 텍스트를 다시 조판하지 말고 제공된 원본 파일을 사용하세요.
-![company-vertical]
+![company-v]
 
 
 ### Company Signature
 #### Horizontal
-회사 시그니처-H는 EO 심볼 오른쪽에 "Studio" 또는 "EO Studio"를 놓은 가로 조합입니다. 구성 규칙은 아래 Descriptor System의 가로형 규격을 따릅니다. 
+회사 시그니처-H는 EO 심볼 오른쪽에 "EO Studio"를 놓은 가로 조합입니다. 구성 규칙은 위 Descriptor 섹션의 가로형 규격을 따릅니다. 
 
 EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힐 수 있으므로, 가로형 사용 시 디스크립터에 "Studio"만 표기하는 것을 고려하세요.
 
 특별한 이유가 없다면 회사 시그니처-H의 텍스트를 다시 조판하지 말고 제공된 원본 파일을 사용하세요.
-![company-horizontal]
+![company-h]
 
 
 ### + Service Signature
 #### Vertical {layout=grid-4}
 현재 사용 중인 회사 시그니처와 서비스 시그니처입니다. 모두 같은 디스크립터 규격으로 구성되어, 이름이 달라도 하나의 가족으로 읽히는지 체크합니다.
-![service-studio-vertical] EO Studio · 회사
-![service-magazine-vertical] EO Magazine · 웹 매거진
-![service-planet-vertical] EO Planet · 커뮤니티 (eopla.net)
-![service-newsletter-vertical] EO Newsletter · 뉴스레터
+![service-v-studio] EO Studio · 회사
+![service-v-magazine] EO Magazine · 웹 매거진
+![service-v-planet] EO Planet · 커뮤니티 (eopla.net)
+![service-v-ventures] EO Ventures
 
 
 ### Service Signature
 #### Horizontal {layout=grid-4}
 현재 사용 중인 회사 시그니처와 서비스 시그니처입니다. 모두 같은 디스크립터 규격으로 구성되어, 이름이 달라도 하나의 가족으로 읽히는지 체크합니다.
-![service-studio-horizontal] EO Studio · 회사
-![service-magazine-horizontal] EO Magazine · 웹 매거진
-![service-planet-horizontal] EO Planet · 커뮤니티 (eopla.net)
-![service-newsletter-horizontal] EO Newsletter · 뉴스레터
+![service-h-studio] EO Studio · 회사
+![service-h-magazine] EO Magazine · 웹 매거진
+![service-h-planet] EO Planet · 커뮤니티 (eopla.net)
+![service-h-ventures] EO Ventures
 
 
 ### + Usage {layout=grid-2}
@@ -417,14 +417,12 @@ EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힐 수 
 
 
 ### Signature
-#### + Color {layout=grid-3}
-시그니처는 EO 심볼과 같은 여섯 가지 컬러 페어링을 사용합니다. 심볼과 글자는 항상 같은 한 가지 컬러로 표현합니다.
-![color-1] 1. Builder Neon on Space Black
-![color-2] 2. Space Black on Builder Neon
-![color-3] 3. Air White on Space Black
+#### + Color {layout=grid-2}
+시그니처는 EO 심볼의 여섯 가지 컬러 페어링 중 네 가지를 사용합니다. 심볼과 글자는 항상 같은 한 가지 컬러로 통일합니다.
+![color-1] 1. Air White on Solid Gray
+![color-2] 2. Air White on Space Black
+![color-3] 3. Space Black on Builder Neon
 ![color-4] 4. Space Black on Air White
-![color-5] 5. Air White on Solid Gray
-![color-6] 6. Space Black on Color
 
 
 ### Signature
@@ -440,37 +438,31 @@ EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힐 수 
 
 
 ### + Partner Lockup
-#### Horizontal
-EO 시그니처은 파트너 브랜드 및 협업사 로고와 락업할 수 있습니다. 본 섹션의 이미지는 기본 락업 구성의 예시입니다.
-
-요소들의 크기는 서로 같은 크기로 보이도록 시각적으로 조정해야 합니다. 각 로고의 크기를 맞춘 뒤 그 사이에 간격과 구분선 · 콜라보 기호를 넣을 수 있습니다. EO 심볼과 파트너 로고 사이의 간격은 E 블록 하나의 너비(W)의 2배 또는 3배를 적용합니다.
-![partner-horizontal]
-
-
-### Partner Lockup
 #### Vertical
 EO 시그니처은 파트너 브랜드 및 협업사 로고와 세로로도 락업할 수 있습니다. 오른쪽은 기본 세로 락업 구성의 예시입니다.
 
 요소들의 크기는 서로 같은 크기로 보이도록 시각적으로 조정해야 합니다. 각 로고의 크기를 맞춘 뒤 그 사이에 간격과 구분선을 넣을 수 있습니다. EO 시그니처의 높이(H)와 같게 하고 구분선은 그 중앙에 가로로 둡니다.
 
 로고들이 항상 시각적으로 중앙 정렬되도록 하세요.
-![partner-vertical]
+![partner-v]
 
 
 ### Partner Lockup
-#### Optical Adjustment
-시그니처는 가로로 긴 형태라, 같은 높이로 맞추면 파트너 로고가 상대적으로 작고 가벼워 보이기 쉽습니다. 높이가 아니라 시각적 무게가 비슷해지도록 파트너 로고의 크기를 조정하세요.
-![partner-optical]
+#### Horizontal
+EO 시그니처은 파트너 브랜드 및 협업사 로고와 락업할 수 있습니다. 본 섹션의 이미지는 기본 락업 구성의 예시입니다.
+
+요소들의 크기는 서로 같은 크기로 보이도록 시각적으로 조정해야 합니다. 각 로고의 크기를 맞춘 뒤 그 사이에 간격과 구분선 · 콜라보 기호를 넣을 수 있습니다. EO 심볼과 파트너 로고 사이의 간격은 E 블록 하나의 너비(W)의 2배 또는 3배를 적용합니다.
+![partner-h]
 
 
 ### Signature {layout=grid-3}
 #### + Don'ts
-시그니처는 심볼과 글자의 관계가 정해진 하나의 조합입니다. 구성 요소를 따로 바꾸거나 다시 만들지 마세요.
+시그니처는 심볼과 디스크립터의 관계가 정해진 하나의 조합입니다. 구성 요소를 따로 바꾸거나 다시 만들지 마세요.
 ![dont-1]{dont} EO Studio를 다른 서체로 바꾸지 마세요
-![dont-2]{dont} 심볼과 글자의 간격이나 크기 비율을 바꾸지 마세요
-![dont-3]{dont} 글자를 심볼의 왼쪽이나 다른 위치로 옮기지 마세요
-![dont-4]{dont} EO Studio 글자만 단독으로 사용하지 마세요
-![dont-5]{dont} 서브 심볼과 글자를 조합하지 마세요
+![dont-2]{dont} 디스크립터에 지정되지 않은 속성을 적용하지 마세요
+![dont-3]{dont} 본 가이드라인의 지침 이외의 방식으로 디스크립터를 수정하지 마세요
+![dont-4]{dont} EO Studio 글자만 단독으로 로고처럼 사용하지 마세요
+![dont-5]{dont} 서브심볼과 글자를 조합하지 마세요
 ![dont-6]{dont} 심볼과 글자를 서로 다른 색으로 칠하지 마세요
 ![dont-7]{dont} 시그니처를 늘리거나 왜곡하지 마세요
 ![dont-8]{dont} 글로우 · 그림자 · 그라데이션을 적용하지 마세요
@@ -481,42 +473,48 @@ EO 시그니처은 파트너 브랜드 및 협업사 로고와 세로로도 락�
 ## Sub Symbol
 
 ### + Sub Symbol
-EO 심볼에서 E 블록만 떼어 쓰는 형태를 이하 **서브 심볼**이라 부릅니다. 앱 아이콘 · 파비콘 · 소셜 미디어 아바타 · 핀 배지처럼 EO 심볼 전체를 알아보기 어려운 작은 정사각형 공간에 한하여 사용합니다.
+EO 심볼에서 E 블록만 떼어 쓰는 형태를 이하 **서브심볼**이라 부릅니다. 앱 아이콘 · 파비콘 · 소셜 미디어 아바타 · 핀 배지처럼 EO 심볼 전체를 알아보기 어려운 작은 정사각형 공간에 한하여 사용합니다.
 
-서브 심볼은 EO 심볼을 완전히 대신할 수 없으므로, 충분한 크기가 확보된 곳에서는 항상 EO 심볼을 사용하세요. E 블록은 그래픽 유닛과 같은 지오메트리를 공유하므로, 작게 쓰여도 그래픽 시스템 전체와 자연스럽게 이어집니다.
+서브심볼은 EO 심볼을 완전히 대신할 수 없으므로, 충분한 크기가 확보된 곳에서는 항상 EO 심볼을 사용하세요. E 블록은 그래픽 유닛과 같은 지오메트리를 공유하므로, 작게 쓰여도 그래픽 시스템 전체와 자연스럽게 이어집니다.
 ![overview]
 
 
 ### Sub Symbol
 #### + Clearspace
-서브 심볼 주변에도 EO 심볼과 같은 기준의 여백이 필요합니다. E 블록 하나의 수직 방향 높이를 H라 할 때 상하좌우 각 [H/2] 이상의 여백을 확보하고, thread가 튀어나온 쪽에도 같은 값을 적용합니다.
+서브심볼 주변에도 EO 심볼과 같은 기준의 여백이 필요합니다. E 블록 하나의 수직 방향 높이를 H라 할 때 상하좌우 각 [H/2] 이상의 여백을 확보하고, thread가 튀어나온 쪽에도 같은 값을 적용합니다.
 ![clearspace]
 
 
 ### Sub Symbol
 #### + Color {layout=grid-2}
-서브 심볼은 EO 심볼의 1,2번 컬러 페어링을 사용합니다. 항상 단색으로 표현하세요.
+서브심볼은 EO 심볼의 1,2번 컬러 페어링을 사용합니다. 항상 단색으로 표현하세요.
 ![color-1] 1. Builder Neon on Space Black
 ![color-2] 2. Space Black on Builder Neon
 
 
 ### + Favicon
 #### Alignment
-앱 아이콘과 소셜 아바타에서는 사각형이나 원형 컨테이너 안에 서브 심볼을 놓습니다. 서브 심볼은 컨테이너 중심에 시각적으로 정렬하고, thread가 튀어나온 쪽 때문에 한쪽으로 치우쳐 보이지 않도록 위치를 미세 조정합니다. 원형 컨테이너에서는 가장자리에 닿지 않도록 사각형보다 조금 작게 넣습니다.
+파비콘 등 가장 작은 규격의 사각형 컨테이너 안에는 서브심볼을 놓습니다. 서브심볼은 컨테이너 중심에 클리어스페이스를 기준으로 정렬합니다.
 ![alignment]
+
+
+### Favicon
+#### In Use
+EO 서브심볼이 실제로 사용된 예시입니다.
+![in-use]
 
 
 ### Sub Symbol {layout=grid-3}
 #### + Don'ts
-서브 심볼은 EO 심볼의 일부이므로 EO 심볼과 같은 원칙을 따릅니다. 형태를 바꾸거나 장식하지 말고, 정해진 용도 밖에서 사용하지 마세요.
-![dont-1]{dont} 서브 심볼을 늘리거나 왜곡하지 마세요
-![dont-2]{dont} 서브 심볼을 회전하지 마세요
-![dont-3]{dont} 서브 심볼을 좌우로 뒤집지 마세요
+서브심볼은 EO 심볼의 일부이므로 EO 심볼과 같은 원칙을 따릅니다. 형태를 바꾸거나 장식하지 말고, 정해진 용도 밖에서 사용하지 마세요.
+![dont-1]{dont} 서브심볼을 늘리거나 왜곡하지 마세요
+![dont-2]{dont} 서브심볼을 회전하지 마세요
+![dont-3]{dont} 서브심볼을 좌우로 뒤집지 마세요
 ![dont-4]{dont} thread의 수나 각도를 바꾸지 마세요
-![dont-5]{dont} 서브 심볼에 외곽선을 넣지 마세요
+![dont-5]{dont} 서브심볼에 외곽선을 넣지 마세요
 ![dont-6]{dont} 글로우 · 그림자 · 그라데이션을 적용하지 마세요
 ![dont-7]{dont} 두 가지 컬러로 칠하거나 승인되지 않은 페어링을 사용하지 마세요
-![dont-8]{dont} E 블록 대신 O 블록을 서브 심볼로 사용하지 마세요
+![dont-8]{dont} E 블록 대신 O 블록을 서브심볼로 사용하지 마세요
 
 
 
@@ -524,7 +522,7 @@ EO 심볼에서 E 블록만 떼어 쓰는 형태를 이하 **서브 심볼**이�
 
 ## Typography
 
-### Our Typefaces
+### Brand Typefaces
 EO의 서체는 Founders Grotesk 패밀리입니다. 헤드라인과 본문에는 Founders Grotesk를, 정보성 텍스트(라벨 · 태그 · 날짜 · 스펙)에는 Founders Grotesk Mono를 사용합니다.
 
 Founders Grotesk는 장식 없이 명료하고, 넓은 폭과 낮은 콘트라스트 덕분에 큰 크기에서 단단한 블록처럼 보입니다. 이 성격이 "명료하고 열린 자신감"이라는 EO의 목소리를 그대로 전달합니다. 모노는 빌더의 터미널과 스펙 시트를 연상시키는 정보의 서체입니다.
@@ -738,13 +736,13 @@ Founders Grotesk를 사용할 수 없는 환경(이메일, 외부 플랫폼의 �
 
 ### Primary Color
 #### Builder Neon
-Builder Neon은 EO 팔레트의 유일한 주인공이자 브랜드에서 가장 잘 알려진 요소로, 로고 없이도 "EO"를 전달합니다. 어두운 컬러의 배경에서, 나아가 샌프란 시스코의 파란 하늘에서 특히 드라마틱한 대비를 만드는 이 형광 노랑은 밤새 불이 켜진 해커하우스의 창, 빌더의 낙관을 상징합니다. 넓은 면보다 한 구성 안의 한 곳에 집중해서 사용할 때 가장 강합니다.
-![builder-neon]
+Builder Neon은 밤새 불이 꺼지지 않는 해커하우스의 창, 그 안에서 무언가를 만드는 빌더의 낙관을 상징합니다. 밤에는 빌더가 가장 외로운 시간에도 꺼지지 않는 신호가, 낮에는 샌프란시스코의 파란 하늘 가장 먼저 눈에 띄는 표식이 됩니다.
+![builder-neon] 
 
 
 ### Secondary Colors
 #### Day Blue & Bay Green
-Day Blue와 Bay Green은 샌프란시스코 베이 에어리어의 자연에서 가져온 시원한 톤의 컬러입니다. Day Blue는 샌프란시스코의 청량한 공기에서, Bay Green은 해안 능선을 따라 이어지는 채퍼럴 언덕의 녹음에서 영감을 받았습니다. 두 컬러는 보색인 Builder Neon을 더욱 선명하게 살려 주는 보조 요소가 활용됩니다.
+Day Blue와 Bay Green은 베이 에어리어의 자연에서 가져온 시원한 톤의 컬러입니다. Day Blue는 샌프란시스코의 청량한 공기에서, Bay Green은 해안 능선을 따라 이어지는 채퍼럴 언덕의 녹음에서 영감을 받았습니다. 두 컬러는 보색인 Builder Neon을 더욱 선명하게 살려 주는 보조 요소로 사용됩니다.
 ![builder-blue-green]
 
 ### Color
@@ -761,14 +759,13 @@ EO 팔레트는 Builder Neon, Day Blue, Bay Green과 이를 받쳐 주는 네가
 [swatch] Air White | #FCFBF5 | R252 G251 B245 | C1 M2 Y2 K0 or raw paper
 
 
-### Color {layout=wide}
+### Color
 #### Usage Ratio
 
-Space Black 바탕, Air White 텍스트, Builder Neon 그래픽에 크게 의존합니다. 면적으로는 블랙 70, 네온 20, 화이트 10이 기준입니다. 소셜 채널이나 시리즈 아트워크처럼 이미 "EO"로 인식되는 맥락에서는 Day Blue · Bay Green을 시리즈 구분색으로 더 자주 쓸 수 있습니다. 
+배경은 Solid Gray 또는 Space Black을 기본으로 하며, 사진을 쓸 수 있는 매체에서는 샌프란시스코의 하늘 그 자체가 배경이 됩니다. 배경 위에 놓이는 그래픽 요소의 권장 비율은 Builder Neon 50%, Day Blue · Bay Green 30%, Medium Gray 20%입니다. 텍스트는 Air White 또는 Space Black으로, 전체 구성의 10% 안팎을 차지합니다. 텍스트 중심 매체에서는 배경 비중이, 패턴 중심 매체에서는 Builder Neon 비중이 높아집니다. 소셜 채널이나 시리즈 아트워크처럼 EO 브랜드로 충분히 인지되는 맥락에서는 Day Blue · Bay Green을 권장 비율보다 폭넓게 활용할 수 있습니다.
 
-에셋별 구체적인 컬러 사용법은 각 페이지 해당 섹션을 참조하세요.
+에셋별 세부 적용 기준은 각 페이지별 컬러 섹션을 참조하세요.
 
-- 텍스트의 컬러는 Air White 또는 Space Black을 기본으로 합니다.
 - 로고
   - 심볼의 컬러 사용법은 [[symbol#color]]를 참조하세요.
   - 시그니처의 컬러 사용법은 [[signature#color]]를 참조하세요.
@@ -828,8 +825,9 @@ EO의 컬러가 일관되게 유지되도록 다음은 피하세요. 텍스트�
 
 ### Graphic Unit
 #### + Color {layout=grid-2} {ratio=16:9} {zoom=1.042}
-하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 컬러는 그래픽 안에서 누가 주인공이고, 무엇이 환경이며, 어디서 상태가 바뀌는지 표현합니다. 컬러는 유닛의 형태나 레이아웃보다는 좀더 넓고 얕은 맥락, 보조 역할의 추상적인 맥락이라도 충분합니다. [[graphic-pattern#references|라이브러리 30종]]를 통해 읽을 수 있는 맥락은 네 갈래이고,  아래 Vocabulary의 항목들은 이 역할을 전제로 합니다. 바탕과 유닛의 조합 규칙은 [[graphic-pattern#color]]을 따릅니다.
+컬러는 그래픽 안에서 누가 주인공이고, 무엇이 환경이며, 어디서 상태가 바뀌는지 표현하며, Vocabulary의 뉘앙스를 보완하는 보조 수단으로 사용합니다. [[graphic-pattern#references|라이브러리 30종]]를 통해 읽을 수 있는 맥락은 네 갈래이고,  아래 Vocabulary의 항목들은 이 역할을 전제로 합니다. 더 구체적인 조합 규칙은 [[graphic-pattern#color]]을 참조하세요.
 
+하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 
 - Builder Neon — 위계가 가장 높은 메인 컬러로서, 빌더 · 주인공 · 초점 · 하이라이팅의 뉘앙스를 표현합니다. 사용 면적이 전체 캔버스 기준 10-40% 수준일 때 가장 이상적입니다.
 - Air White — 위계는 높지만 아이덴티티가 없는 뉴트럴 컬러로서, 에너지 · 맞은편의 주체 · 세미 하이라이팅의 뉘앙스를 표현합니다. 사용 면적이 전체 캔버스 기준 10-40% 수준일 때 가장 이상적입니다.
 - Day Blue — 다른 성격의 빌더 · 커뮤니티 · 주변 요소. 푸른 하늘에서 오는 긍정적 에너지 · 낙관의 뉘앙스를 강조합니다.
@@ -932,7 +930,7 @@ EO 그래픽 유닛의 특징은 크기와 종횡비를 자유롭게 변형할 �
 ![proportion-flat-do]{do} shaft 축 방향으로 적당히 긴 인상의 유닛
 ![proportion-flat-dont]{dont} 축과 수직 방향으로 넓어져 thread가 한데 뭉친 납작한 유닛
 ![proportion-line-do]{do} 적당한 길이의 shaft가 몸통처럼 균형이 잡힌 유닛
-![proportion-line-dont]{dont} shaft가 가는 선처럼 길어지며 thread도 길게 늘어난 유닛
+![proportion-line-dont]{con} shaft가 가는 선처럼 길어지며 thread도 길게 늘어난 유닛
 
 
 ### Morphology {layout=grid-4}
@@ -944,11 +942,11 @@ compression 값을 올리면 한쪽으로 갈수록 thread가 촘촘해지며 �
 - compression이 과하면, 촘촘한 쪽에서 헤어라인 두께로 압축된 thread들이 반복되면서 마찬가지로 지루한 인상을 주게 됩니다. 그럴 때는 thread amount를 줄이거나 compression을 조금 내려 반복 횟수를 낮춰보세요. 또는 thread gutter를 내려 그 구간을 하나의 덩어리로 뭉치게 하면 반복적인 느낌을 상쇄시킬 수 있습니다.
 - 길이가 짧은 유닛은 thread amount가 작고 compression을 약하게 적용해도, thread 하나하나의 형태가 두드러지며 단조로움이 줄어드는 경향이 있습니다. 반면 길이가 긴 유닛은 thread amount가 크고 compression도 강하게 적용하는 것이 적당한 리듬감을 구성하기 좋습니다.
 ![rhythm-uniform-do]{do} 적당한 리듬감을 만드는 compression
-![rhythm-uniform-dont]{dont} 간격이 일정해 단조로운 유닛
-![rhythm-excess-do]{do} 경계로 수렴하며 동세를 만드는 compression
-![rhythm-excess-dont]{dont} compression이 과해서 헤어라인이 거듭되는 유닛
+![rhythm-uniform-dont]{con} 간격이 일정해 단조로운 유닛
 ![rhythm-length-do]{do} 긴 유닛에 적합한 thread amount와 compression
-![rhythm-length-dont]{dont} 긴 shaft에 많은 threads와 약한 compression 적용
+![rhythm-length-dont]{con} compression을 약하게 적용해 단조로운 인상을 주는 유닛
+![rhythm-excess-do]{do} 경계로 수렴하며 동세를 만드는 compression
+![rhythm-excess-dont]{dont} compression이 과해서 한 끝에 헤어라인이 거듭되는 유닛
 
 
 ### Morphology {layout=grid-4}
@@ -1054,14 +1052,14 @@ pattern margin은 0으로 설정해 레이아웃의 그래픽 패턴 영역을 1
 
 ### Graphic Pattern {layout=grid-4}
 #### + Color
-Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Blue · Bay Green · Medium Gray을 유닛 컬러로 사용하는 것이 기본 조합입니다. 여러 유닛을 나란히 놓을 때는 명도 차가 비슷한 Day Blue · Bay Green · Medium Gray를 균일한 비중 · 위치 · 동세로 배치하거나, 명도가 높은 Builder Neon · Air White를 시각 초점으로 활용해 캔버스의 깊이감을 의도적으로 조절하세요.
+Builder Neon · Air White  · Day Blue · Bay Green · Medium Gray을 유닛 컬러, Solid Gray · Space Black를 배경 컬러로 사용하는 것을 기본으로 합니다. 여러 유닛을 나란히 놓을 때는 명도 차가 비슷한 Day Blue · Bay Green · Medium Gray를 균일한 비중 · 위치 · 동세로 배치하거나, 명도가 높은 Builder Neon · Air White를 시각 초점으로 활용해 캔버스의 깊이감을 의도적으로 조절하세요.
 
-일반적인 상황 · 마일드한 무드에는 Solid Gray 배경을, 좀 더 강렬한 무드를 추구할 땐 Space Black 배경을 사용합니다. 브랜드의 존재감을 가장 강하게 어필해야 하면서 전달할 정보량이 적은 지면에 한해서, Builder Neon을 배경 컬러로 사용하고 그 위에 Space Black 유닛을 올립니다.
+브랜드의 존재감을 가장 강하게 어필해야 하면서, 전달할 정보량이 적은 지면에 한해서만 Builder Neon을 배경 컬러로 사용하고 그 위에 Space Black 유닛을 올립니다.
 
 - 유닛 컬러
   - 하나의 유닛에는 반드시 하나의 컬러만 적용합니다. 
   - **하나의 그래픽에 동시에 사용하는 유닛 컬러는 최대 3가지**까지 권장되며, Builder Neon · Day Blue · Bay Green · Medium Gray 고정 조합에 한해 최대 네 가지까지 사용할 수 있습니다.
-  - Medium Gray 유닛만을 단독으로 사용하지 않고 다른 컬러의 유닛과 조합하여 사용합니다. 
+  - Medium Gray는 보조 역할의 컬러이므로, 단독으로 사용하지 말고 반드시 다른 컬러의 유닛과 조합하여 사용합니다. 
   - Solid Gray는 유닛 컬러로 사용하지 않습니다.
 - 배경 컬러
   - Solid Gray를 배경 컬러로 사용하면, 5개의 유닛 컬러와의 대비가 한 단계 낮아져 모든 컬러가 차분하게 묶이므로 우선적으로 고려합니다. 
@@ -1119,8 +1117,8 @@ Solid Gray · Space Black를 배경 컬러, Builder Neon · Air White  · Day Bl
 
 ### + Usage
 #### Do's & Dont's {layout=grid-2}
-그래픽 패턴은 EO의 모든 비주얼 표현 중 가장 화려하고 복잡한 시각 요소이므로, 항상 지면에서 시선을 집중시키는 주인공 역할이 되어야 합니다. 레이아웃의 한쪽 절반(보통 상단 또는 오른쪽)을 통째로 내어 주고, 헤드라인은 반대쪽 컨텐츠 영역 가장자리에 왼쪽 정렬로 놓습니다. 텍스트를 패턴 위에 겹치지 않고, 로고는 패턴 바깥의 여백에 배치합니다. 패턴은 잘라 쓸 수 있지만 thread의 대각선 구간이 중간에서 잘리지 않도록 컬럼 경계에서 크롭합니다.
-![pattern-do-1] {do} 그래픽 패턴을 사용할 땐 지면의 60-70%를 크게 나눠 사용하세요
+그래픽 패턴은 EO의 모든 비주얼 표현 중 가장 화려하고 밀도 있는 시각 요소이므로, 지면에서 시선을 집중시키는 주제 역할이 되어야 합니다. 레이아웃의 한쪽 절반(보통 상단 또는 오른쪽)을 통째로 내어 주고, 헤드라인은 반대쪽 컨텐츠 영역 가장자리에 왼쪽 정렬로 놓습니다. 텍스트를 패턴 위에 겹치지 않고, 로고는 패턴 바깥의 여백에 배치합니다. 패턴은 잘라 쓸 수 있지만 thread의 대각선 구간이 중간에서 잘리지 않도록 컬럼 경계에서 크롭합니다.
+![pattern-do-1] {do} 그래픽 패턴을 사용할 땐 지면의 60-70% 이상의 큰 사각 영역을 채워 시각성을 높이세요
 ![pattern-do-2] {do} 지면이 실제 보여지는 크기를 고려해 적절한 복잡도의 그래픽 패턴을 사용하세요
 ![pattern-dont-1] {dont} 그래픽 패턴 위에 컨텐츠를 오버레이 하지 마세요
 ![pattern-dont-2] {dont} 스레드의 대각선 부분이 크롭되지 않도록 하세요

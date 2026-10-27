@@ -440,11 +440,11 @@ export function loadGuide(lang: Lang, source: string, tokens: Tokens): Guide {
       section.subhead = subhead;
       continue;
     }
-    if ((m = line.match(/^!\[([^\]]+)\]\s*(?:\{([^}]*)\})?\s*(.*)$/)) && section) {   // ![token]{dont nostrike zoom=1.2} caption  (] 와 { 사이 공백 허용)
+    if ((m = line.match(/^!\[([^\]]+)\]\s*((?:\{[^}]*\}\s*)*)(.*)$/)) && section) {   // ![token]{dont nostrike zoom=1.2} caption  (] 와 { 사이 공백 허용, {zoom=1.5} {dont} 처럼 묶음을 나눠 써도 모두 합침)
       const token = m[1].trim();
       const name = token.split('/').pop()!.trim();
       const item: ImageItem = { kind: 'image', token, name, path: '', src: null };   // path·src 는 페이지를 다 읽은 뒤 확정
-      const flags = (m[2] ?? '').trim().split(/\s+/).filter(Boolean);
+      const flags = [...m[2].matchAll(/\{([^}]*)\}/g)].map(g => g[1]).join(' ').trim().split(/\s+/).filter(Boolean);
       if (flags.includes('do')) item.badge = 'do';
       if (flags.includes('dont')) item.badge = 'dont';
       if (flags.includes('con')) item.badge = 'con';                   // 조건부(conditional): 삼각형, 대각선 없음
