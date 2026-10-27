@@ -329,7 +329,7 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 심볼과 "EO Studio" 텍스트가 결합된 콤비네이션 로고를 이하 **회사 시그니처**, 심볼과 각 서비스명이 결합된 콤비네이션 로고는 **서비스 시그니처**라고 부릅니다.
 
 계약서 · 제안서 · 공식 문서 · 채용 공고 · 웹사이트 푸터 등 회사가 전면에 나서는 자리에는 회사 시그니처를, 서비스 별 브랜드 커뮤니케이션에는 각 서비스 시그니처의 사용을 우선합니다. 그 밖에 영상 · 썸네일 · 소셜 게시물 · 포스터 · 콘텐츠 사인오프 등 미디어 브랜드 EO를 알려야하는 모든 자리에는 EO 심볼의 사용을 우선합니다.
-![overview]
+![overview]{zoom=1.2}
 
 
 ### Signature
@@ -349,7 +349,7 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 #### + Clearspace {layout=grid-2}
 시그니처 주변에도 EO 심볼과 같은 기준의 여백이 필요합니다. E 블록 하나의 수직 방향 높이를 H라 할 때, 시그니처 전체를 감싸는 상하좌우 각 H/2 이상의 최소 여백을 확보합니다.
 ![clearspace-v]
-![clearspace-h]
+![clearspace-h] {zoom=1.5}
 
 
 ### Signature
@@ -362,7 +362,7 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 - **10mm(50px, 1/50) 이상에서는 세로형 시그니처만 사용합니다.** 이 크기부터 세로형의 디스크립터(캡 높이 약 2.4mm)가 또렷이 읽히기 때문입니다. 권장 최대 크기는 심볼 높이 15mm(70px, 1/40), 최대는 심볼 높이 30mm(135px, 1/20)입니다.
 - 심볼의 최소 크기 제한과 마찬가지로, 4mm 미만(20px, 1/125)에서는 시그니처도 쓰지 않습니다.
 ![scalability]
-![scalability-dont-1]{dont} 디스크립터를 읽기 어려울만큼 작은 크기로 세로형 시그니처를 쓰지 마세요
+![scalability-dont-1]{zoom=1.9}{dont} 디스크립터를 읽기 어려울만큼 작은 크기로 세로형 시그니처를 쓰지 마세요
 ![scalability-dont-2]{dont} 심볼 높이 8mm(40px, 1/50)보다 큰 크기로 가로형 시그니처를 쓰지 마세요
 
 
@@ -391,7 +391,7 @@ EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힐 수 
 ![service-v-studio] EO Studio · 회사
 ![service-v-magazine] EO Magazine · 웹 매거진
 ![service-v-planet] EO Planet · 커뮤니티 (eopla.net)
-![service-v-ventures] EO Ventures
+![service-v-ventures] EO Ventures · 벤처 투자
 
 
 ### Service Signature
@@ -400,7 +400,7 @@ EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힐 수 
 ![service-h-studio] EO Studio · 회사
 ![service-h-magazine] EO Magazine · 웹 매거진
 ![service-h-planet] EO Planet · 커뮤니티 (eopla.net)
-![service-h-ventures] EO Ventures
+![service-h-ventures] EO Ventures · 벤처 투자
 
 
 ### + Usage {layout=grid-2}
@@ -417,7 +417,7 @@ EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힐 수 
 
 
 ### Signature
-#### + Color {layout=grid-2}
+#### + Color {layout=grid-2} {zoom=1.03}
 시그니처는 EO 심볼의 여섯 가지 컬러 페어링 중 네 가지를 사용합니다. 심볼과 글자는 항상 같은 한 가지 컬러로 통일합니다.
 ![color-1] 1. Air White on Solid Gray
 ![color-2] 2. Air White on Space Black
