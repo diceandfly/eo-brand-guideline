@@ -413,11 +413,11 @@ EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힐 수 
 
 ### Signature
 #### + Color {layout=grid-2}
-시그니처는 EO 심볼의 여섯 가지 컬러 페어링 중 네 가지를 사용합니다. 심볼과 글자는 항상 같은 한 가지 컬러로 통일합니다.
-![color-1] {zoom=1.6} 1. Air White on Solid Gray 
+시그니처는 EO 심볼의 여섯 가지 컬러 페어링 중 네 가지를 사용합니다. **심볼과 글자는 항상 같은 컬러로 통일**합니다.
+![color-1] {zoom=1.85} 1. Space Black on Builder Neon
 ![color-2] {zoom=1.6} 2. Air White on Space Black
-![color-3] {zoom=1.85} 3. Space Black on Builder Neon
-![color-4] {zoom=1.85} 4. Space Black on Air White
+![color-3] {zoom=1.85} 3. Space Black on Air White
+![color-4] {zoom=1.6} 4. Air White on Solid Gray 
 
 
 ### Signature
