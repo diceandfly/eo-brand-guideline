@@ -165,14 +165,14 @@ EO · the EO monogram · the block symbol · "Build Anyway" · "Entrepreneur Onw
 ### Logo
 #### + Overview 
 The EO logo is the umbrella term for everything covered in this chapter: the EO symbol · EO signature · service signatures · EO sub symbol. This page explains how to apply the EO symbol across situations · formats · communications, from small sign-offs to large display executions.
-![hero]{zoom=1.2}
+![hero] {zoom=1.2}
 
 
 ### Symbol
 A graphic metaphor whose screw motif makes it identifiable, and a monogram holding the two letters E and O. This form of the logo is referred to below as the **EO symbol**.
 
 The EO symbol is the most iconic and effective way to signal the media brand EO.
-![symbol]{zoom=1.3}
+![symbol ]{zoom=1.5}
 
 
 ### Symbol
@@ -182,7 +182,7 @@ The **EO symbol** is designed on the motif of the three elements of a screw: the
 - **thread** — one turn of thread symbolizes a cycle of problem solving.
 - **shaft** — the shaft symbolizes the process of building and the builder's journey, and expresses the courage to move forward (Build anyway).
 - **head** — the head symbolizes one small act of problem solving, or one builder.
-![motif]
+![motif] {zoom=1.12}
 
 
 ### Symbol
@@ -201,20 +201,11 @@ Clearspace is the minimum safeguard that protects the symbol when it sits next t
 #### + Scalability
 The EO symbol is designed and tested to work across a range of sizes.
 
-The **optimal range** is a height of 40-100px (approx. 8-20mm) on a 16-inch Mac display viewed from 500mm. Converted to viewing distance, that is 1/60-1/25 of the distance; in other media, size the symbol by this ratio. The optical correction of the thread angles is also tuned to this range.
-
-The **minimum size** is a height of 20px on screen (approx. 4mm, 1/125 of the viewing distance) and 5mm in print. Below this the threads of the E block fill in, so ask the EO design team to check.
+- The **optimal range** is a height of 40-100px (approx. 8-20mm) on a 16-inch Mac display viewed from 500mm. Converted to viewing distance, that is 1/60-1/25 of the distance; in other media, size the symbol by this ratio. The optical correction of the thread angles is also tuned to this range.
+- The **recommended maximum size** is a height of 70px (approx. 15mm, 1/40 of the viewing distance). In a typical layout, we recommend not exceeding this size.
+- The **minimum size** is a height of 20px on screen (approx. 4mm, 1/125 of the viewing distance) and 5mm in print. Below this the threads of the E block fill in, so ask the EO design team to check.
+- The **maximum size** is a height of 135px (approx. 30mm, 1/20 of the viewing distance). Any larger and the symbol reads as a surface rather than a graphic, so when you need a greater presence, use a graphic pattern instead of the symbol.
 ![scalability]
-
-
-### Symbol
-#### + Inversion 
-The EO symbol is built primarily as a light symbol in Builder Neon · Air White on a dark background such as Space Black · Solid Gray. When you want a dark symbol on a light background, simply inverting the colors creates an optical illusion: the symbol's shape looks smaller and its gaps look wider.
-
-In this case, offset the outline of the light symbol outward by H/100, then scale each of the two blocks up proportionally by H/30 in all four directions. Then reduce the gap between the two expanded blocks from the original (4/30)H to (3/30)H to complete the dark symbol. This converts a light symbol anywhere on the size spectrum into a dark symbol of the same level.
-
-Also, because clearspace on a light background creates the illusion of looking larger, center the dark symbol as is within the clearspace area of the light symbol of the same level.
-![inversion]
 
 
 ### + Usage
@@ -231,7 +222,7 @@ When using the symbol for display purposes, **avoid raising its visual hierarchy
 ![usage-do-1]{do} Size the symbol at around 10-20% of the empty area it is placed in
 ![usage-do-2]{do} Leave generous space around the symbol so it has enough presence even at a moderate size
 ![usage-dont-1]{dont} Don't fill the empty space with the symbol
-![usage-dont-2]{dont} Don't butt the symbol against other elements without space
+![usage-dont-2]{dont} Don't place the symbol where there is not enough space around it
 
 
 ### Symbol
@@ -242,7 +233,17 @@ The EO symbol has six basic color pairings. **The symbol must always be rendered
 ![color-3] 3. Air White on Solid Gray
 ![color-4] 4. Space Black on Air White
 ![color-5] 5. Builder Neon on Space Black
-![color-6] 6. Space Black on Solid Gray
+![color-6] 6. Builder Neon on Solid Gray
+
+
+### Symbol
+#### + Inversion 
+The EO symbol is built primarily as a light symbol in light colors such as Builder Neon · Air White on a dark background such as Space Black · Solid Gray. When you want a dark symbol on a light background, simply inverting the colors creates an optical illusion: the symbol's shape looks smaller and its gaps look wider.
+
+In this case, offset the outline of the light symbol outward by H/100, then scale each of the two blocks up proportionally by H/30 in all four directions. Then reduce the gap between the two expanded blocks from the original (4/30)H to (3/30)H to complete the dark symbol. This converts a light symbol anywhere on the size spectrum into a dark symbol of the same level.
+
+Also, because clearspace on a light background creates the illusion of looking larger, center the dark symbol as is within the clearspace area of the light symbol of the same level.
+![inversion]
 
 
 ### + Over Imagery {layout=grid-2}
@@ -300,19 +301,17 @@ The following image is an example of the EO symbol used as an app icon.
 ![icon-in-use]
 
 
-### Symbol {layout=grid-3}
+### Symbol {layout=grid-3} {zoom=1.8}
 #### + Don'ts
 To keep the EO symbol consistent and impactful, it must not be reinterpreted, modified, or embellished. This page shows examples of modifications to avoid. When the company name needs to appear, use the EO signature instead of the symbol. When a sub-brand needs to be identified, create a service signature in consultation with the EO design team.
-
-
 ![dont-1]{dont} Don't stretch or distort the symbol
 ![dont-2]{dont} Don't rotate the symbol
 ![dont-3]{dont} Don't outline the symbol
-![dont-4]{dont} Don't use colors other than Space Black, or a black outline, on a light background
+![dont-4]{dont} Don't use a black outline on a light background
 ![dont-5]{dont} Don't use a state where the E's thread count, the O's angle, or the block spacing has changed (such as a logo animation capture)
 ![dont-6]{dont} Don't apply visual effects such as glows, shadows, or gradients to the symbol
 ![dont-7]{dont} Don't apply a size so large that it takes up most of the space it is placed in
-![dont-8]{dont} Don't create graphics by joining or simply repeating the symbol
+![dont-8]{zoom=1.55} {dont} Don't create graphics by joining or simply repeating the symbol
 ![dont-9]{dont} Don't add arbitrary context around the symbol without the EO design team's permission
 
 
@@ -325,16 +324,16 @@ The **signature** is a combination logo that groups the EO symbol with the text 
 The combination logo of the symbol and the text "EO Studio" is referred to below as the **company signature**, and the combination logo of the symbol and each service name as the **service signature**.
 
 Where the company comes to the front, such as contracts · proposals · official documents · job postings · website footers, prefer the company signature; in brand communication for each service, prefer that service's signature. Everywhere else the media brand EO needs to be signaled, such as videos · thumbnails · social posts · posters · content sign-offs, prefer the EO symbol.
-![overview]
+![overview]{zoom=1.2}
 
 
 ### Signature
-#### + Descriptor {layout=wide}
-The text part of the signature, excluding the symbol, is called the **descriptor**. Whatever the word, company name · service name · domain, it follows the specification below as is.
+#### + Descriptor {layout=grid-2}
+The text part of the signature, excluding the symbol, is called the **descriptor**. Whatever the word, company name · service name · domain, it follows the specification below as is. The height (H) and width (W) of one E block of the symbol are the basis for every size setting.
 
-- **Vertical:** the descriptor is set in Founders Grotesk Regular at a type size of (7/15)H with 0 tracking. Place the top of the cap box H/5 below the bottom edge of the symbol, center it on the symbol, then correct it to the left by H/100. This is because the E block of the EO symbol has a higher gray level, so the visual center sits to the left.
-- **Horizontal:** the descriptor is set in Founders Grotesk Regular at a type size of (5/4)H with 0 tracking, and only the space characters between words get a separate -6% tracking. Place the left edge of the cap box H/2 from the right edge of the symbol, and raise the baseline H/10 above the bottom edge of the symbol.
-- When the first or last letter of the descriptor is a glyph with a curved side, such as S · o, keep the text left-aligned on its baseline and temporarily swap the letter for a capital H (or lowercase h) to set the boundary. For example, "Studio" takes its left boundary from "Htudio" and its right boundary from "Studih".
+- **Vertical** — the descriptor is set in Founders Grotesk Regular at a type size of 0.46H with 0 tracking. Place the top of the cap box H/5 below the bottom edge of the symbol, center it on the symbol, then correct it to the left by H/100. This is because the E block of the EO symbol has a higher gray level, so the visual center sits to the left.
+- **Horizontal** — the descriptor is set in Founders Grotesk Regular at a type size of 1.3H with 0 tracking, and only the space characters between words get a separate -6% tracking. Place the left edge of the cap box W/2 from the right edge of the symbol, and raise the baseline H/10 above the bottom edge of the symbol.
+- When the first or last letter of the descriptor is a glyph with a curved side, such as S · o, keep the text left-aligned on its baseline and temporarily swap the letter for a capital H (or lowercase h) to set the boundary of the cap box. For example, "Studio" takes its left boundary from "Htudio" and its right boundary from "Studih".
 
 Creating a new descriptor or changing an existing one always requires confirmation from the EO design team. Temporary names such as campaign or event names are not used as descriptors.
 ![descriptor-v]
@@ -342,53 +341,46 @@ Creating a new descriptor or changing an existing one always requires confirmati
 
 
 ### Signature
-#### + Clearspace
+#### + Clearspace {layout=grid-2}
 The signature also needs margin on the same basis as the EO symbol. Taking the vertical height of one E block as H, keep a minimum margin of at least H/2 on every side around the whole signature.
-![clearspace]
+![clearspace-v]
+![clearspace-h] {zoom=1.6}
 
 
 ### Signature
-#### + Scalability {layout=wide}
-The smaller the signature is seen, the more the symbol and descriptor read as one mass; the larger, the more each letter of the descriptor stands out. Choose the most suitable form of the signature with the size actually seen on the page in mind.
+#### + Scalability 
+The sizes on this page are written, as on the Symbol page, as the symbol height when a 16-inch Mac display (approx. 5px/mm) is viewed from 500mm. In other media, convert using the ratio in parentheses (symbol height relative to viewing distance).
 
-- **When the visible size is relatively large, prefer the vertical form.** The vertical form's strong size contrast between symbol and descriptor gives a crisp impression, but at very small sizes the descriptor loses legibility.
-- **When the visible size is relatively small, prefer the horizontal form.** The horizontal form keeps the symbol and descriptor evenly visible even at small sizes, but at very large sizes the two elements scatter horizontally and the visual rhythm weakens.
+The smaller the signature is seen, the more the symbol and descriptor read as one mass; the larger, the more each letter of the descriptor stands out. The form therefore depends on the visible size, and the boundary is a symbol height of 10mm (50px, 1/50).
+
+- **At 4-10mm (20-50px), use only the horizontal signature.** The horizontal form keeps the symbol and descriptor evenly visible even at small sizes. Above 6mm (30px, 1/80), the space between the words of "EO Studio" becomes noticeable and it can appear to split into three masses: symbol · EO · Studio. Within the 4-6mm size range, consider using the "Studio" version.
+- **At 10mm (50px, 1/50) and above, use only the vertical signature.** From this size the vertical form's descriptor (cap height approx. 2.4mm) reads crisply. The recommended maximum is a symbol height of 15mm (70px, 1/40), and the maximum is a symbol height of 30mm (135px, 1/20).
+- As with the symbol's minimum size limit, the signature is not used below 4mm (20px, 1/125) either.
 ![scalability]
-
-
-### Signature
-#### + Inversion {layout=grid-2}
-Like the symbol, the signature is built primarily as a light signature in bright colors such as Builder Neon · Air White on dark backgrounds such as Space Black · Solid Gray. When you want a dark signature on a light background and simply invert the colors, the symbol looks thin and spread apart, and the descriptor's letters look one step lighter even at the same weight.
-
-In this case, use the dark symbol converted by the Inversion rule of the Symbol page as is. For the descriptor, do not change the weight (raising it to Medium changes the letter widths and breaks the cap box specification); instead give the Regular letters an outward outline offset of S/250, where S is the type size. For the horizontal form set at (5/4)H that is H/200, and for the vertical form set at (7/15)H about H/540. This keeps the gray level balance between symbol and descriptor the same as the light signature, even on a light background.
-
-The layout of the dark signature stays the same as the light signature's. Keep the descriptor's cap box position and its distance from the symbol at the values set against the light symbol's boundary, and center the dark symbol in that spot. Because the dark symbol has grown in four directions, the gap between symbol and descriptor shrinks a little; this is the same correction as reducing the gap between the two blocks, so do not widen it again. Clearspace likewise uses the area of the light signature of the same level as is.
-![inversion-v] Vertical — dark signature overlaid on the light signature for comparison
-![inversion-h] Horizontal — dark signature overlaid on the light signature for comparison
 
 
 ### + Company Signature
 #### Vertical
 
-Company signature-V is the vertical combination placing "EO Studio" centered beneath the EO symbol. Its construction follows the vertical specification of the Descriptor System below.
+Company signature-V is the vertical combination placing "EO Studio" centered beneath the EO symbol. Its construction follows the vertical specification of the Descriptor section above.
 
 Unless there is a specific reason, do not re-set the text of company signature-V; use the original files provided.
-![company-v]
+![company-v] {zoom=1.5}
 
 
 ### Company Signature
 #### Horizontal
-Company signature-H is the horizontal combination placing "Studio" or "EO Studio" to the right of the EO symbol. Its construction follows the horizontal specification of the Descriptor System below.
+Company signature-H is the horizontal combination placing "EO Studio" to the right of the EO symbol. Its construction follows the horizontal specification of the Descriptor section above.
 
 For anyone who has encountered EO at least once, the EO symbol may already read as "EO", so consider marking only "Studio" in the descriptor when using the horizontal form.
 
 Unless there is a specific reason, do not re-set the text of company signature-H; use the original files provided.
-![company-h]
+![company-h] {zoom=1.85}
 
 
 ### + Service Signature
-#### Vertical {layout=grid-4}
-The company signature and service signatures currently in use. All are built to the same descriptor specification; check that they read as one family even though the names differ.
+#### Vertical {layout=grid-4} {zoom=2.7}
+Examples of the vertical service signatures. All are built to the same descriptor specification; check that they read as one family even though the names differ.
 ![service-v-studio] EO Studio · company
 ![service-v-magazine] EO Magazine · web magazine
 ![service-v-planet] EO Planet · community (eopla.net)
@@ -396,8 +388,8 @@ The company signature and service signatures currently in use. All are built to 
 
 
 ### Service Signature
-#### Horizontal {layout=grid-4}
-The company signature and service signatures currently in use. All are built to the same descriptor specification; check that they read as one family even though the names differ.
+#### Horizontal {layout=grid-4} {zoom=2.9}
+Examples of the horizontal service signatures. All are built to the same descriptor specification; check that they read as one family even though the names differ.
 ![service-h-studio] EO Studio · company
 ![service-h-magazine] EO Magazine · web magazine
 ![service-h-planet] EO Planet · community (eopla.net)
@@ -418,17 +410,37 @@ If the call is difficult, first check whether that piece really needs the compan
 
 
 ### Signature
-#### + Color {layout=grid-3}
-The signature uses the same six color pairings as the EO symbol. The symbol and the letters are always rendered in the same single color.
-![color-1] 1. Builder Neon on Space Black
-![color-2] 2. Space Black on Builder Neon
-![color-3] 3. Air White on Space Black
-![color-4] 4. Space Black on Air White
-![color-5] 5. Air White on Solid Gray
-![color-6] 6. Space Black on Color
+#### + Color {layout=grid-2}
+The signature uses four of the EO symbol's six color pairings. **The symbol and the letters are always unified in the same color**.
+![color-1] {zoom=1.85} 1. Space Black on Builder Neon
+![color-2] {zoom=1.5} 2. Air White on Space Black
+![color-3] {zoom=1.85} 3. Space Black on Air White
+![color-4] {zoom=1.5} 4. Air White on Solid Gray
+
+
+### Signature
+#### + Inversion {layout=grid-2}
+Like the symbol, the signature is built primarily as a light signature in bright colors such as Builder Neon · Air White on dark backgrounds such as Space Black · Solid Gray. When you want a dark signature on a light background and simply invert the colors, the symbol looks thin and spread apart, and the descriptor's letters look one step lighter even at the same weight.
+
+- **Vertical** — convert the light symbol by the [[symbol#inversion]] rule and center it on both x · y where the light symbol was. Align the descriptor as is to the top edge of the light signature's descriptor cap box and center the text. Keep the weight Regular and invert only the color, then set the type size to 0.48H · tracking to -1% and give an outward outline offset of H/200 to finish.
+- **Horizontal** — take the left edges of the light signature's symbol and descriptor cap box as the x-alignment reference lines for each element. Convert the light symbol by the [[symbol#inversion]] rule, align it on x to the symbol's reference line, and center it on y where the light symbol was. Left-align the descriptor to its reference line and leave the baseline in its original position. Keep the weight Regular and invert only the color, then set the type size to 1.35H · tracking to -1% and give an outward outline offset of H/200 to finish.
+
+This keeps the gray level balance between symbol and descriptor the same as the light signature, even on a light background. Clearspace likewise uses the area of the light signature of the same level as is, centered on x · y.
+![inversion-v] Vertical — dark signature overlaid on the light signature for comparison
+![inversion-h] Horizontal — dark signature overlaid on the light signature for comparison
 
 
 ### + Partner Lockup
+#### Vertical
+The EO signature can also be locked up vertically with partner brands' and collaborators' logos. On the right is an example of the basic vertical lockup construction.
+
+The elements must be optically adjusted so that they appear the same size. Once each logo is sized, you can add space and a dividing line between them. Make the space equal to the height of the EO signature (H), and place the dividing line horizontally at its center.
+
+Make sure the logos are always optically centered.
+![partner-v] {zoom=1.3}
+
+
+### Partner Lockup
 #### Horizontal
 The EO signature can be locked up with partner brands' and collaborators' logos. The images in this section are examples of the basic lockup construction.
 
@@ -436,36 +448,19 @@ The elements must be optically adjusted so that they appear the same size. Once 
 ![partner-h]
 
 
-### Partner Lockup
-#### Vertical
-The EO signature can also be locked up vertically with partner brands' and collaborators' logos. On the right is an example of the basic vertical lockup construction.
-
-The elements must be optically adjusted so that they appear the same size. Once each logo is sized, you can add space and a dividing line between them. Make the space equal to the height of the EO signature (H), and place the dividing line horizontally at its center.
-
-Make sure the logos are always optically centered.
-![partner-v]
-
-
-### Partner Lockup
-#### Optical Adjustment
-Because the signature is a wide horizontal form, a partner logo matched to the same height easily looks relatively small and light. Adjust the partner logo's size so that the visual weights, not the heights, are similar.
-![partner-optical]
-
-
 ### Signature {layout=grid-3}
 #### + Don'ts
-The signature is a single combination with a fixed relationship between symbol and letters. Do not change or re-create its components separately.
-![dont-1]{dont} Don't use the vertical signature at small sizes
-![dont-2]{dont} Don't use the horizontal signature at large sizes
+The signature is a single combination with a fixed relationship between symbol and descriptor. Do not change or re-create its components separately.
+![dont-1]{zoom=1.9}{dont} Don't use the vertical signature at a size so small that the descriptor is hard to read
+![dont-2]{dont} Don't use the horizontal signature at a size larger than a symbol height of 10mm (50px, 1/50)
 ![dont-3]{dont} Don't set EO Studio in a different typeface
-![dont-4]{dont} Don't change the spacing or size ratio between the symbol and the letters
-![dont-5]{dont} Don't move the letters to the left of the symbol or to another position
-![dont-6]{dont} Don't use the EO Studio letters on their own
+![dont-5]{dont} Don't modify the descriptor in any way other than as directed in these guidelines
+![dont-6]{dont} Don't use the EO Studio letters on their own like a logo
 ![dont-7]{dont} Don't combine the sub symbol with the letters
 ![dont-8]{dont} Don't color the symbol and the letters differently
 ![dont-9]{dont} Don't stretch or distort the signature
 ![dont-10]{dont} Don't apply glows · shadows · gradients
-![dont-11]{dont} Don't use it as a sign-off for media content
+![dont-11]{dont} Don't place it over a busy image where legibility suffers
 
 
 
@@ -493,8 +488,14 @@ The sub symbol uses color pairings 1 and 2 of the EO symbol. Always render it in
 
 ### + Favicon
 #### Alignment
-In app icons and social avatars, the sub symbol sits inside a square or circular container. Optically align the sub symbol to the center of the container, and fine-tune its position so that the side where the thread protrudes does not make it look off-center. In a circular container, set it slightly smaller than in a square so it does not touch the edge.
+Place the sub symbol inside square containers of the smallest formats, such as favicons. Align the sub symbol to the center of the container, using its clearspace as the reference.
 ![alignment]
+
+
+### Favicon
+#### In Use
+Examples of the EO sub symbol in actual use.
+![in-use]
 
 
 ### Sub Symbol {layout=grid-3}
@@ -515,7 +516,7 @@ The sub symbol is part of the EO symbol, so it follows the same principles as th
 
 ## Typography
 
-### Our Typefaces
+### Brand Typefaces
 EO's typeface is the Founders Grotesk family. Founders Grotesk is used for headlines and body copy, and Founders Grotesk Mono for informational text (labels · tags · dates · specs).
 
 Founders Grotesk is clear without ornament, and thanks to its wide proportions and low contrast it reads like solid blocks at large sizes. This character carries EO's voice of "clear, open confidence" directly. The Mono is the typeface of information, recalling a builder's terminal and spec sheet.
@@ -729,13 +730,13 @@ For Vietnamese and other languages not supported by Founders Grotesk or Pretenda
 
 ### Primary Color
 #### Builder Neon
-Builder Neon is the sole hero of the EO palette and the brand's best-known element, communicating "EO" even without the logo. Creating dramatic contrast against a black sky, this yellow symbolizes the window of a hacker house lit all night, the optimism of the builder. It is strongest when concentrated in one place within a composition rather than spread over wide areas.
+Builder Neon symbolizes the window of a hacker house whose lights never go out all night, and the optimism of the builder making something inside. By night it is the signal that stays lit even in the builder's loneliest hours; by day it is the first mark to catch the eye against San Francisco's blue sky.
 ![builder-neon]
 
 
 ### Secondary Colors
 #### Day Blue & Bay Green
-Day Blue and Bay Green are cool-toned colors taken from San Francisco's blue sky, its crisp air, and the nature within it. As complements to Builder Neon they make it even more vivid, and they are used to distinguish series and channels.
+Day Blue and Bay Green are cool-toned colors taken from the nature of the Bay Area. Day Blue is inspired by the crisp air of San Francisco, and Bay Green by the greenery of the chaparral hills that run along the coastal ridges. The two colors are used as supporting elements that make their complement, Builder Neon, even more vivid.
 ![builder-blue-green]
 
 ### Color
@@ -752,14 +753,13 @@ Each color is provided as HEX · RGB for screen and CMYK · Pantone for print, s
 [swatch] Air White | #FCFBF5 | R252 G251 B245 | C1 M2 Y2 K0 or raw paper
 
 
-### Color {layout=wide}
-#### Usage
+### Color
+#### Usage Ratio
 
-We rely heavily on a Space Black ground, Air White text, and Builder Neon graphics. By area, the reference ratio is 70 black, 20 neon, 10 white. In contexts already recognized as "EO", such as social channels or series artwork, Day Blue · Bay Green can be used more often as series colors.
+The background defaults to Solid Gray or Space Black, and in media that can use photography, the San Francisco sky itself becomes the background. The recommended ratio for the graphic elements placed on the background is Builder Neon 50%, Day Blue · Bay Green 30%, Medium Gray 20%. Text is Air White or Space Black and takes up around 10% of the whole composition. In text-centered media the share of the background grows; in pattern-centered media the share of Builder Neon grows. In contexts sufficiently recognized as the EO brand, such as social channels or series artwork, Day Blue · Bay Green can be used more widely than the recommended ratio.
 
-For specific color usage per asset, see the relevant section of each page.
+For detailed application criteria per asset, see the color section of each page.
 
-- Text color defaults to Air White or Space Black.
 - Logo
   - For symbol color usage, see [[symbol#color]].
   - For signature color usage, see [[signature#color]].
@@ -768,17 +768,6 @@ For specific color usage per asset, see the relevant section of each page.
   - For graphic unit color usage, see [[graphic-unit#color]].
   - For pattern color usage, see [[graphic-pattern#color]].
 ![usage]
-
-
-### Color {layout=grid-3}
-#### In Use
-Examples of the EO palette in actual use.
-![in-use-1] Poster
-![in-use-2] Billboard
-![in-use-3] Web Magazine
-![in-use-4] T-shirt
-![in-use-5] Hang Tag
-![in-use-6] Sticker Pack
 
 
 ### Color {layout=grid-3}
@@ -829,12 +818,13 @@ The **EO graphic unit** (hereafter the unit) is the smallest element of the grap
 
 ### Graphic Unit
 #### + Color {layout=grid-2} {ratio=16:9} {zoom=1.042}
-Only one color is ever applied to a unit. Color expresses who is the hero in the graphic, what is the environment, and where a state changes. Color can carry a broader, shallower context than the unit's form or layout, even an abstract supporting one. The contexts readable through [[graphic-pattern#references|the library of 30 patterns]] fall into four strands, and the entries in Vocabulary below assume these roles. Combination rules for ground and unit follow [[graphic-pattern#color]].
+Color expresses who is the hero in the graphic, what is the environment, and where a state changes, and is used as a supporting means that complements the nuance of Vocabulary. The contexts readable through [[graphic-pattern#references|the library of 30 patterns]] fall into four strands, and the entries in Vocabulary below assume these roles. For more specific combination rules, see [[graphic-pattern#color]].
 
+Only one color is ever applied to a unit.
 - Builder Neon — the main color with the highest hierarchy, expressing the nuance of builder · hero · focus · highlighting. Most ideal when its area is around 10-40% of the whole canvas.
 - Air White — a neutral color with high hierarchy but no identity, expressing the nuance of energy · the counterpart · semi-highlighting. Most ideal when its area is around 10-40% of the whole canvas.
 - Day Blue — a builder of a different character · community · surrounding elements. Emphasizes the nuance of positive energy · optimism that comes from a blue sky.
-- Bay Green — a builder of a different character · community · surrounding elements. Emphasizes the nuance of softness · friendliness that comes from the greenery of chaparral hills. (team, teamwork, co-working, diversity, nature)
+- Bay Green — a builder of a different character · community · surrounding elements. Emphasizes the nuance of softness · friendliness that comes from the greenery of California's chaparral hills. (team, teamwork, co-working, diversity, nature)
 - Medium Gray — expresses the nuance of mechanical neutrality: inactive · the other · indifference · conservatism.
 - Space Black — used in limited cases where visual impact comes first, in a fixed combination on a Builder Neon ground, expressing dominance.
 - Solid Gray is not used as a unit color.
@@ -854,7 +844,7 @@ This section mainly explains keyword expression; for guidance on graphic visibil
 
 
 ### Vocabulary
-#### Thread {layout=grid-3} {zoom=1.1}
+#### Thread {layout=grid-3} {zoom=1.15}
 A thread is one turn of a screw thread and means one act of problem solving. Within a unit, how dense the threads are · which side they lean toward · how long they run expresses the character of that time. Keywords expressed with thread are Adversity · Acceleration · Lightning · Builder.
 
 - **Adversity** — a time of difficulty, the resistance of the environment. Expressed by laying the unit horizontally. The denser the thread, the greater the difficulty; which side is denser expresses whether the crisis is at the start or the end.
@@ -868,7 +858,7 @@ A thread is one turn of a screw thread and means one act of problem solving. Wit
 
 
 ### Vocabulary
-#### Shaft {layout=grid-3} {zoom=1.08}
+#### Shaft {layout=grid-3} {zoom=1.15}
 The shaft is the axis of the screw and symbolizes the timeline of the building process; shaft size expresses how strong the core attribute of that process is. Keywords expressed with shaft are Growth · Diversity · Backing.
 
 - **Growth** — conviction · magnitude of force. Expressed by three or more shafts thickening step by step.
@@ -876,30 +866,30 @@ The shaft is the axis of the screw and symbolizes the timeline of the building p
 - **Backing** — the side that supports (Backing) or receives the weight. Put threads on one side only and that side's shaft becomes the floor with the threads standing on it; the taller the threads and the steeper their slope, the more dramatic the expression.
 - Apply Builder Neon to the unit representing EO or the hero.
 ![shaft-growth] Growth — shaft thickening step by step
-![shaft-diversity] Diversity — several units with different shaft sizes side by side in random order
-![shaft-support] Backing — expressed through the relationship of two single threads
+![shaft-diversity] Diversity — several units, each with a different shaft size, side by side in random order
+![shaft-support] Backing — expressed through the relationship between two threads of different shaft size
 
 
 ### Vocabulary
 #### Pair {layout=grid-3} {zoom=1.1}
 Connecting two units creates a new relationship. Whether they combine horizontally · vertically, and whether they face the same · opposite directions, expresses a different context. Keywords expressed with pair are Journey · Momentum · Pulse · Peers · Rivals · House.
 
-- **Journey** — the length of time, a recurring process. Expressed by point-reflecting two units and docking them at their dense-thread ends. It expresses one chapter ending and the next continuing; repeated, it becomes a routine · cycle. Apply the same color to a docked unit pair.
+- **Journey** — the length of time, a recurring process. Expressed by matching the compression direction of two horizontal units and docking them. It expresses one chapter ending and the next continuing; repeated, it becomes a routine · cycle. Apply the same color to a docked unit pair.
 - **Momentum** — the moment acceleration crosses a threshold and direction changes. Expressed by point-reflecting two horizontal units and docking them. Meeting as `<>` is the moment force gathers; meeting as `><` is the moment it bursts out. In both states, adjust compression so the eye gathers at the center.
-- **Pulse** — pulse · frequency · a signal spreading out. Expressed by docking two lightning units in the same compression direction. The thinner the shaft and the stronger the compression, the more easily it looks like a wave.
+- **Pulse** — pulse · frequency · a signal spreading out. Expressed by mirror-reflecting two lightning units and joining them at their wide-thread ends.
 - **Peers** — two figures standing together. Expressed by standing two vertical units side by side facing the same direction. Apply Builder Neon to the unit representing EO or the hero, and a different color that fittingly expresses its character to the peer unit.
-- **Rivals** — opposition · competition. Expressed by standing two vertical units side by side facing inward. Apply Builder Neon to the unit representing EO or the hero, and Air White · Medium Gray to the rival unit.
+- **Rivals** — opposition · competition. Expressed by standing two vertical units side by side facing each other. Apply Builder Neon to the unit representing EO or the hero, and Air White · Medium Gray to the rival unit.
 - **House** — shelter · community · EO House. Expressed by standing two vertical units side by side facing outward, making the silhouette into a roof. To express EO House, apply Builder Neon to both units, or Builder Neon to the left unit and Day Blue to the right.
-![pair-journey] {zoom=1.12} Journey · routine — docked in the same direction
-![pair-momentum] {zoom=1.12} Momentum — two states docked after point reflection (<> gathering · >< bursting)
-![pair-pulse] {zoom=1.12} Pulse — two lightning units docked in point symmetry · mirror symmetry
-![pair-peers] Peers — two vertical, same direction
-![pair-rivals] Rivals — two vertical, facing each other
-![pair-house] House — roof silhouette (EO House)
+![pair-journey] Journey · routine — docked in the same direction
+![pair-momentum] Momentum — two states docked after point reflection
+![pair-pulse] Pulse — two lightning units docked in point symmetry · mirror symmetry
+![pair-peers] {zoom=1.36} Peers — two vertical, same direction
+![pair-rivals] {zoom=1.36} Rivals — two vertical, facing each other
+![pair-house] {zoom=1.15} House — roof silhouette (EO House)
 
 
 ### Vocabulary
-#### Formation {layout=grid-3} {zoom=1.09}
+#### Formation {layout=grid-3} {zoom=1.12}
 The metaphors so far can be arrayed and extended in quantity to express the relationship · space · world · dimension a metaphor belongs to. Keywords expressed with formation are Scale · Dimension · Direction · Radiation · Crossing.
 
 - **Scale** — multiple individuals · processes · states. Refers to repeating an existing metaphor. Consider using color even more actively; for instance, one Builder Neon among many Medium Gray is the hero among them.
@@ -915,12 +905,12 @@ The metaphors so far can be arrayed and extended in quantity to express the rela
 
 
 ### + Morphology
-Any form of unit can be made simply with a few parameters, but a good-looking unit comes from proportion and rhythm, not absolute values.
+Any unit can be made simply with a few parameters, but a good-looking unit comes from proportion and rhythm, not absolute values.
 
-- [[graphic-unit#vocabulary|Vocabulary]] covers what units and pairs mean: meaning and metaphor.
-- [[graphic-unit#morphology|Morphology]] covers how a unit should look to be ideal even when the meaning is the same: the proportion and rhythm of a single unit.
+- [[graphic-unit#vocabulary|Vocabulary]] covers the meaning and metaphor that units and pairs carry.
+- [[graphic-unit#morphology|Morphology]] covers how a word with the same meaning should look to be ideal: the proportion and rhythm of a single unit.
 
-This section provides a checklist for a visually ideal unit and recommended parameter ranges for each item. These are not absolute criteria, so decide the actual parameter values by the designer's aesthetic judgment. This section is the morphology of a single unit; for the combination rules of multiple units, see [[graphic-pattern#grammar]].
+This section provides a checklist for a visually ideal unit and recommended parameter ranges. These are not absolute criteria, however, so decide the final parameter values by the designer's aesthetic sense. For the combination rules of multiple units, see [[graphic-pattern#grammar]].
 ![morphology-overview]
 
 
@@ -929,27 +919,27 @@ This section provides a checklist for a visually ideal unit and recommended para
 A feature of the EO graphic unit is that its size and aspect ratio can be transformed freely. But not every proportion of unit is visually appropriate.
 
 - Units that read long along the shaft axis are recommended. When the shaft flattens, all the threads clump together, which is not ideal for expressing the intended metaphor. As an exception, units used as part · periphery of a complex pattern may take a flat form.
-- Units long like a thin line along the shaft axis are not ideal either. In this case the threads along the thin, long shaft become too thick to be recognized as the established metaphor.
+- Units thin and long like a straight line along the shaft axis are not ideal either. In this case the threads stretch along the long shaft and deform until they can no longer be recognized as the established metaphor.
 ![proportion-flat-do]{do} A unit that reads moderately long along the shaft axis
 ![proportion-flat-dont]{dont} A flat unit widened perpendicular to the axis, with the threads clumped together
 ![proportion-line-do]{do} A balanced unit whose shaft of moderate length acts as a body
-![proportion-line-dont]{dont} A unit whose shaft stretches like a thin line and whose threads stretch long with it
+![proportion-line-dont]{con} A unit whose shaft stretches like a thin line and whose threads stretch long with it
 
 
 ### Morphology {layout=grid-4}
 #### Rhythm
-Threads narrow toward one side and create rhythm. In general, keep the absolute value of compression around 1.5-2.5.
+Raising the compression value makes the threads denser toward one side and creates rhythm. In general, keep the absolute value of compression around 1.5-2.5.
 
 - When the proportion and spacing of the threads are uniform, the rhythm turns monotonous, the unit gives a flat impression like stripes, and it becomes hard to arouse visual interest.
 - compression must be sufficient for the threads to compose a rhythm and create motion. Dense lines converging on the unit's boundary create a flow for the eye and can deliberately give tension to a static plane.
 - When compression is excessive, threads compressed to hairline thickness repeat on the dense side and give an equally dull impression. In that case, reduce thread amount or lower compression a little to reduce the number of repetitions. Alternatively, lower thread gutter so that stretch clumps into a single mass, which offsets the repetitive feel.
 - Short units tend to show each thread's form distinctly and feel less monotonous even with a small thread amount and weak compression. Long units, on the other hand, compose a fitting rhythm better with a large thread amount and strong compression.
 ![rhythm-uniform-do]{do} compression that creates a fitting rhythm
-![rhythm-uniform-dont]{dont} A monotonous unit with uniform spacing
-![rhythm-excess-do]{do} compression converging on the boundary and creating motion
-![rhythm-excess-dont]{dont} A unit with excessive compression and repeated hairlines
+![rhythm-uniform-dont]{con} A monotonous unit with uniform spacing
 ![rhythm-length-do]{do} thread amount and compression suited to a long unit
-![rhythm-length-dont]{dont} Many threads and weak compression on a long shaft
+![rhythm-length-dont]{con} A unit that gives a monotonous impression because compression is applied weakly
+![rhythm-excess-do]{do} compression converging on the boundary and creating motion
+![rhythm-excess-dont]{dont} A unit with excessive compression and repeated hairlines at one end
 
 
 ### Morphology {layout=grid-4}
@@ -1000,8 +990,7 @@ As an exception, a three-dimensional extension that projects the whole plane the
 
 ## Graphic Pattern
 
-### Graphic Pattern
-#### + Grammar
+### + Grammar
 The EO graphic system is woven in three layers, like a language.
 - [[graphic-unit#vocabulary|Vocabulary]] is the words. It covers what units and pairs mean: meaning and metaphor.
 - [[graphic-unit#morphology|Morphology]] is the form of those words. It covers how a unit should look to be ideal even when the meaning is the same: the proportion and rhythm of a single unit.
@@ -1055,15 +1044,15 @@ There are no particular restrictions on combining horizontal and vertical units,
 
 
 ### Graphic Pattern {layout=grid-4}
-#### Color
-The basic combination uses Solid Gray · Space Black as background colors and Builder Neon · Air White  · Day Blue · Bay Green · Medium Gray as unit colors. When placing several units side by side, either arrange Day Blue · Bay Green · Medium Gray, whose values are similar, with even weight · position · motion, or use the high-value Builder Neon · Air White as the visual focus to deliberately control the depth of the canvas.
+#### + Color
+The default is to use Builder Neon · Air White  · Day Blue · Bay Green · Medium Gray as unit colors and Solid Gray · Space Black as background colors. When placing several units side by side, either arrange Day Blue · Bay Green · Medium Gray, whose values are similar, with even weight · position · motion, or use the high-value Builder Neon · Air White as the visual focus to deliberately control the depth of the canvas.
 
-For typical situations · a mild mood, use a Solid Gray background; for a more intense mood, use a Space Black background. Only on pages that must assert the brand's presence most strongly while carrying little information, use Builder Neon as the background color with Space Black units on top.
+Only on pages that must assert the brand's presence most strongly while carrying little information is Builder Neon used as the background color, with Space Black units on top.
 
 - Unit color
   - Only one color is ever applied to a unit.
   - **At most 3 unit colors are recommended in one graphic at the same time**; up to four may be used only in the fixed combination Builder Neon · Day Blue · Bay Green · Medium Gray.
-  - Medium Gray units are not used alone; combine them with units of other colors.
+  - Medium Gray is a supporting color, so never use it alone; always combine it with units of other colors.
   - Solid Gray is not used as a unit color.
 - Background color
   - Consider Solid Gray first as a background color: it lowers contrast with the five unit colors by one step, so all the colors bind together calmly.
@@ -1085,7 +1074,7 @@ For typical situations · a mild mood, use a Solid Gray background; for a more i
 
 
 ### Graphic Pattern {layout=grid-4} {ratio=16:9} {zoom=1.03}
-#### References
+#### + References
 A library of 30 patterns made by combining units. Each pattern is named not by a number but by one keyword taken from the builder's journey, and is reused across every touchpoint: campaigns · merch · social · video. When a new pattern is needed, choosing from the library comes first; additions go through the EO design team's approval.
 ![pattern-01] 01 / path of builder
 ![pattern-02] 02 / power
@@ -1119,14 +1108,21 @@ A library of 30 patterns made by combining units. Each pattern is named not by a
 ![pattern-30] 30 / boom
 
 
-### Usage
+### + Usage
 #### Do's & Dont's {layout=grid-2}
-Patterns are used as the hero, not as a background. Give the pattern an entire half of the layout (usually the right) and set the headline left-aligned on the other side. Do not overlap text on the pattern, and place the logo in the margin outside it. Patterns may be cropped, but crop on column boundaries so that no thread trapezoid is cut through the middle.
-![pattern-do-1] {do}
-![pattern-do-2] {do}
-![pattern-dont-1] {dont}
-![pattern-dont-2] {dont}
+The graphic pattern is the most vivid and dense visual element in all of EO's visual expression, so on the page it must play the role of the subject that draws the eye. Give the pattern an entire half of the layout (usually the top or the right) and set the headline left-aligned at the edge of the content area on the other side. Do not overlap text on the pattern, and place the logo in the margin outside it. Patterns may be cropped, but crop on column boundaries so that no diagonal stretch of a thread is cut through the middle.
+![pattern-do-1] {do} When using a graphic pattern, fill a large rectangular area of 60-70% or more of the page to raise its visibility
+![pattern-do-2] {do} Use a graphic pattern of suitable complexity for the size at which the page is actually seen
+![pattern-dont-1] {dont} Don't overlay content on the graphic pattern
+![pattern-dont-2] {dont} Don't let the diagonal part of a thread be cropped
 
+### Usage
+#### In Use {layout=grid-2}
+Examples of the EO graphic pattern in actual use.
+![pattern-in-use-1] A medium-sized poster in a tall portrait ratio
+![pattern-in-use-2] A wide, extra-large billboard in a long landscape ratio
+![pattern-in-use-3] A small business card in a landscape ratio
+![pattern-in-use-4] Don't let the diagonal part of a thread be cropped
 
 
 ## Applications

@@ -283,7 +283,7 @@
   --t-body-wrap: pretty; /* text-wrap 값. balance 는 제목용이라 본문에는 쓰지 않음 */
 
   /* body (한글) — 본문 안의 한글 구간. Pretendard. 행간은 영문과 공유 */
-  --t-body-ko-scale: 0.85; /* 영문 폰트 대비 배율 (R6: 20pt / 22pt) */
+  --t-body-ko-scale: 0.855; /* 영문 폰트 대비 배율 (R6: 20pt / 22pt) */
   --t-body-ko-ls: -0.024em; /* 자간 (R6: -6%) */
   --t-body-ko-w: 300; /* 웨이트 (Pretendard 100–900) */
   --t-body-ko-baseline: 0.02em; /* 베이스라인 보정, 양수 = 위로 (R6: +5pt) */

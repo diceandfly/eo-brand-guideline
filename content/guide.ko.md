@@ -367,7 +367,7 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 회사 시그니처-V는 EO 심볼 아래에 "EO Studio"를 중앙 정렬로 놓은 세로 조합입니다. 구성 규칙은 위 Descriptor 섹션의 세로형 규격을 따릅니다.
 
 특별한 이유가 없다면 회사 시그니처-V의 텍스트를 다시 조판하지 말고 제공된 원본 파일을 사용하세요.
-![company-v] {zoom=1.6}
+![company-v] {zoom=1.5}
 
 
 ### Company Signature
@@ -377,7 +377,7 @@ EO 심볼이 일관되고 강렬하게 유지되도록, 재해석하거나 변�
 EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힐 수 있으므로, 가로형 사용 시 디스크립터에 "Studio"만 표기하는 것을 고려하세요.
 
 특별한 이유가 없다면 회사 시그니처-H의 텍스트를 다시 조판하지 말고 제공된 원본 파일을 사용하세요.
-![company-h] {zoom=1.8}
+![company-h] {zoom=1.85}
 
 
 ### + Service Signature
@@ -415,9 +415,9 @@ EO를 한 번 이상 접한 사람에게 EO 심볼은 이미 "EO"로 읽힐 수 
 #### + Color {layout=grid-2}
 시그니처는 EO 심볼의 여섯 가지 컬러 페어링 중 네 가지를 사용합니다. **심볼과 글자는 항상 같은 컬러로 통일**합니다.
 ![color-1] {zoom=1.85} 1. Space Black on Builder Neon
-![color-2] {zoom=1.6} 2. Air White on Space Black
+![color-2] {zoom=1.5} 2. Air White on Space Black
 ![color-3] {zoom=1.85} 3. Space Black on Air White
-![color-4] {zoom=1.6} 4. Air White on Solid Gray 
+![color-4] {zoom=1.5} 4. Air White on Solid Gray 
 
 
 ### Signature
@@ -439,7 +439,7 @@ EO 시그니처은 파트너 브랜드 및 협업사 로고와 세로로도 락�
 요소들의 크기는 서로 같은 크기로 보이도록 시각적으로 조정해야 합니다. 각 로고의 크기를 맞춘 뒤 그 사이에 간격과 구분선을 넣을 수 있습니다. EO 시그니처의 높이(H)와 같게 하고 구분선은 그 중앙에 가로로 둡니다.
 
 로고들이 항상 시각적으로 중앙 정렬되도록 하세요.
-![partner-v]
+![partner-v] {zoom=1.3}
 
 
 ### Partner Lockup
@@ -456,14 +456,13 @@ EO 시그니처은 파트너 브랜드 및 협업사 로고와 락업할 수 있
 ![dont-1]{zoom=1.9}{dont} 디스크립터를 읽기 어려울만큼 작은 크기로 세로형 시그니처를 쓰지 마세요
 ![dont-2]{dont} 심볼 높이 10mm(50px, 1/50)보다 큰 크기로 가로형 시그니처를 쓰지 마세요
 ![dont-3]{dont} EO Studio를 다른 서체로 바꾸지 마세요
-![dont-4]{dont} 디스크립터에 지정되지 않은 속성을 적용하지 마세요
 ![dont-5]{dont} 본 가이드라인의 지침 이외의 방식으로 디스크립터를 수정하지 마세요
 ![dont-6]{dont} EO Studio 글자만 단독으로 로고처럼 사용하지 마세요
 ![dont-7]{dont} 서브심볼과 글자를 조합하지 마세요
 ![dont-8]{dont} 심볼과 글자를 서로 다른 색으로 칠하지 마세요
 ![dont-9]{dont} 시그니처를 늘리거나 왜곡하지 마세요
 ![dont-10]{dont} 글로우 · 그림자 · 그라데이션을 적용하지 마세요
-![dont-11]{dont} 미디어 콘텐츠의 사인오프로 사용하지 마세요
+![dont-11]{dont} 복잡한 이미지 위에 올려 가독성을 떨어뜨리지 마세요
 
 
 
