@@ -353,7 +353,7 @@ The sizes on this page are written, as on the Symbol page, as the symbol height 
 
 The smaller the signature is seen, the more the symbol and descriptor read as one mass; the larger, the more each letter of the descriptor stands out. The form therefore depends on the visible size, and the boundary is a symbol height of 10mm (50px, 1/50).
 
-- **At 4-10mm (20-50px), use only the horizontal signature.** The horizontal form keeps the symbol and descriptor evenly visible even at small sizes. Above 6mm (30px, 1/80), the space between the words of "EO Studio" becomes noticeable and it can appear to split into three masses: symbol · EO · Studio. Within the 4-6mm size range, consider using the "Studio" version.
+- **At 4-10mm (20-50px), use only the horizontal signature.** The horizontal form keeps the symbol and descriptor evenly visible even at small sizes. Above 6mm (30px, 1/80), the space between the words of "EO Studio" becomes noticeable and it can appear to split into three masses: symbol · EO · Studio. Within the 6-10mm size range, consider the "Studio" version as an alternative.
 - **At 10mm (50px, 1/50) and above, use only the vertical signature.** From this size the vertical form's descriptor (cap height approx. 2.4mm) reads crisply. The recommended maximum is a symbol height of 15mm (70px, 1/40), and the maximum is a symbol height of 30mm (135px, 1/20).
 - As with the symbol's minimum size limit, the signature is not used below 4mm (20px, 1/125) either.
 ![scalability]
@@ -454,13 +454,13 @@ The signature is a single combination with a fixed relationship between symbol a
 ![dont-1]{zoom=1.9}{dont} Don't use the vertical signature at a size so small that the descriptor is hard to read
 ![dont-2]{dont} Don't use the horizontal signature at a size larger than a symbol height of 10mm (50px, 1/50)
 ![dont-3]{dont} Don't set EO Studio in a different typeface
-![dont-5]{dont} Don't modify the descriptor in any way other than as directed in these guidelines
-![dont-6]{dont} Don't use the EO Studio letters on their own like a logo
-![dont-7]{dont} Don't combine the sub symbol with the letters
-![dont-8]{dont} Don't color the symbol and the letters differently
-![dont-9]{dont} Don't stretch or distort the signature
-![dont-10]{dont} Don't apply glows · shadows · gradients
-![dont-11]{dont} Don't place it over a busy image where legibility suffers
+![dont-4]{dont} Don't modify the descriptor in any way other than as directed in these guidelines
+![dont-5]{dont} Don't use the EO Studio letters on their own like a logo
+![dont-6]{dont} Don't combine the sub symbol with the letters
+![dont-7]{dont} Don't color the symbol and the letters differently
+![dont-8]{dont} Don't stretch or distort the signature
+![dont-9]{dont} Don't apply glows · shadows · gradients
+![dont-10]{dont} Don't place it over a busy image where legibility suffers
 
 
 
