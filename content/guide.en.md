@@ -348,14 +348,12 @@ The signature also needs margin on the same basis as the EO symbol. Taking the v
 
 
 ### Signature
-#### + Scalability {layout=grid-2}
+#### + Scalability {layout=wide}
 The smaller the signature is seen, the more the symbol and descriptor read as one mass; the larger, the more each letter of the descriptor stands out. Choose the most suitable form of the signature with the size actually seen on the page in mind.
 
 - **When the visible size is relatively large, prefer the vertical form.** The vertical form's strong size contrast between symbol and descriptor gives a crisp impression, but at very small sizes the descriptor loses legibility.
 - **When the visible size is relatively small, prefer the horizontal form.** The horizontal form keeps the symbol and descriptor evenly visible even at small sizes, but at very large sizes the two elements scatter horizontally and the visual rhythm weakens.
 ![scalability]
-![scalability-dont-1]{dont} Don't use the vertical signature at small sizes
-![scalability-dont-2]{dont} Don't use the horizontal signature at large sizes
 
 
 ### Signature
@@ -457,15 +455,19 @@ Because the signature is a wide horizontal form, a partner logo matched to the s
 ### Signature {layout=grid-3}
 #### + Don'ts
 The signature is a single combination with a fixed relationship between symbol and letters. Do not change or re-create its components separately.
-![dont-1]{dont} Don't set EO Studio in a different typeface
-![dont-2]{dont} Don't change the spacing or size ratio between the symbol and the letters
-![dont-3]{dont} Don't move the letters to the left of the symbol or to another position
-![dont-4]{dont} Don't use the EO Studio letters on their own
-![dont-5]{dont} Don't combine the sub symbol with the letters
-![dont-6]{dont} Don't color the symbol and the letters differently
-![dont-7]{dont} Don't stretch or distort the signature
-![dont-8]{dont} Don't apply glows · shadows · gradients
-![dont-9]{dont} Don't use it as a sign-off for media content
+![dont-1]{dont} Don't use the vertical signature at small sizes
+![dont-2]{dont} Don't use the horizontal signature at large sizes
+![dont-3]{dont} Don't use the signature below a symbol height of 4mm (20px)
+![dont-4]{dont} Don't set EO Studio in a different typeface
+![dont-5]{dont} Don't change the spacing or size ratio between the symbol and the letters
+![dont-6]{dont} Don't move the letters to the left of the symbol or to another position
+![dont-7]{dont} Don't use the EO Studio letters on their own
+![dont-8]{dont} Don't combine the sub symbol with the letters
+![dont-9]{dont} Don't color the symbol and the letters differently
+![dont-10]{dont} Don't stretch or distort the signature
+![dont-11]{dont} Don't rotate the signature
+![dont-12]{dont} Don't apply glows · shadows · gradients
+![dont-13]{dont} Don't use it as a sign-off for media content
 
 
 
