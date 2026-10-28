@@ -342,7 +342,9 @@ Creating a new descriptor or changing an existing one always requires confirmati
 
 ### Signature
 #### + Clearspace {layout=grid-2}
-The signature also needs margin on the same basis as the EO symbol. Taking the vertical height of one E block as H, keep a minimum margin of at least H/2 on every side around the whole signature.
+The signature also needs margin on the same principle as the EO symbol, but the reference unit depends on the format.
+- **Vertical** — Taking the vertical height of one E block as H, keep a minimum margin of at least H/2 on every side around the whole signature.
+- **Horizontal** — Taking the cap height of the descriptor's capital E as the unit, keep a minimum margin of at least one cap height on every side around the whole signature.
 ![clearspace-v]
 ![clearspace-h] {zoom=1.6}
 
