@@ -264,7 +264,7 @@ The guidance in this section focuses on overlays on still images rather than vid
 The following image is an example of the basic horizontal lockup of the EO symbol with partner brands' and collaborators' logos.
 
 The elements must be optically adjusted so that they appear the same size; once each logo is sized, add space between them along with a vertical dividing line · collaboration mark. The space between the EO symbol and the partner logo equals 2 or 3 times the width of one E block (W), and the two logos must always be optically centered on the vertical axis.
-![partner-horizontal]
+![lockup-h]
 
 
 ### Partner Lockup
@@ -272,7 +272,7 @@ The elements must be optically adjusted so that they appear the same size; once 
 The following image is an example of the basic vertical lockup of the EO symbol with partner brands' and collaborators' logos.
 
 The elements must be optically adjusted so that they appear the same size. Once each logo is sized, add a horizontal dividing line between them. The space between the EO symbol and the partner logo equals 1.5 times the height of the EO symbol (H), and the two logos must always be optically centered on the horizontal axis.
-![partner-vertical]
+![lockup-v]
 
 
 ### Partner Lockup
@@ -280,7 +280,7 @@ The elements must be optically adjusted so that they appear the same size. Once 
 A partner brand's logo may not look perfectly balanced when aligned with the EO symbol. Because the EO symbol is wide and heavy, a thin or tall partner logo looks smaller even at a mathematically equal height.
 
 In such cases, optically scale the partner logo up or down to create a more equal hierarchy.
-![partner-optical]
+![lockup-optical]
 
 
 ### + App & Social Icons
@@ -485,8 +485,8 @@ The sub symbol also needs margin on the same basis as the EO symbol. Taking the 
 ### Sub Symbol
 #### + Color {layout=grid-2}
 The sub symbol uses color pairings 1 and 2 of the EO symbol. Always render it in a single color.
-![color-1] 1. Builder Neon on Space Black
-![color-2] 2. Space Black on Builder Neon
+![color-1] 1. Space Black on Builder Neon
+![color-2] 2. Builder Neon on Space Black
 
 
 ### + Favicon
@@ -498,7 +498,7 @@ Place the sub symbol inside square containers of the smallest formats, such as f
 ### Favicon
 #### In Use
 Examples of the EO sub symbol in actual use.
-![in-use]
+![favicon-in-use]
 
 
 ### Sub Symbol {layout=grid-3}

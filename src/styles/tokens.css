@@ -142,7 +142,7 @@
   --badge-stroke: 2.4; /* 체크 · 엑스 선 굵기 (SVG 16 기준 단위) */
   --badge-stroke-con: 2.1; /* 삼각형 선 굵기. 꼭짓점이 뾰족해 같은 굵기면 무거워 보여 조금 가늘게 */
   --dodont-zoom-2: 1; /* Do/Don't 카드 안 배율 (grid-2). 1 = 그대로, 1.2 = 가운데 기준 1.2배 (가장자리 잘림) */
-  --dodont-zoom-3: 1.6; /* grid-3 */
+  --dodont-zoom-3: 1; /* grid-3 */
   --dodont-zoom-4: 1; /* grid-4 */
   --strike-inset: 0.125; /* Don't 대각선 끝점: 영역 높이 × 값만큼 네 변에서 안쪽 (1/8) */
   --strike-w: 0.007; /* Don't 대각선 굵기 = 영역 높이 × 값. px 고정 없이 화면 크기에 비례 */
