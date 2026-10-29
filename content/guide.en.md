@@ -485,8 +485,8 @@ The sub symbol also needs margin on the same basis as the EO symbol. Taking the 
 ### Sub Symbol
 #### + Color {layout=grid-2}
 The sub symbol uses color pairings 1 and 2 of the EO symbol. Always render it in a single color.
-![color-1] 1. Space Black on Builder Neon
-![color-2] 2. Builder Neon on Space Black
+![color-1] 1. Builder Neon on Space Black
+![color-2] 2. Space Black on Builder Neon
 
 
 ### + Favicon

@@ -475,20 +475,20 @@ EO 시그니처은 파트너 브랜드 및 협업사 로고와 세로로도 락�
 심볼에서 E 블록 · O 블록을 떼어 쓰는 형태를 이하 **서브심볼**이라 부릅니다. 앱 아이콘 · 파비콘 · 소셜 미디어 아바타 · 핀 배지처럼 EO 심볼 전체를 알아보기 어려운 작은 정사각형 공간에 한하여 사용합니다.
 
 서브심볼은 EO 심볼을 완전히 대신할 수 없으므로, 충분한 크기가 확보된 곳에서는 항상 EO 심볼을 사용하세요. E 블록은 그래픽 유닛과 같은 지오메트리를 공유하므로, 작게 쓰여도 그래픽 시스템 전체와 자연스럽게 이어집니다.
-![overview]
+![overview] {zoom=1.05}
 
 
 ### Sub Symbol
 #### + Clearspace
 서브심볼 주변에도 EO 심볼과 같은 기준의 여백이 필요합니다. E 블록 하나의 수직 방향 높이를 H라 할 때 상하좌우 각 [H/2] 이상의 여백을 확보하고, thread가 튀어나온 쪽에도 같은 값을 적용합니다.
-![clearspace]
+![clearspace] {zoom=1.05}
 
 
 ### Sub Symbol
 #### + Color {layout=grid-2}
 서브심볼은 EO 심볼의 1,2번 컬러 페어링을 사용합니다. 항상 단색으로 표현하세요.
-![color-1] 1. Space Black on Builder Neon
-![color-2] 2. Builder Neon on Space Black
+![color-1] {zoom=1.05} 1. Builder Neon on Space Black
+![color-2] {zoom=1.05} 2. Space Black on Builder Neon
 
 
 ### Favicon
