@@ -414,10 +414,10 @@ If the call is difficult, first check whether that piece really needs the compan
 ### Signature
 #### + Color {layout=grid-2}
 The signature uses four of the EO symbol's six color pairings. **The symbol and the letters are always unified in the same color**.
-![color-1] 1. Space Black on Builder Neon
-![color-2] 2. Air White on Space Black
-![color-3] 3. Space Black on Air White
-![color-4] 4. Air White on Solid Gray
+![color-1] {zoom=1.05} 1. Air White on Space Black
+![color-2] {zoom=1.05} 2. Air White on Solid Gray
+![color-3] {zoom=1.6} 3. Space Black on Air White
+![color-4] {zoom=1.6} 4. Space Black on Builder Neon
 
 
 ### Signature
