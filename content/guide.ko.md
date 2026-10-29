@@ -480,34 +480,34 @@ EO 시그니처은 파트너 브랜드 및 협업사 로고와 세로로도 락�
 
 ### Sub Symbol
 #### + Clearspace
-서브심볼 주변에도 EO 심볼과 같은 기준의 여백이 필요합니다. E 블록 하나의 수직 방향 높이를 H라 할 때 상하좌우 각 [H/2] 이상의 여백을 확보하고, thread가 튀어나온 쪽에도 같은 값을 적용합니다.
+서브심볼 주변에도 EO 심볼과 같은 기준의 여백이 필요합니다. 상하좌우 thread 요소 하나의 높이를 t라고 할 때, 심볼과 인접한 모든 요소에 대해 상하좌우 각 t 이상의 최소 여백을 반드시 확보해야 합니다.
+
+클리어스페이스는 서브심볼이 Builder Neon, 배경은 Space Black을 기준으로 하며, O 블록의 회색도가 E 블록보다 낮으므로 1.04배의 별도 보정을 합니다.
 ![clearspace] {zoom=1.05}
 
 
 ### Sub Symbol
-#### + Color {layout=grid-2}
-서브심볼은 EO 심볼의 1,2번 컬러 페어링을 사용합니다. 항상 단색으로 표현하세요.
-![color-1] {zoom=1.05} 1. Builder Neon on Space Black
-![color-2] {zoom=1.05} 2. Space Black on Builder Neon
+#### + Color {layout=grid-2} {zoom=1.05}
+서브심볼은 EO 심볼의 1,2번 컬러 페어링을 사용하며 각 요소는 항상 단색으로 표현합니다. 파비콘처럼 매우 작은 공간에서는 도형의 크기 대비 시각왜곡 양이 커지므로, 컬러 반전 시 각 블록을 1.1배 스케일업하여 사용합니다.
+![color-1]  1. Builder Neon on Space Black
+![color-2]  2. Space Black on Builder Neon
 
 
 ### Favicon
 #### In Use
 다음 이미지는 EO 서브심볼이 파비콘에 적용된 예시입니다.
-
-파비콘 등 가장 작은 규격의 사각형 컨테이너 안에는 서브심볼을 놓습니다. 클리어스페이스를 기준으로 컨테이너 중심에 정렬합니다.
-![favicon-in-use]
+![favicon-in-use] {zoom=1.2}
 
 
 ### Sub Symbol {layout=grid-3}
-#### + Don'ts
+#### + Don'ts {zoom=1.6}
 서브심볼은 EO 심볼의 일부이므로 EO 심볼과 같은 원칙을 따릅니다. 형태를 바꾸거나 장식하지 말고, 정해진 용도 밖에서 사용하지 마세요.
 ![dont-1]{dont} 서브심볼을 늘리거나 왜곡하지 마세요
 ![dont-2]{dont} 서브심볼을 회전하지 마세요
 ![dont-3]{dont} 서브심볼을 좌우로 뒤집지 마세요
 ![dont-4]{dont} 서브심볼에 외곽선을 넣지 마세요
 ![dont-5]{dont} 클리어스페이스를 임의로 조정하지 마세요
-![dont-6]{dont} 서브심볼을 EO 심볼 대신 단독 아이덴티티로 쓰지 마세요
+![dont-6]{dont} {zoom=1.08} 서브심볼을 EO 심볼 대신 단독 아이덴티티로 쓰지 마세요
 
 
 # 03 Typography
