@@ -324,7 +324,7 @@ The **signature** is a combination logo that groups the EO symbol with the text 
 The combination logo of the symbol and the text "EO Studio" is referred to below as the **company signature**, and the combination logo of the symbol and each service name as the **service signature**.
 
 Where the company comes to the front, such as contracts · proposals · official documents · job postings · website footers, prefer the company signature; in brand communication for each service, prefer that service's signature. Everywhere else the media brand EO needs to be signaled, such as videos · thumbnails · social posts · posters · content sign-offs, prefer the EO symbol.
-![overview]{zoom=1.2}
+![overview]
 
 
 ### Signature
@@ -346,7 +346,7 @@ The signature also needs margin on the same principle as the EO symbol, but the 
 - **Vertical** — Taking the vertical height of one E block as H, keep a minimum margin of at least H/2 on every side around the whole signature.
 - **Horizontal** — Taking the cap height of the descriptor's capital E as the unit, keep a minimum margin of at least one cap height on every side around the whole signature.
 ![clearspace-v]
-![clearspace-h] {zoom=1.6}
+![clearspace-h]
 
 
 ### Signature
@@ -367,7 +367,7 @@ The smaller the signature is seen, the more the symbol and descriptor read as on
 Company signature-V is the vertical combination placing "EO Studio" centered beneath the EO symbol. Its construction follows the vertical specification of the Descriptor section above.
 
 Unless there is a specific reason, do not re-set the text of company signature-V; use the original files provided.
-![company-v] {zoom=1.5}
+![company-v]
 
 
 ### Company Signature
@@ -377,11 +377,11 @@ Company signature-H is the horizontal combination placing "EO Studio" to the rig
 For anyone who has encountered EO at least once, the EO symbol may already read as "EO", so consider marking only "Studio" in the descriptor when using the horizontal form.
 
 Unless there is a specific reason, do not re-set the text of company signature-H; use the original files provided.
-![company-h] {zoom=1.85}
+![company-h]
 
 
 ### + Service Signature
-#### Vertical {layout=grid-4} {zoom=2.7}
+#### Vertical {layout=grid-4}
 Examples of the vertical service signatures. All are built to the same descriptor specification; check that they read as one family even though the names differ.
 ![service-v-studio] EO Studio · company
 ![service-v-magazine] EO Magazine · web magazine
@@ -390,7 +390,7 @@ Examples of the vertical service signatures. All are built to the same descripto
 
 
 ### Service Signature
-#### Horizontal {layout=grid-4} {zoom=2.9}
+#### Horizontal {layout=grid-4}
 Examples of the horizontal service signatures. All are built to the same descriptor specification; check that they read as one family even though the names differ.
 ![service-h-studio] EO Studio · company
 ![service-h-magazine] EO Magazine · web magazine
@@ -414,10 +414,10 @@ If the call is difficult, first check whether that piece really needs the compan
 ### Signature
 #### + Color {layout=grid-2}
 The signature uses four of the EO symbol's six color pairings. **The symbol and the letters are always unified in the same color**.
-![color-1] {zoom=1.85} 1. Space Black on Builder Neon
-![color-2] {zoom=1.5} 2. Air White on Space Black
-![color-3] {zoom=1.85} 3. Space Black on Air White
-![color-4] {zoom=1.5} 4. Air White on Solid Gray
+![color-1] 1. Space Black on Builder Neon
+![color-2] 2. Air White on Space Black
+![color-3] 3. Space Black on Air White
+![color-4] 4. Air White on Solid Gray
 
 
 ### Signature
@@ -439,7 +439,7 @@ The EO signature can also be locked up vertically with partner brands' and colla
 The elements must be optically adjusted so that they appear the same size. Once each logo is sized, you can add space and a dividing line between them. Make the space equal to the height of the EO signature (H), and place the dividing line horizontally at its center.
 
 Make sure the logos are always optically centered.
-![partner-v] {zoom=1.3}
+![partner-v]
 
 
 ### Partner Lockup
@@ -453,16 +453,17 @@ The elements must be optically adjusted so that they appear the same size. Once 
 ### Signature {layout=grid-3}
 #### + Don'ts
 The signature is a single combination with a fixed relationship between symbol and descriptor. Do not change or re-create its components separately.
-![dont-1]{zoom=1.9}{dont} Don't use the vertical signature at a size so small that the descriptor is hard to read
+![dont-1]{dont} Don't use the vertical signature at a size so small that the descriptor is hard to read
 ![dont-2]{dont} Don't use the horizontal signature at a size larger than a symbol height of 10mm (50px, 1/50)
 ![dont-3]{dont} Don't set EO Studio in a different typeface
 ![dont-4]{dont} Don't modify the descriptor in any way other than as directed in these guidelines
-![dont-5]{dont} Don't use the EO Studio letters on their own like a logo
-![dont-6]{dont} Don't combine the sub symbol with the letters
-![dont-7]{dont} Don't color the symbol and the letters differently
-![dont-8]{dont} Don't stretch or distort the signature
-![dont-9]{dont} Don't apply glows · shadows · gradients
-![dont-10]{dont} Don't place it over a busy image where legibility suffers
+![dont-5]{dont} Don't break the descriptor across multiple lines
+![dont-6]{dont} Don't use the EO Studio letters on their own like a logo
+![dont-7]{dont} Don't combine the sub symbol with the letters
+![dont-8]{dont} Don't color the symbol and the letters differently
+![dont-9]{dont} Don't stretch or distort the signature
+![dont-10]{dont} Don't apply glows · shadows · gradients
+![dont-11]{dont} Don't place it over a busy image where legibility suffers
 
 
 
