@@ -165,14 +165,14 @@ EO · the EO monogram · the block symbol · "Build Anyway" · "Entrepreneur Onw
 ### Logo
 #### + Overview 
 The EO logo is the umbrella term for everything covered in this chapter: the EO symbol · EO signature · service signatures · EO sub symbol. This page explains how to apply the EO symbol across situations · formats · communications, from small sign-offs to large display executions.
-![hero] {zoom=1.2}
+![hero]
 
 
 ### Symbol
 A graphic metaphor whose screw motif makes it identifiable, and a monogram holding the two letters E and O. This form of the logo is referred to below as the **EO symbol**.
 
 The EO symbol is the most iconic and effective way to signal the media brand EO.
-![symbol ]{zoom=1.5}
+![symbol]
 
 
 ### Symbol
@@ -182,7 +182,7 @@ The **EO symbol** is designed on the motif of the three elements of a screw: the
 - **thread** — one turn of thread symbolizes a cycle of problem solving.
 - **shaft** — the shaft symbolizes the process of building and the builder's journey, and expresses the courage to move forward (Build anyway).
 - **head** — the head symbolizes one small act of problem solving, or one builder.
-![motif] {zoom=1.12}
+![motif]
 
 
 ### Symbol
@@ -226,7 +226,7 @@ When using the symbol for display purposes, **avoid raising its visual hierarchy
 
 
 ### Symbol
-#### + Color{layout=grid-3} {zoom=1.6}
+#### + Color{layout=grid-3}
 The EO symbol has six basic color pairings. **The symbol must always be rendered in a single color**; when you are unsure about the background color, use one of the following.
 ![color-1] 1. Space Black on Builder Neon
 ![color-2] 2. Air White on Space Black
@@ -301,7 +301,7 @@ The following image is an example of the EO symbol used as an app icon.
 ![icon-in-use]
 
 
-### Symbol {layout=grid-3} {zoom=1.8}
+### Symbol {layout=grid-3}
 #### + Don'ts
 To keep the EO symbol consistent and impactful, it must not be reinterpreted, modified, or embellished. This page shows examples of modifications to avoid. When the company name needs to appear, use the EO signature instead of the symbol. When a sub-brand needs to be identified, create a service signature in consultation with the EO design team.
 ![dont-1]{dont} Don't stretch or distort the symbol
@@ -311,7 +311,7 @@ To keep the EO symbol consistent and impactful, it must not be reinterpreted, mo
 ![dont-5]{dont} Don't use a state where the E's thread count, the O's angle, or the block spacing has changed (such as a logo animation capture)
 ![dont-6]{dont} Don't apply visual effects such as glows, shadows, or gradients to the symbol
 ![dont-7]{dont} Don't apply a size so large that it takes up most of the space it is placed in
-![dont-8]{zoom=1.55} {dont} Don't create graphics by joining or simply repeating the symbol
+![dont-8] {dont} Don't create graphics by joining or simply repeating the symbol
 ![dont-9]{dont} Don't add arbitrary context around the symbol without the EO design team's permission
 
 
